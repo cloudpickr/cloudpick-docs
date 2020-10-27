@@ -6,11 +6,3 @@
 
 * [Untitled](undefined/untitled.md)
 
-## DevOps Tools <a id="tools"></a>
-
-* [Untitled](tools/untitled.md)
-
-## Networking
-
-* [Untitled](networking/untitled.md)
-

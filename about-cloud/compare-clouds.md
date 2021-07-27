@@ -19,5 +19,7 @@
   * [https://github.com/goenning/webping.cloud](https://github.com/goenning/webping.cloud)
 * CloudPIng.cloud [https://www.cloudping.cloud/](https://www.cloudping.cloud/)
 * Azure Speed Test 2.0 [https://azurespeedtest.azurewebsites.net/](https://azurespeedtest.azurewebsites.net/)
+  * [https://github.com/richorama/AzureSpeedTest2](https://github.com/richorama/AzureSpeedTest2)
 * GCPing [https://gcping.com/](https://gcping.com/)
+  * [https://github.com/imjasonh/gcping](https://github.com/imjasonh/gcping)
 

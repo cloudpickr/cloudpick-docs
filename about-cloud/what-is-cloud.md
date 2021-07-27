@@ -6,7 +6,7 @@
 
 모두에게 잘 알려진 비용 절감이나 안정적인 운영을, 클라우드를 사용하는 것만으로는 기대하긴 어렵다. 클라우드의 운영 방식에 맞춰서 어플리케이션이 잘 사용할 수 있도록 아키텍처를 변경하는 과정이 필요하다. 아키텍처를 변경하고, 관리형 서비스를 최대한 활용하면, 운영 리소스를 효율화해 가용한 인적/비용 자원을 비지니스에 집중할 수 있게 된다.
 
-#### 참고하기
+### 참고하기
 
 * AWS 
   * 공동 책임 모델 [https://aws.amazon.com/ko/compliance/shared-responsibility-model/](https://aws.amazon.com/ko/compliance/shared-responsibility-model/)

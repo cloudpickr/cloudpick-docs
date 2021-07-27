@@ -2,11 +2,23 @@
 
 ## 클라우드의 정의
 
-**클라우드** 라는 단어는 최근 자주 접하게 되는 단어이지만 뜻을 생각해 보면 명확히 정의하기는 쉽지 않다.   
-대략 컴퓨팅 자원을 나눠쓰는 것으로 자주 설명되는데, 호스팅과의 차이점이라고 한다면, 해당 자원을 사용함에 있어 사용자의 관리 영역이 추상적, 논리적으로 구분되어 이용자가 좀 더 높은 영역을 관리하여야 하는 서비스로 이해할 수 있다.
+**클라우드**는 서비스 구축을 위한 인프라를 빠르고, 높은 효율성과 함께, 규모의 경제를 이용해 비용을 절감할 수 있도록 도와주는 서비스라고 할 수 있다.
 
-* AWS 공동 책임 모델 [https://aws.amazon.com/ko/compliance/shared-responsibility-model/](https://aws.amazon.com/ko/compliance/shared-responsibility-model/)
-* 클라우드의 공동 책임 \(Azure\) [https://docs.microsoft.com/ko-kr/azure/security/fundamentals/shared-responsibility](https://docs.microsoft.com/ko-kr/azure/security/fundamentals/shared-responsibility)
+모두에게 잘 알려진 비용 절감이나 안정적인 운영을, 클라우드를 사용하는 것만으로는 기대하긴 어렵다. 클라우드의 운영 방식에 맞춰서 어플리케이션이 잘 사용할 수 있도록 아키텍처를 변경하는 과정이 필요하다. 아키텍처를 변경하고, 관리형 서비스를 최대한 활용하면, 운영 리소스를 효율화해 가용한 인적/비용 자원을 비지니스에 집중할 수 있게 된다.
 
-### 
+#### 참고하기
+
+* AWS 
+  * 공동 책임 모델 [https://aws.amazon.com/ko/compliance/shared-responsibility-model/](https://aws.amazon.com/ko/compliance/shared-responsibility-model/)
+  * Well-Architected [https://aws.amazon.com/ko/architecture/well-architected](https://aws.amazon.com/ko/architecture/well-architected)
+* Azure 
+  * 클라우드 채택 프레임워크 [https://docs.microsoft.com/ko-kr/azure/cloud-adoption-framework/](https://docs.microsoft.com/ko-kr/azure/cloud-adoption-framework/)
+  * Well-Architected Framework [https://docs.microsoft.com/ko-kr/azure/architecture/framework/](https://docs.microsoft.com/ko-kr/azure/architecture/framework/)
+  * 클라우드의 공동 책임 [https://docs.microsoft.com/ko-kr/azure/security/fundamentals/shared-responsibility](https://docs.microsoft.com/ko-kr/azure/security/fundamentals/shared-responsibility)
+    * 역할 및 책임 [https://docs.microsoft.com/ko-kr/azure/cloud-adoption-framework/organize/cloud-security\#roles-and-responsibilities](https://docs.microsoft.com/ko-kr/azure/cloud-adoption-framework/organize/cloud-security#roles-and-responsibilities)
+* GCP
+  * Delivering the industry’s most trusted cloud [https://cloud.google.com/blog/products/identity-security/delivering-the-industrys-most-trusted-cloud](https://cloud.google.com/blog/products/identity-security/delivering-the-industrys-most-trusted-cloud)
+  * Announcing the Risk Protection Program: Moving from shared responsibility to shared fate [https://cloud.google.com/blog/products/identity-security/google-cloud-risk-protection-program-now-in-preview](https://cloud.google.com/blog/products/identity-security/google-cloud-risk-protection-program-now-in-preview)
+  * BeyondCorp [https://cloud.google.com/beyondcorp](https://cloud.google.com/beyondcorp)
+    * BeyondProd [https://cloud.google.com/security/beyondprod](https://cloud.google.com/security/beyondprod)
 

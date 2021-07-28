@@ -24,7 +24,7 @@
   * [https://github.com/goenning/webping.cloud](https://github.com/goenning/webping.cloud)
 * CloudPIng.cloud [https://www.cloudping.cloud/](https://www.cloudping.cloud/)
 
-#### 특정 클라우드 리전 비
+#### 특정 클라우드 리전 별비겨ㅛ
 
 * Azure Speed Test 2.0 [https://azurespeedtest.azurewebsites.net/](https://azurespeedtest.azurewebsites.net/)
   * [https://github.com/richorama/AzureSpeedTest2](https://github.com/richorama/AzureSpeedTest2)

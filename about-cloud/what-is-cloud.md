@@ -9,16 +9,18 @@
 ### 참고하기
 
 * AWS 
-  * 공동 책임 모델 [https://aws.amazon.com/ko/compliance/shared-responsibility-model/](https://aws.amazon.com/ko/compliance/shared-responsibility-model/)
-  * Well-Architected [https://aws.amazon.com/ko/architecture/well-architected](https://aws.amazon.com/ko/architecture/well-architected)
+  * [공동 책임 모델](https://aws.amazon.com/ko/compliance/shared-responsibility-model/)
+  * [Well-Architected](https://aws.amazon.com/ko/architecture/well-architected) 
 * Azure 
-  * 클라우드 채택 프레임워크 [https://docs.microsoft.com/ko-kr/azure/cloud-adoption-framework/](https://docs.microsoft.com/ko-kr/azure/cloud-adoption-framework/)
-  * Well-Architected Framework [https://docs.microsoft.com/ko-kr/azure/architecture/framework/](https://docs.microsoft.com/ko-kr/azure/architecture/framework/)
-  * 클라우드의 공동 책임 [https://docs.microsoft.com/ko-kr/azure/security/fundamentals/shared-responsibility](https://docs.microsoft.com/ko-kr/azure/security/fundamentals/shared-responsibility)
-    * 역할 및 책임 [https://docs.microsoft.com/ko-kr/azure/cloud-adoption-framework/organize/cloud-security\#roles-and-responsibilities](https://docs.microsoft.com/ko-kr/azure/cloud-adoption-framework/organize/cloud-security#roles-and-responsibilities)
+  * [클라우드 채택 프레임워크](https://docs.microsoft.com/ko-kr/azure/cloud-adoption-framework/)
+  * [Well-Architected Framework](https://docs.microsoft.com/ko-kr/azure/architecture/framework/)
+  * [클라우드의 공동 책임](https://docs.microsoft.com/ko-kr/azure/security/fundamentals/shared-responsibility) 
+    * [역할 및 책임](https://docs.microsoft.com/ko-kr/azure/cloud-adoption-framework/organize/cloud-security#roles-and-responsibilities)
 * GCP
-  * Delivering the industry’s most trusted cloud [https://cloud.google.com/blog/products/identity-security/delivering-the-industrys-most-trusted-cloud](https://cloud.google.com/blog/products/identity-security/delivering-the-industrys-most-trusted-cloud)
-  * Announcing the Risk Protection Program: Moving from shared responsibility to shared fate [https://cloud.google.com/blog/products/identity-security/google-cloud-risk-protection-program-now-in-preview](https://cloud.google.com/blog/products/identity-security/google-cloud-risk-protection-program-now-in-preview)
-  * BeyondCorp [https://cloud.google.com/beyondcorp](https://cloud.google.com/beyondcorp)
-    * BeyondProd [https://cloud.google.com/security/beyondprod](https://cloud.google.com/security/beyondprod)
+  * [Delivering the industry’s most trusted cloud](https://cloud.google.com/blog/products/identity-security/delivering-the-industrys-most-trusted-cloud)
+  * [Announcing the Risk Protection Program: Moving from shared responsibility to shared fate](https://cloud.google.com/blog/products/identity-security/google-cloud-risk-protection-program-now-in-preview)
+  * [BeyondCorp](https://cloud.google.com/beyondcorp)
+    * [BeyondProd](https://cloud.google.com/security/beyondprod)
+
+
 

@@ -20,7 +20,7 @@ CloudPick 은 점점 복잡해지는 클라우의 개념, 이론을 알기 쉽�
 
 |  | Full Name / Homepage Link | Console Access |
 | :--- | :--- | :--- |
-| AWS | [Amazon Web Services](%20%20https://aws.amazon.com/ko) | [https://console.aws.amazon.com/console/home](https://console.aws.amazon.com/console/home) |
+| AWS | [Amazon Web Services](https://aws.amazon.com/ko/) | [https://console.aws.amazon.com/console/home](https://console.aws.amazon.com/console/home) |
 | GCP | [Google Cloud Platform](%20%20https://cloud.google.com) | [https://console.cloud.google.com](https://console.cloud.google.com) |
 | Azure | [Microsoft Azure](%20%20https://azure.microsoft.com/ko-kr) | [https://portal.azure.com](https://portal.azure.com) |
 | OCI | [Oracle Cloud Infrastructure](%20%20https://www.oracle.com/kr/cloud) | [https://www.oracle.com/cloud/sign-in.html](https://www.oracle.com/cloud/sign-in.html) |

@@ -20,9 +20,9 @@
 
 ### 여러 클라우드 동시 비교
 
-* [Cloud Ping Test](https://webping.cloud/)
+* [Cloud Ping Test](https://webping.cloud/): AWS, Azure, GCP, IBM Cloud, Oracle Cloud, Alibaba Cloud, Digital Ocean
   * [Source repository](https://github.com/goenning/webping.cloud)
-* [CloudPIng.cloud](https://www.cloudping.cloud/)
+* [CloudPIng.cloud](https://www.cloudping.cloud/) : AWS, Alibaba Cloud, Tencent Cloud, Huawei Cloud, Vultr, Linode, Lightsail
 
 ### 특정 클라우드 리전 별 비교
 

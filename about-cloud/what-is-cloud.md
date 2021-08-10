@@ -17,6 +17,7 @@
   * [클라우드의 공동 책임](https://docs.microsoft.com/ko-kr/azure/security/fundamentals/shared-responsibility) 
     * [역할 및 책임](https://docs.microsoft.com/ko-kr/azure/cloud-adoption-framework/organize/cloud-security#roles-and-responsibilities)
 * GCP
+  * [아키텍쳐 프레임워크](https://cloud.google.com/architecture/framework)
   * [Delivering the industry’s most trusted cloud](https://cloud.google.com/blog/products/identity-security/delivering-the-industrys-most-trusted-cloud)
   * [Announcing the Risk Protection Program: Moving from shared responsibility to shared fate](https://cloud.google.com/blog/products/identity-security/google-cloud-risk-protection-program-now-in-preview)
   * [BeyondCorp](https://cloud.google.com/beyondcorp)

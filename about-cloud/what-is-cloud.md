@@ -10,8 +10,8 @@
 
 * AWS 
   * [공동 책임 모델](https://aws.amazon.com/ko/compliance/shared-responsibility-model/)
-    * [Map](https://wa.aws.amazon.com/wat.map.ko.html)
   * [Well-Architected](https://aws.amazon.com/ko/architecture/well-architected)
+    * [Map](https://wa.aws.amazon.com/wat.map.ko.html)
   * [Cloud Adoption Framework](https://aws.amazon.com/ko/professional-services/CAF/)
 * Azure 
   * [클라우드 채택 프레임워크](https://docs.microsoft.com/ko-kr/azure/cloud-adoption-framework/)

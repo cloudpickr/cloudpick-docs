@@ -11,23 +11,19 @@
 
 ### Google Cloud가 제공하는 자료
 
-* [AWS 전문가를 위한 Google Cloud](https://cloud.google.com/docs/compare/aws)
-* [Azure 전문가를 위한 Google Cloud](https://cloud.google.com/docs/compare/azure)
-* [OpenStack 사용자를 위한 Google Cloud](https://cloud.google.com/docs/compare/openstack)
-* [AWS, Azure, Google Cloud와 비교](https://cloud.google.com/free/docs/aws-azure-gcp-service-comparison)
+* [AWS와 Azure 서비스를 Google Cloud와 비교](https://cloud.google.com/free/docs/aws-azure-gcp-service-comparison)
 
 ## 속도 비교
 
 ### 여러 클라우드 동시 비교
 
-* [Cloud Ping Test](https://webping.cloud/): AWS, Azure, GCP, IBM Cloud, Oracle Cloud, Alibaba Cloud, Digital Ocean
+* [Cloud Ping Test](https://webping.cloud): AWS, Azure, GCP, IBM Cloud, Oracle Cloud, Alibaba Cloud, Digital Ocean
   * [Source repository](https://github.com/goenning/webping.cloud)
-* [CloudPIng.cloud](https://www.cloudping.cloud/) : AWS, Alibaba Cloud, Tencent Cloud, Huawei Cloud, Vultr, Linode, Lightsail
+* [CloudPIng.cloud](https://www.cloudping.cloud) : AWS, Alibaba Cloud, Tencent Cloud, Huawei Cloud, Vultr, Linode, Lightsail
 
 ### 특정 클라우드 리전 별 비교
 
-* [Azure Speed Test 2.0](https://azurespeedtest.azurewebsites.net/)
+* [Azure Speed Test 2.0](https://azurespeedtest.azurewebsites.net)
   * [Source repository](https://github.com/richorama/AzureSpeedTest2)
-* [GCPing](https://gcping.com/)
+* [GCPing](https://gcping.com)
   * [Source repository](https://github.com/imjasonh/gcping)
-

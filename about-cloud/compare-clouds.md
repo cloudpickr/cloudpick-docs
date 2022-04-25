@@ -9,9 +9,13 @@
 * [GCP 전문가를 위한 Azure](https://docs.microsoft.com/ko-kr/azure/architecture/gcp-professional/)
   * [GCP에서 Azure 서비스로 비교](https://docs.microsoft.com/ko-kr/azure/architecture/gcp-professional/services)
 
-### Google Cloud가 제공하는 자료
+### Google Cloud 가 제공하는 자료
 
 * [AWS와 Azure 서비스를 Google Cloud와 비교](https://cloud.google.com/free/docs/aws-azure-gcp-service-comparison)
+
+### Oracle Cloud 가 제공하는 자료
+
+* [Compare OCI with AWS, Azure, and Google Cloud](https://www.oracle.com/cloud/service-comparison/)
 
 ## 속도 비교
 

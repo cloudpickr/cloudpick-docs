@@ -13,9 +13,13 @@
 
 * [AWS와 Azure 서비스를 Google Cloud와 비교](https://cloud.google.com/free/docs/aws-azure-gcp-service-comparison)
 
+### Oracle Cloud 가 제공하는 자료    =&#x20;
+
 ### Oracle Cloud 가 제공하는 자료
 
 * [Compare OCI with AWS, Azure, and Google Cloud](https://www.oracle.com/cloud/service-comparison/)
+* [Amazon Web Services 전문가를 위한 Oracle Cloud Infrastructure](https://docs.oracle.com/ko/solutions/oci-for-aws-professionals/index.html)
+* [Microsoft Azure 전문가용 Oracle Cloud Infrastructure](https://docs.oracle.com/ko/solutions/oci-for-azure-professionals/index.html)
 
 ## 속도 비교
 

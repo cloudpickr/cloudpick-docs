@@ -6,6 +6,7 @@
 
 * [AWS 전문가를 위한 Azure](https://docs.microsoft.com/ko-kr/azure/architecture/aws-professional/)
   * [AWS와 Azure 서비스 비교](https://docs.microsoft.com/ko-kr/azure/architecture/aws-professional/services)
+  * [Azure 및 AWS의 지역 및 영역](https://docs.microsoft.com/ko-kr/azure/architecture/aws-professional/regions-zones)
 * [GCP 전문가를 위한 Azure](https://docs.microsoft.com/ko-kr/azure/architecture/gcp-professional/)
   * [GCP에서 Azure 서비스로 비교](https://docs.microsoft.com/ko-kr/azure/architecture/gcp-professional/services)
 

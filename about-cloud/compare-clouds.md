@@ -20,6 +20,11 @@
 * [Amazon Web Services 전문가를 위한 Oracle Cloud Infrastructure](https://docs.oracle.com/ko/solutions/oci-for-aws-professionals/index.html)
 * [Microsoft Azure 전문가용 Oracle Cloud Infrastructure](https://docs.oracle.com/ko/solutions/oci-for-azure-professionals/index.html)
 
+### 3rd Party 가 제공하는 자료
+
+* [Public Cloud Services Comparison](https://comparecloud.in): AWS, Azure, GCP, IBM Cloud, Oracle Cloud, Alibaba Cloud, Huawei Cloud
+  * [Source Repository](https://github.com/ilyas-it83/CloudComparer/)
+
 ## 속도 비교
 
 ### 여러 클라우드 동시 비교

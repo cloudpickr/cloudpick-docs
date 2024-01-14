@@ -8,20 +8,20 @@
 
 ### 참고하기
 
-* AWS
-  * [공동 책임 모델](https://aws.amazon.com/ko/compliance/shared-responsibility-model/)
-  * [Well-Architected](https://aws.amazon.com/ko/architecture/well-architected)
-    * [Map](https://wa.aws.amazon.com/wat.map.ko.html)
-    * [Lab](https://wellarchitectedlabs.com)
-  * [Cloud Adoption Framework](https://aws.amazon.com/ko/professional-services/CAF/)
-* Azure
-  * [클라우드 채택 프레임워크](https://docs.microsoft.com/ko-kr/azure/cloud-adoption-framework/)
-  * [Well-Architected Framework](https://docs.microsoft.com/ko-kr/azure/architecture/framework/)
-  * [클라우드의 공동 책임](https://docs.microsoft.com/ko-kr/azure/security/fundamentals/shared-responsibility)
-    * [역할 및 책임](https://docs.microsoft.com/ko-kr/azure/cloud-adoption-framework/organize/cloud-security#roles-and-responsibilities)
-* GCP
-  * [아키텍쳐 프레임워크](https://cloud.google.com/architecture/framework)
-  * [Delivering the industry’s most trusted cloud](https://cloud.google.com/blog/products/identity-security/delivering-the-industrys-most-trusted-cloud)
-  * [Announcing the Risk Protection Program: Moving from shared responsibility to shared fate](https://cloud.google.com/blog/products/identity-security/google-cloud-risk-protection-program-now-in-preview)
-  * [BeyondCorp](https://cloud.google.com/beyondcorp)
-    * [BeyondProd](https://cloud.google.com/security/beyondprod)
+- AWS
+  - [공동 책임 모델](https://aws.amazon.com/ko/compliance/shared-responsibility-model/)
+  - [Well-Architected](https://aws.amazon.com/ko/architecture/well-architected)
+    - [Map](https://wa.aws.amazon.com/wat.map.ko.html)
+    - [Lab](https://wellarchitectedlabs.com)
+  - [Cloud Adoption Framework](https://aws.amazon.com/ko/professional-services/CAF/)
+- Azure
+  - [클라우드 채택 프레임워크](https://docs.microsoft.com/ko-kr/azure/cloud-adoption-framework/)
+  - [Well-Architected Framework](https://docs.microsoft.com/ko-kr/azure/architecture/framework/)
+  - [클라우드의 공동 책임](https://docs.microsoft.com/ko-kr/azure/security/fundamentals/shared-responsibility)
+    - [역할 및 책임](https://docs.microsoft.com/ko-kr/azure/cloud-adoption-framework/organize/cloud-security#roles-and-responsibilities)
+- GCP
+  - [아키텍쳐 프레임워크](https://cloud.google.com/architecture/framework)
+  - [Delivering the industry’s most trusted cloud](https://cloud.google.com/blog/products/identity-security/delivering-the-industrys-most-trusted-cloud)
+  - [Announcing the Risk Protection Program: Moving from shared responsibility to shared fate](https://cloud.google.com/blog/products/identity-security/google-cloud-risk-protection-program-now-in-preview)
+  - [BeyondCorp](https://cloud.google.com/beyondcorp)
+    - [BeyondProd](https://cloud.google.com/security/beyondprod)

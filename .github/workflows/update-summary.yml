@@ -1,0 +1,43 @@
+name: Update SUMMARY.md
+
+on:
+  pull_request:
+    types: [closed]
+    branches: [master]
+
+jobs:
+  update-summary:
+    if: github.event.pull_request.merged == true && contains(github.event.pull_request.body, 'SUMMARY_ENTRY:')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: master
+      - name: Extract and add SUMMARY entry
+        run: |
+          BODY="${{ github.event.pull_request.body }}"
+          ENTRY=$(echo "$BODY" | grep -oP '(?<=SUMMARY_ENTRY:).*?(?= -->)')
+          if [ -z "$ENTRY" ]; then exit 0; fi
+
+          # Detect category from file path
+          FILE_PATH=$(echo "$ENTRY" | grep -oP '\((.+?)\)' | tr -d '()')
+          CATEGORY=$(echo "$FILE_PATH" | cut -d'/' -f1)
+
+          # Map category to SUMMARY.md section anchor
+          ANCHOR="$CATEGORY"
+
+          # Insert entry after the category header
+          if grep -q "id=\"$ANCHOR\"" SUMMARY.md; then
+            sed -i "/id=\"$ANCHOR\"/a \\\n$ENTRY" SUMMARY.md
+          else
+            echo "" >> SUMMARY.md
+            echo "$ENTRY" >> SUMMARY.md
+          fi
+
+          git config user.name "cloudpick-bot"
+          git config user.email "bot@cloudpick.dev"
+          git add SUMMARY.md
+          git diff --cached --quiet || git commit -m "docs: SUMMARY.md 자동 업데이트 — ${{ github.event.pull_request.title }}"
+          git push

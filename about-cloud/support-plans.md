@@ -99,6 +99,6 @@ MSP는 일반적으로 **클라우드 사용료에 대한 추가 마진을 받�
 
 ### 커뮤니티
 
-- [AWS 한국 사용자 모임 (AWSKRUG)](https://awskrug.github.io/) — 한국 최대 AWS 커뮤니티
+- [AWS 한국 사용자 모임 (AWSKRUG)](https://www.awskr.org/) — 한국 최대 AWS 커뮤니티
 - [Azure Korea Community](https://www.facebook.com/groups/AzureKorea/) — Azure 한국 커뮤니티
 - [GDG Cloud Korea](https://gdg.community.dev/) — Google Cloud 한국 커뮤니티

@@ -90,8 +90,8 @@ MSP는 일반적으로 **클라우드 사용료에 대한 추가 마진을 받�
 - [Recommender](https://cloud.google.com/recommender/docs)
 - [Google Cloud 파트너](https://cloud.google.com/find-a-partner)
 
-### 커뮤니티
+### OCI
 
-- [AWS 한국 사용자 모임 (AWSKRUG)](https://www.awskr.org/) — 한국 최대 AWS 커뮤니티
-- [Azure Korea Community](https://www.facebook.com/groups/AzureKorea/) — Azure 한국 커뮤니티
-- [GDG Cloud Korea](https://gdg.community.dev/) — Google Cloud 한국 커뮤니티
+- [OCI Support](https://www.oracle.com/cloud/support/)
+- [OCI Cloud Advisor](https://docs.oracle.com/en-us/iaas/Content/CloudAdvisor/Concepts/cloudadvisoroverview.htm)
+- [OCI 파트너](https://www.oracle.com/kr/partnernetwork/)

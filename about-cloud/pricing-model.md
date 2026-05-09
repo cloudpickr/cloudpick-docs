@@ -92,26 +92,6 @@ CloudWatch(AWS), Azure Monitor(Azure), Cloud Logging(GCP) 등 모니터링 서�
 - [Azure 가격 계산기](https://azure.microsoft.com/ko-kr/pricing/calculator/)
 - [Google Cloud 가격 계산기](https://cloud.google.com/products/calculator)
 
-## 한국에서의 고려사항
-
-### 원화 결제
-
-- **AWS** — 한국 원화(KRW) 결제를 지원합니다. 다만 환율 변동에 따라 실제 청구 금액이 달라질 수 있습니다.
-- **Azure** — 한국 원화 결제를 지원합니다. EA(Enterprise Agreement) 계약 시 원화 고정 가격이 가능합니다.
-- **GCP** — 한국 원화 결제를 지원합니다.
-
-### 한국 리전 vs 해외 리전 가격 차이
-
-일반적으로 한국 리전의 가격은 미국 리전(us-east-1, East US, us-central1 등) 대비 10~30% 높습니다. 지연 시간이 크게 중요하지 않은 워크로드(배치 처리, 백업 등)는 해외 리전을 활용하여 비용을 절감할 수 있습니다. 단, 데이터 주권 규제를 반드시 확인해야 합니다.
-
-### 국내 파트너/리셀러
-
-각 벤더 모두 한국에 공식 파트너(리셀러)를 두고 있습니다. 파트너를 통해 결제하면 세금계산서 발행, 원화 결제, 기술 지원 등의 혜택을 받을 수 있으며, 볼륨 할인이 적용되는 경우도 있습니다.
-
-### 세금 (부가세)
-
-한국에서 클라우드 서비스를 이용하면 10% 부가가치세가 부과됩니다. 가격 계산기에 표시되는 금액은 세전 금액인 경우가 많으므로, 실제 청구 금액은 10%를 추가로 고려해야 합니다.
-
 ## 참고하기
 
 ### 표준 및 프레임워크
@@ -140,3 +120,9 @@ CloudWatch(AWS), Azure Monitor(Azure), Cloud Logging(GCP) 등 모니터링 서�
 - [Google Cloud 가격 계산기](https://cloud.google.com/products/calculator)
 - [Cost Management](https://cloud.google.com/cost-management)
 - [Google Cloud 무료 프로그램](https://cloud.google.com/free)
+
+### OCI
+
+- [OCI 가격 책정](https://www.oracle.com/kr/cloud/pricing/)
+- [OCI Cost Estimator](https://www.oracle.com/cloud/costestimator.html)
+- [OCI Free Tier](https://www.oracle.com/cloud/free/)

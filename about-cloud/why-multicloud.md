@@ -10,11 +10,11 @@
 
 | 전략 | 정의 | 예시 |
 | --- | --- | --- |
-| **멀티클라우드** | 2개 이상의 퍼블릭 클라우드를 조합 | AWS(글로벌 서비스) + NCP(공공 워크로드) |
+| **멀티클라우드** | 2개 이상의 퍼블릭 클라우드를 조합 | AWS(컴퓨팅) + GCP(AI/ML) |
 | **하이브리드 클라우드** | 온프레미스 + 퍼블릭 클라우드를 연결 | 사내 DC + AWS Direct Connect |
 | **멀티 계정** | 단일 벤더 내에서 여러 계정을 운영 | AWS Organizations로 dev/staging/prod 분리 |
 
-> 실무에서는 이 세 가지가 겹치는 경우가 많습니다. "온프레미스 + AWS + NCP"를 운영한다면 하이브리드이면서 동시에 멀티클라우드입니다.
+> 실무에서는 이 세 가지가 겹치는 경우가 많습니다. "온프레미스 + AWS + GCP"를 운영한다면 하이브리드이면서 동시에 멀티클라우드입니다.
 
 ## 채택 현황
 
@@ -22,7 +22,6 @@
 
 - CNCF Annual Survey 2024에 따르면, 기업의 약 60%가 2개 이상의 클라우드를 사용하고 있습니다.
 - Flexera 2024 State of the Cloud Report는 기업의 89%가 멀티클라우드 전략을 채택했다고 보고합니다.
-- 한국에서는 공공 부문의 CSAP 규제와 글로벌 서비스 요구가 결합되어, 의도적이든 비의도적이든 멀티클라우드가 사실상 표준이 되고 있습니다.
 
 ## 도입 동기
 
@@ -32,16 +31,7 @@
 
 ### 규제와 데이터 주권
 
-한국의 공공기관은 CSAP(클라우드 보안 인증) 획득 벤더만 사용할 수 있습니다. 이로 인해 글로벌 서비스는 AWS/GCP로, 공공 워크로드는 NCP/KT Cloud로 분리하는 구성이 발생합니다.
-
-2024년부터 CSAP는 정보시스템 중요도에 따라 상·중·하 등급제로 전면 시행되었습니다.
-
-| 등급 | 대상 시스템 | 인증 벤더 (2025년 기준) |
-| --- | --- | --- |
-| **상·중** | 민감/일반 업무 시스템 | NCP, KT Cloud, NHN Cloud 등 국내 CSP |
-| **하** | 중요도 낮은 시스템 | AWS, Azure, GCP (2024~2025년 취득) |
-
-> CSAP 제도는 국정원 보안적합성 검증과의 통합, N2SF(국가망보안체계) 전환 등 변경이 논의 중이므로, 도입 시 최신 현황을 반드시 확인하세요.
+국가별 규제에 따라 특정 데이터를 특정 지역에 저장해야 하거나, 인증된 벤더만 사용해야 하는 경우가 있습니다. 이로 인해 워크로드를 여러 벤더에 분산 배치하는 구성이 발생합니다.
 
 ### 서비스 특화 (Best-of-Breed)
 
@@ -49,8 +39,8 @@
 
 - **AI/ML**: GCP Vertex AI + BigQuery로 학습, AWS SageMaker로 서빙
 - **데이터 분석**: GCP BigQuery(분석) + AWS S3(저장)
-- **엔터프라이즈**: Azure AD(ID 통합) + AWS(인프라)
-- **게임**: AWS GameLift(글로벌) + NCP(국내 저지연)
+- **엔터프라이즈**: Azure Entra ID(ID 통합) + AWS(인프라)
+- **DB 중심**: OCI Autonomous DB + AWS(앱 서버)
 
 ### M&A와 조직 통합
 
@@ -150,9 +140,4 @@
 - [Google Cloud — Hybrid and Multi-cloud Reference Architectures](https://cloud.google.com/architecture/network-hybrid-multicloud)
 - [Azure — Cloud Adoption Framework](https://learn.microsoft.com/azure/cloud-adoption-framework/)
 - [AWS — Prescriptive Guidance: Strategy for multicloud](https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-multicloud/welcome.html)
-
-### 한국 관련
-
-- [KISA (한국인터넷진흥원)](https://www.kisa.or.kr/) — CSAP 인증 운영, 클라우드 보안 가이드
-- [NIPA (정보통신산업진흥원)](https://www.nipa.kr/) — 클라우드 산업 육성, 공공 클라우드 전환 지원
-- [한국클라우드산업협회](https://kcloud.or.kr/) — 국내 클라우드 업계 협의체
+- [OCI — Multicloud Solutions](https://docs.oracle.com/en/solutions/oci-best-practices/deploy-multicloud-oci-oracle-database-services1.html)

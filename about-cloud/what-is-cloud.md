@@ -70,30 +70,18 @@ AWS, Azure, GCP 같은 벤더가 소유·운영하는 인프라를 인터넷을 
 
 멀티클라우드의 도입 동기와 도전 과제는 [왜 멀티클라우드인가?](why-multicloud.md)에서 자세히 다룹니다.
 
-CloudPick은 글로벌 4사(AWS, Azure, GCP, OCI)를 중심으로, 멀티클라우드 환경에서 올바른 의사결정을 내릴 수 있도록 돕는 것을 목표로 합니다. 국내 클라우드(NCP, KT Cloud, NHN Cloud, Kakao Cloud)에 대해서는 [벤더 비교하기](compare-clouds.md)에서 다룹니다.
+CloudPick은 글로벌 4사(AWS, Azure, GCP, OCI)를 중심으로, 멀티클라우드 환경에서 올바른 의사결정을 내릴 수 있도록 돕는 것을 목표로 합니다.
 
-## 한국에서의 고려사항
+## 한국 리전 현황
 
-### 한국 리전 보유 현황
+| 벤더 | 한국 리전 |
+| --- | --- |
+| AWS | `ap-northeast-2` (서울) — 4개 AZ |
+| Azure | `koreacentral` (서울), `koreasouth` (부산) |
+| GCP | `asia-northeast3` (서울) — 3개 Zone |
+| OCI | `ap-seoul-1` (서울), `ap-chuncheon-1` (춘천) |
 
-2025년 기준, 한국(서울)에 리전을 보유한 주요 클라우드 벤더는 다음과 같습니다.
-
-| 구분 | 벤더 | 한국 리전 |
-| --- | --- | --- |
-| 글로벌 | AWS | `ap-northeast-2` (서울) — 4개 AZ |
-| 글로벌 | Azure | `koreacentral` (서울), `koreasouth` (부산) |
-| 글로벌 | GCP | `asia-northeast3` (서울) — 3개 Zone |
-| 글로벌 | OCI | `ap-seoul-1` (서울), `ap-chuncheon-1` (춘천) |
-
-### 클라우드 보안 인증
-
-한국에서 공공·금융 분야에 클라우드를 도입하려면 보안 인증이 필요합니다. 기존에는 CSAP(클라우드 보안 인증 제도)이 대표적이었으나, 현재 N2SF(국가망보안체계) 도입과 국정원 통합 등 제도 변화가 진행 중입니다.
-
-도입 검토 시 각 벤더의 공식 컴플라이언스 페이지에서 최신 인증 현황을 확인하시기 바랍니다.
-
-### 데이터 주권
-
-한국의 **개인정보보호법**과 **신용정보법** 등은 특정 유형의 데이터를 국내에 저장하도록 요구하는 경우가 있습니다. 특히 금융 분야에서는 고유식별정보와 개인신용정보의 국외 이전에 대한 규제가 엄격합니다. 클라우드 벤더를 선택할 때 한국 리전의 유무와 데이터 저장 위치를 반드시 확인해야 합니다.
+> 클라우드 벤더를 선택할 때 한국 리전의 유무와 데이터 저장 위치를 확인하세요. 각 벤더의 공식 컴플라이언스 페이지에서 최신 인증 현황을 확인할 수 있습니다.
 
 ## 이 섹션에서 다루는 내용
 
@@ -134,3 +122,9 @@ CloudPick의 "클라우드의 개념" 섹션에서는 클라우드를 이해하�
 - [What is Cloud Computing?](https://cloud.google.com/learn/what-is-cloud-computing)
 - [Why Google Cloud](https://cloud.google.com/why-google-cloud)
 - [Google Cloud 위치](https://cloud.google.com/about/locations)
+
+### OCI
+
+- [OCI란?](https://www.oracle.com/kr/cloud/what-is-cloud-computing/)
+- [OCI 서비스](https://www.oracle.com/kr/cloud/)
+- [OCI 글로벌 인프라](https://www.oracle.com/cloud/cloud-regions/)

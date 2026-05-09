@@ -86,49 +86,6 @@ Oracle의 데이터베이스 기술력을 클라우드로 확장한 OCI는 Oracl
 | **[GKE Enterprise (구 Anthos)](https://cloud.google.com/kubernetes-engine/enterprise/docs)** | GCP | AWS/Azure/온프레미스의 Kubernetes를 GCP에서 통합 관리 |
 | **[OCI Multicloud](https://docs.oracle.com/en/solutions/oci-best-practices/deploy-multicloud-oci-oracle-database-services1.html)** | OCI | Azure/AWS/GCP와의 연동을 위한 통합 솔루션 |
 
-## 국내 4사 한눈에 보기
-
-| 항목 | NCP (Naver Cloud) | KT Cloud | NHN Cloud | Kakao Cloud |
-| --- | --- | --- | --- | --- |
-| **운영사** | 네이버클라우드 | KT | NHN | 카카오 |
-| **출시** | 2017년 | 2012년 | 2019년 | 2022년 |
-| **CSAP 인증** | 인증 완료 | 인증 완료 | 인증 완료 | 인증 완료 |
-| **한국 리전** | 수도권 2개 | 수도권, 대전 등 | 판교, 평촌 | 판교, 안산 |
-| **강점** | AI(HyperCLOVA X), 공공, 한국어 서비스 | 네트워크 인프라, 통신 연동, 공공 | 게임 인프라, 콘텐츠, 공공 | Kakao 생태계 연동, GPU 클라우드 |
-| **글로벌 리전** | 일본, 싱가포르, 미국, 독일 등 | 제한적 | 일본, 미국 | 없음 |
-| **IaC (Terraform)** | 공식 Provider | Provider 제공 | Provider 제공 | Provider 제공 |
-| **콘솔** | [console.ncloud.com](https://console.ncloud.com) | [cloud.kt.com](https://cloud.kt.com/console) | [console.nhncloud.com](https://console.nhncloud.com) | [console.kakaocloud.com](https://console.kakaocloud.com) |
-
-## 국내 4사 각 사 특징
-
-### NCP — AI와 공공의 강자
-
-네이버의 AI 기술(HyperCLOVA X)과 검색·커머스 인프라 운영 경험을 기반으로 합니다. 공공 부문 CSAP 인증으로 공공기관 워크로드 처리가 가능하며, 글로벌 리전도 확장 중입니다.
-
-- **핵심 강점:** HyperCLOVA X(한국어 AI), CSAP 인증, 글로벌 리전 확장
-- **차별점:** 네이버 서비스 연동(CLOVA, Papago, Maps), 한국어 기술 지원 우수
-
-### KT Cloud — 네트워크와 통신 인프라
-
-KT의 통신 인프라와 전국 IDC 네트워크를 기반으로 합니다. 가장 오래된 국내 클라우드로 공공 부문 레퍼런스가 풍부하며, 전용선/MPLS 연동이 용이합니다.
-
-- **핵심 강점:** 전국 IDC 인프라, 통신 네트워크 연동, 공공 레퍼런스
-- **차별점:** KT 전용선/MPLS 직접 연동, 5G MEC, 가장 오래된 국내 클라우드
-
-### NHN Cloud — 게임과 콘텐츠
-
-NHN의 게임 운영 경험을 기반으로 합니다. 게임 서버 호스팅, 콘텐츠 배포에 최적화된 서비스를 제공하며, Toast(구 TOAST) 플랫폼의 PaaS 서비스가 풍부합니다.
-
-- **핵심 강점:** 게임 인프라 최적화, PaaS 서비스 풍부, 공공 CSAP 인증
-- **차별점:** Gamebase(게임 백엔드), Dooray!(협업 도구), 일본 리전
-
-### Kakao Cloud — Kakao 생태계와 GPU
-
-카카오의 서비스 인프라 운영 경험을 기반으로 2022년 출시된 가장 최신 국내 클라우드입니다. Kakao 생태계(카카오톡, 카카오페이 등) 연동과 GPU 클라우드에 집중하고 있습니다.
-
-- **핵심 강점:** Kakao 생태계 연동, GPU 클라우드(AI 학습), 최신 아키텍처
-- **차별점:** 카카오 i 엔진 연동, GPU 인스턴스 가성비, Kubernetes 네이티브 설계
-
 ## 벤더가 제공하는 공식 비교 자료
 
 ### Microsoft Azure
@@ -178,7 +135,7 @@ AWS는 직접적인 서비스 비교 페이지를 제공하지 않습니다. 마
 
 ### 한국 리전 지연 시간
 
-한국에서 서비스를 운영한다면, 한국 리전의 지연 시간이 가장 중요한 지표입니다. 일반적으로 한국 리전 간 지연 시간은 글로벌 5사 모두 1~5ms 수준으로 큰 차이가 없습니다. 국내 4사는 물리적으로 더 가까워 1ms 이하도 가능합니다.
+한국에서 서비스를 운영한다면, 한국 리전의 지연 시간이 가장 중요한 지표입니다. 글로벌 4사 모두 한국 리전에서 1~5ms 수준의 지연 시간을 제공합니다.
 
 ### DR(재해복구) 시 인접 리전
 
@@ -188,12 +145,8 @@ AWS는 직접적인 서비스 비교 페이지를 제공하지 않습니다. 마
 | Azure | Korea Central, Korea South | **국내 DR 가능** (서울↔부산) |
 | GCP | 서울 | 도쿄, 오사카 |
 | OCI | 서울, 춘천 | **국내 DR 가능** (서울↔춘천) |
-| NCP | 수도권 2개 | 리전 간 DR 가능 |
-| KT Cloud | 수도권, 대전 | 리전 간 DR 가능 |
-| NHN Cloud | 판교, 평촌 | 리전 간 DR 가능 |
-| Kakao Cloud | 판교, 안산 | 리전 간 DR 가능 |
 
-### 국내 파트너 생태계
+### 파트너 생태계
 
 - [AWS 파트너 찾기](https://partners.amazonaws.com/)
 - [Azure 파트너 찾기](https://appsource.microsoft.com/ko-kr/marketplace/partner-dir)
@@ -214,16 +167,4 @@ AWS는 직접적인 서비스 비교 페이지를 제공하지 않습니다. 마
 - [Azure 제품](https://azure.microsoft.com/ko-kr/products/)
 - [Google Cloud 제품](https://cloud.google.com/products)
 - [OCI 서비스](https://www.oracle.com/kr/cloud/)
-
-### 국내 4사
-
-- [Naver Cloud Platform](https://www.ncloud.com/) — [서비스 소개](https://www.ncloud.com/product)
-- [KT Cloud](https://cloud.kt.com/) — [서비스 소개](https://cloud.kt.com/product/)
-- [NHN Cloud](https://www.nhncloud.com/) — [서비스 소개](https://www.nhncloud.com/kr/service)
-- [Kakao Cloud](https://www.kakaocloud.com/) — [서비스 소개](https://www.kakaocloud.com/service)
-
-### 한국 관련 기관
-
-- [KISA CSAP 인증 현황](https://www.kisa.or.kr/) — 클라우드 보안 인증 제도
-- [NIPA](https://www.nipa.kr/) — 클라우드 산업 육성
 - [한국클라우드산업협회](https://kcloud.or.kr/) — 국내 클라우드 업계 협의체

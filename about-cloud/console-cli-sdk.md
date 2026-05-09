@@ -147,3 +147,10 @@ SDK는 CLI와 달리 애플리케이션 코드에 직접 통합되므로, 에러
 - [Google Cloud Client Libraries (언어별)](https://cloud.google.com/apis/docs/cloud-client-libraries)
 - [Google Cloud Shell 문서](https://cloud.google.com/shell/docs)
 - [Terraform on Google Cloud](https://cloud.google.com/docs/terraform)
+
+### OCI
+
+- [OCI CLI 설치 가이드](https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/cliinstall.htm)
+- [OCI SDK](https://docs.oracle.com/en-us/iaas/Content/API/Concepts/sdks.htm)
+- [OCI Cloud Shell](https://docs.oracle.com/en-us/iaas/Content/API/Concepts/cloudshellintro.htm)
+- [Terraform on OCI](https://docs.oracle.com/en-us/iaas/Content/dev/terraform.htm)

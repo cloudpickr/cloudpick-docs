@@ -157,3 +157,9 @@ Well-Architected Framework의 보안 Pillar를 적용할 때, 한국의 컴플�
 - [Architecture Framework](https://cloud.google.com/architecture/framework)
 - [Architecture Center](https://cloud.google.com/architecture)
 - [Cloud 설정 체크리스트](https://cloud.google.com/docs/enterprise/setup-checklist)
+
+### OCI
+
+- [OCI Best Practices Framework](https://docs.oracle.com/en/solutions/oci-best-practices/)
+- [OCI Cloud Advisor](https://docs.oracle.com/en-us/iaas/Content/CloudAdvisor/Concepts/cloudadvisoroverview.htm)
+- [OCI Landing Zone](https://docs.oracle.com/en/solutions/cis-oci-benchmark/)

@@ -172,3 +172,9 @@ Organization
 - [Resource Manager](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy)
 - [Organization Policy](https://cloud.google.com/resource-manager/docs/organization-policy/overview)
 - [Google Cloud 설정 체크리스트](https://cloud.google.com/docs/enterprise/setup-checklist)
+
+### OCI
+
+- [OCI IAM with Identity Domains](https://docs.oracle.com/en-us/iaas/Content/Identity/home.htm)
+- [OCI Compartments](https://docs.oracle.com/en-us/iaas/Content/Identity/Tasks/managingcompartments.htm)
+- [OCI Tenancy Setup](https://docs.oracle.com/en-us/iaas/Content/GSG/Concepts/settinguptenancy.htm)

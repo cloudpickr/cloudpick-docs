@@ -93,23 +93,9 @@ S3 버킷, Azure Blob, GCS 버킷을 실수로 퍼블릭으로 설정하여 데�
 
 클라우드 벤더는 기본적으로 저장 데이터를 암호화하지만, 암호화 키의 관리 방식은 사용자가 선택해야 합니다. 벤더 관리 키(기본값)를 사용할지, 고객 관리 키(CMK/CMEK)를 사용할지, 또는 자체 키(BYOK)를 가져올지 결정해야 합니다.
 
-## 한국에서의 고려사항
+## 컴플라이언스
 
-### 클라우드 보안 인증
-
-한국의 공공·금융 분야에서 클라우드를 도입하려면 보안 인증이 필요합니다. 보안 인증은 공동 책임 모델에서 벤더 책임 영역의 보안이 한국 기준을 충족함을 의미하며, 사용자 책임 영역의 보안은 여전히 사용자가 관리해야 합니다.
-
-현재 CSAP에서 N2SF(국가망보안체계)로의 전환 등 제도 변화가 진행 중이므로, 도입 시 최신 현황을 확인하시기 바랍니다.
-
-### ISMS-P 인증
-
-**ISMS-P(정보보호 및 개인정보보호 관리체계 인증)**는 한국의 정보보호 관리체계 인증 제도입니다. 일정 규모 이상의 사업자는 ISMS-P 인증이 의무이며, 클라우드 환경에서도 동일하게 적용됩니다.
-
-클라우드 환경에서 ISMS-P 인증을 받으려면, 벤더의 보안 인증(CSAP, SOC 2, ISO 27001 등)과 함께 사용자 측의 보안 관리 체계도 갖추어야 합니다. 이는 공동 책임 모델의 사용자 책임 영역에 해당합니다.
-
-### 금융 분야 추가 규제
-
-금융 분야에서는 **전자금융감독규정**에 따라 클라우드 이용 시 추가적인 보안 요건을 충족해야 합니다. 금융보안원의 클라우드 이용 가이드라인을 참고하여, 데이터 분류, 접근 통제, 감사 로그 등을 적절히 구성해야 합니다.
+각 국가/산업별 규제에 따라 보안 인증이 필요할 수 있습니다. 각 벤더의 공식 컴플라이언스 페이지에서 인증 현황을 확인하세요.
 
 ## 참고하기
 
@@ -136,3 +122,8 @@ S3 버킷, Azure Blob, GCS 버킷을 실수로 퍼블릭으로 설정하여 데�
 - [Shared Fate (공동 운명 모델)](https://cloud.google.com/architecture/framework/security/shared-responsibility-shared-fate)
 - [Google Cloud 보안](https://cloud.google.com/security)
 - [컴플라이언스 리소스 센터](https://cloud.google.com/security/compliance)
+
+### OCI
+
+- [OCI Security Guide](https://docs.oracle.com/en-us/iaas/Content/Security/Concepts/security_guide.htm)
+- [OCI Compliance](https://www.oracle.com/corporate/cloud-compliance/)

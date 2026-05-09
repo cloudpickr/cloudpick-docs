@@ -77,20 +77,12 @@ CloudWatch(AWS), Azure Monitor(Azure), Cloud Logging(GCP) 등 모니터링 서�
 
 각 벤더는 비용을 모니터링하고 최적화할 수 있는 도구를 제공합니다.
 
-| 기능 | AWS | Azure | GCP | OCI |
-| --- | --- | --- | --- | --- |
-| **비용 대시보드** | Cost Explorer | Cost Management | Cost Management | Cost Analysis |
-| **예산 알림** | AWS Budgets | Azure Budgets | Budget Alerts | Budgets |
-| **이상 탐지** | Cost Anomaly Detection | Anomaly Alerts | Cost Anomaly Detection | — |
-| **최적화 권장** | Trusted Advisor, Compute Optimizer | Azure Advisor | Recommender, Active Assist | Cloud Advisor |
-
-## 비용 추정 도구 (가격 계산기)
-
-서비스 도입 전에 예상 비용을 산출할 수 있는 공식 가격 계산기를 제공합니다.
-
-- [AWS Pricing Calculator](https://calculator.aws/)
-- [Azure 가격 계산기](https://azure.microsoft.com/ko-kr/pricing/calculator/)
-- [Google Cloud 가격 계산기](https://cloud.google.com/products/calculator)
+| 벤더 | 비용 대시보드 | 가격 계산기 |
+| --- | --- | --- |
+| AWS | [Cost Explorer](https://aws.amazon.com/ko/aws-cost-management/aws-cost-explorer/) | [Pricing Calculator](https://calculator.aws/) |
+| Azure | [Cost Management](https://azure.microsoft.com/ko-kr/products/cost-management/) | [가격 계산기](https://azure.microsoft.com/ko-kr/pricing/calculator/) |
+| GCP | [Cost Management](https://cloud.google.com/cost-management) | [가격 계산기](https://cloud.google.com/products/calculator) |
+| OCI | [Cost Analysis](https://docs.oracle.com/en-us/iaas/Content/Billing/Concepts/costanalysisoverview.htm) | [Cost Estimator](https://www.oracle.com/cloud/costestimator.html) |
 
 ## 참고하기
 

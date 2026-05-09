@@ -120,6 +120,46 @@ NHN의 게임 운영 경험을 기반으로 합니다. 게임 서버 호스팅, 
 | **DB 중심** | OCI(Oracle DB) + AWS(앱 서버) | Oracle DB 의존도 높은 엔터프라이즈 |
 | **AI 학습 + 서빙** | Kakao Cloud(GPU 학습) + AWS(서빙) | GPU 가성비 + 글로벌 서빙 |
 
+## 벤더 간 멀티클라우드 연동 서비스
+
+글로벌 4사는 경쟁 관계이면서도, 고객의 멀티클라우드 수요에 대응하여 벤더 간 직접 연동 서비스를 적극적으로 출시하고 있습니다.
+
+### 네트워크 직접 연결 (Cross-Cloud Interconnect)
+
+벤더 간 전용 네트워크를 제공하여, 인터넷을 거치지 않고 프라이빗하게 클라우드를 연결합니다.
+
+| 서비스 | 연결 구간 | 특징 |
+| --- | --- | --- |
+| **Oracle Interconnect for Azure** | OCI ↔ Azure | 프라이빗 연결, 크로스 클라우드 데이터 전송 무료 |
+| **Oracle Interconnect for Google Cloud** | OCI ↔ GCP | 프라이빗 연결, 크로스 클라우드 데이터 전송 무료 |
+| **Google Cross-Cloud Interconnect** | GCP ↔ AWS/Azure/OCI | GCP에서 타 클라우드로 전용 연결 제공 |
+
+### 타 클라우드 내 서비스 배치 (Database@Cloud)
+
+자사 서비스를 경쟁사 데이터센터 안에 직접 배치하여, 고객이 단일 콘솔에서 멀티클라우드를 사용할 수 있게 합니다.
+
+| 서비스 | 설명 |
+| --- | --- |
+| **Oracle Database@Azure** | Azure 데이터센터 내에 OCI Exadata를 배치. Azure Portal에서 Oracle DB를 네이티브로 프로비저닝 |
+| **Oracle Database@AWS** | AWS 내에서 Oracle DB 서비스를 직접 사용 |
+| **Oracle Database@Google Cloud** | GCP 내에서 Oracle DB 서비스를 직접 사용 |
+
+### 멀티클라우드 관리 플랫폼
+
+타 클라우드의 리소스를 자사 관리 도구로 통합 관리할 수 있는 서비스입니다.
+
+| 서비스 | 벤더 | 설명 |
+| --- | --- | --- |
+| **Azure Arc** | Azure | AWS/GCP/온프레미스의 서버, Kubernetes, DB를 Azure Portal에서 통합 관리 |
+| **Google Anthos / GKE Enterprise** | GCP | AWS/Azure/온프레미스의 Kubernetes를 GCP에서 통합 관리 |
+| **OCI Multicloud** | OCI | Azure/AWS/GCP와의 연동을 위한 통합 솔루션 |
+
+### 시사점
+
+- 벤더 간 경쟁이 심화될수록 오히려 **연동 서비스는 증가**하는 추세
+- 특히 OCI는 "어디서든 Oracle DB를 쓸 수 있게" 하는 전략으로 멀티클라우드를 가장 적극적으로 지원
+- 이러한 서비스를 활용하면 멀티클라우드의 네트워크 복잡도와 이그레스 비용을 크게 줄일 수 있음
+
 ## 벤더가 제공하는 공식 비교 자료
 
 ### Microsoft Azure

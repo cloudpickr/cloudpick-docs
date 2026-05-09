@@ -31,13 +31,13 @@
 
 각 벤더는 터미널에서 클라우드 리소스를 관리할 수 있는 CLI 도구를 제공합니다.
 
-| 항목 | AWS | Azure | GCP |
-| --- | --- | --- | --- |
-| **CLI 이름** | AWS CLI | Azure CLI (`az`) | Google Cloud CLI (`gcloud`) |
-| **추가 CLI** | — | Azure PowerShell | — |
-| **설치** | [설치 가이드](https://docs.aws.amazon.com/ko_kr/cli/latest/userguide/getting-started-install.html) | [설치 가이드](https://learn.microsoft.com/ko-kr/cli/azure/install-azure-cli) | [설치 가이드](https://cloud.google.com/sdk/docs/install) |
-| **인증** | `aws login` (브라우저 인증, CLI v2.32+) | `az login` (브라우저 인증) | `gcloud auth login` (브라우저 인증) |
-| **출력 형식** | JSON, YAML, Table, Text | JSON, YAML, Table, TSV | JSON, YAML, Table, CSV |
+| 항목 | AWS | Azure | GCP | OCI |
+| --- | --- | --- | --- | --- |
+| **CLI 이름** | AWS CLI | Azure CLI (`az`) | Google Cloud CLI (`gcloud`) | OCI CLI (`oci`) |
+| **추가 CLI** | — | Azure PowerShell | — | — |
+| **설치** | [설치 가이드](https://docs.aws.amazon.com/ko_kr/cli/latest/userguide/getting-started-install.html) | [설치 가이드](https://learn.microsoft.com/ko-kr/cli/azure/install-azure-cli) | [설치 가이드](https://cloud.google.com/sdk/docs/install) | [설치 가이드](https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/cliinstall.htm) |
+| **인증** | `aws login` (브라우저 인증, CLI v2.32+) | `az login` (브라우저 인증) | `gcloud auth login` (브라우저 인증) | `oci session authenticate` (브라우저 인증) |
+| **출력 형식** | JSON, YAML, Table, Text | JSON, YAML, Table, TSV | JSON, YAML, Table, CSV | JSON, Table |
 
 ### 기본 사용 예시
 
@@ -50,6 +50,9 @@ az vm list --resource-group my-rg --output table
 
 # GCP — Compute Engine 인스턴스 목록 조회
 gcloud compute instances list --project my-project
+
+# OCI — Compute 인스턴스 목록 조회
+oci compute instance list --compartment-id <compartment-ocid>
 ```
 
 Azure는 CLI 외에 **Azure PowerShell**도 제공합니다. Windows 환경에서 PowerShell을 주로 사용하는 조직이라면 Azure PowerShell이 더 익숙할 수 있습니다.
@@ -58,14 +61,14 @@ Azure는 CLI 외에 **Azure PowerShell**도 제공합니다. Windows 환경에�
 
 각 벤더는 주요 프로그래밍 언어용 SDK를 제공하여, 애플리케이션 코드에서 직접 클라우드 서비스를 호출할 수 있습니다.
 
-| 언어 | AWS | Azure | GCP |
-| --- | --- | --- | --- |
-| **Python** | Boto3 | azure-sdk-for-python | google-cloud-python |
-| **JavaScript/TypeScript** | AWS SDK for JavaScript | azure-sdk-for-js | google-cloud-node |
-| **Java** | AWS SDK for Java | azure-sdk-for-java | google-cloud-java |
-| **Go** | AWS SDK for Go | azure-sdk-for-go | google-cloud-go |
-| **.NET (C#)** | AWS SDK for .NET | Azure SDK for .NET | Google Cloud .NET |
-| **설치 문서** | [AWS SDK 가이드](https://docs.aws.amazon.com/ko_kr/sdkref/latest/guide/overview.html) | [Azure SDK 가이드](https://learn.microsoft.com/ko-kr/azure/developer/) | [Cloud Client Libraries](https://cloud.google.com/apis/docs/cloud-client-libraries) |
+| 언어 | AWS | Azure | GCP | OCI |
+| --- | --- | --- | --- | --- |
+| **Python** | Boto3 | azure-sdk-for-python | google-cloud-python | oci-python-sdk |
+| **JavaScript/TypeScript** | AWS SDK for JavaScript | azure-sdk-for-js | google-cloud-node | oci-typescript-sdk |
+| **Java** | AWS SDK for Java | azure-sdk-for-java | google-cloud-java | oci-java-sdk |
+| **Go** | AWS SDK for Go | azure-sdk-for-go | google-cloud-go | oci-go-sdk |
+| **.NET (C#)** | AWS SDK for .NET | Azure SDK for .NET | Google Cloud .NET | oci-dotnet-sdk |
+| **설치 문서** | [AWS SDK 가이드](https://docs.aws.amazon.com/ko_kr/sdkref/latest/guide/overview.html) | [Azure SDK 가이드](https://learn.microsoft.com/ko-kr/azure/developer/) | [Cloud Client Libraries](https://cloud.google.com/apis/docs/cloud-client-libraries) | [OCI SDK 가이드](https://docs.oracle.com/en-us/iaas/Content/API/Concepts/sdks.htm) |
 
 SDK는 CLI와 달리 애플리케이션 코드에 직접 통합되므로, 에러 처리, 재시도 로직, 비동기 호출 등을 프로그래밍 언어의 기능을 활용하여 구현할 수 있습니다.
 
@@ -73,13 +76,13 @@ SDK는 CLI와 달리 애플리케이션 코드에 직접 통합되므로, 에러
 
 각 벤더 모두 브라우저에서 바로 CLI를 사용할 수 있는 **Cloud Shell**을 제공합니다. 별도의 설치 없이 웹 브라우저만으로 CLI 작업이 가능하여, 빠른 테스트나 긴급 대응 시 유용합니다.
 
-| 항목 | AWS | Azure | GCP |
-| --- | --- | --- | --- |
-| **이름** | AWS CloudShell | Azure Cloud Shell | Google Cloud Shell |
-| **사전 설치 도구** | AWS CLI, Python, Node.js, Git 등 | Azure CLI, PowerShell, Terraform 등 | gcloud, kubectl, Terraform, Python 등 |
-| **스토리지** | 리전당 1GB | 5GB (Azure Files) | 5GB (홈 디렉토리) |
-| **비용** | 무료 | 무료 (스토리지 비용 별도) | 무료 |
-| **에디터** | 내장 에디터 | Monaco 에디터 (VS Code 기반) | Theia 에디터 (VS Code 기반) |
+| 항목 | AWS | Azure | GCP | OCI |
+| --- | --- | --- | --- | --- |
+| **이름** | AWS CloudShell | Azure Cloud Shell | Google Cloud Shell | OCI Cloud Shell |
+| **사전 설치 도구** | AWS CLI, Python, Node.js, Git 등 | Azure CLI, PowerShell, Terraform 등 | gcloud, kubectl, Terraform, Python 등 | OCI CLI, Python, Terraform 등 |
+| **스토리지** | 리전당 1GB | 5GB (Azure Files) | 5GB (홈 디렉토리) | 5GB (홈 디렉토리) |
+| **비용** | 무료 | 무료 (스토리지 비용 별도) | 무료 | 무료 |
+| **에디터** | 내장 에디터 | Monaco 에디터 (VS Code 기반) | Theia 에디터 (VS Code 기반) | 내장 에디터 |
 
 ## IaC (Infrastructure as Code)와의 관계
 

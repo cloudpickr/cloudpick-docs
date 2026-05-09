@@ -34,12 +34,12 @@ RFC 1918 프라이빗 대역을 벤더별로 분할합니다.
 
 가장 빠르게 시작할 수 있는 방법입니다. 인터넷을 통해 IPsec 터널을 구성합니다.
 
-| 항목 | AWS | Azure | GCP |
-| --- | --- | --- | --- |
-| **서비스명** | Site-to-Site VPN | VPN Gateway | Cloud VPN |
-| **최대 대역폭** | 1.25 Gbps (터널당) | 10 Gbps (VpnGw5) | 3 Gbps (HA VPN) |
-| **HA 구성** | 2 터널 기본 제공 | Active-Active 모드 | HA VPN (99.99% SLA) |
-| **비용 (서울)** | ~$0.05/h + 이그레스 | ~$0.19/h (VpnGw1) | ~$0.075/h + 이그레스 |
+| 항목 | AWS | Azure | GCP | OCI |
+| --- | --- | --- | --- | --- |
+| **서비스명** | Site-to-Site VPN | VPN Gateway | Cloud VPN | Site-to-Site VPN |
+| **최대 대역폭** | 1.25 Gbps (터널당) | 10 Gbps (VpnGw5) | 3 Gbps (HA VPN) | 250 Mbps (터널당) |
+| **HA 구성** | 2 터널 기본 제공 | Active-Active 모드 | HA VPN (99.99% SLA) | 이중화 터널 권장 |
+| **비용 (서울)** | ~$0.05/h + 이그레스 | ~$0.19/h (VpnGw1) | ~$0.075/h + 이그레스 | 시간당 과금 + 이그레스 |
 
 **AWS ↔ GCP 연결 예시:**
 1. AWS에서 Customer Gateway(GCP의 외부 IP) + VPN Connection 생성
@@ -52,13 +52,13 @@ RFC 1918 프라이빗 대역을 벤더별로 분할합니다.
 
 물리적 전용 회선으로 연결합니다. 지연시간이 낮고 대역폭이 크지만, 설치에 수 주가 걸립니다.
 
-| 항목 | AWS | Azure | GCP |
-| --- | --- | --- | --- |
-| **서비스명** | Direct Connect | ExpressRoute | Cloud Interconnect |
-| **최대 대역폭** | 100 Gbps | 100 Gbps | 200 Gbps |
-| **한국 PoP** | KINX, LG U+ | KINX, LG U+ | KINX |
-| **최소 약정** | 없음 (포트 시간당 과금) | 없음~1년 | 없음 |
-| **이그레스 할인** | 일반 대비 ~50% 할인 | 무제한 이그레스 포함 | 일반 대비 할인 |
+| 항목 | AWS | Azure | GCP | OCI |
+| --- | --- | --- | --- | --- |
+| **서비스명** | Direct Connect | ExpressRoute | Cloud Interconnect | FastConnect |
+| **최대 대역폭** | 100 Gbps | 100 Gbps | 200 Gbps | 100 Gbps |
+| **한국 PoP** | KINX, LG U+ | KINX, LG U+ | KINX | KINX |
+| **최소 약정** | 없음 (포트 시간당 과금) | 없음~1년 | 없음 | 없음 (포트 시간당 과금) |
+| **이그레스 할인** | 일반 대비 ~50% 할인 | 무제한 이그레스 포함 | 일반 대비 할인 | 이그레스 10TB/월 무료 |
 
 > **Azure ExpressRoute의 특이점:** 이그레스 요금이 회선 요금에 포함되어 있어, 대량 데이터 이동 시 가장 경제적일 수 있습니다.
 

@@ -58,11 +58,11 @@ AWS, Azure, GCP 같은 벤더가 소유·운영하는 인프라를 인터넷을 
 
 퍼블릭 클라우드와 프라이빗 클라우드(또는 온프레미스)를 연결하여 함께 사용하는 모델입니다. 민감한 데이터는 프라이빗 환경에, 탄력적인 워크로드는 퍼블릭 클라우드에 배치하는 방식으로 운영합니다.
 
-| 배포 모델 | AWS | Azure | GCP |
-| --- | --- | --- | --- |
-| **퍼블릭** | AWS 리전 | Azure 리전 | GCP 리전 |
-| **프라이빗/온프레미스 확장** | Outposts | Azure Stack, Azure Local | Google Distributed Cloud |
-| **하이브리드 관리** | EKS Anywhere, ECS Anywhere | Azure Arc | Anthos |
+| 배포 모델 | AWS | Azure | GCP | OCI |
+| --- | --- | --- | --- | --- |
+| **퍼블릭** | AWS 리전 | Azure 리전 | GCP 리전 | OCI 리전 |
+| **프라이빗/온프레미스 확장** | Outposts | Azure Stack, Azure Local | Google Distributed Cloud | Dedicated Region |
+| **하이브리드 관리** | EKS Anywhere, ECS Anywhere | Azure Arc | Anthos | OCI Multicloud |
 
 ## 왜 멀티클라우드인가?
 

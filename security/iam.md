@@ -70,6 +70,34 @@ IAM을 잘못 설정하면 데이터 유출이나 리소스 삭제 같은 보안
 - 정기적으로(분기별) 미사용 역할과 권한을 검토합니다.
 - 서비스 간 접근은 장기 자격 증명(Access Key) 대신 역할(Role)/관리 ID를 사용합니다.
 
+### 장기 자격 증명 vs 역할 기반 인증
+
+| 방식 | 예시 | 위험성 |
+| --- | --- | --- |
+| **장기 자격 증명** | AWS Access Key, Azure Service Principal Secret | 유출 시 만료 전까지 무제한 접근. 코드/환경변수에 하드코딩되기 쉬움. 교체 주기 관리 필요 |
+| **역할 기반 (임시 자격 증명)** | AWS IAM Role, Azure Managed Identity, GCP Service Account (Workload Identity), OCI Instance Principal | 임시 토큰 자동 발급/만료. 유출되어도 수 분~수 시간 내 만료. 코드에 시크릿 불필요 |
+
+**장기 자격 증명이 위험한 이유:**
+
+- Access Key가 Git 저장소, 로그, 환경변수에 노출되면 즉시 악용 가능
+- 퇴사자의 키가 회수되지 않으면 외부에서 계속 접근 가능
+- 키 교체(rotation)를 자동화하지 않으면 수년간 같은 키가 사용됨
+
+**역할 기반 인증의 장점:**
+
+- 자격 증명이 인스턴스/서비스에 자동으로 주입되므로 코드에 시크릿을 넣을 필요 없음
+- 토큰이 자동 만료되므로 유출 시 피해 범위가 제한됨
+- 교체가 자동으로 이루어져 관리 부담 없음
+
+| 벤더 | 장기 자격 증명 | 역할 기반 대안 |
+| --- | --- | --- |
+| AWS | Access Key ID + Secret | IAM Role (EC2 Instance Profile, ECS Task Role, Lambda Execution Role) |
+| Azure | Service Principal Client Secret | Managed Identity (System-assigned / User-assigned) |
+| GCP | Service Account Key (JSON) | Workload Identity, Attached Service Account |
+| OCI | API Signing Key | Instance Principal, Resource Principal |
+
+> **원칙:** 사람이 사용하는 계정은 MFA + SSO, 서비스가 사용하는 계정은 역할 기반 임시 자격 증명을 사용하세요.
+
 ## 참고하기
 
 ### AWS

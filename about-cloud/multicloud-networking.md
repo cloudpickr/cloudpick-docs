@@ -96,95 +96,11 @@ Cloud Exchange는 하나의 물리적 연결로 여러 클라우드에 동시 �
 | **연결 대상** | 1:1 (클라우드 2개) | 1:1 | 1:N (여러 클라우드 동시) |
 | **적합한 상황** | PoC, 소규모, 빠른 시작 | 대용량, 안정성 필수, 프로덕션 | 3개 이상 클라우드 연결, 유연성 |
 
-## 트랜짓 아키텍처 패턴
+## 자세한 내용
 
-### Hub-and-Spoke
+트랜짓 아키텍처 패턴, 이그레스 비용 상세 비교, DNS 통합 전략은 아래 문서에서 다룹니다.
 
-중앙 허브를 두고 각 클라우드를 스포크로 연결하는 패턴입니다.
-
-```
-                    ┌───────────┐
-         ┌─────────│  Hub VPC  │─────────┐
-         │         │ (Transit) │         │
-         │         └───────────┘         │
-         │              │                │
-    ┌────▼────┐    ┌────▼────┐    ┌─────▼────┐
-    │  AWS    │    │  Azure  │    │   GCP    │
-    │  Spoke  │    │  Spoke  │    │  Spoke   │
-    └─────────┘    └─────────┘    └──────────┘
-```
-
-- **허브 위치:** 가장 트래픽이 많은 벤더 또는 온프레미스
-- **장점:** 보안 정책을 허브에서 중앙 관리, 라우팅 단순화
-- **단점:** 허브가 병목/단일 장애점이 될 수 있음
-
-### AWS Transit Gateway + 타 벤더 VPN
-
-AWS Transit Gateway를 허브로 사용하고, Azure/GCP를 VPN으로 연결하는 패턴이 한국에서 가장 흔합니다.
-
-| 구간 | 연결 방식 | 비고 |
-| --- | --- | --- |
-| AWS 내부 VPC 간 | Transit Gateway Attachment | 리전 내 ~$0.02/GB |
-| AWS ↔ Azure | Site-to-Site VPN (TGW 연결) | BGP 경로 교환 |
-| AWS ↔ GCP | AWS Interconnect – multicloud | GA (2026.04) |
-| AWS ↔ OCI | Oracle Interconnect for AWS | 2026년 내 출시 예정 |
-
-## 이그레스 비용 비교
-
-클라우드 간 데이터 이동의 가장 큰 비용 요소는 이그레스(아웃바운드) 요금입니다.
-
-| 구간 | 단가 (서울 리전 기준) | 비고 |
-| --- | --- | --- |
-| AWS → 인터넷 | $0.126/GB (처음 10TB) | 이후 체감 |
-| Azure → 인터넷 | $0.12/GB | 처음 5GB/월 무료 |
-| GCP → 인터넷 | $0.12/GB | 처음 200GB/월 무료 |
-| OCI → 인터넷 | 10TB/월 무료, 이후 ~$0.0085/GB | 타사 대비 매우 저렴 |
-| AWS → Direct Connect | ~$0.04/GB | 회선비 별도 |
-| Azure → ExpressRoute | 포함 (Unlimited 플랜) | 회선비에 포함 |
-| GCP → Interconnect | ~$0.05/GB | 회선비 별도 |
-| OCI → FastConnect | 10TB/월 무료에 포함 | 회선비 별도 |
-
-### 비용 최적화 팁
-
-- **데이터 지역성:** 자주 통신하는 워크로드는 같은 클라우드에 배치
-- **전용 연결:** 월 1TB 이상 이동 시 VPN보다 전용 연결이 경제적
-- **압축/캐싱:** 클라우드 경계를 넘는 데이터는 압축 후 전송
-- **비동기 배치:** 실시간이 불필요한 데이터는 야간 배치로 이동
-
-## DNS 통합 전략
-
-멀티클라우드에서 서비스 디스커버리의 핵심은 DNS입니다. 각 벤더의 프라이빗 DNS가 분리되어 있으므로 통합 전략이 필요합니다.
-
-### 각 벤더의 프라이빗 DNS
-
-| 벤더 | 서비스 | 특징 |
-| --- | --- | --- |
-| AWS | Route 53 Private Hosted Zone | VPC 연결, 조건부 포워딩 |
-| Azure | Azure Private DNS Zone | VNet 링크 |
-| GCP | Cloud DNS Private Zone | VPC 바인딩 |
-| OCI | OCI DNS Private View | VCN 연결 |
-
-### 통합 패턴: 조건부 포워딩
-
-```
-┌─────────────────────────────────────────────────┐
-│              통합 DNS 전략                        │
-├─────────────────────────────────────────────────┤
-│                                                 │
-│  *.aws.internal  → Route 53 Inbound Endpoint   │
-│  *.azure.internal → Azure DNS Private Resolver │
-│  *.gcp.internal  → Cloud DNS Inbound Policy    │
-│  *.corp.internal → 온프레미스 DNS               │
-│                                                 │
-└─────────────────────────────────────────────────┘
-```
-
-**구현 방법:**
-1. 각 클라우드에 인바운드 DNS 엔드포인트 생성
-2. 조건부 포워딩 규칙 설정 (도메인 접미사 기반)
-3. 온프레미스 DNS 서버 또는 허브 VPC의 DNS를 중앙 포워더로 사용
-
-> **팁:** Route 53 Resolver의 아웃바운드 엔드포인트를 허브로 사용하면, AWS에서 Azure/GCP의 프라이빗 레코드를 조회할 수 있습니다.
+→ [멀티클라우드 커넥티비티 (심화)](../networking/multicloud-connectivity.md)
 
 ## 설계 시 체크리스트
 
@@ -194,28 +110,3 @@ AWS Transit Gateway를 허브로 사용하고, Azure/GCP를 VPN으로 연결하�
 - [ ] DNS 조건부 포워딩으로 크로스 클라우드 이름 해석이 가능한가?
 - [ ] 허브 장애 시 대체 경로(failover)가 있는가?
 - [ ] 보안 그룹/방화벽 규칙이 클라우드 간 트래픽을 허용하는가?
-
----
-
-다음 문서에서는 공동 책임 모델을 통해 각 벤더와 사용자의 보안 책임 범위를 살펴봅니다.
-
-## 참고하기
-
-### 벤더 레퍼런스 아키텍처
-
-- [Google Cloud — Hybrid and Multi-cloud Network Architectures](https://cloud.google.com/architecture/network-hybrid-multicloud)
-- [AWS — Hybrid Connectivity](https://docs.aws.amazon.com/whitepapers/latest/hybrid-connectivity/hybrid-connectivity.html)
-- [Azure — Hub-spoke Network Topology](https://learn.microsoft.com/azure/architecture/networking/architecture/hub-spoke)
-
-### 전용 연결 및 IX
-
-- [AWS Direct Connect](https://aws.amazon.com/ko/directconnect/)
-- [Azure ExpressRoute](https://azure.microsoft.com/ko-kr/products/expressroute/)
-- [Google Cloud Interconnect](https://cloud.google.com/network-connectivity/docs/interconnect)
-- [KINX (한국인터넷교환노드)](https://www.kinx.net/) — 국내 최대 IX, 멀티클라우드 연결
-- [Megaport](https://www.megaport.com/) — 글로벌 Cloud Exchange
-
-### 표준 및 프레임워크
-
-- [NIST Multi-Cloud Security Public Working Group](https://csrc.nist.gov/projects/mcspwg/nccp) — 멀티클라우드 네트워크 보안
-- [RFC 1918 — Address Allocation for Private Internets](https://www.rfc-editor.org/rfc/rfc1918) — 프라이빗 IP 대역 표준

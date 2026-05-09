@@ -9,7 +9,7 @@
 - [벤더 비교하기](about-cloud/compare-clouds.md)
 - [리전과 가용영역](about-cloud/regions-and-zones.md)
 - [계정과 조직 구조](about-cloud/accounts-and-organizations.md)
-- [IAM과 접근 제어](security/iam.md)
+- [IAM과 접근 제어](about-cloud/iam-overview.md)
 - [콘솔, CLI, SDK](about-cloud/console-cli-sdk.md)
 - [멀티클라우드 네트워킹](about-cloud/multicloud-networking.md)
 - [공동 책임 모델](about-cloud/shared-responsibility.md)
@@ -31,6 +31,7 @@
 - [DNS](networking/dns.md)
 - [CDN](networking/cdn.md)
 - [API Gateway](networking/api-gateway.md)
+- [멀티클라우드 커넥티비티](networking/multicloud-connectivity.md)
 
 ## 보안 <a id="security"></a>
 

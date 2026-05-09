@@ -48,6 +48,40 @@ Oracle의 데이터베이스 기술력을 클라우드로 확장한 OCI는 Oracl
 - **차별점:** 이그레스 10TB/월 무료, Dedicated Region(고객 DC에 OCI 설치), MySQL HeatWave
 - **한국 리전:** 서울(`ap-seoul-1`), 춘천(`ap-chuncheon-1`)
 
+## 벤더 간 멀티클라우드 연동 서비스
+
+글로벌 4사는 경쟁 관계이면서도, 고객의 멀티클라우드 수요에 대응하여 벤더 간 직접 연동 서비스를 출시하고 있습니다.
+
+### 네트워크 직접 연결 (Cross-Cloud Interconnect)
+
+벤더 간 전용 네트워크를 제공하여, 인터넷을 거치지 않고 프라이빗하게 클라우드를 연결합니다.
+
+| 서비스 | 연결 구간 | 특징 |
+| --- | --- | --- |
+| **Oracle Interconnect for Azure** | OCI ↔ Azure | 프라이빗 연결, 크로스 클라우드 데이터 전송 무료 |
+| **Oracle Interconnect for Google Cloud** | OCI ↔ GCP | 프라이빗 연결, 크로스 클라우드 데이터 전송 무료 |
+| **Google Cross-Cloud Interconnect** | GCP ↔ AWS/Azure/OCI | GCP에서 타 클라우드로 전용 연결 제공 |
+
+### 타 클라우드 내 서비스 배치 (Database@Cloud)
+
+자사 서비스를 경쟁사 데이터센터 안에 직접 배치하여, 고객이 단일 콘솔에서 멀티클라우드를 사용할 수 있게 합니다.
+
+| 서비스 | 설명 |
+| --- | --- |
+| **Oracle Database@Azure** | Azure 데이터센터 내에 OCI Exadata를 배치. Azure Portal에서 Oracle DB를 네이티브로 프로비저닝 |
+| **Oracle Database@AWS** | AWS 내에서 Oracle DB 서비스를 직접 사용 |
+| **Oracle Database@Google Cloud** | GCP 내에서 Oracle DB 서비스를 직접 사용 |
+
+### 멀티클라우드 관리 플랫폼
+
+타 클라우드의 리소스를 자사 관리 도구로 통합 관리할 수 있는 서비스입니다.
+
+| 서비스 | 벤더 | 설명 |
+| --- | --- | --- |
+| **Azure Arc** | Azure | AWS/GCP/온프레미스의 서버, Kubernetes, DB를 Azure Portal에서 통합 관리 |
+| **Google Anthos / GKE Enterprise** | GCP | AWS/Azure/온프레미스의 Kubernetes를 GCP에서 통합 관리 |
+| **OCI Multicloud** | OCI | Azure/AWS/GCP와의 연동을 위한 통합 솔루션 |
+
 ## 국내 4사 한눈에 보기
 
 | 항목 | NCP (Naver Cloud) | KT Cloud | NHN Cloud | Kakao Cloud |
@@ -90,40 +124,6 @@ NHN의 게임 운영 경험을 기반으로 합니다. 게임 서버 호스팅, 
 
 - **핵심 강점:** Kakao 생태계 연동, GPU 클라우드(AI 학습), 최신 아키텍처
 - **차별점:** 카카오 i 엔진 연동, GPU 인스턴스 가성비, Kubernetes 네이티브 설계
-
-## 벤더 간 멀티클라우드 연동 서비스
-
-글로벌 4사는 경쟁 관계이면서도, 고객의 멀티클라우드 수요에 대응하여 벤더 간 직접 연동 서비스를 적극적으로 출시하고 있습니다.
-
-### 네트워크 직접 연결 (Cross-Cloud Interconnect)
-
-벤더 간 전용 네트워크를 제공하여, 인터넷을 거치지 않고 프라이빗하게 클라우드를 연결합니다.
-
-| 서비스 | 연결 구간 | 특징 |
-| --- | --- | --- |
-| **Oracle Interconnect for Azure** | OCI ↔ Azure | 프라이빗 연결, 크로스 클라우드 데이터 전송 무료 |
-| **Oracle Interconnect for Google Cloud** | OCI ↔ GCP | 프라이빗 연결, 크로스 클라우드 데이터 전송 무료 |
-| **Google Cross-Cloud Interconnect** | GCP ↔ AWS/Azure/OCI | GCP에서 타 클라우드로 전용 연결 제공 |
-
-### 타 클라우드 내 서비스 배치 (Database@Cloud)
-
-자사 서비스를 경쟁사 데이터센터 안에 직접 배치하여, 고객이 단일 콘솔에서 멀티클라우드를 사용할 수 있게 합니다.
-
-| 서비스 | 설명 |
-| --- | --- |
-| **Oracle Database@Azure** | Azure 데이터센터 내에 OCI Exadata를 배치. Azure Portal에서 Oracle DB를 네이티브로 프로비저닝 |
-| **Oracle Database@AWS** | AWS 내에서 Oracle DB 서비스를 직접 사용 |
-| **Oracle Database@Google Cloud** | GCP 내에서 Oracle DB 서비스를 직접 사용 |
-
-### 멀티클라우드 관리 플랫폼
-
-타 클라우드의 리소스를 자사 관리 도구로 통합 관리할 수 있는 서비스입니다.
-
-| 서비스 | 벤더 | 설명 |
-| --- | --- | --- |
-| **Azure Arc** | Azure | AWS/GCP/온프레미스의 서버, Kubernetes, DB를 Azure Portal에서 통합 관리 |
-| **Google Anthos / GKE Enterprise** | GCP | AWS/Azure/온프레미스의 Kubernetes를 GCP에서 통합 관리 |
-| **OCI Multicloud** | OCI | Azure/AWS/GCP와의 연동을 위한 통합 솔루션 |
 
 ## 벤더가 제공하는 공식 비교 자료
 

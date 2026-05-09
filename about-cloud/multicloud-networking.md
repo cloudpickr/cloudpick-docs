@@ -18,7 +18,7 @@ RFC 1918 프라이빗 대역을 벤더별로 분할합니다.
 | --- | --- | --- |
 | `10.0.0.0/8` | AWS | `10.0.0.0/16` (prod), `10.1.0.0/16` (dev) |
 | `172.16.0.0/12` | Azure | `172.16.0.0/16` (prod), `172.17.0.0/16` (dev) |
-| `192.168.0.0/16` | GCP / 국내 클라우드 | `192.168.0.0/20` (NCP), `192.168.16.0/20` (GCP) |
+| `192.168.0.0/16` | GCP / 기타 | `192.168.0.0/20` (GCP), `192.168.16.0/20` (기타) |
 
 > **팁:** `/16` 단위로 벤더에 할당하고, 그 안에서 `/24` 서브넷을 나누면 향후 확장에 유연합니다. 온프레미스가 있다면 온프레미스 대역도 반드시 포함하여 계획하세요.
 
@@ -26,7 +26,6 @@ RFC 1918 프라이빗 대역을 벤더별로 분할합니다.
 
 - GCP는 VPC가 글로벌이므로 리전별 서브넷만 다르면 됩니다
 - Azure VNet은 리전 단위이므로 리전마다 별도 CIDR 할당 필요
-- NCP Classic은 `/16` 고정, VPC는 `/16`~`/28` 선택 가능
 
 ## 클라우드 간 연결 방식
 
@@ -73,13 +72,13 @@ Cloud Exchange는 하나의 물리적 연결로 여러 클라우드에 동시 �
 └─────────┘     │              │     └─────────┘
                 │  Cloud       │
 ┌─────────┐     │  Exchange    │     ┌─────────┐
-│   GCP   │────▶│              │◀────│   NCP   │
-│  (CI)   │     │              │     │         │
+│   GCP   │────▶│              │◀────│   OCI   │
+│  (CI)   │     │              │     │  (FC)   │
 └─────────┘     └──────────────┘     └─────────┘
 ```
 
 **한국에서의 선택지:**
-- **KINX**: 국내 최대 IX(Internet Exchange). AWS, Azure, GCP, NCP 모두 PoP 보유
+- **KINX**: 국내 최대 IX(Internet Exchange). AWS, Azure, GCP, OCI 모두 PoP 보유
 - **Megaport**: 글로벌 Cloud Exchange. 서울 PoP 있음
 - **Equinix Fabric**: 글로벌 최대. 서울 데이터센터 운영
 
@@ -115,7 +114,6 @@ AWS Transit Gateway를 허브로 사용하고, Azure/GCP를 VPN으로 연결하�
 | --- | --- | --- |
 | AWS 내부 VPC 간 | Transit Gateway Attachment | 리전 내 ~$0.02/GB |
 | AWS ↔ Azure | Site-to-Site VPN (TGW 연결) | BGP 경로 교환 |
-| AWS ↔ NCP | Site-to-Site VPN | NCP IPsec VPN 사용 |
 
 ## 이그레스 비용 비교
 
@@ -129,7 +127,6 @@ AWS Transit Gateway를 허브로 사용하고, Azure/GCP를 VPN으로 연결하�
 | AWS → Direct Connect | ~$0.04/GB | 회선비 별도 |
 | Azure → ExpressRoute | 포함 (Unlimited 플랜) | 회선비에 포함 |
 | GCP → Interconnect | ~$0.05/GB | 회선비 별도 |
-| NCP → 인터넷 | 무료 (일정량) → 이후 과금 | 플랜별 상이 |
 
 ### 비용 최적화 팁
 
@@ -205,9 +202,3 @@ AWS Transit Gateway를 허브로 사용하고, Azure/GCP를 VPN으로 연결하�
 
 - [NIST Multi-Cloud Security Public Working Group](https://csrc.nist.gov/projects/mcspwg/nccp) — 멀티클라우드 네트워크 보안
 - [RFC 1918 — Address Allocation for Private Internets](https://www.rfc-editor.org/rfc/rfc1918) — 프라이빗 IP 대역 표준
-
-### 국내 클라우드 VPN/전용연결
-
-- [NCP IPsec VPN](https://www.ncloud.com/product/networking/ipsecVpn)
-- [KT Cloud VPN](https://cloud.kt.com/product/networking/)
-- [NHN Cloud VPN Gateway](https://www.nhncloud.com/kr/service/network)

@@ -70,7 +70,7 @@ AWS, Azure, GCP 같은 벤더가 소유·운영하는 인프라를 인터넷을 
 
 멀티클라우드의 도입 동기와 도전 과제는 [왜 멀티클라우드인가?](why-multicloud.md)에서 자세히 다룹니다.
 
-CloudPick은 글로벌 4사(AWS, Azure, GCP, OCI)와 국내 4사(NCP, KT Cloud, NHN Cloud, Kakao Cloud)를 포함하여, 멀티클라우드 환경에서 올바른 의사결정을 내릴 수 있도록 돕는 것을 목표로 합니다.
+CloudPick은 글로벌 4사(AWS, Azure, GCP, OCI)를 중심으로, 멀티클라우드 환경에서 올바른 의사결정을 내릴 수 있도록 돕는 것을 목표로 합니다. 국내 클라우드(NCP, KT Cloud, NHN Cloud, Kakao Cloud)에 대해서는 [벤더 비교하기](compare-clouds.md)에서 다룹니다.
 
 ## 한국에서의 고려사항
 
@@ -84,10 +84,6 @@ CloudPick은 글로벌 4사(AWS, Azure, GCP, OCI)와 국내 4사(NCP, KT Cloud, 
 | 글로벌 | Azure | `koreacentral` (서울), `koreasouth` (부산) |
 | 글로벌 | GCP | `asia-northeast3` (서울) — 3개 Zone |
 | 글로벌 | OCI | `ap-seoul-1` (서울), `ap-chuncheon-1` (춘천) |
-| 국내 | Naver Cloud Platform | 수도권 2개 리전 |
-| 국내 | KT Cloud | 수도권, 대전 등 |
-| 국내 | NHN Cloud | 판교, 평촌 |
-| 국내 | Kakao Cloud | 판교, 안산 |
 
 ### 클라우드 보안 인증
 

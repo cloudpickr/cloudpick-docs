@@ -64,15 +64,6 @@
 | Warm Standby | 초~분 | 높음 |
 | Active-Active | 거의 0 | 매우 높음 |
 
-## 국내 4사 리전/존 구조
-
-| 벤더 | 계층 구조 | 한국 리전/존 | 특징 | 공식 문서 |
-| --- | --- | --- | --- | --- |
-| **NCP** | Region → Zone | KR-1, KR-2 (멀티존) | Classic/VPC 환경 분리. VPC에서 사용자 정의 네트워크 설계 가능 | [사용 환경](https://guide.ncloud-docs.com/docs/environment-environment-1-1) |
-| **KT Cloud** | Zone 기반 | 수도권, 대전 등 다수 존 | KT 통신 인프라(전용선/MPLS) 직접 연동 | [서비스 소개](https://cloud.kt.com/product/) |
-| **NHN Cloud** | Region → AZ | 판교(KR1), 평촌(KR2) | 리전 간 물리적 분리, 리전 간 DR 가능 | [리전 가이드](https://docs.nhncloud.com/ko/nhncloud/ko/region-guide/) |
-| **Kakao Cloud** | Region → AZ | 판교, 안산 | 가용영역은 물리적으로 격리된 공간 | [리전과 가용영역](https://docs.kakaocloud.com/start/region-az) |
-
 ## 한국에서의 고려사항
 
 ### 한국 리전 현황
@@ -83,10 +74,6 @@
 | Azure | `koreacentral` (서울), `koreasouth` (부산) | 3개 AZ (Central) | 2017년 |
 | GCP | `asia-northeast3` (서울) | 3개 Zone | 2020년 |
 | OCI | `ap-seoul-1`, `ap-chuncheon-1` | 3 FD | 2020년 |
-| NCP | 수도권 2개 리전 | 2개 Zone | 2017년 |
-| KT Cloud | 수도권, 대전 등 | Zone 구분 | 2012년 |
-| NHN Cloud | 판교, 평촌 | 2개 Zone | 2019년 |
-| Kakao Cloud | 판교, 안산 | 2개 Zone | 2022년 |
 
 AWS는 2016년에 가장 먼저 한국 리전을 개설했으며, 현재 4개의 AZ를 운영하고 있습니다. Azure는 서울과 부산 두 개의 리전을 보유하고 있어 국내에서 리전 간 DR 구성이 가능합니다. GCP는 2020년에 서울 리전을 개설했으며, 3개의 Zone을 운영하고 있습니다.
 
@@ -98,7 +85,6 @@ AWS는 2016년에 가장 먼저 한국 리전을 개설했으며, 현재 4개의
 | Azure | **Korea South (부산)** — 국내 DR 가능 | 약 5ms |
 | GCP | 도쿄, 오사카 | 약 30~50ms |
 | OCI | **춘천** — 국내 DR 가능 | 약 5ms |
-| NCP / KT / NHN / Kakao | 국내 리전 간 DR 가능 | 1~5ms |
 
 Azure는 한국 내에 서울-부산 리전 쌍이 있어, 데이터 주권 규제가 엄격한 경우에도 국내에서 DR을 구성할 수 있다는 차별점이 있습니다.
 

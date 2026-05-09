@@ -90,12 +90,6 @@ MSP는 일반적으로 **클라우드 사용료에 대한 추가 마진을 받�
 - [Recommender](https://cloud.google.com/recommender/docs)
 - [Google Cloud 파트너](https://cloud.google.com/find-a-partner)
 
-### 국내 클라우드
-
-- [NCP 기술 지원](https://www.ncloud.com/support/question) — Naver Cloud Platform 지원
-- [KT Cloud 고객센터](https://cloud.kt.com/support/) — KT Cloud 지원
-- [NHN Cloud 고객센터](https://www.nhncloud.com/kr/support) — NHN Cloud 지원
-
 ### 커뮤니티
 
 - [AWS 한국 사용자 모임 (AWSKRUG)](https://www.awskr.org/) — 한국 최대 AWS 커뮤니티

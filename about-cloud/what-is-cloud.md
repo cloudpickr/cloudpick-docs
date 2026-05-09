@@ -70,7 +70,7 @@ AWS, Azure, GCP 같은 벤더가 소유·운영하는 인프라를 인터넷을 
 
 멀티클라우드의 도입 동기, 도전 과제, 한국에서의 실무 패턴은 [왜 멀티클라우드인가?](why-multicloud.md)에서 자세히 다룹니다.
 
-CloudPick은 AWS, Azure, GCP 3사와 국내 클라우드(NCP, KT Cloud, NHN Cloud)를 포함하여, 멀티클라우드 환경에서 올바른 의사결정을 내릴 수 있도록 돕는 것을 목표로 합니다.
+CloudPick은 글로벌 4사(AWS, Azure, GCP, OCI)와 국내 4사(NCP, KT Cloud, NHN Cloud, Kakao Cloud)를 포함하여, 멀티클라우드 환경에서 올바른 의사결정을 내릴 수 있도록 돕는 것을 목표로 합니다.
 
 ## 한국에서의 고려사항
 

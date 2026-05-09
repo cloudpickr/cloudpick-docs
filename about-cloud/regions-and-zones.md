@@ -79,12 +79,14 @@ AWS는 2016년에 가장 먼저 한국 리전을 개설했으며, 현재 4개의
 
 ### DR 시 인접 리전
 
-| 벤더 | DR 후보 | 지연 시간 |
-| --- | --- | --- |
-| AWS | 도쿄, 오사카 | 약 30~50ms |
-| Azure | **Korea South (부산)** — 국내 DR 가능 | 약 5ms |
-| GCP | 도쿄, 오사카 | 약 30~50ms |
-| OCI | **춘천** — 국내 DR 가능 | 약 5ms |
+| 벤더 | 프라이머리 (한국) | 세컨더리 후보 | 지연 시간 |
+| --- | --- | --- | --- |
+| AWS | `ap-northeast-2` (서울) | `ap-northeast-1` (도쿄), `ap-northeast-3` (오사카) | 약 30~50ms |
+| Azure | `koreacentral` (서울) | `koreasouth` (부산) — **국내 DR 가능** | 약 5ms |
+| Azure | `koreacentral` (서울) | `japaneast` (도쿄) | 약 30ms |
+| GCP | `asia-northeast3` (서울) | `asia-northeast1` (도쿄), `asia-northeast2` (오사카) | 약 30~50ms |
+| OCI | `ap-seoul-1` (서울) | `ap-chuncheon-1` (춘천) — **국내 DR 가능** | 약 5ms |
+| OCI | `ap-seoul-1` (서울) | `ap-tokyo-1` (도쿄) | 약 30ms |
 
 Azure는 한국 내에 서울-부산 리전 쌍이 있어, 데이터 주권 규제가 엄격한 경우에도 국내에서 DR을 구성할 수 있다는 차별점이 있습니다.
 

@@ -106,12 +106,12 @@ CloudPick의 "클라우드의 개념" 섹션에서는 클라우드를 이해하�
 | 문서 | 설명 |
 | --- | --- |
 | [벤더 비교하기](compare-clouds.md) | AWS, Azure, GCP의 강점과 공식 비교 자료, 속도 비교 도구를 정리합니다. |
-| [리전과 가용영역](regions-and-zones.md) | 리전, 가용영역, 엣지 로케이션의 개념과 3사의 구조적 차이를 비교합니다. |
+| [리전과 가용영역](regions-and-zones.md) | 리전, 가용영역, 엣지 로케이션의 개념과 각 벤더의 구조적 차이를 비교합니다. |
 | [공동 책임 모델](shared-responsibility.md) | 벤더와 사용자의 보안 책임 경계를 서비스 모델별로 설명합니다. |
-| [비용 구조 이해하기](pricing-model.md) | 온디맨드, 예약, 스팟 등 과금 모델과 3사의 핵심 차이를 비교합니다. |
+| [비용 구조 이해하기](pricing-model.md) | 온디맨드, 예약, 스팟 등 과금 모델과 각 벤더의 핵심 차이를 비교합니다. |
 | [콘솔, CLI, SDK](console-cli-sdk.md) | 클라우드를 다루는 세 가지 방법과 IaC 도구를 소개합니다. |
-| [계정과 조직 구조](accounts-and-organizations.md) | Account, Subscription, Project 등 3사의 계정 체계를 비교합니다. |
-| [Well-Architected Framework](well-architected.md) | 클라우드 아키텍처 설계의 모범 사례와 3사의 핵심 원칙을 비교합니다. |
+| [계정과 조직 구조](accounts-and-organizations.md) | Account, Subscription, Project 등 각 벤더의 계정 체계를 비교합니다. |
+| [Well-Architected Framework](well-architected.md) | 클라우드 아키텍처 설계의 모범 사례와 각 벤더의 핵심 원칙을 비교합니다. |
 
 ## 참고하기
 

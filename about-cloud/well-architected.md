@@ -10,7 +10,7 @@ Well-Architected Framework은 이러한 문제를 사전에 방지하기 위한 
 
 ## 핵심 원칙 (Pillar) 비교
 
-3사 모두 Well-Architected Framework을 제공하지만, 핵심 원칙(Pillar)의 구성과 강조점에 차이가 있습니다.
+각 벤더 모두 Well-Architected Framework을 제공하지만, 핵심 원칙(Pillar)의 구성과 강조점에 차이가 있습니다.
 
 | 원칙 영역 | AWS | Azure | GCP | OCI |
 | --- | --- | --- | --- | --- |

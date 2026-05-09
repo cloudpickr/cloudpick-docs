@@ -54,21 +54,25 @@ AWS는 경쟁사와의 직접적인 서비스 비교 페이지를 제공하지 �
 
 ## 속도 비교
 
-클라우드 선택 시 네트워크 지연 시간(Latency)도 중요한 고려 사항입니다. 아래 도구들을 사용하면 각 벤더의 리전별 응답 속도를 직접 측정할 수 있습니다.
+### 벤더 공식 네트워크 성능 자료
 
-### 여러 클라우드 동시 비교
+각 벤더는 리전 간 네트워크 지연 시간을 공식적으로 측정하고 공개하고 있습니다.
 
-- [Kentik Cloud Latency Map](https://clm.kentik.com/) — AWS, Azure, GCP, IBM, Oracle 리전 간 지연 시간을 지속적으로 측정하여 시각화합니다. 리전 간 비교뿐 아니라 지연 시간 변화 추이까지 확인할 수 있어, 가장 종합적인 도구입니다.
-- [Cloud Region Latency Checker](https://routerhax.com/tools/cloud-region-latency-checker/) — 브라우저에서 AWS, Azure, GCP 전 리전의 지연 시간을 한 번에 측정합니다. 깔끔한 UI로 빠르게 비교할 수 있습니다.
-- [Cloud Ping Test](https://webping.cloud) — AWS, Azure, GCP, IBM Cloud, Oracle Cloud, Alibaba Cloud, Digital Ocean을 동시에 비교합니다.
-  - [소스 코드](https://github.com/goenning/webping.cloud)
+- [AWS — Infrastructure Performance (리전 간 지연시간 실시간 모니터링)](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/what-is-network-monitor.html)
+- [Azure — 네트워크 왕복 지연 시간 통계](https://learn.microsoft.com/en-us/azure/networking/azure-network-latency)
+- [GCP — Google Cloud 리전 간 지연시간](https://cloud.google.com/network-intelligence-center/docs/performance-dashboard/concepts/overview)
 
-### 특정 클라우드 리전별 비교
+### 브라우저 기반 측정 도구
 
-- [GCPing](https://gcping.com) — GCP 리전별 지연 시간 측정. Google Cloud 공식 프로젝트입니다.
+사용자 위치에서 각 리전까지의 지연 시간을 직접 측정할 수 있는 도구입니다.
+
+- [GCPing](https://gcping.com) — GCP 리전별 지연 시간 측정 (Google Cloud 공식 프로젝트)
   - [소스 코드](https://github.com/GoogleCloudPlatform/gcping)
 - [Azure Speed Test 2.0](https://azurespeedtest.azurewebsites.net) — Azure 리전별 지연 시간 측정
   - [소스 코드](https://github.com/richorama/AzureSpeedTest2)
+- [Kentik Cloud Latency Map](https://clm.kentik.com/) — AWS, Azure, GCP, IBM, Oracle 리전 간 지연 시간 추이 시각화
+- [Cloud Ping Test](https://webping.cloud) — AWS, Azure, GCP 등 7개 벤더 동시 비교
+  - [소스 코드](https://github.com/goenning/webping.cloud)
 
 ## 한국에서의 고려사항
 

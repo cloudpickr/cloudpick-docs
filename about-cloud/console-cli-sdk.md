@@ -35,8 +35,8 @@
 | --- | --- | --- | --- |
 | **CLI 이름** | AWS CLI | Azure CLI (`az`) | Google Cloud CLI (`gcloud`) |
 | **추가 CLI** | — | Azure PowerShell | — |
-| **설치** | `pip install awscli` 또는 공식 설치 프로그램 | `brew install azure-cli` 또는 공식 설치 프로그램 | `brew install google-cloud-sdk` 또는 공식 설치 프로그램 |
-| **인증** | `aws configure` (Access Key) | `az login` (브라우저 인증) | `gcloud auth login` (브라우저 인증) |
+| **설치** | [설치 가이드](https://docs.aws.amazon.com/ko_kr/cli/latest/userguide/getting-started-install.html) | [설치 가이드](https://learn.microsoft.com/ko-kr/cli/azure/install-azure-cli) | [설치 가이드](https://cloud.google.com/sdk/docs/install) |
+| **인증** | `aws login` (브라우저 인증, CLI v2.32+) | `az login` (브라우저 인증) | `gcloud auth login` (브라우저 인증) |
 | **출력 형식** | JSON, YAML, Table, Text | JSON, YAML, Table, TSV | JSON, YAML, Table, CSV |
 
 ### 기본 사용 예시
@@ -65,6 +65,7 @@ Azure는 CLI 외에 **Azure PowerShell**도 제공합니다. Windows 환경에�
 | **Java** | AWS SDK for Java | azure-sdk-for-java | google-cloud-java |
 | **Go** | AWS SDK for Go | azure-sdk-for-go | google-cloud-go |
 | **.NET (C#)** | AWS SDK for .NET | Azure SDK for .NET | Google Cloud .NET |
+| **설치 문서** | [AWS SDK 가이드](https://docs.aws.amazon.com/ko_kr/sdkref/latest/guide/overview.html) | [Azure SDK 가이드](https://learn.microsoft.com/ko-kr/azure/developer/) | [Cloud Client Libraries](https://cloud.google.com/apis/docs/cloud-client-libraries) |
 
 SDK는 CLI와 달리 애플리케이션 코드에 직접 통합되므로, 에러 처리, 재시도 로직, 비동기 호출 등을 프로그래밍 언어의 기능을 활용하여 구현할 수 있습니다.
 
@@ -105,19 +106,13 @@ SDK는 CLI와 달리 애플리케이션 코드에 직접 통합되므로, 에러
 
 ## 한국에서의 고려사항
 
-### 한국어 콘솔 지원
+### 한국어 지원
 
-- **AWS** — 콘솔 전체가 한국어로 제공됩니다. 서비스 문서도 대부분 한국어 번역이 제공됩니다.
-- **Azure** — Portal 전체가 한국어로 제공됩니다. Microsoft Learn 문서도 한국어 번역이 잘 되어 있습니다.
-- **GCP** — Console의 한국어 지원은 부분적입니다. 공식 문서의 한국어 번역 범위도 AWS/Azure 대비 제한적입니다.
+3사 모두 콘솔과 문서의 한국어 지원을 제공하고 있으며, 지원 범위는 각 벤더의 공식 사이트에서 확인할 수 있습니다.
 
-### 국내 기술 지원
+### 기술 지원
 
-3사 모두 한국에 기술 지원 조직을 운영하고 있습니다.
-
-- **AWS** — 한국어 기술 지원 제공. Business/Enterprise Support 플랜에서 한국어 TAM(Technical Account Manager) 배정 가능합니다.
-- **Azure** — 한국어 기술 지원 제공. Microsoft의 기존 엔터프라이즈 지원 체계와 통합되어 있습니다.
-- **GCP** — 한국어 기술 지원 제공. Premium Support에서 한국어 TAM 배정 가능합니다.
+기술 지원 플랜과 어드바이저 서비스에 대해서는 [기술 지원과 어드바이저](support-plans.md)에서 다룹니다.
 
 ### 교육 및 자격증
 
@@ -131,24 +126,21 @@ SDK는 CLI와 달리 애플리케이션 코드에 직접 통합되므로, 에러
 
 ### AWS
 
-- [AWS Management Console](https://aws.amazon.com/ko/console/)
-- [AWS CLI](https://aws.amazon.com/ko/cli/)
-- [AWS SDK](https://aws.amazon.com/ko/developer/tools/)
-- [AWS CloudShell](https://aws.amazon.com/ko/cloudshell/)
-- [AWS CloudFormation](https://aws.amazon.com/ko/cloudformation/)
+- [AWS CLI 설치 가이드](https://docs.aws.amazon.com/ko_kr/cli/latest/userguide/getting-started-install.html)
+- [AWS SDK 설치 (언어별)](https://docs.aws.amazon.com/ko_kr/sdkref/latest/guide/overview.html)
+- [AWS CloudShell 문서](https://docs.aws.amazon.com/ko_kr/cloudshell/latest/userguide/)
+- [AWS CloudFormation 문서](https://docs.aws.amazon.com/ko_kr/cloudformation/)
 
 ### Azure
 
-- [Azure Portal](https://azure.microsoft.com/ko-kr/get-started/azure-portal/)
-- [Azure CLI](https://learn.microsoft.com/ko-kr/cli/azure/)
-- [Azure SDK](https://azure.microsoft.com/ko-kr/downloads/)
-- [Azure Cloud Shell](https://learn.microsoft.com/ko-kr/azure/cloud-shell/overview)
-- [Bicep](https://learn.microsoft.com/ko-kr/azure/azure-resource-manager/bicep/)
+- [Azure CLI 설치 가이드](https://learn.microsoft.com/ko-kr/cli/azure/install-azure-cli)
+- [Azure SDK 설치 (언어별)](https://learn.microsoft.com/ko-kr/azure/developer/)
+- [Azure Cloud Shell 문서](https://learn.microsoft.com/ko-kr/azure/cloud-shell/overview)
+- [Bicep 설치 가이드](https://learn.microsoft.com/ko-kr/azure/azure-resource-manager/bicep/install)
 
 ### GCP
 
-- [Google Cloud Console](https://cloud.google.com/cloud-console)
-- [Google Cloud CLI](https://cloud.google.com/sdk/gcloud)
-- [Google Cloud Client Libraries](https://cloud.google.com/apis/docs/cloud-client-libraries)
-- [Google Cloud Shell](https://cloud.google.com/shell)
-- [Config Connector](https://cloud.google.com/config-connector/docs/overview)
+- [Google Cloud CLI 설치 가이드](https://cloud.google.com/sdk/docs/install)
+- [Google Cloud Client Libraries (언어별)](https://cloud.google.com/apis/docs/cloud-client-libraries)
+- [Google Cloud Shell 문서](https://cloud.google.com/shell/docs)
+- [Terraform on Google Cloud](https://cloud.google.com/docs/terraform)

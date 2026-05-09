@@ -73,6 +73,21 @@ GCP의 계층 구조는 **Organization → Folder → Project**입니다.
 
 GCP의 특징은 **빌링이 Project와 분리**되어 있다는 점입니다. 하나의 Billing Account에 여러 Project를 연결할 수 있어, 빌링 구조를 유연하게 설계할 수 있습니다.
 
+## 빌링 구조
+
+3사 모두 계정/구독/프로젝트 단위로 비용이 발생하지만, 빌링을 통합하고 관리하는 방식이 다릅니다.
+
+| 항목 | AWS | Azure | GCP |
+| --- | --- | --- | --- |
+| **빌링 단위** | Account | Subscription | Project |
+| **통합 빌링** | Organizations 통합 결제 | Billing Account → 여러 Subscription | Billing Account → 여러 Project |
+| **비용 할당** | 태그 기반 Cost Allocation | Resource Group + 태그 | 라벨 + Project 단위 |
+| **예산 알림** | AWS Budgets | Azure Budgets | GCP Budget Alerts |
+
+- **AWS** — Organization 내 모든 Account의 비용을 관리 계정(Payer Account)에서 통합 결제합니다. **Billing Transfer**로 여러 Organization의 빌링을 하나의 계정에서 관리할 수도 있습니다 (2025년 출시).
+- **Azure** — EA(Enterprise Agreement) 계약 시 부서(Department)별 비용 분리가 가능합니다. **Subscription Transfer**로 구독의 빌링 소유권을 다른 계정으로 이전할 수 있습니다.
+- **GCP** — Billing Account가 계정 구조와 독립적이어서, Project별로 다른 Billing Account를 연결할 수 있습니다. Project의 빌링 계정 변경도 간단합니다.
+
 ## 멀티 계정 전략
 
 3사 모두 다음과 같은 멀티 계정 전략을 권장합니다.

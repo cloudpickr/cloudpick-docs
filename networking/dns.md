@@ -2,7 +2,7 @@
 
 ## 개요
 
-**DNS(Domain Name System)**는 도메인 이름(예: example.com)을 IP 주소로 변환하는 서비스입니다. 모든 인터넷 통신의 첫 단계이므로, DNS가 중단되면 서비스 전체가 접근 불가능해집니다.
+**DNS** (Domain Name System)는 도메인 이름(예: example.com)을 IP 주소로 변환하는 서비스입니다. 모든 인터넷 통신의 첫 단계이므로, DNS가 중단되면 서비스 전체가 접근 불가능해집니다.
 
 온프레미스에서는 BIND나 Windows DNS를 직접 운영하지만, 클라우드 관리형 DNS는 글로벌 Anycast 네트워크에서 운영되어 단일 장애점이 없습니다. AWS Route 53과 GCP Cloud DNS는 **100% 가용성 SLA**를 제공합니다.
 

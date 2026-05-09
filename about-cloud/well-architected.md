@@ -34,7 +34,7 @@ AWS는 2012년에 가장 먼저 Well-Architected Framework을 발표했으며, �
 5. **비용 최적화 (Cost Optimization)** — 불필요한 비용을 제거하고 투자 수익을 극대화하는 방법
 6. **지속 가능성 (Sustainability)** — 환경에 미치는 영향을 최소화하는 방법
 
-AWS만의 특징은 **지속 가능성(Sustainability)** Pillar입니다. 2021년에 추가되었으며, 에너지 효율적인 리소스 선택, 사용량 최적화 등 환경적 영향을 고려한 설계 원칙을 다룹니다.
+AWS만의 특징은 **지속 가능성** (Sustainability) Pillar입니다. 2021년에 추가되었으며, 에너지 효율적인 리소스 선택, 사용량 최적화 등 환경적 영향을 고려한 설계 원칙을 다룹니다.
 
 ### Azure — 5개 Pillar
 
@@ -50,7 +50,7 @@ Azure의 특징은 Microsoft의 엔터프라이즈 경험이 반영되어 있다
 
 ### GCP — 5개 Pillar + 시스템 설계 원칙
 
-GCP는 **Architecture Framework**이라는 이름으로 Well-Architected 가이드를 제공합니다. 5개의 Pillar 외에 **시스템 설계 원칙(System Design Principles)**을 별도로 다루는 것이 특징입니다.
+GCP는 **Architecture Framework**이라는 이름으로 Well-Architected 가이드를 제공합니다. 5개의 Pillar 외에 **시스템 설계 원칙** (System Design Principles)을 별도로 다루는 것이 특징입니다.
 
 1. **운영 우수성 (Operational Excellence)** — 효율적인 운영, 자동화, 모니터링
 2. **보안, 개인정보, 컴플라이언스 (Security, Privacy, Compliance)** — 보안과 규제 준수를 하나의 Pillar로 통합
@@ -97,7 +97,7 @@ Azure Advisor가 자동으로 리소스를 분석하여 권장 사항을 제시�
 
 ## Cloud Adoption Framework (CAF)
 
-Well-Architected Framework이 개별 워크로드의 설계 모범 사례라면, **Cloud Adoption Framework(CAF)**은 조직 전체의 클라우드 전환 전략을 다룹니다. 기술뿐 아니라 조직 구조, 프로세스, 거버넌스, 인력 교육까지 포괄하는 상위 수준의 프레임워크입니다.
+Well-Architected Framework이 개별 워크로드의 설계 모범 사례라면, **Cloud Adoption Framework** (CAF)은 조직 전체의 클라우드 전환 전략을 다룹니다. 기술뿐 아니라 조직 구조, 프로세스, 거버넌스, 인력 교육까지 포괄하는 상위 수준의 프레임워크입니다.
 
 | 항목 | AWS | Azure | GCP | OCI |
 | --- | --- | --- | --- | --- |

@@ -11,7 +11,7 @@
 - **권한 관리 복잡** — 세밀한 접근 제어가 어려워지고, 과다 권한이 부여되기 쉽습니다.
 - **서비스 할당량 공유** — 한 팀이 API 호출 한도를 소진하면 다른 팀도 영향을 받습니다.
 
-이러한 문제를 해결하기 위해 각 벤더 모두 **멀티 계정(Multi-Account)** 구조를 권장하며, 여러 계정을 체계적으로 관리할 수 있는 조직(Organization) 기능을 제공합니다.
+이러한 문제를 해결하기 위해 각 벤더 모두 **멀티 계정** (Multi-Account) 구조를 권장하며, 여러 계정을 체계적으로 관리할 수 있는 조직(Organization) 기능을 제공합니다.
 
 ## 핵심 개념
 
@@ -41,7 +41,7 @@
 
 ### AWS — Organization → OU → Account
 
-AWS의 계층 구조는 **Organization → Organizational Unit (OU) → Account**입니다.
+AWS의 계층 구조는 **Organization → OU → Account** 입니다.
 
 - **Organization** — 최상위 관리 단위입니다. 하나의 관리 계정(Management Account)이 조직을 소유합니다.
 - **OU (Organizational Unit)** — 계정을 논리적으로 그룹화하는 단위입니다. OU는 중첩할 수 있습니다.

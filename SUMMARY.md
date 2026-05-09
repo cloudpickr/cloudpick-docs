@@ -34,6 +34,7 @@
 
 ## 보안 <a id="security"></a>
 
+- [IAM과 접근 제어](security/iam.md)
 - [시크릿 관리](security/secrets.md)
 - [데이터 보호와 워크로드 보안](security/data-protection.md)
 

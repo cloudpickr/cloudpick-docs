@@ -4,8 +4,8 @@
 
 ## 클라우드의 개념 <a id="about-cloud"></a>
 
-- [왜 멀티클라우드인가?](about-cloud/why-multicloud.md)
 - [클라우드란?](about-cloud/what-is-cloud.md)
+- [왜 멀티클라우드인가?](about-cloud/why-multicloud.md)
 - [벤더 비교하기](about-cloud/compare-clouds.md)
 - [리전과 가용영역](about-cloud/regions-and-zones.md)
 - [계정과 조직 구조](about-cloud/accounts-and-organizations.md)

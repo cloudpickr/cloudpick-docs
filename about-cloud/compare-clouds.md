@@ -56,11 +56,15 @@ Oracle의 데이터베이스 기술력을 클라우드로 확장한 OCI는 Oracl
 
 벤더 간 전용 네트워크를 제공하여, 인터넷을 거치지 않고 프라이빗하게 클라우드를 연결합니다.
 
-| 서비스 | 연결 구간 | 특징 |
+| 서비스 | 연결 구간 | 상태 (2026년 기준) |
 | --- | --- | --- |
-| **Oracle Interconnect for Azure** | OCI ↔ Azure | 프라이빗 연결, 크로스 클라우드 데이터 전송 무료 |
-| **Oracle Interconnect for Google Cloud** | OCI ↔ GCP | 프라이빗 연결, 크로스 클라우드 데이터 전송 무료 |
-| **Google Cross-Cloud Interconnect** | GCP ↔ AWS/Azure/OCI | GCP에서 타 클라우드로 전용 연결 제공 |
+| **[AWS Interconnect – multicloud](https://aws.amazon.com/interconnect/multicloud/)** | AWS ↔ GCP | GA (2026.04). Azure, OCI는 2026년 내 추가 예정 |
+| **[Google Cross-Cloud Interconnect](https://cloud.google.com/network-connectivity/docs/interconnect/concepts/cross-cloud-overview)** | GCP ↔ AWS/Azure/OCI | GA. AWS와 공동 개발한 오픈 상호운용 스펙 기반 |
+| **[Oracle Interconnect for Azure](https://docs.oracle.com/iaas/Content/multicloud/interconnect-azure.htm)** | OCI ↔ Azure | GA. 크로스 클라우드 데이터 전송 무료 |
+| **[Oracle Interconnect for Google Cloud](https://docs.oracle.com/iaas/Content/Network/Concepts/access-to-google-cloud-platform.htm)** | OCI ↔ GCP | GA. 크로스 클라우드 데이터 전송 무료 |
+| **Oracle Interconnect for AWS** | OCI ↔ AWS | 2026년 내 출시 예정 (AWS Interconnect–multicloud 연동) |
+
+> 2025년 12월 AWS re:Invent에서 AWS와 Google Cloud가 오픈 상호운용 스펙 기반의 공동 멀티클라우드 인터커넥트를 발표했습니다. Microsoft Azure도 이 스펙에 참여를 확인했으며, Oracle도 AWS Interconnect–multicloud와의 연동을 발표(2026.04)했습니다.
 
 ### 타 클라우드 내 서비스 배치 (Database@Cloud)
 
@@ -68,9 +72,9 @@ Oracle의 데이터베이스 기술력을 클라우드로 확장한 OCI는 Oracl
 
 | 서비스 | 설명 |
 | --- | --- |
-| **Oracle Database@Azure** | Azure 데이터센터 내에 OCI Exadata를 배치. Azure Portal에서 Oracle DB를 네이티브로 프로비저닝 |
-| **Oracle Database@AWS** | AWS 내에서 Oracle DB 서비스를 직접 사용 |
-| **Oracle Database@Google Cloud** | GCP 내에서 Oracle DB 서비스를 직접 사용 |
+| **[Oracle Database@Azure](https://www.oracle.com/cloud/azure/)** | Azure 데이터센터 내에 OCI Exadata를 배치. Azure Portal에서 Oracle DB를 네이티브로 프로비저닝 |
+| **[Oracle Database@AWS](https://www.oracle.com/cloud/aws/)** | AWS 내에서 Oracle DB 서비스를 직접 사용 |
+| **[Oracle Database@Google Cloud](https://www.oracle.com/cloud/google/)** | GCP 내에서 Oracle DB 서비스를 직접 사용 |
 
 ### 멀티클라우드 관리 플랫폼
 
@@ -78,9 +82,9 @@ Oracle의 데이터베이스 기술력을 클라우드로 확장한 OCI는 Oracl
 
 | 서비스 | 벤더 | 설명 |
 | --- | --- | --- |
-| **Azure Arc** | Azure | AWS/GCP/온프레미스의 서버, Kubernetes, DB를 Azure Portal에서 통합 관리 |
-| **Google Anthos / GKE Enterprise** | GCP | AWS/Azure/온프레미스의 Kubernetes를 GCP에서 통합 관리 |
-| **OCI Multicloud** | OCI | Azure/AWS/GCP와의 연동을 위한 통합 솔루션 |
+| **[Azure Arc](https://azure.microsoft.com/products/azure-arc/)** | Azure | AWS/GCP/온프레미스의 서버, Kubernetes, DB를 Azure Portal에서 통합 관리 |
+| **[GKE Enterprise (구 Anthos)](https://cloud.google.com/kubernetes-engine/enterprise/docs)** | GCP | AWS/Azure/온프레미스의 Kubernetes를 GCP에서 통합 관리 |
+| **[OCI Multicloud](https://docs.oracle.com/en/solutions/oci-best-practices/deploy-multicloud-oci-oracle-database-services1.html)** | OCI | Azure/AWS/GCP와의 연동을 위한 통합 솔루션 |
 
 ## 국내 4사 한눈에 보기
 

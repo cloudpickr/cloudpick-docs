@@ -72,7 +72,7 @@
 | 벤더 | 리전 코드 | AZ/Zone 수 | 출시 시기 |
 | --- | --- | --- | --- |
 | AWS | `ap-northeast-2` (서울) | 4개 AZ | 2016년 |
-| Azure | Korea Central (서울), Korea South (부산) | 3개 AZ (Central) | 2017년 |
+| Azure | `koreacentral` (서울), `koreasouth` (부산) | 3개 AZ (Central) | 2017년 |
 | GCP | `asia-northeast3` (서울) | 3개 Zone | 2020년 |
 | OCI | `ap-seoul-1`, `ap-chuncheon-1` | 3 FD | 2020년 |
 | NCP | 수도권 2개 리전 | 2개 Zone | 2017년 |

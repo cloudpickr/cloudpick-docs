@@ -80,14 +80,14 @@ CloudPick은 글로벌 4사(AWS, Azure, GCP, OCI)와 국내 4사(NCP, KT Cloud, 
 
 | 구분 | 벤더 | 한국 리전 |
 | --- | --- | --- |
-| 글로벌 | AWS | 아시아 태평양(서울) `ap-northeast-2` — 4개 AZ |
-| 글로벌 | Azure | Korea Central(서울), Korea South(부산) |
-| 글로벌 | GCP | asia-northeast3(서울) — 3개 Zone |
-| 글로벌 | OCI | ap-seoul-1, ap-chuncheon-1 |
-| 국내 | Naver Cloud Platform | 한국(수도권 2개 리전) |
-| 국내 | KT Cloud | 한국(수도권, 대전 등) |
-| 국내 | NHN Cloud | 한국(판교, 평촌) |
-| 국내 | Kakao Cloud | 한국(판교, 안산) |
+| 글로벌 | AWS | `ap-northeast-2` (서울) — 4개 AZ |
+| 글로벌 | Azure | `koreacentral` (서울), `koreasouth` (부산) |
+| 글로벌 | GCP | `asia-northeast3` (서울) — 3개 Zone |
+| 글로벌 | OCI | `ap-seoul-1` (서울), `ap-chuncheon-1` (춘천) |
+| 국내 | Naver Cloud Platform | 수도권 2개 리전 |
+| 국내 | KT Cloud | 수도권, 대전 등 |
+| 국내 | NHN Cloud | 판교, 평촌 |
+| 국내 | Kakao Cloud | 판교, 안산 |
 
 ### 클라우드 보안 인증
 

@@ -16,12 +16,11 @@ CloudPick 은 점점 복잡해지는 클라우의 개념, 이론을 알기 쉽�
 - 다른 벤더와 비교되는 내용이 있을 경우 가능한 한 중립적으로 표현하려고 노력합니다.
 - 기타 사항들은 일반적인 사항에 따릅니다.
 
-## 주요 퍼블릭 클라우드 벤더 URL
+## 대상 클라우드 벤더
 
-|           | Full Name / Homepage Link                                       | Console Access                                                                             |
-| --------- | --------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
-| AWS       | [Amazon Web Services](https://aws.amazon.com/ko/)               | <https://console.aws.amazon.com/console/home>                                              |
-| GCP       | [Google Cloud Platform](https://cloud.google.com/)              | <https://console.cloud.google.com>                                                         |
-| Azure     | [Microsoft Azure](https://azure.microsoft.com/ko-kr/)           | <https://portal.azure.com>                                                                 |
-| OCI       | [Oracle Cloud Infrastructure](https://www.oracle.com/kr/cloud/) | <https://www.oracle.com/cloud/sign-in.html>                                                |
-| IBM Cloud | [IBM Cloud](https://www.ibm.com/kr-ko/cloud)                    | <https://cloud.ibm.com>                                                                    |
+| 구분 | 벤더 | 홈페이지 | 콘솔 |
+| --- | --- | --- | --- |
+| 글로벌 | [AWS](https://aws.amazon.com/ko/) | Amazon Web Services | [Console](https://console.aws.amazon.com) |
+| 글로벌 | [Azure](https://azure.microsoft.com/ko-kr/) | Microsoft Azure | [Portal](https://portal.azure.com) |
+| 글로벌 | [GCP](https://cloud.google.com/) | Google Cloud Platform | [Console](https://console.cloud.google.com) |
+| 글로벌 | [OCI](https://www.oracle.com/kr/cloud/) | Oracle Cloud Infrastructure | [Console](https://cloud.oracle.com) |

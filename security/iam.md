@@ -49,6 +49,8 @@ IAM을 잘못 설정하면 데이터 유출이나 리소스 삭제 같은 보안
 
 **GCP Cloud IAM** — 조직 → 폴더 → 프로젝트 계층에서 권한이 상속됩니다. 서비스 계정(Service Account)으로 서비스 간 인증을 처리하며, Workload Identity Federation으로 외부 IdP의 토큰을 직접 사용할 수 있습니다.
 
+**OCI IAM with Identity Domains** — HCL 유사 구문의 정책 언어로 `Allow group <그룹> to <동사> <리소스타입> in compartment <컴파트먼트>` 형태로 권한을 정의합니다. 컴파트먼트 계층에서 정책이 상속되며, Identity Domains로 멀티 테넌시 ID 관리와 외부 IdP 페더레이션을 지원합니다.
+
 ## 최소 권한 실천 도구
 
 최소 권한 원칙을 지키려면, 실제 사용되는 권한을 모니터링하고 불필요한 권한을 지속적으로 제거해야 합니다.

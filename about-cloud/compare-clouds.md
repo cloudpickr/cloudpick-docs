@@ -131,28 +131,6 @@ AWS는 직접적인 서비스 비교 페이지를 제공하지 않습니다. 마
 - [Kentik Cloud Latency Map](https://clm.kentik.com/) — AWS, Azure, GCP, Oracle 리전 간 지연 시간
 - [Cloud Ping Test](https://webping.cloud) — 멀티 벤더 동시 비교
 
-## 한국에서의 고려사항
-
-### 한국 리전 지연 시간
-
-한국에서 서비스를 운영한다면, 한국 리전의 지연 시간이 가장 중요한 지표입니다. 글로벌 4사 모두 한국 리전에서 1~5ms 수준의 지연 시간을 제공합니다.
-
-### DR(재해복구) 시 인접 리전
-
-| 벤더 | 한국 리전 | 주요 DR 후보 리전 |
-| --- | --- | --- |
-| AWS | 서울 | 도쿄, 오사카 |
-| Azure | Korea Central, Korea South | **국내 DR 가능** (서울↔부산) |
-| GCP | 서울 | 도쿄, 오사카 |
-| OCI | 서울, 춘천 | **국내 DR 가능** (서울↔춘천) |
-
-### 파트너 생태계
-
-- [AWS 파트너 찾기](https://partners.amazonaws.com/)
-- [Azure 파트너 찾기](https://appsource.microsoft.com/ko-kr/marketplace/partner-dir)
-- [Google Cloud 파트너 찾기](https://cloud.google.com/find-a-partner)
-- [OCI 파트너](https://www.oracle.com/kr/partnernetwork/)
-
 ## 참고하기
 
 ### 커뮤니티 및 리서치

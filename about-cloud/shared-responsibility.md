@@ -44,15 +44,15 @@
 
 예를 들어, EC2(IaaS)를 사용하면 OS 패치부터 사용자 책임이지만, RDS(PaaS)를 사용하면 OS 패치는 AWS가 담당합니다. Google Workspace(SaaS)를 사용하면 애플리케이션 관리까지 Google이 담당하고, 사용자는 데이터와 접근 권한만 관리하면 됩니다.
 
-## 글로벌 5사 비교
+## 글로벌 4사 비교
 
-| 항목 | AWS | Azure | GCP | OCI | IBM Cloud |
-| --- | --- | --- | --- | --- | --- |
-| **모델 이름** | Shared Responsibility Model | Shared Responsibility | Shared Fate | Shared Security Model | Shared Responsibility |
-| **기본 구조** | 전통적 공동 책임 | AWS와 유사 | 공동 운명 모델 | 전통적 + 자동화 강조 | 전통적 + 규제 산업 특화 |
-| **벤더의 추가 지원** | Well-Architected Tool, Trusted Advisor | Defender for Cloud, Secure Score | Security Command Center, Assured Workloads | Cloud Guard, Security Zones | Security & Compliance Center |
-| **보안 기본값** | 사용자가 명시적으로 설정 | 사용자가 명시적으로 설정 | 보안 기본값이 더 엄격 | Security Zones로 자동 강제 | 규제 산업 프리셋 제공 |
-| **공식 문서** | [링크](https://aws.amazon.com/ko/compliance/shared-responsibility-model/) | [링크](https://learn.microsoft.com/ko-kr/azure/security/fundamentals/shared-responsibility) | [링크](https://cloud.google.com/architecture/framework/security/shared-responsibility-shared-fate) | [링크](https://docs.oracle.com/en-us/iaas/Content/Security/Concepts/security_guide.htm) | [링크](https://cloud.ibm.com/docs/overview?topic=overview-shared-responsibilities) |
+| 항목 | AWS | Azure | GCP | OCI |
+| --- | --- | --- | --- | --- |
+| **모델 이름** | Shared Responsibility Model | Shared Responsibility | Shared Fate | Shared Security Model |
+| **기본 구조** | 전통적 공동 책임 | AWS와 유사 | 공동 운명 모델 | 전통적 + 자동화 강조 |
+| **벤더의 추가 지원** | Well-Architected Tool, Trusted Advisor | Defender for Cloud, Secure Score | Security Command Center, Assured Workloads | Cloud Guard, Security Zones |
+| **보안 기본값** | 사용자가 명시적으로 설정 | 사용자가 명시적으로 설정 | 보안 기본값이 더 엄격 | Security Zones로 자동 강제 |
+| **공식 문서** | [링크](https://aws.amazon.com/ko/compliance/shared-responsibility-model/) | [링크](https://learn.microsoft.com/ko-kr/azure/security/fundamentals/shared-responsibility) | [링크](https://cloud.google.com/architecture/framework/security/shared-responsibility-shared-fate) | [링크](https://docs.oracle.com/en-us/iaas/Content/Security/Concepts/security_guide.htm) |
 
 ### AWS — Shared Responsibility Model
 

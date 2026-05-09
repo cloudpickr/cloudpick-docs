@@ -34,18 +34,18 @@
 
 3사 모두 신규 사용자를 위한 무료 사용 범위를 제공합니다. 클라우드를 처음 시작할 때 비용 부담 없이 학습하고 실험할 수 있습니다.
 
-## 글로벌 5사 비교
+## 글로벌 4사 비교
 
-| 과금 모델 | AWS | Azure | GCP | OCI | IBM Cloud |
-| --- | --- | --- | --- | --- | --- |
-| **온디맨드** | On-Demand | Pay-As-You-Go | On-Demand | Pay-As-You-Go | Pay-As-You-Go |
-| **약정 할인 (인스턴스)** | Reserved Instances | Reserved VM Instances | — | — | Reserved Instances |
-| **약정 할인 (유연)** | Savings Plans | Azure Savings Plan | CUD (Committed Use) | Universal Credits | — |
-| **스팟** | Spot Instances | Spot VMs | Spot VMs | Preemptible Instances | — |
-| **자동 할인** | — | — | SUD (Sustained Use) | — | — |
-| **이그레스 무료** | — | — | 200GB/월 | **10TB/월** | — |
-| **프리 티어** | 12개월 + Always Free | 12개월 + Always Free | 90일 $300 + Always Free | Always Free (넉넉) | Lite Plan (Always Free) |
-| **과금 단위** | 초 단위 | 초 단위 | 초 단위 | 초 단위 | 시간 단위 |
+| 과금 모델 | AWS | Azure | GCP | OCI |
+| --- | --- | --- | --- | --- |
+| **온디맨드** | On-Demand | Pay-As-You-Go | On-Demand | Pay-As-You-Go |
+| **약정 할인 (인스턴스)** | Reserved Instances | Reserved VM Instances | — | — |
+| **약정 할인 (유연)** | Savings Plans | Azure Savings Plan | CUD (Committed Use) | Universal Credits |
+| **스팟** | Spot Instances | Spot VMs | Spot VMs | Preemptible Instances |
+| **자동 할인** | — | — | SUD (Sustained Use) | — |
+| **이그레스 무료** | — | — | 200GB/월 | **10TB/월** |
+| **프리 티어** | 12개월 + Always Free | 12개월 + Always Free | 90일 $300 + Always Free | Always Free (넉넉) |
+| **과금 단위** | 초 단위 | 초 단위 | 초 단위 | 초 단위 |
 
 ### 핵심 차이점
 
@@ -54,8 +54,6 @@
 **OCI의 이그레스 정책** — 월 10TB까지 이그레스 무료. 멀티클라우드 환경에서 데이터 이동이 빈번한 경우 큰 비용 차이를 만듦.
 
 **OCI Universal Credits** — 모든 OCI 서비스에 사용 가능한 유연한 약정 모델. 특정 서비스에 묶이지 않음.
-
-**IBM Cloud Lite Plan** — 기간 제한 없이 무료로 사용 가능한 서비스 제공. 소규모 워크로드에 적합.
 
 ## 숨겨진 비용 주의사항
 
@@ -79,12 +77,12 @@ CloudWatch(AWS), Azure Monitor(Azure), Cloud Logging(GCP) 등 모니터링 서�
 
 각 벤더는 비용을 모니터링하고 최적화할 수 있는 도구를 제공합니다.
 
-| 기능 | AWS | Azure | GCP | OCI | IBM Cloud |
-| --- | --- | --- | --- | --- | --- |
-| **비용 대시보드** | Cost Explorer | Cost Management | Cost Management | Cost Analysis | Billing & Usage |
-| **예산 알림** | AWS Budgets | Azure Budgets | Budget Alerts | Budgets | Spending Notifications |
-| **이상 탐지** | Cost Anomaly Detection | Anomaly Alerts | Cost Anomaly Detection | — | — |
-| **최적화 권장** | Trusted Advisor, Compute Optimizer | Azure Advisor | Recommender, Active Assist | Cloud Advisor | — |
+| 기능 | AWS | Azure | GCP | OCI |
+| --- | --- | --- | --- | --- |
+| **비용 대시보드** | Cost Explorer | Cost Management | Cost Management | Cost Analysis |
+| **예산 알림** | AWS Budgets | Azure Budgets | Budget Alerts | Budgets |
+| **이상 탐지** | Cost Anomaly Detection | Anomaly Alerts | Cost Anomaly Detection | — |
+| **최적화 권장** | Trusted Advisor, Compute Optimizer | Azure Advisor | Recommender, Active Assist | Cloud Advisor |
 
 ## 비용 추정 도구 (가격 계산기)
 

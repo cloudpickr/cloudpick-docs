@@ -29,15 +29,15 @@
 
 ## 3사 비교
 
-| 개념 | AWS | Azure | GCP | OCI | IBM Cloud |
-| --- | --- | --- | --- | --- | --- |
-| **리소스 격리 단위** | Account | Subscription | Project | Compartment | Account / Resource Group |
-| **조직** | Organization | Management Group (최상위) | Organization | Tenancy | Enterprise Account |
-| **중간 그룹** | Organizational Unit (OU) | Management Group (중첩 가능) | Folder | Compartment (중첩 가능) | Account Group |
-| **리소스 그룹** | — (태그로 대체) | Resource Group | — (라벨로 대체) | Compartment | Resource Group |
-| **정책 제어** | SCP (Service Control Policy) | Azure Policy | Organization Policy | IAM Policy (Compartment 상속) | IAM Access Group |
-| **빌링 단위** | Account (통합 빌링 가능) | Subscription | Billing Account → Project | Tenancy | Account |
-| **계정 생성** | Organizations API로 자동 생성 | 수동 또는 자동화 | Projects API로 자동 생성 | Compartment API | API 또는 콘솔 |
+| 개념 | AWS | Azure | GCP | OCI |
+| --- | --- | --- | --- | --- |
+| **리소스 격리 단위** | Account | Subscription | Project | Compartment |
+| **조직** | Organization | Management Group (최상위) | Organization | Tenancy |
+| **중간 그룹** | Organizational Unit (OU) | Management Group (중첩 가능) | Folder | Compartment (중첩 가능) |
+| **리소스 그룹** | — (태그로 대체) | Resource Group | — (라벨로 대체) | Compartment |
+| **정책 제어** | SCP (Service Control Policy) | Azure Policy | Organization Policy | IAM Policy (Compartment 상속) |
+| **빌링 단위** | Account (통합 빌링 가능) | Subscription | Billing Account → Project | Tenancy |
+| **계정 생성** | Organizations API로 자동 생성 | 수동 또는 자동화 | Projects API로 자동 생성 | Compartment API |
 
 ### AWS — Organization → OU → Account
 

@@ -1,20 +1,20 @@
 # 벤더 비교하기
 
-## 글로벌 5사 한눈에 보기
+## 글로벌 4사 한눈에 보기
 
-| 항목 | AWS | Azure | GCP | OCI | IBM Cloud |
-| --- | --- | --- | --- | --- | --- |
-| **운영사** | Amazon | Microsoft | Google | Oracle | IBM |
-| **출시** | 2006년 | 2010년 | 2008년 | 2016년 (Gen2) | 2013년 (SoftLayer 인수) |
-| **시장 점유율** | 1위 (~31%) | 2위 (~25%) | 3위 (~11%) | 4위 (~2%) | 5위 (~2%) |
-| **서비스 수** | 200+ | 200+ | 150+ | 80+ | 170+ |
-| **한국 리전** | 서울 (4 AZ) | 서울, 부산 | 서울 (3 Zone) | 서울, 춘천 | 없음 (도쿄 최근접) |
-| **강점** | 가장 넓은 포트폴리오, 최대 커뮤니티 | 엔터프라이즈(M365, AD), 하이브리드 | AI/ML(Vertex AI, TPU), 데이터(BigQuery) | DB(Autonomous DB), 가격 경쟁력 | 하이브리드(OpenShift), 메인프레임 현대화 |
-| **콘솔** | [Console](https://console.aws.amazon.com) | [Portal](https://portal.azure.com) | [Console](https://console.cloud.google.com) | [Console](https://cloud.oracle.com) | [Console](https://cloud.ibm.com) |
+| 항목 | AWS | Azure | GCP | OCI |
+| --- | --- | --- | --- | --- |
+| **운영사** | Amazon | Microsoft | Google | Oracle |
+| **출시** | 2006년 | 2010년 | 2008년 | 2016년 (Gen2) |
+| **시장 점유율** | 1위 (~31%) | 2위 (~25%) | 3위 (~11%) | 4위 (~2%) |
+| **서비스 수** | 200+ | 200+ | 150+ | 80+ |
+| **한국 리전** | 서울 (4 AZ) | 서울, 부산 | 서울 (3 Zone) | 서울, 춘천 |
+| **강점** | 가장 넓은 포트폴리오, 최대 커뮤니티 | 엔터프라이즈(M365, AD), 하이브리드 | AI/ML(Vertex AI, TPU), 데이터(BigQuery) | DB(Autonomous DB), 가격 경쟁력 |
+| **콘솔** | [Console](https://console.aws.amazon.com) | [Portal](https://portal.azure.com) | [Console](https://console.cloud.google.com) | [Console](https://cloud.oracle.com) |
 
 > 시장 점유율은 Synergy Research Group 2024년 기준 추정치이며, 측정 방법에 따라 차이가 있을 수 있습니다.
 
-## 글로벌 5사 각 사 특징
+## 글로벌 4사 각 사 특징
 
 ### AWS — 가장 넓은 서비스 포트폴리오
 
@@ -47,14 +47,6 @@ Oracle의 데이터베이스 기술력을 클라우드로 확장한 OCI는 Oracl
 - **핵심 강점:** Autonomous Database, Oracle DB 최적화, 이그레스 비용 저렴(10TB/월 무료)
 - **차별점:** 이그레스 10TB/월 무료, Dedicated Region(고객 DC에 OCI 설치), MySQL HeatWave
 - **한국 리전:** 서울(`ap-seoul-1`), 춘천(`ap-chuncheon-1`)
-
-### IBM Cloud — 하이브리드와 메인프레임 현대화
-
-IBM의 엔터프라이즈 레거시 현대화 역량과 Red Hat OpenShift 기반 하이브리드 클라우드에 강점이 있습니다. 금융·의료 등 규제 산업에서의 컴플라이언스 역량이 뛰어납니다.
-
-- **핵심 강점:** Red Hat OpenShift 통합, 메인프레임 현대화(z/OS), 금융/의료 컴플라이언스
-- **차별점:** IBM Cloud Satellite(어디서든 IBM Cloud 서비스 실행), watsonx(엔터프라이즈 AI), Confidential Computing
-- **한국 리전:** 없음 (최근접: 도쿄, 오사카)
 
 ## 국내 4사 한눈에 보기
 
@@ -146,10 +138,6 @@ Azure는 AWS와 GCP 사용자를 위한 전환 가이드를 가장 체계적으�
 - [AWS에서 OCI로 마이그레이션](https://docs.oracle.com/en/solutions/migrate-aws-to-oci/)
 - [OCI vs AWS 서비스 비교](https://docs.oracle.com/en-us/iaas/Content/General/Reference/awscomparison.htm)
 
-### IBM Cloud
-
-- [AWS에서 IBM Cloud로](https://cloud.ibm.com/docs/overview?topic=overview-compare-aws)
-
 ### AWS
 
 AWS는 직접적인 서비스 비교 페이지를 제공하지 않습니다. 마이그레이션 가이드를 중심으로 자료를 제공합니다.
@@ -158,7 +146,7 @@ AWS는 직접적인 서비스 비교 페이지를 제공하지 않습니다. 마
 
 ## 3rd Party 비교 자료
 
-- [Public Cloud Services Comparison](https://comparecloud.in) — AWS, Azure, GCP, IBM Cloud, Oracle Cloud 서비스 카테고리별 비교
+- [Public Cloud Services Comparison](https://comparecloud.in) — AWS, Azure, GCP, Oracle Cloud 서비스 카테고리별 비교
   - [소스 코드](https://github.com/ilyas-it83/CloudComparer/)
 
 ## 속도 비교
@@ -173,7 +161,7 @@ AWS는 직접적인 서비스 비교 페이지를 제공하지 않습니다. 마
 
 - [GCPing](https://gcping.com) — GCP 리전별 지연 시간 측정
 - [Azure Speed Test 2.0](https://azurespeedtest.azurewebsites.net) — Azure 리전별 지연 시간 측정
-- [Kentik Cloud Latency Map](https://clm.kentik.com/) — AWS, Azure, GCP, IBM, Oracle 리전 간 지연 시간
+- [Kentik Cloud Latency Map](https://clm.kentik.com/) — AWS, Azure, GCP, Oracle 리전 간 지연 시간
 - [Cloud Ping Test](https://webping.cloud) — 멀티 벤더 동시 비교
 
 ## 한국에서의 고려사항
@@ -190,7 +178,6 @@ AWS는 직접적인 서비스 비교 페이지를 제공하지 않습니다. 마
 | Azure | Korea Central, Korea South | **국내 DR 가능** (서울↔부산) |
 | GCP | 서울 | 도쿄, 오사카 |
 | OCI | 서울, 춘천 | **국내 DR 가능** (서울↔춘천) |
-| IBM Cloud | — | 도쿄, 오사카 |
 | NCP | 수도권 2개 | 리전 간 DR 가능 |
 | KT Cloud | 수도권, 대전 | 리전 간 DR 가능 |
 | NHN Cloud | 판교, 평촌 | 리전 간 DR 가능 |
@@ -202,7 +189,6 @@ AWS는 직접적인 서비스 비교 페이지를 제공하지 않습니다. 마
 - [Azure 파트너 찾기](https://appsource.microsoft.com/ko-kr/marketplace/partner-dir)
 - [Google Cloud 파트너 찾기](https://cloud.google.com/find-a-partner)
 - [OCI 파트너](https://www.oracle.com/kr/partnernetwork/)
-- [IBM Cloud 파트너](https://www.ibm.com/kr-ko/partnerplus)
 
 ## 참고하기
 
@@ -212,13 +198,12 @@ AWS는 직접적인 서비스 비교 페이지를 제공하지 않습니다. 마
 - [Gartner Magic Quadrant for Cloud Infrastructure](https://www.gartner.com/reviews/market/cloud-infrastructure-and-platform-services) — 클라우드 벤더 평가
 - [CNCF Cloud Native Survey](https://www.cncf.io/reports/cncf-annual-survey-2024/) — 클라우드 채택 현황 통계
 
-### 글로벌 5사
+### 글로벌 4사
 
 - [AWS 제품](https://aws.amazon.com/ko/products/)
 - [Azure 제품](https://azure.microsoft.com/ko-kr/products/)
 - [Google Cloud 제품](https://cloud.google.com/products)
 - [OCI 서비스](https://www.oracle.com/kr/cloud/)
-- [IBM Cloud 제품](https://www.ibm.com/kr-ko/cloud/products)
 
 ### 국내 4사
 

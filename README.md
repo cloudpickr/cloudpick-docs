@@ -24,7 +24,6 @@ CloudPick 은 점점 복잡해지는 클라우의 개념, 이론을 알기 쉽�
 | 글로벌 | [Azure](https://azure.microsoft.com/ko-kr/) | Microsoft Azure | [Portal](https://portal.azure.com) |
 | 글로벌 | [GCP](https://cloud.google.com/) | Google Cloud Platform | [Console](https://console.cloud.google.com) |
 | 글로벌 | [OCI](https://www.oracle.com/kr/cloud/) | Oracle Cloud Infrastructure | [Console](https://cloud.oracle.com) |
-| 글로벌 | [IBM Cloud](https://www.ibm.com/kr-ko/cloud) | IBM Cloud | [Console](https://cloud.ibm.com) |
 | 국내 | [NCP](https://www.ncloud.com/) | Naver Cloud Platform | [Console](https://console.ncloud.com) |
 | 국내 | [KT Cloud](https://cloud.kt.com/) | KT 클라우드 | [Console](https://cloud.kt.com/console) |
 | 국내 | [NHN Cloud](https://www.nhncloud.com/) | NHN 클라우드 | [Console](https://console.nhncloud.com) |

@@ -4,6 +4,8 @@
 
 멀티클라우드는 **둘 이상의 퍼블릭 클라우드 벤더를 의도적으로 조합하여 운영하는 전략**입니다. 단순히 여러 벤더의 계정을 보유하는 것이 아니라, 워크로드를 목적에 맞게 분산 배치하고 통합 운영하는 것을 의미합니다.
 
+> ISO/IEC 22123-1은 멀티클라우드를 "둘 이상의 클라우드 서비스 제공자가 제공하는 퍼블릭 클라우드 서비스를 사용하는 클라우드 배포 모델"로 정의합니다.
+
 비슷해 보이지만 다른 개념들과 구분해 봅시다.
 
 | 전략 | 정의 | 예시 |
@@ -13,6 +15,14 @@
 | **멀티 계정** | 단일 벤더 내에서 여러 계정을 운영 | AWS Organizations로 dev/staging/prod 분리 |
 
 > 실무에서는 이 세 가지가 겹치는 경우가 많습니다. "온프레미스 + AWS + NCP"를 운영한다면 하이브리드이면서 동시에 멀티클라우드입니다.
+
+## 채택 현황
+
+멀티클라우드는 이미 주류 전략입니다.
+
+- CNCF Annual Survey 2024에 따르면, 기업의 약 60%가 2개 이상의 클라우드를 사용하고 있습니다.
+- Flexera 2024 State of the Cloud Report는 기업의 89%가 멀티클라우드 전략을 채택했다고 보고합니다.
+- 한국에서는 공공 부문의 CSAP 규제와 글로벌 서비스 요구가 결합되어, 의도적이든 비의도적이든 멀티클라우드가 사실상 표준이 되고 있습니다.
 
 ## 도입 동기
 
@@ -100,6 +110,30 @@
 
 > **핵심 원칙:** 멀티클라우드는 목적이 아니라 수단입니다. "왜 여러 벤더를 써야 하는가?"에 명확한 답이 없다면, 단일 벤더에서 잘 운영하는 것이 더 좋은 전략입니다.
 
+## 한국에서의 멀티클라우드 패턴
+
+한국 기업이 멀티클라우드를 도입하는 가장 흔한 시나리오를 정리합니다.
+
+### 패턴 1: 공공 + 글로벌 분리
+
+| 워크로드 | 벤더 | 이유 |
+| --- | --- | --- |
+| 공공기관 대민 서비스 | NCP, KT Cloud | CSAP 인증 필수 |
+| 글로벌 사용자 대상 서비스 | AWS, GCP | 글로벌 리전, CDN |
+| 사내 업무 시스템 | Azure | Microsoft 365 연동 |
+
+### 패턴 2: 서비스 특화 조합
+
+| 워크로드 | 벤더 | 이유 |
+| --- | --- | --- |
+| AI/ML 학습 | GCP (TPU, Vertex AI) | GPU/TPU 가성비 |
+| 서비스 인프라 | AWS | 가장 넓은 서비스 포트폴리오 |
+| 데이터 분석 | GCP (BigQuery) | 서버리스 분석 |
+
+### 패턴 3: M&A 후 공존
+
+인수합병 후 피인수 기업의 기존 클라우드를 즉시 마이그레이션하지 않고, 멀티클라우드로 공존하면서 점진적으로 통합합니다.
+
 ## 멀티클라우드를 시작하기 전 체크리스트
 
 멀티클라우드 도입을 검토 중이라면, 아래 질문에 답해 보세요.
@@ -115,3 +149,30 @@
 ---
 
 다음 문서에서는 각 클라우드 벤더의 특징과 강점을 비교합니다.
+
+## 참고하기
+
+### 표준 및 프레임워크
+
+- [ISO/IEC 22123-1 — Cloud computing: Concepts and terminology](https://www.iso.org/standard/82758.html) — 멀티클라우드 공식 정의
+- [ISO/IEC 22123-3 — Multi-cloud reference architecture](https://www.iso.org/standard/90339.html) — 멀티클라우드 ID 관리 표준
+- [NIST SP 500-292 — Cloud Computing Reference Architecture](https://www.nist.gov/publications/nist-cloud-computing-reference-architecture) — 클라우드 레퍼런스 아키텍처
+- [NIST Multi-Cloud Security Public Working Group](https://csrc.nist.gov/projects/mcspwg/nccp) — 멀티클라우드 보안 레퍼런스
+
+### 커뮤니티 및 리서치
+
+- [CNCF Annual Survey 2024](https://www.cncf.io/reports/cncf-annual-survey-2024/) — 클라우드 네이티브 채택 현황, 멀티클라우드 통계
+- [FinOps Foundation — FOCUS Specification](https://finops.org/framework) — 멀티클라우드 비용 데이터 표준화
+- [Cloud Security Alliance — Security Guidance](https://cloudsecurityalliance.org/research/guidance) — 멀티클라우드 보안 가이드
+
+### 벤더 레퍼런스 아키텍처
+
+- [Google Cloud — Hybrid and Multi-cloud Reference Architectures](https://cloud.google.com/architecture/network-hybrid-multicloud)
+- [Azure — Cloud Adoption Framework](https://learn.microsoft.com/azure/cloud-adoption-framework/)
+- [AWS — Prescriptive Guidance: Strategy for multicloud](https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-multicloud/welcome.html)
+
+### 한국 관련
+
+- [KISA (한국인터넷진흥원)](https://www.kisa.or.kr/) — CSAP 인증 운영, 클라우드 보안 가이드
+- [NIPA (정보통신산업진흥원)](https://www.nipa.kr/) — 클라우드 산업 육성, 공공 클라우드 전환 지원
+- [한국클라우드산업협회](https://kcloud.or.kr/) — 국내 클라우드 업계 협의체

@@ -72,6 +72,10 @@
 | AWS | `ap-northeast-2` (서울) | 4개 AZ | 2016년 |
 | Azure | Korea Central (서울), Korea South (부산) | 3개 AZ (Central) | 2017년 |
 | GCP | `asia-northeast3` (서울) | 3개 Zone | 2020년 |
+| OCI | `ap-seoul-1`, `ap-chuncheon-1` | 3개 FD | 2020년 |
+| NCP | 수도권 2개 리전 | 2개 Zone | 2017년 |
+| KT Cloud | 수도권, 대전 등 | Zone 구분 | 2012년 |
+| NHN Cloud | 판교, 평촌 | 2개 Zone | 2019년 |
 
 AWS는 2016년에 가장 먼저 한국 리전을 개설했으며, 현재 4개의 AZ를 운영하고 있습니다. Azure는 서울과 부산 두 개의 리전을 보유하고 있어 국내에서 리전 간 DR 구성이 가능합니다. GCP는 2020년에 서울 리전을 개설했으며, 3개의 Zone을 운영하고 있습니다.
 

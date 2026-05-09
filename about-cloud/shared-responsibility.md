@@ -113,6 +113,12 @@ S3 버킷, Azure Blob, GCS 버킷을 실수로 퍼블릭으로 설정하여 데�
 
 ## 참고하기
 
+### 표준 및 프레임워크
+
+- [Cloud Security Alliance — Security Guidance v4](https://cloudsecurityalliance.org/research/guidance) — 클라우드 보안 모범 사례
+- [Cloud Security Alliance — Cloud Controls Matrix (CCM)](https://cloudsecurityalliance.org/research/cloud-controls-matrix) — 클라우드 보안 통제 프레임워크
+- [NIST SP 800-144 — Guidelines on Security and Privacy in Public Cloud Computing](https://csrc.nist.gov/publications/detail/sp/800-144/final)
+
 ### AWS
 
 - [공동 책임 모델](https://aws.amazon.com/ko/compliance/shared-responsibility-model/)

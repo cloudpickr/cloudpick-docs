@@ -113,6 +113,12 @@ CloudWatch(AWS), Azure Monitor(Azure), Cloud Logging(GCP) 등 모니터링 서�
 
 ## 참고하기
 
+### 표준 및 프레임워크
+
+- [FinOps Foundation — FinOps Framework](https://finops.org/framework) — 클라우드 비용 관리 프레임워크
+- [FinOps Foundation — FOCUS Specification](https://focus.finops.org/) — 멀티클라우드 비용 데이터 표준화 스펙
+- [Flexera State of the Cloud Report](https://www.flexera.com/blog/cloud/cloud-computing-trends/) — 연간 클라우드 비용/채택 현황 리포트
+
 ### AWS
 
 - [AWS 요금](https://aws.amazon.com/ko/pricing/)

@@ -184,3 +184,30 @@ AWS Transit Gateway를 허브로 사용하고, Azure/GCP를 VPN으로 연결하�
 ---
 
 다음 문서에서는 공동 책임 모델을 통해 각 벤더와 사용자의 보안 책임 범위를 살펴봅니다.
+
+## 참고하기
+
+### 벤더 레퍼런스 아키텍처
+
+- [Google Cloud — Hybrid and Multi-cloud Network Architectures](https://cloud.google.com/architecture/network-hybrid-multicloud)
+- [AWS — Hybrid Connectivity](https://docs.aws.amazon.com/whitepapers/latest/hybrid-connectivity/hybrid-connectivity.html)
+- [Azure — Hub-spoke Network Topology](https://learn.microsoft.com/azure/architecture/networking/architecture/hub-spoke)
+
+### 전용 연결 및 IX
+
+- [AWS Direct Connect](https://aws.amazon.com/ko/directconnect/)
+- [Azure ExpressRoute](https://azure.microsoft.com/ko-kr/products/expressroute/)
+- [Google Cloud Interconnect](https://cloud.google.com/network-connectivity/docs/interconnect)
+- [KINX (한국인터넷교환노드)](https://www.kinx.net/) — 국내 최대 IX, 멀티클라우드 연결
+- [Megaport](https://www.megaport.com/) — 글로벌 Cloud Exchange
+
+### 표준 및 프레임워크
+
+- [NIST Multi-Cloud Security Public Working Group](https://csrc.nist.gov/projects/mcspwg/nccp) — 멀티클라우드 네트워크 보안
+- [RFC 1918 — Address Allocation for Private Internets](https://www.rfc-editor.org/rfc/rfc1918) — 프라이빗 IP 대역 표준
+
+### 국내 클라우드 VPN/전용연결
+
+- [NCP IPsec VPN](https://www.ncloud.com/product/networking/ipsecVpn)
+- [KT Cloud VPN](https://cloud.kt.com/product/networking/)
+- [NHN Cloud VPN Gateway](https://www.nhncloud.com/kr/service/network)

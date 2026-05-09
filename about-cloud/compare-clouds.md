@@ -76,6 +76,42 @@ AWS는 경쟁사와의 직접적인 서비스 비교 페이지를 제공하지 �
 
 ## 한국에서의 고려사항
 
+### 국내 클라우드 벤더
+
+한국에서 멀티클라우드를 운영할 때, 글로벌 3사만으로는 충분하지 않은 경우가 많습니다. 공공 부문의 CSAP 인증 요건, 국내 데이터 주권 규제, 한국어 기술 지원 등의 이유로 국내 클라우드 벤더를 함께 사용하는 것이 일반적입니다.
+
+| 항목 | NCP (Naver Cloud) | KT Cloud | NHN Cloud |
+| --- | --- | --- | --- |
+| **운영사** | 네이버클라우드 | KT | NHN |
+| **한국 리전** | 수도권 2개 | 수도권, 대전 등 | 판교, 평촌 |
+| **CSAP 인증** | 상·중 | 상·중 | 상·중 |
+| **강점 영역** | AI(HyperCLOVA), 한국어 서비스, 공공 | 네트워크 인프라, 통신 연동, 공공 | 게임 인프라, 콘텐츠, 공공 |
+| **글로벌 리전** | 일본, 싱가포르, 미국, 독일 등 | 제한적 | 일본, 미국 |
+| **콘솔** | [console.ncloud.com](https://console.ncloud.com) | [cloud.kt.com/console](https://cloud.kt.com/console) | [console.nhncloud.com](https://console.nhncloud.com) |
+| **IaC 지원** | Terraform Provider 공식 제공 | Terraform Provider 제공 | Terraform Provider 제공 |
+
+### CSAP 인증 현황
+
+CSAP(클라우드 보안 인증 제도)은 한국 공공기관이 클라우드를 도입할 때 필수적으로 확인해야 하는 인증입니다.
+
+| 등급 | 대상 시스템 | 인증 벤더 (2025년 기준) |
+| --- | --- | --- |
+| **상** | 민감 정보 처리 시스템 | NCP, KT Cloud, NHN Cloud |
+| **중** | 일반 업무 시스템 | 위 + AWS, Azure, GCP (일부 서비스) |
+
+> 현재 CSAP에서 N2SF(국가망보안체계)로의 전환이 진행 중입니다. 도입 시 최신 현황을 확인하세요.
+
+### 글로벌 + 국내 혼용 패턴
+
+한국 기업에서 가장 흔한 멀티클라우드 조합입니다.
+
+| 패턴 | 조합 | 적합한 상황 |
+| --- | --- | --- |
+| **공공 + 글로벌** | NCP(공공) + AWS(글로벌) | 공공기관 SI, 글로벌 서비스 동시 운영 |
+| **엔터프라이즈 + 공공** | Azure(사내 시스템) + KT Cloud(공공) | Microsoft 365 사용 기업의 공공 사업 |
+| **AI + 인프라** | GCP(AI/ML) + NCP(서비스 인프라) | AI 스타트업의 공공 진출 |
+| **게임** | AWS(글로벌 서버) + NHN Cloud(국내 서버) | 글로벌 게임사의 국내 서비스 |
+
 ### 한국 리전 지연 시간
 
 한국에서 서비스를 운영한다면, 한국 리전의 지연 시간이 가장 중요한 지표입니다. 위의 속도 비교 도구를 사용하여 직접 측정해 보는 것을 권장합니다. 일반적으로 한국 리전 간 지연 시간은 3사 모두 1~5ms 수준으로 큰 차이가 없습니다.
@@ -101,6 +137,19 @@ Azure는 한국에 서울과 부산 두 개의 리전을 보유하고 있어, �
 - [Google Cloud 파트너 찾기](https://cloud.google.com/find-a-partner)
 
 ## 참고하기
+
+### 커뮤니티 및 리서치
+
+- [Synergy Research Group](https://www.srgresearch.com/) — 클라우드 시장 점유율 분기별 보고
+- [Gartner Magic Quadrant for Cloud Infrastructure](https://www.gartner.com/reviews/market/cloud-infrastructure-and-platform-services) — 클라우드 벤더 평가
+- [CNCF Cloud Native Survey](https://www.cncf.io/reports/cncf-annual-survey-2024/) — 클라우드 채택 현황 통계
+
+### 국내 클라우드
+
+- [Naver Cloud Platform](https://www.ncloud.com/) — [서비스 소개](https://www.ncloud.com/product)
+- [KT Cloud](https://cloud.kt.com/) — [서비스 소개](https://cloud.kt.com/product/)
+- [NHN Cloud](https://www.nhncloud.com/) — [서비스 소개](https://www.nhncloud.com/kr/service)
+- [KISA CSAP 인증 현황](https://www.kisa.or.kr/) — 클라우드 보안 인증 제도
 
 ### AWS
 

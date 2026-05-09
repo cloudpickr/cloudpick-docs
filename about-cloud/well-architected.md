@@ -121,6 +121,12 @@ Well-Architected Framework의 보안 Pillar를 적용할 때, 한국의 컴플�
 
 ## 참고하기
 
+### 표준 및 프레임워크
+
+- [CNCF Cloud Native Trail Map](https://landscape.cncf.io/) — 클라우드 네이티브 기술 채택 가이드
+- [The Twelve-Factor App](https://12factor.net/) — 클라우드 네이티브 애플리케이션 설계 원칙
+- [ISO/IEC 25010 — Systems and software quality models](https://www.iso.org/standard/35733.html) — 소프트웨어 품질 모델
+
 ### AWS
 
 - [Well-Architected Framework](https://aws.amazon.com/ko/architecture/well-architected/)

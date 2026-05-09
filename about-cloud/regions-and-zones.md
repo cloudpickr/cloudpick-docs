@@ -33,13 +33,12 @@
 
 ### 핵심 차이점
 
-**AWS** — Region → Availability Zone 구조. 각 리전은 최소 3개 AZ. Local Zone으로 특정 도시에 초저지연 인프라 배치 가능.
-
-**Azure** — Geography → Region → Availability Zone 구조. 같은 Geography 내 두 리전이 **리전 쌍(Region Pair)**으로 지정되어 플랫폼 업데이트가 동시에 적용되지 않음. 한국: Korea Central ↔ Korea South.
-
-**GCP** — Region → Zone 구조. **VPC가 글로벌**이라 하나의 VPC 안에 여러 리전의 서브넷 배치 가능. Multi-region 스토리지로 자동 복제.
-
-**OCI** — Realm → Region → Availability Domain(AD) → Fault Domain 구조. 대형 리전은 3개 AD, 소형 리전은 1개 AD + 3개 Fault Domain. **Dedicated Region**으로 고객 DC에 OCI 전체를 설치 가능.
+| 벤더 | 계층 구조 | VPC 범위 | 고유 특징 |
+| --- | --- | --- | --- |
+| **AWS** | Region → AZ | 리전 단위 | Local Zone (특정 도시에 초저지연 인프라 배치) |
+| **Azure** | Geography → Region → AZ | 리전 단위 | 리전 쌍(Region Pair): 같은 Geography 내 두 리전이 쌍으로 지정되어 플랫폼 업데이트가 동시에 적용되지 않음. 한국: `koreacentral` ↔ `koreasouth` |
+| **GCP** | Region → Zone | **글로벌** (하나의 VPC에 여러 리전의 서브넷 배치 가능) | Multi-region 스토리지로 자동 복제 |
+| **OCI** | Realm → Region → AD → Fault Domain | 리전 단위 | Dedicated Region (고객 DC에 OCI 전체를 설치). 대형 리전은 3개 AD, 소형 리전은 1개 AD + 3 Fault Domain |
 
 ## 리전 선택 시 고려사항
 

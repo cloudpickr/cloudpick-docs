@@ -15,18 +15,19 @@
 | AWS | VPC | 리전 단위. 서브넷은 AZ 단위 |
 | Azure | VNet (Virtual Network) | 리전 단위. 서브넷은 리전 내 자유 배치 |
 | GCP | VPC | **글로벌** (리전에 종속되지 않음). 서브넷이 리전 단위 |
+| OCI | VCN (Virtual Cloud Network) | 리전 단위. 서브넷은 리전 또는 AD 단위 |
 
 ### 보안 (네트워크 방화벽)
 
 클라우드 네트워크 보안은 여러 계층으로 구성됩니다.
 
-| 계층 | AWS | Azure | GCP | 비고 |
-| --- | --- | --- | --- | --- |
-| **인스턴스 단위** | Security Groups (상태 유지) | NSG | Firewall Rules (태그 기반) | 가장 기본. 인바운드/아웃바운드 규칙 |
-| **서브넷 단위** | Network ACL (상태 비유지) | NSG (서브넷 연결) | — | 서브넷 경계에서 필터링 |
-| **VPC 단위 (IDS/IPS)** | Network Firewall | Azure Firewall | Cloud Firewall | L7 검사, 위협 인텔리전스, 도메인 필터링 |
-| **DDoS 방어** | Shield (Standard 무료 / Advanced 유료) | DDoS Protection | Cloud Armor | L3/L4 DDoS 자동 완화 |
-| **웹 앱 방화벽 (WAF)** | AWS WAF | Azure WAF | Cloud Armor WAF | L7 공격 차단 (SQL Injection, XSS 등) |
+| 계층 | AWS | Azure | GCP | OCI | 비고 |
+| --- | --- | --- | --- | --- | --- |
+| **인스턴스 단위** | Security Groups (상태 유지) | NSG | Firewall Rules (태그 기반) | Security Lists / NSG | 가장 기본. 인바운드/아웃바운드 규칙 |
+| **서브넷 단위** | Network ACL (상태 비유지) | NSG (서브넷 연결) | — | Security Lists (서브넷 연결) | 서브넷 경계에서 필터링 |
+| **VPC 단위 (IDS/IPS)** | Network Firewall | Azure Firewall | Cloud Firewall | OCI Network Firewall | L7 검사, 위협 인텔리전스, 도메인 필터링 |
+| **DDoS 방어** | Shield (Standard 무료 / Advanced 유료) | DDoS Protection | Cloud Armor | OCI WAF (DDoS 보호 포함) | L3/L4 DDoS 자동 완화 |
+| **웹 앱 방화벽 (WAF)** | AWS WAF | Azure WAF | Cloud Armor WAF | OCI WAF | L7 공격 차단 (SQL Injection, XSS 등) |
 
 Security Groups/NSG만으로 기본 보안은 가능하지만, 프로덕션 환경에서는 VPC 단위 방화벽과 WAF를 추가하여 심층 방어(Defense in Depth)를 구성하는 것을 권장합니다.
 
@@ -39,6 +40,7 @@ Security Groups/NSG만으로 기본 보안은 가능하지만, 프로덕션 환�
 | AWS | NAT Gateway | AZ 단위. 고가용성을 위해 AZ별로 생성 권장 |
 | Azure | NAT Gateway | 서브넷 단위 연결 |
 | GCP | Cloud NAT | 리전 단위. VM에 외부 IP 없이 인터넷 접근 가능 |
+| OCI | NAT Gateway | VCN 단위. 프라이빗 서브넷의 아웃바운드 인터넷 접근 |
 
 > NAT Gateway는 시간당 비용 + 데이터 처리 비용이 발생합니다. 대량 아웃바운드 트래픽이 있는 경우 비용에 주의해야 합니다.
 
@@ -49,6 +51,7 @@ Security Groups/NSG만으로 기본 보안은 가능하지만, 프로덕션 환�
 | AWS | Direct Connect / Site-to-Site VPN | |
 | Azure | ExpressRoute / VPN Gateway | |
 | GCP | Cloud Interconnect / Cloud VPN | |
+| OCI | FastConnect / Site-to-Site VPN | |
 
 ## 핵심 차이점
 
@@ -72,3 +75,9 @@ Security Groups/NSG만으로 기본 보안은 가능하지만, 프로덕션 환�
 
 - [Google Cloud VPC 문서](https://cloud.google.com/vpc/docs)
 - [Google Cloud 방화벽 규칙](https://cloud.google.com/firewall/docs/firewalls)
+
+### OCI
+
+- [OCI VCN 문서](https://docs.oracle.com/en-us/iaas/Content/Network/Concepts/overview.htm)
+- [OCI Security Lists](https://docs.oracle.com/en-us/iaas/Content/Network/Concepts/securitylists.htm)
+- [OCI Network Security Groups](https://docs.oracle.com/en-us/iaas/Content/Network/Concepts/networksecuritygroups.htm)

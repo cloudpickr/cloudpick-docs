@@ -21,6 +21,7 @@
 | AWS | SSM Parameter Store | 간단한 키-값 저장. 무료 티어 있음. 자동 교체는 제한적 |
 | Azure | Key Vault (Secrets) | 시크릿 + 키 + 인증서 통합 관리 |
 | GCP | Secret Manager | 버전 관리 내장. IAM으로 접근 제어 |
+| OCI | OCI Vault (Secrets) | 시크릿 저장 + 버전 관리. IAM 정책으로 접근 제어 |
 
 ### 암호화 키 관리 (KMS)
 
@@ -31,6 +32,7 @@
 | AWS | KMS (Key Management Service) | 벤더 관리 키 / 고객 관리 키(CMK) / BYOK |
 | Azure | Key Vault (Keys) | HSM 지원. Managed HSM으로 전용 HSM |
 | GCP | Cloud KMS | HSM, 외부 키 관리(EKM) 지원 |
+| OCI | OCI Vault (Keys) | 소프트웨어 키 / HSM 키. BYOK 지원 |
 
 ### 인증서 관리
 
@@ -39,6 +41,7 @@
 | AWS | ACM (Certificate Manager) | 무료 공인 인증서 발급. ALB/CloudFront 자동 연동 |
 | Azure | App Service Certificates / Key Vault | Key Vault에서 인증서 수명 주기 관리 |
 | GCP | Certificate Manager | 무료 관리형 인증서. Load Balancer 자동 연동 |
+| OCI | OCI Certificates | 인증서 발급 및 수명 주기 관리. Load Balancer 연동 |
 
 ## 핵심 차이점
 
@@ -68,3 +71,8 @@
 - [Secret Manager 문서](https://cloud.google.com/secret-manager/docs)
 - [Cloud KMS 문서](https://cloud.google.com/kms/docs)
 - [Certificate Manager 문서](https://cloud.google.com/certificate-manager/docs)
+
+### OCI
+
+- [OCI Vault 문서](https://docs.oracle.com/en-us/iaas/Content/KeyManagement/home.htm)
+- [OCI Certificates 문서](https://docs.oracle.com/en-us/iaas/Content/certificates/home.htm)

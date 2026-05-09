@@ -17,6 +17,7 @@ VM은 유연하지만, 하나의 앱을 배포하기 위해 OS 전체를 포함�
 | AWS | EKS (Elastic Kubernetes Service) | 컨트롤 플레인 유료 |
 | Azure | AKS (Azure Kubernetes Service) | 컨트롤 플레인 무료 |
 | GCP | GKE (Google Kubernetes Engine) | Autopilot 모드: 노드 관리 불필요, Pod 단위 과금 |
+| OCI | OKE (Oracle Kubernetes Engine) | 컨트롤 플레인 무료. Virtual Nodes로 서버리스 운영 가능 |
 
 ### 서버리스 / 간편 컨테이너 실행
 
@@ -28,6 +29,7 @@ VM은 유연하지만, 하나의 앱을 배포하기 위해 OS 전체를 포함�
 | Azure | Container Apps | K8s 기반이나 복잡성 숨김. 이벤트 기반 스케일링 내장 |
 | Azure | Container Instances (ACI) | 단일 컨테이너 빠르게 실행 |
 | GCP | Cloud Run | HTTP 기반 서버리스 컨테이너. 기존 앱 전환 용이 |
+| OCI | OCI Container Instances | 서버 관리 없이 컨테이너 실행 |
 
 ### 컨테이너 레지스트리
 
@@ -36,6 +38,7 @@ VM은 유연하지만, 하나의 앱을 배포하기 위해 OS 전체를 포함�
 | AWS | ECR (Elastic Container Registry) | |
 | Azure | ACR (Azure Container Registry) | |
 | GCP | Artifact Registry | 컨테이너 외 패키지도 지원 |
+| OCI | OCI Container Registry (OCIR) | |
 
 ## 핵심 차이점
 
@@ -62,3 +65,9 @@ VM은 유연하지만, 하나의 앱을 배포하기 위해 OS 전체를 포함�
 - [Google Kubernetes Engine 문서](https://cloud.google.com/kubernetes-engine/docs)
 - [Google Cloud Run 문서](https://cloud.google.com/run/docs)
 - [Google Artifact Registry 문서](https://cloud.google.com/artifact-registry/docs)
+
+### OCI
+
+- [OKE (Oracle Kubernetes Engine) 문서](https://docs.oracle.com/en-us/iaas/Content/ContEng/home.htm)
+- [OCI Container Instances 문서](https://docs.oracle.com/en-us/iaas/Content/container-instances/home.htm)
+- [OCI Container Registry 문서](https://docs.oracle.com/en-us/iaas/Content/Registry/home.htm)

@@ -27,16 +27,17 @@ API Gateway 자체는 인증 로직을 처리하지 않고, 외부 인증 서비
 | Azure | APIM Policy (validate-jwt) | JWT 토큰 검증을 정책으로 설정 |
 | GCP | Firebase Auth / Identity Platform | 소셜 로그인, 멀티팩터 인증 |
 | GCP | Service Account + IAM | 서비스 간 인증 |
+| OCI | OCI IAM / Identity Domains | OAuth 2.0, JWT 검증 |
 
 ### 추가 기능
 
-| 기능 | AWS | Azure | GCP |
-| --- | --- | --- | --- |
-| **사용량 계획/쿼터** | Usage Plans + API Keys | Subscription + Quota Policy | Apigee Rate Limiting |
-| **요청 검증** | Request Validator (모델 스키마) | APIM Policy (validate-content) | Apigee OAS Validation |
-| **커스텀 도메인** | Custom Domain + ACM 인증서 | Custom Domain + Managed Certificate | Custom Domain + SSL |
-| **WebSocket** | WebSocket API | — (SignalR 별도) | — (Firebase Realtime 별도) |
-| **GraphQL** | AppSync | — (3rd party) | — (3rd party) |
+| 기능 | AWS | Azure | GCP | OCI |
+| --- | --- | --- | --- | --- |
+| **사용량 계획/쿼터** | Usage Plans + API Keys | Subscription + Quota Policy | Apigee Rate Limiting | Rate Limiting Policy |
+| **요청 검증** | Request Validator (모델 스키마) | APIM Policy (validate-content) | Apigee OAS Validation | Request Validation Policy |
+| **커스텀 도메인** | Custom Domain + ACM 인증서 | Custom Domain + Managed Certificate | Custom Domain + SSL | Custom Domain + SSL 인증서 |
+| **WebSocket** | WebSocket API | — (SignalR 별도) | — (Firebase Realtime 별도) | — |
+| **GraphQL** | AppSync | — (3rd party) | — (3rd party) | — |
 
 ## 제품 비교
 
@@ -47,6 +48,7 @@ API Gateway 자체는 인증 로직을 처리하지 않고, 외부 인증 서비
 | Azure | API Management (APIM) | 개발자 포털 내장. 멀티 클라우드/하이브리드 API 통합 |
 | GCP | Apigee | 엔터프라이즈 API 관리 플랫폼. 분석/수익화 기능 |
 | GCP | API Gateway | 경량. Cloud Functions/Cloud Run 연동에 적합 |
+| OCI | OCI API Gateway | OCI Functions 연동. 인증, 속도 제한, 요청 변환 지원 |
 
 ## 핵심 차이점
 
@@ -77,3 +79,7 @@ API Gateway 자체는 인증 로직을 처리하지 않고, 외부 인증 서비
 - [API Gateway 문서](https://cloud.google.com/api-gateway/docs)
 - [Firebase Authentication 문서](https://firebase.google.com/docs/auth)
 - [Identity Platform 문서](https://cloud.google.com/identity-platform/docs)
+
+### OCI
+
+- [OCI API Gateway 문서](https://docs.oracle.com/en-us/iaas/Content/APIGateway/home.htm)

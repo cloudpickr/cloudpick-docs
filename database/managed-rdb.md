@@ -18,6 +18,8 @@
 | Azure | Azure Database for MySQL/PostgreSQL/MariaDB | 오픈소스 엔진 관리형 |
 | GCP | Cloud SQL | MySQL, PostgreSQL, SQL Server |
 | GCP | AlloyDB | PostgreSQL 호환. Google 자체 설계 |
+| OCI | OCI Autonomous Database | Oracle DB 기반. 자동 튜닝/패치/스케일링 |
+| OCI | OCI MySQL HeatWave | MySQL 호환. OLTP + OLAP 통합 처리 |
 
 ### 클라우드 네이티브 DB
 
@@ -26,6 +28,7 @@
 | AWS | Aurora Serverless | 사용량 기반 자동 스케일링. 유휴 시 비용 0 가능 |
 | Azure | Azure SQL Serverless | 자동 일시 중지/재개 |
 | GCP | AlloyDB | AI/ML 워크로드에 최적화. 벡터 검색 내장 |
+| OCI | OCI Autonomous Database Serverless | 자동 스케일링. 유휴 시 자동 중지 가능 |
 
 ## 일반 관리형 RDB vs 클라우드 네이티브 DB
 
@@ -65,3 +68,8 @@ Aurora는 데이터를 3개 AZ에 걸쳐 6개 복사본으로 자동 복제하�
 
 - [Cloud SQL 문서](https://cloud.google.com/sql/docs)
 - [AlloyDB 문서](https://cloud.google.com/alloydb/docs)
+
+### OCI
+
+- [OCI Autonomous Database 문서](https://docs.oracle.com/en-us/iaas/autonomous-database-serverless/index.html)
+- [OCI MySQL HeatWave 문서](https://docs.oracle.com/en-us/iaas/mysql-database/index.html)

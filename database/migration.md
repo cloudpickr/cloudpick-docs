@@ -22,6 +22,7 @@
 | Azure | Azure Migrate | DB 포함 전체 워크로드 마이그레이션 평가/실행 |
 | GCP | Database Migration Service | MySQL, PostgreSQL, SQL Server → Cloud SQL/AlloyDB |
 | GCP | Datastream | CDC 기반 실시간 복제. BigQuery로 스트리밍 가능 |
+| OCI | OCI Database Migration | Oracle/MySQL → OCI DB. 온라인 마이그레이션(Zero Downtime) 지원 |
 
 ## 핵심 차이점
 
@@ -47,3 +48,7 @@
 
 - [Database Migration Service 문서](https://cloud.google.com/database-migration/docs)
 - [Datastream 문서](https://cloud.google.com/datastream/docs)
+
+### OCI
+
+- [OCI Database Migration 문서](https://docs.oracle.com/en-us/iaas/database-migration/index.html)

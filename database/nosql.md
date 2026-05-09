@@ -37,6 +37,7 @@ NoSQL은 데이터 모델에 따라 여러 유형으로 나뉘며, 워크로드�
 | Azure | Cosmos DB | 멀티 모델(문서, 키-값, 그래프, 와이드 컬럼). 글로벌 분산 |
 | GCP | Firestore | 문서 DB. 모바일/웹 앱에 최적화. 실시간 동기화 |
 | GCP | Bigtable | 와이드 컬럼. 대규모 분석/시계열 |
+| OCI | OCI NoSQL Database | 키-값 + 문서 + 와이드 컬럼. 서버리스 용량 관리 |
 
 ### 인메모리 캐시
 
@@ -48,6 +49,7 @@ NoSQL은 데이터 모델에 따라 여러 유형으로 나뉘며, 워크로드�
 | Azure | Azure Cache for Redis | |
 | GCP | Memorystore for Valkey | Valkey 기반. 2025년 출시 |
 | GCP | Memorystore for Redis | |
+| OCI | OCI Cache with Redis | Redis 호환 관리형 캐시 |
 
 > **Valkey**는 Redis의 오픈소스 포크로, Linux Foundation에서 관리합니다. Redis가 2024년 라이선스를 변경한 이후 AWS, GCP 등이 Valkey로 전환하고 있습니다. 기존 Redis 클라이언트와 호환됩니다.
 
@@ -60,6 +62,7 @@ NoSQL은 데이터 모델에 따라 여러 유형으로 나뉘며, 워크로드�
 | AWS | OpenSearch Service | Elasticsearch/OpenSearch 관리형. 검색 + 로그 분석 + 대시보드 |
 | Azure | Azure AI Search (구 Cognitive Search) | 검색 + AI 보강(벡터, 시맨틱) |
 | GCP | — | Elastic Cloud on GCP (3rd party) 또는 BigQuery 활용 |
+| OCI | OCI Search with OpenSearch | OpenSearch 관리형. 검색 + 로그 분석 |
 
 ### 그래프 DB
 
@@ -95,3 +98,9 @@ NoSQL은 데이터 모델에 따라 여러 유형으로 나뉘며, 워크로드�
 - [Firestore 문서](https://cloud.google.com/firestore/docs)
 - [Bigtable 문서](https://cloud.google.com/bigtable/docs)
 - [Memorystore 문서](https://cloud.google.com/memorystore/docs)
+
+### OCI
+
+- [OCI NoSQL Database 문서](https://docs.oracle.com/en-us/iaas/nosql-database/index.html)
+- [OCI Cache with Redis 문서](https://docs.oracle.com/en-us/iaas/Content/ocicache/home.htm)
+- [OCI Search with OpenSearch 문서](https://docs.oracle.com/en-us/iaas/Content/search-opensearch/home.htm)

@@ -28,6 +28,7 @@
 | AWS | X-Ray + CloudWatch Application Signals | 서비스 맵 + SLO 모니터링 |
 | Azure | Application Insights | 자동 계측. 성능 이상 자동 탐지 |
 | GCP | Cloud Trace + Cloud Profiler | 트레이싱 + 코드 레벨 프로파일링 |
+| OCI | OCI Application Performance Monitoring | 분산 트레이싱 + 합성 모니터링 |
 | 3rd party | Datadog, New Relic, Dynatrace | 멀티클라우드 APM. 풍부한 자동 계측 |
 
 ### 왜 여럿이 함께 봐야 하는가
@@ -67,6 +68,7 @@
 | AWS | CloudWatch Metrics + Alarms | AWS 서비스 메트릭 자동 수집. 커스텀 메트릭 지원 |
 | Azure | Azure Monitor Metrics + Alerts | Azure 서비스 통합. Action Groups로 알림 라우팅 |
 | GCP | Cloud Monitoring | 자동 수집 + 커스텀 메트릭. PromQL 호환 |
+| OCI | OCI Monitoring | OCI 서비스 메트릭 자동 수집. 알람 + 알림 |
 
 ### 로그
 
@@ -75,6 +77,7 @@
 | AWS | CloudWatch Logs | 로그 그룹/스트림 구조. Logs Insights로 쿼리 |
 | Azure | Azure Monitor Logs (Log Analytics) | KQL(Kusto Query Language)로 분석 |
 | GCP | Cloud Logging | 자동 수집. Log Analytics로 SQL 쿼리 |
+| OCI | OCI Logging | 서비스 로그 자동 수집. Logging Analytics로 분석 |
 
 ### 분산 트레이싱
 
@@ -83,6 +86,7 @@
 | AWS | X-Ray | AWS 서비스 간 요청 추적. OpenTelemetry 호환 |
 | Azure | Application Insights | 자동 계측. 성능 이상 탐지 |
 | GCP | Cloud Trace | 자동 수집. OpenTelemetry 호환 |
+| OCI | OCI APM Tracing | 분산 트레이싱. OpenTelemetry 호환 |
 
 ### 통합 대시보드
 
@@ -91,6 +95,7 @@
 | AWS | CloudWatch Dashboards | |
 | Azure | Azure Dashboards / Workbooks | Workbooks로 인터랙티브 리포트 |
 | GCP | Cloud Monitoring Dashboards | |
+| OCI | OCI Monitoring Console | 커스텀 대시보드 |
 | 3rd party | Grafana, Datadog, New Relic | 멀티클라우드 통합 모니터링에 많이 사용 |
 
 ## 핵심 차이점
@@ -122,6 +127,12 @@
 - [Cloud Monitoring 문서](https://cloud.google.com/monitoring/docs)
 - [Cloud Logging 문서](https://cloud.google.com/logging/docs)
 - [Cloud Trace 문서](https://cloud.google.com/trace/docs)
+
+### OCI
+
+- [OCI Monitoring 문서](https://docs.oracle.com/en-us/iaas/Content/Monitoring/home.htm)
+- [OCI Logging 문서](https://docs.oracle.com/en-us/iaas/Content/Logging/home.htm)
+- [OCI Application Performance Monitoring](https://docs.oracle.com/en-us/iaas/application-performance-monitoring/index.html)
 
 ### 오픈소스 / 3rd party
 

@@ -13,17 +13,18 @@
 | AWS | AWS Backup | EBS, EFS, RDS, DynamoDB, S3 등 통합. 크로스 리전/크로스 계정 백업 지원 |
 | Azure | Azure Backup | VM, Disks, Files, SQL, Blob 등 통합. Recovery Services Vault로 관리 |
 | GCP | Backup and DR Service | Compute Engine, GKE, Cloud SQL 등 통합 |
+| OCI | OCI Backup | Block Volume, Boot Volume, DB 시스템 백업. 정책 기반 자동 백업 |
 
 ### 개별 서비스 백업
 
 통합 서비스 외에도 각 스토리지/DB 서비스 자체에 백업 기능이 내장되어 있습니다.
 
-| 대상 | AWS | Azure | GCP |
-| --- | --- | --- | --- |
-| **블록 디스크** | EBS 스냅샷 | Managed Disk 스냅샷 | Persistent Disk 스냅샷 |
-| **VM 전체** | AMI | VM Image / Restore Point | Machine Image |
-| **관리형 DB** | RDS 자동 백업 + 스냅샷 | Azure SQL 자동 백업 | Cloud SQL 자동 백업 |
-| **객체 스토리지** | S3 버전 관리 + Replication | Blob 버전 관리 + Replication | Object Versioning |
+| 대상 | AWS | Azure | GCP | OCI |
+| --- | --- | --- | --- | --- |
+| **블록 디스크** | EBS 스냅샷 | Managed Disk 스냅샷 | Persistent Disk 스냅샷 | Block Volume 백업 |
+| **VM 전체** | AMI | VM Image / Restore Point | Machine Image | Custom Image |
+| **관리형 DB** | RDS 자동 백업 + 스냅샷 | Azure SQL 자동 백업 | Cloud SQL 자동 백업 | DB System 자동 백업 |
+| **객체 스토리지** | S3 버전 관리 + Replication | Blob 버전 관리 + Replication | Object Versioning | Object Storage 버전 관리 + Replication |
 
 ## 핵심 차이점
 
@@ -49,3 +50,8 @@
 
 - [Backup and DR Service 문서](https://cloud.google.com/backup-disaster-recovery/docs)
 - [Persistent Disk 스냅샷](https://cloud.google.com/compute/docs/disks/create-snapshots)
+
+### OCI
+
+- [OCI Block Volume 백업](https://docs.oracle.com/en-us/iaas/Content/Block/Concepts/blockvolumebackups.htm)
+- [OCI Boot Volume 백업](https://docs.oracle.com/en-us/iaas/Content/Block/Concepts/bootvolumebackups.htm)

@@ -21,15 +21,16 @@ IAM을 잘못 설정하면 데이터 유출이나 리소스 삭제 같은 보안
 | AWS | IAM | 사용자, 그룹, 역할, 정책. IAM Identity Center(구 SSO)로 멀티 계정 통합 |
 | Azure | Microsoft Entra ID (구 Azure AD) | 디렉토리 서비스 + RBAC. Microsoft 365와 통합 |
 | GCP | Cloud IAM | 프로젝트/폴더/조직 수준 RBAC. 서비스 계정으로 서비스 간 인증 |
+| OCI | OCI IAM with Identity Domains | 사용자, 그룹, 정책, 컴파트먼트 기반 접근 제어 |
 
 ### 인증 방식
 
-| 방식 | AWS | Azure | GCP |
-| --- | --- | --- | --- |
-| **콘솔 로그인** | 사용자명 + 비밀번호 + MFA | Entra ID 계정 + MFA | Google 계정 + MFA |
-| **CLI/SDK** | Access Key 또는 `aws login` | `az login` (브라우저) | `gcloud auth login` (브라우저) |
-| **서비스 간** | IAM Role (임시 자격 증명) | Managed Identity | Service Account |
-| **외부 IdP 연동** | SAML/OIDC Federation | Entra ID 외부 ID | Workforce Identity Federation |
+| 방식 | AWS | Azure | GCP | OCI |
+| --- | --- | --- | --- | --- |
+| **콘솔 로그인** | 사용자명 + 비밀번호 + MFA | Entra ID 계정 + MFA | Google 계정 + MFA | 사용자명 + 비밀번호 + MFA |
+| **CLI/SDK** | Access Key 또는 `aws login` | `az login` (브라우저) | `gcloud auth login` (브라우저) | API Key + Config 또는 `oci session authenticate` |
+| **서비스 간** | IAM Role (임시 자격 증명) | Managed Identity | Service Account | Instance Principal / Resource Principal |
+| **외부 IdP 연동** | SAML/OIDC Federation | Entra ID 외부 ID | Workforce Identity Federation | SAML/OIDC Federation |
 
 ### 권한 관리 모델
 
@@ -38,6 +39,7 @@ IAM을 잘못 설정하면 데이터 유출이나 리소스 삭제 같은 보안
 | AWS | 정책 기반 (JSON Policy Document) | Identity-based + Resource-based 정책 조합 |
 | Azure | RBAC (역할 기반 접근 제어) | 기본 제공 역할 + 커스텀 역할. 범위(구독/리소스그룹/리소스) 지정 |
 | GCP | RBAC (역할 기반) | 기본 역할, 사전 정의 역할, 커스텀 역할. 조직/폴더/프로젝트 상속 |
+| OCI | 정책 기반 (HCL 유사 구문) | 컴파트먼트 계층 구조에서 정책 상속. 동사+리소스 타입 조합 |
 
 ## 핵심 차이점
 
@@ -89,3 +91,9 @@ IAM을 잘못 설정하면 데이터 유출이나 리소스 삭제 같은 보안
 - [IAM Recommender](https://cloud.google.com/iam/docs/recommender-overview)
 - [Policy Analyzer](https://cloud.google.com/policy-intelligence/docs/analyze-iam-policies)
 - [Workload Identity Federation](https://cloud.google.com/iam/docs/workload-identity-federation)
+
+### OCI
+
+- [OCI IAM 문서](https://docs.oracle.com/en-us/iaas/Content/Identity/home.htm)
+- [OCI Identity Domains](https://docs.oracle.com/en-us/iaas/Content/Identity/domains/overview.htm)
+- [OCI 정책 구문](https://docs.oracle.com/en-us/iaas/Content/Identity/policysyntax/policysyntax.htm)

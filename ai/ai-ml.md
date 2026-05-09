@@ -17,6 +17,7 @@
 | AWS | Amazon Bedrock | Claude, Llama, Mistral, Titan 등 멀티 모델. 서버리스 API |
 | Azure | Azure OpenAI Service | GPT-4o, o1 등 OpenAI 모델. 엔터프라이즈 보안/규정 준수 |
 | GCP | Vertex AI (Gemini) | Gemini, Claude, Llama 등. Google 인프라에서 호스팅 |
+| OCI | OCI Generative AI | Cohere, Meta Llama 등. OCI 인프라에서 호스팅 |
 
 ### AI 에이전트 / RAG
 
@@ -25,6 +26,7 @@
 | AWS | Bedrock Agents + Knowledge Bases | 문서 기반 RAG 자동 구성. 도구 호출(Tool Use) 지원 |
 | Azure | Azure AI Agent Service | OpenAI Assistants API 기반. Azure 서비스 연동 |
 | GCP | Vertex AI Agent Builder | 검색 + 대화 + RAG 통합 |
+| OCI | OCI Generative AI Agents | RAG 기반 에이전트. OCI Search 연동 |
 
 ### 코드 어시스턴트
 
@@ -33,6 +35,7 @@
 | AWS | Amazon Q Developer | 코드 생성, 변환, 보안 스캔. AWS 콘솔 내 자연어 질의 |
 | Azure | GitHub Copilot | 코드 자동 완성. VS Code/JetBrains 통합 |
 | GCP | Gemini Code Assist | 코드 생성, 설명, 변환 |
+| OCI | OCI Generative AI (코드 생성) | Cohere/Llama 기반 코드 생성 |
 
 ## ML 플랫폼
 
@@ -43,6 +46,7 @@
 | AWS | SageMaker | 학습, 튜닝, 배포, MLOps 통합 플랫폼 |
 | Azure | Azure Machine Learning | 노트북, AutoML, 파이프라인, 모델 레지스트리 |
 | GCP | Vertex AI | 학습, 배포, 파이프라인, Feature Store 통합 |
+| OCI | OCI Data Science | 노트북, 모델 학습/배포, 파이프라인 |
 
 ### GPU / AI 가속기
 
@@ -51,6 +55,7 @@
 | AWS | P5 (NVIDIA H100), Trn2 (Trainium), Inf2 (Inferentia) | 학습: Trainium, 추론: Inferentia로 비용 최적화 |
 | Azure | ND H100 v5, ND H200 v5 | NVIDIA 최신 GPU |
 | GCP | A3 (H100), TPU v5p | TPU: Google 자체 AI 가속기. 대규모 학습에 강점 |
+| OCI | GPU Instances (A100, H100) | NVIDIA GPU. Bare Metal + RDMA 클러스터 지원 |
 
 ## 핵심 차이점
 
@@ -77,3 +82,9 @@
 
 - [Vertex AI 문서](https://cloud.google.com/vertex-ai/docs)
 - [Gemini API 문서](https://cloud.google.com/vertex-ai/generative-ai/docs)
+
+### OCI
+
+- [OCI AI Services 문서](https://docs.oracle.com/en-us/iaas/Content/ai/home.htm)
+- [OCI Data Science 문서](https://docs.oracle.com/en-us/iaas/data-science/index.html)
+- [OCI Generative AI 문서](https://docs.oracle.com/en-us/iaas/Content/generative-ai/home.htm)

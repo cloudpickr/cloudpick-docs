@@ -51,6 +51,7 @@ CI/CD 파이프라인은 코드가 프로덕션에 도달하기 전에 여러 �
 | AWS | CodeBuild | 완전 관리형. 분 단위 과금. Docker 이미지 빌드 지원 |
 | Azure | Azure Pipelines | GitHub/Azure Repos 연동. 무료 티어 (월 1,800분) |
 | GCP | Cloud Build | 컨테이너 기반. 120분/일 무료 |
+| OCI | OCI DevOps Build Pipelines | 관리형 빌드. OCI 서비스 네이티브 연동 |
 
 ### 배포 (CD)
 
@@ -60,6 +61,7 @@ CI/CD 파이프라인은 코드가 프로덕션에 도달하기 전에 여러 �
 | AWS | CodePipeline | 빌드→테스트→배포 파이프라인 오케스트레이션 |
 | Azure | Azure Pipelines (Release) | 멀티 스테이지 파이프라인. 승인 게이트 |
 | GCP | Cloud Deploy | GKE, Cloud Run 배포. 프로모션 기반 |
+| OCI | OCI DevOps Deployment Pipelines | OKE, Compute, Functions 배포. 승인 단계 지원 |
 
 ### 소스 저장소
 
@@ -68,6 +70,7 @@ CI/CD 파이프라인은 코드가 프로덕션에 도달하기 전에 여러 �
 | AWS | CodeCommit | 2024년 신규 생성 중단. GitHub/GitLab 사용 권장 |
 | Azure | Azure Repos | Git 기반. Azure DevOps에 포함 |
 | GCP | Cloud Source Repositories | 미러링 지원. GitHub/GitLab 연동 |
+| OCI | OCI DevOps Code Repositories | Git 기반. OCI DevOps에 포함 |
 
 ### 아티팩트 저장소
 
@@ -76,6 +79,7 @@ CI/CD 파이프라인은 코드가 프로덕션에 도달하기 전에 여러 �
 | AWS | CodeArtifact | Maven, npm, PyPI, NuGet 패키지 |
 | Azure | Azure Artifacts | Azure DevOps에 포함 |
 | GCP | Artifact Registry | 컨테이너 이미지 + 언어별 패키지 통합 |
+| OCI | OCI Artifact Registry | 컨테이너 이미지 + 일반 아티팩트 |
 
 ## 핵심 차이점
 
@@ -143,3 +147,7 @@ CI/CD 파이프라인은 코드가 프로덕션에 도달하기 전에 여러 �
 - [Cloud Build 문서](https://cloud.google.com/build/docs)
 - [Cloud Deploy 문서](https://cloud.google.com/deploy/docs)
 - [Artifact Registry 문서](https://cloud.google.com/artifact-registry/docs)
+
+### OCI
+
+- [OCI DevOps 문서](https://docs.oracle.com/en-us/iaas/Content/devops/home.htm)

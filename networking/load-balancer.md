@@ -15,6 +15,7 @@
 | AWS | ALB (Application Load Balancer) | 경로/호스트 기반 라우팅, WebSocket, gRPC |
 | Azure | Application Gateway | WAF 통합 가능 |
 | GCP | External HTTP(S) Load Balancer | 글로벌 (단일 IP로 전 세계 서빙) |
+| OCI | OCI Load Balancer | L7. 경로/호스트 기반 라우팅, SSL 종료 |
 
 ### L4 (TCP/UDP) 로드밸런서
 
@@ -23,6 +24,7 @@
 | AWS | NLB (Network Load Balancer) | 초저지연, 고정 IP |
 | Azure | Azure Load Balancer | Standard/Basic 티어 |
 | GCP | TCP/UDP Load Balancer | 리전 또는 글로벌 |
+| OCI | OCI Network Load Balancer | L4. 초저지연, IP 해시/5-tuple 해시 |
 
 ### 글로벌 로드밸런서 / 가속기
 
@@ -31,6 +33,7 @@
 | AWS | Global Accelerator | Anycast IP로 가장 가까운 엣지로 라우팅 |
 | Azure | Front Door | 글로벌 L7 + CDN + WAF 통합 |
 | GCP | Cloud Load Balancing | 기본적으로 글로벌 (단일 Anycast IP) |
+| OCI | OCI DNS Traffic Management | DNS 기반 글로벌 트래픽 분배 |
 
 ## 핵심 구성 요소
 
@@ -77,3 +80,8 @@ L4는 패킷 내용을 보지 않고 포트 단위로 분배하므로 지연이 
 ### GCP
 
 - [Google Cloud Load Balancing 문서](https://cloud.google.com/load-balancing/docs)
+
+### OCI
+
+- [OCI Load Balancer 문서](https://docs.oracle.com/en-us/iaas/Content/Balance/home.htm)
+- [OCI Network Load Balancer 문서](https://docs.oracle.com/en-us/iaas/Content/NetworkLoadBalancer/home.htm)

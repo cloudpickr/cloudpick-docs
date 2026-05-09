@@ -22,6 +22,7 @@
 | Azure | Bicep | Bicep DSL | ARM Template의 간결한 대안 |
 | Azure | ARM Templates | JSON | Azure 네이티브. 복잡하지만 완전한 기능 |
 | GCP | Config Connector | Kubernetes YAML | K8s 리소스처럼 GCP 리소스 관리 |
+| OCI | OCI Resource Manager | HCL (Terraform) | Terraform 기반. OCI 네이티브 관리형 |
 
 ### 멀티클라우드 IaC
 
@@ -40,6 +41,7 @@ IaC 도구가 리소스를 관리하려면 각 서비스별 API를 호출해야 
 | AWS | Cloud Control API | 모든 AWS + 3rd party 리소스를 CRUD-L 단일 API로 관리. Terraform 등 IaC 도구의 백엔드로 사용 |
 | Azure | Azure Resource Manager (ARM) REST API | 모든 Azure 리소스를 단일 관리 계층으로 제어. AzAPI Terraform 프로바이더로 직접 호출 가능 |
 | GCP | — (서비스별 개별 API) | Config Connector가 K8s API로 추상화하지만, 통합 CRUD API는 없음 |
+| OCI | OCI Resource Manager API | Terraform State 관리 + 리소스 프로비저닝 API |
 
 AWS Cloud Control API는 Terraform이 새 AWS 리소스를 지원할 때 개별 서비스 API 대신 Cloud Control API를 백엔드로 사용할 수 있어, 새 서비스 출시 시 IaC 지원이 빨라집니다.
 
@@ -66,6 +68,11 @@ AWS Cloud Control API는 Terraform이 새 AWS 리소스를 지원할 때 개별 
 ### GCP
 
 - [Config Connector 문서](https://cloud.google.com/config-connector/docs)
+
+### OCI
+
+- [OCI Resource Manager 문서](https://docs.oracle.com/en-us/iaas/Content/ResourceManager/home.htm)
+- [OCI Terraform Provider](https://registry.terraform.io/providers/oracle/oci/latest/docs)
 
 ### 멀티클라우드
 

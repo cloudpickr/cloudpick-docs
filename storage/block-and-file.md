@@ -21,6 +21,7 @@
 | AWS | EBS (Elastic Block Store) | 볼륨 타입이 가장 세분화 |
 | Azure | Managed Disks | Premium SSD v2, Ultra Disk |
 | GCP | Persistent Disk / Hyperdisk | 프로비저닝 후에도 IOPS/처리량 동적 변경 가능 |
+| OCI | OCI Block Volumes | Balanced/Higher Performance/Ultra High Performance. 온라인 크기 변경 |
 
 ### 볼륨 타입별 사용 사례
 
@@ -31,17 +32,18 @@
 | 빅데이터, 로그 (순차 I/O) | st1 | Standard HDD | pd-standard |
 | 아카이브 (드문 접근) | sc1 | — | — |
 
-스냅샷으로 특정 시점의 디스크 상태를 증분 백업할 수 있으며, 3사 모두 저장 데이터 암호화를 제공합니다.
+스냅샷으로 특정 시점의 디스크 상태를 증분 백업할 수 있으며, 각 벤더 모두 저장 데이터 암호화를 제공합니다.
 
 ### 주의: 가용영역 종속
 
-블록 스토리지 볼륨은 생성된 가용영역(AZ)에 종속됩니다. 다른 AZ의 인스턴스에는 연결할 수 없습니다. 이는 3사 모두 동일합니다.
+블록 스토리지 볼륨은 생성된 가용영역(AZ)에 종속됩니다. 다른 AZ의 인스턴스에는 연결할 수 없습니다. 이는 각 벤더 모두 동일합니다.
 
 | 벤더 | 기본 동작 | AZ 장애 대응 옵션 |
 | --- | --- | --- |
 | AWS | EBS는 단일 AZ에 종속 | 스냅샷으로 다른 AZ에 복원 |
 | Azure | Managed Disk는 단일 Zone에 종속 | ZRS(Zone-Redundant Storage) 옵션으로 3개 AZ에 동기 복제 |
 | GCP | Persistent Disk는 단일 Zone에 종속 | Regional Persistent Disk로 2개 Zone에 동기 복제 |
+| OCI | Block Volume은 단일 AD에 종속 | Block Volume 복제(Cross-AD)로 다른 AD에 동기 복제 |
 
 멀티 AZ 고가용성이 필요한 경우, 스냅샷 기반 복구 또는 벤더별 복제 옵션을 활용해야 합니다.
 
@@ -64,6 +66,7 @@
 | AWS | FSx | Windows(SMB), Lustre(HPC), NetApp, OpenZFS를 관리형으로 제공 |
 | Azure | Azure Files | SMB/NFS 모두 지원. Azure File Sync로 온프레미스 연동 |
 | GCP | Filestore | NFS 기반. Basic/Enterprise 티어 |
+| OCI | OCI File Storage | NFSv3. 스냅샷, 복제 지원 |
 
 ### 안티패턴: 배포 원본으로 사용하지 마세요
 
@@ -86,6 +89,7 @@
 | AWS | AWS Backup | EBS, EFS, RDS, DynamoDB, S3 등 통합 관리. 크로스 리전/크로스 계정 백업 |
 | Azure | Azure Backup | VM, Disks, Files, SQL, Blob 등 통합. Recovery Services Vault |
 | GCP | Backup and DR Service | Compute Engine, GKE, Cloud SQL 등 통합 |
+| OCI | OCI Backup | Block Volume, Boot Volume, DB 백업 통합 관리 |
 
 ## 참고하기
 
@@ -113,3 +117,8 @@
 - [Regional Persistent Disk](https://cloud.google.com/compute/docs/disks/regional-persistent-disk)
 - [Filestore 문서](https://cloud.google.com/filestore/docs)
 - [Machine Image](https://cloud.google.com/compute/docs/machine-images)
+
+### OCI
+
+- [OCI Block Volumes 문서](https://docs.oracle.com/en-us/iaas/Content/Block/home.htm)
+- [OCI File Storage 문서](https://docs.oracle.com/en-us/iaas/Content/File/home.htm)

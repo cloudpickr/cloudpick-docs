@@ -35,6 +35,7 @@ VM과 컨테이너는 서버 생성과 배포를 자동화했지만, 여전히 "
 | AWS | Lambda | 최대 15분. 200+ AWS 서비스 이벤트 연동 |
 | Azure | Azure Functions | Premium: 무제한 실행. Durable Functions로 상태 유지 워크플로우 |
 | GCP | Cloud Functions | 2세대: 최대 60분. Eventarc 연동 |
+| OCI | OCI Functions | Fn Project 기반. Docker 컨테이너로 실행 |
 
 ### 서버리스 컨테이너
 
@@ -44,6 +45,7 @@ VM과 컨테이너는 서버 생성과 배포를 자동화했지만, 여전히 "
 | AWS | App Runner | 소스/이미지에서 바로 배포 |
 | Azure | Container Apps | 이벤트 기반 스케일링 내장 |
 | GCP | Cloud Run | HTTP 기반. 기존 컨테이너 앱을 수정 없이 서버리스 전환 |
+| OCI | OCI Container Instances | 서버 관리 없이 컨테이너 실행 |
 
 ### 워크플로우 오케스트레이션
 
@@ -52,6 +54,7 @@ VM과 컨테이너는 서버 생성과 배포를 자동화했지만, 여전히 "
 | AWS | Step Functions | 시각적 워크플로우 편집기 |
 | Azure | Durable Functions / Logic Apps | 코드 기반 / 로우코드 |
 | GCP | Workflows | YAML 기반 서비스 오케스트레이션 |
+| OCI | OCI Events + OCI Functions | 이벤트 기반 함수 체이닝 |
 
 ## 핵심 차이점
 
@@ -77,3 +80,7 @@ VM과 컨테이너는 서버 생성과 배포를 자동화했지만, 여전히 "
 - [Google Cloud Functions 문서](https://cloud.google.com/functions/docs)
 - [Google Cloud Run 문서](https://cloud.google.com/run/docs)
 - [Google Cloud Workflows 문서](https://cloud.google.com/workflows/docs)
+
+### OCI
+
+- [OCI Functions 문서](https://docs.oracle.com/en-us/iaas/Content/Functions/home.htm)

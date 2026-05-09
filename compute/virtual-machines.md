@@ -17,6 +17,7 @@
 | AWS | EC2 (Elastic Compute Cloud) | 가장 다양한 인스턴스 유형 (400+) |
 | Azure | Virtual Machines | Windows 워크로드에 강점 (Hybrid Benefit) |
 | GCP | Compute Engine | Custom Machine Type으로 CPU/메모리 자유 조합 |
+| OCI | OCI Compute | Flexible Shape으로 CPU/메모리 자유 조합. Ampere A1 무료 티어 |
 
 ### Arm 기반 VM
 
@@ -25,6 +26,7 @@
 | AWS | EC2 Graviton (t4g, m7g 등) | 자체 설계 Arm 프로세서. x86 대비 높은 가격 대비 성능 |
 | Azure | Dpsv5/Dplsv5 시리즈 | Ampere Altra 기반 |
 | GCP | Tau T2A | Arm 기반 범용 |
+| OCI | Ampere A1 Compute | Ampere Altra 기반. 무료 티어 제공 |
 
 ### GPU / AI 가속기
 
@@ -33,6 +35,7 @@
 | AWS | P5, G5, Inf2, Trn1 | NVIDIA + 자체 칩(Inferentia, Trainium) |
 | Azure | NC, ND, NV 시리즈 | NVIDIA A100, H100 |
 | GCP | A2, G2 시리즈 + TPU | NVIDIA + 자체 TPU |
+| OCI | GPU Instances (A10, A100, H100) | NVIDIA GPU. Bare Metal 옵션 제공 |
 
 ### 이미지 (OS 템플릿)
 
@@ -41,6 +44,7 @@
 | AWS | AMI (Amazon Machine Image) | Marketplace에서 3rd party 이미지 제공 |
 | Azure | VM Image / Shared Image Gallery | |
 | GCP | Image / Image Family | |
+| OCI | Custom Image / Platform Image | Marketplace에서 3rd party 이미지 제공 |
 
 ## 핵심 차이점
 
@@ -64,3 +68,8 @@
 
 - [Google Compute Engine 문서](https://cloud.google.com/compute/docs)
 - [Google Compute Engine 머신 유형](https://cloud.google.com/compute/docs/machine-types)
+
+### OCI
+
+- [OCI Compute 문서](https://docs.oracle.com/en-us/iaas/Content/Compute/home.htm)
+- [OCI Compute Shapes](https://docs.oracle.com/en-us/iaas/Content/Compute/References/computeshapes.htm)

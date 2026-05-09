@@ -32,6 +32,7 @@ AI/LLM 애플리케이션은 텍스트, 이미지 등의 데이터를 **벡터 �
 | AWS | OpenSearch Serverless (벡터 엔진) | 대규모 벡터 검색. k-NN 지원 |
 | Azure | Azure AI Search | 벡터 + 키워드 하이브리드 검색. 시맨틱 랭킹 |
 | GCP | Vertex AI Vector Search | 대규모 고성능 벡터 검색 (ScaNN 알고리즘) |
+| OCI | OCI AI Vector Search (Autonomous DB) | Autonomous Database 내장 벡터 검색. SQL 기반 |
 
 ### 기존 DB의 벡터 확장
 
@@ -80,3 +81,7 @@ AI/LLM 애플리케이션은 텍스트, 이미지 등의 데이터를 **벡터 �
 
 - [Vertex AI Vector Search 문서](https://cloud.google.com/vertex-ai/docs/vector-search/overview)
 - [AlloyDB AI 문서](https://cloud.google.com/alloydb/docs/ai)
+
+### OCI
+
+- [OCI AI Vector Search 문서](https://docs.oracle.com/en-us/iaas/autonomous-database-serverless/doc/oracle-ai-vector-search-autonomous-database.html)

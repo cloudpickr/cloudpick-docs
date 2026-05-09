@@ -107,24 +107,6 @@ SDK는 CLI와 달리 애플리케이션 코드에 직접 통합되므로, 에러
 - **[Pulumi](https://www.pulumi.com/)** — TypeScript, Python, Go 등 일반 프로그래밍 언어로 인프라를 정의할 수 있습니다.
 - **[OpenTofu](https://opentofu.org/)** — Terraform의 오픈소스 포크로, Linux Foundation에서 관리합니다.
 
-## 한국에서의 고려사항
-
-### 한국어 지원
-
-각 벤더 모두 콘솔과 문서의 한국어 지원을 제공하고 있으며, 지원 범위는 각 벤더의 공식 사이트에서 확인할 수 있습니다.
-
-### 기술 지원
-
-기술 지원 플랜과 어드바이저 서비스에 대해서는 [기술 지원과 어드바이저](support-plans.md)에서 다룹니다.
-
-### 교육 및 자격증
-
-각 벤더 모두 한국어로 된 교육 프로그램과 자격증 시험을 제공합니다.
-
-- [AWS Training and Certification](https://aws.amazon.com/ko/training/)
-- [Microsoft Learn](https://learn.microsoft.com/ko-kr/training/)
-- [Google Cloud Training](https://cloud.google.com/training)
-
 ## 참고하기
 
 ### AWS

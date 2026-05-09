@@ -107,30 +107,6 @@ Well-Architected Framework이 개별 워크로드의 설계 모범 사례라면,
 
 AWS와 Azure는 독립적인 CAF를 제공하며, GCP는 Architecture Framework 안에 도입 가이드를 포함하는 형태입니다. Azure의 CAF는 특히 상세한 단계별 가이드와 Landing Zone 구성 방법을 제공하여, 대규모 조직의 클라우드 전환에 많이 참고됩니다.
 
-## 한국에서의 고려사항
-
-### 한국어 문서 지원
-
-- **AWS** — Well-Architected Framework 한국어 번역이 제공됩니다. Well-Architected Labs도 일부 한국어로 제공됩니다.
-- **Azure** — Well-Architected Framework과 CAF 모두 한국어 번역이 잘 되어 있습니다. Microsoft Learn을 통해 체계적으로 학습할 수 있습니다.
-- **GCP** — Architecture Framework의 한국어 번역은 제한적입니다. 영문 문서를 참고해야 하는 경우가 많습니다.
-
-### 국내 컴플라이언스와 WAF 보안 Pillar
-
-Well-Architected Framework의 보안 Pillar를 적용할 때, 한국의 컴플라이언스 요건을 함께 고려해야 합니다.
-
-- **ISMS-P** — 정보보호 관리체계 인증. WAF의 보안 Pillar와 상당 부분 매핑됩니다.
-- **CSAP** — 클라우드 보안 인증. 벤더 측 보안 요건을 다루며, WAF의 공동 책임 모델과 연결됩니다.
-- **개인정보보호법** — 데이터 보호 관련 요건. WAF의 데이터 보호 가이드와 함께 적용해야 합니다.
-
-### 아키텍처 지원 프로그램
-
-각 벤더는 한국에서 아키텍처 설계를 지원하는 프로그램을 운영하고 있습니다.
-
-- **AWS** — Solutions Architect(SA)가 Well-Architected Review를 무료로 지원합니다. 파트너를 통한 리뷰도 가능합니다.
-- **Azure** — FastTrack for Azure 프로그램을 통해 아키텍처 설계를 지원합니다.
-- **GCP** — Customer Engineer(CE)가 아키텍처 설계를 지원하며, 파트너를 통한 컨설팅도 가능합니다.
-
 ## 참고하기
 
 ### 표준 및 프레임워크

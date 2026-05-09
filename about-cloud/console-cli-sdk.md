@@ -86,7 +86,7 @@ SDK는 CLI와 달리 애플리케이션 코드에 직접 통합되므로, 에러
 
 ## IaC (Infrastructure as Code)와의 관계
 
-콘솔, CLI, SDK는 리소스를 직접 생성하고 관리하는 **명령형(Imperative)** 방식입니다. 이와 대비되는 **선언형(Declarative)** 방식이 **IaC(Infrastructure as Code)**입니다. IaC는 인프라의 원하는 상태를 코드로 정의하고, 도구가 현재 상태와 비교하여 자동으로 변경을 적용합니다.
+콘솔, CLI, SDK는 리소스를 직접 생성하고 관리하는 **명령형** (Imperative) 방식입니다. 이와 대비되는 **선언형** (Declarative) 방식이 **IaC** (Infrastructure as Code)입니다. IaC는 인프라의 원하는 상태를 코드로 정의하고, 도구가 현재 상태와 비교하여 자동으로 변경을 적용합니다.
 
 ### 벤더 네이티브 IaC 도구
 

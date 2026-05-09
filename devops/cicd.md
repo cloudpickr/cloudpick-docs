@@ -2,7 +2,7 @@
 
 ## 개요
 
-온프레미스에서는 코드를 빌드하고 서버에 배포하는 과정이 수동이거나, Jenkins 같은 도구를 직접 설치·운영해야 합니다. **CI/CD(Continuous Integration / Continuous Delivery)**는 코드 변경 시 자동으로 빌드, 테스트, 배포까지 수행하는 파이프라인입니다.
+온프레미스에서는 코드를 빌드하고 서버에 배포하는 과정이 수동이거나, Jenkins 같은 도구를 직접 설치·운영해야 합니다. **CI/CD** (Continuous Integration / Continuous Delivery)는 코드 변경 시 자동으로 빌드, 테스트, 배포까지 수행하는 파이프라인입니다.
 
 클라우드 벤더는 관리형 CI/CD 서비스를 제공하여, 빌드 서버 운영 부담 없이 파이프라인을 구성할 수 있습니다. 또한 GitHub Actions, GitLab CI 등 3rd party 도구와의 연동도 잘 지원됩니다.
 

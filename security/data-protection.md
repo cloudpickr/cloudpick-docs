@@ -29,14 +29,14 @@
 | --- | --- | --- | --- | --- |
 | **기본 암호화** | 대부분 서비스 기본 활성화 (S3, EBS 등) | 모든 서비스 기본 활성화 | 모든 데이터 기본 암호화 | 모든 데이터 기본 암호화 |
 | **키 관리** | KMS (벤더 관리 키 / 고객 관리 키) | Key Vault | Cloud KMS | OCI Vault |
-| **고객 키(CMK/CMEK)** | KMS Customer Managed Key | Key Vault Customer Key | Cloud KMS CMEK | Vault Customer Managed Key |
-| **자체 키(BYOK)** | KMS External Key Store | Key Vault BYOK | Cloud External Key Manager (EKM) | Vault BYOK |
+| **고객 키** (CMK/CMEK) | KMS Customer Managed Key | Key Vault Customer Key | Cloud KMS CMEK | Vault Customer Managed Key |
+| **자체 키** (BYOK) | KMS External Key Store | Key Vault BYOK | Cloud External Key Manager (EKM) | Vault BYOK |
 | **HSM** | CloudHSM | Managed HSM | Cloud HSM | Vault HSM 키 |
 
 키 관리 수준에 따라 보안과 운영 복잡도가 달라집니다:
 - **벤더 관리 키** — 가장 간단. 벤더가 키 생성/교체/관리. 대부분의 워크로드에 적합.
-- **고객 관리 키(CMK)** — 키 교체 주기, 접근 정책을 직접 제어. 규제 요건 충족.
-- **자체 키(BYOK/EKM)** — 키를 온프레미스 HSM에서 관리. 가장 엄격한 규제 대응.
+- **고객 관리 키** (CMK) — 키 교체 주기, 접근 정책을 직접 제어. 규제 요건 충족.
+- **자체 키** (BYOK/EKM) — 키를 온프레미스 HSM에서 관리. 가장 엄격한 규제 대응.
 
 ## 워크로드 보안
 

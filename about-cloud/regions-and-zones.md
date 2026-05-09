@@ -66,39 +66,12 @@
 
 ## 국내 4사 리전/존 구조
 
-국내 클라우드도 글로벌 벤더와 유사한 리전-존 구조를 채택하고 있습니다.
-
-### NCP (Naver Cloud Platform)
-
-Region → Zone 구조. 한국 리전은 멀티존(KR-1, KR-2)을 제공하며, 글로벌 리전은 일부 싱글존입니다. Classic 환경과 VPC 환경이 분리되어 있으며, VPC 환경에서는 사용자 정의 네트워크와 프라이빗 IP를 직접 설계할 수 있습니다.
-
-- **한국 리전:** KR-1, KR-2 (멀티존)
-- **DR:** 존 간 분리로 DR 구성 가능
-- **공식 문서:** [사용 환경](https://guide.ncloud-docs.com/docs/environment-environment-1-1)
-
-### KT Cloud
-
-Zone 기반 구조. 전국 IDC 네트워크를 기반으로 수도권, 대전 등 여러 존을 운영합니다. KT 통신 인프라와 직접 연동되는 것이 특징입니다.
-
-- **한국 리전:** 수도권, 대전 등 다수 존
-- **DR:** 존 간 분리로 DR 구성 가능
-- **공식 문서:** [KT Cloud 서비스](https://cloud.kt.com/product/)
-
-### NHN Cloud
-
-Region → Availability Zone 구조. 한국에 판교, 평촌 리전을 운영하며, 각 리전 내 가용영역이 물리적으로 분리되어 있습니다.
-
-- **한국 리전:** 판교(KR1), 평촌(KR2)
-- **DR:** 리전 간 DR 구성 가능
-- **공식 문서:** [리전 가이드](https://docs.nhncloud.com/ko/nhncloud/ko/region-guide/)
-
-### Kakao Cloud
-
-Region → Availability Zone 구조. 각 리전은 하나 이상의 가용영역으로 구성되며, 가용영역은 물리적으로 격리된 공간입니다.
-
-- **한국 리전:** 판교, 안산
-- **DR:** 리전 간 DR 구성 가능
-- **공식 문서:** [리전과 가용영역](https://docs.kakaocloud.com/start/region-az)
+| 벤더 | 계층 구조 | 한국 리전/존 | 특징 | 공식 문서 |
+| --- | --- | --- | --- | --- |
+| **NCP** | Region → Zone | KR-1, KR-2 (멀티존) | Classic/VPC 환경 분리. VPC에서 사용자 정의 네트워크 설계 가능 | [사용 환경](https://guide.ncloud-docs.com/docs/environment-environment-1-1) |
+| **KT Cloud** | Zone 기반 | 수도권, 대전 등 다수 존 | KT 통신 인프라(전용선/MPLS) 직접 연동 | [서비스 소개](https://cloud.kt.com/product/) |
+| **NHN Cloud** | Region → AZ | 판교(KR1), 평촌(KR2) | 리전 간 물리적 분리, 리전 간 DR 가능 | [리전 가이드](https://docs.nhncloud.com/ko/nhncloud/ko/region-guide/) |
+| **Kakao Cloud** | Region → AZ | 판교, 안산 | 가용영역은 물리적으로 격리된 공간 | [리전과 가용영역](https://docs.kakaocloud.com/start/region-az) |
 
 ## 한국에서의 고려사항
 

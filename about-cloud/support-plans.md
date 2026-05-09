@@ -10,7 +10,7 @@
 
 | 벤더 | 플랜 체계 | 비고 |
 | --- | --- | --- |
-| AWS | Basic → Business Support+ → Enterprise → Unified Operations | 2027년 1월부터 새 체계 적용. 기존 Developer/Business/Enterprise On-Ramp 폐지 예정 |
+| AWS | Basic → Business Support+ → Enterprise → Unified Operations | [2027년 1월부터 새 체계 적용](https://aws.amazon.com/blogs/aws/changes-to-aws-support-plans/) |
 | Azure | Basic → Developer → Standard → Professional Direct → Unified | |
 | GCP | Basic → Standard → Enhanced → Premium | |
 | OCI | Basic → Paid (Premier) | Premier는 전담 CSM 배정 |

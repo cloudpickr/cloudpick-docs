@@ -56,7 +56,7 @@ Oracle의 데이터베이스 기술력을 클라우드로 확장한 OCI는 Oracl
 
 벤더 간 전용 네트워크를 제공하여, 인터넷을 거치지 않고 프라이빗하게 클라우드를 연결합니다.
 
-| 서비스 | 연결 구간 | 상태 (2026년 기준) |
+| 서비스 | 연결 구간 | 상태 (2026년 4월 기준) |
 | --- | --- | --- |
 | **[AWS Interconnect – multicloud](https://aws.amazon.com/interconnect/multicloud/)** | AWS ↔ GCP | GA (2026.04). Azure, OCI는 2026년 내 추가 예정 |
 | **[Google Cross-Cloud Interconnect](https://cloud.google.com/network-connectivity/docs/interconnect/concepts/cross-cloud-overview)** | GCP ↔ AWS/Azure/OCI | GA. AWS와 공동 개발한 오픈 상호운용 스펙 기반 |

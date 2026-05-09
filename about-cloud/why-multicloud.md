@@ -75,6 +75,7 @@
 | AWS | ~$0.126/GB (처음 10TB) |
 | Azure | ~$0.12/GB (처음 5GB 무료) |
 | GCP | ~$0.12/GB (처음 200GB 무료) |
+| OCI | 10TB/월 무료, 이후 ~$0.0085/GB |
 
 > 전용 연결(Direct Connect, ExpressRoute 등)을 사용하면 이그레스 단가가 낮아지지만, 회선 비용이 추가됩니다.
 
@@ -125,7 +126,7 @@
 ### 표준 및 프레임워크
 
 - [ISO/IEC 22123-1 — Cloud computing: Concepts and terminology](https://www.iso.org/standard/82758.html) — 멀티클라우드 공식 정의
-- [ISO/IEC 22123-3 — Multi-cloud reference architecture](https://www.iso.org/standard/90339.html) — 멀티클라우드 ID 관리 표준
+- [ISO/IEC 22123-3 — Multi-cloud reference architecture](https://www.iso.org/standard/90339.html) — 멀티클라우드 레퍼런스 아키텍처 표준
 - [NIST SP 500-292 — Cloud Computing Reference Architecture](https://www.nist.gov/publications/nist-cloud-computing-reference-architecture) — 클라우드 레퍼런스 아키텍처
 - [NIST Multi-Cloud Security Public Working Group](https://csrc.nist.gov/projects/mcspwg/nccp) — 멀티클라우드 보안 레퍼런스
 

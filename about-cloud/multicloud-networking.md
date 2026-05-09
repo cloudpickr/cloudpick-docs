@@ -114,6 +114,8 @@ AWS Transit Gateway를 허브로 사용하고, Azure/GCP를 VPN으로 연결하�
 | --- | --- | --- |
 | AWS 내부 VPC 간 | Transit Gateway Attachment | 리전 내 ~$0.02/GB |
 | AWS ↔ Azure | Site-to-Site VPN (TGW 연결) | BGP 경로 교환 |
+| AWS ↔ GCP | AWS Interconnect – multicloud | GA (2026.04) |
+| AWS ↔ OCI | Oracle Interconnect for AWS | 2026년 내 출시 예정 |
 
 ## 이그레스 비용 비교
 
@@ -124,9 +126,11 @@ AWS Transit Gateway를 허브로 사용하고, Azure/GCP를 VPN으로 연결하�
 | AWS → 인터넷 | $0.126/GB (처음 10TB) | 이후 체감 |
 | Azure → 인터넷 | $0.12/GB | 처음 5GB/월 무료 |
 | GCP → 인터넷 | $0.12/GB | 처음 200GB/월 무료 |
+| OCI → 인터넷 | 10TB/월 무료, 이후 ~$0.0085/GB | 타사 대비 매우 저렴 |
 | AWS → Direct Connect | ~$0.04/GB | 회선비 별도 |
 | Azure → ExpressRoute | 포함 (Unlimited 플랜) | 회선비에 포함 |
 | GCP → Interconnect | ~$0.05/GB | 회선비 별도 |
+| OCI → FastConnect | 10TB/월 무료에 포함 | 회선비 별도 |
 
 ### 비용 최적화 팁
 
@@ -146,6 +150,7 @@ AWS Transit Gateway를 허브로 사용하고, Azure/GCP를 VPN으로 연결하�
 | AWS | Route 53 Private Hosted Zone | VPC 연결, 조건부 포워딩 |
 | Azure | Azure Private DNS Zone | VNet 링크 |
 | GCP | Cloud DNS Private Zone | VPC 바인딩 |
+| OCI | OCI DNS Private View | VCN 연결 |
 
 ### 통합 패턴: 조건부 포워딩
 

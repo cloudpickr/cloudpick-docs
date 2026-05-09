@@ -34,25 +34,28 @@
 
 3사 모두 신규 사용자를 위한 무료 사용 범위를 제공합니다. 클라우드를 처음 시작할 때 비용 부담 없이 학습하고 실험할 수 있습니다.
 
-## 3사 비교
+## 글로벌 5사 비교
 
-| 과금 모델 | AWS | Azure | GCP |
-| --- | --- | --- | --- |
-| **온디맨드** | On-Demand | Pay-As-You-Go | On-Demand |
-| **약정 할인 (인스턴스)** | Reserved Instances (RI) | Reserved VM Instances | — |
-| **약정 할인 (유연)** | Savings Plans | Azure Savings Plan | Committed Use Discounts (CUD) |
-| **스팟** | Spot Instances | Spot VMs | Spot VMs |
-| **자동 할인** | — | — | Sustained Use Discounts (SUD) |
-| **프리 티어** | 12개월 무료 + Always Free | 12개월 무료 + Always Free | 90일 $300 크레딧 + Always Free |
-| **과금 단위** | 초 단위 (Linux), 시간 단위 (Windows) | 초 단위 | 초 단위 |
+| 과금 모델 | AWS | Azure | GCP | OCI | IBM Cloud |
+| --- | --- | --- | --- | --- | --- |
+| **온디맨드** | On-Demand | Pay-As-You-Go | On-Demand | Pay-As-You-Go | Pay-As-You-Go |
+| **약정 할인 (인스턴스)** | Reserved Instances | Reserved VM Instances | — | — | Reserved Instances |
+| **약정 할인 (유연)** | Savings Plans | Azure Savings Plan | CUD (Committed Use) | Universal Credits | — |
+| **스팟** | Spot Instances | Spot VMs | Spot VMs | Preemptible Instances | — |
+| **자동 할인** | — | — | SUD (Sustained Use) | — | — |
+| **이그레스 무료** | — | — | 200GB/월 | **10TB/월** | — |
+| **프리 티어** | 12개월 + Always Free | 12개월 + Always Free | 90일 $300 + Always Free | Always Free (넉넉) | Lite Plan (Always Free) |
+| **과금 단위** | 초 단위 | 초 단위 | 초 단위 | 초 단위 | 시간 단위 |
 
 ### 핵심 차이점
 
-**GCP의 SUD(Sustained Use Discounts)** — GCP만의 독특한 할인 모델입니다. 별도의 약정 없이, 한 달 동안 일정 시간 이상 인스턴스를 사용하면 자동으로 할인이 적용됩니다. 사용 시간이 늘어날수록 할인율이 높아지며, 최대 30%까지 할인됩니다. 약정 관리가 번거로운 조직에 유리합니다.
+**GCP의 SUD(Sustained Use Discounts)** — 약정 없이 한 달 동안 일정 시간 이상 사용하면 자동으로 최대 30% 할인.
 
-**AWS/Azure의 Savings Plans** — 특정 인스턴스 유형에 묶이지 않고, 시간당 사용 금액을 약정하는 유연한 할인 모델입니다. 인스턴스 패밀리, 리전, OS를 변경해도 할인이 유지되어, 워크로드 변화가 잦은 환경에 적합합니다.
+**OCI의 이그레스 정책** — 월 10TB까지 이그레스 무료. 멀티클라우드 환경에서 데이터 이동이 빈번한 경우 큰 비용 차이를 만듦.
 
-**프리 티어 차이** — AWS와 Azure는 12개월간 주요 서비스를 무료로 제공하고, GCP는 90일간 $300 크레딧을 제공합니다. 3사 모두 기간 제한 없는 Always Free 서비스도 별도로 제공합니다.
+**OCI Universal Credits** — 모든 OCI 서비스에 사용 가능한 유연한 약정 모델. 특정 서비스에 묶이지 않음.
+
+**IBM Cloud Lite Plan** — 기간 제한 없이 무료로 사용 가능한 서비스 제공. 소규모 워크로드에 적합.
 
 ## 숨겨진 비용 주의사항
 
@@ -76,12 +79,12 @@ CloudWatch(AWS), Azure Monitor(Azure), Cloud Logging(GCP) 등 모니터링 서�
 
 각 벤더는 비용을 모니터링하고 최적화할 수 있는 도구를 제공합니다.
 
-| 기능 | AWS | Azure | GCP |
-| --- | --- | --- | --- |
-| **비용 대시보드** | Cost Explorer | Cost Management + Billing | Cost Management |
-| **예산 알림** | AWS Budgets | Azure Budgets | Budget Alerts |
-| **이상 탐지** | Cost Anomaly Detection | Anomaly Alerts | Cost Anomaly Detection |
-| **최적화 권장** | Trusted Advisor, Compute Optimizer | Azure Advisor | Recommender, Active Assist |
+| 기능 | AWS | Azure | GCP | OCI | IBM Cloud |
+| --- | --- | --- | --- | --- | --- |
+| **비용 대시보드** | Cost Explorer | Cost Management | Cost Management | Cost Analysis | Billing & Usage |
+| **예산 알림** | AWS Budgets | Azure Budgets | Budget Alerts | Budgets | Spending Notifications |
+| **이상 탐지** | Cost Anomaly Detection | Anomaly Alerts | Cost Anomaly Detection | — | — |
+| **최적화 권장** | Trusted Advisor, Compute Optimizer | Azure Advisor | Recommender, Active Assist | Cloud Advisor | — |
 
 ## 비용 추정 도구 (가격 계산기)
 

@@ -20,24 +20,28 @@
 
 **엣지 로케이션**은 리전보다 사용자에게 더 가까운 위치에 배치된 소규모 인프라입니다. 주로 CDN이나 DNS 서비스에 사용되며, 정적 콘텐츠를 캐싱하여 사용자에게 빠르게 전달합니다.
 
-## 3사 비교
+## 글로벌 5사 비교
 
-| 개념 | AWS | Azure | GCP |
-| --- | --- | --- | --- |
-| **리전** | Region | Region | Region |
-| **가용영역** | Availability Zone | Availability Zone | Zone |
-| **리전 범위** | 리전별 독립 | Geography → Region | **글로벌 VPC** (리전 종속 아님) |
-| **리전당 최소 AZ** | 3개 | 3개 | 3개 |
-| **온프레미스 확장** | Outposts | Azure Local | Google Distributed Cloud |
-| **글로벌 리전 수** | 38+ | 60+ | 40+ |
+| 개념 | AWS | Azure | GCP | OCI | IBM Cloud |
+| --- | --- | --- | --- | --- | --- |
+| **리전** | Region | Region | Region | Region | Region (MZR) |
+| **가용영역** | Availability Zone | Availability Zone | Zone | Fault Domain / AD | Zone |
+| **리전 범위** | 리전별 독립 | Geography → Region | **글로벌 VPC** | Realm → Region | MZR (Multi-Zone Region) |
+| **리전당 최소 AZ** | 3개 | 3개 | 3개 | 3 Fault Domain | 3개 Zone |
+| **온프레미스 확장** | Outposts | Azure Local | Google Distributed Cloud | Dedicated Region | Satellite |
+| **글로벌 리전 수** | 38+ | 60+ | 40+ | 48+ | 10+ MZR |
 
 ### 핵심 차이점
 
-**AWS의 리전 구조** — Region → Availability Zone 구조를 사용합니다. 각 리전은 최소 3개의 AZ로 구성되며, AZ 간 거리는 수 km에서 최대 100km 이내입니다. AWS만의 특징으로 **Local Zone**이 있어, 특정 도시에 초저지연 인프라를 배치할 수 있습니다.
+**AWS** — Region → Availability Zone 구조. 각 리전은 최소 3개 AZ. Local Zone으로 특정 도시에 초저지연 인프라 배치 가능.
 
-**Azure의 리전 구조** — Geography → Region → Availability Zone 구조를 사용합니다. Geography(지리)는 데이터 보존 경계를 정의하며, 같은 Geography 내의 두 리전이 **리전 쌍(Region Pair)**으로 지정되어 플랫폼 업데이트가 동시에 적용되지 않도록 보장합니다. 한국의 경우 Korea Central과 Korea South가 리전 쌍입니다.
+**Azure** — Geography → Region → Availability Zone 구조. 같은 Geography 내 두 리전이 **리전 쌍(Region Pair)**으로 지정되어 플랫폼 업데이트가 동시에 적용되지 않음. 한국: Korea Central ↔ Korea South.
 
-**GCP의 리전 구조** — Region → Zone 구조를 사용합니다. GCP만의 특징은 **VPC가 글로벌**이라는 점입니다. AWS/Azure는 리전별로 VPC/VNet을 만들고 피어링해야 하지만, GCP는 하나의 VPC 안에 여러 리전의 서브넷을 배치할 수 있습니다. 또한 Cloud Storage에서 **Multi-region** 옵션으로 데이터를 여러 리전에 자동 복제할 수 있습니다.
+**GCP** — Region → Zone 구조. **VPC가 글로벌**이라 하나의 VPC 안에 여러 리전의 서브넷 배치 가능. Multi-region 스토리지로 자동 복제.
+
+**OCI** — Realm → Region → Availability Domain(AD) → Fault Domain 구조. 대형 리전은 3개 AD, 소형 리전은 1개 AD + 3개 Fault Domain. **Dedicated Region**으로 고객 DC에 OCI 전체를 설치 가능.
+
+**IBM Cloud** — Multi-Zone Region(MZR)과 Single-Zone Region(SZR) 구분. MZR은 3개 Zone으로 구성. **Satellite**로 어디서든(온프레미스, 엣지) IBM Cloud 서비스 실행 가능.
 
 ## 리전 선택 시 고려사항
 
@@ -72,10 +76,12 @@
 | AWS | `ap-northeast-2` (서울) | 4개 AZ | 2016년 |
 | Azure | Korea Central (서울), Korea South (부산) | 3개 AZ (Central) | 2017년 |
 | GCP | `asia-northeast3` (서울) | 3개 Zone | 2020년 |
-| OCI | `ap-seoul-1`, `ap-chuncheon-1` | 3개 FD | 2020년 |
+| OCI | `ap-seoul-1`, `ap-chuncheon-1` | 3 FD | 2020년 |
+| IBM Cloud | 없음 (최근접: 도쿄 `jp-tok`, 오사카 `jp-osa`) | — | — |
 | NCP | 수도권 2개 리전 | 2개 Zone | 2017년 |
 | KT Cloud | 수도권, 대전 등 | Zone 구분 | 2012년 |
 | NHN Cloud | 판교, 평촌 | 2개 Zone | 2019년 |
+| Kakao Cloud | 판교, 안산 | 2개 Zone | 2022년 |
 
 AWS는 2016년에 가장 먼저 한국 리전을 개설했으며, 현재 4개의 AZ를 운영하고 있습니다. Azure는 서울과 부산 두 개의 리전을 보유하고 있어 국내에서 리전 간 DR 구성이 가능합니다. GCP는 2020년에 서울 리전을 개설했으며, 3개의 Zone을 운영하고 있습니다.
 
@@ -86,6 +92,9 @@ AWS는 2016년에 가장 먼저 한국 리전을 개설했으며, 현재 4개의
 | AWS | 도쿄, 오사카 | 약 30~50ms |
 | Azure | **Korea South (부산)** — 국내 DR 가능 | 약 5ms |
 | GCP | 도쿄, 오사카 | 약 30~50ms |
+| OCI | **춘천** — 국내 DR 가능 | 약 5ms |
+| IBM Cloud | 도쿄, 오사카 | 약 30~50ms |
+| NCP / KT / NHN / Kakao | 국내 리전 간 DR 가능 | 1~5ms |
 
 Azure는 한국 내에 서울-부산 리전 쌍이 있어, 데이터 주권 규제가 엄격한 경우에도 국내에서 DR을 구성할 수 있다는 차별점이 있습니다.
 

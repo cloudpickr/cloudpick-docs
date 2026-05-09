@@ -84,11 +84,11 @@ CloudPick은 AWS, Azure, GCP 3사와 국내 클라우드(NCP, KT Cloud, NHN Clou
 | 글로벌 | Azure | Korea Central(서울), Korea South(부산) |
 | 글로벌 | GCP | asia-northeast3(서울) — 3개 Zone |
 | 글로벌 | OCI | ap-seoul-1, ap-chuncheon-1 |
-| 글로벌 | Alibaba Cloud | ap-northeast-2(서울) |
-| 글로벌 | Tencent Cloud | ap-seoul(서울) |
+| 글로벌 | IBM Cloud | 없음 (최근접: 도쿄, 오사카) |
 | 국내 | Naver Cloud Platform | 한국(수도권 2개 리전) |
 | 국내 | KT Cloud | 한국(수도권, 대전 등) |
 | 국내 | NHN Cloud | 한국(판교, 평촌) |
+| 국내 | Kakao Cloud | 한국(판교, 안산) |
 
 ### 클라우드 보안 인증
 

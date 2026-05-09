@@ -14,13 +14,13 @@
 
 각 벤더는 웹 브라우저에서 클라우드 리소스를 관리할 수 있는 콘솔을 제공합니다.
 
-| 항목 | AWS | Azure | GCP |
-| --- | --- | --- | --- |
-| **이름** | AWS Management Console | Azure Portal | Google Cloud Console |
-| **URL** | [console.aws.amazon.com](https://console.aws.amazon.com) | [portal.azure.com](https://portal.azure.com) | [console.cloud.google.com](https://console.cloud.google.com) |
-| **한국어 지원** | 지원 | 지원 | 부분 지원 |
-| **모바일 앱** | AWS Console Mobile App | Azure Mobile App | Google Cloud App |
-| **특징** | 서비스별 독립 콘솔, 리전 선택 필수 | 통합 대시보드, 리소스 그룹 중심 | 프로젝트 중심, 검색 기능 강점 |
+| 항목 | AWS | Azure | GCP | OCI | IBM Cloud |
+| --- | --- | --- | --- | --- | --- |
+| **이름** | AWS Management Console | Azure Portal | Google Cloud Console | OCI Console | IBM Cloud Console |
+| **URL** | [console.aws.amazon.com](https://console.aws.amazon.com) | [portal.azure.com](https://portal.azure.com) | [console.cloud.google.com](https://console.cloud.google.com) | [cloud.oracle.com](https://cloud.oracle.com) | [cloud.ibm.com](https://cloud.ibm.com) |
+| **한국어 지원** | 지원 | 지원 | 부분 지원 | 부분 지원 | 미지원 |
+| **모바일 앱** | AWS Console Mobile App | Azure Mobile App | Google Cloud App | OCI Mobile App | IBM Cloud App |
+| **특징** | 서비스별 독립 콘솔, 리전 선택 필수 | 통합 대시보드, 리소스 그룹 중심 | 프로젝트 중심, 검색 강점 | Compartment 중심, 깔끔한 UI | 리소스 그룹 중심 |
 
 ### 콘솔 사용 시 주의사항
 

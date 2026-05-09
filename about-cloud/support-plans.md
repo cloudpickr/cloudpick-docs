@@ -13,6 +13,8 @@
 | AWS | Basic → Business Support+ → Enterprise → Unified Operations | 2027년 1월부터 새 체계 적용. 기존 Developer/Business/Enterprise On-Ramp 폐지 예정 |
 | Azure | Basic → Developer → Standard → Professional Direct → Unified | |
 | GCP | Basic → Standard → Enhanced → Premium | |
+| OCI | Basic → Paid (Premier) | Premier는 전담 CSM 배정 |
+| IBM Cloud | Basic → Advanced → Premium | |
 
 프로덕션 워크로드를 운영한다면 유료 플랜 가입을 권장합니다. 장애 발생 시 응답 시간이 크게 달라지며, 아키텍처 리뷰나 비용 최적화 조언도 받을 수 있습니다.
 

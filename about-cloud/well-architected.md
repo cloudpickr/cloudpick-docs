@@ -12,15 +12,16 @@ Well-Architected Framework은 이러한 문제를 사전에 방지하기 위한 
 
 3사 모두 Well-Architected Framework을 제공하지만, 핵심 원칙(Pillar)의 구성과 강조점에 차이가 있습니다.
 
-| 원칙 영역 | AWS | Azure | GCP |
-| --- | --- | --- | --- |
-| **운영 우수성** | Operational Excellence | Operational Excellence | Operational Excellence |
-| **보안** | Security | Security | Security, Privacy, Compliance |
-| **안정성** | Reliability | Reliability | Reliability |
-| **성능 효율성** | Performance Efficiency | Performance Efficiency | Performance Optimization |
-| **비용 최적화** | Cost Optimization | Cost Optimization | Cost Optimization |
-| **지속 가능성** | Sustainability | — | — |
-| **Pillar 수** | **6개** | **5개** | **5개** (+ 시스템 설계 원칙) |
+| 원칙 영역 | AWS | Azure | GCP | OCI | IBM Cloud |
+| --- | --- | --- | --- | --- | --- |
+| **운영 우수성** | Operational Excellence | Operational Excellence | Operational Excellence | — | — |
+| **보안** | Security | Security | Security, Privacy, Compliance | Security | Security |
+| **안정성** | Reliability | Reliability | Reliability | Reliability | Resiliency |
+| **성능 효율성** | Performance Efficiency | Performance Efficiency | Performance Optimization | Performance | — |
+| **비용 최적화** | Cost Optimization | Cost Optimization | Cost Optimization | Cost Optimization | — |
+| **지속 가능성** | Sustainability | — | — | — | — |
+| **프레임워크 이름** | Well-Architected | Well-Architected | Architecture Framework | Best Practices Framework | Architecture Framework |
+| **Pillar 수** | **6개** | **5개** | **5개** | **4개** | **3개** |
 
 ### AWS — 6개 Pillar
 

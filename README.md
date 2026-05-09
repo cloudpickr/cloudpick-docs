@@ -16,7 +16,7 @@ CloudPick 은 점점 복잡해지는 클라우의 개념, 이론을 알기 쉽�
 - 다른 벤더와 비교되는 내용이 있을 경우 가능한 한 중립적으로 표현하려고 노력합니다.
 - 기타 사항들은 일반적인 사항에 따릅니다.
 
-## 대상 클라우드 벤더 (한국 리전 보유)
+## 대상 클라우드 벤더
 
 | 구분 | 벤더 | 홈페이지 | 콘솔 |
 | --- | --- | --- | --- |
@@ -24,8 +24,8 @@ CloudPick 은 점점 복잡해지는 클라우의 개념, 이론을 알기 쉽�
 | 글로벌 | [Azure](https://azure.microsoft.com/ko-kr/) | Microsoft Azure | [Portal](https://portal.azure.com) |
 | 글로벌 | [GCP](https://cloud.google.com/) | Google Cloud Platform | [Console](https://console.cloud.google.com) |
 | 글로벌 | [OCI](https://www.oracle.com/kr/cloud/) | Oracle Cloud Infrastructure | [Console](https://cloud.oracle.com) |
-| 글로벌 | [Alibaba Cloud](https://www.alibabacloud.com/ko) | 알리바바 클라우드 | [Console](https://home.console.aliyun.com) |
-| 글로벌 | [Tencent Cloud](https://www.tencentcloud.com/ko) | 텐센트 클라우드 | [Console](https://console.tencentcloud.com) |
+| 글로벌 | [IBM Cloud](https://www.ibm.com/kr-ko/cloud) | IBM Cloud | [Console](https://cloud.ibm.com) |
 | 국내 | [NCP](https://www.ncloud.com/) | Naver Cloud Platform | [Console](https://console.ncloud.com) |
 | 국내 | [KT Cloud](https://cloud.kt.com/) | KT 클라우드 | [Console](https://cloud.kt.com/console) |
 | 국내 | [NHN Cloud](https://www.nhncloud.com/) | NHN 클라우드 | [Console](https://console.nhncloud.com) |
+| 국내 | [Kakao Cloud](https://www.kakaocloud.com/) | 카카오 클라우드 | [Console](https://console.kakaocloud.com) |

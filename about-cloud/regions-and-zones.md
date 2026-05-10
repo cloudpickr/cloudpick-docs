@@ -81,10 +81,10 @@ AWS는 2016년에 가장 먼저 한국 리전을 개설했으며, 현재 4개의
 
 | 벤더 | 프라이머리 (한국) | 세컨더리 후보 | 지연 시간 |
 | --- | --- | --- | --- |
-| AWS | `ap-northeast-2` (서울) | `ap-northeast-1` (도쿄), `ap-northeast-3` (오사카) | 약 30~50ms |
+| AWS | `ap-northeast-2` (서울) | `ap-northeast-1` (도쿄), `ap-northeast-3` (오사카) | 약 30\~50ms |
 | Azure | `koreacentral` (서울) | `koreasouth` (부산) — **국내 DR 가능** | 약 5ms |
 | Azure | `koreacentral` (서울) | `japaneast` (도쿄) | 약 30ms |
-| GCP | `asia-northeast3` (서울) | `asia-northeast1` (도쿄), `asia-northeast2` (오사카) | 약 30~50ms |
+| GCP | `asia-northeast3` (서울) | `asia-northeast1` (도쿄), `asia-northeast2` (오사카) | 약 30\~50ms |
 | OCI | `ap-seoul-1` (서울) | `ap-chuncheon-1` (춘천) — **국내 DR 가능** | 약 5ms |
 | OCI | `ap-seoul-1` (서울) | `ap-tokyo-1` (도쿄) | 약 30ms |
 

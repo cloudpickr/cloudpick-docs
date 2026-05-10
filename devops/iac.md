@@ -57,6 +57,74 @@ AWS Cloud Control API는 Terraform이 새 AWS 리소스를 지원할 때 개별 
 
 **OCI Resource Manager** — Terraform 기반의 관리형 IaC 서비스로, 상태 파일 관리와 리소스 프로비저닝을 OCI 콘솔에서 통합 운영할 수 있습니다.
 
+## Terraform 상태 관리
+
+Terraform은 현재 인프라 상태를 `terraform.tfstate` 파일에 저장합니다. 이 파일은 다음 역할을 합니다.
+
+- **리소스 매핑** — 코드의 리소스를 실제 클라우드 리소스 ID와 연결
+- **의존성 추적** — 변경 시 어떤 리소스를 먼저/나중에 처리할지 결정
+- **성능 최적화** — 매번 모든 리소스를 조회하지 않고 캐시된 상태 사용
+
+### 로컬 vs 원격 백엔드
+
+| 방식 | 장점 | 단점 |
+| --- | --- | --- |
+| **로컬 상태** | 설정 간단 | 팀 협업 불가, 파일 유실 위험, 시크릿이 plaintext로 저장 |
+| **원격 백엔드** | 팀 협업, 잠금(locking), 암호화, 버전 관리 | 초기 설정 필요 |
+
+### 원격 백엔드 옵션
+
+| 백엔드 | 사용 사례 |
+| --- | --- |
+| **S3 + DynamoDB** | AWS 환경. S3는 상태 저장, DynamoDB는 동시 실행 잠금 |
+| **Azure Storage** | Azure 환경. Blob Storage + Lease 기반 잠금 |
+| **GCS** | GCP 환경. 객체 버전 관리로 이력 추적 |
+| **OCI Resource Manager** | OCI 관리형 백엔드. 상태와 실행을 OCI에서 통합 관리 |
+| **Terraform Cloud / HCP Terraform** | 멀티클라우드. UI, 정책, 팀 관리 통합 |
+
+## 모듈 설계 모범사례
+
+Terraform 모듈은 재사용 가능한 인프라 단위입니다.
+
+### 계층 구조
+
+```
+environments/
+├── dev/
+│   └── main.tf       # 모듈 호출
+├── staging/
+│   └── main.tf
+└── prod/
+    └── main.tf
+
+modules/
+├── vpc/              # 범용 VPC 모듈
+├── eks-cluster/      # EKS 클러스터 모듈
+└── rds-instance/     # RDS 모듈
+```
+
+### 모범사례
+
+- **작게 나누기** — 한 모듈이 너무 많은 리소스를 관리하면 재사용이 어려움
+- **입력 변수로 유연성 확보** — 하드코딩 지양, `variables.tf`로 노출
+- **출력(outputs)으로 의존성 명시** — 다른 모듈이 참조할 수 있도록
+- **버전 고정** — Git 태그 또는 Terraform Registry 버전으로 고정
+- **기본값 신중히** — 프로덕션에 부적합한 기본값(예: `deletion_protection = false`)은 피하기
+
+## 드리프트(Drift) 관리
+
+IaC 외부에서 리소스가 수동으로 변경되면 코드와 실제 상태가 불일치하게 됩니다(드리프트).
+
+| 벤더 | 드리프트 탐지 도구 |
+| --- | --- |
+| AWS | CloudFormation Drift Detection, Config Rules |
+| Azure | Policy, Blueprints Compliance |
+| GCP | Config Connector (K8s 모델로 드리프트 자동 수정) |
+| OCI | Resource Manager Drift Detection |
+| Terraform | `terraform plan` (현재 상태와 코드 비교) |
+
+드리프트를 근본적으로 막으려면 **SCP/Azure Policy/Organization Policy**로 콘솔에서의 수동 변경을 제한하고, 모든 변경을 IaC 파이프라인을 통해서만 수행하도록 강제합니다.
+
 ## 참고하기
 
 ### AWS

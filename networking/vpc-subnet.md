@@ -64,6 +64,67 @@ Security Groups/NSG만으로 기본 보안은 가능하지만, 프로덕션 환�
 - **Azure** — VNet 피어링이 글로벌로 가능하여 리전 간 연결이 간편합니다.
 - **OCI** — VCN은 리전 단위이며, 서브넷을 리전 또는 AD 단위로 배치할 수 있습니다. Security Lists와 NSG를 조합하여 유연한 보안 구성이 가능합니다.
 
+## 서브넷 설계 모범사례
+
+서브넷은 **퍼블릭(Public)**, **프라이빗(Private)**, **격리(Isolated)** 3계층으로 나누는 것이 일반적입니다.
+
+| 계층 | 용도 | 인터넷 접근 | 배치 리소스 |
+| --- | --- | --- | --- |
+| **퍼블릭** | 외부 트래픽 수신 | 인바운드/아웃바운드 모두 가능 | ALB, NAT Gateway, Bastion Host |
+| **프라이빗** | 애플리케이션 계층 | NAT Gateway 통해 아웃바운드만 | EC2, ECS, EKS 워커 노드 |
+| **격리** | DB, 내부 시스템 | 인터넷 접근 불가 (VPC 내부만) | RDS, ElastiCache |
+
+### CIDR 계획
+
+- **VPC CIDR**은 `/16` (65,536개 IP)을 권장. 너무 작으면 확장 어려움.
+- **서브넷 CIDR**은 `/24` (256개 IP) 단위로 시작. 필요 시 `/20` (4,096개)로 확대.
+- **AZ별로 서브넷 분산**. 최소 3개 AZ에 배치하여 고가용성 확보.
+- **VPC 간 CIDR 중복 피하기**. 피어링/전용 연결 시 라우팅 불가.
+
+멀티클라우드 환경의 CIDR 설계는 [멀티클라우드 커넥티비티](multicloud-connectivity.md)를 참고하세요.
+
+## 라우팅 테이블
+
+각 서브넷은 라우팅 테이블에 연결됩니다. 라우팅 테이블은 트래픽의 목적지에 따라 어디로 전송할지 결정합니다.
+
+### 기본 라우팅 규칙
+
+| 목적지 | 대상 | 설명 |
+| --- | --- | --- |
+| `10.0.0.0/16` (VPC CIDR) | `local` | VPC 내부 트래픽 |
+| `0.0.0.0/0` (모든 외부) | Internet Gateway | 퍼블릭 서브넷 |
+| `0.0.0.0/0` | NAT Gateway | 프라이빗 서브넷 (아웃바운드만) |
+| `192.168.0.0/16` | VPC Peering / Transit Gateway | 다른 VPC/온프레미스 |
+
+## VPC 간 연결
+
+### VPC 피어링 vs Transit Gateway
+
+| 방식 | 특징 | 사용 시점 |
+| --- | --- | --- |
+| **VPC 피어링** | 1:1 직접 연결, 전이적(transitive) 아님 | 소수의 VPC 연결 |
+| **Transit Gateway / vWAN** | 허브-스포크, N:N 연결, 전이적 라우팅 | 다수의 VPC + 온프레미스 |
+
+4사 비교:
+
+| 벤더 | 1:1 피어링 | 허브-스포크 |
+| --- | --- | --- |
+| AWS | VPC Peering | Transit Gateway |
+| Azure | VNet Peering (글로벌 가능) | Azure Virtual WAN |
+| GCP | VPC Network Peering | 글로벌 VPC (피어링 불필요) |
+| OCI | Local Peering Gateway (LPG) / Remote Peering Connector (RPC) | Dynamic Routing Gateway (DRG) |
+
+### VPC 엔드포인트 (PrivateLink)
+
+인터넷을 거치지 않고 VPC 내에서 벤더 서비스(S3, Blob 등)에 접근할 수 있습니다. 보안과 비용(데이터 전송) 모두 이점이 있습니다.
+
+| 벤더 | 제품 |
+| --- | --- |
+| AWS | VPC Endpoint / PrivateLink |
+| Azure | Private Endpoint / Private Link |
+| GCP | Private Service Connect |
+| OCI | Service Gateway / Private Endpoint |
+
 ## 참고하기
 
 ### AWS

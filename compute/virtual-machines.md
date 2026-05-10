@@ -67,6 +67,39 @@
 | GPU/AI 가속기 + 자체 칩(Inferentia, Trainium)이 필요할 때 | AWS EC2 (P5, Inf2, Trn1) |
 | Bare Metal 서버가 필요할 때 | OCI Bare Metal 또는 AWS Bare Metal |
 
+## 구매 옵션 (가격 모델)
+
+같은 VM이라도 약정 방식에 따라 가격이 크게 차이납니다.
+
+| 옵션 | 설명 | 할인율 | 위험 |
+| --- | --- | --- | --- |
+| **온디맨드 (On-Demand / Pay-As-You-Go)** | 사용한 만큼 초/시간 단위 과금 | 0% (기준가) | 없음 |
+| **예약 (Reserved)** | 1년 또는 3년 약정 | 최대 72% | 사용 안 해도 요금 발생 |
+| **약정 사용 할인 (Savings Plans / Savings Plan / CUD)** | 시간당 사용 금액 약정 | 최대 72% | 유연하지만 사용량 약정 |
+| **Spot / Preemptible** | 남는 용량을 저렴하게 이용 | 최대 90% | 언제든 회수될 수 있음 |
+| **Reserved Capacity** | 특정 AZ/존에 용량 예약 | — | 용량 확보 보장 |
+
+### 4사 구매 옵션 비교
+
+| 벤더 | 온디맨드 | 장기 약정 | Spot |
+| --- | --- | --- | --- |
+| AWS | On-Demand | Reserved Instance + Savings Plans | Spot Instance |
+| Azure | Pay-As-You-Go | Reserved VM Instance + Savings Plan | Spot VM |
+| GCP | On-Demand | Committed Use Discount (CUD) | Preemptible / Spot VM |
+| OCI | Pay-As-You-Go | Monthly Flex / Annual Flex / Universal Credits | Preemptible Instance |
+
+자세한 비용 구조는 [비용 구조 이해하기](../about-cloud/pricing-model.md)를 참고하세요.
+
+## 배치 그룹과 전용 호스트
+
+고성능/컴플라이언스 요구사항에 따라 VM을 물리적으로 제어할 수 있습니다.
+
+| 기능 | 설명 | AWS | Azure | GCP | OCI |
+| --- | --- | --- | --- | --- | --- |
+| **동일 랙 배치** | 저지연 통신 (HPC, 분산 DB) | Placement Group (Cluster) | Proximity Placement Group | Compact Placement | Cluster Network |
+| **분산 배치** | 단일 장애점 제거 | Placement Group (Spread) | Availability Set | Spread Placement | Fault Domain |
+| **전용 물리 서버** | 라이선스/컴플라이언스 | Dedicated Host | Dedicated Host | Sole-tenant Node | Dedicated VM Host |
+
 ## 참고하기
 
 ### AWS

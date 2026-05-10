@@ -1,3 +1,7 @@
+---
+description: API Gateway의 역할, 인증 연동, 배포 전략을 4사 비교합니다.
+---
+
 # API Gateway
 
 > 문서 기준: 2026년 5월

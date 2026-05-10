@@ -1,3 +1,7 @@
+---
+description: 콘솔, CLI, SDK, Cloud Shell의 역할과 IaC와의 관계를 4사 비교합니다.
+---
+
 # 콘솔, CLI, SDK
 
 > 문서 기준: 2026년 5월

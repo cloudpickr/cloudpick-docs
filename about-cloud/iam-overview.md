@@ -1,3 +1,7 @@
+---
+description: IAM의 기본 개념과 AWS, Azure, GCP, OCI의 접근 제어 모델을 개요 수준으로 비교합니다.
+---
+
 # IAM 개요
 
 > 문서 기준: 2026년 5월

@@ -1,3 +1,7 @@
+---
+description: DB 마이그레이션 전략(Rehost/Replatform/Refactor)과 다운타임 최소화 기법을 4사 비교합니다.
+---
+
 # 데이터베이스 마이그레이션
 
 > 문서 기준: 2026년 5월

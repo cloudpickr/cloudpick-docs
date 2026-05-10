@@ -1,3 +1,7 @@
+---
+description: 키-값, 문서, 인메모리 캐시, 검색 엔진 등 NoSQL 유형별 제품을 4사 비교합니다.
+---
+
 # NoSQL
 
 > 문서 기준: 2026년 5월
@@ -53,7 +57,9 @@ NoSQL은 데이터 모델에 따라 여러 유형으로 나뉘며, 워크로드�
 | GCP | Memorystore for Redis | |
 | OCI | OCI Cache with Redis | Redis 호환 관리형 캐시 |
 
-> **Valkey**는 Redis의 오픈소스 포크로, Linux Foundation에서 관리합니다. Redis가 2024년 라이선스를 변경한 이후 AWS, GCP 등이 Valkey로 전환하고 있습니다. 기존 Redis 클라이언트와 호환됩니다.
+{% hint style="info" %}
+**Valkey**는 Redis의 오픈소스 포크로, Linux Foundation에서 관리합니다. Redis가 2024년 라이선스를 변경한 이후 AWS, GCP 등이 Valkey로 전환하고 있습니다. 기존 Redis 클라이언트와 호환됩니다.
+{% endhint %}
 
 ### 검색 / 로그 분석 엔진
 

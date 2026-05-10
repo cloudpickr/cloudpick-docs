@@ -55,6 +55,64 @@ FinOps를 처음 시작할 때는 도구를 많이 도입하기보다, 비용을
 비용 최적화는 보안, 가용성, 성능을 훼손하지 않는 범위에서 진행해야 합니다. 특히 백업 보관 기간이나 DR 구성을 비용만 보고 줄이면 장애 시 더 큰 손실이 발생할 수 있습니다.
 {% endhint %}
 
+## 태그/라벨 정책 설계
+
+FinOps의 출발점은 **누가, 무엇에, 얼마를 썼는가** 를 정확히 귀속시키는 것입니다. 계정/구독/프로젝트 단위 분리만으로는 부족한 경우(같은 계정에 여러 팀의 리소스가 있는 경우 등)가 많아, 태그/라벨이 필수입니다.
+
+### 표준 태그 세트
+
+벤더에 중립적으로 권장되는 최소 태그 세트입니다.
+
+| 태그 키 | 값 예시 | 용도 |
+| --- | --- | --- |
+| `env` / `environment` | `prod`, `staging`, `dev` | 환경별 비용 분석, 배포 정책 |
+| `owner` | `team-payments@company.com` | 책임자 식별, 알림 라우팅 |
+| `cost-center` | `CC-1001` | 회계 시스템 연계, Chargeback |
+| `project` / `workload` | `checkout-api`, `ml-pipeline` | 서비스 단위 비용 분석 |
+| `service-tier` | `critical`, `standard`, `low` | SLO/DR 정책과 연계 |
+| `data-classification` | `public`, `internal`, `confidential` | 보안/감사 요건 |
+| `compliance` | `pci`, `hipaa`, `isms-p` | 규제 리소스 식별 |
+| `managed-by` | `terraform`, `manual` | IaC 관리 여부, 드리프트 탐지 |
+
+조직에 따라 `business-unit`, `customer`, `cost-allocation` 등을 추가할 수 있습니다.
+
+### 태그 정책 원칙
+
+- **일관된 대소문자와 표기** — `env` vs `Env` vs `environment`는 다른 키로 취급됨. 하나로 통일.
+- **값 허용 목록 제한** — 자유 입력은 오타로 집계 실패. `prod`/`staging`/`dev`처럼 허용값 고정.
+- **필수 태그 강제** — 태그 없는 리소스는 비용 귀속이 불가. 생성 시 강제.
+- **상위 계층에서 상속** — 조직/OU/폴더/컴파트먼트 수준 태그가 하위 리소스에 자동 적용되면 운영 부담 감소.
+- **기술 태그와 비용 태그 구분** — `app=nginx`는 기술, `cost-center=CC-1001`은 비용. 비용 리포트에서 노이즈 줄임.
+
+### 벤더별 태그 거버넌스 도구
+
+| 벤더 | 태그 강제/감사 | 참고 |
+| --- | --- | --- |
+| AWS | [AWS Tag Policies](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html), [Resource Groups Tagging API](https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/Welcome.html), [Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html) | Organization 수준에서 태그 정책 정의, Config Rule로 규정 위반 탐지 |
+| Azure | [Azure Policy 태그 enforcement](https://learn.microsoft.com/azure/azure-resource-manager/management/tag-policies), [Cost allocation rules](https://learn.microsoft.com/azure/cost-management-billing/costs/allocate-costs) | Management Group 단위로 태그 정책 적용, 상속 정책 제공 |
+| GCP | [Resource Tags](https://cloud.google.com/resource-manager/docs/tags/tags-overview), [Labels](https://cloud.google.com/resource-manager/docs/creating-managing-labels), [Organization Policy](https://cloud.google.com/resource-manager/docs/organization-policy/tags-organization-policy) | Resource Tags는 IAM과 정책에, Labels는 비용 분석에 사용 (용도 분리) |
+| OCI | [Tag Namespaces](https://docs.oracle.com/en-us/iaas/Content/Tagging/Tasks/managingtagsandtagnamespaces.htm), [Tag Defaults](https://docs.oracle.com/en-us/iaas/Content/Tagging/Tasks/managingtagdefaults.htm), [Cost Tracking Tags](https://docs.oracle.com/en-us/iaas/Content/Tagging/Tasks/usingcosttrackingtags.htm) | Tag Namespace로 키 관리, Tag Defaults로 Compartment 수준 자동 태깅 |
+
+### 배포 파이프라인에서의 강제
+
+태그는 사람이 직접 붙이면 누락되기 쉽습니다. 정책 코드화로 강제합니다.
+
+- **IaC 모듈 표준화** — Terraform 모듈에 필수 태그를 입력 변수로 강제. 누락 시 plan 단계에서 실패.
+- **정책 게이트** — AWS SCP, Azure Policy, GCP Organization Policy로 태그 없는 리소스 생성 거부.
+- **CI/CD 검증** — PR 단계에서 `tflint`, `checkov`, `opa`로 태그 존재 여부 확인.
+- **지속 감사** — AWS Config, Azure Resource Graph, GCP Asset Inventory 쿼리로 정기 리포트.
+
+### 시작 체크리스트
+
+- [ ] 표준 태그 키 세트 정의 (8\~10개 이내로 시작, 이후 확장)
+- [ ] 태그 값 허용 목록 문서화 (예: `env` 값은 `prod`/`staging`/`dev`만)
+- [ ] 조직/OU/폴더/컴파트먼트 수준의 상속 정책 적용
+- [ ] IaC 모듈에 필수 태그 입력 강제
+- [ ] 비용 할당 태그(Cost Allocation Tag) 활성화 — 벤더 기본은 비활성
+- [ ] 기존 리소스의 누락 태그 보정 계획 (일괄 업데이트 스크립트)
+- [ ] 월 1회 태그 규정 준수 리포트 생성
+- [ ] Showback/Chargeback 리포트의 태그 기반 필드 확인
+
 ## Showback vs Chargeback
 
 비용을 조직 내부에 어떻게 배분할지 결정하는 모델입니다. [FinOps Foundation 공식 프레임워크](https://www.finops.org/framework/capabilities/allocation/)에서 정의합니다.

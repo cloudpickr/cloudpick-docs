@@ -56,6 +56,7 @@
 
 ## AI와 머신러닝 <a id="ai"></a>
 
+- [클라우드 AI 시작하기](ai/getting-started.md)
 - [AI와 머신러닝 서비스](ai/ai-ml.md)
 - [벡터 스토어와 AI 데이터](ai/vector-store.md)
 - [멀티클라우드 AI 아키텍처](ai/multicloud-ai.md)

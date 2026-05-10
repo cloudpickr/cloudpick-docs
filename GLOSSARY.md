@@ -36,6 +36,19 @@ description: 클라우드 문서에서 자주 등장하는 용어를 벤더 중�
 | Landing Zone | 멀티 계정/구독/프로젝트 환경을 안전하고 일관되게 운영하기 위한 초기 기반 구조입니다. |
 | RAG | Retrieval-Augmented Generation. 외부 지식 검색 결과를 LLM 답변 생성에 함께 사용하는 AI 아키텍처입니다. |
 | Vector Store | 텍스트나 이미지의 의미를 벡터로 저장하고 유사도 검색을 제공하는 저장소입니다. |
+| LLM | Large Language Model. 대량의 텍스트로 학습된 대형 언어 모델입니다. GPT, Claude, Gemini 등이 있습니다. |
+| Foundation Model | 파운데이션 모델. 대규모 데이터로 사전 학습되어 다양한 작업에 범용적으로 쓰이는 AI 모델입니다. |
+| Prompt | 모델에게 보내는 입력 메시지입니다. 질문, 지시, 맥락을 포함합니다. |
+| Prompt Engineering | 모델이 더 좋은 답을 생성하도록 프롬프트를 설계하고 개선하는 기법입니다. |
+| Token | 모델이 텍스트를 처리하는 단위입니다. 대략 단어 한 개가 1\~2 토큰이며, 대부분 API는 토큰 수로 과금합니다. |
+| Embedding | 텍스트나 이미지를 의미 기반의 숫자 배열(벡터)로 변환한 것입니다. 유사도 검색에 사용됩니다. |
+| Fine-tuning | 사전 학습된 모델을 특정 데이터로 추가 학습하여 도메인에 맞게 조정하는 기법입니다. |
+| Inference | 추론. 학습된 모델이 입력을 받아 출력을 생성하는 과정입니다. 학습보다 빠르고 저렴합니다. |
+| Hallucination | 환각. LLM이 사실이 아닌 내용을 그럴듯하게 생성하는 현상입니다. RAG 등으로 완화합니다. |
+| Agent | 에이전트. LLM이 도구를 호출하거나 여러 단계를 수행하여 작업을 자동화하는 구조입니다. |
+| MLOps | ML 모델의 학습/배포/모니터링을 자동화·표준화하는 운영 체계입니다. DevOps의 ML 버전입니다. |
+| ANN | Approximate Nearest Neighbor. 근사 최근접 이웃 탐색. 벡터 검색에서 속도를 위해 정확도를 약간 양보하는 알고리즘입니다. |
+| HNSW | Hierarchical Navigable Small World. 그래프 기반 ANN 알고리즘입니다. |
 
 {% hint style="info" %}
 같은 개념이라도 벤더마다 이름이 다를 수 있습니다. 예를 들어 AWS는 VPC, Azure는 VNet, OCI는 VCN이라는 용어를 사용합니다.

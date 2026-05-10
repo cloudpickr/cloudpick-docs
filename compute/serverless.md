@@ -76,6 +76,46 @@ VM과 컨테이너는 서버 생성과 배포를 자동화했지만, 여전히 "
 | 시각적 워크플로우 오케스트레이션이 필요할 때 | AWS Step Functions |
 | 이벤트 기반 자동 스케일링 컨테이너가 필요할 때 | Azure Container Apps |
 
+## Cold Start 완화 전략
+
+Cold Start는 서버리스의 가장 큰 단점입니다. 벤더별 완화 방법을 정리합니다.
+
+| 전략 | 설명 | AWS Lambda | Azure Functions | GCP Cloud Functions/Run | OCI Functions |
+| --- | --- | --- | --- | --- | --- |
+| **사전 프로비저닝** | 미리 웜업된 인스턴스 유지 | Provisioned Concurrency | Premium Plan (Pre-warmed) | Min Instances | — |
+| **Keep-warm 호출** | 주기적으로 함수를 호출하여 웜 상태 유지 | EventBridge 스케줄 | Timer Trigger | Cloud Scheduler | OCI Events |
+| **런타임 선택** | 빠른 초기화 런타임 사용 | Go, Rust는 Cold Start 빠름. Java/.NET은 느림 | 동일 | 동일 | 동일 |
+| **경량화** | 패키지 크기 축소, 의존성 최소화 | Lambda Layers 활용 | 동일 | 동일 | 동일 |
+| **SnapStart** | 스냅샷 기반 빠른 시작 | Lambda SnapStart (Java) | — | — | — |
+
+## 동시성 제한과 처리량
+
+서버리스는 자동 확장되지만 무제한은 아닙니다. 초당 얼마나 많은 요청을 처리할 수 있는지 알아야 합니다.
+
+| 벤더 | 기본 동시성 제한 | 확장 가능 |
+| --- | --- | --- |
+| AWS Lambda | 계정당 1,000 동시 실행 (리전별) | 지원 요청으로 증가 가능 |
+| Azure Functions | Consumption Plan: 제한 있음. Premium: 더 높음 | Elastic Premium Plan |
+| GCP Cloud Functions (2세대) | 함수당 최대 1,000 동시 실행 | 조정 가능 |
+| OCI Functions | 테넌시별 제한 | 지원 요청으로 증가 |
+
+### 동시성 제한 전략
+
+- **Reserved Concurrency** (AWS Lambda) — 특정 함수에 동시 실행 수 예약 또는 제한
+- **Throttling** — 지원되는 리트라이 정책 사용 (지수 백오프)
+- **큐 기반 버퍼링** — SQS/Service Bus/Pub/Sub로 트래픽 스파이크 흡수
+
+## 컨테이너 이미지 지원
+
+모든 벤더가 컨테이너 이미지 기반 서버리스 함수를 지원합니다. 기존 컨테이너 워크로드를 서버리스로 전환하기 쉽습니다.
+
+| 벤더 | 최대 이미지 크기 | 비고 |
+| --- | --- | --- |
+| AWS Lambda | 10GB | ECR에서 가져옴 |
+| Azure Functions | — (Custom Container) | 모든 이미지 |
+| GCP Cloud Run | — | Artifact Registry에서 가져옴 |
+| OCI Functions | — | OCI Registry 또는 외부 |
+
 ## 참고하기
 
 ### AWS

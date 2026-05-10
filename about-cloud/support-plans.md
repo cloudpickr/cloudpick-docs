@@ -72,6 +72,32 @@ MSP는 일반적으로 **클라우드 사용료에 대한 추가 마진을 받�
 
 이 서비스들은 정기적으로 확인하고 권장 사항을 적용하면 비용과 보안 모두 개선할 수 있습니다.
 
+## 응답 시간 SLA
+
+유료 플랜의 가장 큰 차이는 장애 발생 시 응답 시간입니다. 프로덕션 워크로드를 운영한다면 응답 시간을 확인하고 플랜을 선택해야 합니다.
+
+### 심각도별 응답 시간 (4사 비교)
+
+| 심각도 | 설명 | AWS Business Support+ | Azure Professional Direct | GCP Enhanced | OCI Premier |
+| --- | --- | --- | --- | --- | --- |
+| **위기 (Critical)** | 프로덕션 중단 | < 15분 | < 1시간 | < 1시간 | < 1시간 |
+| **긴급 (Urgent)** | 프로덕션 일부 영향 | < 4시간 | < 4시간 | < 4시간 | < 2시간 |
+| **일반 (Normal)** | 비프로덕션 영향 | < 12시간 | < 8시간 | < 8시간 | < 6시간 |
+| **문의 (Low)** | 일반 질문 | < 24시간 | < 24시간 | < 24시간 | < 24시간 |
+
+> 값은 각 벤더 공식 SLA 기준이며, 플랜 변경 시 달라질 수 있습니다. 정확한 수치는 벤더 공식 문서를 확인하세요.
+
+### TAM (Technical Account Manager) 배정
+
+상위 플랜에서는 전담 기술 계정 관리자가 배정됩니다.
+
+| 벤더 | 플랜 | TAM 역할 |
+| --- | --- | --- |
+| AWS | Enterprise, Unified Operations | 전담 TAM. 아키텍처 리뷰, 비용 최적화, 운영 지원 |
+| Azure | Unified (구 Premier) | Designated Support Engineer |
+| GCP | Premium | Technical Account Manager |
+| OCI | Premier | Customer Success Manager (CSM) |
+
 ## 참고하기
 
 ### AWS

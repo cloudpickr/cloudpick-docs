@@ -127,8 +127,8 @@ DB 마이그레이션은 일회성 데이터 이동이 아니라 여러 단계�
 
 ### AWS
 
-- [AWS DMS 문서](https://docs.aws.amazon.com/ko_kr/dms/)
-- [AWS SCT 문서](https://docs.aws.amazon.com/ko_kr/SchemaConversionTool/)
+- [AWS Database Migration Service (DMS) 문서](https://docs.aws.amazon.com/ko_kr/dms/)
+- [AWS Schema Conversion Tool (SCT) 문서](https://docs.aws.amazon.com/ko_kr/SchemaConversionTool/)
 
 ### Azure
 

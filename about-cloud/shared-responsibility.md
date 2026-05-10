@@ -1,5 +1,5 @@
 ---
-description: 클라우드 공동 책임 모델, IaaS/PaaS/SaaS별 책임 경계, 4사의 모델 차이를 설명합니다.
+description: 클라우드 공동 책임 모델, IaaS/PaaS/SaaS별 책임 경계, 벤더별 모델 차이를 설명합니다.
 ---
 
 # 공동 책임 모델

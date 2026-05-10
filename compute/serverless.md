@@ -1,5 +1,5 @@
 ---
-description: FaaS, 서버리스 컨테이너, 워크플로우 오케스트레이션을 4사 비교하고 Cold Start 대응 전략을 설명합니다.
+description: FaaS, 서버리스 컨테이너, 워크플로우 오케스트레이션을 벤더별로 비교하고 Cold Start 대응 전략을 설명합니다.
 ---
 
 # 서버리스

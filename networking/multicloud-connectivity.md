@@ -6,7 +6,9 @@ description: 트랜짓 아키텍처 패턴, 이그레스 비용 상세 비교, D
 
 > 문서 기준: 2026년 5월
 
-이 문서는 [멀티클라우드 네트워킹 개요](../about-cloud/multicloud-networking.md)의 심화 내용을 다룹니다.
+{% hint style="info" %}
+이 문서는 심화 내용을 다룹니다. 클라우드 간 연결 방식 개요와 CIDR 설계는 [멀티클라우드 네트워킹 개요](../about-cloud/multicloud-networking.md)를 먼저 참고하세요.
+{% endhint %}
 
 ## 트랜짓 아키텍처 패턴
 

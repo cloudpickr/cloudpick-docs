@@ -1,5 +1,7 @@
 # Well-Architected Framework
 
+> 문서 기준: 2026년 5월
+
 ## Well-Architected란?
 
 건물을 설계할 때 내진 설계, 방화 구획, 에너지 효율 등의 건축 기준이 있듯이, 클라우드 워크로드를 설계할 때도 따라야 할 모범 사례가 있습니다. 이를 체계적으로 정리한 것이 **Well-Architected Framework**입니다.

@@ -1,5 +1,7 @@
 # 멀티클라우드 AI 아키텍처
 
+> 문서 기준: 2026년 5월
+
 ## 왜 멀티클라우드 AI인가
 
 각 클라우드 벤더는 AI/ML 영역에서 서로 다른 강점을 가지고 있습니다. 단일 벤더에 종속되지 않고 워크로드 특성에 맞는 최적의 서비스를 조합하면 비용, 성능, 모델 다양성 측면에서 이점을 얻을 수 있습니다.
@@ -13,7 +15,7 @@
 
 ## GPU 가용성
 
-AI 학습 및 추론에 필수적인 GPU 인스턴스를 4사별로 비교합니다.
+AI 학습 및 추론에 필수적인 GPU 인스턴스를 주요 CSP별로 비교합니다.
 
 | 항목 | AWS | Azure | GCP | OCI |
 | --- | --- | --- | --- | --- |
@@ -22,7 +24,9 @@ AI 학습 및 추론에 필수적인 GPU 인스턴스를 4사별로 비교합니
 | 예약 옵션 | Reserved Instances, Savings Plans | Reserved VM Instances | CUD (Committed Use Discount) | Capacity Reservation |
 | 스팟/선점형 | Spot Instances | Spot VMs | Spot VMs (Preemptible) | Preemptible Instances |
 
-> **참고**: GPU 인스턴스 가격은 리전, 약정 기간, 가용성에 따라 크게 달라집니다. 최신 가격은 각 벤더의 가격 계산기를 참조하세요.
+{% hint style="warning" %}
+GPU 인스턴스 가격은 리전, 약정 기간, 가용성에 따라 크게 달라집니다. 최신 가격은 각 벤더의 가격 계산기를 참조하세요.
+{% endhint %}
 
 ## RAG 파이프라인
 
@@ -34,6 +38,27 @@ RAG(Retrieval-Augmented Generation) 파이프라인은 Vector DB, Embedding 모�
 | Embedding | [Amazon Titan Embeddings](https://aws.amazon.com/bedrock/titan/) (Bedrock) | [text-embedding-ada-002](https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/models) (Azure OpenAI) | [text-embedding-005](https://cloud.google.com/vertex-ai/generative-ai/docs/embeddings/get-text-embeddings) (Vertex AI) | [Cohere Embed](https://docs.oracle.com/en-us/iaas/Content/generative-ai/embed-models.htm) (OCI Generative AI) |
 | LLM | Bedrock (Claude, Llama 등) | Azure OpenAI (GPT-4o, o1) | Vertex AI (Gemini, Claude) | OCI Generative AI (Cohere, Llama) |
 | 오케스트레이션 | [Amazon Bedrock Knowledge Bases](https://aws.amazon.com/bedrock/knowledge-bases/) | [Azure AI Studio](https://azure.microsoft.com/en-us/products/ai-studio) | [Vertex AI RAG Engine](https://cloud.google.com/vertex-ai/generative-ai/docs/rag-overview) | [OCI Generative AI Agents](https://www.oracle.com/artificial-intelligence/generative-ai/agents/) |
+
+## 아키텍처 선택 패턴
+
+| 패턴 | 설명 | 적합한 경우 |
+| --- | --- | --- |
+| 단일 CSP AI 플랫폼 | 한 클라우드의 모델, 데이터, 배포 도구를 모두 사용 | 운영 단순성이 가장 중요할 때 |
+| 모델 분산 | 모델은 여러 CSP의 API를 쓰고, 애플리케이션은 한 곳에서 운영 | 모델 품질과 비용을 비교하며 선택해야 할 때 |
+| 데이터 근접형 | 데이터가 있는 클라우드에서 임베딩·검색·추론을 수행 | 데이터 이동 비용이나 규제가 중요할 때 |
+| 중앙 RAG 플랫폼 | 하나의 공통 RAG 계층에서 여러 CSP 모델을 호출 | 조직 전체에 공통 AI 플랫폼을 제공할 때 |
+
+## 설계 시 주의사항
+
+- **데이터 이동 비용** — 대량 문서, 임베딩, 로그를 클라우드 간 이동하면 이그레스 비용이 커질 수 있습니다.
+- **데이터 주권** — 개인정보, 금융 데이터, 의료 데이터는 저장 위치와 처리 위치를 명확히 해야 합니다.
+- **모델 의존성** — 특정 모델의 API 형식, 토큰 제한, 함수 호출 방식에 종속되지 않도록 추상화 계층을 둡니다.
+- **관측 가능성** — 프롬프트, 응답, 토큰 사용량, 지연 시간, 비용을 함께 모니터링합니다.
+- **보안** — 프롬프트 인젝션, 민감정보 유출, 과도한 에이전트 권한을 통제해야 합니다.
+
+{% hint style="info" %}
+멀티클라우드 AI는 모든 벤더를 동시에 쓰는 것이 목표가 아닙니다. 데이터 위치, 모델 품질, 비용, 규제 요구사항에 따라 필요한 조합만 선택하는 것이 핵심입니다.
+{% endhint %}
 
 ## 참고하기
 

@@ -68,11 +68,11 @@ AWS, Azure, GCP 같은 벤더가 소유·운영하는 인프라를 인터넷을 
 | **프라이빗/온프레미스 확장** | Outposts | Azure Stack, Azure Local | Google Distributed Cloud | Dedicated Region |
 | **하이브리드 관리** | EKS Anywhere, ECS Anywhere | Azure Arc | Anthos | OCI Multicloud |
 
-## 왜 멀티클라우드인가?
+## 멀티클라우드 이해하기
 
 하나의 클라우드 벤더만 사용하는 것이 가장 단순하지만, 실무에서는 여러 벤더를 함께 사용하는 **멀티클라우드** (Multi-Cloud) 전략을 채택하는 조직이 늘고 있습니다. CNCF 2024 조사에 따르면 기업의 약 60%가 2개 이상의 클라우드를 사용합니다.
 
-멀티클라우드의 도입 동기와 도전 과제는 [왜 멀티클라우드인가?](why-multicloud.md)에서 자세히 다룹니다.
+멀티클라우드의 도입 동기와 도전 과제는 [멀티클라우드 이해하기](why-multicloud.md)에서 자세히 다룹니다.
 
 CloudPick은 AWS, Azure, GCP, OCI를 중심으로, 멀티클라우드 환경에서 올바른 의사결정을 내릴 수 있도록 돕는 것을 목표로 합니다.
 

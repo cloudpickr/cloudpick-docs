@@ -1,5 +1,5 @@
 ---
-description: VPC/VNet/VCN 개념, 서브넷 설계, 보안 계층, NAT, VPC 간 연결 방식을 4사 비교합니다.
+description: VPC/VNet/VCN 개념, 서브넷 설계, 보안 계층, NAT, VPC 간 연결 방식을 벤더별로 비교합니다.
 ---
 
 # VPC와 서브넷
@@ -115,7 +115,7 @@ NAT Gateway는 시간당 비용 + 데이터 처리 비용이 발생합니다. �
 | **VPC 피어링** | 1:1 직접 연결, 전이적(transitive) 아님 | 소수의 VPC 연결 |
 | **Transit Gateway / vWAN** | 허브-스포크, N:N 연결, 전이적 라우팅 | 다수의 VPC + 온프레미스 |
 
-4사 비교:
+벤더별 비교:
 
 | 벤더 | 1:1 피어링 | 허브-스포크 |
 | --- | --- | --- |

@@ -1,5 +1,5 @@
 ---
-description: 관리형 RDB와 클라우드 네이티브 DB의 차이, HA 구성, PITR을 4사 비교합니다.
+description: 관리형 RDB와 클라우드 네이티브 DB의 차이, HA 구성, PITR을 벤더별로 비교합니다.
 ---
 
 # 관리형 RDB

@@ -1,5 +1,5 @@
 ---
-description: 관리형 DNS, 라우팅 정책, DNSSEC, Private DNS를 4사 비교합니다.
+description: 관리형 DNS, 라우팅 정책, DNSSEC, Private DNS를 벤더별로 비교합니다.
 ---
 
 # DNS

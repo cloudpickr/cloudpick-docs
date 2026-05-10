@@ -1,5 +1,5 @@
 ---
-description: FinOps 라이프사이클, 비용 관리 도구, 실무 적용 순서, FOCUS 스펙을 4사 비교합니다.
+description: FinOps 라이프사이클, 비용 관리 도구, 실무 적용 순서, FOCUS 스펙을 벤더별로 비교합니다.
 ---
 
 # FinOps

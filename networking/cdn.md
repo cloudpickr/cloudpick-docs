@@ -98,4 +98,3 @@ CDN 엣지에서 코드를 실행하여 요청/응답을 변환하거나, 간단
 
 - [Cloud CDN 문서](https://cloud.google.com/cdn/docs)
 - [Media CDN 문서](https://cloud.google.com/media-cdn/docs)
-

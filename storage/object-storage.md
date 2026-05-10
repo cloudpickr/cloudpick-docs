@@ -49,13 +49,23 @@ AWS S3 Intelligent-Tiering과 GCP Autoclass는 접근 패턴을 자동으로 분
 
 ## 핵심 차이점
 
-**AWS S3** — 2006년 출시로 가장 오래되었고, S3 API가 업계 사실상 표준이 되었습니다. 대부분의 3rd party 도구, 다른 클라우드 벤더, 온프레미스 스토리지까지 S3 호환 API를 지원합니다. S3 Tables, S3 Metadata, S3 Vectors 등 스토리지 자체에 분석 기능을 내장하는 방향으로 가장 적극적으로 진화하고 있습니다.
+{% tabs %}
+{% tab title="AWS S3" %}
+2006년 출시로 가장 오래되었고, S3 API가 업계 사실상 표준이 되었습니다. 대부분의 3rd party 도구, 다른 클라우드 벤더, 온프레미스 스토리지까지 S3 호환 API를 지원합니다. S3 Tables, S3 Metadata, S3 Vectors 등 스토리지 자체에 분석 기능을 내장하는 방향으로 가장 적극적으로 진화하고 있습니다.
+{% endtab %}
 
-**Azure Blob Storage** — Blob Storage와 Data Lake Storage Gen2가 동일한 스토리지 계정에서 통합됩니다. 계층적 네임스페이스(폴더 구조)를 지원하여 빅데이터 워크로드에서 파일 관리가 편리합니다. Microsoft Fabric과의 통합으로 분석 파이프라인 구성이 간편합니다.
+{% tab title="Azure Blob Storage" %}
+Blob Storage와 Data Lake Storage Gen2가 동일한 스토리지 계정에서 통합됩니다. 계층적 네임스페이스(폴더 구조)를 지원하여 빅데이터 워크로드에서 파일 관리가 편리합니다. Microsoft Fabric과의 통합으로 분석 파이프라인 구성이 간편합니다.
+{% endtab %}
 
-**GCP Cloud Storage** — Multi-region과 Dual-region 옵션으로 별도 복제 설정 없이 여러 리전에 자동 복제됩니다. Autoclass로 스토리지 클래스 자동 전환을 지원하며, BigLake를 통해 BigQuery에서 직접 쿼리할 수 있습니다.
+{% tab title="GCP Cloud Storage" %}
+Multi-region과 Dual-region 옵션으로 별도 복제 설정 없이 여러 리전에 자동 복제됩니다. Autoclass로 스토리지 클래스 자동 전환을 지원하며, BigLake를 통해 BigQuery에서 직접 쿼리할 수 있습니다.
+{% endtab %}
 
-**OCI Object Storage** — S3 호환 API를 지원하며, Auto-Tiering으로 접근 패턴에 따라 Standard/Infrequent Access 간 자동 전환됩니다. 이그레스 10TB/월 무료 정책으로 대량 데이터 전송 시 비용 이점이 큽니다.
+{% tab title="OCI Object Storage" %}
+S3 호환 API를 지원하며, Auto-Tiering으로 접근 패턴에 따라 Standard/Infrequent Access 간 자동 전환됩니다. 이그레스 10TB/월 무료 정책으로 대량 데이터 전송 시 비용 이점이 큽니다.
+{% endtab %}
+{% endtabs %}
 
 ## 언제 무엇을 선택할 것인가
 

@@ -24,37 +24,39 @@ description: AWS, Azure, GCP, OCI 4개 벤더의 특징, 강점, 멀티클라우
 
 ## 주요 CSP 4사 각 사 특징
 
-### AWS — 가장 넓은 서비스 포트폴리오
-
+{% tabs %}
+{% tab title="AWS — 가장 넓은 서비스 포트폴리오" %}
 Amazon의 이커머스 인프라에서 출발한 AWS는 가장 오래되고 가장 넓은 서비스 포트폴리오를 보유합니다. 새로운 서비스 카테고리를 가장 먼저 출시하는 경우가 많고, 글로벌 커뮤니티와 파트너 생태계가 가장 큽니다.
 
 - **핵심 강점:** 서비스 다양성, 글로벌 리전 수, 커뮤니티/문서 풍부
 - **차별점:** Lambda(서버리스 선구자), S3(객체 스토리지 표준), 가장 세분화된 IAM
 - **한국 리전:** 서울 4 AZ (2016~)
+{% endtab %}
 
-### Azure — 엔터프라이즈 통합의 강자
-
+{% tab title="Azure — 엔터프라이즈 통합의 강자" %}
 Microsoft의 엔터프라이즈 소프트웨어 생태계(Microsoft 365, Active Directory, Dynamics 365)와 긴밀하게 통합됩니다. 기존 Microsoft 환경을 사용하는 기업에서 가장 자연스러운 선택입니다.
 
 - **핵심 강점:** Microsoft 365/AD 통합, 하이브리드(Azure Arc, Azure Stack), 엔터프라이즈 계약(EA)
 - **차별점:** 서울-부산 리전 쌍으로 국내 DR 가능, GitHub/VS Code 통합
 - **한국 리전:** 서울(Korea Central) 3 AZ + 부산(Korea South)
+{% endtab %}
 
-### GCP — AI/ML과 데이터 분석
-
+{% tab title="GCP — AI/ML과 데이터 분석" %}
 Google의 검색·데이터 처리 인프라에서 발전한 GCP는 AI/ML과 대규모 데이터 분석에서 차별화됩니다. 글로벌 VPC, SUD(자동 할인) 등 독특한 설계 철학을 가지고 있습니다.
 
 - **핵심 강점:** AI/ML(Vertex AI, TPU, Gemini), 데이터 분석(BigQuery), 컨테이너(GKE)
 - **차별점:** 글로벌 VPC(리전 종속 아님), SUD(약정 없이 자동 할인), Shared Fate 보안 모델
 - **한국 리전:** 서울 3 Zone (2020~)
+{% endtab %}
 
-### OCI — 데이터베이스와 가격 경쟁력
-
+{% tab title="OCI — 데이터베이스와 가격 경쟁력" %}
 Oracle의 데이터베이스 기술력을 클라우드로 확장한 OCI는 Oracle DB 워크로드에서 압도적 성능을 제공합니다. 이그레스 비용이 타사 대비 매우 저렴하고, 전용 베어메탈 인스턴스를 제공합니다.
 
 - **핵심 강점:** Autonomous Database, Oracle DB 최적화, 이그레스 비용 저렴(10TB/월 무료)
 - **차별점:** 이그레스 10TB/월 무료, Dedicated Region(고객 DC에 OCI 설치), MySQL HeatWave
 - **한국 리전:** 서울(`ap-seoul-1`), 춘천(`ap-chuncheon-1`)
+{% endtab %}
+{% endtabs %}
 
 ## 벤더 간 멀티클라우드 연동 서비스
 

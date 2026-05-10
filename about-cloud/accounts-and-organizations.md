@@ -45,8 +45,8 @@ description: 클라우드 계정과 조직 구조, 멀티 계정 전략, 4개 �
 | **빌링 단위** | Account (통합 빌링 가능) | Subscription | Billing Account → Project | Tenancy |
 | **계정 생성** | Organizations API로 자동 생성 | 수동 또는 자동화 | Projects API로 자동 생성 | Compartment API |
 
-### AWS — Organization → OU → Account
-
+{% tabs %}
+{% tab title="AWS — Organization → OU → Account" %}
 ```mermaid
 graph TD
     A1[Organization] --> A2[OU]
@@ -61,9 +61,9 @@ AWS의 계층 구조는 **Organization → OU → Account** 입니다.
 - **SCP (Service Control Policy)** — OU 또는 Account에 적용하여, 사용 가능한 서비스와 작업을 제한합니다. SCP는 권한을 부여하는 것이 아니라, 최대 권한 범위를 제한하는 가드레일 역할을 합니다.
 
 AWS는 **AWS Control Tower**를 통해 모범 사례 기반의 멀티 계정 환경을 자동으로 구성할 수 있습니다.
+{% endtab %}
 
-### Azure — Management Group → Subscription → Resource Group
-
+{% tab title="Azure — MG → Subscription → RG" %}
 ```mermaid
 graph TD
     B1[Tenant] --> B2[Management Group]
@@ -71,7 +71,7 @@ graph TD
     B3 --> B4[Resource Group]
 ```
 
-Azure의 계층 구조는 **Tenant → Management Group → Subscription → Resource Group**입니다.
+Azure의 계층 구조는 **Tenant → Management Group → Subscription → Resource Group** 입니다.
 
 - **Tenant** — Azure AD(현 Microsoft Entra ID)의 인스턴스로, 조직의 ID 경계입니다.
 - **Management Group** — Subscription을 그룹화하는 단위입니다. 최대 6단계까지 중첩할 수 있습니다.
@@ -79,40 +79,42 @@ Azure의 계층 구조는 **Tenant → Management Group → Subscription → Res
 - **Resource Group** — Subscription 내에서 리소스를 논리적으로 그룹화하는 단위입니다. AWS/GCP에는 없는 Azure만의 개념입니다.
 - **Azure Policy** — Management Group, Subscription, Resource Group 수준에서 정책을 적용할 수 있습니다.
 
-Azure의 특징은 **Resource Group**입니다. 하나의 Subscription 안에서도 리소스를 논리적으로 분리할 수 있어, 소규모 조직에서는 Subscription을 많이 만들지 않아도 됩니다.
+Azure의 특징은 **Resource Group** 입니다. 하나의 Subscription 안에서도 리소스를 논리적으로 분리할 수 있어, 소규모 조직에서는 Subscription을 많이 만들지 않아도 됩니다.
+{% endtab %}
 
-### GCP — Organization → Folder → Project
-
+{% tab title="GCP — Organization → Folder → Project" %}
 ```mermaid
 graph TD
     C1[Organization] --> C2[Folder]
     C2 --> C3[Project]
 ```
 
-GCP의 계층 구조는 **Organization → Folder → Project**입니다.
+GCP의 계층 구조는 **Organization → Folder → Project** 입니다.
 
 - **Organization** — Google Workspace 또는 Cloud Identity 도메인에 연결된 최상위 노드입니다.
 - **Folder** — Project를 그룹화하는 단위입니다. 최대 10단계까지 중첩할 수 있습니다.
 - **Project** — 리소스 격리의 기본 단위입니다. AWS의 Account, Azure의 Subscription에 해당합니다.
 - **Organization Policy** — Organization, Folder, Project 수준에서 제약 조건을 적용합니다.
 
-GCP의 특징은 **빌링이 Project와 분리**되어 있다는 점입니다. 하나의 Billing Account에 여러 Project를 연결할 수 있어, 빌링 구조를 유연하게 설계할 수 있습니다.
+GCP의 특징은 **빌링이 Project와 분리** 되어 있다는 점입니다. 하나의 Billing Account에 여러 Project를 연결할 수 있어, 빌링 구조를 유연하게 설계할 수 있습니다.
+{% endtab %}
 
-### OCI — Tenancy → Compartment
-
+{% tab title="OCI — Tenancy → Compartment" %}
 ```mermaid
 graph TD
     D1[Tenancy] --> D2[Compartment]
     D2 --> D3[Sub-Compartment]
 ```
 
-OCI의 계층 구조는 **Tenancy → Compartment**입니다.
+OCI의 계층 구조는 **Tenancy → Compartment** 입니다.
 
 - **Tenancy** — 최상위 관리 단위이자 루트 Compartment입니다. OCI 계약 시 하나의 Tenancy가 생성됩니다.
 - **Compartment** — 리소스 격리와 정책 적용의 기본 단위입니다. 최대 6단계까지 중첩할 수 있습니다. AWS의 Account + OU 역할을 하나의 개념으로 통합한 것입니다.
 - **IAM Policy** — Compartment 단위로 적용되며, 상위 Compartment의 정책이 하위에 상속됩니다.
 
-OCI의 특징은 **Compartment가 리소스 격리와 조직 구조를 동시에 담당**한다는 점입니다. AWS처럼 별도의 Account를 만들 필요 없이, Compartment 중첩으로 환경을 분리합니다.
+OCI의 특징은 **Compartment가 리소스 격리와 조직 구조를 동시에 담당** 한다는 점입니다. AWS처럼 별도의 Account를 만들 필요 없이, Compartment 중첩으로 환경을 분리합니다.
+{% endtab %}
+{% endtabs %}
 
 ## 빌링 구조
 

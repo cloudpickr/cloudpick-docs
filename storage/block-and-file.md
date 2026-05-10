@@ -82,6 +82,18 @@
 
 **OCI** — Block Volumes는 온라인 크기 변경과 성능 티어 변경을 지원하며, File Storage는 NFSv3 기반으로 스냅샷과 크로스 AD 복제를 제공합니다.
 
+## 언제 무엇을 선택할 것인가
+
+| 이럴 때 | 이것을 선택 |
+| --- | --- |
+| 고성능 DB용 저지연 블록 스토리지가 필요할 때 | AWS EBS io2 Block Express 또는 Azure Ultra Disk |
+| 블록 스토리지 IOPS를 운영 중 동적으로 변경하고 싶을 때 | AWS EBS gp3 또는 GCP Hyperdisk |
+| AZ 장애에도 블록 디스크가 유지되어야 할 때 | Azure ZRS Disk 또는 GCP Regional Persistent Disk |
+| 여러 서버가 동시에 파일을 공유해야 할 때 (NFS) | AWS EFS 또는 GCP Filestore |
+| Windows SMB + Linux NFS 혼합 환경일 때 | Azure Files |
+| 온프레미스 파일 서버를 클라우드와 동기화할 때 | Azure File Sync |
+| HPC용 고성능 파일 시스템이 필요할 때 | AWS FSx for Lustre |
+
 ## 통합 백업 관리
 
 스냅샷은 개별 볼륨 단위이지만, 여러 서비스(VM, 블록, 파일, DB 등)의 백업을 하나의 정책으로 관리할 수 있는 통합 백업 서비스도 제공됩니다.

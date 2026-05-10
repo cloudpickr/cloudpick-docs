@@ -1,5 +1,7 @@
 # IAM과 접근 제어
 
+> 이 문서는 IAM 개요입니다. 심화 내용은 [IAM과 접근 제어](../security/iam.md)를 참고하세요.
+
 ## 개요
 
 클라우드에서는 수백 개의 서비스와 수천 개의 리소스가 있으므로, "누가 무엇을 할 수 있는가"를 체계적으로 관리하는 IAM (Identity and Access Management)이 핵심입니다.

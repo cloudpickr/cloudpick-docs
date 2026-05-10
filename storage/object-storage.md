@@ -6,6 +6,8 @@
 
 **객체 스토리지**는 용량 제한 없이 파일을 저장할 수 있는 클라우드 스토리지입니다. 용량을 미리 정할 필요 없이, 저장한 만큼만 비용을 지불합니다. 이미지, 동영상, 백업, 로그, 데이터 레이크 등 거의 모든 비정형 데이터를 저장하는 데 사용됩니다.
 
+> S3를 아시는 분을 위해: Azure는 Blob Storage, GCP는 Cloud Storage, OCI는 Object Storage입니다.
+
 ### 왜 객체 스토리지인가
 
 - **매우 저렴** — GB당 월 $0.02\~0.03 수준으로, 블록 스토리지(GB당 $0.08\~0.10)나 파일 스토리지보다 훨씬 저렴합니다. 아카이브 클래스를 사용하면 GB당 $0.001 이하까지 낮출 수 있습니다. 단, 아카이브 클래스는 데이터 복구(retrieval) 시 별도 비용과 대기 시간이 발생합니다.
@@ -46,6 +48,17 @@ AWS S3 Intelligent-Tiering과 GCP Autoclass는 접근 패턴을 자동으로 분
 **GCP Cloud Storage** — Multi-region과 Dual-region 옵션으로 별도 복제 설정 없이 여러 리전에 자동 복제됩니다. Autoclass로 스토리지 클래스 자동 전환을 지원하며, BigLake를 통해 BigQuery에서 직접 쿼리할 수 있습니다.
 
 **OCI Object Storage** — S3 호환 API를 지원하며, Auto-Tiering으로 접근 패턴에 따라 Standard/Infrequent Access 간 자동 전환됩니다. 이그레스 10TB/월 무료 정책으로 대량 데이터 전송 시 비용 이점이 큽니다.
+
+## 언제 무엇을 선택할 것인가
+
+| 이럴 때 | 이것을 선택 |
+| --- | --- |
+| S3 호환 API 생태계를 최대한 활용하고 싶을 때 | AWS S3 |
+| 빅데이터 + 계층적 네임스페이스(폴더 구조)가 필요할 때 | Azure Data Lake Storage Gen2 |
+| 별도 설정 없이 멀티 리전 자동 복제를 원할 때 | GCP Cloud Storage (Multi-region) |
+| 스토리지 클래스 자동 전환을 원할 때 | AWS S3 Intelligent-Tiering 또는 GCP Autoclass |
+| 대량 이그레스 비용을 절감하고 싶을 때 | OCI Object Storage (10TB/월 무료) |
+| 객체 스토리지에서 직접 SQL 분석을 하고 싶을 때 | AWS Athena + S3 또는 GCP BigQuery External Tables |
 
 ## 객체 스토리지의 진화
 

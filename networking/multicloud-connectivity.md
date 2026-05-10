@@ -8,16 +8,12 @@
 
 중앙 허브를 두고 각 클라우드를 스포크로 연결하는 패턴입니다.
 
-```
-                    ┌───────────┐
-         ┌─────────│  Hub VPC  │─────────┐
-         │         │ (Transit) │         │
-         │         └───────────┘         │
-         │              │                │
-    ┌────▼────┐    ┌────▼────┐    ┌─────▼────┐
-    │  AWS    │    │  Azure  │    │   GCP    │
-    │  Spoke  │    │  Spoke  │    │  Spoke   │
-    └─────────┘    └─────────┘    └──────────┘
+```mermaid
+graph TD
+    Hub[Hub VPC / Transit] --> AWS[AWS Spoke]
+    Hub --> Azure[Azure Spoke]
+    Hub --> GCP[GCP Spoke]
+    Hub --> OCI[OCI Spoke]
 ```
 
 - **허브 위치:** 가장 트래픽이 많은 벤더 또는 온프레미스

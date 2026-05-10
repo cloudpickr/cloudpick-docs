@@ -12,6 +12,10 @@ description: 관리형 DNS, 라우팅 정책, DNSSEC, Private DNS를 4사 비교
 
 온프레미스에서는 BIND나 Windows DNS를 직접 운영하지만, 클라우드 관리형 DNS는 글로벌 Anycast 네트워크에서 운영되어 단일 장애점이 없습니다. AWS Route 53과 GCP Cloud DNS는 **100% 가용성 SLA**를 제공합니다.
 
+{% hint style="info" %}
+DNS가 중단되면 서비스 URL 자체가 응답하지 않아 전체 서비스가 접근 불가능해집니다. 프로덕션 환경에서는 **TTL을 낮게** 유지하여(300초 이하) DNS 장애 조치 시 빠르게 전파되도록 하세요.
+{% endhint %}
+
 단순 이름 해석 외에도 지리적 라우팅, 헬스 체크 기반 장애 조치, 가중치 분배 등 트래픽 관리 기능을 포함합니다.
 
 ## 제품 비교
@@ -96,7 +100,9 @@ VPC/VNet 내부에서만 사용하는 내부 DNS 이름을 관리합니다. 외�
 | GCP | Cloud DNS Private Zone | VPC 바인딩, Split-horizon DNS |
 | OCI | OCI DNS Private Views | VCN 연결, 조건부 포워딩 |
 
-멀티클라우드 환경에서의 DNS 통합 전략은 [멀티클라우드 커넥티비티](multicloud-connectivity.md)를 참고하세요.
+{% content-ref url="multicloud-connectivity.md" %}
+[멀티클라우드 커넥티비티](multicloud-connectivity.md)
+{% endcontent-ref %}
 
 ## 참고하기
 

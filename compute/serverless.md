@@ -80,6 +80,10 @@ VM과 컨테이너는 서버 생성과 배포를 자동화했지만, 여전히 "
 | 시각적 워크플로우 오케스트레이션이 필요할 때 | AWS Step Functions |
 | 이벤트 기반 자동 스케일링 컨테이너가 필요할 때 | Azure Container Apps |
 
+{% hint style="info" %}
+**Cold Start는 점점 완화되고 있습니다.** Provisioned Concurrency, Pre-warmed 인스턴스 등 각 벤더가 완화책을 제공합니다. 하지만 완전히 사라지지는 않으므로, 응답 지연에 민감한 워크로드는 사전 프로비저닝을 설정하거나 Keep-warm 전략을 적용하세요.
+{% endhint %}
+
 ## Cold Start 완화 전략
 
 Cold Start는 서버리스의 가장 큰 단점입니다. 벤더별 완화 방법을 정리합니다.

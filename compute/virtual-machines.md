@@ -52,6 +52,10 @@ description: 범용, Arm, GPU 가상머신 제품과 이미지(OS 템플릿)를 
 | GCP | Image / Image Family | |
 | OCI | Custom Image / Platform Image | Marketplace에서 3rd party 이미지 제공 |
 
+{% hint style="info" %}
+VM은 **관리 부담이 가장 큰 컴퓨팅 서비스**입니다. OS 패치, 보안 설정, 고가용성 구성을 직접 해야 합니다. 운영 부담을 줄이고 싶다면 관리형 컨테이너 서비스나 서버리스를 검토하세요.
+{% endhint %}
+
 ## 핵심 차이점
 
 - **AWS** — 인스턴스 유형이 가장 다양하고, 자체 Arm 프로세서(Graviton)로 비용 절감 가능합니다.

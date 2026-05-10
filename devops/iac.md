@@ -71,6 +71,10 @@ Terraform은 현재 인프라 상태를 `terraform.tfstate` 파일에 저장합�
 
 ### 로컬 vs 원격 백엔드
 
+{% hint style="warning" %}
+`terraform.tfstate` 파일에는 리소스 ID, IP 등이 담겨 있으며, 시크릿이 **평문으로 저장**될 수 있습니다. 로컬에 저장하지 말고 반드시 **원격 백엔드를 사용**하고, 상태 파일 접근 권한을 최소화하세요.
+{% endhint %}
+
 | 방식 | 장점 | 단점 |
 | --- | --- | --- |
 | **로컬 상태** | 설정 간단 | 팀 협업 불가, 파일 유실 위험, 시크릿이 plaintext로 저장 |
@@ -92,7 +96,7 @@ Terraform 모듈은 재사용 가능한 인프라 단위입니다.
 
 ### 계층 구조
 
-```
+```text
 environments/
 ├── dev/
 │   └── main.tf       # 모듈 호출
@@ -128,6 +132,16 @@ IaC 외부에서 리소스가 수동으로 변경되면 코드와 실제 상태�
 | Terraform | `terraform plan` (현재 상태와 코드 비교) |
 
 드리프트를 근본적으로 막으려면 **SCP/Azure Policy/Organization Policy**로 콘솔에서의 수동 변경을 제한하고, 모든 변경을 IaC 파이프라인을 통해서만 수행하도록 강제합니다.
+
+## 관련 문서
+
+{% content-ref url="cicd.md" %}
+[CI/CD](cicd.md)
+{% endcontent-ref %}
+
+{% content-ref url="../about-cloud/console-cli-sdk.md" %}
+[콘솔, CLI, SDK](../about-cloud/console-cli-sdk.md)
+{% endcontent-ref %}
 
 ## 참고하기
 

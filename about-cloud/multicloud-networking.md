@@ -114,7 +114,9 @@ graph LR
 
 트랜짓 아키텍처 패턴, 이그레스 비용 상세 비교, DNS 통합 전략은 아래 문서에서 다룹니다.
 
-→ [멀티클라우드 커넥티비티 (심화)](../networking/multicloud-connectivity.md)
+{% content-ref url="../networking/multicloud-connectivity.md" %}
+[멀티클라우드 커넥티비티 (심화)](../networking/multicloud-connectivity.md)
+{% endcontent-ref %}
 
 ## 설계 시 체크리스트
 

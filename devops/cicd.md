@@ -33,8 +33,14 @@ description: CI/CD 파이프라인, 벤더별 제품 비교, 배포 전략, 승�
 
 CI/CD 파이프라인은 코드가 프로덕션에 도달하기 전에 여러 환경을 거치도록 합니다.
 
-```text
-개발(Dev) → 스테이징(Staging) → 프로덕션(Prod)
+```mermaid
+flowchart LR
+    D[🖥️ Dev\n개발/실험]
+    S[🔬 Staging\n통합 검증]
+    P[🚀 Prod\n실제 서비스]
+
+    D -->|PR + 자동 테스트| S
+    S -->|승인 또는 자동 배포| P
 ```
 
 - **Dev** — 개발자가 자유롭게 실험. 깨져도 괜찮음.
@@ -135,7 +141,19 @@ CI/CD 파이프라인은 코드가 프로덕션에 도달하기 전에 여러 �
 | **자동 테스트 통과** | 모든 변경 | 사람 판단 없이 객관적 품질 보장 |
 | **수동 승인** | 프로덕션 배포 (선택) | 규제 요건 또는 고위험 변경 시에만 |
 
+{% hint style="info" %}
 **매니저의 수동 승인이 불필요한 이유** — 코드 리뷰 + 자동 테스트가 품질을 보장하면, 수동 승인은 병목만 만듭니다. 매니저는 코드를 읽지 않고 "승인" 버튼만 누르게 되어 실질적 검증이 아닙니다. 대신 자동화된 품질 게이트(테스트 커버리지, 보안 스캔, 성능 기준)가 객관적으로 판단하는 것이 더 안전합니다.
+{% endhint %}
+
+## 관련 문서
+
+{% content-ref url="iac.md" %}
+[IaC (Infrastructure as Code)](iac.md)
+{% endcontent-ref %}
+
+{% content-ref url="what-is-devops.md" %}
+[DevOps란?](what-is-devops.md)
+{% endcontent-ref %}
 
 ## 참고하기
 

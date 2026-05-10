@@ -106,6 +106,20 @@ EKS를 아시는 분을 위해: Azure는 AKS, GCP는 GKE, OCI는 OKE입니다.
 - **Spot/Preemptible 노드 풀** — 배치 작업, CI
 - **ARM 노드 풀** — 비용 최적화 (Graviton, Cobalt, Ampere, Axion)
 
+## 관련 문서
+
+{% content-ref url="../devops/cicd.md" %}
+[CI/CD](../devops/cicd.md)
+{% endcontent-ref %}
+
+{% content-ref url="../devops/iac.md" %}
+[IaC](../devops/iac.md)
+{% endcontent-ref %}
+
+{% content-ref url="serverless.md" %}
+[서버리스](serverless.md)
+{% endcontent-ref %}
+
 ## 참고하기
 
 ### AWS

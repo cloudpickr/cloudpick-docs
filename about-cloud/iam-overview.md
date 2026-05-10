@@ -37,4 +37,6 @@ description: IAM의 기본 개념과 AWS, Azure, GCP, OCI의 접근 제어 모�
 
 최소 권한 원칙, 장기 자격 증명 vs 역할 기반 인증, 감사 도구 등 실무 가이드는 아래 문서에서 다룹니다.
 
-→ [IAM 실무 설계와 보안 운영](../security/iam.md)
+{% content-ref url="../security/iam.md" %}
+[IAM 실무 설계와 보안 운영](../security/iam.md)
+{% endcontent-ref %}

@@ -39,6 +39,13 @@ description: 전송 중/저장 시 암호화, WAF, 위협 탐지, 컨테이너 �
 | **자체 키** (BYOK) | KMS External Key Store | Key Vault BYOK | Cloud External Key Manager (EKM) | Vault BYOK |
 | **HSM** | CloudHSM | Managed HSM | Cloud HSM | Vault HSM 키 |
 
+{% hint style="info" %}
+**키 관리 수준에 따른 책임 범위:**
+- 벤더 관리 키: 가장 간단, 대부분의 워크로드에 적합
+- 고객 관리 키(CMK): 규제 요건 충족, 키 정책 직접 관리
+- BYOK/EKM: 키가 클라우드에 저장되지 않음, 가장 엄격한 규제 대응
+{% endhint %}
+
 키 관리 수준에 따라 보안과 운영 복잡도가 달라집니다:
 - **벤더 관리 키** — 가장 간단. 벤더가 키 생성/교체/관리. 대부분의 워크로드에 적합.
 - **고객 관리 키** (CMK) — 키 교체 주기, 접근 정책을 직접 제어. 규제 요건 충족.
@@ -84,6 +91,20 @@ description: 전송 중/저장 시 암호화, WAF, 위협 탐지, 컨테이너 �
 | Azure | Defender for Containers | 이미지 스캔 + 런타임 보호 |
 | GCP | Container Threat Detection | GKE 런타임 위협 탐지 |
 | OCI | OCI Vulnerability Scanning | Compute/Container 이미지 취약점 스캔 |
+
+## 관련 문서
+
+{% content-ref url="secrets.md" %}
+[시크릿 관리](secrets.md)
+{% endcontent-ref %}
+
+{% content-ref url="iam.md" %}
+[IAM 실무 설계와 보안 운영](iam.md)
+{% endcontent-ref %}
+
+{% content-ref url="../networking/vpc-subnet.md" %}
+[VPC와 서브넷](../networking/vpc-subnet.md)
+{% endcontent-ref %}
 
 ## 참고하기
 

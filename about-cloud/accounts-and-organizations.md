@@ -156,6 +156,20 @@ Organization
 
 보안 로그, 감사 로그, CloudTrail/Activity Log 등을 중앙 집중식으로 수집하는 전용 계정을 두는 것이 모범 사례입니다. 이 계정은 읽기 전용으로 운영하여, 로그의 무결성을 보장합니다.
 
+## 관련 문서
+
+{% content-ref url="iam-overview.md" %}
+[iam-overview.md](iam-overview.md)
+{% endcontent-ref %}
+
+{% content-ref url="../governance/landing-zone.md" %}
+[landing-zone.md](../governance/landing-zone.md)
+{% endcontent-ref %}
+
+{% content-ref url="../governance/finops.md" %}
+[finops.md](../governance/finops.md)
+{% endcontent-ref %}
+
 ## 참고하기
 
 ### AWS

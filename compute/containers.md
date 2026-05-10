@@ -45,6 +45,7 @@ VM은 유연하지만, 하나의 앱을 배포하기 위해 OS 전체를 포함�
 - **AWS** — ECS(자체 오케스트레이터)와 EKS(Kubernetes) 두 가지 선택지를 제공합니다.
 - **Azure** — Container Apps로 K8s를 몰라도 컨테이너를 운영할 수 있습니다.
 - **GCP** — Cloud Run으로 가장 간단하게 컨테이너를 서버리스 실행할 수 있습니다.
+- **OCI** — OKE 컨트롤 플레인이 무료이며, Virtual Nodes로 서버리스 Kubernetes 운영이 가능합니다.
 
 ## 참고하기
 

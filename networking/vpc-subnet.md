@@ -58,6 +58,7 @@ Security Groups/NSG만으로 기본 보안은 가능하지만, 프로덕션 환�
 - **GCP** — VPC가 글로벌이어서 리전 간 서브넷을 하나의 VPC로 관리할 수 있습니다. AWS/Azure는 리전별로 VPC/VNet을 만들고 피어링해야 합니다.
 - **AWS** — Security Groups(인스턴스 단위)와 Network ACL(서브넷 단위) 이중 방화벽 구조입니다.
 - **Azure** — VNet 피어링이 글로벌로 가능하여 리전 간 연결이 간편합니다.
+- **OCI** — VCN은 리전 단위이며, 서브넷을 리전 또는 AD 단위로 배치할 수 있습니다. Security Lists와 NSG를 조합하여 유연한 보안 구성이 가능합니다.
 
 ## 참고하기
 

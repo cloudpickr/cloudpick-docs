@@ -41,21 +41,21 @@
 
 ### L7 (HTTP/HTTPS)
 
-| 개념 | AWS ALB | Azure App Gateway | GCP HTTP(S) LB |
-| --- | --- | --- | --- |
-| **라우팅 규칙** | Listener Rule (경로/호스트/헤더) | URL Path Map | URL Map |
-| **대상 그룹** | Target Group | Backend Pool | Backend Service |
-| **헬스 체크** | HTTP/HTTPS 헬스 체크 | Health Probe | Health Check |
+| 개념 | AWS ALB | Azure App Gateway | GCP HTTP(S) LB | OCI Load Balancer |
+| --- | --- | --- | --- | --- |
+| **라우팅 규칙** | Listener Rule (경로/호스트/헤더) | URL Path Map | URL Map | Routing Policy (경로/호스트) |
+| **대상 그룹** | Target Group | Backend Pool | Backend Service | Backend Set |
+| **헬스 체크** | HTTP/HTTPS 헬스 체크 | Health Probe | Health Check | Health Check |
 
 경로(`/api/*`), 호스트(`api.example.com`), 헤더 값 등으로 세밀하게 트래픽을 분배할 수 있습니다.
 
 ### L4 (TCP/UDP)
 
-| 개념 | AWS NLB | Azure LB | GCP TCP/UDP LB |
-| --- | --- | --- | --- |
-| **라우팅** | 포트 기반 | Frontend IP + Port | Forwarding Rule |
-| **대상 그룹** | Target Group (IP/인스턴스) | Backend Pool | Backend Service |
-| **특징** | 고정 IP, 초저지연, TLS 패스스루 | Standard/Basic 티어 | 리전 또는 글로벌 |
+| 개념 | AWS NLB | Azure LB | GCP TCP/UDP LB | OCI Network LB |
+| --- | --- | --- | --- | --- |
+| **라우팅** | 포트 기반 | Frontend IP + Port | Forwarding Rule | Listener (포트 기반) |
+| **대상 그룹** | Target Group (IP/인스턴스) | Backend Pool | Backend Service | Backend Set |
+| **특징** | 고정 IP, 초저지연, TLS 패스스루 | Standard/Basic 티어 | 리전 또는 글로벌 | 초저지연, IP 해시 |
 
 L4는 패킷 내용을 보지 않고 포트 단위로 분배하므로 지연이 매우 낮습니다. DB, gRPC, 게임 서버 등 HTTP가 아닌 프로토콜에 사용합니다.
 
@@ -64,6 +64,7 @@ L4는 패킷 내용을 보지 않고 포트 단위로 분배하므로 지연이 
 - **AWS** — ALB/NLB가 리전 단위이며, 글로벌 라우팅은 Global Accelerator를 별도로 사용합니다.
 - **Azure** — Front Door가 글로벌 L7 + CDN + WAF를 하나의 서비스로 통합합니다.
 - **GCP** — 로드밸런서가 기본적으로 글로벌입니다. 하나의 IP로 전 세계 사용자에게 가장 가까운 백엔드로 라우팅합니다.
+- **OCI** — Load Balancer(L7)와 Network Load Balancer(L4)를 분리 제공하며, DNS Traffic Management로 글로벌 트래픽 분배를 구성합니다.
 
 ## 참고하기
 

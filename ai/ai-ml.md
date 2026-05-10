@@ -65,6 +65,8 @@
 
 **GCP Vertex AI** — Google의 Gemini 모델과 TPU 인프라가 강점입니다. 검색(Search)과 AI를 결합한 서비스가 잘 통합되어 있습니다.
 
+**OCI AI Services** — Cohere, Meta Llama 등의 모델을 OCI 인프라에서 호스팅하며, Bare Metal GPU + RDMA 클러스터로 대규모 학습 워크로드를 지원합니다.
+
 ## 참고하기
 
 ### AWS

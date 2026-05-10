@@ -58,6 +58,8 @@ API Gateway 자체는 인증 로직을 처리하지 않고, 외부 인증 서비
 
 **GCP Apigee** — API를 제품으로 관리하는 엔터프라이즈 플랫폼입니다. API 사용량 분석, 수익화(monetization), 파트너 관리 기능이 강점입니다.
 
+**OCI API Gateway** — OCI Functions와 네이티브 연동되며, 인증(JWT 검증), 속도 제한, 요청 변환을 정책 기반으로 설정할 수 있습니다.
+
 ## 참고하기
 
 ### AWS

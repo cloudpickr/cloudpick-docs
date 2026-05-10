@@ -32,6 +32,8 @@
 
 **GCP Datastream** — CDC 기반 실시간 복제를 제공하며, BigQuery로 직접 스트리밍하여 분석 파이프라인을 구성할 수 있습니다.
 
+**OCI Database Migration** — Oracle/MySQL DB를 OCI로 온라인 마이그레이션(Zero Downtime)할 수 있으며, GoldenGate 기반의 실시간 복제를 지원합니다.
+
 ## 참고하기
 
 ### AWS

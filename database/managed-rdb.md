@@ -52,6 +52,8 @@ Aurora는 데이터를 3개 AZ에 걸쳐 6개 복사본으로 자동 복제하�
 
 **GCP AlloyDB** — PostgreSQL 호환이면서 Google 자체 설계로 트랜잭션 성능을 높였습니다. 벡터 검색이 내장되어 AI 워크로드와의 통합이 강점입니다.
 
+**OCI Autonomous Database** — Oracle DB 기반으로 자동 튜닝, 자동 패치, 자동 스케일링을 제공합니다. Oracle DB 워크로드에서 최고 성능을 발휘하며, MySQL HeatWave로 OLTP+OLAP 통합 처리도 지원합니다.
+
 ## 참고하기
 
 ### AWS

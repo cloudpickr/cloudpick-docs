@@ -89,6 +89,8 @@ CI/CD 파이프라인은 코드가 프로덕션에 도달하기 전에 여러 �
 
 **GCP** — Cloud Build가 빌드와 배포를 모두 처리할 수 있어 단순합니다. Cloud Deploy는 GKE/Cloud Run에 특화된 CD 도구입니다.
 
+**OCI** — OCI DevOps가 빌드/배포 파이프라인을 통합 제공하며, OKE, Compute, Functions 배포와 승인 단계를 네이티브로 지원합니다.
+
 ## 실무 가이드
 
 ### 저장소 분리

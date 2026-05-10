@@ -145,4 +145,3 @@ AWS는 직접적인 서비스 비교 페이지를 제공하지 않습니다. 마
 - [Azure 제품](https://azure.microsoft.com/ko-kr/products/)
 - [Google Cloud 제품](https://cloud.google.com/products)
 - [OCI 서비스](https://www.oracle.com/kr/cloud/)
-- [한국클라우드산업협회](https://kcloud.or.kr/) — 국내 클라우드 업계 협의체

@@ -2,7 +2,7 @@
 description: CloudPick에 오신 것을 환영합니다.
 ---
 
-# CloudPick Docs에 오신 것을 환영합니다
+# CloudPick
 
 ## 소개
 

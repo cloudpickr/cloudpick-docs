@@ -59,7 +59,7 @@ IAM을 잘못 설정하면 데이터 유출이나 리소스 삭제 같은 보안
 | --- | --- | --- |
 | AWS | IAM Access Analyzer | 미사용 역할/권한 탐지. CloudTrail 기반 최소 권한 정책 자동 생성 |
 | AWS | CloudTrail | 모든 API 호출 기록. 누가 무엇을 했는지 감사 |
-| Azure | Entra Permissions Management | 멀티클라우드 권한 분석. 과다 권한 탐지 |
+| Azure | Entra ID Governance (Access Reviews) | 정기적 권한 검토 자동화. 과다 권한 탐지 |
 | Azure | Access Reviews | 정기적 권한 검토 자동화 |
 | GCP | IAM Recommender | 미사용 권한 탐지 + 축소 권장 |
 | GCP | Policy Analyzer | 누가 어떤 리소스에 접근 가능한지 분석 |
@@ -112,7 +112,7 @@ IAM을 잘못 설정하면 데이터 유출이나 리소스 삭제 같은 보안
 
 - [Microsoft Entra ID 문서](https://learn.microsoft.com/ko-kr/entra/identity/)
 - [Azure RBAC 문서](https://learn.microsoft.com/ko-kr/azure/role-based-access-control/)
-- [Entra Permissions Management](https://learn.microsoft.com/ko-kr/entra/permissions-management/)
+- [Entra ID Governance](https://learn.microsoft.com/ko-kr/entra/id-governance/)
 - [Conditional Access](https://learn.microsoft.com/ko-kr/entra/identity/conditional-access/)
 
 ### GCP

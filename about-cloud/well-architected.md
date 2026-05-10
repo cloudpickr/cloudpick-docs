@@ -79,9 +79,9 @@ OCI의 특징은 **Security Zones**로 보안 정책을 강제할 수 있다는 
 | --- | --- | --- | --- | --- |
 | **도구 이름** | Well-Architected Tool | Well-Architected Review (Assessment) | Architecture Framework 체크리스트 | Cloud Advisor |
 | **위치** | AWS 콘솔 내장 | Azure Advisor + 별도 Assessment | 문서 기반 체크리스트 | OCI 콘솔 내장 |
-| **자동 분석** | 일부 자동 (Trusted Advisor 연동) | Azure Advisor가 자동 권장 | Recommender가 자동 권장 |
-| **보고서** | PDF/JSON 내보내기 | Assessment 보고서 | — |
-| **비용** | 무료 | 무료 | 무료 |
+| **자동 분석** | 일부 자동 (Trusted Advisor 연동) | Azure Advisor가 자동 권장 | Recommender가 자동 권장 | Cloud Advisor 자동 권장 |
+| **보고서** | PDF/JSON 내보내기 | Assessment 보고서 | — | — |
+| **비용** | 무료 | 무료 | 무료 | 무료 |
 
 ### AWS Well-Architected Tool
 

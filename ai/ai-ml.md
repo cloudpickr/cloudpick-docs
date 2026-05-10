@@ -32,7 +32,7 @@
 
 | 벤더 | 제품 | 비고 |
 | --- | --- | --- |
-| AWS | Amazon Q Developer | 코드 생성, 변환, 보안 스캔. AWS 콘솔 내 자연어 질의 |
+| AWS | Kiro | AI 코딩 에이전트. 코드 생성, 변환, 보안 스캔 |
 | Azure | GitHub Copilot | 코드 자동 완성. VS Code/JetBrains 통합 |
 | GCP | Gemini Code Assist | 코드 생성, 설명, 변환 |
 | OCI | OCI Generative AI (코드 생성) | Cohere/Llama 기반 코드 생성 |
@@ -73,7 +73,7 @@
 
 - [Amazon Bedrock 문서](https://docs.aws.amazon.com/ko_kr/bedrock/)
 - [Amazon SageMaker 문서](https://docs.aws.amazon.com/ko_kr/sagemaker/)
-- [Amazon Q Developer](https://docs.aws.amazon.com/ko_kr/amazonq/latest/qdeveloper-ug/)
+- [Kiro](https://kiro.dev/)
 
 ### Azure
 

@@ -16,10 +16,10 @@ description: 멀티클라우드 AI 아키텍처 패턴, RAG 파이프라인, GPU
 
 | 벤더 | 주요 AI 플랫폼 | 강점 |
 | --- | --- | --- |
-| AWS | [Amazon Bedrock](https://aws.amazon.com/bedrock/), [Amazon SageMaker](https://aws.amazon.com/sagemaker/) | 다양한 파운데이션 모델 선택지 (Anthropic, Meta, Mistral 등), 엔드투엔드 ML 파이프라인 |
-| Azure | [Azure OpenAI Service](https://azure.microsoft.com/en-us/products/ai-services/openai-service) | OpenAI 모델 독점 호스팅 (GPT-4o, o1 등), 엔터프라이즈 보안 통합 |
-| GCP | [Vertex AI](https://cloud.google.com/vertex-ai), [Gemini](https://cloud.google.com/gemini) | 자체 Gemini 모델, TPU 인프라, 멀티모달 강점 |
-| OCI | [OCI AI Services](https://www.oracle.com/artificial-intelligence/ai-services/) | Oracle DB 네이티브 통합, 가격 경쟁력 |
+| AWS | [Amazon Bedrock](https://aws.amazon.com/bedrock/), [Amazon SageMaker](https://aws.amazon.com/sagemaker/) | 자체 **Amazon Nova** 모델 + Anthropic/OpenAI/Meta/Mistral/NVIDIA 등 최대 규모 모델 카탈로그, 자체 AI 칩(Trainium/Inferentia) |
+| Azure | [Azure OpenAI / Microsoft Foundry](https://azure.microsoft.com/products/ai-services/openai-service) | OpenAI GPT 시리즈 주력, Microsoft 365/GitHub/Power Platform 통합, 엔터프라이즈 보안 |
+| GCP | [Vertex AI](https://cloud.google.com/vertex-ai), [Gemini](https://cloud.google.com/gemini) | 자체 **Gemini 2.5** 네이티브 멀티모달, TPU 인프라, BigQuery/Search 통합 |
+| OCI | [OCI Generative AI](https://docs.oracle.com/iaas/Content/generative-ai/home.htm), [OCI AI Services](https://www.oracle.com/artificial-intelligence/ai-services/) | Cohere/Llama/Grok 제공, 전용 AI 클러스터 + RDMA Bare Metal, Oracle DB 통합 |
 
 ## GPU 가용성
 
@@ -44,7 +44,7 @@ RAG(Retrieval-Augmented Generation) 파이프라인은 Vector DB, Embedding 모�
 | --- | --- | --- | --- | --- |
 | Vector DB | [Amazon OpenSearch Serverless](https://aws.amazon.com/opensearch-service/serverless-vector-engine/), [Amazon Aurora pgvector](https://aws.amazon.com/about-aws/whats-new/2023/07/amazon-aurora-postgresql-pgvector-vector-storage-similarity-search/) | [Azure AI Search](https://azure.microsoft.com/en-us/products/ai-services/ai-search), [Azure Cosmos DB (vCore)](https://learn.microsoft.com/en-us/azure/cosmos-db/vector-search) | [Vertex AI Vector Search](https://cloud.google.com/vertex-ai/docs/vector-search/overview), [AlloyDB](https://cloud.google.com/alloydb/docs/ai/work-with-embeddings) | [OCI Search with OpenSearch](https://www.oracle.com/cloud/search/), [Oracle Database 23ai](https://www.oracle.com/database/23ai/) |
 | Embedding | [Amazon Titan Embeddings](https://aws.amazon.com/bedrock/titan/) (Bedrock) | [text-embedding-ada-002](https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/models) (Azure OpenAI) | [text-embedding-005](https://cloud.google.com/vertex-ai/generative-ai/docs/embeddings/get-text-embeddings) (Vertex AI) | [Cohere Embed](https://docs.oracle.com/en-us/iaas/Content/generative-ai/embed-models.htm) (OCI Generative AI) |
-| LLM | Bedrock (Claude, Llama 등) | Azure OpenAI (GPT-4o, o1) | Vertex AI (Gemini, Claude) | OCI Generative AI (Cohere, Llama) |
+| LLM | Bedrock (Amazon Nova, Claude, OpenAI GPT-OSS, Llama, Mistral 등) | Azure OpenAI / Foundry (GPT-5 시리즈, Claude, Llama 등) | Vertex AI (Gemini 2.5, Claude, Llama 등) | OCI Generative AI (Cohere, Llama, Grok 등) |
 | 오케스트레이션 | [Amazon Bedrock Knowledge Bases](https://aws.amazon.com/bedrock/knowledge-bases/) | [Azure AI Studio](https://azure.microsoft.com/en-us/products/ai-studio) | [Vertex AI RAG Engine](https://cloud.google.com/vertex-ai/generative-ai/docs/rag-overview) | [OCI Generative AI Agents](https://www.oracle.com/artificial-intelligence/generative-ai/agents/) |
 
 ## 아키텍처 선택 패턴

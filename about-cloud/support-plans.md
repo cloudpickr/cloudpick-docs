@@ -82,15 +82,22 @@ MSP는 일반적으로 **클라우드 사용료에 대한 추가 마진을 받�
 
 ### 심각도별 응답 시간
 
-| 심각도 | 설명 | [AWS Business Support+](https://aws.amazon.com/premiumsupport/plans/) | [Azure Professional Direct](https://azure.microsoft.com/support/plans/) | [GCP Enhanced](https://cloud.google.com/support/docs/customer-care-offerings) | [OCI Premier](https://www.oracle.com/support/premier/) |
+| 심각도 | 설명 | AWS Business Support+ | Azure Professional Direct | GCP Enhanced | OCI Premier |
 | --- | --- | --- | --- | --- | --- |
 | **위기 (Critical)** | 프로덕션 중단 | < 15분 | < 1시간 | < 1시간 | < 1시간 |
 | **긴급 (Urgent)** | 프로덕션 일부 영향 | < 4시간 | < 4시간 | < 4시간 | < 2시간 |
 | **일반 (Normal)** | 비프로덕션 영향 | < 12시간 | < 8시간 | < 8시간 | < 6시간 |
 | **문의 (Low)** | 일반 질문 | < 24시간 | < 24시간 | < 24시간 | < 24시간 |
 
+공식 SLA 문서:
+
+- [AWS Premium Support 플랜](https://aws.amazon.com/premiumsupport/plans/)
+- [Azure Support 플랜](https://azure.microsoft.com/support/plans/)
+- [GCP Customer Care](https://cloud.google.com/support/docs/customer-care-offerings)
+- [OCI Premier Support](https://www.oracle.com/support/premier/)
+
 {% hint style="info" %}
-표의 값은 벤더 공식 SLA 기준이며, 플랜/계약에 따라 달라질 수 있습니다. 각 컬럼 헤더의 링크에서 최신 공식 SLA를 확인하세요.
+표의 값은 벤더 공식 SLA 기준이며, 플랜/계약에 따라 달라질 수 있습니다. 최신 수치는 위 공식 SLA 문서에서 확인하세요.
 {% endhint %}
 
 ### TAM (Technical Account Manager) 배정

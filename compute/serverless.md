@@ -63,6 +63,17 @@ VM과 컨테이너는 서버 생성과 배포를 자동화했지만, 여전히 "
 - **Azure Functions** — Durable Functions로 장시간 상태 유지 워크플로우까지 서버리스로 처리할 수 있습니다.
 - **OCI Functions** — Fn Project(오픈소스) 기반으로 Docker 컨테이너를 그대로 함수로 실행할 수 있어, 벤더 종속이 낮습니다.
 
+## 언제 무엇을 선택할 것인가
+
+| 이럴 때 | 이것을 선택 |
+| --- | --- |
+| AWS 서비스 이벤트 연동이 핵심일 때 | AWS Lambda |
+| 기존 컨테이너 앱을 수정 없이 서버리스로 전환하고 싶을 때 | GCP Cloud Run |
+| 장시간 상태 유지 워크플로우를 서버리스로 처리할 때 | Azure Durable Functions |
+| 벤더 종속을 최소화하고 Docker 기반으로 함수를 실행할 때 | OCI Functions (Fn Project 기반) |
+| 시각적 워크플로우 오케스트레이션이 필요할 때 | AWS Step Functions |
+| 이벤트 기반 자동 스케일링 컨테이너가 필요할 때 | Azure Container Apps |
+
 ## 참고하기
 
 ### AWS

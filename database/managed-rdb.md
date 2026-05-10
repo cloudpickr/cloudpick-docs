@@ -4,6 +4,8 @@
 
 온프레미스에서 데이터베이스를 운영하려면 서버 설치, OS 패치, DB 엔진 설치, 백업 설정, 복제 구성, 장애 조치를 모두 직접 해야 합니다. **관리형 RDB** (Relational Database)는 이 운영 부담을 벤더가 대신 처리하고, 사용자는 데이터와 쿼리에만 집중할 수 있게 합니다.
 
+> RDS를 아시는 분을 위해: Azure는 Azure SQL/Flexible Server, GCP는 Cloud SQL, OCI는 Autonomous Database입니다.
+
 자동 백업, 패치 적용, 멀티 AZ 복제, 읽기 전용 복제본(Read Replica) 등을 설정 몇 번으로 구성할 수 있습니다.
 
 ## 제품 비교
@@ -53,6 +55,17 @@ Aurora는 데이터를 3개 AZ에 걸쳐 6개 복사본으로 자동 복제하�
 **GCP AlloyDB** — PostgreSQL 호환이면서 Google 자체 설계로 트랜잭션 성능을 높였습니다. 벡터 검색이 내장되어 AI 워크로드와의 통합이 강점입니다.
 
 **OCI Autonomous Database** — Oracle DB 기반으로 자동 튜닝, 자동 패치, 자동 스케일링을 제공합니다. Oracle DB 워크로드에서 최고 성능을 발휘하며, MySQL HeatWave로 OLTP+OLAP 통합 처리도 지원합니다.
+
+## 언제 무엇을 선택할 것인가
+
+| 이럴 때 | 이것을 선택 |
+| --- | --- |
+| MySQL/PostgreSQL 호환 + 고가용성 + 자동 스토리지 확장이 필요할 때 | AWS Aurora |
+| 기존 SQL Server 워크로드를 최소 변경으로 마이그레이션할 때 | Azure SQL Database |
+| PostgreSQL 호환 + AI/벡터 검색 통합이 필요할 때 | GCP AlloyDB |
+| Oracle DB 워크로드 + 자동 튜닝/패치가 필요할 때 | OCI Autonomous Database |
+| 유휴 시 비용 0이 필요한 개발/테스트 환경일 때 | AWS Aurora Serverless 또는 Azure SQL Serverless |
+| OLTP + OLAP을 하나의 MySQL DB에서 처리하고 싶을 때 | OCI MySQL HeatWave |
 
 ## 참고하기
 

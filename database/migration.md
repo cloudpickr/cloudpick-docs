@@ -34,6 +34,22 @@
 
 **OCI Database Migration** — Oracle/MySQL DB를 OCI로 온라인 마이그레이션(Zero Downtime)할 수 있으며, GoldenGate 기반의 실시간 복제를 지원합니다.
 
+## 마이그레이션 전략
+
+데이터베이스 마이그레이션은 크게 3가지 전략(6R 중 DB 관련)으로 나뉩니다. 복잡도와 비용이 다르므로 워크로드 특성에 맞게 선택합니다.
+
+| 전략 | 설명 | 적합한 경우 | 예시 |
+| --- | --- | --- | --- |
+| **Rehost** (리호스트) | 동일 엔진을 그대로 클라우드로 이동. "Lift and Shift" | 빠른 이전이 목표, 엔진 변경 불필요 | MySQL → RDS MySQL, Oracle → OCI DB System |
+| **Replatform** (리플랫폼) | 엔진은 유지하되 관리형 서비스로 전환. 일부 최적화 적용 | 운영 부담 감소가 목표, 코드 변경 최소화 | MySQL → Aurora MySQL, PostgreSQL → AlloyDB |
+| **Refactor** (리팩터) | 엔진을 변경하거나 아키텍처를 재설계 | 성능/비용/확장성 근본 개선이 목표 | Oracle → PostgreSQL, 모놀리식 DB → DynamoDB + RDS 분리 |
+
+### 전략 선택 기준
+
+- **시간 제약이 클 때** → Rehost (가장 빠름)
+- **운영 비용을 줄이고 싶을 때** → Replatform (관리형 전환)
+- **라이선스 비용 절감 또는 확장성 한계를 해결할 때** → Refactor (가장 높은 효과, 가장 높은 비용/위험)
+
 ## 참고하기
 
 ### AWS

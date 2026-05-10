@@ -53,6 +53,18 @@
 - **GCP** — CPU와 메모리를 자유롭게 조합하는 Custom Machine Type을 제공합니다.
 - **OCI** — Flexible Shape으로 CPU/메모리를 자유 조합하며, Ampere A1 무료 티어를 제공합니다.
 
+## 언제 무엇을 선택할 것인가
+
+| 이럴 때 | 이것을 선택 |
+| --- | --- |
+| Windows 워크로드 + 기존 라이선스 활용 | Azure VM (Hybrid Benefit) |
+| 인스턴스 유형 선택지가 가장 많아야 할 때 | AWS EC2 |
+| CPU/메모리를 1 vCPU 단위로 자유 조합하고 싶을 때 | GCP Compute Engine (Custom Machine Type) 또는 OCI (Flexible Shape) |
+| Arm 기반 비용 절감이 목표일 때 | AWS EC2 Graviton |
+| 무료 티어로 Arm VM을 사용하고 싶을 때 | OCI Ampere A1 |
+| GPU/AI 가속기 + 자체 칩(Inferentia, Trainium)이 필요할 때 | AWS EC2 (P5, Inf2, Trn1) |
+| Bare Metal 서버가 필요할 때 | OCI Bare Metal 또는 AWS Bare Metal |
+
 ## 참고하기
 
 ### AWS

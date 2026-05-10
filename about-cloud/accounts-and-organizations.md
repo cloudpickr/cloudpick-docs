@@ -39,6 +39,27 @@
 | **빌링 단위** | Account (통합 빌링 가능) | Subscription | Billing Account → Project | Tenancy |
 | **계정 생성** | Organizations API로 자동 생성 | 수동 또는 자동화 | Projects API로 자동 생성 | Compartment API |
 
+```mermaid
+graph TD
+    subgraph AWS
+    A1[Organization] --> A2[OU]
+    A2 --> A3[Account]
+    end
+    subgraph Azure
+    B1[Tenant] --> B2[Management Group]
+    B2 --> B3[Subscription]
+    B3 --> B4[Resource Group]
+    end
+    subgraph GCP
+    C1[Organization] --> C2[Folder]
+    C2 --> C3[Project]
+    end
+    subgraph OCI
+    D1[Tenancy] --> D2[Compartment]
+    D2 --> D3[Sub-Compartment]
+    end
+```
+
 ### AWS — Organization → OU → Account
 
 AWS의 계층 구조는 **Organization → OU → Account** 입니다.

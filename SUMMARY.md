@@ -1,6 +1,6 @@
 # Table of contents
 
-- [CloudPick Docs에 오신 것을 환영합니다](README.md)
+- [CloudPick Docs](README.md)
 - [용어집](GLOSSARY.md)
 
 ## 클라우드의 개념 <a id="about-cloud"></a>
@@ -8,6 +8,7 @@
 - [클라우드란?](about-cloud/what-is-cloud.md)
 - [멀티클라우드 이해하기](about-cloud/why-multicloud.md)
 - [벤더 비교하기](about-cloud/compare-clouds.md)
+- [벤더 선택 의사결정 프레임워크](about-cloud/decision-framework.md)
 - [리전과 가용영역](about-cloud/regions-and-zones.md)
 - [계정과 조직 구조](about-cloud/accounts-and-organizations.md)
 - [IAM 개요](about-cloud/iam-overview.md)
@@ -21,9 +22,9 @@
 ## 컴퓨팅 <a id="compute"></a>
 
 - [가상머신](compute/virtual-machines.md)
-- [오토스케일링](compute/auto-scaling.md)
 - [컨테이너 서비스](compute/containers.md)
 - [서버리스](compute/serverless.md)
+- [오토스케일링](compute/auto-scaling.md)
 - [애플리케이션 마이그레이션](compute/migration.md)
 - [애플리케이션 모더나이제이션](compute/modernization.md)
 
@@ -55,15 +56,23 @@
 - [NoSQL](database/nosql.md)
 - [데이터베이스 마이그레이션](database/migration.md)
 
+## 거버넌스 <a id="governance"></a>
+
+- [랜딩존](governance/landing-zone.md)
+- [FinOps](governance/finops.md)
+- [재해복구 (DR)](governance/dr.md)
+- [규정 준수 (Compliance)](governance/compliance.md)
+- [벤더 종속성과 Exit Strategy](governance/exit-strategy.md)
+
 ## AI와 머신러닝 <a id="ai"></a>
 
 - [클라우드 AI 시작하기](ai/getting-started.md)
 - [AI와 머신러닝 서비스](ai/ai-ml.md)
 - [벡터 스토어와 AI 데이터](ai/vector-store.md)
-- [멀티클라우드 AI 아키텍처](ai/multicloud-ai.md)
 - [임베딩 모델 선택 가이드](ai/embedding-models.md)
 - [RAG 고급 패턴](ai/rag-patterns.md)
 - [프롬프트 엔지니어링](ai/prompt-engineering.md)
+- [멀티클라우드 AI 아키텍처](ai/multicloud-ai.md)
 
 ## DevOps <a id="devops"></a>
 
@@ -71,9 +80,4 @@
 - [CI/CD](devops/cicd.md)
 - [IaC](devops/iac.md)
 - [모니터링](devops/monitoring.md)
-
-## 거버넌스 <a id="governance"></a>
-
-- [랜딩존](governance/landing-zone.md)
-- [FinOps](governance/finops.md)
-- [재해복구 (DR)](governance/dr.md)
+- [통합 관찰가능성 아키텍처](devops/observability.md)

@@ -131,6 +131,39 @@ OCI의 특징은 **Compartment가 리소스 격리와 조직 구조를 동시에
 - **Azure** — EA(Enterprise Agreement) 계약 시 부서(Department)별 비용 분리가 가능합니다. **Subscription Transfer**로 구독의 빌링 소유권을 다른 계정으로 이전할 수 있습니다.
 - **GCP** — Billing Account가 계정 구조와 독립적이어서, Project별로 다른 Billing Account를 연결할 수 있습니다. Project의 빌링 계정 변경도 간단합니다.
 
+### 빌링 유연성: 인보이스 ↔ 프로젝트 관계
+
+"하나의 인보이스에 여러 프로젝트를 묶을 것인가, 프로젝트마다 별도 인보이스를 받을 것인가"는 조직 구조, 결제 방식(법인/부서별), 세금 처리에 영향을 줍니다.
+
+| 요건 | AWS | Azure | GCP | OCI |
+| --- | --- | --- | --- | --- |
+| **여러 계정(프로젝트)을 하나의 인보이스로 통합** | Organizations 통합 결제 | Billing Account에 여러 Subscription 연결 | Billing Account에 여러 Project 연결 | Tenancy 단위 통합 |
+| **같은 조직 안에서 인보이스 분리** | 별도 Organization 생성 또는 Billing Transfer | Subscription Transfer, 별도 Billing Account | Billing Account 분리 | 별도 Tenancy |
+| **법인/부서별 결제 수단 다르게** | Billing Transfer로 구성 | EA의 Department/Account 구조 활용 | Project별 Billing Account 매핑 | Compartment가 아닌 Tenancy 단위 |
+| **자회사 M&A 시 빌링 이관** | Billing Transfer (2025) | Subscription Transfer | Project의 Billing Account 변경 | Cross-Tenancy 전환 |
+
+특징별 정리:
+
+- **GCP** — Billing Account와 Project가 독립적이어서 가장 유연합니다. Project의 Billing Account를 드래그앤드롭처럼 변경할 수 있어 조직 개편에 강합니다.
+- **AWS** — Organization 내 Account 단위로 묶이지만, **Billing Transfer** (2025년 출시)로 Organization 간 빌링 이전이 가능해졌습니다. 이전에는 Account 종료 후 재생성이 필요했습니다.
+- **Azure** — EA/MCA 계약에 따라 Billing Account → Billing Profile → Invoice Section 계층을 사용하여 부서별 인보이스 분리가 가능합니다.
+- **OCI** — Tenancy가 빌링의 최상위 단위이므로, 법인별로 Tenancy를 나누는 것이 일반적입니다. Cross-Tenancy 정책으로 리소스는 공유 가능합니다.
+
+### 인보이스 받는 쪽 실무 팁
+
+- **부서별로 법적/세무적 분리가 필요** → 별도 Billing Account/Organization/Tenancy
+- **그룹 단위로 통합 결제 + 부서별 비용 가시성** → 단일 Billing Account + 태그 기반 비용 할당
+- **자주 변경되는 조직 구조** → Project↔Billing Account 분리 가능한 GCP가 유리
+- **대량 약정 할인 극대화** → 하나의 Billing Account로 묶어 약정 단가 협상
+- **환율/세금 처리** → 벤더별 Reserved Currency, 세금계산서 발행 주체 확인 필요
+
+공식 문서:
+
+- [AWS — AWS Organizations와 통합 결제](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/consolidated-billing.html)
+- [Azure — 빌링 계정 이해하기](https://learn.microsoft.com/azure/cost-management-billing/manage/view-all-accounts)
+- [GCP — Cloud Billing 계정 개요](https://cloud.google.com/billing/docs/concepts)
+- [OCI — 조직 관리와 빌링](https://docs.oracle.com/en-us/iaas/Content/GSG/Concepts/settinguptenancy.htm)
+
 ## 멀티 계정 전략
 
 각 벤더 모두 다음과 같은 멀티 계정 전략을 권장합니다.

@@ -55,6 +55,40 @@
 
 **OCI** — Vault 하나로 시크릿과 암호화 키를 통합 관리하며, HSM 키와 소프트웨어 키를 선택할 수 있습니다. IAM 정책으로 세밀한 접근 제어가 가능합니다.
 
+## 암호화 키 관리 모델
+
+암호화 키를 누가 생성하고 관리하는지에 따라 3가지 모델이 있습니다.
+
+| 모델 | 설명 | 특징 |
+| --- | --- | --- |
+| **벤더 관리 키 (Vendor-Managed)** | 벤더가 키 생성·관리·교체 | 기본값. 사용자 개입 최소 |
+| **고객 관리 키 (CMK/CMEK)** | 사용자가 KMS에서 키 생성·관리 | 키 정책, 교체 주기, 접근 제어를 사용자가 직접 관리 |
+| **BYOK (Bring Your Own Key)** | 사용자가 외부에서 키를 가져와 KMS에 업로드 | 키 원본을 외부에 보관. 규제 요건 대응 |
+| **EKM/HYOK (External Key Management)** | 외부 HSM에 키를 두고 KMS는 참조만 | 키가 클라우드에 저장되지 않음. 가장 엄격한 통제 |
+
+> 규제 산업(금융, 의료, 공공)은 CMK 또는 BYOK가 일반적이며, 일반 웹 서비스는 벤더 관리 키로 충분한 경우가 많습니다.
+
+## 시크릿 자동 교체 (Rotation)
+
+시크릿을 주기적으로 자동 변경하면 유출 시 피해를 최소화할 수 있습니다.
+
+| 벤더 | 자동 교체 지원 |
+| --- | --- |
+| AWS Secrets Manager | RDS, DocumentDB, Redshift 네이티브 교체. Lambda로 커스텀 교체 함수 작성 가능 |
+| Azure Key Vault | 인증서 자동 갱신. 시크릿은 Event Grid + Function App으로 교체 구현 |
+| GCP Secret Manager | 시크릿 버전 관리만 제공. 교체 로직은 Cloud Scheduler + Cloud Function으로 구현 |
+| OCI Vault | Secret Rotation 지원 (Autonomous DB, MySQL 네이티브). Function으로 커스텀 교체 |
+
+### 외부 시크릿 저장소 연동
+
+HashiCorp Vault, CyberArk 등 외부 시크릿 관리 솔루션을 사용하는 경우, 클라우드 네이티브 서비스와 통합할 수 있습니다.
+
+| 통합 방식 | 설명 |
+| --- | --- |
+| **External Secrets Operator** | Kubernetes에서 AWS/Azure/GCP 시크릿을 외부 저장소에서 동기화 |
+| **HashiCorp Vault Dynamic Secrets** | Vault가 AWS IAM, DB 자격 증명을 동적으로 생성 |
+| **CSI Secret Store Driver** | Kubernetes Pod에 시크릿을 파일로 마운트 |
+
 ## 참고하기
 
 ### AWS

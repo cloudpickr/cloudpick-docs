@@ -12,7 +12,7 @@
 | **권한 모델** | 정책 기반 (JSON) | RBAC (역할 기반) | RBAC (역할 기반) | 정책 기반 (HCL 유사) |
 | **SSO** | IAM Identity Center | Entra ID SSO | Cloud Identity | Identity Domains |
 | **외부 IdP 연동** | SAML, OIDC | SAML, OIDC, WS-Fed | Workload Identity Federation | SAML, OIDC |
-| **최소 권한 도구** | IAM Access Analyzer | Entra Permissions Management | IAM Recommender | Cloud Guard |
+| **최소 권한 도구** | IAM Access Analyzer | Entra ID Governance | IAM Recommender | Cloud Guard |
 
 ### 핵심 차이점
 

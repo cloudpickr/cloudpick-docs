@@ -80,7 +80,7 @@ MSP는 일반적으로 **클라우드 사용료에 대한 추가 마진을 받�
 
 유료 플랜의 가장 큰 차이는 장애 발생 시 응답 시간입니다. 프로덕션 워크로드를 운영한다면 응답 시간을 확인하고 플랜을 선택해야 합니다.
 
-### 심각도별 응답 시간 (4사 비교)
+### 심각도별 응답 시간
 
 | 심각도 | 설명 | [AWS Business Support+](https://aws.amazon.com/premiumsupport/plans/) | [Azure Professional Direct](https://azure.microsoft.com/support/plans/) | [GCP Enhanced](https://cloud.google.com/support/docs/customer-care-offerings) | [OCI Premier](https://www.oracle.com/support/premier/) |
 | --- | --- | --- | --- | --- | --- |

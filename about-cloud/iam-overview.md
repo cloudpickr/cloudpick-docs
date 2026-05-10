@@ -14,7 +14,7 @@ description: IAM의 기본 개념과 AWS, Azure, GCP, OCI의 접근 제어 모�
 
 클라우드에서는 수백 개의 서비스와 수천 개의 리소스가 있으므로, "누가 무엇을 할 수 있는가"를 체계적으로 관리하는 IAM (Identity and Access Management)이 핵심입니다.
 
-## 주요 CSP 4사 IAM 비교
+## 벤더별 IAM 비교
 
 | 항목 | AWS | Azure | GCP | OCI |
 | --- | --- | --- | --- | --- |

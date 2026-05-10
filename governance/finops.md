@@ -55,6 +55,82 @@ FinOps를 처음 시작할 때는 도구를 많이 도입하기보다, 비용을
 비용 최적화는 보안, 가용성, 성능을 훼손하지 않는 범위에서 진행해야 합니다. 특히 백업 보관 기간이나 DR 구성을 비용만 보고 줄이면 장애 시 더 큰 손실이 발생할 수 있습니다.
 {% endhint %}
 
+## Showback vs Chargeback
+
+비용을 조직 내부에 어떻게 배분할지 결정하는 모델입니다. [FinOps Foundation 공식 프레임워크](https://www.finops.org/framework/capabilities/allocation/)에서 정의합니다.
+
+| 모델 | 설명 | 적합한 조직 |
+| --- | --- | --- |
+| **Showback** | 부서/팀별 사용 비용을 "보여주기만" 함. 실제 예산 이동 없음 | FinOps 초기 도입, 비용 인식 확산 단계 |
+| **Chargeback** | 부서별 사용 비용을 실제 예산에서 차감 | 성숙한 조직, 부서별 P&L 있는 경우 |
+
+### 구현을 위한 전제조건
+
+Showback/Chargeback을 하려면 비용을 정확히 귀속시킬 수 있어야 합니다.
+
+- **태그/라벨 표준화** — 모든 리소스에 `cost-center`, `project`, `owner`, `env` 태그 적용
+- **계정/구독/프로젝트 분리** — 부서별 분리는 태그보다 확실한 비용 경계 ([계정과 조직 구조](../about-cloud/accounts-and-organizations.md) 참고)
+- **공유 비용 배분 정책** — 네트워크, 보안 서비스 같은 공통 비용을 어떻게 나눌지 정의
+
+## 약정 할인 전략
+
+각 벤더는 1년 또는 3년 약정 시 최대 70\~72% 할인을 제공합니다. 하지만 약정한 만큼 사용하지 못하면 비용 낭비가 됩니다.
+
+### 약정 상품 유형
+
+| 유형 | 특징 | AWS | Azure | GCP | OCI |
+| --- | --- | --- | --- | --- | --- |
+| **인스턴스 예약** | 특정 인스턴스 타입 고정 | Reserved Instances | Reserved VM Instances | — | — |
+| **사용 금액 약정 (유연)** | 시간당 지출 금액 약정, 인스턴스 유형 변경 가능 | Savings Plans | Savings Plans | CUD (Flexible) | Universal Credits |
+| **자동 할인** | 약정 없이 사용량에 따라 자동 할인 | — | — | SUD (Sustained Use Discount) | — |
+| **스팟/Preemptible** | 중단 가능 대신 60\~90% 할인 | Spot Instances | Spot VMs | Spot VMs / Preemptible | Preemptible Instances |
+
+### 적용 전략
+
+- **70/30 원칙** — 안정적 베이스라인 워크로드의 70%는 약정, 30%는 온디맨드로 유연성 확보
+- **단계적 약정** — 처음부터 3년 약정 대신 1년부터 시작하여 사용 패턴 검증
+- **Spot 활용** — 중단에 강한 워크로드(배치, CI, 개발 환경)는 Spot으로 이동
+- **주기적 재평가** — 분기마다 약정 활용률 확인
+
+{% hint style="info" %}
+**약정은 보험이 아니라 베팅입니다.** 사용량이 확실한 워크로드에만 적용하세요. 무조건 많이 약정하면 할인은 받지만 유연성을 잃습니다.
+{% endhint %}
+
+## 단위 경제 (Unit Economics)
+
+"월 비용이 얼마인가?"보다 "사용자 1명당 비용", "트랜잭션 1건당 비용"을 추적하는 것이 사업 의사결정에 유용합니다.
+
+| 지표 예시 | 계산 예 |
+| --- | --- |
+| 활성 사용자당 비용 | 월 인프라 비용 / 월간 활성 사용자 수 (MAU) |
+| 트랜잭션당 비용 | 월 비용 / 월 처리된 요청 수 |
+| 고객 획득당 인프라 비용 | 신규 고객 유치 비용 중 인프라 기여분 |
+| 매출 대비 인프라 비중 | 월 인프라 비용 / 월 매출 |
+
+단위 경제를 추적하면:
+
+- 트래픽이 늘어날 때 비용 증가가 선형인지 확인 (선형이 아니면 확장성 문제)
+- 서비스/기능별 수익성 평가
+- 예산 수립 시 매출 성장 대비 인프라 증가를 예측
+
+## 비용 이상 탐지
+
+사람이 계속 모니터링하지 않고 머신러닝으로 비정상 비용 증가를 자동 탐지하는 기능입니다.
+
+| 벤더 | 서비스 |
+| --- | --- |
+| AWS | [AWS Cost Anomaly Detection](https://docs.aws.amazon.com/cost-management/latest/userguide/manage-ad.html) |
+| Azure | [Microsoft Cost Management — Anomaly Detection](https://learn.microsoft.com/azure/cost-management-billing/understand/analyze-unexpected-charges) |
+| GCP | [Recommender / Cost Anomaly Detection](https://cloud.google.com/billing/docs/how-to/manage-anomalies) |
+| OCI | [OCI Monitoring 알람 기반 구성](https://docs.oracle.com/en-us/iaas/Content/Monitoring/home.htm) |
+
+### 탐지 시 확인할 것
+
+- 의도된 트래픽 증가인가 (마케팅, 이벤트)
+- 실수로 남겨진 리소스 (테스트용 대형 인스턴스, 미사용 NAT Gateway)
+- 자동 스케일링 이상 (이벤트 이후에도 축소 안 됨)
+- 보안 사고로 인한 악성 사용 (크립토 마이닝, 외부 공격)
+
 ## FOCUS 스펙
 
 [FOCUS(FinOps Open Cost and Usage Specification)](https://focus.finops.org/)는 FinOps Foundation에서 주도하는 멀티클라우드 비용 데이터 표준화 스펙입니다.

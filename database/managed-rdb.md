@@ -88,13 +88,23 @@ Aurora는 데이터를 3개 AZ에 걸쳐 6개 복사본으로 자동 복제하�
 
 ## 핵심 차이점
 
-**AWS Aurora** — MySQL/PostgreSQL과 호환되면서 최대 5배(MySQL) / 3배(PostgreSQL) 성능을 제공한다고 AWS가 주장합니다. 스토리지가 3개 AZ에 6개 복사본으로 자동 복제됩니다.
+{% tabs %}
+{% tab title="AWS Aurora" %}
+MySQL/PostgreSQL과 호환되면서 최대 5배(MySQL) / 3배(PostgreSQL) 성능을 제공한다고 AWS가 주장합니다. 스토리지가 3개 AZ에 6개 복사본으로 자동 복제됩니다.
+{% endtab %}
 
-**Azure SQL Database** — SQL Server 기반으로, 기존 SQL Server 워크로드를 가장 쉽게 마이그레이션할 수 있습니다. Hyperscale 티어에서 100TB까지 확장 가능합니다.
+{% tab title="Azure SQL Database" %}
+SQL Server 기반으로, 기존 SQL Server 워크로드를 가장 쉽게 마이그레이션할 수 있습니다. Hyperscale 티어에서 100TB까지 확장 가능합니다.
+{% endtab %}
 
-**GCP AlloyDB** — PostgreSQL 호환이면서 Google 자체 설계로 트랜잭션 성능을 높였습니다. 벡터 검색이 내장되어 AI 워크로드와의 통합이 강점입니다.
+{% tab title="GCP AlloyDB" %}
+PostgreSQL 호환이면서 Google 자체 설계로 트랜잭션 성능을 높였습니다. 벡터 검색이 내장되어 AI 워크로드와의 통합이 강점입니다.
+{% endtab %}
 
-**OCI Autonomous Database** — Oracle DB 기반으로 자동 튜닝, 자동 패치, 자동 스케일링을 제공합니다. Oracle DB 워크로드에서 최고 성능을 발휘하며, MySQL HeatWave로 OLTP+OLAP 통합 처리도 지원합니다.
+{% tab title="OCI Autonomous Database" %}
+Oracle DB 기반으로 자동 튜닝, 자동 패치, 자동 스케일링을 제공합니다. Oracle DB 워크로드에서 최고 성능을 발휘하며, MySQL HeatWave로 OLTP+OLAP 통합 처리도 지원합니다.
+{% endtab %}
+{% endtabs %}
 
 ## 언제 무엇을 선택할 것인가
 

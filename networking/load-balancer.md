@@ -68,6 +68,46 @@ L4는 패킷 내용을 보지 않고 포트 단위로 분배하므로 지연이 
 - **GCP** — 로드밸런서가 기본적으로 글로벌입니다. 하나의 IP로 전 세계 사용자에게 가장 가까운 백엔드로 라우팅합니다.
 - **OCI** — Load Balancer(L7)와 Network Load Balancer(L4)를 분리 제공하며, DNS Traffic Management로 글로벌 트래픽 분배를 구성합니다.
 
+## SSL/TLS 처리
+
+로드밸런서는 TLS 암호화 종료/통과 방식을 선택할 수 있습니다.
+
+| 방식 | 설명 | 장점 | 단점 |
+| --- | --- | --- | --- |
+| **TLS Termination (종료)** | LB에서 TLS 복호화, 백엔드는 HTTP | 백엔드 부담 감소, LB에서 L7 처리 | LB-백엔드 구간 평문 (VPC 내부라 일반적으로 허용) |
+| **TLS Passthrough (통과)** | LB는 암호화된 트래픽을 그대로 전달, 백엔드가 복호화 | End-to-end 암호화 | L7 라우팅/검사 불가 (L4만 가능) |
+| **End-to-end TLS (재암호화)** | LB에서 복호화 후 백엔드로 갈 때 다시 암호화 | L7 처리 + 전 구간 암호화 | CPU 부하 증가 |
+
+### 인증서 관리
+
+| 벤더 | 무료 관리형 인증서 |
+| --- | --- |
+| AWS | AWS Certificate Manager (ACM) |
+| Azure | App Service Managed Certificate, Key Vault |
+| GCP | Certificate Manager |
+| OCI | OCI Certificates |
+
+모두 자동 갱신을 지원하며, LB에 네이티브 연동됩니다.
+
+## 헬스 체크
+
+로드밸런서는 주기적으로 백엔드 상태를 확인하여 비정상 인스턴스를 제외합니다.
+
+### 헬스 체크 유형
+
+| 유형 | 설명 | 사용 |
+| --- | --- | --- |
+| **TCP** | TCP 연결 가능 여부만 확인 | L4 LB, 간단한 체크 |
+| **HTTP/HTTPS** | 특정 경로에 응답 코드 확인 (보통 200) | L7 LB, 앱 레벨 체크 |
+| **gRPC** | gRPC Health Checking Protocol | gRPC 서비스 |
+
+### 헬스 체크 설계 팁
+
+- **전용 헬스 체크 엔드포인트** (`/health`, `/healthz`) 사용. 비즈니스 엔드포인트는 피하기
+- **DB 의존성 포함 여부** — 얕은 체크(앱 살아있음)와 깊은 체크(DB 연결됨)를 구분
+- **Interval과 Threshold** — 너무 짧으면 false positive, 너무 길면 장애 감지 지연
+- **404/500도 건강함으로 간주할지** — 특정 경로가 없어도 서버는 정상일 수 있음
+
 ## 참고하기
 
 ### AWS

@@ -62,6 +62,23 @@ API Gateway 자체는 인증 로직을 처리하지 않고, 외부 인증 서비
 
 **OCI API Gateway** — OCI Functions와 네이티브 연동되며, 인증(JWT 검증), 속도 제한, 요청 변환을 정책 기반으로 설정할 수 있습니다.
 
+## API 배포 단계와 버전 관리
+
+API는 프로덕션에 배포되면 변경이 어렵기 때문에, 개발→스테이징→프로덕션의 단계적 배포와 버전 관리가 중요합니다.
+
+| 기능 | AWS API Gateway | Azure APIM | GCP Apigee | OCI API Gateway |
+| --- | --- | --- | --- | --- |
+| **Stage/Environment** | Stages (dev, staging, prod) | Environments | Environments (test, prod) | Deployments |
+| **Canary 배포** | Canary Deployment (가중치 기반) | Revision + Release | Revision + TargetServer | Route Rule (가중치) |
+| **버전 관리** | API Version (v1, v2 별도 엔드포인트) | API Revision + Version | API Revision + Version | Spec Version |
+| **롤백** | 이전 Deployment로 전환 | Revision 전환 | Revision 전환 | 이전 Deployment로 전환 |
+
+### 점진적 배포 전략
+
+- **Blue/Green** — 두 환경을 동시 운영 후 트래픽 전환. 롤백 즉시 가능
+- **Canary** — 새 버전에 소량 트래픽(5~10%)을 보내고 모니터링 후 점진적 확대
+- **A/B 테스트** — 사용자 세그먼트별로 다른 버전 노출
+
 ## 참고하기
 
 ### AWS

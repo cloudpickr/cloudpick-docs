@@ -68,3 +68,4 @@
 
 - [랜딩존](governance/landing-zone.md)
 - [FinOps](governance/finops.md)
+- [재해복구 (DR)](governance/dr.md)

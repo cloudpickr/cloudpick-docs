@@ -16,12 +16,12 @@
 
 ### 핵심 차이점
 
-| 벤더 | 특징 |
-| --- | --- |
-| **AWS** | JSON 정책 문서로 세밀한 제어. ID 기반 + 리소스 기반 정책 조합. 가장 복잡하지만 가장 유연 |
-| **Azure** | Active Directory 기반. 온프레미스 AD와 하이브리드 연동이 자연스러움. Conditional Access로 동적 제어 |
-| **GCP** | 조직→폴더→프로젝트 계층에서 권한 상속. Workload Identity Federation으로 외부 토큰 직접 사용 |
-| **OCI** | Compartment 계층에서 정책 상속. `Allow group X to manage Y in compartment Z` 형태의 직관적 구문 |
+| 벤더 | 권한 모델 | 차별점 |
+| --- | --- | --- |
+| **AWS** | JSON 정책 문서 (ID 기반 + 리소스 기반) | 가장 세밀하고 유연하지만 복잡 |
+| **Azure** | RBAC (역할 기반) | AD 하이브리드 연동, Conditional Access로 동적 제어 |
+| **GCP** | RBAC (역할 기반, 계층 상속) | Workload Identity Federation으로 외부 토큰 직접 사용 |
+| **OCI** | 정책 기반 (HCL 유사 구문, 계층 상속) | `Allow group X to manage Y in compartment Z` 직관적 구문 |
 
 ## 자세한 내용
 

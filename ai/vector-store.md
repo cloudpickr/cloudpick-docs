@@ -1,5 +1,5 @@
 ---
-description: 벡터 스토어의 동작 방식, 전용 제품과 기존 DB 벡터 확장 옵션을 비교합니다.
+description: 벡터 스토어가 무엇이고 왜 필요한지, 주요 제품과 선택 기준을 쉽게 설명합니다.
 ---
 
 # 벡터 스토어와 AI 데이터
@@ -18,114 +18,134 @@ description: 벡터 스토어의 동작 방식, 전용 제품과 기존 DB 벡�
 - **제품 FAQ 자동 응답** — 수백 페이지의 제품 매뉴얼을 기반으로 고객 문의 처리
 - **시맨틱 검색** — "저렴한 숙소"로 검색했을 때 "가성비 호텔", "합리적 가격의 펜션"도 함께 찾기
 - **추천 시스템** — 비슷한 상품/콘텐츠/사용자 자동 추천
-- **이상 탐지** — 기존 패턴과 다른 로그, 거래, 문서 식별
 
-AI/LLM 애플리케이션은 텍스트, 이미지 등의 데이터를 **벡터 임베딩**(고차원 숫자 배열)으로 변환하여 의미적 유사도를 계산합니다. "서울 맛집 추천"과 "강남 레스토랑"이 비슷한 의미임을 이해하려면, 텍스트를 벡터로 변환하고 가까운 벡터를 찾아야 합니다.
+## 벡터 스토어란
 
-**벡터 스토어**는 이 벡터 임베딩을 저장하고, 유사도 검색(Similarity Search)을 빠르게 수행하는 데이터베이스입니다.
+### 쉽게 이해하기
 
-### 왜 필요한가
+도서관 사서를 떠올려 보세요. 사서에게 "머신러닝 책 있어요?"라고 물으면, 책 제목에 "머신러닝"이 없어도 비슷한 주제의 책을 찾아줍니다. "인공지능", "딥러닝", "AI 기초" 같은 책들을 말이죠.
 
-- **RAG (Retrieval Augmented Generation)** — LLM이 답변할 때 관련 문서를 벡터 검색으로 찾아 컨텍스트로 제공. 환각(Hallucination) 감소.
-- **시맨틱 검색** — 키워드 일치가 아닌 의미 기반 검색. "저렴한 숙소" → "가성비 호텔" 매칭.
-- **추천 시스템** — 사용자/상품을 벡터로 표현하여 유사한 항목 추천.
+**벡터 스토어는 이런 사서의 역할을 하는 데이터베이스**입니다. 문서의 "의미"를 기억해 두었다가, 비슷한 의미의 문서를 빠르게 찾아줍니다.
 
-### 동작 방식
+### 일반 검색 vs 벡터 검색
+
+| 방식 | 검색 기준 | 예시 |
+| --- | --- | --- |
+| **키워드 검색** (일반 DB) | 단어가 정확히 일치 | "저렴한 숙소" → "저렴한"이 포함된 문서만 |
+| **벡터 검색** (벡터 스토어) | 의미가 비슷 | "저렴한 숙소" → "가성비 호텔", "알뜰 펜션"도 검색 |
+
+## 동작 방식
 
 ```mermaid
 graph LR
-    A[원본 데이터<br/>텍스트, 이미지 등] -->|임베딩 모델| B[벡터 임베딩<br/>예: 1536차원 숫자 배열]
+    A[원본 데이터<br/>문서, 이미지 등] -->|변환| B[숫자 배열<br/>= 벡터]
     B -->|저장| C[벡터 스토어]
-    Q[질문/쿼리] -->|임베딩 모델| V[쿼리 벡터]
-    V -->|유사도 검색| C
-    C -->|가장 가까운 벡터| R[관련 원본 데이터 반환]
+    Q[사용자 질문] -->|변환| V[질문 벡터]
+    V -->|비슷한 것 찾기| C
+    C -->|답| R[관련 문서 반환]
 ```
 
-임베딩 모델의 예: OpenAI text-embedding-3, Amazon Titan Embeddings, Vertex AI text-embedding, Cohere Embed 등.
+3줄 요약:
+1. 원본 데이터(텍스트, 이미지)를 **숫자 배열(벡터)** 로 변환합니다. 이 과정을 **임베딩** 이라고 합니다.
+2. 벡터를 벡터 스토어에 저장합니다.
+3. 질문도 같은 방식으로 벡터로 만들어, **가장 비슷한 벡터** 를 찾아 원본 데이터를 반환합니다.
 
 {% hint style="info" %}
-벡터 검색은 **근사 최근접 이웃(ANN)** 알고리즘을 사용합니다. 정확도(Recall)와 속도는 트레이드오프 관계입니다. 인덱스 타입(HNSW, IVF 등)과 파라미터를 워크로드에 맞게 튜닝해야 합니다.
+"왜 숫자 배열인가?"라고 궁금할 수 있습니다. 컴퓨터가 "비슷한 의미"를 계산하려면 의미를 수치화해야 합니다. 단어 하나를 1536개의 숫자로 표현하면, 비슷한 의미의 단어들은 비슷한 숫자 조합을 갖게 됩니다.
 {% endhint %}
 
-## 제품 비교
+## 어떤 선택지가 있나
 
-### 전용 벡터 스토어
+벡터를 저장하는 방법은 크게 두 가지입니다.
 
-| 벤더 | 제품 | 비고 |
+### 1. 전용 벡터 스토어
+
+벡터 검색에 특화된 제품입니다. 대규모/고성능이 필요할 때 씁니다.
+
+| 벤더 | 제품 | 특징 |
 | --- | --- | --- |
-| AWS | S3 Vectors (Preview) | S3 내구성 + 저비용 벡터 저장. Bedrock Knowledge Bases 연동 |
-| AWS | OpenSearch Serverless (벡터 엔진) | 대규모 벡터 검색. k-NN 지원 |
-| Azure | Azure AI Search | 벡터 + 키워드 하이브리드 검색. 시맨틱 랭킹 |
-| GCP | Vertex AI Vector Search | 대규모 고성능 벡터 검색 (ScaNN 알고리즘) |
-| OCI | OCI AI Vector Search (Autonomous DB) | Autonomous Database 내장 벡터 검색. SQL 기반 |
+| AWS | [OpenSearch Serverless 벡터 엔진](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-vector-search.html) | 대규모 벡터 검색 |
+| AWS | [S3 Vectors (Preview)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-vectors.html) | S3 내구성 + 저비용 |
+| Azure | [Azure AI Search](https://learn.microsoft.com/azure/search/vector-search-overview) | 벡터 + 키워드 + 시맨틱 랭킹 통합 |
+| GCP | [Vertex AI Vector Search](https://cloud.google.com/vertex-ai/docs/vector-search/overview) | Google ScaNN 알고리즘으로 고성능 |
+| OCI | [OCI AI Vector Search](https://docs.oracle.com/en-us/iaas/autonomous-database-serverless/doc/oracle-ai-vector-search-autonomous-database.html) | Autonomous Database 내장, SQL 기반 |
 
-### 기존 DB의 벡터 확장
+### 2. 기존 DB의 벡터 확장
 
-기존 DB에 벡터 검색 기능을 추가하여, 별도 벡터 스토어 없이 사용할 수도 있습니다.
+이미 쓰는 DB에 벡터 기능을 추가하는 방식입니다. 별도 인프라 없이 시작할 수 있습니다.
 
-| 벤더 | 제품 | 비고 |
+| 벤더 | 제품 | 특징 |
 | --- | --- | --- |
-| AWS | Aurora PostgreSQL (pgvector) | PostgreSQL 확장. 관계형 데이터 + 벡터를 한 DB에서 |
-| AWS | Neptune Analytics | 그래프 + 벡터 결합 |
-| AWS | ElastiCache for Valkey 8.2+ | 인메모리 벡터 검색. 초저지연 |
-| Azure | Azure Cosmos DB (벡터 검색) | 글로벌 분산 + 벡터 |
-| Azure | Azure Database for PostgreSQL (pgvector) | |
-| GCP | AlloyDB (벡터 검색) | PostgreSQL 호환 + 고성능 벡터 |
-| GCP | Cloud SQL for PostgreSQL (pgvector) | |
+| AWS | [Aurora PostgreSQL (pgvector)](https://aws.amazon.com/about-aws/whats-new/2023/07/amazon-aurora-postgresql-pgvector-vector-storage-similarity-search/) | 관계형 + 벡터 한 DB에서 |
+| AWS | [ElastiCache for Valkey](https://aws.amazon.com/elasticache/what-is-valkey/) | 인메모리 벡터, 초저지연 |
+| Azure | [Cosmos DB 벡터 검색](https://learn.microsoft.com/azure/cosmos-db/vector-search) | 글로벌 분산 + 벡터 |
+| GCP | [AlloyDB (벡터 검색)](https://cloud.google.com/alloydb/docs/ai) | PostgreSQL 호환 + 고성능 |
+| GCP | [Cloud SQL (pgvector)](https://cloud.google.com/sql/docs/postgres/extensions#pgvector) | 간단한 시작 |
 
-### AI 프레임워크 연동
+### 3. RAG 자동 파이프라인
 
-| 벤더 | 제품 | 비고 |
+복잡한 설정 없이 "문서 올리면 자동으로 벡터화"해주는 관리형 서비스입니다.
+
+| 벤더 | 제품 | 특징 |
 | --- | --- | --- |
-| AWS | Bedrock Knowledge Bases | 문서 → 임베딩 → 벡터 저장 → RAG 자동 파이프라인 |
-| Azure | Azure AI Search + Azure OpenAI | "On Your Data" 기능으로 RAG 자동 구성 |
-| GCP | Vertex AI RAG Engine | 문서 → 임베딩 → 검색 통합 |
+| AWS | [Bedrock Knowledge Bases](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html) | 문서 → 임베딩 → 저장 → RAG 자동 |
+| Azure | [Azure AI Search + OpenAI "On Your Data"](https://learn.microsoft.com/azure/ai-services/openai/concepts/use-your-data) | 가장 빠른 RAG 구성 |
+| GCP | [Vertex AI RAG Engine](https://cloud.google.com/vertex-ai/generative-ai/docs/rag-overview) | 문서 → 임베딩 → 검색 통합 |
+| OCI | [OCI Generative AI Agents](https://www.oracle.com/artificial-intelligence/generative-ai/agents/) | OCI Search 연동 RAG |
 
-## 핵심 차이점
+## 언제 무엇을 선택할까
 
-**AWS** — 벡터 저장 옵션이 가장 다양합니다 (S3 Vectors, OpenSearch, Aurora pgvector, Neptune, ElastiCache). Bedrock Knowledge Bases로 RAG 파이프라인을 코드 없이 구성할 수 있습니다.
+| 상황 | 권장 선택 |
+| --- | --- |
+| 처음 시작하고, 설정 없이 빠르게 | RAG 자동 파이프라인 (Bedrock Knowledge Bases 등) |
+| 이미 PostgreSQL 쓰고 있음 | 기존 DB 벡터 확장 (pgvector) |
+| 벡터가 수백만 건 이상, 성능 중요 | 전용 벡터 스토어 (OpenSearch, Vertex AI Vector Search) |
+| Oracle DB 쓰고 있음 | OCI AI Vector Search |
+| 초저지연 필요 (실시간 추천 등) | Valkey 기반 인메모리 |
 
-**Azure** — AI Search가 벡터 + 키워드 + 시맨틱 랭킹을 하나의 서비스로 통합합니다. Azure OpenAI의 "On Your Data" 기능으로 가장 빠르게 RAG를 구성할 수 있습니다.
+{% hint style="info" %}
+**처음에는 단순하게 시작하세요.** 대부분의 업무는 RAG 자동 파이프라인이나 pgvector로 충분합니다. 전용 벡터 스토어는 수백만 벡터 이상의 규모에서 필요합니다.
+{% endhint %}
 
-**GCP** — Vertex AI Vector Search가 Google의 ScaNN 알고리즘으로 대규모 벡터 검색 성능이 뛰어납니다. AlloyDB의 벡터 검색은 트랜잭션 DB와 벡터를 하나로 통합합니다.
+## 심화: 알고리즘과 성능
 
-**OCI** — Autonomous Database에 내장된 AI Vector Search로 SQL 기반 벡터 검색을 제공합니다. 기존 Oracle DB 워크로드에 벡터 검색을 추가할 때 별도 인프라 없이 통합할 수 있습니다.
+벡터 스토어 성능을 깊이 이해하거나 튜닝이 필요할 때 알아두면 좋은 내용입니다.
 
-## 벡터 검색 알고리즘과 인덱싱
+### ANN 알고리즘
 
-대규모 벡터 데이터에서 빠른 검색을 위해 ANN (Approximate Nearest Neighbor) 알고리즘을 사용합니다. 정확도를 약간 희생하여 속도를 크게 향상시킵니다.
+수백만 벡터 중 "가장 가까운 것"을 정확히 찾으려면 모든 벡터와 비교해야 해서 느립니다. 이를 해결하기 위해 **ANN** (근사 최근접 이웃, Approximate Nearest Neighbor) 알고리즘을 사용합니다. 정확도를 약간 양보하고 속도를 크게 얻는 방식입니다.
 
-| 알고리즘 | 특징 | 지원 제품 |
+| 알고리즘 | 특징 | 주로 사용 |
 | --- | --- | --- |
-| **HNSW** (Hierarchical Navigable Small World) | 그래프 기반. 높은 정확도와 속도 균형 | pgvector, OpenSearch, Azure AI Search |
-| **IVF** (Inverted File) | 클러스터 기반. 메모리 효율 좋음 | pgvector, FAISS |
-| **IVFPQ** (IVF + Product Quantization) | IVF + 양자화로 메모리 절감 | FAISS, Neptune Analytics |
-| **ScaNN** (Scalable Nearest Neighbors) | Google 개발. TPU 최적화 | Vertex AI Vector Search |
+| **HNSW** | 그래프 기반. 정확도/속도 균형 좋음 | pgvector, OpenSearch, Azure AI Search |
+| **IVF** | 클러스터 기반. 메모리 효율 좋음 | pgvector, FAISS |
+| **IVFPQ** | IVF + 벡터 압축으로 메모리 절감 | Neptune Analytics, FAISS |
+| **ScaNN** | Google 개발. TPU 최적화 | Vertex AI Vector Search |
 
 ### 임베딩 차원과 저장 공간
 
-임베딩 모델이 생성하는 벡터의 차원(dimension)에 따라 저장 공간과 검색 속도가 달라집니다.
+임베딩 모델이 생성하는 벡터의 크기(차원)가 저장 공간과 검색 속도를 결정합니다.
 
 | 모델 | 차원 | 비고 |
 | --- | --- | --- |
 | OpenAI text-embedding-3-small | 1536 | 가장 널리 사용 |
-| OpenAI text-embedding-3-large | 3072 | 높은 품질, 큰 저장 공간 |
-| Amazon Titan Embeddings | 1024/1536/384 | 조정 가능 |
-| Cohere Embed | 1024 | 다국어 지원 |
-| Google text-embedding | 768/3072 | Vertex AI |
+| OpenAI text-embedding-3-large | 3072 | 고품질, 더 많은 공간 |
+| Amazon Titan Embeddings | 384\~1536 | 조정 가능 |
+| Cohere Embed | 1024 | 다국어 강점 |
+| Google text-embedding | 768\~3072 | Vertex AI |
 
-백만 개 벡터를 저장하면: 1536차원 × 4바이트(float32) = 약 6GB
+간단한 계산: 1,000,000개 × 1536차원 × 4바이트 = **약 6GB**
 
-## 하이브리드 검색
+### 하이브리드 검색
 
-벡터 검색만으로는 정확한 키워드 매칭(제품 코드, 이름 등)에 약할 수 있습니다. **하이브리드 검색**은 벡터 검색 + 키워드 검색(BM25)을 조합하여 두 방식의 장점을 모두 활용합니다.
+벡터 검색은 의미에 강하지만, 제품 코드(`SKU-12345`) 같은 **정확한 문자열** 에는 약합니다. **하이브리드 검색**은 벡터 검색 + 전통적인 키워드 검색(BM25)을 조합합니다.
 
-| 벤더 | 하이브리드 지원 |
+| 벤더 | 하이브리드 지원 방식 |
 | --- | --- |
 | AWS OpenSearch | Vector + BM25 결합 (RRF 알고리즘) |
-| Azure AI Search | 벡터 + 키워드 + 시맨틱 랭킹 |
-| GCP Vertex AI Vector Search | Filter로 키워드 조건 결합 |
-| OCI AI Vector Search | SQL로 벡터 + 관계형 데이터 조합 |
+| Azure AI Search | 벡터 + 키워드 + 시맨틱 랭킹 자동 결합 |
+| GCP Vertex AI Vector Search | Filter로 키워드 조건 추가 |
+| OCI AI Vector Search | SQL로 벡터 + 관계형 조건 조합 |
 
 ## 참고하기
 

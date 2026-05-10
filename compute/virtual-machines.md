@@ -51,6 +51,7 @@
 - **AWS** — 인스턴스 유형이 가장 다양하고, 자체 Arm 프로세서(Graviton)로 비용 절감 가능합니다.
 - **Azure** — 기존 Windows 라이선스를 활용한 Hybrid Benefit으로 비용을 줄일 수 있습니다.
 - **GCP** — CPU와 메모리를 자유롭게 조합하는 Custom Machine Type을 제공합니다.
+- **OCI** — Flexible Shape으로 CPU/메모리를 자유 조합하며, Ampere A1 무료 티어를 제공합니다.
 
 ## 참고하기
 

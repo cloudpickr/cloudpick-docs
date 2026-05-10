@@ -45,6 +45,8 @@ AWS S3 Intelligent-Tiering과 GCP Autoclass는 접근 패턴을 자동으로 분
 
 **GCP Cloud Storage** — Multi-region과 Dual-region 옵션으로 별도 복제 설정 없이 여러 리전에 자동 복제됩니다. Autoclass로 스토리지 클래스 자동 전환을 지원하며, BigLake를 통해 BigQuery에서 직접 쿼리할 수 있습니다.
 
+**OCI Object Storage** — S3 호환 API를 지원하며, Auto-Tiering으로 접근 패턴에 따라 Standard/Infrequent Access 간 자동 전환됩니다. 이그레스 10TB/월 무료 정책으로 대량 데이터 전송 시 비용 이점이 큽니다.
+
 ## 객체 스토리지의 진화
 
 객체 스토리지는 단순 파일 저장소를 넘어 **데이터 레이크의 기본 저장소**로 자리잡았습니다. 과거에는 데이터 분석을 위해 별도의 데이터 웨어하우스에 데이터를 복사해야 했지만, 이제는 객체 스토리지에 데이터를 그대로 두고 직접 분석하는 **레이크하우스** (Lakehouse) 아키텍처가 표준이 되고 있습니다.

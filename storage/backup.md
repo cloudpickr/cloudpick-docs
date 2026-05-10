@@ -34,6 +34,8 @@
 
 **GCP Backup and DR** — 관리 콘솔에서 백업 계획을 정의하고, 복구 시 원본 또는 다른 위치로 복원할 수 있습니다.
 
+**OCI Backup** — Block Volume, Boot Volume, DB 시스템의 정책 기반 자동 백업을 지원하며, 크로스 리전 복제로 DR을 구성할 수 있습니다.
+
 ## 참고하기
 
 ### AWS

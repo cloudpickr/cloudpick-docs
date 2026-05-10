@@ -46,6 +46,8 @@ DNS 수준에서 트래픽을 제어할 수 있는 라우팅 정책입니다.
 
 **GCP Cloud DNS** — 100% SLA를 제공하며, DNSSEC을 기본 지원합니다. 다만 자체 헬스 체크가 없어 장애 조치는 Cloud Load Balancing과 조합해야 합니다.
 
+**OCI DNS** — 글로벌 Anycast 네트워크에서 운영되며, Traffic Management로 지리적 라우팅, 장애 조치 등의 정책을 제공합니다. Health Checks와 연동하여 자동 DNS 전환이 가능합니다.
+
 ## 참고하기
 
 ### AWS

@@ -154,6 +154,8 @@ SLO 99.9%는 "한 달에 약 43분의 장애가 허용된다"는 의미입니다
 
 **GCP Cloud Operations** — OpenTelemetry와의 통합이 가장 자연스럽습니다. Cloud Logging이 모든 GCP 서비스 로그를 자동 수집하며, BigQuery로 내보내 장기 분석이 가능합니다.
 
+**OCI Monitoring** — OCI 서비스 메트릭을 자동 수집하며, Logging Analytics로 로그 분석과 시각화를 제공합니다. APM Tracing으로 분산 트레이싱도 지원합니다.
+
 ### 멀티클라우드 모니터링
 
 여러 벤더를 사용하는 환경에서는 Grafana, Datadog, New Relic 같은 3rd party 도구로 통합 모니터링하는 것이 일반적입니다. OpenTelemetry를 표준 계측 라이브러리로 사용하면 벤더 종속 없이 메트릭/로그/트레이스를 수집할 수 있습니다.

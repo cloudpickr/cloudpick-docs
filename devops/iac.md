@@ -53,6 +53,8 @@ AWS Cloud Control API는 Terraform이 새 AWS 리소스를 지원할 때 개별 
 
 **Terraform** — 멀티클라우드 환경에서 사실상 표준입니다. 하나의 언어(HCL)로 AWS, Azure, GCP를 모두 관리할 수 있습니다. 상태 파일(State) 관리가 필요합니다.
 
+**OCI Resource Manager** — Terraform 기반의 관리형 IaC 서비스로, 상태 파일 관리와 리소스 프로비저닝을 OCI 콘솔에서 통합 운영할 수 있습니다.
+
 ## 참고하기
 
 ### AWS

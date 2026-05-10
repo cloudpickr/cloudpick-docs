@@ -39,28 +39,13 @@
 | **빌링 단위** | Account (통합 빌링 가능) | Subscription | Billing Account → Project | Tenancy |
 | **계정 생성** | Organizations API로 자동 생성 | 수동 또는 자동화 | Projects API로 자동 생성 | Compartment API |
 
+### AWS — Organization → OU → Account
+
 ```mermaid
 graph TD
-    subgraph AWS
     A1[Organization] --> A2[OU]
     A2 --> A3[Account]
-    end
-    subgraph Azure
-    B1[Tenant] --> B2[Management Group]
-    B2 --> B3[Subscription]
-    B3 --> B4[Resource Group]
-    end
-    subgraph GCP
-    C1[Organization] --> C2[Folder]
-    C2 --> C3[Project]
-    end
-    subgraph OCI
-    D1[Tenancy] --> D2[Compartment]
-    D2 --> D3[Sub-Compartment]
-    end
 ```
-
-### AWS — Organization → OU → Account
 
 AWS의 계층 구조는 **Organization → OU → Account** 입니다.
 
@@ -72,6 +57,13 @@ AWS의 계층 구조는 **Organization → OU → Account** 입니다.
 AWS는 **AWS Control Tower**를 통해 모범 사례 기반의 멀티 계정 환경을 자동으로 구성할 수 있습니다.
 
 ### Azure — Management Group → Subscription → Resource Group
+
+```mermaid
+graph TD
+    B1[Tenant] --> B2[Management Group]
+    B2 --> B3[Subscription]
+    B3 --> B4[Resource Group]
+```
 
 Azure의 계층 구조는 **Tenant → Management Group → Subscription → Resource Group**입니다.
 
@@ -85,6 +77,12 @@ Azure의 특징은 **Resource Group**입니다. 하나의 Subscription 안에서
 
 ### GCP — Organization → Folder → Project
 
+```mermaid
+graph TD
+    C1[Organization] --> C2[Folder]
+    C2 --> C3[Project]
+```
+
 GCP의 계층 구조는 **Organization → Folder → Project**입니다.
 
 - **Organization** — Google Workspace 또는 Cloud Identity 도메인에 연결된 최상위 노드입니다.
@@ -95,6 +93,12 @@ GCP의 계층 구조는 **Organization → Folder → Project**입니다.
 GCP의 특징은 **빌링이 Project와 분리**되어 있다는 점입니다. 하나의 Billing Account에 여러 Project를 연결할 수 있어, 빌링 구조를 유연하게 설계할 수 있습니다.
 
 ### OCI — Tenancy → Compartment
+
+```mermaid
+graph TD
+    D1[Tenancy] --> D2[Compartment]
+    D2 --> D3[Sub-Compartment]
+```
 
 OCI의 계층 구조는 **Tenancy → Compartment**입니다.
 

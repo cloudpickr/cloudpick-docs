@@ -26,9 +26,9 @@ CloudPick 은 점점 복잡해지는 클라우드의 개념, 이론을 알기 �
 
 ## 대상 클라우드 벤더
 
-| 구분 | 벤더 | 홈페이지 | 콘솔 |
-| --- | --- | --- | --- |
-| 글로벌 | [AWS](https://aws.amazon.com/ko/) | Amazon Web Services | [Console](https://console.aws.amazon.com) |
-| 글로벌 | [Azure](https://azure.microsoft.com/ko-kr/) | Microsoft Azure | [Portal](https://portal.azure.com) |
-| 글로벌 | [GCP](https://cloud.google.com/) | Google Cloud Platform | [Console](https://console.cloud.google.com) |
-| 글로벌 | [OCI](https://www.oracle.com/kr/cloud/) | Oracle Cloud Infrastructure | [Console](https://cloud.oracle.com) |
+| 벤더 | 홈페이지 | 콘솔 |
+| --- | --- | --- |
+| [AWS](https://aws.amazon.com/ko/) | Amazon Web Services | [Console](https://console.aws.amazon.com) |
+| [Azure](https://azure.microsoft.com/ko-kr/) | Microsoft Azure | [Portal](https://portal.azure.com) |
+| [GCP](https://cloud.google.com/) | Google Cloud Platform | [Console](https://console.cloud.google.com) |
+| [OCI](https://www.oracle.com/kr/cloud/) | Oracle Cloud Infrastructure | [Console](https://cloud.oracle.com) |

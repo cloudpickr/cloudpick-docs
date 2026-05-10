@@ -44,11 +44,11 @@ description: 리전, 가용영역, 엣지 로케이션의 개념과 한국 리�
 | **AWS** | Region → AZ | 리전 단위 | Local Zone (특정 도시에 초저지연 인프라 배치) |
 | **Azure** | Geography → Region → AZ | 리전 단위 | 리전 쌍(Region Pair): 같은 Geography 내 두 리전이 쌍으로 지정되어 플랫폼 업데이트가 동시에 적용되지 않음. 한국: `koreacentral` ↔ `koreasouth` |
 | **GCP** | Region → Zone | **글로벌** (하나의 VPC에 여러 리전의 서브넷 배치 가능) | Multi-region 스토리지로 자동 복제 |
+| **OCI** | Realm → Region → AD → Fault Domain | 리전 단위 | Dedicated Region (고객 DC에 OCI 전체를 설치). 대형 리전은 3개 AD, 소형 리전은 1개 AD + 3 Fault Domain |
 
 {% hint style="info" %}
 GCP의 VPC는 **글로벌 리소스**입니다. AWS와 Azure가 리전마다 VPC/VNet을 따로 만드는 것과 달리, GCP는 하나의 VPC에 여러 리전의 서브넷을 배치할 수 있습니다. 단, 서브넷 자체는 리전 단위입니다.
 {% endhint %}
-| **OCI** | Realm → Region → AD → Fault Domain | 리전 단위 | Dedicated Region (고객 DC에 OCI 전체를 설치). 대형 리전은 3개 AD, 소형 리전은 1개 AD + 3 Fault Domain |
 
 ## 리전 선택 시 고려사항
 

@@ -37,9 +37,22 @@ RAG(Retrieval-Augmented Generation) 파이프라인은 Vector DB, Embedding 모�
 
 ## 참고하기
 
-| 벤더 | 공식 AI 문서 |
-| --- | --- |
-| AWS | [Amazon Bedrock 문서](https://docs.aws.amazon.com/bedrock/), [Amazon SageMaker 문서](https://docs.aws.amazon.com/sagemaker/) |
-| Azure | [Azure AI Services 문서](https://learn.microsoft.com/en-us/azure/ai-services/), [Azure OpenAI Service 문서](https://learn.microsoft.com/en-us/azure/ai-services/openai/) |
-| GCP | [Vertex AI 문서](https://cloud.google.com/vertex-ai/docs), [Gemini API 문서](https://cloud.google.com/gemini/docs) |
-| OCI | [OCI AI Services 문서](https://docs.oracle.com/en-us/iaas/Content/ai/home.htm), [OCI Generative AI 문서](https://docs.oracle.com/en-us/iaas/Content/generative-ai/home.htm) |
+### AWS
+
+- [Amazon Bedrock 문서](https://docs.aws.amazon.com/bedrock/)
+- [Amazon SageMaker 문서](https://docs.aws.amazon.com/sagemaker/)
+
+### Azure
+
+- [Azure AI Services 문서](https://learn.microsoft.com/en-us/azure/ai-services/)
+- [Azure OpenAI Service 문서](https://learn.microsoft.com/en-us/azure/ai-services/openai/)
+
+### GCP
+
+- [Vertex AI 문서](https://cloud.google.com/vertex-ai/docs)
+- [Gemini API 문서](https://cloud.google.com/gemini/docs)
+
+### OCI
+
+- [OCI AI Services 문서](https://docs.oracle.com/en-us/iaas/Content/ai/home.htm)
+- [OCI Generative AI 문서](https://docs.oracle.com/en-us/iaas/Content/generative-ai/home.htm)

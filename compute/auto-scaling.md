@@ -45,7 +45,7 @@ VM을 사용하면 서버를 빠르게 만들 수 있지만, 트래픽 변화에
 
 ## 핵심 차이점
 
-- **AWS** — VM뿐 아니라 DynamoDB, ECS 등 다양한 서비스에 통합 오토스케일링을 제공합니다.
+- **AWS** — Auto Scaling Groups + Launch Template으로 인스턴스 유형, 구매 옵션(온디맨드/Spot) 혼합 배포가 가능합니다. Warm Pool로 미리 초기화된 인스턴스를 준비해 콜드 스타트를 완화할 수 있습니다.
 - **Azure** — VMSS가 VM 배포와 스케일링을 하나의 리소스로 관리합니다.
 - **GCP** — MIG에 Auto-healing이 기본 내장되어 비정상 인스턴스를 자동 교체합니다.
 - **OCI** — Instance Pool 기반 오토스케일링으로 메트릭/스케줄 기반 스케일링을 지원합니다.

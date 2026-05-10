@@ -1,3 +1,7 @@
+---
+description: 트랜짓 아키텍처 패턴, 이그레스 비용 상세 비교, DNS 통합 전략 등 멀티클라우드 네트워크 심화 내용입니다.
+---
+
 # 멀티클라우드 커넥티비티 (심화)
 
 > 문서 기준: 2026년 5월
@@ -68,18 +72,15 @@ graph TD
 
 ### 통합 패턴: 조건부 포워딩
 
-```text
-┌─────────────────────────────────────────────────┐
-│              통합 DNS 전략                        │
-├─────────────────────────────────────────────────┤
-│                                                 │
-│  *.aws.internal  → Route 53 Inbound Endpoint   │
-│  *.azure.internal → Azure DNS Private Resolver │
-│  *.gcp.internal  → Cloud DNS Inbound Policy    │
-│  *.corp.internal → 온프레미스 DNS               │
-│                                                 │
-└─────────────────────────────────────────────────┘
-```
+도메인 접미사 기반으로 각 클라우드의 프라이빗 DNS 엔드포인트로 포워딩합니다.
+
+| 도메인 패턴 | 포워딩 대상 |
+| --- | --- |
+| `*.aws.internal` | Route 53 Inbound Endpoint |
+| `*.azure.internal` | Azure DNS Private Resolver |
+| `*.gcp.internal` | Cloud DNS Inbound Policy |
+| `*.oci.internal` | OCI DNS Inbound Endpoint |
+| `*.corp.internal` | 온프레미스 DNS |
 
 **구현 방법:**
 1. 각 클라우드에 인바운드 DNS 엔드포인트 생성

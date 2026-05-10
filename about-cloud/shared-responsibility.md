@@ -50,7 +50,7 @@ description: 클라우드 공동 책임 모델, IaaS/PaaS/SaaS별 책임 경계,
 
 예를 들어, EC2(IaaS)를 사용하면 OS 패치부터 사용자 책임이지만, RDS(PaaS)를 사용하면 OS 패치는 AWS가 담당합니다. Google Workspace(SaaS)를 사용하면 애플리케이션 관리까지 Google이 담당하고, 사용자는 데이터와 접근 권한만 관리하면 됩니다.
 
-## 주요 CSP 4사 비교
+## 벤더별 비교
 
 | 항목 | AWS | Azure | GCP | OCI |
 | --- | --- | --- | --- | --- |

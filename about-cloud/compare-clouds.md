@@ -6,7 +6,7 @@ description: AWS, Azure, GCP, OCI 4개 벤더의 특징, 강점, 멀티클라우
 
 > 문서 기준: 2026년 5월
 
-## 주요 CSP 4사 한눈에 보기
+## 한눈에 보기
 
 | 항목 | AWS | Azure | GCP | OCI |
 | --- | --- | --- | --- | --- |
@@ -22,7 +22,7 @@ description: AWS, Azure, GCP, OCI 4개 벤더의 특징, 강점, 멀티클라우
 시장 점유율은 Synergy Research Group 2024년 기준 추정치이며, 측정 방법에 따라 차이가 있을 수 있습니다. 이 문서는 CloudPick에서 우선 다루는 AWS, Azure, GCP, OCI를 중심으로 비교합니다.
 {% endhint %}
 
-## 주요 CSP 4사 각 사 특징
+## 각 사 특징
 
 {% tabs %}
 {% tab title="AWS — 가장 넓은 서비스 포트폴리오" %}

@@ -55,6 +55,7 @@
 
 - [AI와 머신러닝 서비스](ai/ai-ml.md)
 - [벡터 스토어와 AI 데이터](ai/vector-store.md)
+- [멀티클라우드 AI 아키텍처](ai/multicloud-ai.md)
 
 ## DevOps <a id="devops"></a>
 
@@ -62,3 +63,8 @@
 - [CI/CD](devops/cicd.md)
 - [IaC](devops/iac.md)
 - [모니터링](devops/monitoring.md)
+
+## 거버넌스 <a id="governance"></a>
+
+- [랜딩존](governance/landing-zone.md)
+- [FinOps](governance/finops.md)

@@ -52,6 +52,51 @@
 
 > **핵심:** RPO/RTO 요구사항을 먼저 정의하고, 그에 맞는 백업 전략과 비용을 산정하세요. 모든 워크로드에 동일한 전략을 적용하면 비용이 과다하거나 보호가 부족해집니다.
 
+## 백업 유형
+
+데이터 양과 복원 시간의 트레이드오프에 따라 백업 방식을 선택합니다.
+
+| 유형 | 설명 | 장점 | 단점 |
+| --- | --- | --- | --- |
+| **Full Backup** | 전체 데이터를 매번 복사 | 단일 백업으로 완전 복원 가능 | 저장 공간과 시간 많이 소요 |
+| **Incremental Backup** | 마지막 백업 이후 변경분만 저장 | 저장 공간/시간 절약 | 복원 시 Full + 모든 Incremental 필요 |
+| **Differential Backup** | 마지막 Full 이후 변경분 저장 | 복원 시 Full + 최근 Differential 1개만 필요 | Incremental보다 공간 더 사용 |
+| **Snapshot** | 특정 시점의 디스크 상태를 증분으로 저장 | 빠른 생성/복원, 블록 레벨 증분 | 일부 벤더는 같은 리전에만 저장 |
+
+클라우드에서는 대부분 **스냅샷 기반 증분 백업**을 사용합니다. 첫 백업은 전체 복사지만, 이후에는 변경된 블록만 저장하여 효율적입니다.
+
+## 3-2-1 백업 규칙
+
+업계 표준 백업 원칙입니다.
+
+- **3** 복사본: 원본 + 2개의 백업
+- **2** 종류의 미디어: 서로 다른 저장 매체 또는 서비스
+- **1** 개는 오프사이트: 다른 리전 또는 다른 계정/구독에 보관
+
+클라우드에서 3-2-1을 구현하는 예:
+- 원본: 프로덕션 계정의 EBS 볼륨
+- 복사본 1: 같은 리전의 EBS 스냅샷
+- 복사본 2: 다른 리전 또는 격리된 백업 계정의 스냅샷 (크로스 리전/크로스 계정 복제)
+
+## 랜섬웨어 대비
+
+백업 자체가 랜섬웨어 공격 대상이 될 수 있습니다. 불변(immutable) 백업이 필수입니다.
+
+| 기능 | AWS | Azure | GCP | OCI |
+| --- | --- | --- | --- | --- |
+| **불변 백업** | Backup Vault Lock (WORM) | Recovery Services Vault Immutability | Backup Vault Immutability | Immutable Backup |
+| **MFA 삭제 보호** | Backup Vault Lock | Soft Delete + MFA | Bucket Lock | Resource Lock |
+| **크로스 계정 격리** | Backup Account 분리 + Vault 복제 | Cross-tenant Backup | Cross-Project Backup | Cross-Tenancy Backup |
+
+## DR과의 관계
+
+백업은 DR(재해복구)의 기반이지만, 같은 개념은 아닙니다.
+
+- **백업** — 데이터 손실 방지. 개별 파일/DB 복원에 사용.
+- **DR** — 서비스 전체 복구. 리전 장애에 대비한 페일오버.
+
+DR에 대한 전체 설명은 [재해복구 (DR)](../governance/dr.md)를 참고하세요.
+
 ## 참고하기
 
 ### AWS

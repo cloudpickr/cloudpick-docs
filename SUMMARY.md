@@ -24,6 +24,7 @@
 - [오토스케일링](compute/auto-scaling.md)
 - [컨테이너 서비스](compute/containers.md)
 - [서버리스](compute/serverless.md)
+- [애플리케이션 마이그레이션](compute/migration.md)
 
 ## 네트워킹 <a id="networking"></a>
 
@@ -45,6 +46,7 @@
 - [객체 스토리지](storage/object-storage.md)
 - [블록·파일 스토리지](storage/block-and-file.md)
 - [백업과 복구](storage/backup.md)
+- [스토리지 마이그레이션](storage/migration.md)
 
 ## 데이터베이스 <a id="database"></a>
 

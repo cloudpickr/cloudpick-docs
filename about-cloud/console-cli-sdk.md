@@ -145,4 +145,4 @@ SDK는 CLI와 달리 애플리케이션 코드에 직접 통합되므로, 에러
 - [OCI CLI 설치 가이드](https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/cliinstall.htm)
 - [OCI SDK](https://docs.oracle.com/en-us/iaas/Content/API/Concepts/sdks.htm)
 - [OCI Cloud Shell](https://docs.oracle.com/en-us/iaas/Content/API/Concepts/cloudshellintro.htm)
-- [Terraform on OCI](https://docs.oracle.com/en-us/iaas/Content/dev/terraform.htm)
+- [Terraform on OCI](https://docs.oracle.com/iaas/Content/ResourceManager/home.htm)

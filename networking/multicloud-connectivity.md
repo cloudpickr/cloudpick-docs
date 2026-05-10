@@ -112,5 +112,5 @@ graph TD
 
 ### 표준
 
-- [NIST Multi-Cloud Security Public Working Group](https://csrc.nist.gov/projects/mcspwg/nccp)
+- [NIST Multi-Cloud Security Public Working Group](https://www.nist.gov/publications/nist-cloud-computing-reference-architecture)
 - [RFC 1918 — Address Allocation for Private Internets](https://www.rfc-editor.org/rfc/rfc1918)

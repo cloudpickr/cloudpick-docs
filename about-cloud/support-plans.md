@@ -16,7 +16,7 @@ description: CSP 기술 지원 플랜, MSP 파트너 역할, 어드바이저 서
 
 | 벤더 | 플랜 체계 | 비고 |
 | --- | --- | --- |
-| AWS | Basic → Business Support+ → Enterprise → Unified Operations | [2027년 1월부터 새 체계 적용](https://aws.amazon.com/blogs/aws/changes-to-aws-support-plans/) |
+| AWS | Basic → Business Support+ → Enterprise → Unified Operations | [2027년 1월부터 새 체계 적용](https://aws.amazon.com/premiumsupport/plans/) |
 | Azure | Basic → Developer → Standard → Professional Direct → Unified | |
 | GCP | Basic → Standard → Enhanced → Premium | |
 | OCI | Basic → Paid (Premier) | Premier는 전담 CSM 배정 |
@@ -92,8 +92,8 @@ MSP는 일반적으로 **클라우드 사용료에 대한 추가 마진을 받�
 공식 SLA 문서:
 
 - [AWS Premium Support 플랜](https://aws.amazon.com/premiumsupport/plans/)
-- [Azure Support 플랜](https://azure.microsoft.com/support/plans/)
-- [GCP Customer Care](https://cloud.google.com/support/docs/customer-care-offerings)
+- [Azure Support 플랜](https://azure.microsoft.com/en-us/support/plans/)
+- [GCP Customer Care](https://cloud.google.com/support)
 - [OCI Premier Support](https://www.oracle.com/support/premier/)
 
 {% hint style="info" %}
@@ -133,6 +133,6 @@ MSP는 일반적으로 **클라우드 사용료에 대한 추가 마진을 받�
 
 ### OCI
 
-- [OCI Support](https://www.oracle.com/cloud/support/)
+- [OCI Support](https://www.oracle.com/support/)
 - [OCI Cloud Advisor](https://docs.oracle.com/en-us/iaas/Content/CloudAdvisor/Concepts/cloudadvisoroverview.htm)
 - [OCI 파트너](https://www.oracle.com/kr/partnernetwork/)

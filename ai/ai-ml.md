@@ -137,6 +137,6 @@ AI 서비스는 다른 클라우드 서비스보다 **변경 빈도가 매우 �
 
 ### OCI
 
-- [OCI AI Services 문서](https://docs.oracle.com/en-us/iaas/Content/ai/home.htm)
-- [OCI Data Science 문서](https://docs.oracle.com/en-us/iaas/data-science/index.html)
+- [OCI AI Services 문서](https://www.oracle.com/artificial-intelligence/ai-services/)
+- [OCI Data Science 문서](https://docs.oracle.com/en-us/iaas/data-science/using/data-science.htm)
 - [OCI Generative AI 문서](https://docs.oracle.com/en-us/iaas/Content/generative-ai/home.htm)

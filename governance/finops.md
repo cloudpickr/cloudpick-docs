@@ -26,7 +26,7 @@ FinOps는 단순히 비용을 줄이는 활동이 아닙니다. 필요한 곳에
 
 | 항목 | AWS | Azure | GCP | OCI |
 | --- | --- | --- | --- | --- |
-| 비용 분석 | [AWS Cost Explorer](https://aws.amazon.com/aws-cost-management/aws-cost-explorer/) | [Microsoft Cost Management](https://azure.microsoft.com/en-us/products/cost-management) | [Cloud Billing Reports](https://cloud.google.com/billing/docs/reports) | [OCI Cost Analysis](https://www.oracle.com/cloud/costanalysis/) |
+| 비용 분석 | [AWS Cost Explorer](https://aws.amazon.com/aws-cost-management/aws-cost-explorer/) | [Microsoft Cost Management](https://azure.microsoft.com/en-us/products/cost-management) | [Cloud Billing Reports](https://cloud.google.com/billing/docs/reports) | [OCI Cost Analysis](https://docs.oracle.com/iaas/Content/Billing/Concepts/costanalysisoverview.htm) |
 | 예산/알림 | [AWS Budgets](https://aws.amazon.com/aws-cost-management/aws-budgets/) | [Azure Budgets](https://learn.microsoft.com/en-us/azure/cost-management-billing/costs/tutorial-acm-create-budgets) | [Budget Alerts](https://cloud.google.com/billing/docs/how-to/budgets) | [OCI Budgets](https://docs.oracle.com/en-us/iaas/Content/Billing/Concepts/budgetsoverview.htm) |
 | 추천/어드바이저 | [AWS Cost Optimization Hub](https://aws.amazon.com/aws-cost-management/cost-optimization-hub/) | [Azure Advisor](https://azure.microsoft.com/en-us/products/advisor) | [Recommender](https://cloud.google.com/recommender/docs/overview) | [Cloud Advisor](https://docs.oracle.com/en-us/iaas/Content/CloudAdvisor/Concepts/cloudadvisoroverview.htm) |
 | 비용 할당 | Cost Allocation Tags | Cost Allocation (Tags + Subscriptions) | Labels + Billing Account | Cost Tracking Tags + Compartments |
@@ -67,8 +67,8 @@ FOCUS의 목표:
 | 벤더 | FOCUS 지원 현황 |
 | --- | --- |
 | AWS | [CUR 2.0 (FOCUS 호환)](https://docs.aws.amazon.com/cur/latest/userguide/table-columns-cur2.html) |
-| Azure | [Cost Management FOCUS export](https://learn.microsoft.com/en-us/azure/cost-management-billing/costs/focus-overview) |
-| GCP | [BigQuery 비용 내보내기 (FOCUS 호환)](https://cloud.google.com/billing/docs/how-to/export-data-bigquery-tables/focus) |
+| Azure | [Cost Management FOCUS export](https://learn.microsoft.com/en-us/azure/cost-management-billing/) |
+| GCP | [BigQuery 비용 내보내기 (FOCUS 호환)](https://cloud.google.com/billing/docs/how-to/export-data-bigquery-tables) |
 | OCI | [Cost Report (FOCUS 지원 진행 중)](https://docs.oracle.com/en-us/iaas/Content/Billing/Concepts/costanalysisoverview.htm) |
 
 ## 참고하기

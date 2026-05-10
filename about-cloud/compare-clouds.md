@@ -114,8 +114,8 @@ Azure는 AWS와 GCP 사용자를 위한 전환 가이드를 가장 체계적으�
 
 ### Oracle Cloud
 
-- [AWS에서 OCI로 마이그레이션](https://docs.oracle.com/en/solutions/migrate-aws-to-oci/)
-- [OCI vs AWS 서비스 비교](https://docs.oracle.com/en-us/iaas/Content/General/Reference/awscomparison.htm)
+- [AWS에서 OCI로 마이그레이션](https://www.oracle.com/cloud/azure/)
+- [OCI vs AWS 서비스 비교](https://www.oracle.com/cloud/azure/)
 
 ### AWS
 

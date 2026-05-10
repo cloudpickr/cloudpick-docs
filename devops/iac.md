@@ -1,3 +1,7 @@
+---
+description: IaC 개념, 벤더 네이티브/멀티클라우드 도구 비교, Terraform 상태 관리와 모듈 설계를 다룹니다.
+---
+
 # IaC (Infrastructure as Code)
 
 > 문서 기준: 2026년 5월

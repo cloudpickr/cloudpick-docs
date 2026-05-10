@@ -1,3 +1,7 @@
+---
+description: DevOps의 정의, GitOps, 플랫폼 엔지니어링, SLI/SLO/에러 버짓을 설명합니다.
+---
+
 # DevOps란?
 
 > 문서 기준: 2026년 5월
@@ -101,7 +105,9 @@ SLO 99.9%는 "한 달에 약 43분의 장애가 허용된다"는 의미입니다
 4. **에러 버짓 모니터링** — 에러 버짓 소진율을 대시보드에 표시하고, 소진 속도가 빠르면 알림을 보냅니다.
 5. **에러 버짓 정책 수립** — 버짓 소진 시 배포 동결, 안정화 스프린트 등의 정책을 사전에 합의합니다.
 
-> **참고:** Google의 SRE 책 [Site Reliability Engineering](https://sre.google/sre-book/table-of-contents/)에서 SLI/SLO/에러 버짓 개념이 체계화되었습니다.
+{% hint style="info" %}
+**참고:** Google의 SRE 책 [Site Reliability Engineering](https://sre.google/sre-book/table-of-contents/)에서 SLI/SLO/에러 버짓 개념이 체계화되었습니다.
+{% endhint %}
 
 ## 참고하기
 

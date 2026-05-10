@@ -1,3 +1,7 @@
+---
+description: AWS, Azure, GCP, OCI 4개 벤더의 특징, 강점, 멀티클라우드 연동 서비스를 비교합니다.
+---
+
 # 벤더 비교하기
 
 > 문서 기준: 2026년 5월
@@ -68,7 +72,9 @@ Oracle의 데이터베이스 기술력을 클라우드로 확장한 OCI는 Oracl
 | **[Oracle Interconnect for Google Cloud](https://docs.oracle.com/iaas/Content/Network/Concepts/access-to-google-cloud-platform.htm)** | OCI ↔ GCP | GA. 크로스 클라우드 데이터 전송 무료 |
 | **Oracle Interconnect for AWS** | OCI ↔ AWS | 2026년 내 출시 예정 (AWS Interconnect–multicloud 연동) |
 
-> 2025년 12월 AWS re:Invent에서 AWS와 Google Cloud가 오픈 상호운용 스펙 기반의 공동 멀티클라우드 인터커넥트를 발표했습니다. Microsoft Azure도 이 스펙에 참여를 확인했으며, Oracle도 AWS Interconnect–multicloud와의 연동을 발표(2026.04)했습니다.
+{% hint style="info" %}
+2025년 12월 AWS re:Invent에서 AWS와 Google Cloud가 오픈 상호운용 스펙 기반의 공동 멀티클라우드 인터커넥트를 발표했습니다. Microsoft Azure도 이 스펙에 참여를 확인했으며, Oracle도 AWS Interconnect–multicloud와의 연동을 발표(2026.04)했습니다.
+{% endhint %}
 
 ### 타 클라우드 내 서비스 배치 (Database@Cloud)
 

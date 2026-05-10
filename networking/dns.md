@@ -1,3 +1,7 @@
+---
+description: 관리형 DNS, 라우팅 정책, DNSSEC, Private DNS를 4사 비교합니다.
+---
+
 # DNS
 
 > 문서 기준: 2026년 5월

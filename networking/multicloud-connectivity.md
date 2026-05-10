@@ -87,7 +87,9 @@ graph TD
 2. 조건부 포워딩 규칙 설정 (도메인 접미사 기반)
 3. 온프레미스 DNS 서버 또는 허브 VPC의 DNS를 중앙 포워더로 사용
 
-> **팁:** Route 53 Resolver의 아웃바운드 엔드포인트를 허브로 사용하면, AWS에서 Azure/GCP의 프라이빗 레코드를 조회할 수 있습니다.
+{% hint style="info" %}
+**팁:** Route 53 Resolver의 아웃바운드 엔드포인트를 허브로 사용하면, AWS에서 Azure/GCP의 프라이빗 레코드를 조회할 수 있습니다.
+{% endhint %}
 
 ## 참고하기
 

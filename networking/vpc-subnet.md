@@ -1,3 +1,7 @@
+---
+description: VPC/VNet/VCN 개념, 서브넷 설계, 보안 계층, NAT, VPC 간 연결 방식을 4사 비교합니다.
+---
+
 # VPC와 서브넷
 
 > 문서 기준: 2026년 5월
@@ -8,7 +12,9 @@
 
 **VPC** (Virtual Private Cloud)는 클라우드 안에 만드는 논리적으로 격리된 가상 네트워크입니다. 온프레미스의 사내 네트워크에 해당하며, IP 대역, 서브넷, 라우팅, 방화벽 규칙을 사용자가 직접 설계합니다.
 
-> AWS VPC를 아시는 분을 위해: GCP는 VPC가 글로벌이고, OCI는 VCN이라 부릅니다.
+{% hint style="info" %}
+AWS VPC를 아시는 분을 위해: GCP는 VPC가 글로벌이고, OCI는 VCN이라 부릅니다.
+{% endhint %}
 
 서브넷은 가용영역(AZ) 단위로 배치되며, 여러 AZ에 서브넷을 분산하면 장애 도메인을 분리하여 고가용성을 확보할 수 있습니다. 리전과 가용영역의 개념은 [리전과 가용영역](../about-cloud/regions-and-zones.md)에서 자세히 다룹니다.
 
@@ -46,7 +52,9 @@ Security Groups/NSG만으로 기본 보안은 가능하지만, 프로덕션 환�
 | GCP | Cloud NAT | 리전 단위. VM에 외부 IP 없이 인터넷 접근 가능 |
 | OCI | NAT Gateway | VCN 단위. 프라이빗 서브넷의 아웃바운드 인터넷 접근 |
 
-> NAT Gateway는 시간당 비용 + 데이터 처리 비용이 발생합니다. 대량 아웃바운드 트래픽이 있는 경우 비용에 주의해야 합니다.
+{% hint style="warning" %}
+NAT Gateway는 시간당 비용 + 데이터 처리 비용이 발생합니다. 대량 아웃바운드 트래픽이 있는 경우 비용에 주의해야 합니다.
+{% endhint %}
 
 ### 프라이빗 연결 (온프레미스 ↔ 클라우드)
 

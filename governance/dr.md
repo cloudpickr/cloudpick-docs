@@ -1,3 +1,7 @@
+---
+description: RPO/RTO, BIA, DR 전략 유형(Backup&Restore~Active-Active), 4사 DR 서비스를 비교합니다.
+---
+
 # 재해복구 (DR)
 
 > 문서 기준: 2026년 5월

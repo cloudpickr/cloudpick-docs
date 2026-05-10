@@ -1,3 +1,7 @@
+---
+description: 관리형 RDB와 클라우드 네이티브 DB의 차이, HA 구성, PITR을 4사 비교합니다.
+---
+
 # 관리형 RDB
 
 > 문서 기준: 2026년 5월
@@ -6,7 +10,9 @@
 
 온프레미스에서 데이터베이스를 운영하려면 서버 설치, OS 패치, DB 엔진 설치, 백업 설정, 복제 구성, 장애 조치를 모두 직접 해야 합니다. **관리형 RDB** (Relational Database)는 이 운영 부담을 벤더가 대신 처리하고, 사용자는 데이터와 쿼리에만 집중할 수 있게 합니다.
 
-> RDS를 아시는 분을 위해: Azure는 Azure SQL/Flexible Server, GCP는 Cloud SQL, OCI는 Autonomous Database입니다.
+{% hint style="info" %}
+**RDS를 아시는 분을 위해:** Azure는 Azure SQL/Flexible Server, GCP는 Cloud SQL, OCI는 Autonomous Database입니다.
+{% endhint %}
 
 자동 백업, 패치 적용, 멀티 AZ 복제, 읽기 전용 복제본(Read Replica) 등을 설정 몇 번으로 구성할 수 있습니다.
 

@@ -1,3 +1,7 @@
+---
+description: IAM 실무 설계, 인증 방식, 권한 모델, 최소 권한 도구, 장기 자격 증명 위험을 4사 비교합니다.
+---
+
 # IAM 실무 설계와 보안 운영
 
 > 문서 기준: 2026년 5월
@@ -7,7 +11,7 @@
 온프레미스에서는 Active Directory나 LDAP으로 사용자를 관리하고, 서버별로 접근 권한을 설정합니다. 클라우드에서는 수백 개의 서비스와 수천 개의 리소스가 있으므로, 누가 무엇을 할 수 있는지를 체계적으로 관리하는 **IAM** (Identity and Access Management)이 핵심입니다.
 
 {% hint style="info" %}
-AWS IAM을 아시는 분을 위해: Azure는 Entra ID, GCP는 Cloud IAM, OCI는 IAM with Identity Domains입니다.
+**AWS IAM을 아시는 분을 위해:** Azure는 Entra ID, GCP는 Cloud IAM, OCI는 IAM with Identity Domains입니다.
 {% endhint %}
 
 IAM을 잘못 설정하면 데이터 유출이나 리소스 삭제 같은 보안 사고로 이어집니다. **최소 권한 원칙** (Principle of Least Privilege) — 필요한 최소한의 권한만 부여하는 것이 기본 원칙입니다.

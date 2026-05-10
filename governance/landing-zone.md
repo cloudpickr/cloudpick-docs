@@ -56,6 +56,20 @@ description: 멀티 계정 클라우드 기반 설정인 랜딩존의 구성 요
 랜딩존을 한 번에 완벽하게 만들려고 하면 도입이 지연될 수 있습니다. 중앙 로깅, 관리자 권한 통제, 필수 보안 가드레일부터 시작하고 반복적으로 확장하는 것이 현실적입니다.
 {% endhint %}
 
+## 관련 문서
+
+{% content-ref url="../security/iam.md" %}
+[IAM 실무 설계와 보안 운영](../security/iam.md)
+{% endcontent-ref %}
+
+{% content-ref url="../networking/vpc-subnet.md" %}
+[VPC와 서브넷](../networking/vpc-subnet.md)
+{% endcontent-ref %}
+
+{% content-ref url="finops.md" %}
+[FinOps](finops.md)
+{% endcontent-ref %}
+
 ## 참고하기
 
 ### AWS

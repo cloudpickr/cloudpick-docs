@@ -140,6 +140,20 @@ Aurora는 데이터를 3개 AZ에 걸쳐 6개 복사본으로 자동 복제하�
 
 수동 스냅샷은 보존 기간이 무제한이며, 규정 준수 장기 보관에 사용합니다.
 
+## 관련 문서
+
+{% content-ref url="../storage/backup.md" %}
+[백업과 복구](../storage/backup.md)
+{% endcontent-ref %}
+
+{% content-ref url="../governance/dr.md" %}
+[재해복구 (DR)](../governance/dr.md)
+{% endcontent-ref %}
+
+{% content-ref url="migration.md" %}
+[데이터베이스 마이그레이션](migration.md)
+{% endcontent-ref %}
+
 ## 참고하기
 
 ### AWS

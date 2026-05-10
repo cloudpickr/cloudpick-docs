@@ -77,7 +77,11 @@ API는 프로덕션에 배포되면 변경이 어렵기 때문에, 개발→스�
 | **버전 관리** | API Version (v1, v2 별도 엔드포인트) | API Revision + Version | API Revision + Version | Spec Version |
 | **롤백** | 이전 Deployment로 전환 | Revision 전환 | Revision 전환 | 이전 Deployment로 전환 |
 
-### 점진적 배포 전략
+## 점진적 배포 전략
+
+{% hint style="info" %}
+API를 외부에 공개한 뒤에는 **하위 호환성 유지**가 핵심입니다. 기존 소비자가 있는 엔드포인트는 삭제하거나 응답 형식을 바꾸지 말고, 새 버전(`/v2`)을 추가하는 방식으로 관리하세요.
+{% endhint %}
 
 - **Blue/Green** — 두 환경을 동시 운영 후 트래픽 전환. 롤백 즉시 가능
 - **Canary** — 새 버전에 소량 트래픽(5~10%)을 보내고 모니터링 후 점진적 확대

@@ -29,22 +29,24 @@ Well-Architected Framework은 이러한 문제를 사전에 방지하기 위한 
 | **프레임워크 이름** | Well-Architected | Well-Architected | Architecture Framework | Best Practices Framework |
 | **Pillar 수** | **6개** | **5개** | **5개** | **4개** |
 
-### AWS — 6개 Pillar
-
+{% tabs %}
+{% tab title="AWS — 6개 Pillar" %}
 AWS는 2012년에 가장 먼저 Well-Architected Framework을 발표했으며, 현재 6개의 Pillar로 구성되어 있습니다.
 
-1. **운영 우수성 (Operational Excellence)** — 워크로드를 효과적으로 운영하고 지속적으로 개선하는 방법
-2. **보안 (Security)** — 데이터, 시스템, 자산을 보호하는 방법
-3. **안정성 (Reliability)** — 장애로부터 복구하고 가용성을 유지하는 방법
-4. **성능 효율성 (Performance Efficiency)** — 리소스를 효율적으로 사용하여 성능 요구사항을 충족하는 방법
-5. **비용 최적화 (Cost Optimization)** — 불필요한 비용을 제거하고 투자 수익을 극대화하는 방법
-6. **지속 가능성 (Sustainability)** — 환경에 미치는 영향을 최소화하는 방법
+1. **운영 우수성 (Operational Excellence)** — 워크로드를 효과적으로 운영하고 지속적으로 개선
+2. **보안 (Security)** — 데이터, 시스템, 자산을 보호
+3. **안정성 (Reliability)** — 장애로부터 복구하고 가용성 유지
+4. **성능 효율성 (Performance Efficiency)** — 리소스를 효율적으로 사용
+5. **비용 최적화 (Cost Optimization)** — 불필요한 비용 제거
+6. **지속 가능성 (Sustainability)** — 환경에 미치는 영향 최소화
 
-AWS만의 특징은 **지속 가능성** (Sustainability) Pillar입니다. 2021년에 추가되었으며, 에너지 효율적인 리소스 선택, 사용량 최적화 등 환경적 영향을 고려한 설계 원칙을 다룹니다.
+AWS만의 특징은 **지속 가능성 Pillar**입니다. 2021년에 추가되었으며, 에너지 효율적인 리소스 선택과 사용량 최적화 원칙을 다룹니다.
 
-### Azure — 5개 Pillar
+**프레임워크 이름:** Well-Architected Framework
+{% endtab %}
 
-Azure의 Well-Architected Framework은 5개의 Pillar로 구성되어 있습니다.
+{% tab title="Azure — 5개 Pillar" %}
+Azure의 Well-Architected Framework은 5개의 Pillar로 구성됩니다.
 
 1. **안정성 (Reliability)** — 장애 복구, 가용성, 복원력
 2. **보안 (Security)** — 위협 보호, 데이터 보안, ID 관리
@@ -52,30 +54,38 @@ Azure의 Well-Architected Framework은 5개의 Pillar로 구성되어 있습니�
 4. **운영 우수성 (Operational Excellence)** — 운영 프로세스, 모니터링, 배포
 5. **성능 효율성 (Performance Efficiency)** — 확장성, 성능 최적화
 
-Azure의 특징은 Microsoft의 엔터프라이즈 경험이 반영되어 있다는 점입니다. 특히 하이브리드 환경과 Microsoft 제품군(Active Directory, Microsoft 365 등)과의 통합을 고려한 가이드가 포함되어 있습니다.
+Microsoft의 엔터프라이즈 경험이 반영되어 하이브리드 환경과 Microsoft 365, Active Directory와의 통합을 고려한 가이드가 포함되어 있습니다.
 
-### GCP — 5개 Pillar + 시스템 설계 원칙
+**프레임워크 이름:** Well-Architected Framework
+{% endtab %}
 
-GCP는 **Architecture Framework**이라는 이름으로 Well-Architected 가이드를 제공합니다. 5개의 Pillar 외에 **시스템 설계 원칙** (System Design Principles)을 별도로 다루는 것이 특징입니다.
+{% tab title="GCP — 5개 Pillar" %}
+GCP는 **Architecture Framework**라는 이름으로 제공하며, 5개 Pillar 외에 **시스템 설계 원칙**을 별도로 다루는 것이 특징입니다.
 
 1. **운영 우수성 (Operational Excellence)** — 효율적인 운영, 자동화, 모니터링
-2. **보안, 개인정보, 컴플라이언스 (Security, Privacy, Compliance)** — 보안과 규제 준수를 하나의 Pillar로 통합
+2. **보안, 개인정보, 컴플라이언스** — 보안과 규제 준수를 하나의 Pillar로 통합
 3. **안정성 (Reliability)** — 가용성, 복원력, 재해복구
 4. **비용 최적화 (Cost Optimization)** — 비용 관리, 리소스 최적화
 5. **성능 최적화 (Performance Optimization)** — 확장성, 지연 시간 최적화
 
-GCP의 특징은 **보안과 컴플라이언스를 하나의 Pillar로 통합**한 점입니다. 이는 GCP의 Shared Fate 모델과 일맥상통하며, 보안과 규제 준수를 분리할 수 없는 하나의 주제로 다루고 있습니다.
+보안과 컴플라이언스를 하나의 Pillar로 통합한 것이 특징입니다. GCP의 Shared Fate 모델과 일맥상통합니다.
 
-### OCI — 4개 Pillar
+**프레임워크 이름:** Architecture Framework
+{% endtab %}
 
-OCI는 **Best Practices Framework**이라는 이름으로 아키텍처 가이드를 제공합니다.
+{% tab title="OCI — 4개 Pillar" %}
+OCI는 **Best Practices Framework**라는 이름으로 아키텍처 가이드를 제공합니다.
 
 1. **보안 (Security)** — Cloud Guard, Security Zones를 활용한 자동화된 보안
 2. **안정성 (Reliability)** — Fault Domain, AD 기반 가용성 설계
 3. **성능 (Performance)** — 베어메탈, RDMA 네트워크 등 고성능 컴퓨팅
 4. **비용 최적화 (Cost Optimization)** — Universal Credits, 이그레스 무료 정책 활용
 
-OCI의 특징은 **Security Zones**로 보안 정책을 강제할 수 있다는 점입니다. 특정 Compartment에 Security Zone을 적용하면, 보안 모범 사례를 위반하는 리소스 생성이 자동으로 차단됩니다.
+**Security Zones**로 보안 정책을 강제할 수 있는 것이 특징입니다. Security Zone이 적용된 Compartment에서는 보안 모범 사례 위반 리소스 생성이 자동으로 차단됩니다.
+
+**프레임워크 이름:** Best Practices Framework
+{% endtab %}
+{% endtabs %}
 
 ## 리뷰 도구
 
@@ -112,6 +122,16 @@ Well-Architected Framework이 개별 워크로드의 설계 모범 사례라면,
 | **특징** | 관점(Perspective)별 이해관계자 중심 | 단계별 실행 가이드, Landing Zone 포함 | 아키텍처 프레임워크와 통합 | Terraform 기반 자동 배포 |
 
 AWS와 Azure는 독립적인 CAF를 제공하며, GCP는 Architecture Framework 안에 도입 가이드를 포함하는 형태입니다. Azure의 CAF는 특히 상세한 단계별 가이드와 Landing Zone 구성 방법을 제공하여, 대규모 조직의 클라우드 전환에 많이 참고됩니다.
+
+## 관련 문서
+
+{% content-ref url="shared-responsibility.md" %}
+[공동 책임 모델](shared-responsibility.md)
+{% endcontent-ref %}
+
+{% content-ref url="../governance/landing-zone.md" %}
+[랜딩존](../governance/landing-zone.md)
+{% endcontent-ref %}
 
 ## 참고하기
 

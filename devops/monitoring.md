@@ -57,6 +57,10 @@ description: 메트릭/로그/트레이스, APM, SLO 모니터링, 알림 운영
 | **경고 (Warning)** | 곧 문제가 될 수 있음 | 업무 시간 내 확인. 티켓 생성 |
 | **정보 (Info)** | 참고용. 대응 불필요 | 대시보드에만 표시. 알림 안 보냄 |
 
+{% hint style="warning" %}
+**Alert Fatigue(알림 피로)** — 너무 많은 알림은 오히려 중요한 알림을 놓치게 합니다. 액션 없이 받기만 하는 알림은 주기적으로 삭제하거나 Info 레벨로 낮추세요.
+{% endhint %}
+
 지속 가능한 알림 운영을 위한 원칙:
 
 - **액션 없는 알림은 제거하세요.** 받고도 아무것도 안 하는 알림은 노이즈입니다.
@@ -126,6 +130,16 @@ SLI/SLO/SLA 개념과 에러 버짓에 대해서는 [DevOps란?](what-is-devops.
 ### 멀티클라우드 모니터링
 
 여러 벤더를 사용하는 환경에서는 Grafana, Datadog, New Relic 같은 3rd party 도구로 통합 모니터링하는 것이 일반적입니다. OpenTelemetry를 표준 계측 라이브러리로 사용하면 벤더 종속 없이 메트릭/로그/트레이스를 수집할 수 있습니다.
+
+## 관련 문서
+
+{% content-ref url="what-is-devops.md" %}
+[DevOps란? (SLI/SLO/에러 버짓)](what-is-devops.md)
+{% endcontent-ref %}
+
+{% content-ref url="../governance/dr.md" %}
+[재해복구 (DR)](../governance/dr.md)
+{% endcontent-ref %}
 
 ## 참고하기
 

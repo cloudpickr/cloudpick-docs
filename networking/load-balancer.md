@@ -95,6 +95,10 @@ L4는 패킷 내용을 보지 않고 포트 단위로 분배하므로 지연이 
 
 ## 헬스 체크
 
+{% hint style="warning" %}
+로드밸런서에서 TLS를 종료하면, 로드밸런서와 백엔드 서버 사이 구간은 평문(HTTP)으로 통신합니다. 이 구간이 VPC 내부라면 일반적으로 허용되지만, 규제 요건이 있다면 End-to-end TLS(재암호화) 를 적용하세요.
+{% endhint %}
+
 로드밸런서는 주기적으로 백엔드 상태를 확인하여 비정상 인스턴스를 제외합니다.
 
 ### 헬스 체크 유형
@@ -111,6 +115,20 @@ L4는 패킷 내용을 보지 않고 포트 단위로 분배하므로 지연이 
 - **DB 의존성 포함 여부** — 얕은 체크(앱 살아있음)와 깊은 체크(DB 연결됨)를 구분
 - **Interval과 Threshold** — 너무 짧으면 false positive, 너무 길면 장애 감지 지연
 - **404/500도 건강함으로 간주할지** — 특정 경로가 없어도 서버는 정상일 수 있음
+
+## 관련 문서
+
+{% content-ref url="dns.md" %}
+[DNS](dns.md)
+{% endcontent-ref %}
+
+{% content-ref url="cdn.md" %}
+[CDN](cdn.md)
+{% endcontent-ref %}
+
+{% content-ref url="../compute/auto-scaling.md" %}
+[오토스케일링](../compute/auto-scaling.md)
+{% endcontent-ref %}
 
 ## 참고하기
 

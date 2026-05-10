@@ -60,32 +60,50 @@ description: 클라우드 공동 책임 모델, IaaS/PaaS/SaaS별 책임 경계,
 | **보안 기본값** | 사용자가 명시적으로 설정 | 사용자가 명시적으로 설정 | 보안 기본값이 더 엄격 | Security Zones로 자동 강제 |
 | **공식 문서** | [링크](https://aws.amazon.com/ko/compliance/shared-responsibility-model/) | [링크](https://learn.microsoft.com/ko-kr/azure/security/fundamentals/shared-responsibility) | [링크](https://cloud.google.com/architecture/framework/security/shared-responsibility-shared-fate) | [링크](https://docs.oracle.com/en-us/iaas/Content/Security/Concepts/security_guide.htm) |
 
-### AWS — Shared Responsibility Model
+{% tabs %}
+{% tab title="AWS" %}
+AWS는 가장 전통적인 공동 책임 모델을 제시합니다. **"클라우드의 보안"** 과 **"클라우드 안에서의 보안"** 을 명확히 구분하며, 사용자가 자신의 책임 영역을 직접 관리해야 합니다.
 
-AWS는 가장 전통적인 공동 책임 모델을 제시합니다. "클라우드의 보안"과 "클라우드 안에서의 보안"을 명확히 구분하며, 사용자가 자신의 책임 영역을 직접 관리해야 합니다. AWS는 이를 지원하기 위해 다양한 보안 서비스(GuardDuty, Security Hub, IAM Access Analyzer 등)를 제공하지만, 활성화와 설정은 사용자의 몫입니다.
+AWS는 이를 지원하기 위해 다양한 보안 서비스(GuardDuty, Security Hub, IAM Access Analyzer 등)를 제공하지만, 활성화와 설정은 사용자의 몫입니다.
 
-### Azure — Shared Responsibility
+**모델명:** Shared Responsibility Model
+{% endtab %}
 
-Azure의 공동 책임 모델은 AWS와 구조적으로 유사합니다. 다만 Azure는 Microsoft의 엔터프라이즈 보안 생태계(Active Directory, Defender, Sentinel 등)와 긴밀하게 통합되어 있어, 기존 Microsoft 환경을 사용하는 조직에서는 보안 관리가 상대적으로 수월할 수 있습니다.
+{% tab title="Azure" %}
+Azure의 공동 책임 모델은 AWS와 구조적으로 유사합니다.
 
-### GCP — Shared Fate (공동 운명 모델)
+Microsoft의 엔터프라이즈 보안 생태계(Active Directory, Defender, Sentinel 등)와 긴밀하게 통합되어 있어, 기존 Microsoft 환경을 사용하는 조직에서는 보안 관리가 상대적으로 수월할 수 있습니다.
 
-GCP는 전통적인 공동 책임 모델에서 한 발 더 나아가 **공동 운명 모델** (Shared Fate)을 제시합니다. 핵심 차이점은 다음과 같습니다.
+**모델명:** Shared Responsibility
+{% endtab %}
 
-- **벤더의 적극적 관여** — GCP는 고객이 보안을 잘 구성할 수 있도록 더 적극적으로 도구와 가이드를 제공합니다.
-- **보안 기본값 강화** — 예를 들어, Cloud Storage 버킷은 기본적으로 공개 접근이 차단되어 있습니다.
+{% tab title="GCP" %}
+GCP는 전통적인 공동 책임 모델에서 한 발 더 나아가 **공동 운명 모델** (Shared Fate)을 제시합니다.
+
+- **벤더의 적극적 관여** — 고객이 보안을 잘 구성할 수 있도록 더 적극적으로 도구와 가이드를 제공합니다.
+- **보안 기본값 강화** — Cloud Storage 버킷은 기본적으로 공개 접근이 차단되어 있습니다.
 - **Assured Workloads** — 규제 요건에 맞는 워크로드 환경을 자동으로 구성해 줍니다.
 - **Security Command Center** — 보안 취약점을 자동으로 탐지하고 권장 조치를 제시합니다.
 
-쉽게 말해, AWS/Azure가 "여기까지는 우리 책임, 나머지는 당신 책임"이라는 입장이라면, GCP는 "당신의 보안 성공이 곧 우리의 성공이므로, 함께 책임지겠다"는 입장입니다.
+AWS/Azure가 "여기까지는 우리 책임, 나머지는 당신 책임"이라면, GCP는 "당신의 보안 성공이 곧 우리의 성공"이라는 입장입니다.
 
-### OCI — Shared Security Model
+**모델명:** Shared Fate
+{% endtab %}
 
+{% tab title="OCI" %}
 OCI는 전통적인 공동 책임 모델을 기반으로 하되, **자동화된 보안 강제** 에 차별점이 있습니다.
 
-- **Security Zones** — 특정 Compartment에 Security Zone을 적용하면, 보안 모범 사례를 위반하는 리소스 생성이 자동으로 차단됩니다 (예: 암호화되지 않은 스토리지 생성 불가).
+- **Security Zones** — 특정 Compartment에 적용하면 보안 모범 사례를 위반하는 리소스 생성이 자동으로 차단됩니다 (예: 암호화되지 않은 스토리지 생성 불가).
 - **Cloud Guard** — 보안 위협과 구성 오류를 자동으로 탐지하고, 사전 정의된 레시피로 자동 대응할 수 있습니다.
 - **Maximum Security Zones** — 가장 엄격한 보안 정책을 강제하는 사전 구성된 Zone을 제공합니다.
+
+**모델명:** Shared Security Model
+{% endtab %}
+{% endtabs %}
+
+{% hint style="warning" %}
+클라우드를 사용한다고 해서 **보안 책임이 벤더에게 자동으로 넘어가지 않습니다.** 서비스 모델(IaaS→SaaS)이 올라갈수록 벤더가 더 많이 관리하지만, 데이터와 접근 제어는 항상 사용자 책임입니다.
+{% endhint %}
 
 ## 실무에서 자주 놓치는 부분
 

@@ -38,6 +38,16 @@ DR 목표를 설정하기 전에 다음을 먼저 정의해야 합니다:
 
 ## DR 전략 유형
 
+```mermaid
+graph LR
+    A["🗄️ Backup & Restore<br/>RPO: 시간 단위<br/>RTO: 시간 단위<br/>비용: 낮음"]
+    B["💡 Pilot Light<br/>RPO: 분 단위<br/>RTO: 수십 분<br/>비용: 중간"]
+    C["🔆 Warm Standby<br/>RPO: 초~분<br/>RTO: 분 단위<br/>비용: 높음"]
+    D["⚡ Active-Active<br/>RPO: 0<br/>RTO: 거의 0<br/>비용: 매우 높음"]
+
+    A -->|복구 목표 높임| B -->|복구 목표 높임| C -->|복구 목표 높임| D
+```
+
 | 전략 | RPO | RTO | 비용 | 설명 |
 | --- | --- | --- | --- | --- |
 | **Backup & Restore** | 시간 단위 | 시간 단위 | 낮음 | 정기 백업 후 장애 시 복원. 가장 저렴하지만 가장 느림 |
@@ -75,6 +85,10 @@ DR 계획은 테스트하지 않으면 의미가 없습니다. 실제 장애 시
 - 런북/자동화 스크립트가 최신 상태인가?
 - 담당자가 절차를 숙지하고 있는가?
 
+{% hint style="info" %}
+DR 계획은 **반드시 정기적으로 테스트**해야 합니다. 실제 장애가 날 때 처음으로 복구 절차를 실행하면 RTO를 달성할 수 없습니다. 최소 연 1회 Simulation Test 또는 Walkthrough Test를 수행하고 런북을 최신 상태로 유지하세요.
+{% endhint %}
+
 ### Chaos Engineering과의 관계
 
 DR 테스트를 넘어, 일상적으로 장애를 주입하여 시스템의 복원력을 검증하는 것이 Chaos Engineering입니다.
@@ -88,9 +102,17 @@ DR 테스트를 넘어, 일상적으로 장애를 주입하여 시스템의 복�
 
 ## 기존 문서와의 연계
 
-- [리전과 가용영역](../about-cloud/regions-and-zones.md) — DR 시 인접 리전 선택
-- [백업과 복구](../storage/backup.md) — RPO/RTO 트레이드오프, 백업 전략
-- [Well-Architected Framework](../about-cloud/well-architected.md) — 안정성(Reliability) Pillar
+{% content-ref url="../about-cloud/regions-and-zones.md" %}
+[리전과 가용영역](../about-cloud/regions-and-zones.md)
+{% endcontent-ref %}
+
+{% content-ref url="../storage/backup.md" %}
+[백업과 복구](../storage/backup.md)
+{% endcontent-ref %}
+
+{% content-ref url="../about-cloud/well-architected.md" %}
+[Well-Architected Framework](../about-cloud/well-architected.md)
+{% endcontent-ref %}
 
 ## 참고하기
 

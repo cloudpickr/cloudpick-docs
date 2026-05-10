@@ -44,12 +44,20 @@ description: 리전, 가용영역, 엣지 로케이션의 개념과 한국 리�
 | **AWS** | Region → AZ | 리전 단위 | Local Zone (특정 도시에 초저지연 인프라 배치) |
 | **Azure** | Geography → Region → AZ | 리전 단위 | 리전 쌍(Region Pair): 같은 Geography 내 두 리전이 쌍으로 지정되어 플랫폼 업데이트가 동시에 적용되지 않음. 한국: `koreacentral` ↔ `koreasouth` |
 | **GCP** | Region → Zone | **글로벌** (하나의 VPC에 여러 리전의 서브넷 배치 가능) | Multi-region 스토리지로 자동 복제 |
+
+{% hint style="info" %}
+GCP의 VPC는 **글로벌 리소스**입니다. AWS와 Azure가 리전마다 VPC/VNet을 따로 만드는 것과 달리, GCP는 하나의 VPC에 여러 리전의 서브넷을 배치할 수 있습니다. 단, 서브넷 자체는 리전 단위입니다.
+{% endhint %}
 | **OCI** | Realm → Region → AD → Fault Domain | 리전 단위 | Dedicated Region (고객 DC에 OCI 전체를 설치). 대형 리전은 3개 AD, 소형 리전은 1개 AD + 3 Fault Domain |
 
 ## 리전 선택 시 고려사항
 
 - **지연 시간** — 사용자와 가까운 리전을 선택합니다. 한국 사용자 대상이면 한국 리전이 최선입니다.
 - **서비스 가용성** — 모든 서비스가 모든 리전에 있지는 않습니다. 특히 AI/ML, 최신 서비스는 특정 리전에서만 제공됩니다.
+
+{% hint style="warning" %}
+**모든 서비스가 모든 리전에서 제공되지 않습니다.** 특히 신규 AI/ML 서비스는 특정 리전에서만 먼저 출시됩니다. 아키텍처 설계 전에 원하는 서비스가 선택 리전에서 제공되는지 반드시 확인하세요.
+{% endhint %}
 - **비용** — 같은 서비스라도 리전에 따라 가격이 다릅니다. 미국 리전이 보통 가장 저렴합니다.
 - **컴플라이언스** — 규제에 따라 특정 국가에 데이터를 저장해야 할 수 있습니다.
 

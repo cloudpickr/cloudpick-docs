@@ -119,7 +119,7 @@ description: 전송 중/저장 시 암호화, WAF, 위협 탐지, 컨테이너 �
 
 ### GCP
 
-- [Google Cloud 보안 문서](https://cloud.google.com/security/docs)
+- [Google Cloud 보안 문서](https://cloud.google.com/security)
 - [Cloud KMS 문서](https://cloud.google.com/kms/docs)
 - [Security Command Center 문서](https://cloud.google.com/security-command-center/docs)
 - [Cloud Armor 문서](https://cloud.google.com/armor/docs)

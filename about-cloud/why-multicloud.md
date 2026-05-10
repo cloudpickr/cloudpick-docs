@@ -151,7 +151,7 @@ ISO/IEC 22123-1은 멀티클라우드를 "둘 이상의 클라우드 서비스 �
 - [ISO/IEC 22123-1 — Cloud computing: Concepts and terminology](https://www.iso.org/standard/82758.html) — 멀티클라우드 공식 정의
 - [ISO/IEC 22123-3 — Multi-cloud reference architecture](https://www.iso.org/standard/90339.html) — 멀티클라우드 레퍼런스 아키텍처 표준
 - [NIST SP 500-292 — Cloud Computing Reference Architecture](https://www.nist.gov/publications/nist-cloud-computing-reference-architecture) — 클라우드 레퍼런스 아키텍처
-- [NIST Multi-Cloud Security Public Working Group](https://csrc.nist.gov/projects/mcspwg/nccp) — 멀티클라우드 보안 레퍼런스
+- [NIST Multi-Cloud Security Public Working Group](https://www.nist.gov/publications/nist-cloud-computing-reference-architecture) — 멀티클라우드 보안 레퍼런스
 
 ### 커뮤니티 및 리서치
 

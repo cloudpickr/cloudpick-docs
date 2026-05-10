@@ -176,4 +176,4 @@ flowchart LR
 
 ### OCI
 
-- [OCI DevOps 문서](https://docs.oracle.com/en-us/iaas/Content/devops/home.htm)
+- [OCI DevOps 문서](https://docs.oracle.com/en-us/iaas/Content/devops/using/home.htm)

@@ -138,4 +138,4 @@ IAM을 잘못 설정하면 데이터 유출이나 리소스 삭제 같은 보안
 
 - [OCI IAM 문서](https://docs.oracle.com/en-us/iaas/Content/Identity/home.htm)
 - [OCI Identity Domains](https://docs.oracle.com/en-us/iaas/Content/Identity/domains/overview.htm)
-- [OCI 정책 구문](https://docs.oracle.com/en-us/iaas/Content/Identity/policysyntax/policysyntax.htm)
+- [OCI 정책 구문](https://docs.oracle.com/iaas/Content/Identity/policyreference/policyreference.htm)

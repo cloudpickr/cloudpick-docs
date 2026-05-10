@@ -38,7 +38,7 @@ RAG(Retrieval-Augmented Generation) 파이프라인은 Vector DB, Embedding 모�
 
 | 구성 요소 | AWS | Azure | GCP | OCI |
 | --- | --- | --- | --- | --- |
-| Vector DB | [Amazon OpenSearch Serverless](https://aws.amazon.com/opensearch-service/serverless-vector-engine/), [Amazon Aurora pgvector](https://aws.amazon.com/about-aws/whats-new/2023/07/amazon-aurora-postgresql-pgvector-vector-storage-similarity-search/) | [Azure AI Search](https://azure.microsoft.com/en-us/products/ai-services/ai-search), [Azure Cosmos DB (vCore)](https://learn.microsoft.com/en-us/azure/cosmos-db/mongodb/vcore/vector-search) | [Vertex AI Vector Search](https://cloud.google.com/vertex-ai/docs/vector-search/overview), [AlloyDB](https://cloud.google.com/alloydb/docs/ai/work-with-embeddings) | [OCI Search with OpenSearch](https://www.oracle.com/cloud/search/), [Oracle Database 23ai](https://www.oracle.com/database/23ai/) |
+| Vector DB | [Amazon OpenSearch Serverless](https://aws.amazon.com/opensearch-service/serverless-vector-engine/), [Amazon Aurora pgvector](https://aws.amazon.com/about-aws/whats-new/2023/07/amazon-aurora-postgresql-pgvector-vector-storage-similarity-search/) | [Azure AI Search](https://azure.microsoft.com/en-us/products/ai-services/ai-search), [Azure Cosmos DB (vCore)](https://learn.microsoft.com/en-us/azure/cosmos-db/vector-search) | [Vertex AI Vector Search](https://cloud.google.com/vertex-ai/docs/vector-search/overview), [AlloyDB](https://cloud.google.com/alloydb/docs/ai/work-with-embeddings) | [OCI Search with OpenSearch](https://www.oracle.com/cloud/search/), [Oracle Database 23ai](https://www.oracle.com/database/23ai/) |
 | Embedding | [Amazon Titan Embeddings](https://aws.amazon.com/bedrock/titan/) (Bedrock) | [text-embedding-ada-002](https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/models) (Azure OpenAI) | [text-embedding-005](https://cloud.google.com/vertex-ai/generative-ai/docs/embeddings/get-text-embeddings) (Vertex AI) | [Cohere Embed](https://docs.oracle.com/en-us/iaas/Content/generative-ai/embed-models.htm) (OCI Generative AI) |
 | LLM | Bedrock (Claude, Llama 등) | Azure OpenAI (GPT-4o, o1) | Vertex AI (Gemini, Claude) | OCI Generative AI (Cohere, Llama) |
 | 오케스트레이션 | [Amazon Bedrock Knowledge Bases](https://aws.amazon.com/bedrock/knowledge-bases/) | [Azure AI Studio](https://azure.microsoft.com/en-us/products/ai-studio) | [Vertex AI RAG Engine](https://cloud.google.com/vertex-ai/generative-ai/docs/rag-overview) | [OCI Generative AI Agents](https://www.oracle.com/artificial-intelligence/generative-ai/agents/) |
@@ -83,5 +83,5 @@ RAG(Retrieval-Augmented Generation) 파이프라인은 Vector DB, Embedding 모�
 
 ### OCI
 
-- [OCI AI Services 문서](https://docs.oracle.com/en-us/iaas/Content/ai/home.htm)
+- [OCI AI Services 문서](https://www.oracle.com/artificial-intelligence/ai-services/)
 - [OCI Generative AI 문서](https://docs.oracle.com/en-us/iaas/Content/generative-ai/home.htm)

@@ -117,7 +117,7 @@ S3 호환 API를 지원하며, Auto-Tiering으로 접근 패턴에 따라 Standa
 - [Google Cloud Storage 문서](https://cloud.google.com/storage/docs)
 - [Cloud Storage 클래스](https://cloud.google.com/storage/docs/storage-classes)
 - [Autoclass 문서](https://cloud.google.com/storage/docs/autoclass)
-- [BigLake 문서](https://cloud.google.com/biglake/docs)
+- [BigLake 문서](https://cloud.google.com/biglake)
 - [BigQuery External Tables](https://cloud.google.com/bigquery/docs/external-data-cloud-storage)
 
 ### OCI

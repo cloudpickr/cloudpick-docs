@@ -25,7 +25,7 @@ description: 멀티 계정 클라우드 기반 설정인 랜딩존의 구성 요
 
 | 항목 | AWS | Azure | GCP | OCI |
 | --- | --- | --- | --- | --- |
-| 서비스명 | [AWS Control Tower](https://aws.amazon.com/controltower/) | [Azure Landing Zone](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/) | [GCP Foundation Toolkit](https://cloud.google.com/foundation-toolkit) | [OCI Landing Zone](https://www.oracle.com/cloud/landing-zones/) |
+| 서비스명 | [AWS Control Tower](https://aws.amazon.com/controltower/) | [Azure Landing Zone](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/) | [GCP Foundation Toolkit](https://cloud.google.com/foundation-toolkit) | [OCI Landing Zone](https://docs.oracle.com/en/solutions/cis-oci-benchmark/) |
 | 계정 구조 | AWS Organizations + OU | Management Group + Subscription | Organization + Folder + Project | Tenancy + Compartment |
 | 가드레일 | Controls (예방적/탐지적/사전 예방적) | Azure Policy + Blueprints | Organization Policy | CIS Benchmark 기반 정책 |
 | 네트워크 기본 구조 | VPC + Transit Gateway | Hub-Spoke VNet + Azure Firewall | Shared VPC + Cloud Interconnect | Hub-Spoke VCN + DRG |
@@ -84,10 +84,10 @@ description: 멀티 계정 클라우드 기반 설정인 랜딩존의 구성 요
 
 ### GCP
 
-- [Foundation Toolkit 문서](https://cloud.google.com/foundation-toolkit/docs/overview)
+- [Foundation Toolkit 문서](https://cloud.google.com/foundation-toolkit)
 - [Security Foundation Blueprint](https://cloud.google.com/architecture/security-foundations)
 
 ### OCI
 
-- [OCI Landing Zone 문서](https://docs.oracle.com/en-us/iaas/Content/cloud-adoption-framework/landing-zone.htm)
-- [CIS OCI Benchmark](https://www.oracle.com/security/cloud-security/cis-benchmarks/)
+- [OCI Landing Zone 문서](https://docs.oracle.com/en/solutions/cis-oci-benchmark/)
+- [CIS OCI Benchmark](https://docs.oracle.com/en/solutions/cis-oci-benchmark/)

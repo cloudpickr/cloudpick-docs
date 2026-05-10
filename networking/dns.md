@@ -126,5 +126,5 @@ VPC/VNet 내부에서만 사용하는 내부 DNS 이름을 관리합니다. 외�
 ### OCI
 
 - [OCI DNS 문서](https://docs.oracle.com/en-us/iaas/Content/DNS/home.htm)
-- [OCI Traffic Management](https://docs.oracle.com/en-us/iaas/Content/TrafficManagement/home.htm)
+- [OCI Traffic Management](https://docs.oracle.com/en-us/iaas/Content/DNS/Concepts/dnszonemanagement.htm)
 - [OCI Health Checks](https://docs.oracle.com/en-us/iaas/Content/HealthChecks/home.htm)

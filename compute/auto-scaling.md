@@ -95,7 +95,7 @@ VM을 사용하면 서버를 빠르게 만들 수 있지만, 트래픽 변화에
 ### Azure
 
 - [Azure VM Scale Sets 문서](https://learn.microsoft.com/ko-kr/azure/virtual-machine-scale-sets/)
-- [Azure Autoscale 문서](https://learn.microsoft.com/ko-kr/azure/azure-monitor/autoscale/)
+- [Azure Autoscale 문서](https://learn.microsoft.com/ko-kr/azure/azure-monitor/autoscale/autoscale-overview)
 
 ### GCP
 

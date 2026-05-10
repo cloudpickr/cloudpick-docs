@@ -136,4 +136,4 @@ DR 테스트를 넘어, 일상적으로 장애를 주입하여 시스템의 복�
 ### OCI
 
 - [OCI Full Stack DR](https://docs.oracle.com/en-us/iaas/disaster-recovery/index.html)
-- [OCI 비즈니스 연속성 가이드](https://docs.oracle.com/en-us/iaas/Content/General/Concepts/bcdr.htm)
+- [OCI 비즈니스 연속성 가이드](https://docs.oracle.com/en-us/iaas/disaster-recovery/index.html)

@@ -39,11 +39,23 @@ FOCUS의 목표:
 
 ## 참고하기
 
-| 리소스 | 링크 |
-| --- | --- |
-| FinOps Foundation | [https://www.finops.org/](https://www.finops.org/) |
-| FOCUS 스펙 | [https://focus.finops.org/](https://focus.finops.org/) |
-| AWS 비용 관리 | [AWS Cost Management 문서](https://docs.aws.amazon.com/cost-management/) |
-| Azure 비용 관리 | [Microsoft Cost Management 문서](https://learn.microsoft.com/en-us/azure/cost-management-billing/) |
-| GCP 비용 관리 | [Cloud Billing 문서](https://cloud.google.com/billing/docs) |
-| OCI 비용 관리 | [OCI Billing 문서](https://docs.oracle.com/en-us/iaas/Content/Billing/home.htm) |
+### 프레임워크
+
+- [FinOps Foundation](https://www.finops.org/)
+- [FOCUS 스펙](https://focus.finops.org/)
+
+### AWS
+
+- [AWS Cost Management 문서](https://docs.aws.amazon.com/cost-management/)
+
+### Azure
+
+- [Microsoft Cost Management 문서](https://learn.microsoft.com/en-us/azure/cost-management-billing/)
+
+### GCP
+
+- [Cloud Billing 문서](https://cloud.google.com/billing/docs)
+
+### OCI
+
+- [OCI Billing 문서](https://docs.oracle.com/en-us/iaas/Content/Billing/home.htm)

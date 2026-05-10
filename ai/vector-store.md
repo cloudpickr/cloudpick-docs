@@ -68,6 +68,42 @@ AI/LLM 애플리케이션은 텍스트, 이미지 등의 데이터를 **벡터 �
 
 **OCI** — Autonomous Database에 내장된 AI Vector Search로 SQL 기반 벡터 검색을 제공합니다. 기존 Oracle DB 워크로드에 벡터 검색을 추가할 때 별도 인프라 없이 통합할 수 있습니다.
 
+## 벡터 검색 알고리즘과 인덱싱
+
+대규모 벡터 데이터에서 빠른 검색을 위해 ANN (Approximate Nearest Neighbor) 알고리즘을 사용합니다. 정확도를 약간 희생하여 속도를 크게 향상시킵니다.
+
+| 알고리즘 | 특징 | 지원 제품 |
+| --- | --- | --- |
+| **HNSW** (Hierarchical Navigable Small World) | 그래프 기반. 높은 정확도와 속도 균형 | pgvector, OpenSearch, Azure AI Search |
+| **IVF** (Inverted File) | 클러스터 기반. 메모리 효율 좋음 | pgvector, FAISS |
+| **IVFPQ** (IVF + Product Quantization) | IVF + 양자화로 메모리 절감 | FAISS, Neptune Analytics |
+| **ScaNN** (Scalable Nearest Neighbors) | Google 개발. TPU 최적화 | Vertex AI Vector Search |
+
+### 임베딩 차원과 저장 공간
+
+임베딩 모델이 생성하는 벡터의 차원(dimension)에 따라 저장 공간과 검색 속도가 달라집니다.
+
+| 모델 | 차원 | 비고 |
+| --- | --- | --- |
+| OpenAI text-embedding-3-small | 1536 | 가장 널리 사용 |
+| OpenAI text-embedding-3-large | 3072 | 높은 품질, 큰 저장 공간 |
+| Amazon Titan Embeddings | 1024/1536/384 | 조정 가능 |
+| Cohere Embed | 1024 | 다국어 지원 |
+| Google text-embedding | 768/3072 | Vertex AI |
+
+백만 개 벡터를 저장하면: 1536차원 × 4바이트(float32) = 약 6GB
+
+## 하이브리드 검색
+
+벡터 검색만으로는 정확한 키워드 매칭(제품 코드, 이름 등)에 약할 수 있습니다. **하이브리드 검색**은 벡터 검색 + 키워드 검색(BM25)을 조합하여 두 방식의 장점을 모두 활용합니다.
+
+| 벤더 | 하이브리드 지원 |
+| --- | --- |
+| AWS OpenSearch | Vector + BM25 결합 (RRF 알고리즘) |
+| Azure AI Search | 벡터 + 키워드 + 시맨틱 랭킹 |
+| GCP Vertex AI Vector Search | Filter로 키워드 조건 결합 |
+| OCI AI Vector Search | SQL로 벡터 + 관계형 데이터 조합 |
+
 ## 참고하기
 
 ### AWS

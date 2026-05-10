@@ -69,6 +69,39 @@ Aurora는 데이터를 3개 AZ에 걸쳐 6개 복사본으로 자동 복제하�
 | 유휴 시 비용 0이 필요한 개발/테스트 환경일 때 | AWS Aurora Serverless 또는 Azure SQL Serverless |
 | OLTP + OLAP을 하나의 MySQL DB에서 처리하고 싶을 때 | OCI MySQL HeatWave |
 
+## 고가용성 (HA) 구성
+
+관리형 RDB는 다양한 HA 옵션을 제공합니다.
+
+| 패턴 | 설명 | RPO | RTO |
+| --- | --- | --- | --- |
+| **Single-AZ** | 단일 AZ에 DB 인스턴스 1개 | 수동 복구 (백업 시점) | 수 시간 |
+| **Multi-AZ 동기 복제** | 같은 리전 내 여러 AZ에 복제. 자동 장애 조치 | 0 (데이터 손실 없음) | 수십 초 \~ 수 분 |
+| **읽기 전용 복제본** | 읽기 트래픽 분산. 비동기 복제 | 수 초 (복제 지연) | 수동 승격 |
+| **크로스 리전 복제** | 다른 리전에 비동기 복제. DR용 | 수 초 \~ 수 분 | 수 분 (수동 승격) |
+| **글로벌 DB** | 여러 리전에 저지연 동기 복제 | \~1초 | 초 단위 |
+
+### 4사 HA 기능 매핑
+
+| 기능 | AWS | Azure | GCP | OCI |
+| --- | --- | --- | --- | --- |
+| **Multi-AZ 동기** | RDS Multi-AZ, Aurora 스토리지 복제 | Zone-redundant HA | Cloud SQL HA | ADB 자동 HA |
+| **읽기 복제본** | RDS Read Replica, Aurora Read Replica | Read Replica | Cloud SQL Read Replica | ADB Read-only Replica |
+| **크로스 리전 복제** | Aurora Global Database, RDS Cross-Region RR | Geo-replication, Failover Groups | Cloud SQL Cross-Region Replica | ADB Autonomous Data Guard |
+
+## 자동 백업 및 PITR
+
+대부분의 관리형 RDB는 **Point-in-Time Recovery (PITR)**를 제공합니다. 트랜잭션 로그를 지속적으로 저장하여 특정 시점으로 복구할 수 있습니다.
+
+| 벤더 | 백업 보존 기간 | PITR 지원 |
+| --- | --- | --- |
+| AWS RDS / Aurora | 최대 35일 | 초 단위 복구 |
+| Azure SQL Database | 최대 35일 (기본 7일) | 초 단위 복구 |
+| GCP Cloud SQL / AlloyDB | 최대 365일 | 초 단위 복구 |
+| OCI Autonomous Database | 최대 60일 | 초 단위 복구 |
+
+수동 스냅샷은 보존 기간이 무제한이며, 규정 준수 장기 보관에 사용합니다.
+
 ## 참고하기
 
 ### AWS

@@ -1,6 +1,8 @@
 # 벤더 비교하기
 
-## 글로벌 4사 한눈에 보기
+> 문서 기준: 2026년 5월
+
+## 주요 CSP 4사 한눈에 보기
 
 | 항목 | AWS | Azure | GCP | OCI |
 | --- | --- | --- | --- | --- |
@@ -12,9 +14,11 @@
 | **강점** | 가장 넓은 포트폴리오, 최대 커뮤니티 | 엔터프라이즈(M365, AD), 하이브리드 | AI/ML(Vertex AI, TPU), 데이터(BigQuery) | DB(Autonomous DB), 가격 경쟁력 |
 | **콘솔** | [Console](https://console.aws.amazon.com) | [Portal](https://portal.azure.com) | [Console](https://console.cloud.google.com) | [Console](https://cloud.oracle.com) |
 
-> 시장 점유율은 Synergy Research Group 2024년 기준 추정치이며, 측정 방법에 따라 차이가 있을 수 있습니다.
+{% hint style="info" %}
+시장 점유율은 Synergy Research Group 2024년 기준 추정치이며, 측정 방법에 따라 차이가 있을 수 있습니다. 이 문서는 CloudPick에서 우선 다루는 AWS, Azure, GCP, OCI를 중심으로 비교합니다.
+{% endhint %}
 
-## 글로벌 4사 각 사 특징
+## 주요 CSP 4사 각 사 특징
 
 ### AWS — 가장 넓은 서비스 포트폴리오
 
@@ -50,7 +54,7 @@ Oracle의 데이터베이스 기술력을 클라우드로 확장한 OCI는 Oracl
 
 ## 벤더 간 멀티클라우드 연동 서비스
 
-글로벌 4사는 경쟁 관계이면서도, 고객의 멀티클라우드 수요에 대응하여 벤더 간 직접 연동 서비스를 출시하고 있습니다.
+주요 CSP 4사는 경쟁 관계이면서도, 고객의 멀티클라우드 수요에 대응하여 벤더 간 직접 연동 서비스를 출시하고 있습니다.
 
 ### 네트워크 직접 연결 (Cross-Cloud Interconnect)
 

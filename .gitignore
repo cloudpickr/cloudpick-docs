@@ -1,1 +1,8 @@
 _book/
+node_modules/
+.DS_Store
+.env
+.env.*
+.vscode/
+.idea/
+*.log

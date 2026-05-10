@@ -1,6 +1,7 @@
 # Table of contents
 
-- [Welcome to CloudPick Docs](README.md)
+- [CloudPick Docs에 오신 것을 환영합니다](README.md)
+- [용어집](GLOSSARY.md)
 
 ## 클라우드의 개념 <a id="about-cloud"></a>
 
@@ -9,7 +10,7 @@
 - [벤더 비교하기](about-cloud/compare-clouds.md)
 - [리전과 가용영역](about-cloud/regions-and-zones.md)
 - [계정과 조직 구조](about-cloud/accounts-and-organizations.md)
-- [IAM과 접근 제어](about-cloud/iam-overview.md)
+- [IAM 개요](about-cloud/iam-overview.md)
 - [콘솔, CLI, SDK](about-cloud/console-cli-sdk.md)
 - [멀티클라우드 네트워킹](about-cloud/multicloud-networking.md)
 - [공동 책임 모델](about-cloud/shared-responsibility.md)
@@ -35,7 +36,7 @@
 
 ## 보안 <a id="security"></a>
 
-- [IAM과 접근 제어](security/iam.md)
+- [IAM 실무 설계와 보안 운영](security/iam.md)
 - [시크릿 관리](security/secrets.md)
 - [데이터 보호와 워크로드 보안](security/data-protection.md)
 

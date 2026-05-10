@@ -1,5 +1,7 @@
 # 객체 스토리지
 
+> 문서 기준: 2026년 5월
+
 ## 개요
 
 자체 전산센터에서 파일을 저장하려면 NAS나 SAN을 구매하고, 용량이 부족해지면 디스크를 추가해야 합니다. 용량 계획을 잘못하면 공간이 부족하거나 과잉 투자가 됩니다.
@@ -73,7 +75,6 @@ AWS S3 Intelligent-Tiering과 GCP Autoclass는 접근 패턴을 자동으로 분
 | **SQL 직접 쿼리** | S3 Select, Athena | Query Acceleration, Synapse | BigQuery External Tables | OCI Data Flow (Spark) |
 
 각 벤더 모두 "스토리지에서 데이터 플랫폼으로"의 방향을 추구하고 있습니다. AWS는 S3 자체에 기능을 내장하는 방향이고, Azure는 Data Lake Storage + Fabric 통합, GCP는 BigLake + BigQuery 통합으로 접근하고 있습니다.
-
 
 ## 참고하기
 

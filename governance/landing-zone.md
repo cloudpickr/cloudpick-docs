@@ -24,9 +24,22 @@
 
 ## 참고하기
 
-| 벤더 | 공식 문서 |
-| --- | --- |
-| AWS | [AWS Control Tower 문서](https://docs.aws.amazon.com/controltower/), [AWS Organizations 문서](https://docs.aws.amazon.com/organizations/) |
-| Azure | [Azure Landing Zone 아키텍처](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/), [Cloud Adoption Framework](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/) |
-| GCP | [Foundation Toolkit 문서](https://cloud.google.com/foundation-toolkit/docs/overview), [Security Foundation Blueprint](https://cloud.google.com/architecture/security-foundations) |
-| OCI | [OCI Landing Zone 문서](https://docs.oracle.com/en-us/iaas/Content/cloud-adoption-framework/landing-zone.htm), [CIS OCI Benchmark](https://www.oracle.com/security/cloud-security/cis-benchmarks/) |
+### AWS
+
+- [AWS Control Tower 문서](https://docs.aws.amazon.com/controltower/)
+- [AWS Organizations 문서](https://docs.aws.amazon.com/organizations/)
+
+### Azure
+
+- [Azure Landing Zone 아키텍처](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/)
+- [Cloud Adoption Framework](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/)
+
+### GCP
+
+- [Foundation Toolkit 문서](https://cloud.google.com/foundation-toolkit/docs/overview)
+- [Security Foundation Blueprint](https://cloud.google.com/architecture/security-foundations)
+
+### OCI
+
+- [OCI Landing Zone 문서](https://docs.oracle.com/en-us/iaas/Content/cloud-adoption-framework/landing-zone.htm)
+- [CIS OCI Benchmark](https://www.oracle.com/security/cloud-security/cis-benchmarks/)

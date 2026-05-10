@@ -51,8 +51,8 @@ description: 한국 ISMS-P, CSAP와 글로벌 ISO 27001, SOC 2 등 클라우드 
 | 벤더 | 등급 | 리전 | 참고 |
 | --- | --- | --- | --- |
 | AWS | 하 (Low-tier) | 서울 `ap-northeast-2` | [AWS CSAP 공지](https://aws.amazon.com/blogs/security/aws-achieves-cloud-security-assurance-program-csap-low-tier-certification-in-aws-seoul-region/) |
-| Azure | — (공식 페이지 확인) | Korea Central / South | [Azure CSAP](https://learn.microsoft.com/azure/compliance/offerings/offering-korea-csap) |
-| GCP | — (공식 페이지 확인) | Seoul `asia-northeast3` | [GCP 컴플라이언스](https://cloud.google.com/security/compliance) |
+| Azure | 하 (Low-tier) | Korea Central / South | [Azure CSAP](https://learn.microsoft.com/azure/compliance/offerings/offering-korea-csap) |
+| GCP | 하 (Low-tier) | Seoul `asia-northeast3` | [GCP CSAP](https://cloud.google.com/security/compliance/csap) |
 | OCI | — (공식 페이지 확인) | Seoul, Chuncheon | [Oracle 컴플라이언스](https://www.oracle.com/corporate/cloud-compliance/) |
 
 {% hint style="info" %}

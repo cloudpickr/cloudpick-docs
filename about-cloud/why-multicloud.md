@@ -47,7 +47,7 @@ ISO/IEC 22123-1은 멀티클라우드를 "둘 이상의 클라우드 서비스 �
 
 각 벤더의 강점을 조합하는 전략입니다.
 
-- **AI/ML**: GCP Vertex AI + BigQuery로 학습, AWS SageMaker로 서빙
+- **AI/ML**: GCP Vertex AI + BigQuery로 학습, AWS SageMaker AI로 서빙
 - **데이터 분석**: GCP BigQuery(분석) + AWS S3(저장)
 - **엔터프라이즈**: Azure Entra ID(ID 통합) + AWS(인프라)
 - **DB 중심**: OCI Autonomous DB + AWS(앱 서버)

@@ -71,7 +71,7 @@ description: 생성형 AI 서비스, ML 플랫폼, GPU 인스턴스를 4개 벤�
 
 | 벤더 | 제품 | 비고 |
 | --- | --- | --- |
-| AWS | SageMaker | 학습, 튜닝, 배포, MLOps 통합 플랫폼 |
+| AWS | SageMaker AI | 학습, 튜닝, 배포, MLOps 통합 플랫폼 |
 | Azure | Azure Machine Learning | 노트북, AutoML, 파이프라인, 모델 레지스트리 |
 | GCP | Vertex AI | 학습, 배포, 파이프라인, Feature Store 통합 |
 | OCI | OCI Data Science | 노트북, 모델 학습/배포, 파이프라인 |
@@ -116,13 +116,13 @@ graph LR
 
 | 단계 | AWS | Azure | GCP | OCI |
 | --- | --- | --- | --- | --- |
-| **데이터 준비** | SageMaker Data Wrangler, Ground Truth | Azure ML Data Labeling | Vertex AI Data Labeling | OCI Data Labeling |
-| **피처 스토어** | SageMaker Feature Store | Azure ML Feature Store | Vertex AI Feature Store | OCI Feature Store |
-| **학습/튜닝** | SageMaker Training + Automatic Model Tuning | Azure ML + AutoML | Vertex AI Training + Hyperparameter Tuning | OCI Data Science Training |
-| **모델 레지스트리** | SageMaker Model Registry | Azure ML Model Registry | Vertex AI Model Registry | OCI Model Catalog |
-| **배포** | SageMaker Endpoints + Serverless | Azure ML Online/Batch Endpoints | Vertex AI Endpoints | OCI Model Deployment |
-| **모니터링** | SageMaker Model Monitor | Azure ML Data Drift Detection | Vertex AI Model Monitoring | OCI Model Monitoring |
-| **파이프라인** | SageMaker Pipelines | Azure ML Pipelines | Vertex AI Pipelines (Kubeflow 기반) | OCI Data Science Jobs + Pipelines |
+| **데이터 준비** | SageMaker AI Data Wrangler, Ground Truth | Azure ML Data Labeling | Vertex AI Data Labeling | OCI Data Labeling |
+| **피처 스토어** | SageMaker AI Feature Store | Azure ML Feature Store | Vertex AI Feature Store | OCI Feature Store |
+| **학습/튜닝** | SageMaker AI Training + Automatic Model Tuning | Azure ML + AutoML | Vertex AI Training + Hyperparameter Tuning | OCI Data Science Training |
+| **모델 레지스트리** | SageMaker AI Model Registry | Azure ML Model Registry | Vertex AI Model Registry | OCI Model Catalog |
+| **배포** | SageMaker AI Endpoints + Serverless | Azure ML Online/Batch Endpoints | Vertex AI Endpoints | OCI Model Deployment |
+| **모니터링** | SageMaker AI Model Monitor | Azure ML Data Drift Detection | Vertex AI Model Monitoring | OCI Model Monitoring |
+| **파이프라인** | SageMaker AI Pipelines | Azure ML Pipelines | Vertex AI Pipelines (Kubeflow 기반) | OCI Data Science Jobs + Pipelines |
 
 ### 생성형 AI vs 전통 ML 선택
 
@@ -132,7 +132,7 @@ graph LR
 | 도메인 특화 지식 + 일반 LLM | RAG (파운데이션 모델 + 벡터 스토어) |
 | 특정 태스크에 고도로 최적화 | Fine-tuning 또는 커스텀 모델 학습 |
 | 이미지/객체 인식 | 사전 학습 비전 모델 또는 Computer Vision API |
-| 시계열 예측, 이상 탐지 | 전통 ML (SageMaker/Vertex AI 등) |
+| 시계열 예측, 이상 탐지 | 전통 ML (SageMaker AI/Vertex AI 등) |
 | 초경량 엣지 배포 | 전통 ML + 모델 양자화 |
 
 {% hint style="warning" %}
@@ -144,7 +144,7 @@ AI 서비스는 다른 클라우드 서비스보다 **변경 빈도가 매우 �
 ### AWS
 
 - [Amazon Bedrock 문서](https://docs.aws.amazon.com/ko_kr/bedrock/)
-- [Amazon SageMaker 문서](https://docs.aws.amazon.com/ko_kr/sagemaker/)
+- [Amazon SageMaker AI 문서](https://docs.aws.amazon.com/ko_kr/sagemaker/)
 - [Kiro](https://kiro.dev/)
 
 ### Azure

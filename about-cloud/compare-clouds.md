@@ -64,7 +64,7 @@ Oracle의 데이터베이스 기술력을 클라우드로 확장한 OCI는 Oracl
 
 | 카테고리 | 대표 서비스 | 설명 | 상세 |
 | --- | --- | --- | --- |
-| **네트워크 직접 연결** | AWS Interconnect–multicloud, Google Cross-Cloud Interconnect, Oracle Interconnect | 벤더 간 전용 네트워크로 프라이빗 연결 | [멀티클라우드 커넥티비티 (심화)](../networking/multicloud-connectivity.md) |
+| **네트워크 직접 연결** | AWS Interconnect–multicloud, Google Cross-Cloud Interconnect, Oracle Interconnect | 벤더 간 전용 네트워크로 프라이빗 연결 | [멀티클라우드 커넥티비티 (심화)](../networking/multicloud-connectivity.md#벤더-간-직접-연결-cross-cloud-interconnect) |
 | **타 클라우드 내 DB 배치** | Oracle Database@Azure/AWS/GCP | 경쟁사 데이터센터 안에 Oracle DB를 네이티브 배치 | [관리형 RDB — Database@Cloud](../database/managed-rdb.md#databasecloud-타-클라우드-내-db-배치) |
 | **멀티클라우드 관리 플랫폼** | Azure Arc, GKE Enterprise, OCI Multicloud | 타 클라우드 리소스를 자사 도구로 통합 관리 | 아래 참조 |
 

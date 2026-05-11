@@ -62,31 +62,11 @@ Oracle의 데이터베이스 기술력을 클라우드로 확장한 OCI는 Oracl
 
 주요 CSP는 경쟁 관계이면서도, 고객의 멀티클라우드 수요에 대응하여 벤더 간 직접 연동 서비스를 출시하고 있습니다.
 
-### 네트워크 직접 연결 (Cross-Cloud Interconnect)
-
-벤더 간 전용 네트워크를 제공하여, 인터넷을 거치지 않고 프라이빗하게 클라우드를 연결합니다.
-
-| 서비스 | 연결 구간 | 상태 (2026년 4월 기준) |
-| --- | --- | --- |
-| **[AWS Interconnect – multicloud](https://aws.amazon.com/interconnect/multicloud/)** | AWS ↔ GCP | GA (2026.04). Azure, OCI는 2026년 내 추가 예정 |
-| **[Google Cross-Cloud Interconnect](https://cloud.google.com/network-connectivity/docs/interconnect/concepts/cross-cloud-overview)** | GCP ↔ AWS/Azure/OCI | GA. AWS와 공동 개발한 오픈 상호운용 스펙 기반 |
-| **[Oracle Interconnect for Azure](https://docs.oracle.com/iaas/Content/multicloud/interconnect-azure.htm)** | OCI ↔ Azure | GA. 크로스 클라우드 데이터 전송 무료 |
-| **[Oracle Interconnect for Google Cloud](https://docs.oracle.com/iaas/Content/Network/Concepts/access-to-google-cloud-platform.htm)** | OCI ↔ GCP | GA. 크로스 클라우드 데이터 전송 무료 |
-| **Oracle Interconnect for AWS** | OCI ↔ AWS | 2026년 내 출시 예정 (AWS Interconnect–multicloud 연동) |
-
-{% hint style="info" %}
-2025년 12월 AWS re:Invent에서 AWS와 Google Cloud가 오픈 상호운용 스펙 기반의 공동 멀티클라우드 인터커넥트를 발표했습니다. Microsoft Azure도 이 스펙에 참여를 확인했으며, Oracle도 AWS Interconnect–multicloud와의 연동을 발표(2026.04)했습니다.
-{% endhint %}
-
-### 타 클라우드 내 서비스 배치 (Database@Cloud)
-
-자사 서비스를 경쟁사 데이터센터 안에 직접 배치하여, 고객이 단일 콘솔에서 멀티클라우드를 사용할 수 있게 합니다.
-
-| 서비스 | 설명 |
-| --- | --- |
-| **[Oracle Database@Azure](https://www.oracle.com/cloud/azure/)** | Azure 데이터센터 내에 OCI Exadata를 배치. Azure Portal에서 Oracle DB를 네이티브로 프로비저닝 |
-| **[Oracle Database@AWS](https://www.oracle.com/cloud/aws/)** | AWS 내에서 Oracle DB 서비스를 직접 사용 |
-| **[Oracle Database@Google Cloud](https://www.oracle.com/cloud/google/)** | GCP 내에서 Oracle DB 서비스를 직접 사용 |
+| 카테고리 | 대표 서비스 | 설명 | 상세 |
+| --- | --- | --- | --- |
+| **네트워크 직접 연결** | AWS Interconnect–multicloud, Google Cross-Cloud Interconnect, Oracle Interconnect | 벤더 간 전용 네트워크로 프라이빗 연결 | [멀티클라우드 커넥티비티 (심화)](../networking/multicloud-connectivity.md) |
+| **타 클라우드 내 DB 배치** | Oracle Database@Azure/AWS/GCP | 경쟁사 데이터센터 안에 Oracle DB를 네이티브 배치 | [관리형 RDB — Database@Cloud](../database/managed-rdb.md#databasecloud-타-클라우드-내-db-배치) |
+| **멀티클라우드 관리 플랫폼** | Azure Arc, GKE Enterprise, OCI Multicloud | 타 클라우드 리소스를 자사 도구로 통합 관리 | 아래 참조 |
 
 ### 멀티클라우드 관리 플랫폼
 

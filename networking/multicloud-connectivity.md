@@ -93,6 +93,37 @@ graph TD
 **팁:** Route 53 Resolver의 아웃바운드 엔드포인트를 허브로 사용하면, AWS에서 Azure/GCP의 프라이빗 레코드를 조회할 수 있습니다.
 {% endhint %}
 
+## 벤더 간 직접 연결 (Cross-Cloud Interconnect)
+
+주요 CSP는 경쟁 관계이면서도, 고객의 멀티클라우드 수요에 대응하여 벤더 간 전용 네트워크를 제공합니다. 인터넷을 거치지 않고 프라이빗하게 클라우드를 연결할 수 있습니다.
+
+| 서비스 | 연결 구간 | 상태 (2026년 4월 기준) |
+| --- | --- | --- |
+| **[AWS Interconnect – multicloud](https://aws.amazon.com/interconnect/multicloud/)** | AWS ↔ GCP | GA (2026.04). Azure, OCI는 2026년 내 추가 예정 |
+| **[Google Cross-Cloud Interconnect](https://cloud.google.com/network-connectivity/docs/interconnect/concepts/cross-cloud-overview)** | GCP ↔ AWS/Azure/OCI | GA. AWS와 공동 개발한 오픈 상호운용 스펙 기반 |
+| **[Oracle Interconnect for Azure](https://docs.oracle.com/iaas/Content/multicloud/interconnect-azure.htm)** | OCI ↔ Azure | GA. 크로스 클라우드 데이터 전송 무료 |
+| **[Oracle Interconnect for Google Cloud](https://docs.oracle.com/iaas/Content/Network/Concepts/access-to-google-cloud-platform.htm)** | OCI ↔ GCP | GA. 크로스 클라우드 데이터 전송 무료 |
+| **Oracle Interconnect for AWS** | OCI ↔ AWS | 2026년 내 출시 예정 (AWS Interconnect–multicloud 연동) |
+
+{% hint style="info" %}
+2025년 12월 AWS re:Invent에서 AWS와 Google Cloud가 오픈 상호운용 스펙 기반의 공동 멀티클라우드 인터커넥트를 발표했습니다. Microsoft Azure도 이 스펙에 참여를 확인했으며, Oracle도 AWS Interconnect–multicloud와의 연동을 발표(2026.04)했습니다.
+{% endhint %}
+
+### Cross-Cloud Interconnect vs 전용 연결 + IX
+
+| 비교 항목 | Cross-Cloud Interconnect | 전용 연결 + IX (Direct Connect + ExpressRoute 등) |
+| --- | --- | --- |
+| **경유 지점** | 벤더 간 직접 연결 (단일 홉) | IX 또는 코로케이션 시설 경유 (2\~3홉) |
+| **설정 복잡도** | 콘솔에서 상대 벤더 선택 후 프로비저닝 | 양쪽 전용 연결 + IX 포트 + BGP 설정 |
+| **레이턴시** | 최소 (같은 메트로 내 직접 연결) | IX 경유로 약간 높음 |
+| **비용 구조** | 포트 비용 + 데이터 전송 (OCI는 전송 무료) | 양쪽 전용 연결 비용 + IX 포트 비용 |
+| **가용 구간** | 벤더가 지원하는 구간만 | IX가 있는 모든 구간 |
+
+**선택 기준:**
+
+- 벤더 간 직접 연결이 지원되는 구간이면 Cross-Cloud Interconnect가 단순하고 레이턴시도 낮음
+- 아직 지원되지 않는 구간(예: AWS ↔ Azure)이거나 온프레미스도 함께 연결해야 하면 IX 경유 방식 사용
+
 ## 참고하기
 
 ### 벤더 레퍼런스 아키텍처

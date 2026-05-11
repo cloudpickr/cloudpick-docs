@@ -150,6 +150,27 @@ Oracle DB 기반으로 자동 튜닝, 자동 패치, 자동 스케일링을 제�
 
 수동 스냅샷은 보존 기간이 무제한이며, 규정 준수 장기 보관에 사용합니다.
 
+## Database@Cloud: 타 클라우드 내 DB 배치
+
+Oracle은 자사 데이터베이스를 경쟁사 데이터센터 안에 직접 배치하는 **Database@Cloud** 전략을 추진하고 있습니다. 고객은 기존 클라우드 환경을 유지하면서 Oracle DB의 성능과 기능을 네이티브로 사용할 수 있습니다.
+
+| 서비스 | 배치 위치 | 특징 |
+| --- | --- | --- |
+| **[Oracle Database@Azure](https://www.oracle.com/cloud/azure/)** | Azure 데이터센터 | Azure Portal에서 Oracle Exadata/Autonomous DB를 네이티브 프로비저닝. Azure VNet과 직접 연결 |
+| **[Oracle Database@AWS](https://www.oracle.com/cloud/aws/)** | AWS 데이터센터 | AWS 콘솔에서 Oracle DB 서비스 직접 사용. VPC 통합 |
+| **[Oracle Database@Google Cloud](https://www.oracle.com/cloud/google/)** | GCP 데이터센터 | GCP 콘솔에서 Oracle DB 서비스 직접 사용. VPC 통합 |
+
+**왜 Database@Cloud인가?**
+
+- **레이턴시 최소화** — 애플리케이션과 DB가 같은 데이터센터에 있으므로 네트워크 홉 없음
+- **단일 콘솔 관리** — 호스트 클라우드의 포털에서 Oracle DB를 직접 관리 (별도 OCI 콘솔 불필요)
+- **네트워크 비용 절감** — 클라우드 간 데이터 전송(이그레스) 비용 없음
+- **규정 준수** — 데이터가 호스트 클라우드의 리전 내에 머무르므로 데이터 주권 요건 충족
+
+{% hint style="info" %}
+Database@Cloud는 Oracle이 선도하고 있지만, 멀티클라우드 DB 배치 트렌드는 확산 중입니다. 벤더 선택 시 "기존 클라우드를 유지하면서 특정 DB 엔진을 네이티브로 쓸 수 있는가"를 검토하세요.
+{% endhint %}
+
 ## 관련 문서
 
 {% content-ref url="../storage/backup.md" %}

@@ -42,6 +42,7 @@
 - [IAM 실무 설계와 보안 운영](security/iam.md)
 - [시크릿 관리](security/secrets.md)
 - [데이터 보호와 워크로드 보안](security/data-protection.md)
+- [보안 태세 관리](security/security-posture.md)
 
 ## 스토리지 <a id="storage"></a>
 
@@ -79,6 +80,7 @@
 - [DevOps란?](devops/what-is-devops.md)
 - [CI/CD](devops/cicd.md)
 - [IaC](devops/iac.md)
+- [DevSecOps](devops/devsecops.md)
 - [모니터링](devops/monitoring.md)
 - [통합 관찰가능성 아키텍처](devops/observability.md)
 - [원격 접근 관리](devops/remote-access.md)

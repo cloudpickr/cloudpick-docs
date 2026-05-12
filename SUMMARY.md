@@ -81,3 +81,5 @@
 - [IaC](devops/iac.md)
 - [모니터링](devops/monitoring.md)
 - [통합 관찰가능성 아키텍처](devops/observability.md)
+- [원격 접근 관리](devops/remote-access.md)
+- [패치 관리와 취약점 대응](devops/patch-and-vulnerability.md)

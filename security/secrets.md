@@ -95,6 +95,41 @@ HashiCorp Vault, CyberArk 등 외부 시크릿 관리 솔루션을 사용하는 
 | **HashiCorp Vault Dynamic Secrets** | Vault가 AWS IAM, DB 자격 증명을 동적으로 생성 |
 | **CSI Secret Store Driver** | Kubernetes Pod에 시크릿을 파일로 마운트 |
 
+## 구성/프로퍼티 관리 (Configuration Management)
+
+시크릿(비밀번호, API 키)과 달리, **구성값**(feature flag, 엔드포인트 URL, 타임아웃 값 등)은 민감하지 않지만 중앙에서 관리하고 런타임에 동적으로 변경할 필요가 있습니다. 각 벤더는 시크릿 관리와 별도로(또는 통합하여) 구성 관리 서비스를 제공합니다.
+
+### 시크릿 vs 구성값
+
+| 구분 | 시크릿 | 구성값 |
+| --- | --- | --- |
+| **예시** | DB 비밀번호, API 키, 인증서 | Feature flag, 엔드포인트 URL, 타임아웃, 환경별 설정 |
+| **암호화** | 필수 (저장 시 + 전송 시) | 선택 (민감한 설정은 암호화) |
+| **접근 제어** | 최소 권한, 감사 필수 | 팀/서비스 단위 |
+| **교체 주기** | 주기적 자동 교체 권장 | 배포/릴리스 시 변경 |
+| **저장 위치** | Secrets Manager / Key Vault | Parameter Store / App Configuration |
+
+### 벤더별 구성 관리 서비스
+
+| 벤더 | 서비스 | 특징 |
+| --- | --- | --- |
+| AWS | [SSM Parameter Store](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-parameter-store.html) | 계층형 키-값 저장. String/StringList/SecureString 타입. 무료 표준 티어 (10,000개). 고급 티어는 정책 기반 만료/알림 |
+| AWS | [AWS AppConfig](https://docs.aws.amazon.com/appconfig/latest/userguide/what-is-appconfig.html) | Feature flag + 구성 배포. 점진적 롤아웃, 검증 후 배포, 자동 롤백 |
+| Azure | [Azure App Configuration](https://learn.microsoft.com/azure/azure-app-configuration/overview) | 중앙 구성 저장소. Feature flag 내장. Key Vault 참조로 시크릿 연동. 라벨로 환경별 분리 |
+| GCP | [Runtime Configurator](https://cloud.google.com/deployment-manager/runtime-configurator) (레거시) / [Firebase Remote Config](https://firebase.google.com/docs/remote-config) | Runtime Configurator는 제한적. 서버 앱은 Secret Manager에 비밀이 아닌 값도 저장하는 패턴이 일반적 |
+| OCI | [OCI Resource Manager Variables](https://docs.oracle.com/en-us/iaas/Content/ResourceManager/Concepts/resourcemanager.htm) / Vault | 전용 구성 서비스 없음. Vault에 비밀이 아닌 값도 저장하거나, Object Storage + 앱 로직으로 구현 |
+
+### 실무 패턴
+
+- **환경별 분리** — `dev/db-endpoint`, `prod/db-endpoint`처럼 경로 또는 라벨로 환경 구분
+- **Feature flag** — 코드 배포 없이 기능 ON/OFF. AWS AppConfig, Azure App Configuration이 네이티브 지원
+- **동적 리로드** — 구성 변경 시 애플리케이션 재시작 없이 반영. 폴링 또는 이벤트 기반
+- **시크릿 참조** — 구성 서비스에서 시크릿 값을 직접 저장하지 않고, Secrets Manager/Key Vault의 ARN/URI를 참조
+
+{% hint style="info" %}
+**GCP/OCI 사용자:** 전용 구성 관리 서비스가 약하므로, Kubernetes ConfigMap + External Secrets Operator 조합이나 HashiCorp Consul을 고려하세요. 멀티클라우드 환경에서는 벤더 중립적인 외부 도구가 유리할 수 있습니다.
+{% endhint %}
+
 ## 참고하기
 
 ### AWS

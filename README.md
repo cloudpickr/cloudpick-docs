@@ -52,7 +52,17 @@ CloudPick은 AWS, Azure, GCP, OCI를 중심으로 설명하지만, 특정 벤더
 2. [비용 구조 이해하기](about-cloud/pricing-model.md) → [FinOps](governance/finops.md)
 3. [Well-Architected Framework](about-cloud/well-architected.md)
 4. [재해복구 (DR)](governance/dr.md)
-5. [모니터링](devops/monitoring.md)
+5. [모니터링](devops/monitoring.md) → [통합 관찰가능성](devops/observability.md)
+6. [원격 접근 관리](devops/remote-access.md)
+7. [패치 관리와 취약점 대응](devops/patch-and-vulnerability.md)
+
+### 보안 강화를 담당하는 분
+
+1. [IAM과 접근 제어](security/iam.md)
+2. [시크릿 관리](security/secrets.md)
+3. [보안 태세 관리](security/security-posture.md)
+4. [DevSecOps](devops/devsecops.md)
+5. [규정 준수](governance/compliance.md)
 
 ### 마이그레이션/모더나이제이션 계획 중인 분
 

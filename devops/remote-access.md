@@ -110,6 +110,45 @@ description: SSH/RDP 없이 안전하게 인스턴스에 접근하는 관리형 
 - **최소 권한** — 특정 인스턴스/태그에만 접근 가능하도록 정책 범위 제한
 - **네트워크 분리** — 관리형 서비스를 사용하더라도 프라이빗 서브넷 유지
 
+### 세션 로깅과 감사 추적
+
+쉘 접근은 **누가, 언제, 어떤 인스턴스에서, 무엇을 실행했는지** 기록해야 합니다. 감사 대응과 사고 분석의 핵심 증거입니다.
+
+**두 가지 레이어의 로그가 필요합니다:**
+
+1. **API/관리 레이어** — "세션을 시작/종료한 행위" 자체의 기록 (누가, 언제, 어디에)
+2. **세션 레이어** — "세션 안에서 실행한 명령과 출력" 기록 (무엇을 했는지)
+
+| 벤더 | API/관리 로그 | 세션 내용 로그 | 저장 위치 |
+| --- | --- | --- | --- |
+| AWS | **CloudTrail** (`StartSession`, `TerminateSession`, `SendCommand`) | Session Manager 세션 로깅 (명령 입출력 스트림) | CloudTrail → S3, 세션 로그 → S3/CloudWatch Logs |
+| Azure | **Activity Log** (Bastion 연결 이벤트) | Bastion 진단 로그 (연결 메타데이터) | Log Analytics Workspace |
+| GCP | **Cloud Audit Logs** (IAP 터널 생성/종료) | OS Login 감사 로그 (SSH 세션 메타) | Cloud Logging |
+| OCI | **Audit Log** (Bastion 세션 생성/만료) | OCI Logging (세션 메타데이터) | OCI Logging / Object Storage |
+
+**CloudTrail 연계 (AWS 예시):**
+
+CloudTrail은 세션 접근의 "관리 행위"를 자동으로 기록합니다:
+
+- `StartSession` — 누가 어떤 인스턴스에 세션을 열었는지 (사용자 ARN, 인스턴스 ID, 시간)
+- `TerminateSession` — 세션 종료 시점
+- `SendCommand` (Run Command) — 원격 명령 실행 기록 (명령 내용 포함)
+- 이 이벤트들은 [보안 태세 관리](../security/security-posture.md)의 GuardDuty/Security Hub와 연동하여 비정상 패턴을 자동 탐지할 수 있습니다
+
+**로깅 설정 체크리스트:**
+
+- [ ] API 감사 로그 활성화 확인 (CloudTrail/Activity Log/Audit Logs — 대부분 기본 활성)
+- [ ] 세션 내용 로깅 활성화 (AWS: Session Manager Preferences에서 S3/CloudWatch 설정)
+- [ ] 명령 입출력 기록 활성화 (AWS는 기본 비활성, 명시적으로 켜야 함)
+- [ ] 로그 보존 기간 설정 (규정 준수 요건에 따라 1년\~7년)
+- [ ] 로그 암호화 (KMS/Key Vault로 저장 시 암호화)
+- [ ] 로그 변조 방지 (S3 Object Lock, Immutable Storage 등)
+- [ ] SIEM 연동 (이상 패턴 탐지: 비정상 시간대 접근, 대량 명령 실행, 미승인 인스턴스 접근)
+
+{% hint style="warning" %}
+**AWS Session Manager는 기본적으로 명령 입출력을 기록하지 않습니다.** Session Manager Preferences에서 S3 또는 CloudWatch Logs로의 로깅을 명시적으로 활성화해야 합니다. 활성화하지 않으면 CloudTrail에 "누가 접속했는지"만 남고 "무엇을 했는지"는 남지 않습니다.
+{% endhint %}
+
 ## 참고하기
 
 - [AWS Systems Manager Session Manager 문서](https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager.html)

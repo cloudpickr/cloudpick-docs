@@ -47,6 +47,53 @@ description: SSH/RDP 없이 안전하게 인스턴스에 접근하는 관리형 
 
 ## 실무 권장 사항
 
+### 접근 빈도와 운영 성숙도
+
+인스턴스에 직접 접근(쉘 로그인)하는 빈도는 운영 성숙도의 지표입니다. 접근이 잦을수록 자동화가 부족하다는 신호입니다.
+
+| 성숙도 단계 | 쉘 접근 빈도 | 특징 |
+| --- | --- | --- |
+| **Level 1 — 수동 운영** | 매일, 수시 | 로그 확인·설정 변경·배포를 수동으로 수행. 서버에 상주하는 패턴 |
+| **Level 2 — 부분 자동화** | 주 수회 | CI/CD로 배포 자동화, 모니터링 대시보드 구축. 장애 시에만 접근 |
+| **Level 3 — 관찰가능성 기반** | 월 수회 | 로그/메트릭/트레이스가 중앙화되어 대부분 콘솔에서 해결. 예외적 디버깅만 접근 |
+| **Level 4 — Immutable/Serverless** | 거의 없음 | 인스턴스 교체로 문제 해결. 쉘 접근 자체가 보안 이벤트로 간주 |
+
+**목표: Level 3 이상**
+
+쉘 접근을 줄이려면 다음을 자동화해야 합니다:
+
+| 쉘에서 하던 일 | 대체 방법 |
+| --- | --- |
+| 로그 확인 (`tail -f`) | CloudWatch Logs / Azure Monitor / Cloud Logging 중앙화 |
+| 설정 파일 수정 | 구성 관리 서비스 (Parameter Store, App Configuration) + 동적 리로드 |
+| 패키지 설치/업데이트 | Patch Manager + 골든 이미지 파이프라인 |
+| 서비스 재시작 | Run Command 또는 Auto Scaling 인스턴스 교체 |
+| 디스크 정리 | CloudWatch Agent 알림 + 자동 스크립트 (EventBridge → Lambda) |
+| 디버깅 (strace, tcpdump) | 관찰가능성 도구로 대부분 해결. 불가피한 경우만 세션 접근 |
+
+{% hint style="info" %}
+**"서버에 들어가야 할 일이 생기면, 그것을 자동화할 기회"** 로 보세요. 접근 로그를 주기적으로 리뷰하여 반복되는 접근 사유를 파악하고, 해당 작업을 자동화하면 접근 빈도가 자연스럽게 줄어듭니다.
+{% endhint %}
+
+### 접근 제어 정책 설계
+
+쉘 접근을 완전히 없앨 수는 없으므로, **누가, 언제, 어떤 조건에서** 접근할 수 있는지 정책을 설계합니다.
+
+| 정책 항목 | 권장 |
+| --- | --- |
+| **상시 접근 권한** | 부여하지 않음. Just-In-Time (JIT) 방식으로 필요 시 요청 → 승인 → 시간 제한 부여 |
+| **프로덕션 접근** | 최소 2인 승인 (Dual Control). 세션 녹화 필수 |
+| **개발/테스트 접근** | 팀 단위 자율, 단 로그 기록 |
+| **Break-glass (긴급)** | 사전 정의된 긴급 역할. 사후 감사 필수. 24시간 내 사유 기록 |
+| **접근 리뷰** | 월 1회 접근 로그 리뷰. 불필요한 접근 패턴 식별 → 자동화 |
+
+**JIT 접근 구현 예시:**
+
+- **AWS** — IAM Identity Center + Permission Set (시간 제한) 또는 SSM Session Manager + Approval Workflow
+- **Azure** — Privileged Identity Management (PIM) — 역할 활성화 시 승인 + TTL
+- **GCP** — PAM (Privileged Access Manager) — Just-In-Time 접근 요청/승인
+- **OCI** — OCI Bastion 세션 TTL (최대 3시간) + IAM 동적 그룹
+
 ### 접근 방식 선택 기준
 
 | 상황 | 권장 |

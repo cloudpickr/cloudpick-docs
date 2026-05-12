@@ -62,31 +62,46 @@ description: 전송 중/저장 시 암호화, WAF, 위협 탐지, 컨테이너 �
 
 | 벤더 | 제품 | 비고 |
 | --- | --- | --- |
-| AWS | AWS WAF | ALB/CloudFront/API Gateway에 연결. 관리형 규칙 제공 |
-| Azure | Azure WAF (Front Door / App Gateway) | OWASP 규칙 세트 기본 제공 |
-| GCP | Cloud Armor | DDoS + WAF 통합. 적응형 보호 |
-| OCI | OCI WAF | Load Balancer 연동. OWASP 규칙 세트 제공 |
+| AWS | [AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/what-is-aws-waf.html) | ALB/CloudFront/API Gateway에 연결. 관리형 규칙 + 커스텀 규칙 |
+| Azure | [Azure WAF](https://learn.microsoft.com/azure/web-application-firewall/overview) (Front Door / App Gateway) | OWASP CRS 3.2 기본 제공. 정책 기반 관리 |
+| GCP | [Cloud Armor](https://cloud.google.com/armor/docs) | DDoS + WAF 통합. 사전 구성된 WAF 규칙 + 적응형 보호(ML) |
+| OCI | [OCI WAF](https://docs.oracle.com/en-us/iaas/Content/WAF/home.htm) | Load Balancer/Edge 연동. OWASP 규칙 세트 제공 |
 
-### 위협 탐지
+#### OWASP와 WAF 규칙
 
-| 벤더 | 제품 | 비고 |
+[OWASP Top 10](https://owasp.org/www-project-top-ten/)은 웹 애플리케이션의 가장 흔한 보안 위협을 정리한 업계 표준입니다. 각 벤더의 WAF는 이 위협에 대응하는 **관리형 규칙 세트**를 제공합니다.
+
+| OWASP Top 10 위협 | WAF 규칙 대응 | 벤더별 관리형 규칙 |
 | --- | --- | --- |
-| AWS | GuardDuty | 계정/네트워크/S3 위협 자동 탐지. ML 기반 |
-| AWS | Security Hub | 보안 상태 통합 대시보드. 규정 준수 점검 |
-| Azure | Microsoft Defender for Cloud | CSPM + CWPP. 멀티클라우드 지원 |
-| GCP | Security Command Center | 취약점, 위협, 구성 오류 통합 탐지 |
-| OCI | OCI Cloud Guard | 구성 오류 탐지 + 자동 교정. Security Zones로 정책 강제 |
+| A01 — Broken Access Control | 경로 탐색, 강제 브라우징 차단 | AWS Managed Rules (Core), Azure CRS, Cloud Armor 사전 구성 규칙 |
+| A03 — Injection (SQL/XSS) | SQL Injection, XSS 패턴 매칭 | AWS SQLi/XSS Rule Group, Azure CRS, Cloud Armor `sqli-v33-stable` |
+| A05 — Security Misconfiguration | 알려진 취약 경로 차단 | AWS Known Bad Inputs, Azure CRS |
+| A06 — Vulnerable Components | 알려진 CVE 익스플로잇 차단 | AWS Managed Rules (CVE), Azure Bot Manager |
+| A07 — Authentication Failures | 브루트포스, 크리덴셜 스터핑 차단 | AWS Account Takeover Prevention, Azure Rate Limiting |
 
-### 컨테이너/런타임 보안
+#### 관리형 규칙 vs 커스텀 규칙
 
-| 벤더 | 제품 | 비고 |
+| 구분 | 관리형 규칙 (Managed Rules) | 커스텀 규칙 |
 | --- | --- | --- |
-| AWS | Inspector | EC2/ECR/Lambda 취약점 자동 스캔 |
-| Azure | Defender for Containers | 이미지 스캔 + 런타임 보호 |
-| GCP | Container Threat Detection | GKE 런타임 위협 탐지 |
-| OCI | OCI Vulnerability Scanning | Compute/Container 이미지 취약점 스캔 |
+| **관리 주체** | 벤더 또는 보안 파트너가 업데이트 | 사용자가 직접 작성·유지 |
+| **적합한 경우** | OWASP Top 10 기본 방어, 빠른 적용 | 애플리케이션 특화 로직, 비즈니스 규칙 |
+| **업데이트** | 새 위협 발견 시 벤더가 자동 업데이트 | 사용자가 직접 업데이트 |
+| **비용** | 규칙 그룹당 과금 (AWS), 기본 포함 (Azure/GCP/OCI) | 규칙 수에 따라 과금 |
+
+**실무 권장:**
+
+- **1단계** — 관리형 OWASP 규칙 세트를 먼저 적용 (Count 모드로 시작하여 오탐 확인 후 Block 전환)
+- **2단계** — 애플리케이션 특화 커스텀 규칙 추가 (특정 API 경로 보호, 지역 기반 차단 등)
+- **3단계** — Rate Limiting 규칙으로 DDoS/브루트포스 완화
+- **로깅** — WAF 로그를 S3/Log Analytics/Cloud Logging에 저장하여 공격 패턴 분석
+
+위협 탐지(GuardDuty, Defender, SCC, Cloud Guard)와 컨테이너/런타임 보안(Inspector, Defender for Containers 등)은 [보안 태세 관리](security-posture.md)에서 상세히 다룹니다.
 
 ## 관련 문서
+
+{% content-ref url="security-posture.md" %}
+[보안 태세 관리](security-posture.md)
+{% endcontent-ref %}
 
 {% content-ref url="secrets.md" %}
 [시크릿 관리](secrets.md)
@@ -106,27 +121,21 @@ description: 전송 중/저장 시 암호화, WAF, 위협 탐지, 컨테이너 �
 
 - [AWS 보안 문서](https://docs.aws.amazon.com/ko_kr/security/)
 - [AWS KMS 문서](https://docs.aws.amazon.com/ko_kr/kms/)
-- [Amazon GuardDuty 문서](https://docs.aws.amazon.com/ko_kr/guardduty/)
 - [AWS WAF 문서](https://docs.aws.amazon.com/ko_kr/waf/)
-- [AWS Security Hub 문서](https://docs.aws.amazon.com/ko_kr/securityhub/)
 
 ### Azure
 
 - [Azure 보안 문서](https://learn.microsoft.com/ko-kr/azure/security/)
 - [Azure Key Vault 문서](https://learn.microsoft.com/ko-kr/azure/key-vault/)
-- [Microsoft Defender for Cloud](https://learn.microsoft.com/ko-kr/azure/defender-for-cloud/)
 - [Azure WAF 문서](https://learn.microsoft.com/ko-kr/azure/web-application-firewall/)
 
 ### GCP
 
 - [Google Cloud 보안 문서](https://cloud.google.com/security)
 - [Cloud KMS 문서](https://cloud.google.com/kms/docs)
-- [Security Command Center 문서](https://cloud.google.com/security-command-center/docs)
 - [Cloud Armor 문서](https://cloud.google.com/armor/docs)
 
 ### OCI
 
-- [OCI Cloud Guard 문서](https://docs.oracle.com/en-us/iaas/cloud-guard/home.htm)
-- [OCI Security Zones 문서](https://docs.oracle.com/en-us/iaas/security-zone/home.htm)
 - [OCI Vault 문서](https://docs.oracle.com/en-us/iaas/Content/KeyManagement/home.htm)
 - [OCI WAF 문서](https://docs.oracle.com/en-us/iaas/Content/WAF/home.htm)

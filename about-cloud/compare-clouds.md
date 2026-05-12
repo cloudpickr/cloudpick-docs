@@ -30,6 +30,7 @@ Amazon의 이커머스 인프라에서 출발한 AWS는 가장 오래되고 가�
 
 - **핵심 강점:** 서비스 다양성, 글로벌 리전 수, 커뮤니티/문서 풍부
 - **차별점:** Lambda(서버리스 선구자), S3(객체 스토리지 표준), 가장 세분화된 IAM
+- **주의점:** 서비스가 너무 많아 선택이 복잡함. 이그레스 비용이 상대적으로 높음. 콘솔 UX가 서비스마다 일관성 부족
 - **한국 리전:** 서울 4 AZ (2016~)
 {% endtab %}
 
@@ -38,6 +39,7 @@ Microsoft의 엔터프라이즈 소프트웨어 생태계(Microsoft 365, Active 
 
 - **핵심 강점:** Microsoft 365/AD 통합, 하이브리드(Azure Arc, Azure Stack), 엔터프라이즈 계약(EA)
 - **차별점:** 서울-부산 리전 쌍으로 국내 DR 가능, GitHub/VS Code 통합
+- **주의점:** 서비스 리브랜딩이 잦아 문서 추적이 어려움. 리전별 서비스 가용성 차이가 큼. 네트워킹 구조가 AWS/GCP 대비 복잡
 - **한국 리전:** 서울(Korea Central) 3 AZ + 부산(Korea South)
 {% endtab %}
 
@@ -46,6 +48,7 @@ Google의 검색·데이터 처리 인프라에서 발전한 GCP는 AI/ML과 대
 
 - **핵심 강점:** AI/ML(Vertex AI, TPU, Gemini), 데이터 분석(BigQuery), 컨테이너(GKE)
 - **차별점:** 글로벌 VPC(리전 종속 아님), SUD(약정 없이 자동 할인), Shared Fate 보안 모델
+- **주의점:** 엔터프라이즈 지원 경험이 AWS/Azure 대비 짧음. 서비스 종료(Deprecation) 이력으로 장기 의존에 우려. 한국어 문서/지원이 상대적으로 부족
 - **한국 리전:** 서울 3 Zone (2020~)
 {% endtab %}
 
@@ -54,6 +57,7 @@ Oracle의 데이터베이스 기술력을 클라우드로 확장한 OCI는 Oracl
 
 - **핵심 강점:** Autonomous Database, Oracle DB 최적화, 이그레스 비용 저렴(10TB/월 무료)
 - **차별점:** 이그레스 10TB/월 무료, Dedicated Region(고객 DC에 OCI 설치), MySQL HeatWave
+- **주의점:** Oracle DB 외 워크로드의 서비스 폭이 좁음. 커뮤니티/서드파티 생태계가 작음. 인력 채용 시 OCI 경험자 확보가 어려움
 - **한국 리전:** 서울(`ap-seoul-1`), 춘천(`ap-chuncheon-1`)
 {% endtab %}
 {% endtabs %}

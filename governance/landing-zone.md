@@ -21,6 +21,26 @@ description: 멀티 계정 클라우드 기반 설정인 랜딩존의 구성 요
 랜딩존은 특정 제품 하나가 아니라 계정 구조, 네트워크, 보안, 로깅, 정책을 함께 설계한 운영 기반입니다.
 {% endhint %}
 
+```mermaid
+graph TB
+    subgraph "랜딩존 구성 요소"
+        A[조직 루트] --> B[보안 OU]
+        A --> C[공유 서비스 OU]
+        A --> D[워크로드 OU]
+        B --> B1[로그 아카이브 계정]
+        B --> B2[보안 감사 계정]
+        C --> C1[네트워크 허브 계정]
+        C --> C2[공유 서비스 계정]
+        D --> D1[프로덕션 계정]
+        D --> D2[개발 계정]
+        D --> D3[테스트 계정]
+    end
+    style A fill:#f9f,stroke:#333
+    style B fill:#fcc,stroke:#333
+    style C fill:#cfc,stroke:#333
+    style D fill:#ccf,stroke:#333
+```
+
 ## 주요 CSP 랜딩존 비교
 
 | 항목 | AWS | Azure | GCP | OCI |

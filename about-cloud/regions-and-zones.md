@@ -22,6 +22,24 @@ description: 리전, 가용영역, 엣지 로케이션의 개념과 한국 리�
 
 온프레미스로 비유하면, 같은 도시 내에 있지만 서로 다른 건물에 위치한 서버실과 비슷합니다.
 
+```mermaid
+graph TB
+    subgraph "Region (서울)"
+        subgraph "AZ-a"
+            DC1[데이터센터 1]
+        end
+        subgraph "AZ-b"
+            DC2[데이터센터 2]
+        end
+        subgraph "AZ-c"
+            DC3[데이터센터 3]
+        end
+        AZ-a <-->|"고속 전용 네트워크<br/>(~1ms)"| AZ-b
+        AZ-b <-->|"고속 전용 네트워크<br/>(~1ms)"| AZ-c
+        AZ-a <-->|"고속 전용 네트워크<br/>(~1ms)"| AZ-c
+    end
+```
+
 ### 엣지 로케이션 (Edge Location)
 
 **엣지 로케이션**은 리전보다 사용자에게 더 가까운 위치에 배치된 소규모 인프라입니다. 주로 CDN이나 DNS 서비스에 사용되며, 정적 콘텐츠를 캐싱하여 사용자에게 빠르게 전달합니다.

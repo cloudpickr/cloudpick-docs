@@ -47,7 +47,7 @@ graph TB
 | --- | --- | --- | --- | --- |
 | 서비스명 | [AWS Control Tower](https://aws.amazon.com/controltower/) | [Azure Landing Zone](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/) | [GCP Foundation Toolkit](https://cloud.google.com/foundation-toolkit) | [OCI Landing Zone](https://docs.oracle.com/en/solutions/cis-oci-benchmark/) |
 | 계정 구조 | AWS Organizations + OU | Management Group + Subscription | Organization + Folder + Project | Tenancy + Compartment |
-| 가드레일 | Controls (예방적/탐지적/사전 예방적) | Azure Policy + Blueprints | Organization Policy | CIS Benchmark 기반 정책 |
+| 가드레일 | Controls (예방적/탐지적/사전 예방적) | Azure Policy + Deployment Stacks | Organization Policy | CIS Benchmark 기반 정책 |
 | 네트워크 기본 구조 | VPC + Transit Gateway | Hub-Spoke VNet + Azure Firewall | Shared VPC + Cloud Interconnect | Hub-Spoke VCN + DRG |
 | IaC 제공 | AWS CloudFormation (기본 내장) | Bicep / Terraform 모듈 | Terraform 모듈 | Terraform 모듈 |
 | 로깅 | AWS CloudTrail + Config | Activity Log + Defender for Cloud | Cloud Audit Logs + Security Command Center | Audit + Cloud Guard |

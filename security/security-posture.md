@@ -26,9 +26,9 @@ description: 클라우드 보안 태세 관리(CSPM), 워크로드 보호(CWPP),
 | 영역 | AWS | Azure | GCP | OCI |
 | --- | --- | --- | --- | --- |
 | **CSPM** | [Security Hub](https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html) | [Defender for Cloud (CSPM)](https://learn.microsoft.com/azure/defender-for-cloud/concept-cloud-security-posture-management) | [Security Command Center](https://cloud.google.com/security-command-center/docs) | [Cloud Guard](https://docs.oracle.com/en-us/iaas/cloud-guard/home.htm) |
-| **CWPP** | [GuardDuty (Runtime Monitoring)](https://docs.aws.amazon.com/guardduty/latest/ug/runtime-monitoring.html) | [Defender for Servers/Containers](https://learn.microsoft.com/azure/defender-for-cloud/defender-for-servers-introduction) | [SCC Premium (VM Threat Detection)](https://cloud.google.com/security-command-center/docs/concepts-vm-threat-detection-overview) | [Cloud Guard (Threat Detector)](https://docs.oracle.com/en-us/iaas/cloud-guard/using/detect-recipes.htm) |
+| **CWPP** | [GuardDuty Runtime Monitoring](https://docs.aws.amazon.com/guardduty/latest/ug/runtime-monitoring.html) + [Inspector](https://docs.aws.amazon.com/inspector/latest/user/what-is-inspector.html) | [Defender for Servers/Containers](https://learn.microsoft.com/azure/defender-for-cloud/defender-for-servers-introduction) | [SCC Premium (VM Threat Detection)](https://cloud.google.com/security-command-center/docs/concepts-vm-threat-detection-overview) | [Cloud Guard (Threat Detector)](https://docs.oracle.com/en-us/iaas/cloud-guard/using/detect-recipes.htm) |
 | **위협 탐지** | [GuardDuty](https://docs.aws.amazon.com/guardduty/latest/ug/what-is-guardduty.html) | [Defender for Cloud + Sentinel](https://learn.microsoft.com/azure/sentinel/overview) | [SCC Event Threat Detection](https://cloud.google.com/security-command-center/docs/concepts-event-threat-detection-overview) | [Cloud Guard (Activity Detector)](https://docs.oracle.com/en-us/iaas/cloud-guard/using/detect-recipes.htm) |
-| **SIEM/SOAR** | [Security Lake](https://docs.aws.amazon.com/security-lake/latest/userguide/what-is-security-lake.html) + 서드파티 | [Microsoft Sentinel](https://learn.microsoft.com/azure/sentinel/) | [Chronicle SIEM](https://cloud.google.com/chronicle/docs) | [OCI Logging Analytics](https://docs.oracle.com/en-us/iaas/logging-analytics/home.htm) + 서드파티 |
+| **SIEM/SOAR** | [Security Lake](https://docs.aws.amazon.com/security-lake/latest/userguide/what-is-security-lake.html) + 서드파티 | [Microsoft Sentinel](https://learn.microsoft.com/azure/sentinel/) | [Chronicle SIEM](https://cloud.google.com/chronicle/docs) | [OCI Logging Analytics](https://docs.oracle.com/en-us/iaas/logging-analytics/home.htm) (로그 분석) + 서드파티 SIEM |
 | **비용** | GuardDuty 종량제, Security Hub 검사당 과금 | Defender 플랜별 과금 | SCC Standard 무료 / Premium·Enterprise 과금 | Cloud Guard 무료 |
 
 ## CIS Benchmarks
@@ -133,15 +133,16 @@ Event Threat Detection이 Cloud Audit Logs, VPC Flow Logs를 분석하여 위협
 
 ```mermaid
 graph LR
-    subgraph "NIST CSF — 지속적 보안 태세 관리"
-        A["식별<br/>(Identify)<br/>자산 목록, CIS 평가,<br/>취약점 스캔"] --> B["보호<br/>(Protect)<br/>IAM, 암호화,<br/>네트워크"]
-        B --> C["탐지<br/>(Detect)<br/>GuardDuty, CSPM,<br/>CWPP"]
-        C --> D["대응<br/>(Respond)<br/>자동 격리, SOAR,<br/>IR 프로세스"]
-        D --> E["복구<br/>(Recover)<br/>DR 복구, 포렌식,<br/>사후 분석"]
+    subgraph "NIST CSF 2.0 — 지속적 보안 태세 관리"
+        A["거버넌스<br/>(Govern)<br/>정책, 역할, 위험 관리"] --> B["식별<br/>(Identify)<br/>자산 목록, CIS 평가,<br/>취약점 스캔"]
+        B --> C["보호<br/>(Protect)<br/>IAM, 암호화,<br/>네트워크"]
+        C --> D["탐지<br/>(Detect)<br/>GuardDuty, CSPM,<br/>CWPP"]
+        D --> E["대응<br/>(Respond)<br/>자동 격리, SOAR,<br/>IR 프로세스"]
+        E --> F["복구<br/>(Recover)<br/>DR 복구, 포렌식,<br/>사후 분석"]
     end
 ```
 
-이 프레임워크는 [NIST Cybersecurity Framework](https://www.nist.gov/cyberframework)의 5가지 기능에 대응합니다. "보호" 단계의 IAM 설계는 [IAM과 접근 제어](iam.md)를, 시크릿 보호는 [시크릿 관리](secrets.md)를 참고하세요.
+이 프레임워크는 [NIST Cybersecurity Framework 2.0](https://www.nist.gov/cyberframework)의 6가지 기능에 대응합니다. "보호" 단계의 IAM 설계는 [IAM과 접근 제어](iam.md)를, 시크릿 보호는 [시크릿 관리](secrets.md)를 참고하세요.
 
 ## 참고하기
 

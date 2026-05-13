@@ -123,7 +123,7 @@ description: SSH/RDP 없이 안전하게 인스턴스에 접근하는 관리형 
 | --- | --- | --- | --- |
 | AWS | **CloudTrail** (`StartSession`, `TerminateSession`, `SendCommand`) | Session Manager 세션 로깅 (명령 입출력 스트림) | CloudTrail → S3, 세션 로그 → S3/CloudWatch Logs |
 | Azure | **Activity Log** (Bastion 연결 이벤트) | Bastion 진단 로그 (연결 메타데이터) | Log Analytics Workspace |
-| GCP | **Cloud Audit Logs** (IAP 터널 생성/종료) | OS Login 감사 로그 (SSH 세션 메타) | Cloud Logging |
+| GCP | **Cloud Audit Logs** (IAP 터널 생성/종료) | OS Login 감사 로그 (메타데이터만, 명령 내용 미기록) | Cloud Logging |
 | OCI | **Audit Log** (Bastion 세션 생성/만료) | OCI Logging (세션 메타데이터) | OCI Logging / Object Storage |
 
 **CloudTrail 연계 (AWS 예시):**

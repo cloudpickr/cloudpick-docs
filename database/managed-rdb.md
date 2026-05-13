@@ -178,7 +178,7 @@ Database@Cloud는 Oracle이 선도하고 있지만, 멀티클라우드 DB 배치
 {% endcontent-ref %}
 
 {% content-ref url="../governance/dr.md" %}
-[재해복구 (DR)](../governance/dr.md)
+[재해복구](../governance/dr.md)
 {% endcontent-ref %}
 
 {% content-ref url="migration.md" %}

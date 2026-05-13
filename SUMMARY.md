@@ -61,9 +61,9 @@
 
 - [랜딩존](governance/landing-zone.md)
 - [FinOps](governance/finops.md)
-- [재해복구 (DR)](governance/dr.md)
+- [재해복구](governance/dr.md)
 - [규정 준수 (Compliance)](governance/compliance.md)
-- [벤더 종속성과 Exit Strategy](governance/exit-strategy.md)
+- [벤더 종속성과 출구 전략](governance/exit-strategy.md)
 
 ## AI와 머신러닝 <a id="ai"></a>
 

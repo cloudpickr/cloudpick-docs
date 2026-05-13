@@ -63,7 +63,7 @@ description: SSH/RDP 없이 안전하게 인스턴스에 접근하는 관리형 
 | 쉘에서 하던 일 | 대체 방법 |
 | --- | --- |
 | 로그 확인 (`tail -f`) | [모니터링](monitoring.md) 중앙화 (CloudWatch Logs / Azure Monitor / Cloud Logging) |
-| 설정 파일 수정 | [구성 관리 서비스](../security/secrets.md#구성프로퍼티-관리-configuration-management) (Parameter Store, App Configuration) + 동적 리로드 |
+| 설정 파일 수정 | [구성 관리 서비스](../security/secrets.md) (Parameter Store, App Configuration) + 동적 리로드 |
 | 패키지 설치/업데이트 | [Patch Manager](patch-and-vulnerability.md) + 골든 이미지 파이프라인 |
 | 서비스 재시작 | Run Command 또는 Auto Scaling 인스턴스 교체 |
 | 디스크 정리 | CloudWatch Agent 알림 + 자동 스크립트 (EventBridge → Lambda) |

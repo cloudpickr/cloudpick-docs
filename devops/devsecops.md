@@ -12,7 +12,7 @@ DevSecOps는 보안(Security)을 개발(Dev)과 운영(Ops) 파이프라인에 *
 
 이 문서는 **배포 전** 파이프라인의 보안을 다룹니다. 배포 후 운영 환경의 지속적 보안 감시는 [보안 태세 관리](../security/security-posture.md)를 참고하세요.
 
-### Shift-Left 원칙
+### 시프트-레프트 (Shift-Left) 원칙
 
 ```mermaid
 graph LR

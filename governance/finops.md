@@ -113,7 +113,7 @@ FinOps의 출발점은 **누가, 무엇에, 얼마를 썼는가** 를 정확히 
 - [ ] 월 1회 태그 규정 준수 리포트 생성
 - [ ] Showback/Chargeback 리포트의 태그 기반 필드 확인
 
-## Showback vs Chargeback
+## 쇼백 vs 차지백 (Showback vs Chargeback)
 
 비용을 조직 내부에 어떻게 배분할지 결정하는 모델입니다. [FinOps Foundation 공식 프레임워크](https://www.finops.org/framework/capabilities/allocation/)에서 정의합니다.
 

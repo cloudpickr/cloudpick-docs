@@ -131,7 +131,7 @@ IaC 외부에서 리소스가 수동으로 변경되면 코드와 실제 상태�
 | OCI | Resource Manager Drift Detection |
 | Terraform | `terraform plan` (현재 상태와 코드 비교) |
 
-드리프트를 근본적으로 막으려면 **SCP/Azure Policy/Organization Policy**로 콘솔에서의 수동 변경을 제한하고, 모든 변경을 IaC 파이프라인을 통해서만 수행하도록 강제합니다.
+드리프트를 근본적으로 막으려면 **SCP/Azure Policy/Organization Policy**로 콘솔에서의 수동 변경을 제한하고, 모든 변경을 IaC 파이프라인을 통해서만 수행하도록 강제합니다. IaC 코드 자체의 보안 검증(Checkov, tfsec 등)은 [DevSecOps](devsecops.md)를 참고하세요.
 
 ## 관련 문서
 

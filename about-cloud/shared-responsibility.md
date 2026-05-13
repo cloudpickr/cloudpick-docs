@@ -28,7 +28,7 @@ description: 클라우드 공동 책임 모델, IaaS/PaaS/SaaS별 책임 경계,
 사용자는 클라우드 위에서 운영하는 워크로드의 보안을 책임집니다.
 
 - **데이터** — 저장 데이터의 암호화, 분류, 접근 제어
-- **애플리케이션** — 코드의 보안 취약점, 패치 관리
+- **애플리케이션** — 코드의 보안 취약점, [패치 관리](../devops/patch-and-vulnerability.md)
 - **접근 제어** — IAM 정책, 사용자 권한, MFA 설정
 - **운영 체제** — OS 패치, 보안 설정 (IaaS의 경우)
 - **네트워크 설정** — 보안 그룹, 방화벽 규칙, VPC 구성
@@ -64,7 +64,7 @@ description: 클라우드 공동 책임 모델, IaaS/PaaS/SaaS별 책임 경계,
 {% tab title="AWS" %}
 AWS는 가장 전통적인 공동 책임 모델을 제시합니다. **"클라우드의 보안"** 과 **"클라우드 안에서의 보안"** 을 명확히 구분하며, 사용자가 자신의 책임 영역을 직접 관리해야 합니다.
 
-AWS는 이를 지원하기 위해 다양한 보안 서비스(GuardDuty, Security Hub, IAM Access Analyzer 등)를 제공하지만, 활성화와 설정은 사용자의 몫입니다.
+AWS는 이를 지원하기 위해 다양한 보안 서비스(GuardDuty, Security Hub, IAM Access Analyzer 등)를 제공하지만, 활성화와 설정은 사용자의 몫입니다. → [보안 태세 관리](../security/security-posture.md) 참고
 
 **모델명:** Shared Responsibility Model
 {% endtab %}

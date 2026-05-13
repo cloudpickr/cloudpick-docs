@@ -52,9 +52,9 @@ graph LR
 
 | 벤더/도구 | 서비스 | 특징 |
 | --- | --- | --- |
-| AWS | [CodeGuru Security](https://docs.aws.amazon.com/codeguru/latest/security-ug/what-is-codeguru-security.html) | ML 기반 코드 분석. Java, Python, JavaScript 등 |
+| AWS | [Amazon Inspector (코드 스캔)](https://docs.aws.amazon.com/inspector/latest/user/scanning-code.html) | Lambda/ECR 코드 취약점 자동 스캔. Python, Java, JavaScript 등 |
 | Azure | [Microsoft Defender for DevOps](https://learn.microsoft.com/azure/defender-for-cloud/defender-for-devops-introduction) + GitHub Advanced Security | CodeQL 기반. GitHub/Azure DevOps 네이티브 통합 |
-| GCP | [Artifact Analysis](https://cloud.google.com/artifact-analysis/docs) + 서드파티 연동 | Cloud Build 파이프라인 통합 |
+| GCP | 네이티브 SAST 없음 — Cloud Build에 [Semgrep](https://semgrep.dev/) 또는 [SonarQube](https://www.sonarsource.com/products/sonarqube/) 통합 | 서드파티 도구를 파이프라인에 연동 |
 | 벤더 중립 | [SonarQube](https://www.sonarsource.com/products/sonarqube/), [Semgrep](https://semgrep.dev/), [Snyk Code](https://snyk.io/product/snyk-code/) | 멀티클라우드 환경에서 일관된 분석 |
 
 ## DAST (Dynamic Application Security Testing)
@@ -65,9 +65,9 @@ graph LR
 | --- | --- |
 | [OWASP ZAP](https://www.zaproxy.org/) | 오픈소스. CI/CD 파이프라인 통합 가능 |
 | [Burp Suite](https://portswigger.net/burp) | 상용. 수동 침투 테스트 + 자동 스캔 |
-| Azure Defender for App Service | Azure 네이티브 런타임 보호 |
+| [Nuclei](https://nuclei.projectdiscovery.io/) | 오픈소스. 템플릿 기반 취약점 스캔. CI 통합 용이 |
 
-DAST는 배포 후 스테이징 환경에서 실행하는 것이 일반적입니다.
+각 CSP에는 네이티브 DAST 도구가 없으므로, 위 벤더 중립 도구를 스테이징 환경에서 실행하는 것이 일반적입니다.
 
 ## SCA (Software Composition Analysis)
 
@@ -76,7 +76,7 @@ DAST는 배포 후 스테이징 환경에서 실행하는 것이 일반적입니
 | 벤더/도구 | 서비스 | 특징 |
 | --- | --- | --- |
 | AWS | [Inspector SBOM](https://docs.aws.amazon.com/inspector/latest/user/sbom-generator.html) | SBOM 생성 + CVE 매칭 |
-| Azure | [GitHub Dependabot](https://docs.github.com/en/code-security/dependabot) | 자동 PR로 취약 의존성 업데이트 |
+| Azure | [Defender for DevOps](https://learn.microsoft.com/azure/defender-for-cloud/defender-for-devops-introduction) + [GitHub Dependabot](https://docs.github.com/en/code-security/dependabot) | Defender for DevOps로 Azure DevOps/GitHub 통합. Dependabot은 GitHub 기능 |
 | GCP | [Artifact Analysis](https://cloud.google.com/artifact-analysis/docs) | 컨테이너 이미지 + 언어 패키지 스캔 |
 | 벤더 중립 | [Snyk Open Source](https://snyk.io/product/snyk-open-source/), [Trivy](https://trivy.dev/), [Grype](https://github.com/anchore/grype) | 멀티 레지스트리, 멀티 언어 지원 |
 
@@ -112,7 +112,7 @@ graph LR
 | [AWS SCP (Service Control Policies)](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps.html) | AWS | Organization 수준에서 허용/거부 액션 강제 |
 | [Azure Policy](https://learn.microsoft.com/azure/governance/policy/overview) | Azure | 리소스 생성/변경 시 정책 평가. 거부/감사/자동 교정 |
 | [GCP Organization Policy](https://cloud.google.com/resource-manager/docs/organization-policy/overview) | GCP | 조직 수준 제약 조건 (리전 제한, 서비스 제한 등) |
-| [OCI Policies](https://docs.oracle.com/en-us/iaas/Content/Identity/policieshow/how-policies-work.htm) | OCI | IAM 정책으로 리소스 접근 제어 |
+| [OCI Security Zones](https://docs.oracle.com/en-us/iaas/security-zone/home.htm) | OCI | 컴파트먼트에 보안 정책 부착. 위반 작업 거부 (예방적 정책 강제) |
 | [OPA (Open Policy Agent)](https://www.openpolicyagent.org/) | 벤더 중립 | Rego 언어로 범용 정책 정의. Kubernetes, Terraform, API 게이트웨이 등 |
 | [HashiCorp Sentinel](https://www.hashicorp.com/sentinel) | 벤더 중립 | Terraform Enterprise/Cloud에서 정책 강제 |
 

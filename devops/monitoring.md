@@ -138,7 +138,7 @@ SLI/SLO/SLA 개념과 에러 버짓에 대해서는 [DevOps란?](what-is-devops.
 {% endcontent-ref %}
 
 {% content-ref url="../governance/dr.md" %}
-[재해복구 (DR)](../governance/dr.md)
+[재해복구](../governance/dr.md)
 {% endcontent-ref %}
 
 ## 참고하기

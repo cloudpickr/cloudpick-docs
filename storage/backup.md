@@ -53,7 +53,7 @@ description: 통합 백업 서비스, RPO/RTO 트레이드오프, 3-2-1 규칙, 
 | 실시간 복제 (동기) | 연속 | 높음 | 금융, 결제 등 미션 크리티컬 |
 | 아카이브 백업 | 주/월 단위 | 매우 낮음 | 규정 준수용 장기 보관 |
 
-백업 주기는 목표 복구 시점(RPO)으로부터 도출됩니다. RPO/RTO와 비즈니스 얼라인먼트에 대해서는 [재해복구 (DR)](../governance/dr.md)에서 자세히 다룹니다.
+백업 주기는 목표 복구 시점(RPO)으로부터 도출됩니다. RPO/RTO와 비즈니스 얼라인먼트에 대해서는 [재해복구](../governance/dr.md)에서 자세히 다룹니다.
 
 ## 백업 유형
 
@@ -103,7 +103,7 @@ description: 통합 백업 서비스, RPO/RTO 트레이드오프, 3-2-1 규칙, 
 - **DR** — 서비스 전체 복구. 리전 장애에 대비한 페일오버.
 
 {% content-ref url="../governance/dr.md" %}
-[재해복구 (DR)](../governance/dr.md)
+[재해복구](../governance/dr.md)
 {% endcontent-ref %}
 
 ## 참고하기

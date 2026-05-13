@@ -48,6 +48,25 @@ description: 클라우드 문서에서 자주 등장하는 용어를 벤더 중�
 | Agent | 에이전트. LLM이 도구를 호출하거나 여러 단계를 수행하여 작업을 자동화하는 구조입니다. |
 | MLOps | ML 모델의 학습/배포/모니터링을 자동화·표준화하는 운영 체계입니다. DevOps의 ML 버전입니다. |
 | ANN | Approximate Nearest Neighbor. 근사 최근접 이웃 탐색. 벡터 검색에서 속도를 위해 정확도를 약간 양보하는 알고리즘입니다. |
+| CSPM | Cloud Security Posture Management. 클라우드 구성 오류를 지속적으로 탐지하는 보안 관리 체계입니다. |
+| CWPP | Cloud Workload Protection Platform. VM, 컨테이너, 서버리스 등 워크로드의 런타임 보안을 보호하는 플랫폼입니다. |
+| SIEM | Security Information and Event Management. 보안 이벤트를 수집·상관 분석하여 위협을 탐지하는 시스템입니다. |
+| SOAR | Security Orchestration, Automation and Response. 보안 이벤트에 대한 자동 대응을 오케스트레이션하는 시스템입니다. |
+| CIS Benchmark | Center for Internet Security에서 제공하는 보안 구성 기준선입니다. OS, 클라우드, DB 등 다양한 대상에 대한 표준을 제공합니다. |
+| SAST | Static Application Security Testing. 소스 코드를 실행하지 않고 분석하여 보안 취약점을 찾는 기법입니다. |
+| DAST | Dynamic Application Security Testing. 실행 중인 애플리케이션을 외부에서 공격하여 취약점을 찾는 기법입니다. |
+| SCA | Software Composition Analysis. 오픈소스 의존성의 알려진 취약점(CVE)과 라이선스 위반을 탐지하는 기법입니다. |
+| SBOM | Software Bill of Materials. 소프트웨어에 포함된 모든 구성 요소(라이브러리, 패키지)의 목록입니다. |
+| DevSecOps | 보안을 개발(Dev)과 운영(Ops) 파이프라인에 처음부터 내장하는 접근 방식입니다. |
+| 시프트-레프트 | Shift-Left. 보안 검증을 개발 초기 단계로 이동하여 문제를 빨리 발견하는 원칙입니다. |
+| JIT 접근 | Just-In-Time Access. 상시 권한 대신 필요 시 요청→승인→시간 제한 부여하는 접근 방식입니다. |
+| 불변 인프라 | Immutable Infrastructure. 실행 중인 서버를 수정하지 않고, 새 이미지로 교체하는 운영 방식입니다. |
+| 쇼백 | Showback. 부서/팀별 클라우드 사용 비용을 보여주기만 하는 방식입니다. 실제 예산 이동은 없습니다. |
+| 차지백 | Chargeback. 부서별 클라우드 사용 비용을 실제 예산에서 차감하는 방식입니다. |
+| WAF | Web Application Firewall. 웹 애플리케이션을 SQL Injection, XSS 등 L7 공격으로부터 보호하는 방화벽입니다. |
+| OWASP Top 10 | 웹 애플리케이션의 가장 흔한 10가지 보안 위협을 정리한 업계 표준 목록입니다. |
+| CVE | Common Vulnerabilities and Exposures. 공개된 보안 취약점에 부여되는 고유 식별자입니다. |
+| CVSS | Common Vulnerability Scoring System. 취약점의 심각도를 0\~10 점수로 평가하는 표준입니다. |
 | HNSW | Hierarchical Navigable Small World. 그래프 기반 ANN 알고리즘입니다. |
 
 {% hint style="info" %}

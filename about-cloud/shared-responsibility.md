@@ -61,7 +61,7 @@ description: 클라우드 공동 책임 모델, IaaS/PaaS/SaaS별 책임 경계,
 | **공식 문서** | [AWS](https://aws.amazon.com/ko/compliance/shared-responsibility-model/) | [Azure](https://learn.microsoft.com/ko-kr/azure/security/fundamentals/shared-responsibility) | [GCP](https://cloud.google.com/architecture/framework/security/shared-responsibility-shared-fate) | [OCI](https://docs.oracle.com/en-us/iaas/Content/Security/Concepts/security_guide.htm) |
 
 {% hint style="info" %}
-각 벤더의 보안 설계 원칙과 프레임워크는 [Well-Architected Framework](well-architected.md)
+각 벤더의 보안 설계 원칙과 프레임워크는 [Well-Architected Framework](well-architected.md)를 참고하세요.
 {% endhint %}
 
 {% tabs %}

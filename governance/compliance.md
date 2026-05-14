@@ -11,7 +11,7 @@ description: 한국 ISMS-P, CSAP와 글로벌 ISO 27001, SOC 2 등 클라우드 
 클라우드에서 규정 준수는 **공동 책임 모델** 에 따라 벤더와 사용자가 책임을 나눕니다. 벤더는 인프라 계층의 보안 통제를 인증받고, 사용자는 자신의 워크로드 구성이 규제 요건을 충족하도록 관리합니다.
 
 {% hint style="info" %}
-공동 책임 모델의 개념적 배경은 [공동 책임 모델](../about-cloud/shared-responsibility.md)
+공동 책임 모델의 개념적 배경은 [공동 책임 모델](../about-cloud/shared-responsibility.md)를 참고하세요.
 {% endhint %}
 
 {% hint style="warning" %}
@@ -151,7 +151,7 @@ AICPA(미국 공인회계사 협회) 기반 감사 보고서. 엔터프라이즈
 ### 4. 데이터 보호
 
 {% hint style="info" %}
-저장/전송 암호화, 키 관리, 데이터 주권은 [데이터 보호와 워크로드 보안](../security/data-protection.md)
+저장/전송 암호화, 키 관리, 데이터 주권은 [데이터 보호와 워크로드 보안](../security/data-protection.md)를 참고하세요.
 {% endhint %}
 
 ### 5. 지속 모니터링

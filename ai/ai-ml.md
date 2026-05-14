@@ -32,9 +32,9 @@ description: 생성형 AI 서비스, ML 플랫폼, GPU 인스턴스를 벤더별
 
 | 벤더 | 플랫폼 | 주요 제공 모델군 | 비고 |
 | --- | --- | --- | --- |
-| AWS | [Amazon Bedrock](https://aws.amazon.com/bedrock/) | **Amazon Nova** (Nova Premier/Pro/Lite/Micro/Sonic), Anthropic Claude (Opus/Sonnet/Haiku), OpenAI GPT-OSS, Meta Llama, Mistral, NVIDIA Nemotron, AI21, Cohere | 단일 API로 멀티 모델 선택. Amazon Nova는 텍스트/이미지/비디오/음성 멀티모달 |
-| Azure | [Azure OpenAI / Microsoft Foundry](https://azure.microsoft.com/products/ai-services/openai-service) | OpenAI (GPT-5 시리즈, o-시리즈), Anthropic Claude, Meta Llama, Mistral, Cohere 등 Foundry 카탈로그 수백 종 | OpenAI 주력, 엔터프라이즈 보안/규정 준수 |
-| GCP | [Vertex AI Model Garden](https://cloud.google.com/vertex-ai/generative-ai/docs/learn/models) | Google **Gemini 2.5** 시리즈 (Pro/Flash/Flash-Lite), Anthropic Claude, Meta Llama, Mistral, AI21 | Gemini는 네이티브 멀티모달, Model Garden에 200+ 모델 |
+| AWS | [Amazon Bedrock](https://aws.amazon.com/bedrock/) | **Amazon Nova** (Nova Premier/Pro/Lite/Micro/Sonic), Anthropic Claude (Opus/Sonnet/Haiku), OpenAI GPT-OSS, Meta Llama, Mistral, NVIDIA Nemotron, AI21, Cohere ([지원 모델 목록](https://docs.aws.amazon.com/bedrock/latest/userguide/model-ids.html)) | 단일 API로 멀티 모델 선택. Amazon Nova는 텍스트/이미지/비디오/음성 멀티모달 |
+| Azure | [Azure OpenAI / Microsoft Foundry](https://azure.microsoft.com/products/ai-services/openai-service) | OpenAI (GPT-5 시리즈, o-시리즈), Anthropic Claude, Meta Llama, Mistral, Cohere 등 ([Foundry 모델 카탈로그](https://ai.azure.com/catalog)) | OpenAI 주력, 엔터프라이즈 보안/규정 준수 |
+| GCP | [Vertex AI Model Garden](https://cloud.google.com/vertex-ai/generative-ai/docs/learn/models) | Google **Gemini 2.5** 시리즈 (Pro/Flash/Flash-Lite), Anthropic Claude, Meta Llama, Mistral, AI21 ([Model Garden](https://cloud.google.com/vertex-ai/generative-ai/docs/learn/models)) | Gemini는 네이티브 멀티모달, Model Garden에 200+ 모델 |
 | OCI | [OCI Generative AI](https://docs.oracle.com/iaas/Content/generative-ai/home.htm) | Cohere Command, Meta Llama, xAI Grok 등 ([지원 모델 목록](https://docs.oracle.com/en-us/iaas/Content/generative-ai/pretrained-models.htm)) | Oracle DB 네이티브 통합, **Dedicated AI Cluster** (전용 RDMA GPU, 타 테넌트 비공유), 이그레스 10TB 무료 |
 
 {% hint style="info" %}

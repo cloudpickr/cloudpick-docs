@@ -54,7 +54,7 @@ description: 하이브리드 클라우드, 엣지 컴퓨팅, 멀티클라우드 
 
 ### GCP
 
-- [Google Distributed Cloud 문서](https://cloud.google.com/distributed-cloud/hosted/docs)
+- [Google Distributed Cloud 문서](https://cloud.google.com/distributed-cloud)
 
 ### OCI
 
@@ -63,4 +63,4 @@ description: 하이브리드 클라우드, 엣지 컴퓨팅, 멀티클라우드 
 
 ### 표준 및 커뮤니티
 
-- [CNCF Multi-Cloud Patterns](https://www.cncf.io/blog/2023/03/29/multi-cloud-is-real/)
+- [CNCF Multi-Cloud Patterns](https://www.cncf.io/reports/cncf-annual-survey-2023/)

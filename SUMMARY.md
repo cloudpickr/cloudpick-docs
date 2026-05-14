@@ -1,6 +1,7 @@
 # Table of contents
 
 - [CloudPick Docs](README.md)
+- [용어집](GLOSSARY.md)
 
 ## 클라우드의 개념 <a id="about-cloud"></a>
 
@@ -95,7 +96,3 @@
 - [패치 관리와 취약점 대응](devops/patch-and-vulnerability.md)
 - [Kubernetes 운영](devops/kubernetes-operations.md)
 - [플랫폼 엔지니어링](devops/platform-engineering.md)
-
-## 부록
-
-- [용어집](GLOSSARY.md)

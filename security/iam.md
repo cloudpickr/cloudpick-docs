@@ -24,13 +24,6 @@ description: IAM 실무 설계, 인증 방식, 권한 모델, 최소 권한 도�
 | **역할 기반 임시 토큰** (IAM Role, Managed Identity) | 자동 발급/만료. 코드에 시크릿 불필요 | ✅ 기기/서비스 (워크로드) |
 | **페더레이션** (OIDC, SAML, Workload Identity) | 외부 IdP 토큰을 클라우드 권한으로 교환 | ✅ 사람(SSO), 서드파티, CI/CD |
 
-| 벤더 | 장기 자격 증명 | 역할 기반 대안 | 페더레이션 |
-| --- | --- | --- | --- |
-| AWS | Access Key | IAM Role (Instance Profile, Task Role) | OIDC/SAML Federation |
-| Azure | Service Principal Secret | Managed Identity | Entra External ID, Workload Identity Federation |
-| GCP | Service Account Key (JSON) | Attached Service Account | Workload Identity Federation |
-| OCI | API Signing Key | Instance Principal | SAML/OIDC Federation |
-
 {% hint style="warning" %}
 **원칙:** 사람은 SSO + MFA + 페더레이션, 서비스는 역할 기반 임시 토큰, 서드파티는 페더레이션 + 시간 제한. 장기 키는 최후의 수단입니다.
 {% endhint %}

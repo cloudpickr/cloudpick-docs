@@ -13,7 +13,8 @@ description: 클라우드 문서에서 자주 등장하는 용어를 벤더 중�
 | 용어 | 의미 |
 | --- | --- |
 | Region | 지리적으로 분리된 데이터센터 클러스터입니다. 서울, 도쿄, 버지니아 같은 단위로 이해할 수 있습니다. |
-| Availability Zone / Zone | 하나의 리전 안에서 독립적으로 장애가 격리되는 데이터센터 또는 데이터센터 그룹입니다. |
+| Availability Zone / Zone | 하나의 리전 안에서 독립적으로 장애가 격리되는 데이터센터 또는 데이터센터 그룹입니다. AZ라고 줄여 부릅니다. |
+| CIDR | Classless Inter-Domain Routing. IP 주소 범위를 표기하는 방식입니다. 예: `10.0.0.0/16`은 10.0.0.0\~10.0.255.255 범위를 의미합니다. |
 | Edge Location | 사용자와 가까운 위치에 배치된 소규모 인프라입니다. CDN, DNS, 엣지 보안에 주로 사용됩니다. |
 | VPC / VNet / VCN | 클라우드 안에 만드는 논리적으로 격리된 가상 네트워크입니다. |
 | Subnet | VPC 안에서 IP 대역을 더 작게 나눈 네트워크 영역입니다. |
@@ -46,6 +47,7 @@ description: 클라우드 문서에서 자주 등장하는 용어를 벤더 중�
 | MFA | Multi-Factor Authentication. 비밀번호 외 추가 인증 수단을 요구하는 방식입니다. |
 | Least Privilege | 최소 권한 원칙. 필요한 최소 권한만 부여하는 보안 원칙입니다. |
 | JIT 접근 | Just-In-Time Access. 상시 권한 대신 필요 시 요청→승인→시간 제한 부여하는 접근 방식입니다. |
+| Zero Trust | "절대 신뢰하지 말고, 항상 검증하라"는 보안 모델입니다. 네트워크 경계가 아닌 ID와 컨텍스트 기반으로 접근을 제어합니다. |
 | CSPM | Cloud Security Posture Management. 클라우드 구성 오류를 지속적으로 탐지하는 보안 관리 체계입니다. |
 | CWPP | Cloud Workload Protection Platform. VM, 컨테이너, 서버리스 등 워크로드의 런타임 보안을 보호하는 플랫폼입니다. |
 | SIEM | Security Information and Event Management. 보안 이벤트를 수집·상관 분석하여 위협을 탐지하는 시스템입니다. |
@@ -65,6 +67,7 @@ description: 클라우드 문서에서 자주 등장하는 용어를 벤더 중�
 | CI/CD | Continuous Integration / Continuous Delivery 또는 Deployment. 빌드, 테스트, 배포를 자동화하는 방식입니다. |
 | Observability | 관찰가능성. 로그, 메트릭, 트레이스를 통해 시스템 상태를 이해하는 능력입니다. |
 | DevSecOps | 보안을 개발(Dev)과 운영(Ops) 파이프라인에 처음부터 내장하는 접근 방식입니다. |
+| GitOps | Git 저장소를 단일 진실 소스(Single Source of Truth)로 사용하여 인프라와 애플리케이션 배포를 자동화하는 운영 방식입니다. |
 | 시프트-레프트 | Shift-Left. 보안 검증을 개발 초기 단계로 이동하여 문제를 빨리 발견하는 원칙입니다. |
 | SAST | Static Application Security Testing. 소스 코드를 실행하지 않고 분석하여 보안 취약점을 찾는 기법입니다. |
 | DAST | Dynamic Application Security Testing. 실행 중인 애플리케이션을 외부에서 공격하여 취약점을 찾는 기법입니다. |
@@ -75,9 +78,16 @@ description: 클라우드 문서에서 자주 등장하는 용어를 벤더 중�
 
 | 용어 | 의미 |
 | --- | --- |
+| CapEx | Capital Expenditure. 자본 지출. 서버·장비 구매처럼 초기에 큰 비용을 투자하는 방식입니다. |
+| OpEx | Operational Expenditure. 운영 지출. 클라우드처럼 사용한 만큼 비용을 지불하는 방식입니다. |
 | FinOps | 클라우드 비용을 엔지니어링, 재무, 비즈니스 팀이 함께 관리하는 운영 모델입니다. |
 | 쇼백 | Showback. 부서/팀별 클라우드 사용 비용을 보여주기만 하는 방식입니다. 실제 예산에서 차감하지 않고 "우리 팀이 얼마 쓰고 있는지" 인식을 공유합니다. |
 | 차지백 | Chargeback. 부서별 클라우드 사용 비용을 해당 팀의 실제 예산(P&L)에서 차감하는 방식입니다. 팀이 비용에 직접 책임을 집니다. |
+| HA | High Availability. 고가용성. 단일 장애점을 제거하여 서비스 중단을 최소화하는 설계입니다. Multi-AZ 배치가 대표적입니다. |
+| SLI | Service Level Indicator. 서비스 수준 지표. 가용률, 응답 시간 등 측정 가능한 지표입니다. |
+| SLO | Service Level Objective. 서비스 수준 목표. SLI의 목표값입니다. 예: "월간 가용률 99.9%". |
+| SLA | Service Level Agreement. 서비스 수준 계약. SLO를 외부 고객과 계약으로 약속한 것입니다. 위반 시 크레딧 보상 등이 따릅니다. |
+| 에러 버짓 | Error Budget. SLO에서 허용하는 장애 시간입니다. 예: 99.9% SLO면 월 43분이 에러 버짓입니다. |
 | RPO | Recovery Point Objective. 장애 시 허용 가능한 데이터 손실 시간입니다. |
 | RTO | Recovery Time Objective. 장애 후 서비스를 복구해야 하는 목표 시간입니다. |
 | DR | Disaster Recovery. 재해복구. 리전 장애나 대규모 장애에 대비한 복구 전략입니다. |

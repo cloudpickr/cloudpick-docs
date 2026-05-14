@@ -43,6 +43,7 @@
 - [시크릿 관리](security/secrets.md)
 - [데이터 보호와 워크로드 보안](security/data-protection.md)
 - [보안 태세 관리](security/security-posture.md)
+- [제로 트러스트](security/zero-trust.md)
 
 ## 스토리지 <a id="storage"></a>
 

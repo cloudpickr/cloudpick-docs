@@ -61,7 +61,7 @@
 
 - [DevOps란?](devops/what-is-devops.md)
 - [CI/CD](devops/cicd.md)
-- [IaC](devops/iac.md)
+- [코드로 관리하는 인프라 (IaC)](devops/iac.md)
 - [DevSecOps](devops/devsecops.md)
 - [모니터링](devops/monitoring.md)
 - [SLI/SLO와 에러 버짓](devops/slo.md)

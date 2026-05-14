@@ -35,7 +35,7 @@ AWS는 2012년에 가장 먼저 Well-Architected Framework을 발표했으며, �
 
 1. **운영 우수성 (Operational Excellence)** — 워크로드를 효과적으로 운영하고 지속적으로 개선
 2. **보안 (Security)** — 데이터, 시스템, 자산을 보호
-3. **안정성 (Reliability)** — 장애로부터 복구하고 가용성 유지
+3. **안정성 (Reliability)** — 장애로부터 복구하고 가용성 유지. [재해복구](../governance/dr.md) 전략과 직결됩니다.
 4. **성능 효율성 (Performance Efficiency)** — 리소스를 효율적으로 사용
 5. **비용 최적화 (Cost Optimization)** — 불필요한 비용 제거
 6. **지속 가능성 (Sustainability)** — 환경에 미치는 영향 최소화

@@ -7,7 +7,7 @@ description: 트랜짓 아키텍처 패턴, 이그레스 비용 상세 비교, D
 > 문서 기준: 2026년 5월
 
 {% hint style="info" %}
-연결 방식 개요와 CIDR 설계는 [멀티클라우드 네트워킹 개요](../networking/multicloud-networking.md)
+연결 방식 개요와 CIDR 설계는 [멀티클라우드 네트워킹 개요](../networking/multicloud-networking.md)를 참고하세요.
 {% endhint %}
 
 ## 트랜짓 아키텍처 패턴

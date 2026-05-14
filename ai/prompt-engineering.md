@@ -14,7 +14,7 @@ LLM/프롬프트가 처음이라면 [클라우드 AI 시작하기](getting-start
 
 프롬프트 엔지니어링은 **"모델에게 어떻게 질문/지시해야 원하는 답을 얻는가"** 를 다룹니다. 같은 모델이라도 프롬프트에 따라 출력 품질이 크게 달라집니다.
 
-Anthropic 공식 문서에 따르면 프롬프트 엔지니어링은 **경험적 과학(empirical science)** 이며, 가장 중요한 것은 **평가 기준 정의 → 반복 테스트** 입니다. 단순히 "좋은 프롬프트"를 찾는 것이 아니라, 측정 가능한 지표로 개선하는 과정입니다 ([출처](https://docs.anthropic.com/claude/docs/prompt-engineering)).
+Anthropic 공식 문서에 따르면 프롬프트 엔지니어링은 **경험적 과학(empirical science)** 이며, 가장 중요한 것은 **평가 기준 정의 → 반복 테스트** 입니다. 단순히 "좋은 프롬프트"를 찾는 것이 아니라, 측정 가능한 지표로 개선하는 과정입니다 — [Anthropic Prompt Engineering Guide](https://docs.anthropic.com/claude/docs/prompt-engineering)
 
 ## 기본 원칙
 

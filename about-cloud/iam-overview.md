@@ -1,5 +1,5 @@
 ---
-description: IAM의 기본 개념과 AWS, Azure, GCP, OCI의 접근 제어 모델을 개요 수준으로 비교합니다.
+description: IAM의 기본 개념과 주요 벤더의 접근 제어 모델을 개요 수준으로 비교합니다.
 ---
 
 # IAM 개요

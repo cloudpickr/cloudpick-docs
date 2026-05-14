@@ -83,7 +83,7 @@ graph LR
 
 - [AWS Security Incident Response Guide](https://docs.aws.amazon.com/whitepapers/latest/aws-security-incident-response-guide/aws-security-incident-response-guide.html)
 - [Azure Security Incident Response](https://learn.microsoft.com/azure/security/fundamentals/incident-response-overview)
-- [GCP Responding to Security Incidents](https://cloud.google.com/architecture/security-incident-response)
+- [GCP Responding to Security Incidents](https://cloud.google.com/security/incident-response)
 - [OCI Security Best Practices](https://docs.oracle.com/en-us/iaas/Content/Security/Concepts/security_guide.htm)
 - [NIST SP 800-61 — Computer Security Incident Handling Guide](https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final)
 - [SANS Incident Handler's Handbook](https://www.sans.org/white-papers/33901/)

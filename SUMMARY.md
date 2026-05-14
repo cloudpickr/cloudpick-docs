@@ -14,7 +14,6 @@
 - [콘솔, CLI, SDK](about-cloud/console-cli-sdk.md)
 - [비용 구조 이해하기](about-cloud/pricing-model.md)
 - [멀티클라우드 이해하기](about-cloud/why-multicloud.md)
-- [멀티클라우드 네트워킹](about-cloud/multicloud-networking.md)
 - [Well-Architected Framework](about-cloud/well-architected.md)
 - [기술 지원과 어드바이저](about-cloud/support-plans.md)
 
@@ -36,6 +35,7 @@
 - [DNS](networking/dns.md)
 - [CDN](networking/cdn.md)
 - [API Gateway](networking/api-gateway.md)
+- [멀티클라우드 네트워킹](networking/multicloud-networking.md)
 - [멀티클라우드 커넥티비티](networking/multicloud-connectivity.md)
 
 ## 보안 <a id="security"></a>

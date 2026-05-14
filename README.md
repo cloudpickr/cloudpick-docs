@@ -27,7 +27,7 @@ CloudPick은 점점 복잡해지는 클라우드의 개념과 이론을 쉽게 �
 1. [멀티클라우드 이해하기](about-cloud/why-multicloud.md)
 2. [벤더 비교하기](about-cloud/compare-clouds.md)
 3. [벤더 선택 의사결정](about-cloud/decision-framework.md)
-4. [멀티클라우드 네트워킹](about-cloud/multicloud-networking.md) → [커넥티비티 심화](networking/multicloud-connectivity.md)
+4. [멀티클라우드 네트워킹](networking/multicloud-networking.md) → [커넥티비티 심화](networking/multicloud-connectivity.md)
 5. [하이브리드/엣지 컴퓨팅](compute/hybrid-and-edge.md)
 {% endtab %}
 

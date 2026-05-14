@@ -65,19 +65,6 @@ CloudPick은 클라우드의 개념과 이론을 쉽게 설명하여, 독자가 
 {% endtab %}
 {% endtabs %}
 
-## 토픽 한눈에 보기
-
-| 카테고리 | 주요 문서 |
-| --- | --- |
-| **클라우드 기초** | [클라우드란?](about-cloud/what-is-cloud.md) · [벤더 비교](about-cloud/compare-clouds.md) · [리전과 AZ](about-cloud/regions-and-zones.md) · [비용 구조](about-cloud/pricing-model.md) |
-| **컴퓨팅** | [가상머신](compute/virtual-machines.md) · [컨테이너](compute/containers.md) · [서버리스](compute/serverless.md) · [오토스케일링](compute/auto-scaling.md) |
-| **네트워킹** | [VPC와 서브넷](networking/vpc-subnet.md) · [로드밸런서](networking/load-balancer.md) · [DNS](networking/dns.md) · [멀티클라우드 커넥티비티](networking/multicloud-connectivity.md) |
-| **보안** | [IAM](security/iam.md) · [시크릿 관리](security/secrets.md) · [보안 태세](security/security-posture.md) · [제로 트러스트](security/zero-trust.md) · [사고 대응](security/incident-response.md) |
-| **데이터베이스** | [관리형 RDB](database/managed-rdb.md) · [NoSQL](database/nosql.md) · [분석 플랫폼](database/analytics.md) |
-| **거버넌스** | [랜딩존](governance/landing-zone.md) · [FinOps](governance/finops.md) · [재해복구](governance/dr.md) · [규정 준수](governance/compliance.md) |
-| **DevOps** | [CI/CD](devops/cicd.md) · [IaC](devops/iac.md) · [DevSecOps](devops/devsecops.md) · [모니터링](devops/monitoring.md) · [패치/취약점](devops/patch-and-vulnerability.md) |
-| **AI** | [AI 시작하기](ai/getting-started.md) · [AI/ML 서비스](ai/ai-ml.md) · [RAG 패턴](ai/rag-patterns.md) · [멀티클라우드 AI](ai/multicloud-ai.md) |
-
 ## 대상 클라우드 벤더
 
 | 벤더 | 홈페이지 | 콘솔 |

@@ -46,7 +46,7 @@ description: 클라우드 계정과 조직 구조, 멀티 계정 전략, 주요 
 | **계정 생성** | Organizations API로 자동 생성 | 수동 또는 자동화 | Projects API로 자동 생성 | Compartment API |
 
 {% tabs %}
-{% tab title="AWS — Organization → OU → Account" %}
+{% tab title="AWS" %}
 ```mermaid
 graph TD
     A1[Organization] --> A2[OU]
@@ -63,7 +63,7 @@ AWS의 계층 구조는 **Organization → OU → Account** 입니다.
 AWS는 **AWS Control Tower**를 통해 모범 사례 기반의 멀티 계정 환경을 자동으로 구성할 수 있습니다.
 {% endtab %}
 
-{% tab title="Azure — MG → Subscription → RG" %}
+{% tab title="Azure" %}
 ```mermaid
 graph TD
     B1[Tenant] --> B2[Management Group]
@@ -82,7 +82,7 @@ Azure의 계층 구조는 **Tenant → Management Group → Subscription → Res
 Azure의 특징은 **Resource Group** 입니다. 하나의 Subscription 안에서도 리소스를 논리적으로 분리할 수 있어, 소규모 조직에서는 Subscription을 많이 만들지 않아도 됩니다.
 {% endtab %}
 
-{% tab title="GCP — Organization → Folder → Project" %}
+{% tab title="GCP" %}
 ```mermaid
 graph TD
     C1[Organization] --> C2[Folder]
@@ -99,7 +99,7 @@ GCP의 계층 구조는 **Organization → Folder → Project** 입니다.
 GCP의 특징은 **빌링이 Project와 분리** 되어 있다는 점입니다. 하나의 Billing Account에 여러 Project를 연결할 수 있어, 빌링 구조를 유연하게 설계할 수 있습니다.
 {% endtab %}
 
-{% tab title="OCI — Tenancy → Compartment" %}
+{% tab title="OCI" %}
 ```mermaid
 graph TD
     D1[Tenancy] --> D2[Compartment]

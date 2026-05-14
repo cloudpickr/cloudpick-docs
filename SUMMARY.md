@@ -45,6 +45,7 @@
 - [보안 태세 관리](security/security-posture.md)
 - [제로 트러스트](security/zero-trust.md)
 - [보안 사고 대응](security/incident-response.md)
+- [AI 보안](security/ai-security.md)
 
 ## 스토리지 <a id="storage"></a>
 

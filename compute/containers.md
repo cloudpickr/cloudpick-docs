@@ -31,15 +31,14 @@ EKS를 아시는 분을 위해: Azure는 AKS, GCP는 GKE, OCI는 OKE입니다.
 
 ### 서버리스 / 간편 컨테이너 실행
 
-| 벤더 | 제품 | 비고 |
-| --- | --- | --- |
-| AWS | Fargate | ECS/EKS 모두에서 사용 가능. 서버 관리 불필요 |
-| AWS | ECS (Elastic Container Service) | AWS 자체 오케스트레이터. K8s 없이 운영 |
-| AWS | App Runner | 소스 코드/이미지에서 바로 배포 |
-| Azure | Container Apps | K8s 기반이나 복잡성 숨김. 이벤트 기반 스케일링 내장 |
-| Azure | Container Instances (ACI) | 단일 컨테이너 빠르게 실행 |
-| GCP | Cloud Run | HTTP 기반 서버리스 컨테이너. 기존 앱 전환 용이 |
-| OCI | OCI Container Instances | 서버 관리 없이 컨테이너 실행 |
+서버(노드)를 직접 관리하지 않고 컨테이너를 실행하는 서비스입니다. AWS Fargate, Azure Container Apps, GCP Cloud Run, OCI Container Instances 등이 있으며, 각 제품의 상세 비교는 [서버리스](serverless.md#서버리스-컨테이너) 문서를 참고하세요.
+
+| 벤더 | 대표 제품 |
+| --- | --- |
+| AWS | Fargate · ECS · App Runner |
+| Azure | Container Apps · Container Instances (ACI) |
+| GCP | Cloud Run |
+| OCI | OCI Container Instances |
 
 ### 컨테이너 레지스트리
 

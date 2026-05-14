@@ -7,7 +7,7 @@ description: 멀티클라우드 환경에서 로그, 메트릭, 트레이스를 
 > 문서 기준: 2026년 5월
 
 {% hint style="info" %}
-관찰가능성(Observability) 기초와 SLI/SLO/SLA 개념은 [모니터링](monitoring.md)과 [DevOps란?](what-is-devops.md)에서 먼저 다루고 있습니다. 이 문서는 **멀티클라우드 환경에서 어떻게 관찰가능성을 통합하는가** 에 초점을 둡니다.
+단일 클라우드 모니터링 기초는 [모니터링](monitoring.md)을 참고하세요. 관찰가능성(Observability) 기초와 SLI/SLO/SLA 개념은 [모니터링](monitoring.md)과 [DevOps란?](what-is-devops.md)에서 먼저 다루고 있습니다. 이 문서는 **멀티클라우드 환경에서 어떻게 관찰가능성을 통합하는가** 에 초점을 둡니다.
 {% endhint %}
 
 ## 왜 통합이 문제인가

@@ -6,6 +6,10 @@ description: 메트릭/로그/트레이스, APM, SLO 모니터링, 알림 운영
 
 > 문서 기준: 2026년 5월
 
+{% hint style="info" %}
+이 문서는 단일 클라우드 환경의 모니터링 기초를 다룹니다. 멀티클라우드 통합 관찰가능성은 [통합 관찰가능성 아키텍처](observability.md)를 참고하세요.
+{% endhint %}
+
 ## 개요
 
 온프레미스에서는 Nagios, Zabbix 같은 도구를 설치하여 서버 상태를 모니터링합니다. 클라우드에서는 벤더가 관리형 모니터링 서비스를 제공하여, 에이전트 설치와 서버 운영 없이 메트릭, 로그, 트레이스를 수집하고 알림을 설정할 수 있습니다.
@@ -35,7 +39,6 @@ description: 메트릭/로그/트레이스, APM, SLO 모니터링, 알림 운영
 | Azure | Application Insights | 자동 계측. 성능 이상 자동 탐지 |
 | GCP | Cloud Trace + Cloud Profiler | 트레이싱 + 코드 레벨 프로파일링 |
 | OCI | OCI Application Performance Monitoring | 분산 트레이싱 + 합성 모니터링 |
-| 3rd party | Datadog, New Relic, Dynatrace | 멀티클라우드 APM. 풍부한 자동 계측 |
 
 ### 왜 여럿이 함께 봐야 하는가
 
@@ -115,7 +118,6 @@ SLI/SLO/SLA 개념과 에러 버짓에 대해서는 [SLI/SLO와 에러 버짓](s
 | Azure | Azure Dashboards / Workbooks | Workbooks로 인터랙티브 리포트 |
 | GCP | Cloud Monitoring Dashboards | |
 | OCI | OCI Monitoring Console | 커스텀 대시보드 |
-| 3rd party | Grafana, Datadog, New Relic | 멀티클라우드 통합 모니터링에 많이 사용 |
 
 ## 핵심 차이점
 
@@ -129,7 +131,7 @@ SLI/SLO/SLA 개념과 에러 버짓에 대해서는 [SLI/SLO와 에러 버짓](s
 
 ### 멀티클라우드 모니터링
 
-여러 벤더를 사용하는 환경에서는 Grafana, Datadog, New Relic 같은 3rd party 도구로 통합 모니터링하는 것이 일반적입니다. OpenTelemetry를 표준 계측 라이브러리로 사용하면 벤더 종속 없이 메트릭/로그/트레이스를 수집할 수 있습니다.
+여러 벤더를 사용하는 환경에서의 통합 모니터링(Grafana, Datadog, OpenTelemetry 등)은 [통합 관찰가능성 아키텍처](observability.md)에서 다룹니다.
 
 ## 관련 문서
 
@@ -164,8 +166,3 @@ SLI/SLO/SLA 개념과 에러 버짓에 대해서는 [SLI/SLO와 에러 버짓](s
 - [OCI Monitoring 문서](https://docs.oracle.com/en-us/iaas/Content/Monitoring/home.htm)
 - [OCI Logging 문서](https://docs.oracle.com/en-us/iaas/Content/Logging/home.htm)
 - [OCI Application Performance Monitoring](https://docs.oracle.com/en-us/iaas/application-performance-monitoring/index.html)
-
-### 오픈소스 / 3rd party
-
-- [OpenTelemetry](https://opentelemetry.io/docs/)
-- [Grafana](https://grafana.com/docs/)

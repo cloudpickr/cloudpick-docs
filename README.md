@@ -76,9 +76,11 @@ CloudPick은 AWS, Azure, GCP, OCI를 중심으로 설명하지만, 특정 벤더
 ### AI 도입을 검토하는 분
 
 1. [클라우드 AI 시작하기](ai/getting-started.md)
-2. [AI와 머신러닝 서비스](ai/ai-ml.md)
+2. [AI와 머신러닝 서비스](ai/ai-ml.md) — 모델 선택, 플랫폼 비교
 3. [벡터 스토어와 AI 데이터](ai/vector-store.md)
 4. [RAG 고급 패턴](ai/rag-patterns.md)
+5. [프롬프트 엔지니어링](ai/prompt-engineering.md)
+6. [멀티클라우드 AI 아키텍처](ai/multicloud-ai.md) — 비용 구조, GPU 선택, 벤더 조합
 
 ## 대상 클라우드 벤더
 

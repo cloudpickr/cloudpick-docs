@@ -39,16 +39,6 @@
 - [멀티클라우드 네트워킹](networking/multicloud-networking.md)
 - [멀티클라우드 커넥티비티](networking/multicloud-connectivity.md)
 
-## 보안 <a id="security"></a>
-
-- [IAM 실무 설계와 보안 운영](security/iam.md)
-- [시크릿 관리](security/secrets.md)
-- [데이터 보호와 워크로드 보안](security/data-protection.md)
-- [제로 트러스트](security/zero-trust.md)
-- [보안 태세 관리](security/security-posture.md)
-- [보안 사고 대응](security/incident-response.md)
-- [AI 보안](security/ai-security.md)
-
 ## 스토리지 <a id="storage"></a>
 
 - [객체 스토리지](storage/object-storage.md)
@@ -62,6 +52,30 @@
 - [NoSQL](database/nosql.md)
 - [데이터 분석 플랫폼](database/analytics.md)
 - [데이터베이스 마이그레이션](database/migration.md)
+
+## DevOps <a id="devops"></a>
+
+- [DevOps란?](devops/what-is-devops.md)
+- [CI/CD](devops/cicd.md)
+- [IaC](devops/iac.md)
+- [DevSecOps](devops/devsecops.md)
+- [모니터링](devops/monitoring.md)
+- [SLI/SLO와 에러 버짓](devops/slo.md)
+- [통합 관찰가능성 아키텍처](devops/observability.md)
+- [원격 접근 관리](devops/remote-access.md)
+- [패치 관리와 취약점 대응](devops/patch-and-vulnerability.md)
+- [Kubernetes 운영](devops/kubernetes-operations.md)
+- [플랫폼 엔지니어링](devops/platform-engineering.md)
+
+## 보안 <a id="security"></a>
+
+- [IAM 실무 설계와 보안 운영](security/iam.md)
+- [시크릿 관리](security/secrets.md)
+- [데이터 보호와 워크로드 보안](security/data-protection.md)
+- [제로 트러스트](security/zero-trust.md)
+- [보안 태세 관리](security/security-posture.md)
+- [보안 사고 대응](security/incident-response.md)
+- [AI 보안](security/ai-security.md)
 
 ## 거버넌스 <a id="governance"></a>
 
@@ -82,17 +96,3 @@
 - [프롬프트 엔지니어링](ai/prompt-engineering.md)
 - [멀티클라우드 AI 아키텍처](ai/multicloud-ai.md)
 - [LLMOps (AI 운영과 평가)](ai/llmops.md)
-
-## DevOps <a id="devops"></a>
-
-- [DevOps란?](devops/what-is-devops.md)
-- [CI/CD](devops/cicd.md)
-- [IaC](devops/iac.md)
-- [DevSecOps](devops/devsecops.md)
-- [모니터링](devops/monitoring.md)
-- [SLI/SLO와 에러 버짓](devops/slo.md)
-- [통합 관찰가능성 아키텍처](devops/observability.md)
-- [원격 접근 관리](devops/remote-access.md)
-- [패치 관리와 취약점 대응](devops/patch-and-vulnerability.md)
-- [Kubernetes 운영](devops/kubernetes-operations.md)
-- [플랫폼 엔지니어링](devops/platform-engineering.md)

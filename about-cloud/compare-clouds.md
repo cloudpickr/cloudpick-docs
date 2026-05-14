@@ -141,7 +141,7 @@ AWS는 타사 대비 직접적인 서비스 비교 페이지를 제공하지 않
 
 ## 3rd Party 비교 자료
 
-- [Public Cloud Services Comparison](https://comparecloud.in) — AWS, Azure, GCP, Oracle Cloud 서비스 카테고리별 비교
+- [Public Cloud Services Comparison](https://comparecloud.in) — 주요 클라우드 벤더의 서비스를 카테고리별로 비교하는 커뮤니티 프로젝트
   - [소스 코드](https://github.com/ilyas-it83/CloudComparer/)
 
 ## 속도 비교

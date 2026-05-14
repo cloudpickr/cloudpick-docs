@@ -61,7 +61,7 @@ description: 관리형 RDB와 클라우드 네이티브 DB의 차이, HA 구성,
 | GCP | Cloud SQL | MySQL, PostgreSQL, SQL Server |
 | GCP | AlloyDB | PostgreSQL 호환. Google 자체 설계 |
 | OCI | OCI Autonomous Database | Oracle DB 기반. 자동 튜닝/패치/스케일링 |
-| OCI | OCI MySQL HeatWave | MySQL 호환. OLTP + OLAP 통합 처리 |
+| OCI | OCI MySQL HeatWave | MySQL 호환. OLTP + OLAP 통합 처리. [HeatWave on AWS/Azure](https://www.oracle.com/mysql/heatwave/)로 타 클라우드에서도 사용 가능 |
 
 ### 클라우드 네이티브 DB
 

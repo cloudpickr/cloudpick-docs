@@ -19,7 +19,7 @@ description: 멀티클라우드 AI 아키텍처 패턴, RAG 파이프라인, GPU
 | AWS | [Amazon Bedrock](https://aws.amazon.com/bedrock/), [Amazon SageMaker AI](https://aws.amazon.com/sagemaker/ai/) | 자체 **Amazon Nova** 모델 + Anthropic/OpenAI/Meta/Mistral/NVIDIA 등 최대 규모 모델 카탈로그, 자체 AI 칩(Trainium/Inferentia) |
 | Azure | [Azure OpenAI / Microsoft Foundry](https://azure.microsoft.com/products/ai-services/openai-service) | OpenAI GPT 시리즈 주력, Microsoft 365/GitHub/Power Platform 통합, 엔터프라이즈 보안 |
 | GCP | [Vertex AI](https://cloud.google.com/vertex-ai), [Gemini](https://cloud.google.com/gemini) | 자체 **Gemini 2.5** 네이티브 멀티모달, TPU 인프라, BigQuery/Search 통합 |
-| OCI | [OCI Generative AI](https://docs.oracle.com/iaas/Content/generative-ai/home.htm), [OCI AI Services](https://www.oracle.com/artificial-intelligence/ai-services/) | Cohere/Llama/Grok 제공, 전용 AI 클러스터 + RDMA Bare Metal, Oracle DB 통합 |
+| OCI | [OCI Generative AI](https://docs.oracle.com/iaas/Content/generative-ai/home.htm), [OCI AI Services](https://www.oracle.com/artificial-intelligence/ai-services/) | Cohere/Llama/Grok 제공, **Dedicated AI Cluster** (RDMA 기반 전용 GPU 클러스터, 다른 테넌트와 공유 없음), Oracle DB 네이티브 벡터 검색 통합, 이그레스 10TB 무료로 멀티클라우드 AI 파이프라인에 유리 |
 
 ## GPU 가용성
 

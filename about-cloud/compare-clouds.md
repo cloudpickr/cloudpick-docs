@@ -19,7 +19,7 @@ description: AWS, Azure, GCP, OCI 주요 벤더의 특징, 강점, 멀티클라�
 | **콘솔** | [Console](https://console.aws.amazon.com) | [Portal](https://portal.azure.com) | [Console](https://console.cloud.google.com) | [Console](https://cloud.oracle.com) |
 
 {% hint style="info" %}
-시장 점유율은 Synergy Research Group 2024년 기준 추정치이며, 측정 방법에 따라 차이가 있을 수 있습니다. 이 문서는 CloudPick에서 우선 다루는 AWS, Azure, GCP, OCI를 중심으로 비교합니다.
+시장 점유율은 Synergy Research Group 2024년 기준 추정치이며, 측정 방법에 따라 차이가 있을 수 있습니다.
 {% endhint %}
 
 ## 주요 서비스 매핑

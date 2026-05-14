@@ -1,7 +1,7 @@
 # Table of contents
 
 - [CloudPick Docs](README.md)
-- [추천 읽기 가이드](about-cloud/reading-guide.md)
+- [추천 읽기 가이드](reading-guide.md)
 - [용어집](GLOSSARY.md)
 
 ## 클라우드의 개념 <a id="about-cloud"></a>

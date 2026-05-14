@@ -21,7 +21,9 @@ Microsoft 공식 정의: "클라우드 모더나이제이션은 기존 클라우
 | **시점** | 이전 중 | 이전 후 또는 동시 |
 | **대표 활동** | Lift & Shift | Replatform, Refactor, Rearchitect |
 
+{% hint style="info" %}
 마이그레이션 전략(7R)은 [애플리케이션 마이그레이션](migration.md)을 참고하세요.
+{% endhint %}
 
 ## 왜 모더나이제이션인가
 

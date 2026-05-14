@@ -49,5 +49,5 @@ description: 플랫폼 엔지니어링과 IDP(Internal Developer Platform)의 �
 - [CNCF Platforms White Paper](https://tag-app-delivery.cncf.io/whitepapers/platforms/)
 - [Backstage 문서](https://backstage.io/docs/)
 - [Crossplane 문서](https://docs.crossplane.io/)
-- [Humanitec Platform Orchestrator](https://humanitec.com/platform-orchestrator)
+- [Humanitec Platform Orchestrator](https://humanitec.com/)
 - [Team Topologies — Platform Teams](https://teamtopologies.com/)

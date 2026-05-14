@@ -1,0 +1,61 @@
+---
+description: 메시지 큐와 이벤트 스트리밍의 개념, 벤더별 서비스, 선택 기준을 비교합니다.
+---
+
+# 메시지 큐와 이벤트 스트리밍
+
+> 문서 기준: 2026년 5월
+
+## 개요
+
+마이크로서비스 간 직접 호출(동기)은 결합도를 높이고 장애가 전파됩니다. **메시지 큐**와 **이벤트 스트리밍**은 서비스 간 통신을 비동기로 분리하여 느슨한 결합, 부하 완충, 장애 격리를 제공합니다.
+
+| 구분 | 메시지 큐 | 이벤트 스트리밍 |
+| --- | --- | --- |
+| **모델** | 생산자 → 큐 → 소비자 (1:1 또는 팬아웃) | 생산자 → 토픽 → 여러 소비자 (Pub/Sub) |
+| **메시지 보존** | 소비 후 삭제 | 보존 기간 동안 재읽기 가능 |
+| **순서 보장** | FIFO 옵션 | 파티션 내 순서 보장 |
+| **적합한 경우** | 작업 큐, 비동기 처리, 부하 분산 | 이벤트 소싱, 실시간 분석, 로그 수집 |
+
+## 벤더별 서비스 비교
+
+| 영역 | AWS | Azure | GCP | OCI |
+| --- | --- | --- | --- | --- |
+| **메시지 큐** | [SQS](https://docs.aws.amazon.com/sqs/) | [Service Bus Queue](https://learn.microsoft.com/azure/service-bus-messaging/) | [Cloud Tasks](https://cloud.google.com/tasks/docs) | [OCI Queue](https://docs.oracle.com/en-us/iaas/Content/queue/home.htm) |
+| **Pub/Sub** | [SNS](https://docs.aws.amazon.com/sns/) | [Service Bus Topic](https://learn.microsoft.com/azure/service-bus-messaging/) | [Pub/Sub](https://cloud.google.com/pubsub/docs) | [OCI Streaming](https://docs.oracle.com/en-us/iaas/Content/Streaming/home.htm) |
+| **이벤트 라우팅** | [EventBridge](https://docs.aws.amazon.com/eventbridge/) | [Event Grid](https://learn.microsoft.com/azure/event-grid/) | [Eventarc](https://cloud.google.com/eventarc/docs) | [OCI Events](https://docs.oracle.com/en-us/iaas/Content/Events/home.htm) |
+| **스트리밍 (Kafka 호환)** | [MSK](https://docs.aws.amazon.com/msk/) | [Event Hubs](https://learn.microsoft.com/azure/event-hubs/) (Kafka 프로토콜 호환) | [Pub/Sub](https://cloud.google.com/pubsub/docs) + [Dataflow](https://cloud.google.com/dataflow/docs) | [OCI Streaming](https://docs.oracle.com/en-us/iaas/Content/Streaming/home.htm) (Kafka 호환) |
+
+## 언제 무엇을 선택할 것인가
+
+| 요구사항 | 권장 |
+| --- | --- |
+| 단순 작업 큐 (비동기 처리, 재시도) | SQS, Service Bus Queue, Cloud Tasks, OCI Queue |
+| 이벤트 팬아웃 (1:N 알림) | SNS, Service Bus Topic, Pub/Sub |
+| 이벤트 기반 아키텍처 (라우팅, 필터링) | EventBridge, Event Grid, Eventarc |
+| 대용량 실시간 스트리밍 (로그, 클릭스트림) | MSK/Kafka, Event Hubs, Pub/Sub, OCI Streaming |
+| 이벤트 소싱 (이력 재생 필요) | Kafka(MSK), Event Hubs (Capture) |
+| 벤더 중립 (멀티클라우드) | Apache Kafka (자체 운영 또는 Confluent Cloud) |
+
+## 참고하기
+
+### AWS
+
+- [Amazon SQS 문서](https://docs.aws.amazon.com/sqs/)
+- [Amazon EventBridge 문서](https://docs.aws.amazon.com/eventbridge/)
+- [Amazon MSK 문서](https://docs.aws.amazon.com/msk/)
+
+### Azure
+
+- [Azure Service Bus 문서](https://learn.microsoft.com/azure/service-bus-messaging/)
+- [Azure Event Hubs 문서](https://learn.microsoft.com/azure/event-hubs/)
+
+### GCP
+
+- [Cloud Pub/Sub 문서](https://cloud.google.com/pubsub/docs)
+- [Eventarc 문서](https://cloud.google.com/eventarc/docs)
+
+### OCI
+
+- [OCI Queue 문서](https://docs.oracle.com/en-us/iaas/Content/queue/home.htm)
+- [OCI Streaming 문서](https://docs.oracle.com/en-us/iaas/Content/Streaming/home.htm)

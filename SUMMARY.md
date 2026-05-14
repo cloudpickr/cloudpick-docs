@@ -1,21 +1,20 @@
 # Table of contents
 
 - [CloudPick Docs](README.md)
-- [용어집](GLOSSARY.md)
 
 ## 클라우드의 개념 <a id="about-cloud"></a>
 
 - [클라우드란?](about-cloud/what-is-cloud.md)
-- [멀티클라우드 이해하기](about-cloud/why-multicloud.md)
 - [벤더 비교하기](about-cloud/compare-clouds.md)
 - [벤더 선택 의사결정 프레임워크](about-cloud/decision-framework.md)
 - [리전과 가용영역](about-cloud/regions-and-zones.md)
+- [공동 책임 모델](about-cloud/shared-responsibility.md)
 - [계정과 조직 구조](about-cloud/accounts-and-organizations.md)
 - [IAM 개요](about-cloud/iam-overview.md)
 - [콘솔, CLI, SDK](about-cloud/console-cli-sdk.md)
-- [멀티클라우드 네트워킹](about-cloud/multicloud-networking.md)
-- [공동 책임 모델](about-cloud/shared-responsibility.md)
 - [비용 구조 이해하기](about-cloud/pricing-model.md)
+- [멀티클라우드 이해하기](about-cloud/why-multicloud.md)
+- [멀티클라우드 네트워킹](about-cloud/multicloud-networking.md)
 - [Well-Architected Framework](about-cloud/well-architected.md)
 - [기술 지원과 어드바이저](about-cloud/support-plans.md)
 
@@ -25,10 +24,10 @@
 - [컨테이너 서비스](compute/containers.md)
 - [서버리스](compute/serverless.md)
 - [오토스케일링](compute/auto-scaling.md)
-- [애플리케이션 마이그레이션](compute/migration.md)
-- [애플리케이션 모더나이제이션](compute/modernization.md)
 - [서비스 메시](compute/service-mesh.md)
 - [하이브리드/엣지 컴퓨팅](compute/hybrid-and-edge.md)
+- [애플리케이션 마이그레이션](compute/migration.md)
+- [애플리케이션 모더나이제이션](compute/modernization.md)
 
 ## 네트워킹 <a id="networking"></a>
 
@@ -44,8 +43,8 @@
 - [IAM 실무 설계와 보안 운영](security/iam.md)
 - [시크릿 관리](security/secrets.md)
 - [데이터 보호와 워크로드 보안](security/data-protection.md)
-- [보안 태세 관리](security/security-posture.md)
 - [제로 트러스트](security/zero-trust.md)
+- [보안 태세 관리](security/security-posture.md)
 - [보안 사고 대응](security/incident-response.md)
 - [AI 보안](security/ai-security.md)
 
@@ -68,7 +67,7 @@
 - [랜딩존](governance/landing-zone.md)
 - [FinOps](governance/finops.md)
 - [재해복구](governance/dr.md)
-- [규정 준수 (Compliance)](governance/compliance.md)
+- [규정 준수](governance/compliance.md)
 - [벤더 종속성과 출구 전략](governance/exit-strategy.md)
 - [지속 가능성과 GreenOps](governance/sustainability.md)
 
@@ -96,3 +95,7 @@
 - [패치 관리와 취약점 대응](devops/patch-and-vulnerability.md)
 - [Kubernetes 운영](devops/kubernetes-operations.md)
 - [플랫폼 엔지니어링](devops/platform-engineering.md)
+
+## 부록
+
+- [용어집](GLOSSARY.md)

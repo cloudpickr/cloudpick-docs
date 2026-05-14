@@ -61,6 +61,67 @@ IAM을 잘못 설정하면 데이터 유출이나 리소스 삭제 같은 보안
 
 **OCI IAM with Identity Domains** — HCL 유사 구문의 정책 언어로 `Allow group <그룹> to <동사> <리소스타입> in compartment <컴파트먼트>` 형태로 권한을 정의합니다. 컴파트먼트 계층에서 정책이 상속되며, Identity Domains로 멀티 테넌시 ID 관리와 외부 IdP 페더레이션을 지원합니다.
 
+## ID 유형별 관리
+
+IAM에서 관리하는 ID는 크게 3가지입니다. 각각 생성/권한 부여/회수 방법이 다릅니다.
+
+### 사람 (직원/계약직)
+
+| 라이프사이클 | 해야 할 일 | 벤더별 방법 |
+| --- | --- | --- |
+| **입사** | 계정 생성 + 그룹 배정 + MFA 강제 | AWS: Identity Center에서 사용자 생성 또는 외부 IdP(Okta, Entra ID) 연동. Azure: Entra ID 사용자 생성. GCP: Cloud Identity 또는 Workspace. OCI: Identity Domain 사용자 생성 |
+| **부서 이동** | 기존 그룹 제거 + 새 그룹 배정 | 그룹 기반 권한이면 그룹만 변경. 개별 정책 부여했다면 수동 정리 필요 |
+| **퇴사** | 계정 비활성화 → 세션 무효화 → 일정 기간 후 삭제 | 즉시 삭제하면 감사 추적 불가. 비활성화 후 90일 보존 권장 |
+| **정기 검토** | 미사용 계정/과다 권한 탐지 | AWS: Access Analyzer, Azure: Access Reviews, GCP: IAM Recommender |
+
+**실무 원칙:**
+- 개별 사용자에게 직접 정책을 붙이지 말 것 → **그룹 기반** 권한 관리
+- 콘솔 접근은 **SSO + MFA** 필수
+- 퇴사 프로세스에 "클라우드 계정 비활성화"를 HR 체크리스트에 포함
+
+### 기기/서비스 (워크로드)
+
+EC2, Lambda, 컨테이너, CI/CD 파이프라인 등 **사람이 아닌 워크로드**에 권한을 부여하는 방법입니다.
+
+| 벤더 | 권장 방식 | 설명 |
+| --- | --- | --- |
+| AWS | **IAM Role** (Instance Profile, Task Role, Execution Role) | EC2/ECS/Lambda에 역할을 연결하면 임시 토큰이 자동 주입됨 |
+| Azure | **Managed Identity** (System-assigned / User-assigned) | VM/App Service/Function에 연결. 토큰 자동 발급/갱신 |
+| GCP | **Attached Service Account** + Workload Identity | GKE Pod에 Service Account 연결. 키 파일 불필요 |
+| OCI | **Instance Principal / Resource Principal** | Compute/Function에 동적 그룹 매칭으로 권한 부여 |
+
+**절대 하지 말 것:**
+- Access Key/Service Account Key를 환경변수나 코드에 하드코딩
+- 하나의 서비스 계정을 여러 워크로드가 공유 (권한 분리 불가)
+
+**해야 할 것:**
+- 워크로드별 별도 역할/ID 생성 (최소 권한 적용 가능)
+- CI/CD 파이프라인은 OIDC Federation으로 임시 토큰 발급 (GitHub Actions → AWS Role 등)
+
+### 서드파티 (외부 파트너/SaaS/벤더)
+
+외부 조직이나 SaaS 서비스에 우리 클라우드 리소스 접근을 허용해야 할 때입니다.
+
+| 시나리오 | 권장 방법 | 주의점 |
+| --- | --- | --- |
+| **외부 SaaS가 우리 S3/Blob 접근** | Cross-account Role (AWS), Service Principal + RBAC (Azure), Workload Identity Federation (GCP) | 외부 계정 ID를 신뢰 정책에 명시. 와일드카드(`*`) 금지 |
+| **파트너사 엔지니어가 콘솔 접근** | 별도 역할 생성 + 시간 제한 + MFA 강제 | 상시 접근 금지. JIT 방식으로 필요 시에만 활성화 |
+| **감사/컨설팅 업체** | 읽기 전용 역할 + 특정 리소스만 | 전체 계정 읽기 권한 부여 금지. 필요한 서비스만 |
+| **CI/CD 외부 서비스 (GitHub Actions 등)** | OIDC Federation (키 없이 토큰 교환) | 장기 키 대신 OIDC 사용. 리포지토리/브랜치 조건 제한 |
+
+**벤더별 외부 접근 메커니즘:**
+
+| 벤더 | 크로스 계정/테넌트 | 외부 IdP 연동 |
+| --- | --- | --- |
+| AWS | Cross-account IAM Role (신뢰 정책에 외부 계정 ID 지정) | OIDC/SAML Federation, IAM Identity Center |
+| Azure | B2B Collaboration (Entra ID 게스트), Lighthouse (MSP용) | Entra External ID, Workload Identity Federation |
+| GCP | Cross-project IAM binding, Workload Identity Pool | Workforce Identity Federation, Workload Identity Federation |
+| OCI | Cross-tenancy Policy (`define tenancy`), Identity Domain Federation | SAML/OIDC Federation |
+
+{% hint style="warning" %}
+**서드파티 접근의 핵심 원칙:** 장기 키를 공유하지 말 것. 역할 기반 임시 접근 + 최소 권한 + 시간 제한 + 감사 로그. 계약 종료 시 즉시 신뢰 관계 제거.
+{% endhint %}
+
 ## 최소 권한 실천 도구
 
 최소 권한 원칙을 지키려면, 실제 사용되는 권한을 모니터링하고 불필요한 권한을 지속적으로 제거해야 합니다. IAM 이상 행위 탐지(비정상 API 호출 등)는 [보안 태세 관리](security-posture.md)의 위협 탐지 서비스와 연동됩니다.

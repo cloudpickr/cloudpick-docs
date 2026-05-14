@@ -157,5 +157,5 @@ graph LR
 - [AWS DevSecOps Workshop](https://catalog.workshops.aws/devsecops)
 - [Microsoft Security Development Lifecycle](https://www.microsoft.com/en-us/securityengineering/sdl)
 - [Google Cloud Security Best Practices](https://cloud.google.com/security/best-practices)
-- [CIS Software Supply Chain Security Guide](https://www.cisecurity.org/benchmark/software_supply_chain)
+- [CIS Software Supply Chain Security Guide](https://www.cisecurity.org/cis-benchmarks)
 - [SLSA (Supply-chain Levels for Software Artifacts)](https://slsa.dev/)

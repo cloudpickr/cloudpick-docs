@@ -67,7 +67,7 @@ AI 에이전트가 도구(Tool)를 호출할 때 최소 권한 원칙을 적용�
 ## 참고하기
 
 - [OWASP Top 10 for LLM Applications](https://owasp.org/www-project-top-10-for-large-language-model-applications/)
-- [NIST AI Risk Management Framework](https://www.nist.gov/artificial-intelligence/ai-risk-management-framework)
+- [NIST AI Risk Management Framework](https://www.nist.gov/artificial-intelligence/executive-order-safe-secure-and-trustworthy-artificial-intelligence)
 - [AWS Bedrock Guardrails 문서](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html)
 - [Azure AI Content Safety 문서](https://learn.microsoft.com/azure/ai-services/content-safety/)
 - [Google Responsible AI Practices](https://ai.google/responsibility/responsible-ai-practices/)

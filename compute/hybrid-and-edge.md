@@ -15,7 +15,7 @@ description: 하이브리드 클라우드, 엣지 컴퓨팅, 멀티클라우드 
 | 벤더 | 온프레미스 확장 | 엣지 | 멀티클라우드 관리 |
 | --- | --- | --- | --- |
 | AWS | [Outposts](https://aws.amazon.com/outposts/) (랙/서버) | [Local Zones](https://aws.amazon.com/about-aws/global-infrastructure/localzones/), [Wavelength](https://aws.amazon.com/wavelength/) | EKS Anywhere, ECS Anywhere |
-| Azure | [Azure Stack HCI](https://learn.microsoft.com/azure/azure-stack/hci/), [Azure Local](https://learn.microsoft.com/azure/azure-local/) | Azure Edge Zones | [Azure Arc](https://azure.microsoft.com/products/azure-arc/) |
+| Azure | [Azure Stack HCI](https://learn.microsoft.com/azure/azure-local/), [Azure Local](https://learn.microsoft.com/azure/azure-local/) | Azure Edge Zones | [Azure Arc](https://azure.microsoft.com/products/azure-arc/) |
 | GCP | [Google Distributed Cloud](https://cloud.google.com/distributed-cloud) (Connected/Edge/Air-gapped) | GDC Edge | [GKE Enterprise](https://cloud.google.com/kubernetes-engine/enterprise/docs) |
 | OCI | [Dedicated Region](https://www.oracle.com/cloud/cloud-at-customer/dedicated-region/), [Compute Cloud@Customer](https://www.oracle.com/cloud/cloud-at-customer/) | — | [OCI Multicloud](https://docs.oracle.com/en/solutions/oci-best-practices/deploy-multicloud-oci-oracle-database-services1.html) |
 
@@ -47,6 +47,6 @@ description: 하이브리드 클라우드, 엣지 컴퓨팅, 멀티클라우드 
 - [AWS Outposts 문서](https://docs.aws.amazon.com/outposts/)
 - [Azure Arc 문서](https://learn.microsoft.com/azure/azure-arc/)
 - [Google Distributed Cloud 문서](https://cloud.google.com/distributed-cloud/hosted/docs)
-- [OCI Dedicated Region](https://docs.oracle.com/en-us/iaas/Content/dedicated-region/home.htm)
+- [OCI Dedicated Region](https://www.oracle.com/cloud/cloud-at-customer/dedicated-region/)
 - [OCI Alloy](https://www.oracle.com/cloud/alloy/)
 - [CNCF Multi-Cloud Patterns](https://www.cncf.io/blog/2023/03/29/multi-cloud-is-real/)

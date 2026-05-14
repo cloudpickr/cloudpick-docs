@@ -92,3 +92,4 @@
 - [통합 관찰가능성 아키텍처](devops/observability.md)
 - [원격 접근 관리](devops/remote-access.md)
 - [패치 관리와 취약점 대응](devops/patch-and-vulnerability.md)
+- [Kubernetes 운영](devops/kubernetes-operations.md)

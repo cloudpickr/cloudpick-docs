@@ -92,7 +92,6 @@ S3 호환 API를 지원하며, Auto-Tiering으로 접근 패턴에 따라 Standa
 
 각 벤더 모두 "스토리지에서 데이터 플랫폼으로"의 방향을 추구하고 있습니다. AWS는 S3 자체에 기능을 내장하는 방향이고, Azure는 Data Lake Storage + Fabric 통합, GCP는 BigLake + BigQuery 통합으로 접근하고 있습니다.
 
-
 ## 스토리지 클래스 선택 기준
 
 | 접근 빈도 | 권장 클래스 | AWS | Azure | GCP | OCI |

@@ -119,7 +119,6 @@ EKS를 아시는 분을 위해: Azure는 AKS, GCP는 GKE, OCI는 OKE입니다.
 [서버리스](serverless.md)
 {% endcontent-ref %}
 
-
 ## Kubernetes 프로덕션 준비 체크리스트
 
 - [ ] 노드를 멀티 AZ에 분산 배치했는가

@@ -71,7 +71,7 @@ IaC는 포터빌리티의 기반입니다. Terraform은 멀티클라우드 정�
 | OCI Resource Manager | OCI 전용 (Terraform 기반) | 중간 |
 
 {% hint style="info" %}
-IaC 도구 상세 비교 → [IaC](../devops/iac.md)
+IaC 도구의 상세 비교는 [IaC](../devops/iac.md)
 {% endhint %}
 
 ### 3. 추상화 계층

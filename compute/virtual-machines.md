@@ -97,7 +97,7 @@ VM은 **관리 부담이 가장 큰 컴퓨팅 서비스**입니다. OS 패치, �
 | OCI | Pay-As-You-Go | Monthly Flex / Annual Flex / Universal Credits | Preemptible Instance |
 
 {% hint style="info" %}
-비용 구조 상세 → [비용 구조 이해하기](../about-cloud/pricing-model.md)
+비용 구조에 대한 상세 내용은 [비용 구조 이해하기](../about-cloud/pricing-model.md)
 {% endhint %}
 
 ## 배치 그룹과 전용 호스트

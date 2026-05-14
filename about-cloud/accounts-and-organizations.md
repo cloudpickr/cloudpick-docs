@@ -124,32 +124,19 @@ OCI의 특징은 **Compartment가 리소스 격리와 조직 구조를 동시에
 | --- | --- | --- | --- | --- |
 | **빌링 단위** | Account | Subscription | Project | Tenancy |
 | **통합 빌링** | Organizations 통합 결제 | Billing Account → 여러 Subscription | Billing Account → 여러 Project | Tenancy 단위 통합 |
+| **인보이스 분리** | 별도 Organization 또는 Billing Transfer | Subscription Transfer, 별도 Billing Account | Billing Account 분리 | 별도 Tenancy |
 | **비용 할당** | 태그 기반 Cost Allocation | Resource Group + 태그 | 라벨 + Project 단위 | Compartment + 태그 |
 | **예산 알림** | AWS Budgets | Azure Budgets | GCP Budget Alerts | OCI Budgets |
+| **빌링 이관** | Billing Transfer (2025) | Subscription Transfer | Project의 Billing Account 변경 | Cross-Tenancy 전환 |
 
-- **AWS** — Organization 내 모든 Account의 비용을 관리 계정(Payer Account)에서 통합 결제합니다. **Billing Transfer**로 여러 Organization의 빌링을 하나의 계정에서 관리할 수도 있습니다 (2025년 출시).
-- **Azure** — EA(Enterprise Agreement) 계약 시 부서(Department)별 비용 분리가 가능합니다. **Subscription Transfer**로 구독의 빌링 소유권을 다른 계정으로 이전할 수 있습니다.
-- **GCP** — Billing Account가 계정 구조와 독립적이어서, Project별로 다른 Billing Account를 연결할 수 있습니다. Project의 빌링 계정 변경도 간단합니다.
+벤더별 특징:
 
-### 빌링 유연성: 인보이스 ↔ 프로젝트 관계
-
-"하나의 인보이스에 여러 프로젝트를 묶을 것인가, 프로젝트마다 별도 인보이스를 받을 것인가"는 조직 구조, 결제 방식(법인/부서별), 세금 처리에 영향을 줍니다.
-
-| 요건 | AWS | Azure | GCP | OCI |
-| --- | --- | --- | --- | --- |
-| **여러 계정(프로젝트)을 하나의 인보이스로 통합** | Organizations 통합 결제 | Billing Account에 여러 Subscription 연결 | Billing Account에 여러 Project 연결 | Tenancy 단위 통합 |
-| **같은 조직 안에서 인보이스 분리** | 별도 Organization 생성 또는 Billing Transfer | Subscription Transfer, 별도 Billing Account | Billing Account 분리 | 별도 Tenancy |
-| **법인/부서별 결제 수단 다르게** | Billing Transfer로 구성 | EA의 Department/Account 구조 활용 | Project별 Billing Account 매핑 | Compartment가 아닌 Tenancy 단위 |
-| **자회사 M&A 시 빌링 이관** | Billing Transfer (2025) | Subscription Transfer | Project의 Billing Account 변경 | Cross-Tenancy 전환 |
-
-특징별 정리:
-
-- **GCP** — Billing Account와 Project가 독립적이어서 가장 유연합니다. Project의 Billing Account를 드래그앤드롭처럼 변경할 수 있어 조직 개편에 강합니다.
-- **AWS** — Organization 내 Account 단위로 묶이지만, **Billing Transfer** (2025년 출시)로 Organization 간 빌링 이전이 가능해졌습니다. 이전에는 Account 종료 후 재생성이 필요했습니다.
+- **GCP** — Billing Account와 Project가 독립적이어서 가장 유연합니다. Project의 Billing Account를 변경할 수 있어 조직 개편에 강합니다.
+- **AWS** — Organization 내 Account 단위로 묶이지만, **Billing Transfer** (2025년 출시)로 Organization 간 빌링 이전이 가능해졌습니다.
 - **Azure** — EA/MCA 계약에 따라 Billing Account → Billing Profile → Invoice Section 계층을 사용하여 부서별 인보이스 분리가 가능합니다.
-- **OCI** — Tenancy가 빌링의 최상위 단위이므로, 법인별로 Tenancy를 나누는 것이 일반적입니다. Cross-Tenancy 정책으로 리소스는 공유 가능합니다.
+- **OCI** — Tenancy가 빌링의 최상위 단위이므로, 법인별로 Tenancy를 나누는 것이 일반적입니다.
 
-### 인보이스 받는 쪽 실무 팁
+### 실무 팁
 
 - **부서별로 법적/세무적 분리가 필요** → 별도 Billing Account/Organization/Tenancy
 - **그룹 단위로 통합 결제 + 부서별 비용 가시성** → 단일 Billing Account + 태그 기반 비용 할당

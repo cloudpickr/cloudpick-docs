@@ -119,7 +119,16 @@ OCI는 전통적인 공동 책임 모델을 기반으로 하되, **자동화된 
 
 ## 컴플라이언스
 
-각 국가/산업별 규제에 따라 보안 인증이 필요할 수 있습니다. 각 벤더의 공식 컴플라이언스 페이지에서 인증 현황을 확인하세요.
+각 국가/산업별 규제에 따라 보안 인증이 필요할 수 있습니다. 각 벤더는 인증 보고서를 직접 다운로드할 수 있는 서비스를 제공합니다.
+
+| 벤더 | 인증 보고서 서비스 | 설명 |
+| --- | --- | --- |
+| AWS | [AWS Artifact](https://aws.amazon.com/artifact/) | SOC, ISO, PCI 등 감사 보고서 직접 다운로드 |
+| Azure | [Service Trust Portal](https://servicetrust.microsoft.com/) | 감사 보고서, 컴플라이언스 가이드 |
+| GCP | [Compliance Reports Manager](https://cloud.google.com/security/compliance/compliance-reports-manager) | ISO, SOC 보고서 다운로드 |
+| OCI | [Oracle Cloud Compliance](https://www.oracle.com/corporate/cloud-compliance/) | 인증 현황 및 보고서 |
+
+상세 규정 준수 가이드는 [규정 준수](../governance/compliance.md)를 참고하세요.
 
 ## 참고하기
 

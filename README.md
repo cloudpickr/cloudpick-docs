@@ -18,13 +18,15 @@ CloudPick은 클라우드의 개념과 이론을 쉽게 설명하여, 독자가 
 2. [벤더 비교하기](about-cloud/compare-clouds.md)
 3. [리전과 가용영역](about-cloud/regions-and-zones.md)
 4. [공동 책임 모델](about-cloud/shared-responsibility.md)
+5. [비용 구조 이해하기](about-cloud/pricing-model.md)
 {% endtab %}
 
 {% tab title="🔀 멀티클라우드" %}
 1. [멀티클라우드 이해하기](about-cloud/why-multicloud.md)
 2. [벤더 비교하기](about-cloud/compare-clouds.md)
-3. [멀티클라우드 네트워킹](about-cloud/multicloud-networking.md) → [커넥티비티 심화](networking/multicloud-connectivity.md)
-4. [IAM 개요](about-cloud/iam-overview.md) → [IAM 심화](security/iam.md)
+3. [벤더 선택 의사결정](about-cloud/decision-framework.md)
+4. [멀티클라우드 네트워킹](about-cloud/multicloud-networking.md) → [커넥티비티 심화](networking/multicloud-connectivity.md)
+5. [하이브리드/엣지 컴퓨팅](compute/hybrid-and-edge.md)
 {% endtab %}
 
 {% tab title="⚙️ 실무 운영" %}
@@ -32,7 +34,7 @@ CloudPick은 클라우드의 개념과 이론을 쉽게 설명하여, 독자가 
 2. [비용 구조](about-cloud/pricing-model.md) → [FinOps](governance/finops.md)
 3. [Well-Architected Framework](about-cloud/well-architected.md)
 4. [재해복구](governance/dr.md)
-5. [모니터링](devops/monitoring.md) → [관찰가능성](devops/observability.md)
+5. [모니터링](devops/monitoring.md) → [SLI/SLO](devops/slo.md) → [관찰가능성](devops/observability.md)
 6. [원격 접근 관리](devops/remote-access.md)
 7. [패치/취약점 대응](devops/patch-and-vulnerability.md)
 {% endtab %}
@@ -43,8 +45,9 @@ CloudPick은 클라우드의 개념과 이론을 쉽게 설명하여, 독자가 
 3. [시크릿 관리](security/secrets.md)
 4. [데이터 보호](security/data-protection.md)
 5. [보안 태세 관리](security/security-posture.md)
-6. [DevSecOps](devops/devsecops.md)
-7. [규정 준수](governance/compliance.md)
+6. [제로 트러스트](security/zero-trust.md)
+7. [DevSecOps](devops/devsecops.md)
+8. [보안 사고 대응](security/incident-response.md)
 {% endtab %}
 
 {% tab title="🚚 마이그레이션" %}
@@ -52,6 +55,7 @@ CloudPick은 클라우드의 개념과 이론을 쉽게 설명하여, 독자가 
 2. [데이터베이스 마이그레이션](database/migration.md)
 3. [스토리지 마이그레이션](storage/migration.md)
 4. [모더나이제이션](compute/modernization.md)
+5. [벤더 종속성과 출구 전략](governance/exit-strategy.md)
 {% endtab %}
 
 {% tab title="🤖 AI 도입" %}
@@ -62,6 +66,7 @@ CloudPick은 클라우드의 개념과 이론을 쉽게 설명하여, 독자가 
 5. [프롬프트 엔지니어링](ai/prompt-engineering.md)
 6. [멀티클라우드 AI](ai/multicloud-ai.md) — 비용, GPU, 벤더 조합
 7. [LLMOps](ai/llmops.md) — 평가, 운영, 비용 추적
+8. [AI 보안](security/ai-security.md) — 가드레일, 프롬프트 인젝션 방어
 {% endtab %}
 {% endtabs %}
 

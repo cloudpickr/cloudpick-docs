@@ -8,13 +8,34 @@ description: IAM 실무 설계, 인증 방식, 권한 모델, 최소 권한 도�
 
 ## 개요
 
-이 문서는 IAM의 **실무 운영**에 집중합니다 — ID 유형별 관리(사람/기기/서드파티), 최소 권한 실천, 장기 자격 증명 위험, 보안 점검 체크리스트.
+이 문서는 IAM의 **실무 운영**에 집중합니다 — 자격 증명 선택, ID 유형별 적용, 최소 권한 실천, 보안 점검.
 
 {% hint style="info" %}
 벤더별 제품 비교, 인증 방식, 권한 모델 개요는 [IAM 개요](../about-cloud/iam-overview.md)를 참고하세요.
 {% endhint %}
 
-## ID 유형별 관리
+## 자격 증명의 종류
+
+클라우드에서 인증하는 방법은 크게 3가지입니다. **어떤 ID에 어떤 자격 증명을 쓰느냐**가 보안의 핵심입니다.
+
+| 방식 | 특징 | 적합한 대상 |
+| --- | --- | --- |
+| **장기 자격 증명** (Access Key, API Key) | 만료 없음. 유출 시 즉시 악용 가능 | ❌ 가능하면 사용하지 말 것 |
+| **역할 기반 임시 토큰** (IAM Role, Managed Identity) | 자동 발급/만료. 코드에 시크릿 불필요 | ✅ 기기/서비스 (워크로드) |
+| **페더레이션** (OIDC, SAML, Workload Identity) | 외부 IdP 토큰을 클라우드 권한으로 교환 | ✅ 사람(SSO), 서드파티, CI/CD |
+
+| 벤더 | 장기 자격 증명 | 역할 기반 대안 | 페더레이션 |
+| --- | --- | --- | --- |
+| AWS | Access Key | IAM Role (Instance Profile, Task Role) | OIDC/SAML Federation |
+| Azure | Service Principal Secret | Managed Identity | Entra External ID, Workload Identity Federation |
+| GCP | Service Account Key (JSON) | Attached Service Account | Workload Identity Federation |
+| OCI | API Signing Key | Instance Principal | SAML/OIDC Federation |
+
+{% hint style="warning" %}
+**원칙:** 사람은 SSO + MFA + 페더레이션, 서비스는 역할 기반 임시 토큰, 서드파티는 페더레이션 + 시간 제한. 장기 키는 최후의 수단입니다.
+{% endhint %}
+
+## ID 유형별 적용
 
 IAM에서 관리하는 ID는 크게 3가지입니다. 각각 생성/권한 부여/회수 방법이 다릅니다.
 
@@ -92,36 +113,6 @@ EC2, Lambda, 컨테이너, CI/CD 파이프라인 등 **사람이 아닌 워크�
 - 처음에는 넓은 권한으로 시작하되, 일정 기간 후 실제 사용된 권한만 남기고 축소합니다.
 - 정기적으로(분기별) 미사용 역할과 권한을 검토합니다.
 - 서비스 간 접근은 장기 자격 증명(Access Key) 대신 역할(Role)/관리 ID를 사용합니다.
-
-## 자격 증명: 장기 키 vs 역할 기반
-
-| 방식 | 예시 | 위험성 |
-| --- | --- | --- |
-| **장기 자격 증명** | AWS Access Key, Azure Service Principal Secret | 유출 시 만료 전까지 무제한 접근. 코드/환경변수에 하드코딩되기 쉬움. 교체 주기 관리 필요 |
-| **역할 기반 (임시 자격 증명)** | AWS IAM Role, Azure Managed Identity, GCP Service Account (Workload Identity), OCI Instance Principal | 임시 토큰 자동 발급/만료. 유출되어도 수 분~수 시간 내 만료. 코드에 시크릿 불필요 |
-
-**장기 자격 증명이 위험한 이유:**
-
-- Access Key가 Git 저장소, 로그, 환경변수에 노출되면 즉시 악용 가능
-- 퇴사자의 키가 회수되지 않으면 외부에서 계속 접근 가능
-- 키 교체(rotation)를 자동화하지 않으면 수년간 같은 키가 사용됨
-
-**역할 기반 인증의 장점:**
-
-- 자격 증명이 인스턴스/서비스에 자동으로 주입되므로 코드에 시크릿을 넣을 필요 없음
-- 토큰이 자동 만료되므로 유출 시 피해 범위가 제한됨
-- 교체가 자동으로 이루어져 관리 부담 없음
-
-| 벤더 | 장기 자격 증명 | 역할 기반 대안 |
-| --- | --- | --- |
-| AWS | Access Key ID + Secret | IAM Role (EC2 Instance Profile, ECS Task Role, Lambda Execution Role) |
-| Azure | Service Principal Client Secret | Managed Identity (System-assigned / User-assigned) |
-| GCP | Service Account Key (JSON) | Workload Identity, Attached Service Account |
-| OCI | API Signing Key | Instance Principal, Resource Principal |
-
-{% hint style="warning" %}
-**원칙:** 사람이 사용하는 계정은 MFA + SSO, 서비스가 사용하는 계정은 역할 기반 임시 자격 증명을 사용하세요.
-{% endhint %}
 
 ## IAM 보안 점검 체크리스트
 

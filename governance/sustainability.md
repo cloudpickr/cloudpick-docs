@@ -50,9 +50,23 @@ description: 클라우드 지속 가능성(GreenOps) — 탄소 배출 추적, �
 
 ## 참고하기
 
+### AWS
+
 - [AWS Sustainability Pillar (Well-Architected)](https://docs.aws.amazon.com/wellarchitected/latest/sustainability-pillar/sustainability-pillar.html)
+
+### Azure
+
 - [Azure Well-Architected — Sustainability](https://learn.microsoft.com/azure/well-architected/sustainability/)
+
+### GCP
+
 - [Google Cloud Carbon Footprint](https://cloud.google.com/carbon-footprint)
 - [GCP Region Carbon-Free Energy](https://cloud.google.com/sustainability/region-carbon)
+
+### OCI
+
 - [Oracle Cloud Sustainability](https://www.oracle.com/corporate/citizenship/sustainability/)
+
+### 표준 및 커뮤니티
+
 - [Green Software Foundation](https://greensoftware.foundation/)

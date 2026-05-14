@@ -74,8 +74,19 @@ DevOps/SRE에서 "서비스가 충분히 안정적인가?"를 체계적으로 �
 
 ## 참고하기
 
+### AWS
+
 - [AWS DevOps 가이드](https://docs.aws.amazon.com/ko_kr/whitepapers/latest/introduction-devops-aws/introduction-devops-aws.html)
+
+### Azure
+
 - [Azure DevOps 소개](https://learn.microsoft.com/ko-kr/devops/what-is-devops)
+
+### GCP
+
 - [Google Cloud DevOps](https://cloud.google.com/devops)
+
+### 표준 및 커뮤니티
+
 - [DORA Metrics (DevOps Research and Assessment)](https://dora.dev/)
 - [Platform Engineering 가이드](https://platformengineering.org/)

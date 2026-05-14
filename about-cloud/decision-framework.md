@@ -165,21 +165,27 @@ graph TD
 
 ## 참고하기
 
-### 프레임워크 / 가이드
+### AWS
 
 - [AWS Well-Architected Framework](https://aws.amazon.com/architecture/well-architected/)
+
+### Azure
+
 - [Microsoft Cloud Adoption Framework](https://learn.microsoft.com/azure/cloud-adoption-framework/)
+
+### GCP
+
 - [Google Cloud Adoption Framework](https://cloud.google.com/adoption-framework)
+
+### OCI
+
 - [Oracle Cloud Adoption Framework](https://docs.oracle.com/en-us/iaas/Content/cloud-adoption-framework/home.htm)
 
-### 리서치 / 분석
+### 표준 및 커뮤니티
 
 - [Gartner Magic Quadrant for Cloud Infrastructure](https://www.gartner.com/reviews/market/cloud-infrastructure-and-platform-services)
 - [CNCF Annual Survey](https://www.cncf.io/reports/)
 - [FinOps Foundation](https://www.finops.org/)
-
-### 관련 CloudPick 문서
-
 - [벤더 비교하기](compare-clouds.md)
 - [멀티클라우드 이해하기](why-multicloud.md)
 - [비용 구조 이해하기](pricing-model.md)

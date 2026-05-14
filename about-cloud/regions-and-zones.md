@@ -134,20 +134,20 @@ Azure는 한국 내에 서울-부산 리전 쌍이 있어, 데이터 주권 규�
 
 ## 참고하기
 
-### 프레임워크
+### AWS
 
 - [AWS Well-Architected — Reliability Pillar](https://docs.aws.amazon.com/ko_kr/wellarchitected/latest/reliability-pillar/welcome.html)
-- [Azure Well-Architected — Reliability](https://learn.microsoft.com/ko-kr/azure/well-architected/reliability/)
-- [GCP Architecture Framework — Reliability](https://cloud.google.com/architecture/framework/reliability)
-
-### 리전 및 인프라
-
 - [AWS 리전 및 가용 영역](https://docs.aws.amazon.com/ko_kr/AWSEC2/latest/UserGuide/using-regions-availability-zones.html)
-- [Azure 지역 및 가용성 영역](https://learn.microsoft.com/ko-kr/azure/reliability/availability-zones-overview)
-- [Google Cloud 위치](https://cloud.google.com/about/locations)
-
-### DR 가이드
-
 - [AWS DR 시나리오 백서](https://docs.aws.amazon.com/ko_kr/whitepapers/latest/disaster-recovery-workloads-on-aws/disaster-recovery-workloads-on-aws.html)
+
+### Azure
+
+- [Azure Well-Architected — Reliability](https://learn.microsoft.com/ko-kr/azure/well-architected/reliability/)
+- [Azure 지역 및 가용성 영역](https://learn.microsoft.com/ko-kr/azure/reliability/availability-zones-overview)
 - [Azure 비즈니스 연속성](https://learn.microsoft.com/ko-kr/azure/reliability/business-continuity-management-program)
+
+### GCP
+
+- [GCP Architecture Framework — Reliability](https://cloud.google.com/architecture/framework/reliability)
+- [Google Cloud 위치](https://cloud.google.com/about/locations)
 - [GCP DR 계획 가이드](https://cloud.google.com/architecture/dr-scenarios-planning-guide)

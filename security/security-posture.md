@@ -146,12 +146,26 @@ graph LR
 
 ## 참고하기
 
+### AWS
+
 - [AWS Security Hub 문서](https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html)
 - [Amazon GuardDuty 문서](https://docs.aws.amazon.com/guardduty/latest/ug/what-is-guardduty.html)
+
+### Azure
+
 - [Microsoft Defender for Cloud 문서](https://learn.microsoft.com/azure/defender-for-cloud/)
 - [Microsoft Sentinel 문서](https://learn.microsoft.com/azure/sentinel/)
+
+### GCP
+
 - [GCP Security Command Center 문서](https://cloud.google.com/security-command-center/docs)
 - [GCP Chronicle SIEM](https://cloud.google.com/chronicle/docs)
+
+### OCI
+
 - [OCI Cloud Guard 문서](https://docs.oracle.com/en-us/iaas/cloud-guard/home.htm)
+
+### 표준 및 커뮤니티
+
 - [CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks)
 - [NIST Cybersecurity Framework](https://www.nist.gov/cyberframework)

@@ -71,9 +71,23 @@ graph LR
 
 ## 참고하기
 
-- [NIST SP 800-207 — Zero Trust Architecture](https://csrc.nist.gov/publications/detail/sp/800-207/final)
+### AWS
+
 - [AWS Verified Access 문서](https://docs.aws.amazon.com/verified-access/latest/ug/what-is-verified-access.html)
+
+### Azure
+
 - [Microsoft Zero Trust 가이드](https://learn.microsoft.com/security/zero-trust/)
+
+### GCP
+
 - [Google BeyondCorp Enterprise](https://cloud.google.com/beyondcorp-enterprise/docs)
+
+### OCI
+
 - [OCI Zero Trust Packet Routing](https://docs.oracle.com/en-us/iaas/Content/zero-trust-packet-routing/home.htm)
+
+### 표준 및 커뮤니티
+
+- [NIST SP 800-207 — Zero Trust Architecture](https://csrc.nist.gov/publications/detail/sp/800-207/final)
 - [CISA Zero Trust Maturity Model](https://www.cisa.gov/zero-trust-maturity-model)

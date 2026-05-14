@@ -76,9 +76,23 @@ Oracle Database 기반으로 자동 튜닝, 자동 스케일링을 제공합니�
 
 ## 참고하기
 
+### AWS
+
 - [Amazon Redshift 문서](https://docs.aws.amazon.com/redshift/latest/mgmt/welcome.html)
+
+### Azure
+
 - [Azure Synapse Analytics 문서](https://learn.microsoft.com/azure/synapse-analytics/)
+
+### GCP
+
 - [Google BigQuery 문서](https://cloud.google.com/bigquery/docs)
+
+### OCI
+
 - [OCI Autonomous Data Warehouse 문서](https://docs.oracle.com/en-us/iaas/autonomous-database-serverless/index.html)
+
+### 표준 및 커뮤니티
+
 - [Apache Iceberg](https://iceberg.apache.org/)
 - [Delta Lake](https://delta.io/)

@@ -44,9 +44,23 @@ description: 하이브리드 클라우드, 엣지 컴퓨팅, 멀티클라우드 
 
 ## 참고하기
 
+### AWS
+
 - [AWS Outposts 문서](https://docs.aws.amazon.com/outposts/)
+
+### Azure
+
 - [Azure Arc 문서](https://learn.microsoft.com/azure/azure-arc/)
+
+### GCP
+
 - [Google Distributed Cloud 문서](https://cloud.google.com/distributed-cloud/hosted/docs)
+
+### OCI
+
 - [OCI Dedicated Region](https://www.oracle.com/cloud/cloud-at-customer/dedicated-region/)
 - [OCI Alloy](https://www.oracle.com/cloud/alloy/)
+
+### 표준 및 커뮤니티
+
 - [CNCF Multi-Cloud Patterns](https://www.cncf.io/blog/2023/03/29/multi-cloud-is-real/)

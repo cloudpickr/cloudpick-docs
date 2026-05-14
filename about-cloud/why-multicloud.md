@@ -146,22 +146,28 @@ ISO/IEC 22123-1은 멀티클라우드를 "둘 이상의 클라우드 서비스 �
 
 ## 참고하기
 
-### 표준 및 프레임워크
+### AWS
+
+- [AWS — Prescriptive Guidance: Strategy for multicloud](https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-multicloud/welcome.html)
+
+### Azure
+
+- [Azure — Cloud Adoption Framework](https://learn.microsoft.com/azure/cloud-adoption-framework/)
+
+### GCP
+
+- [Google Cloud — Hybrid and Multi-cloud Reference Architectures](https://cloud.google.com/architecture/network-hybrid-multicloud)
+
+### OCI
+
+- [OCI — Multicloud Solutions](https://docs.oracle.com/en/solutions/oci-best-practices/deploy-multicloud-oci-oracle-database-services1.html)
+
+### 표준 및 커뮤니티
 
 - [ISO/IEC 22123-1 — Cloud computing: Concepts and terminology](https://www.iso.org/standard/82758.html) — 멀티클라우드 공식 정의
 - [ISO/IEC 22123-3 — Multi-cloud reference architecture](https://www.iso.org/standard/90339.html) — 멀티클라우드 레퍼런스 아키텍처 표준
 - [NIST SP 500-292 — Cloud Computing Reference Architecture](https://www.nist.gov/publications/nist-cloud-computing-reference-architecture) — 클라우드 레퍼런스 아키텍처
 - [NIST Multi-Cloud Security Public Working Group](https://www.nist.gov/publications/nist-cloud-computing-reference-architecture) — 멀티클라우드 보안 레퍼런스
-
-### 커뮤니티 및 리서치
-
 - [CNCF Annual Survey 2024](https://www.cncf.io/reports/cncf-annual-survey-2024/) — 클라우드 네이티브 채택 현황, 멀티클라우드 통계
 - [FinOps Foundation — FOCUS Specification](https://finops.org/framework) — 멀티클라우드 비용 데이터 표준화
 - [Cloud Security Alliance — Security Guidance](https://cloudsecurityalliance.org/research/guidance) — 멀티클라우드 보안 가이드
-
-### 벤더 레퍼런스 아키텍처
-
-- [Google Cloud — Hybrid and Multi-cloud Reference Architectures](https://cloud.google.com/architecture/network-hybrid-multicloud)
-- [Azure — Cloud Adoption Framework](https://learn.microsoft.com/azure/cloud-adoption-framework/)
-- [AWS — Prescriptive Guidance: Strategy for multicloud](https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-multicloud/welcome.html)
-- [OCI — Multicloud Solutions](https://docs.oracle.com/en/solutions/oci-best-practices/deploy-multicloud-oci-oracle-database-services1.html)

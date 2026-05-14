@@ -27,6 +27,7 @@
 - [오토스케일링](compute/auto-scaling.md)
 - [애플리케이션 마이그레이션](compute/migration.md)
 - [애플리케이션 모더나이제이션](compute/modernization.md)
+- [서비스 메시](compute/service-mesh.md)
 
 ## 네트워킹 <a id="networking"></a>
 

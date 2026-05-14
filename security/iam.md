@@ -8,48 +8,11 @@ description: IAM 실무 설계, 인증 방식, 권한 모델, 최소 권한 도�
 
 ## 개요
 
-온프레미스에서는 Active Directory나 LDAP으로 사용자를 관리하고, 서버별로 접근 권한을 설정합니다. 클라우드에서는 수백 개의 서비스와 수천 개의 리소스가 있으므로, 누가 무엇을 할 수 있는지를 체계적으로 관리하는 **IAM** (Identity and Access Management)이 핵심입니다.
+이 문서는 IAM의 **실무 운영**에 집중합니다 — ID 유형별 관리(사람/기기/서드파티), 최소 권한 실천, 장기 자격 증명 위험, 보안 점검 체크리스트.
 
 {% hint style="info" %}
-**AWS IAM을 아시는 분을 위해:** Azure는 Entra ID, GCP는 Cloud IAM, OCI는 IAM with Identity Domains입니다.
+벤더별 제품 비교, 인증 방식, 권한 모델 개요는 [IAM 개요](../about-cloud/iam-overview.md)를 참고하세요.
 {% endhint %}
-
-IAM을 잘못 설정하면 데이터 유출이나 리소스 삭제 같은 보안 사고로 이어집니다. **최소 권한 원칙** (Principle of Least Privilege) — 필요한 최소한의 권한만 부여하는 것이 기본 원칙입니다.
-
-### 핵심 개념
-
-- **사용자** (User) — 사람 또는 애플리케이션을 나타내는 ID
-- **그룹** (Group) — 사용자를 묶어 권한을 일괄 부여
-- **역할** (Role) — 임시로 부여할 수 있는 권한 세트. 서비스 간 접근에 주로 사용
-- **정책** (Policy) — "누가, 무엇을, 어떤 리소스에" 할 수 있는지 정의하는 JSON/YAML 문서
-- **MFA(Multi-Factor Authentication)** — 비밀번호 외 추가 인증 수단
-
-## 제품 비교
-
-| 벤더 | 제품 | 비고 |
-| --- | --- | --- |
-| AWS | IAM | 사용자, 그룹, 역할, 정책. IAM Identity Center(구 SSO)로 멀티 계정 통합 |
-| Azure | Microsoft Entra ID (구 Azure AD) | 디렉토리 서비스 + RBAC. Microsoft 365와 통합 |
-| GCP | Cloud IAM | 프로젝트/폴더/조직 수준 RBAC. 서비스 계정으로 서비스 간 인증 |
-| OCI | OCI IAM with Identity Domains | 사용자, 그룹, 정책, 컴파트먼트 기반 접근 제어 |
-
-### 인증 방식
-
-| 방식 | AWS | Azure | GCP | OCI |
-| --- | --- | --- | --- | --- |
-| **콘솔 로그인** | 사용자명 + 비밀번호 + MFA | Entra ID 계정 + MFA | Google 계정 + MFA | 사용자명 + 비밀번호 + MFA |
-| **CLI/SDK** | Access Key 또는 `aws login` | `az login` (브라우저) | `gcloud auth login` (브라우저) | API Key + Config 또는 `oci session authenticate` |
-| **서비스 간** | IAM Role (임시 자격 증명) | Managed Identity | Service Account | Instance Principal / Resource Principal |
-| **외부 IdP 연동** | SAML/OIDC Federation | Entra ID 외부 ID | Workforce Identity Federation | SAML/OIDC Federation |
-
-### 권한 관리 모델
-
-| 벤더 | 모델 | 비고 |
-| --- | --- | --- |
-| AWS | 정책 기반 (JSON Policy Document) | Identity-based + Resource-based 정책 조합 |
-| Azure | RBAC (역할 기반 접근 제어) | 기본 제공 역할 + 커스텀 역할. 범위(구독/리소스그룹/리소스) 지정 |
-| GCP | RBAC (역할 기반) | 기본 역할, 사전 정의 역할, 커스텀 역할. 조직/폴더/프로젝트 상속 |
-| OCI | 정책 기반 (HCL 유사 구문) | 컴파트먼트 계층 구조에서 정책 상속. 동사+리소스 타입 조합 |
 
 ## 핵심 차이점
 

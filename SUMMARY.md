@@ -6,6 +6,7 @@
 ## 클라우드의 개념 <a id="about-cloud"></a>
 
 - [클라우드란?](about-cloud/what-is-cloud.md)
+- [추천 읽기 가이드](about-cloud/reading-guide.md)
 - [멀티클라우드 이해하기](about-cloud/why-multicloud.md)
 - [벤더 비교하기](about-cloud/compare-clouds.md)
 - [벤더 선택 의사결정 프레임워크](about-cloud/decision-framework.md)

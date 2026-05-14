@@ -58,11 +58,13 @@ CloudPick은 AWS, Azure, GCP, OCI를 중심으로 설명하지만, 특정 벤더
 
 ### 보안 강화를 담당하는 분
 
-1. [IAM과 접근 제어](security/iam.md)
-2. [시크릿 관리](security/secrets.md)
-3. [보안 태세 관리](security/security-posture.md)
-4. [DevSecOps](devops/devsecops.md)
-5. [규정 준수](governance/compliance.md)
+1. [공동 책임 모델](about-cloud/shared-responsibility.md)
+2. [IAM 개요](about-cloud/iam-overview.md) → [IAM과 접근 제어](security/iam.md)
+3. [시크릿 관리](security/secrets.md)
+4. [데이터 보호](security/data-protection.md)
+5. [보안 태세 관리](security/security-posture.md)
+6. [DevSecOps](devops/devsecops.md)
+7. [규정 준수](governance/compliance.md)
 
 ### 마이그레이션/모더나이제이션 계획 중인 분
 

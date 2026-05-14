@@ -43,7 +43,7 @@ description: 콘솔, CLI, SDK, Cloud Shell의 역할과 IaC와의 관계를 벤�
 
 | 항목 | AWS | Azure | GCP | OCI |
 | --- | --- | --- | --- | --- |
-| **CLI 이름** | AWS CLI | Azure CLI (`az`) | Google Cloud CLI (`gcloud`) | OCI CLI (`oci`) |
+| **CLI 이름** | AWS CLI (`aws`) | Azure CLI (`az`) | Google Cloud CLI (`gcloud`) | OCI CLI (`oci`) |
 | **추가 CLI** | — | Azure PowerShell | — | — |
 | **설치** | [설치 가이드](https://docs.aws.amazon.com/ko_kr/cli/latest/userguide/getting-started-install.html) | [설치 가이드](https://learn.microsoft.com/ko-kr/cli/azure/install-azure-cli) | [설치 가이드](https://cloud.google.com/sdk/docs/install) | [설치 가이드](https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/cliinstall.htm) |
 | **인증** | `aws login` (브라우저 인증, CLI v2.32+) | `az login` (브라우저 인증) | `gcloud auth login` (브라우저 인증) | `oci session authenticate` (브라우저 인증) |

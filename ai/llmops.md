@@ -16,6 +16,10 @@ graph LR
     E --> A
 ```
 
+{% hint style="info" %}
+모델 선택은 [AI와 머신러닝 서비스](ai-ml.md)를, RAG 파이프라인 구축은 [RAG 고급 패턴](rag-patterns.md)을, AI 보안은 [AI 보안](../security/ai-security.md)을 참고하세요.
+{% endhint %}
+
 ## 평가 (Evaluation)
 
 ### 오프라인 평가

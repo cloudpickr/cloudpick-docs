@@ -10,6 +10,10 @@ description: Kubernetes Day-2 운영 — 업그레이드, GitOps, 정책, 관측
 
 [컨테이너 서비스](../compute/containers.md)에서 관리형 Kubernetes를 선택한 뒤에는 **Day-2 운영**이 시작됩니다. 클러스터 업그레이드, 배포 자동화, 보안 정책, 관측가능성 등 지속적으로 관리해야 할 영역입니다.
 
+{% hint style="info" %}
+관리형 Kubernetes 선택 가이드는 [컨테이너 서비스](../compute/containers.md)를, 서비스 간 통신 보안은 [서비스 메시](../compute/service-mesh.md)를 참고하세요.
+{% endhint %}
+
 ## 클러스터 업그레이드
 
 Kubernetes는 연 3회 마이너 버전을 릴리스하며, 각 벤더는 일정 기간 후 이전 버전 지원을 종료합니다.

@@ -62,8 +62,8 @@ IaC는 포터빌리티의 기반입니다. Terraform은 멀티클라우드 정�
 
 | 도구 | 멀티클라우드 지원 | 이식성 |
 | --- | --- | --- |
-| [Terraform / OpenTofu](https://www.terraform.io/) | 전체 4사 + 3rd party | 매우 높음 |
-| [Pulumi](https://www.pulumi.com/) | 전체 4사 | 높음 |
+| [Terraform / OpenTofu](https://www.terraform.io/) | 주요 벤더 + 3rd party | 매우 높음 |
+| [Pulumi](https://www.pulumi.com/) | 주요 벤더 | 높음 |
 | [Crossplane](https://www.crossplane.io/) | Kubernetes 기반 추상화 | 높음 |
 | AWS CloudFormation | AWS 전용 | 낮음 |
 | Azure Bicep / ARM | Azure 전용 | 낮음 |

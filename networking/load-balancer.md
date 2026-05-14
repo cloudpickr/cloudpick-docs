@@ -130,6 +130,17 @@ L4는 패킷 내용을 보지 않고 포트 단위로 분배하므로 지연이 
 [오토스케일링](../compute/auto-scaling.md)
 {% endcontent-ref %}
 
+
+## 언제 무엇을 선택할 것인가
+
+| 요구사항 | 권장 | 이유 |
+| --- | --- | --- |
+| HTTP/HTTPS 라우팅, 경로 기반 분배 | L7 (ALB, App Gateway, Cloud LB, OCI LB) | URL/헤더 기반 라우팅, SSL 종료 |
+| TCP/UDP 고성능, 낮은 레이턴시 | L4 (NLB, Azure LB, Network LB, OCI NLB) | 패킷 수준 처리, 고정 IP |
+| 글로벌 트래픽 분산 + CDN + WAF | 글로벌 LB (CloudFront+ALB, Front Door, Cloud LB, OCI WAF) | 지역별 최적 라우팅 |
+| 내부 서비스 간 통신만 | Internal LB | 퍼블릭 IP 불필요, 프라이빗 서브넷 내 |
+| gRPC, WebSocket | L7 (gRPC 지원 확인) | ALB, Cloud LB는 gRPC 네이티브 지원 |
+
 ## 참고하기
 
 ### AWS

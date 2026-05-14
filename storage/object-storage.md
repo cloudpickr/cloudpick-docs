@@ -92,6 +92,20 @@ S3 호환 API를 지원하며, Auto-Tiering으로 접근 패턴에 따라 Standa
 
 각 벤더 모두 "스토리지에서 데이터 플랫폼으로"의 방향을 추구하고 있습니다. AWS는 S3 자체에 기능을 내장하는 방향이고, Azure는 Data Lake Storage + Fabric 통합, GCP는 BigLake + BigQuery 통합으로 접근하고 있습니다.
 
+
+## 스토리지 클래스 선택 기준
+
+| 접근 빈도 | 권장 클래스 | AWS | Azure | GCP | OCI |
+| --- | --- | --- | --- | --- | --- |
+| 자주 (일 1회 이상) | 표준 | S3 Standard | Hot | Standard | Standard |
+| 가끔 (월 1회) | 저빈도 | S3 Standard-IA | Cool | Nearline | Infrequent Access |
+| 드물게 (분기 1회) | 아카이브 | S3 Glacier Instant | Cold | Coldline | Archive |
+| 거의 안 봄 (연 1회 미만) | 딥 아카이브 | S3 Glacier Deep Archive | Archive | Archive | — |
+
+{% hint style="info" %}
+확실하지 않으면 표준 클래스로 시작하고, 접근 패턴 분석 후 수명 주기 정책(Lifecycle Policy)으로 자동 전환하세요. AWS S3 Intelligent-Tiering, Azure 수명 주기 관리가 이를 자동화합니다.
+{% endhint %}
+
 ## 참고하기
 
 ### AWS

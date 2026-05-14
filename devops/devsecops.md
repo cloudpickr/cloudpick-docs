@@ -11,7 +11,7 @@ description: DevSecOps 원칙과 보안을 CI/CD 파이프라인에 내장하는
 DevSecOps는 보안(Security)을 개발(Dev)과 운영(Ops) 파이프라인에 **처음부터 내장**하는 접근 방식입니다. 배포 후 보안 검토를 하는 전통적 방식 대신, 코드 작성 시점부터 보안 검증을 자동화합니다.
 
 {% hint style="info" %}
-배포 후 운영 환경의 보안 감시 → [보안 태세 관리](../security/security-posture.md), OS/런타임 패치 → [패치 관리와 취약점 대응](../devops/patch-and-vulnerability.md)
+배포 후 운영 환경의 보안 감시는 [보안 태세 관리](../security/security-posture.md)를, OS/런타임 패치는 [패치 관리와 취약점 대응](../devops/patch-and-vulnerability.md)을 참고하세요.
 {% endhint %}
 
 ### 시프트-레프트 (Shift-Left) 원칙

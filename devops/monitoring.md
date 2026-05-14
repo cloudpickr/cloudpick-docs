@@ -7,7 +7,7 @@ description: 메트릭/로그/트레이스, APM, SLO 모니터링, 알림 운영
 > 문서 기준: 2026년 5월
 
 {% hint style="info" %}
-멀티클라우드 통합 관찰가능성 → [통합 관찰가능성 아키텍처](observability.md)
+멀티클라우드 통합 관찰가능성은 [통합 관찰가능성 아키텍처](observability.md)
 {% endhint %}
 
 ## 개요

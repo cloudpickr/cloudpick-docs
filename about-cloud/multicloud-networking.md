@@ -7,7 +7,7 @@ description: 멀티클라우드 환경에서 클라우드 간 네트워킹 방�
 > 문서 기준: 2026년 5월
 
 {% hint style="info" %}
-트랜짓 아키텍처, 이그레스 비용, DNS 통합 등 심화 → [멀티클라우드 커넥티비티](../networking/multicloud-connectivity.md)
+트랜짓 아키텍처, 이그레스 비용, DNS 통합 등 심화 내용은 [멀티클라우드 커넥티비티](../networking/multicloud-connectivity.md)
 {% endhint %}
 
 ## 왜 클라우드 간 네트워킹이 중요한가

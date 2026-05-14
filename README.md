@@ -12,16 +12,58 @@ CloudPick은 클라우드의 개념과 이론을 쉽게 설명하여, 독자가 
 
 ## 어디서부터 읽을까?
 
-| 목적 | 시작점 |
-| --- | --- |
-| 클라우드를 처음 접하는 분 | [클라우드란?](about-cloud/what-is-cloud.md) → [벤더 비교](about-cloud/compare-clouds.md) |
-| 멀티클라우드를 검토하는 분 | [멀티클라우드 이해하기](about-cloud/why-multicloud.md) → [벤더 비교](about-cloud/compare-clouds.md) |
-| 실무 운영을 준비하는 분 | [계정과 조직 구조](about-cloud/accounts-and-organizations.md) → [랜딩존](governance/landing-zone.md) |
-| 보안 강화를 담당하는 분 | [공동 책임 모델](about-cloud/shared-responsibility.md) → [IAM](security/iam.md) |
-| 마이그레이션 계획 중인 분 | [애플리케이션 마이그레이션](compute/migration.md) |
-| AI 도입을 검토하는 분 | [클라우드 AI 시작하기](ai/getting-started.md) → [AI/ML 서비스](ai/ai-ml.md) |
+{% tabs %}
+{% tab title="☁️ 클라우드 입문" %}
+1. [클라우드란?](about-cloud/what-is-cloud.md)
+2. [벤더 비교하기](about-cloud/compare-clouds.md)
+3. [리전과 가용영역](about-cloud/regions-and-zones.md)
+4. [공동 책임 모델](about-cloud/shared-responsibility.md)
+{% endtab %}
 
-각 경로의 상세 읽기 순서는 [추천 읽기 가이드](about-cloud/reading-guide.md)를 참고하세요.
+{% tab title="🔀 멀티클라우드" %}
+1. [멀티클라우드 이해하기](about-cloud/why-multicloud.md)
+2. [벤더 비교하기](about-cloud/compare-clouds.md)
+3. [멀티클라우드 네트워킹](about-cloud/multicloud-networking.md) → [커넥티비티 심화](networking/multicloud-connectivity.md)
+4. [IAM 개요](about-cloud/iam-overview.md) → [IAM 심화](security/iam.md)
+{% endtab %}
+
+{% tab title="⚙️ 실무 운영" %}
+1. [계정과 조직 구조](about-cloud/accounts-and-organizations.md) → [랜딩존](governance/landing-zone.md)
+2. [비용 구조](about-cloud/pricing-model.md) → [FinOps](governance/finops.md)
+3. [Well-Architected Framework](about-cloud/well-architected.md)
+4. [재해복구](governance/dr.md)
+5. [모니터링](devops/monitoring.md) → [관찰가능성](devops/observability.md)
+6. [원격 접근 관리](devops/remote-access.md)
+7. [패치/취약점 대응](devops/patch-and-vulnerability.md)
+{% endtab %}
+
+{% tab title="🔒 보안 강화" %}
+1. [공동 책임 모델](about-cloud/shared-responsibility.md)
+2. [IAM 개요](about-cloud/iam-overview.md) → [IAM 심화](security/iam.md)
+3. [시크릿 관리](security/secrets.md)
+4. [데이터 보호](security/data-protection.md)
+5. [보안 태세 관리](security/security-posture.md)
+6. [DevSecOps](devops/devsecops.md)
+7. [규정 준수](governance/compliance.md)
+{% endtab %}
+
+{% tab title="🚚 마이그레이션" %}
+1. [애플리케이션 마이그레이션](compute/migration.md)
+2. [데이터베이스 마이그레이션](database/migration.md)
+3. [스토리지 마이그레이션](storage/migration.md)
+4. [모더나이제이션](compute/modernization.md)
+{% endtab %}
+
+{% tab title="🤖 AI 도입" %}
+1. [클라우드 AI 시작하기](ai/getting-started.md)
+2. [AI/ML 서비스](ai/ai-ml.md) — 모델 선택, 플랫폼 비교
+3. [벡터 스토어](ai/vector-store.md)
+4. [RAG 고급 패턴](ai/rag-patterns.md)
+5. [프롬프트 엔지니어링](ai/prompt-engineering.md)
+6. [멀티클라우드 AI](ai/multicloud-ai.md) — 비용, GPU, 벤더 조합
+7. [LLMOps](ai/llmops.md) — 평가, 운영, 비용 추적
+{% endtab %}
+{% endtabs %}
 
 ## 토픽 한눈에 보기
 
@@ -46,3 +88,14 @@ CloudPick은 클라우드의 개념과 이론을 쉽게 설명하여, 독자가 
 | [OCI](https://www.oracle.com/kr/cloud/) | Oracle Cloud Infrastructure | [Console](https://cloud.oracle.com) |
 
 클라우드 용어가 낯설다면 [용어집](GLOSSARY.md)을 함께 참고하세요.
+
+---
+
+## 문서 작성 원칙
+
+> CloudPick의 제 1원칙입니다. 모든 기여자는 이 원칙을 따릅니다.
+
+- **공식 문서 기반** — 모든 기술 내용은 벤더 공식 문서 또는 업계 표준 자료(NIST, CNCF, FinOps Foundation 등)를 근거로 합니다. 뇌피셜 금지.
+- **중립성** — 벤더를 비교하는 내용은 가능한 한 중립적으로 표현합니다.
+- **출처 명시** — 각 문서 하단 **참고하기** 섹션에 공식 문서 링크를 정리합니다.
+- **변동성 관리** — 가격, 리전 수, GA/Preview 상태 등 빠르게 바뀌는 정보는 구체적 수치 대신 공식 링크로 안내합니다. 각 문서 상단에 `문서 기준: YYYY년 M월`을 표기합니다.

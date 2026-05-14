@@ -7,7 +7,7 @@ description: 멀티클라우드 환경에서 클라우드 간 네트워킹 방�
 > 문서 기준: 2026년 5월
 
 {% hint style="info" %}
-트랜짓 아키텍처, 이그레스 비용, DNS 통합 등 심화 내용은 [멀티클라우드 커넥티비티](../networking/multicloud-connectivity.md)
+트랜짓 아키텍처, 이그레스 비용, DNS 통합 등 심화 내용은 [멀티클라우드 커넥티비티](multicloud-connectivity.md)
 {% endhint %}
 
 ## 왜 클라우드 간 네트워킹이 중요한가
@@ -114,8 +114,8 @@ graph LR
 
 트랜짓 아키텍처 패턴, 이그레스 비용 상세 비교, DNS 통합 전략은 아래 문서에서 다룹니다.
 
-{% content-ref url="../networking/multicloud-connectivity.md" %}
-[멀티클라우드 커넥티비티 (심화)](../networking/multicloud-connectivity.md)
+{% content-ref url="multicloud-connectivity.md" %}
+[멀티클라우드 커넥티비티 (심화)](multicloud-connectivity.md)
 {% endcontent-ref %}
 
 ## 설계 시 체크리스트

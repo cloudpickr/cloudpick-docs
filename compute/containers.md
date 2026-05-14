@@ -119,6 +119,24 @@ EKS를 아시는 분을 위해: Azure는 AKS, GCP는 GKE, OCI는 OKE입니다.
 [서버리스](serverless.md)
 {% endcontent-ref %}
 
+
+## Kubernetes 프로덕션 준비 체크리스트
+
+- [ ] 노드를 멀티 AZ에 분산 배치했는가
+- [ ] Pod에 리소스 요청(requests)과 제한(limits)을 설정했는가
+- [ ] Liveness/Readiness Probe를 설정했는가
+- [ ] Horizontal Pod Autoscaler를 구성했는가
+- [ ] Network Policy로 Pod 간 통신을 제한했는가
+- [ ] Workload Identity로 클라우드 IAM과 연동했는가 (Service Account Key 미사용)
+- [ ] 이미지를 프라이빗 레지스트리에서만 Pull하도록 제한했는가
+- [ ] 로그/메트릭/트레이스 수집을 구성했는가
+- [ ] etcd/PV 백업 전략을 수립했는가 (Velero 등)
+- [ ] 클러스터 업그레이드 전략을 결정했는가
+
+{% hint style="info" %}
+Day-2 운영 상세는 [Kubernetes 운영](../devops/kubernetes-operations.md)을 참고하세요.
+{% endhint %}
+
 ## 참고하기
 
 ### AWS

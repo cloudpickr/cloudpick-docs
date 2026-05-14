@@ -134,9 +134,10 @@ Azure는 AWS와 GCP 사용자를 위한 전환 가이드를 가장 체계적으�
 
 ### AWS
 
-AWS는 직접적인 서비스 비교 페이지를 제공하지 않습니다. 마이그레이션 가이드를 중심으로 자료를 제공합니다.
+AWS는 타사 대비 직접적인 서비스 비교 페이지를 제공하지 않지만, 타 벤더에서 전환하는 사용자를 위한 가이드를 제공합니다.
 
-- [AWS 클라우드 마이그레이션](https://aws.amazon.com/ko/cloud-migration/)
+- [AWS로의 클라우드 마이그레이션](https://aws.amazon.com/ko/cloud-migration/)
+- [AWS 서비스 개요 (전체 서비스 목록)](https://aws.amazon.com/ko/products/)
 
 ## 3rd Party 비교 자료
 

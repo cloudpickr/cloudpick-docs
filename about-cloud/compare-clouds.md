@@ -22,6 +22,37 @@ description: AWS, Azure, GCP, OCI 주요 벤더의 특징, 강점, 멀티클라�
 시장 점유율은 Synergy Research Group 2024년 기준 추정치이며, 측정 방법에 따라 차이가 있을 수 있습니다. 이 문서는 CloudPick에서 우선 다루는 AWS, Azure, GCP, OCI를 중심으로 비교합니다.
 {% endhint %}
 
+## 주요 서비스 매핑
+
+특정 벤더에 익숙한 독자가 다른 벤더의 동등 서비스를 찾을 때 참고하세요.
+
+| 영역 | AWS | Azure | GCP | OCI |
+| --- | --- | --- | --- | --- |
+| **가상머신** | EC2 | Virtual Machines | Compute Engine | Compute |
+| **관리형 K8s** | EKS | AKS | GKE | OKE |
+| **서버리스 함수** | Lambda | Functions | Cloud Functions | OCI Functions |
+| **서버리스 컨테이너** | Fargate | Container Apps | Cloud Run | Container Instances |
+| **객체 스토리지** | S3 | Blob Storage | Cloud Storage | Object Storage |
+| **블록 스토리지** | EBS | Managed Disks | Persistent Disk | Block Volume |
+| **관리형 RDB** | RDS / Aurora | Azure SQL / Flexible Server | Cloud SQL / AlloyDB | Autonomous DB |
+| **NoSQL (문서)** | DynamoDB | Cosmos DB | Firestore / Bigtable | NoSQL Database |
+| **데이터 웨어하우스** | Redshift | Synapse Analytics | BigQuery | Autonomous DW |
+| **VPC** | VPC | VNet | VPC (글로벌) | VCN |
+| **로드밸런서 (L7)** | ALB | Application Gateway | Cloud Load Balancing | Load Balancer |
+| **DNS** | Route 53 | Azure DNS | Cloud DNS | OCI DNS |
+| **CDN** | CloudFront | Front Door / CDN | Cloud CDN | — |
+| **IAM** | IAM + Identity Center | Entra ID | Cloud IAM | IAM with Identity Domains |
+| **시크릿 관리** | Secrets Manager | Key Vault | Secret Manager | Vault |
+| **위협 탐지** | GuardDuty | Defender for Cloud | Security Command Center | Cloud Guard |
+| **IaC** | CloudFormation / CDK | Bicep / ARM | Deployment Manager | Resource Manager |
+| **CI/CD** | CodePipeline / CodeBuild | Azure DevOps | Cloud Build | DevOps Service |
+| **모니터링** | CloudWatch | Azure Monitor | Cloud Monitoring | OCI Monitoring |
+| **AI/LLM 플랫폼** | Bedrock | Azure OpenAI / Foundry | Vertex AI | OCI Generative AI |
+
+{% hint style="info" %}
+서비스명은 빠르게 변경될 수 있습니다. 최신 명칭은 각 벤더의 공식 문서를 확인하세요.
+{% endhint %}
+
 ## 각 사 특징
 
 {% tabs %}

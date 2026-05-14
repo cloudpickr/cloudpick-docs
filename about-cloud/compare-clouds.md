@@ -50,7 +50,7 @@ description: AWS, Azure, GCP, OCI 주요 벤더의 특징, 강점, 멀티클라�
 | **AI/LLM 플랫폼** | Bedrock | Azure OpenAI / Foundry | Vertex AI | OCI Generative AI |
 
 {% hint style="info" %}
-서비스명은 빠르게 변경될 수 있습니다. 최신 명칭은 각 벤더의 공식 문서를 확인하세요.
+서비스명은 빠르게 변경될 수 있습니다. 전체 서비스 매핑은 [Google Cloud — AWS/Azure 서비스 비교](https://cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison)가 가장 상세합니다.
 {% endhint %}
 
 ## 각 사 특징

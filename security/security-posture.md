@@ -11,7 +11,7 @@ description: 클라우드 보안 태세 관리(CSPM), 워크로드 보호(CWPP),
 클라우드 환경은 리소스가 빠르게 생성·변경되므로, **지속적으로 보안 상태를 평가하고 위협을 탐지·대응**하는 체계가 필요합니다. 이를 통칭하여 **보안 태세 관리** (Security Posture Management)라 합니다.
 
 {% hint style="info" %}
-이 문서는 **운영 중인 환경**의 보안 감시를 다룹니다. 배포 전 파이프라인에서의 보안 검증은 [DevSecOps](../devops/devsecops.md)를, OS/런타임 패치는 [패치 관리와 취약점 대응](../devops/patch-and-vulnerability.md)을 참고하세요.
+배포 전 보안 검증 → [DevSecOps](../devops/devsecops.md), OS/런타임 패치 → [패치 관리와 취약점 대응](../devops/patch-and-vulnerability.md)
 {% endhint %}
 
 주요 영역:

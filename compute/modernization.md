@@ -109,7 +109,7 @@ graph LR
 
 서비스 간 직접 호출 대신 **이벤트** 를 통해 비동기 통신합니다. 확장성과 느슨한 결합(loose coupling)을 얻습니다.
 
-| 요소 | 4사 제품 |
+| 요소 | 벤더별 제품 |
 | --- | --- |
 | 메시징 | Amazon SQS/SNS/EventBridge, Azure Service Bus/Event Grid, GCP Pub/Sub/Eventarc, OCI Events/Streaming |
 | 이벤트 스트리밍 | Amazon MSK/Kinesis, Azure Event Hubs, GCP Pub/Sub, OCI Streaming |

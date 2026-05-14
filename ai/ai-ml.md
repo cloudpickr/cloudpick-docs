@@ -1,5 +1,5 @@
 ---
-description: 생성형 AI 서비스, ML 플랫폼, GPU 인스턴스를 4개 벤더별로 비교합니다.
+description: 생성형 AI 서비스, ML 플랫폼, GPU 인스턴스를 벤더별로 비교합니다.
 ---
 
 # AI와 머신러닝 서비스

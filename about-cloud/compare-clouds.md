@@ -1,5 +1,5 @@
 ---
-description: AWS, Azure, GCP, OCI 4개 벤더의 특징, 강점, 멀티클라우드 연동 서비스를 비교합니다.
+description: AWS, Azure, GCP, OCI 주요 벤더의 특징, 강점, 멀티클라우드 연동 서비스를 비교합니다.
 ---
 
 # 벤더 비교하기

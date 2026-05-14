@@ -96,7 +96,9 @@ VM은 **관리 부담이 가장 큰 컴퓨팅 서비스**입니다. OS 패치, �
 | GCP | On-Demand | Committed Use Discount (CUD) | Preemptible / Spot VM |
 | OCI | Pay-As-You-Go | Monthly Flex / Annual Flex / Universal Credits | Preemptible Instance |
 
-자세한 비용 구조는 [비용 구조 이해하기](../about-cloud/pricing-model.md)를 참고하세요.
+{% hint style="info" %}
+비용 구조 상세 → [비용 구조 이해하기](../about-cloud/pricing-model.md)
+{% endhint %}
 
 ## 배치 그룹과 전용 호스트
 

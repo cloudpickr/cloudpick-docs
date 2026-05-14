@@ -60,7 +60,9 @@ description: 클라우드 공동 책임 모델, IaaS/PaaS/SaaS별 책임 경계,
 | **보안 기본값** | 사용자가 명시적으로 설정 | 사용자가 명시적으로 설정 | 보안 기본값이 더 엄격 | Security Zones로 자동 강제 |
 | **공식 문서** | [링크](https://aws.amazon.com/ko/compliance/shared-responsibility-model/) | [링크](https://learn.microsoft.com/ko-kr/azure/security/fundamentals/shared-responsibility) | [링크](https://cloud.google.com/architecture/framework/security/shared-responsibility-shared-fate) | [링크](https://docs.oracle.com/en-us/iaas/Content/Security/Concepts/security_guide.htm) |
 
-각 벤더의 보안 설계 원칙과 프레임워크는 [Well-Architected Framework](well-architected.md)를 참고하세요.
+{% hint style="info" %}
+보안 설계 원칙과 프레임워크 → [Well-Architected Framework](well-architected.md)
+{% endhint %}
 
 {% tabs %}
 {% tab title="AWS" %}

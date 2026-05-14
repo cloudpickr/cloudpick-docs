@@ -57,6 +57,7 @@
 
 - [관리형 RDB](database/managed-rdb.md)
 - [NoSQL](database/nosql.md)
+- [데이터 분석 플랫폼](database/analytics.md)
 - [데이터베이스 마이그레이션](database/migration.md)
 
 ## 거버넌스 <a id="governance"></a>

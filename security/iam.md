@@ -14,16 +14,6 @@ description: IAM 실무 설계, 인증 방식, 권한 모델, 최소 권한 도�
 벤더별 제품 비교, 인증 방식, 권한 모델 개요는 [IAM 개요](../about-cloud/iam-overview.md)를 참고하세요.
 {% endhint %}
 
-## 핵심 차이점
-
-**AWS IAM** — 정책 문서(JSON)로 매우 세밀한 권한 제어가 가능합니다. 리소스 기반 정책(S3 버킷 정책 등)과 ID 기반 정책을 조합하는 구조가 강력하지만 복잡합니다. IAM Identity Center로 멀티 계정 SSO를 관리합니다.
-
-**Azure Entra ID** — Active Directory 기반이라 기존 온프레미스 AD와 하이브리드 연동이 자연스럽습니다. Conditional Access로 디바이스 상태, 위치, 위험 수준에 따라 접근을 동적으로 제어할 수 있습니다.
-
-**GCP Cloud IAM** — 조직 → 폴더 → 프로젝트 계층에서 권한이 상속됩니다. 서비스 계정(Service Account)으로 서비스 간 인증을 처리하며, Workload Identity Federation으로 외부 IdP의 토큰을 직접 사용할 수 있습니다.
-
-**OCI IAM with Identity Domains** — HCL 유사 구문의 정책 언어로 `Allow group <그룹> to <동사> <리소스타입> in compartment <컴파트먼트>` 형태로 권한을 정의합니다. 컴파트먼트 계층에서 정책이 상속되며, Identity Domains로 멀티 테넌시 ID 관리와 외부 IdP 페더레이션을 지원합니다.
-
 ## ID 유형별 관리
 
 IAM에서 관리하는 ID는 크게 3가지입니다. 각각 생성/권한 부여/회수 방법이 다릅니다.
@@ -103,7 +93,7 @@ EC2, Lambda, 컨테이너, CI/CD 파이프라인 등 **사람이 아닌 워크�
 - 정기적으로(분기별) 미사용 역할과 권한을 검토합니다.
 - 서비스 간 접근은 장기 자격 증명(Access Key) 대신 역할(Role)/관리 ID를 사용합니다.
 
-### 장기 자격 증명 vs 역할 기반 인증
+## 자격 증명: 장기 키 vs 역할 기반
 
 | 방식 | 예시 | 위험성 |
 | --- | --- | --- |

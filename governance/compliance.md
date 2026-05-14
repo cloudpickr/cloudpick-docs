@@ -158,7 +158,7 @@ AICPA(미국 공인회계사 협회) 기반 감사 보고서. 엔터프라이즈
 
 감사 시점에만 통제를 맞추는 것이 아니라 상시 감지 체계를 운영합니다. 주요 벤더 모두 **컴플라이언스 대시보드** 를 제공합니다.
 
-- AWS Security Hub — CIS Benchmark, NIST, PCI DSS 자동 검사 → [보안 태세 관리](../security/security-posture.md)에서 상세 설명
+- AWS Security Hub — CIS Benchmark, NIST, PCI DSS 자동 검사. [보안 태세 관리](../security/security-posture.md)에서 상세히 다룹니다
 - Azure Defender for Cloud — Secure Score + 컴플라이언스 표준 자동 평가
 - GCP Security Command Center — 컴플라이언스 프레임워크 매핑
 - OCI Cloud Guard — 구성 오류 자동 감지

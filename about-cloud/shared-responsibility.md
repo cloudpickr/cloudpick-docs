@@ -68,7 +68,7 @@ description: 클라우드 공동 책임 모델, IaaS/PaaS/SaaS별 책임 경계,
 {% tab title="AWS" %}
 AWS는 가장 전통적인 공동 책임 모델을 제시합니다. **"클라우드의 보안"** 과 **"클라우드 안에서의 보안"** 을 명확히 구분하며, 사용자가 자신의 책임 영역을 직접 관리해야 합니다.
 
-AWS는 이를 지원하기 위해 다양한 보안 서비스(GuardDuty, Security Hub, IAM Access Analyzer 등)를 제공하지만, 활성화와 설정은 사용자의 몫입니다. → [보안 태세 관리](../security/security-posture.md) 참고
+AWS는 이를 지원하기 위해 다양한 보안 서비스(GuardDuty, Security Hub, IAM Access Analyzer 등)를 제공하지만, 활성화와 설정은 사용자의 몫입니다. 자세한 내용은 [보안 태세 관리](../security/security-posture.md)를 참고하세요.
 
 **모델명:** Shared Responsibility Model
 {% endtab %}
@@ -113,9 +113,9 @@ OCI는 전통적인 공동 책임 모델을 기반으로 하되, **자동화된 
 
 공동 책임 모델을 이해하고 있어도, 실무에서 자주 발생하는 보안 실수가 있습니다.
 
-- **스토리지 공개 접근** — 버킷을 실수로 퍼블릭으로 설정하여 데이터 유출. → [데이터 보호](../security/data-protection.md) 참고
-- **IAM 과다 권한** — 관리자 권한을 부여하고 축소하지 않음. → [IAM과 접근 제어](../security/iam.md) 참고
-- **암호화 키 관리** — 벤더 관리 키 vs 고객 관리 키(CMK) vs BYOK 선택. → [시크릿 관리](../security/secrets.md) 참고
+- **스토리지 공개 접근** — 버킷을 실수로 퍼블릭으로 설정하여 데이터 유출. [데이터 보호](../security/data-protection.md) 참고
+- **IAM 과다 권한** — 관리자 권한을 부여하고 축소하지 않음. [IAM과 접근 제어](../security/iam.md) 참고
+- **암호화 키 관리** — 벤더 관리 키 vs 고객 관리 키(CMK) vs BYOK 선택. [시크릿 관리](../security/secrets.md) 참고
 
 ## 컴플라이언스
 

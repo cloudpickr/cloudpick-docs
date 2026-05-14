@@ -63,7 +63,7 @@ description: 생성형 AI 서비스, ML 플랫폼, GPU 인스턴스를 4개 벤�
 | AWS | Kiro | AI 코딩 에이전트. 코드 생성, 변환, 보안 스캔 |
 | Azure | GitHub Copilot | 코드 자동 완성. VS Code/JetBrains 통합 |
 | GCP | Gemini Code Assist | 코드 생성, 설명, 변환 |
-| OCI | OCI Generative AI (코드 생성) | Cohere/Llama 기반 코드 생성 |
+| OCI | 전용 코드 어시스턴트 없음 | OCI Generative AI API를 통한 코드 생성 가능 (Cohere Command, Llama). IDE 통합 플러그인은 미제공 |
 
 ## ML 플랫폼
 

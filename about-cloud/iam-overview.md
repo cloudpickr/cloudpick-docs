@@ -49,6 +49,15 @@ ID 유형별 관리(사람/기기/서드파티), 최소 권한 실천, 보안 �
 | **GCP** | RBAC (역할 기반, 계층 상속) | 조직→폴더→프로젝트 상속. Workload Identity Federation으로 외부 토큰 직접 사용 |
 | **OCI** | 정책 기반 (HCL 유사) | `Allow group X to manage Y in compartment Z` 직관적 구문. 컴파트먼트 계층 상속 |
 
+## 자격 증명 방식 비교
+
+| 벤더 | 장기 자격 증명 | 역할 기반 (권장) | 페더레이션 |
+| --- | --- | --- | --- |
+| AWS | Access Key | IAM Role (Instance Profile, Task Role) | OIDC/SAML Federation |
+| Azure | Service Principal Secret | Managed Identity | Entra External ID, Workload Identity Federation |
+| GCP | Service Account Key (JSON) | Attached Service Account | Workload Identity Federation |
+| OCI | API Signing Key | Instance Principal | SAML/OIDC Federation |
+
 ## 참고하기
 
 ### AWS

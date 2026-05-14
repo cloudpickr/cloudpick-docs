@@ -28,6 +28,7 @@
 - [애플리케이션 마이그레이션](compute/migration.md)
 - [애플리케이션 모더나이제이션](compute/modernization.md)
 - [서비스 메시](compute/service-mesh.md)
+- [하이브리드/엣지 컴퓨팅](compute/hybrid-and-edge.md)
 
 ## 네트워킹 <a id="networking"></a>
 
@@ -69,6 +70,7 @@
 - [재해복구](governance/dr.md)
 - [규정 준수 (Compliance)](governance/compliance.md)
 - [벤더 종속성과 출구 전략](governance/exit-strategy.md)
+- [지속 가능성과 GreenOps](governance/sustainability.md)
 
 ## AI와 머신러닝 <a id="ai"></a>
 
@@ -93,3 +95,4 @@
 - [원격 접근 관리](devops/remote-access.md)
 - [패치 관리와 취약점 대응](devops/patch-and-vulnerability.md)
 - [Kubernetes 운영](devops/kubernetes-operations.md)
+- [플랫폼 엔지니어링](devops/platform-engineering.md)

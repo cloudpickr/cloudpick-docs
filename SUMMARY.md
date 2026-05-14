@@ -78,6 +78,7 @@
 - [RAG 고급 패턴](ai/rag-patterns.md)
 - [프롬프트 엔지니어링](ai/prompt-engineering.md)
 - [멀티클라우드 AI 아키텍처](ai/multicloud-ai.md)
+- [LLMOps (AI 운영과 평가)](ai/llmops.md)
 
 ## DevOps <a id="devops"></a>
 

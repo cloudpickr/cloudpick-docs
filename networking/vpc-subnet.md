@@ -135,6 +135,20 @@ NAT Gateway는 시간당 비용 + 데이터 처리 비용이 발생합니다. �
 | GCP | Private Service Connect |
 | OCI | Service Gateway / Private Endpoint |
 
+
+## 프로덕션 VPC 설계 체크리스트
+
+- [ ] CIDR 범위를 향후 확장과 멀티클라우드 피어링을 고려하여 설계했는가
+- [ ] 퍼블릭/프라이빗/데이터 서브넷을 분리했는가
+- [ ] 각 AZ에 서브넷을 배치하여 고가용성을 확보했는가
+- [ ] NAT Gateway를 AZ별로 배치했는가 (단일 장애점 방지)
+- [ ] Security Group은 최소 권한으로 설정했는가 (기본 Deny)
+- [ ] VPC Flow Logs를 활성화했는가
+- [ ] DNS 설정 (Private Hosted Zone / Private DNS)을 구성했는가
+- [ ] VPC Endpoint를 사용하여 S3/DynamoDB 등 접근 시 NAT 비용을 절감했는가
+- [ ] 태그 정책을 적용했는가 (env, owner, cost-center)
+- [ ] 향후 VPC 피어링/Transit Gateway 연결을 위한 CIDR 충돌 여부를 확인했는가
+
 ## 참고하기
 
 ### AWS

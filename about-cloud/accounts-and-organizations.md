@@ -118,23 +118,31 @@ OCI의 특징은 **Compartment가 리소스 격리와 조직 구조를 동시에
 
 ## 빌링 구조
 
-각 벤더 모두 계정/구독/프로젝트 단위로 비용이 발생하지만, 빌링을 통합하고 관리하는 방식이 다릅니다.
+각 벤더의 빌링은 두 가지 관점에서 이해하면 됩니다.
+
+### 기본 구조: 비용이 어디에 쌓이는가
 
 | 항목 | AWS | Azure | GCP | OCI |
 | --- | --- | --- | --- | --- |
 | **빌링 단위** | Account | Subscription | Project | Tenancy |
-| **통합 빌링** | Organizations 통합 결제 | Billing Account → 여러 Subscription | Billing Account → 여러 Project | Tenancy 단위 통합 |
-| **인보이스 분리** | 별도 Organization 또는 Billing Transfer | Subscription Transfer, 별도 Billing Account | Billing Account 분리 | 별도 Tenancy |
+| **통합 빌링** | Organizations 통합 결제 | Billing Account에 여러 Subscription | Billing Account에 여러 Project | Tenancy 단위 통합 |
 | **비용 할당** | 태그 기반 Cost Allocation | Resource Group + 태그 | 라벨 + Project 단위 | Compartment + 태그 |
 | **예산 알림** | AWS Budgets | Azure Budgets | GCP Budget Alerts | OCI Budgets |
-| **빌링 이관** | Billing Transfer (2025) | Subscription Transfer | Project의 Billing Account 변경 | Cross-Tenancy 전환 |
+
+### 유연성: 인보이스를 어떻게 나누고 옮기는가
+
+| 시나리오 | AWS | Azure | GCP | OCI |
+| --- | --- | --- | --- | --- |
+| **인보이스 분리** | 별도 Organization 또는 Billing Transfer | 별도 Billing Account | Billing Account 분리 | 별도 Tenancy |
+| **빌링 이관 (M&A 등)** | Billing Transfer (2025) | Subscription Transfer | Project의 Billing Account 변경 | Cross-Tenancy 전환 |
+| **부서별 결제 수단** | Billing Transfer | EA Department/Account | Project별 Billing Account 매핑 | Tenancy 단위 |
 
 벤더별 특징:
 
-- **GCP** — Billing Account와 Project가 독립적이어서 가장 유연합니다. Project의 Billing Account를 변경할 수 있어 조직 개편에 강합니다.
-- **AWS** — Organization 내 Account 단위로 묶이지만, **Billing Transfer** (2025년 출시)로 Organization 간 빌링 이전이 가능해졌습니다.
-- **Azure** — EA/MCA 계약에 따라 Billing Account → Billing Profile → Invoice Section 계층을 사용하여 부서별 인보이스 분리가 가능합니다.
-- **OCI** — Tenancy가 빌링의 최상위 단위이므로, 법인별로 Tenancy를 나누는 것이 일반적입니다.
+- **GCP** — Billing Account와 Project가 독립적이어서 가장 유연합니다. 조직 개편 시 Project의 Billing Account만 변경하면 됩니다.
+- **AWS** — **Billing Transfer** (2025년 출시)로 Organization 간 빌링 이전이 가능해졌습니다.
+- **Azure** — EA/MCA 계약에 따라 Billing Account → Billing Profile → Invoice Section 계층으로 부서별 분리가 가능합니다.
+- **OCI** — Tenancy가 빌링 최상위 단위이므로, 법인별로 Tenancy를 나누는 것이 일반적입니다.
 
 ### 실무 팁
 

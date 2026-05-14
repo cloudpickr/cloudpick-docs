@@ -69,7 +69,7 @@ description: 메트릭/로그/트레이스, APM, SLO 모니터링, 알림 운영
 
 ## SLO 모니터링
 
-SLI/SLO/SLA 개념과 에러 버짓에 대해서는 [DevOps란?](what-is-devops.md)에서 다룹니다. 아래는 SLO를 측정하기 위한 주요 CSP 도구입니다.
+SLI/SLO/SLA 개념과 에러 버짓에 대해서는 [SLI/SLO와 에러 버짓](slo.md)에서 다룹니다. 아래는 SLO를 측정하기 위한 주요 CSP 도구입니다.
 
 | 벤더 | 도구 | 기능 |
 | --- | --- | --- |

@@ -103,9 +103,20 @@ graph LR
 
 ## 참고하기
 
-- [AWS EKS Best Practices Guide](https://aws.github.io/aws-eks-best-practices/)
+### Azure
+
 - [Azure AKS Best Practices](https://learn.microsoft.com/azure/aks/best-practices)
+
+### GCP
+
 - [GKE Best Practices](https://cloud.google.com/kubernetes-engine/docs/best-practices)
+
+### OCI
+
 - [OCI OKE 문서](https://docs.oracle.com/en-us/iaas/Content/ContEng/home.htm)
+
+### 표준 및 커뮤니티
+
+- [AWS EKS Best Practices Guide](https://aws.github.io/aws-eks-best-practices/)
 - [Argo CD 문서](https://argo-cd.readthedocs.io/)
 - [CNCF Kubernetes Security Best Practices](https://kubernetes.io/docs/concepts/security/)

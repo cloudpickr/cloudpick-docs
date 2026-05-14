@@ -83,8 +83,19 @@ graph LR
 
 ## 참고하기
 
+### AWS
+
 - [AWS Bedrock Evaluations 문서](https://docs.aws.amazon.com/bedrock/latest/userguide/evaluation.html)
+
+### Azure
+
 - [Azure AI Evaluation SDK](https://learn.microsoft.com/azure/ai-studio/how-to/evaluate-generative-ai-app)
+
+### GCP
+
 - [Vertex AI Evaluation Service](https://cloud.google.com/vertex-ai/generative-ai/docs/models/evaluation-overview)
-- [Ragas — RAG 평가 프레임워크](https://docs.ragas.io/)
 - [Google SRE Book — Monitoring Distributed Systems](https://sre.google/sre-book/monitoring-distributed-systems/)
+
+### 표준 및 커뮤니티
+
+- [Ragas — RAG 평가 프레임워크](https://docs.ragas.io/)

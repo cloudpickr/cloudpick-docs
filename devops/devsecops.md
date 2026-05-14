@@ -152,10 +152,21 @@ graph LR
 
 ## 참고하기
 
+### AWS
+
+- [AWS DevSecOps Workshop](https://catalog.workshops.aws/devsecops)
+
+### Azure
+
+- [Microsoft Security Development Lifecycle](https://www.microsoft.com/en-us/securityengineering/sdl)
+
+### GCP
+
+- [Google Cloud Security Best Practices](https://cloud.google.com/security/best-practices)
+
+### 표준 및 커뮤니티
+
 - [OWASP DevSecOps Guideline](https://owasp.org/www-project-devsecops-guideline/)
 - [NIST SP 800-218 (Secure Software Development Framework)](https://csrc.nist.gov/publications/detail/sp/800-218/final)
-- [AWS DevSecOps Workshop](https://catalog.workshops.aws/devsecops)
-- [Microsoft Security Development Lifecycle](https://www.microsoft.com/en-us/securityengineering/sdl)
-- [Google Cloud Security Best Practices](https://cloud.google.com/security/best-practices)
 - [CIS Software Supply Chain Security Guide](https://www.cisecurity.org/cis-benchmarks)
 - [SLSA (Supply-chain Levels for Software Artifacts)](https://slsa.dev/)

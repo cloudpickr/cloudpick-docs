@@ -126,22 +126,28 @@ graph TD
 
 ## 참고하기
 
-### 벤더 레퍼런스 아키텍처
+### AWS
 
 - [AWS — Hybrid Connectivity](https://docs.aws.amazon.com/whitepapers/latest/hybrid-connectivity/hybrid-connectivity.html)
-- [Azure — Hub-spoke Network Topology](https://learn.microsoft.com/azure/architecture/networking/architecture/hub-spoke)
-- [Google Cloud — Hybrid and Multi-cloud Network Architectures](https://cloud.google.com/architecture/network-hybrid-multicloud)
-
-### 전용 연결 및 IX
-
 - [AWS Direct Connect](https://aws.amazon.com/ko/directconnect/)
+
+### Azure
+
+- [Azure — Hub-spoke Network Topology](https://learn.microsoft.com/azure/architecture/networking/architecture/hub-spoke)
 - [Azure ExpressRoute](https://azure.microsoft.com/ko-kr/products/expressroute/)
+
+### GCP
+
+- [Google Cloud — Hybrid and Multi-cloud Network Architectures](https://cloud.google.com/architecture/network-hybrid-multicloud)
 - [Google Cloud Interconnect](https://cloud.google.com/network-connectivity/docs/interconnect)
+
+### OCI
+
 - [OCI FastConnect](https://docs.oracle.com/en-us/iaas/Content/Network/Concepts/fastconnect.htm)
+
+### 표준 및 커뮤니티
+
 - [KINX](https://www.kinx.net/) — 국내 최대 IX
 - [Megaport](https://www.megaport.com/) — 글로벌 Cloud Exchange
-
-### 표준
-
 - [NIST Multi-Cloud Security Public Working Group](https://www.nist.gov/publications/nist-cloud-computing-reference-architecture)
 - [RFC 1918 — Address Allocation for Private Internets](https://www.rfc-editor.org/rfc/rfc1918)

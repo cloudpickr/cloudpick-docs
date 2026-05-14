@@ -64,9 +64,20 @@ description: 서비스 메시의 개념, 사이드카 vs 사이드카리스 모�
 
 ## 참고하기
 
+### AWS
+
+- [AWS VPC Lattice 문서](https://docs.aws.amazon.com/vpc-lattice/latest/ug/what-is-vpc-lattice.html)
+
+### Azure
+
+- [Azure AKS Istio add-on](https://learn.microsoft.com/azure/aks/istio-about)
+
+### GCP
+
+- [GCP Cloud Service Mesh](https://cloud.google.com/service-mesh/docs)
+
+### 표준 및 커뮤니티
+
 - [Istio 문서](https://istio.io/latest/docs/)
 - [Linkerd 문서](https://linkerd.io/2/overview/)
-- [AWS VPC Lattice 문서](https://docs.aws.amazon.com/vpc-lattice/latest/ug/what-is-vpc-lattice.html)
-- [Azure AKS Istio add-on](https://learn.microsoft.com/azure/aks/istio-about)
-- [GCP Cloud Service Mesh](https://cloud.google.com/service-mesh/docs)
 - [CNCF Service Mesh Landscape](https://landscape.cncf.io/card-mode?category=service-mesh)

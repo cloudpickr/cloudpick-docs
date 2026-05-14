@@ -44,6 +44,8 @@ description: 플랫폼 엔지니어링과 IDP(Internal Developer Platform)의 �
 
 ## 참고하기
 
+### 표준 및 커뮤니티
+
 - [CNCF Platforms White Paper](https://tag-app-delivery.cncf.io/whitepapers/platforms/)
 - [Backstage 문서](https://backstage.io/docs/)
 - [Crossplane 문서](https://docs.crossplane.io/)

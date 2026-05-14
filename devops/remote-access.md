@@ -151,9 +151,20 @@ CloudTrail은 세션 접근의 "관리 행위"를 자동으로 기록합니다:
 
 ## 참고하기
 
+### AWS
+
 - [AWS Systems Manager Session Manager 문서](https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager.html)
-- [Azure Bastion 문서](https://learn.microsoft.com/azure/bastion/bastion-overview)
-- [GCP IAP TCP 포워딩 문서](https://cloud.google.com/iap/docs/using-tcp-forwarding)
-- [OCI Bastion 문서](https://docs.oracle.com/en-us/iaas/Content/Bastion/home.htm)
 - [AWS Run Command](https://docs.aws.amazon.com/systems-manager/latest/userguide/execute-remote-commands.html)
+
+### Azure
+
+- [Azure Bastion 문서](https://learn.microsoft.com/azure/bastion/bastion-overview)
 - [Azure Run Command](https://learn.microsoft.com/azure/virtual-machines/run-command-overview)
+
+### GCP
+
+- [GCP IAP TCP 포워딩 문서](https://cloud.google.com/iap/docs/using-tcp-forwarding)
+
+### OCI
+
+- [OCI Bastion 문서](https://docs.oracle.com/en-us/iaas/Content/Bastion/home.htm)

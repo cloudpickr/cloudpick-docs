@@ -181,21 +181,24 @@ graph LR
 
 ## 참고하기
 
-### 벤더 공식 가이드
+### AWS
 
 - [AWS — Bedrock Prompt Engineering Guidelines](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-engineering-guidelines.html)
+
+### Azure
+
 - [Azure OpenAI — Prompt engineering techniques](https://learn.microsoft.com/azure/ai-services/openai/concepts/prompt-engineering)
+- [Microsoft — Generative AI for Beginners](https://learn.microsoft.com/shows/generative-ai-for-beginners/)
+
+### GCP
+
 - [GCP Vertex AI — Prompting strategies](https://cloud.google.com/vertex-ai/generative-ai/docs/learn/prompts/prompt-design-strategies)
+
+### 표준 및 커뮤니티
+
 - [Anthropic Claude — Prompt engineering overview](https://docs.anthropic.com/claude/docs/prompt-engineering)
 - [Cohere — Prompt engineering](https://docs.cohere.com/docs/prompt-engineering)
-
-### 논문
-
 - [Wei et al., 2022 — Chain-of-Thought Prompting](https://arxiv.org/abs/2201.11903)
 - [Yao et al., 2022 — ReAct](https://arxiv.org/abs/2210.03629)
 - [Brown et al., 2020 — GPT-3 (Few-shot learning)](https://arxiv.org/abs/2005.14165)
-
-### 실습 자료
-
 - [Anthropic — Interactive Prompt Engineering Tutorial](https://github.com/anthropics/prompt-eng-interactive-tutorial)
-- [Microsoft — Generative AI for Beginners](https://learn.microsoft.com/shows/generative-ai-for-beginners/)

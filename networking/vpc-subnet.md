@@ -135,7 +135,6 @@ NAT Gateway는 시간당 비용 + 데이터 처리 비용이 발생합니다. �
 | GCP | Private Service Connect |
 | OCI | Service Gateway / Private Endpoint |
 
-
 ## 프로덕션 VPC 설계 체크리스트
 
 - [ ] CIDR 범위를 향후 확장과 멀티클라우드 피어링을 고려하여 설계했는가

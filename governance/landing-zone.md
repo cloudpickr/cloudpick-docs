@@ -90,7 +90,6 @@ graph TB
 [FinOps](finops.md)
 {% endcontent-ref %}
 
-
 ## 랜딩존 도입 체크리스트
 
 - [ ] 조직 구조(OU/폴더/컴파트먼트) 설계를 완료했는가

@@ -144,7 +144,7 @@ graph LR
     end
 ```
 
-이 프레임워크는 [NIST Cybersecurity Framework 2.0](https://www.nist.gov/cyberframework)의 6가지 기능에 대응합니다. "보호" 단계의 IAM 설계는 [IAM과 접근 제어](iam.md)를, 시크릿 보호는 [시크릿 관리](secrets.md)를 참고하세요.
+이 프레임워크는 [NIST Cybersecurity Framework 2.0](https://www.nist.gov/cyberframework)의 6가지 기능에 대응합니다.
 
 ## 참고하기
 

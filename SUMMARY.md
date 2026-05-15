@@ -78,6 +78,7 @@
 - [시크릿 관리](security/secrets.md)
 - [데이터 보호와 워크로드 보안](security/data-protection.md)
 - [제로 트러스트](security/zero-trust.md)
+- [망분리와 네트워크 격리](security/network-isolation.md)
 - [보안 태세 관리](security/security-posture.md)
 - [보안 사고 대응](security/incident-response.md)
 - [AI 보안](security/ai-security.md)

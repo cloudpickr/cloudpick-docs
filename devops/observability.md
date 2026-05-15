@@ -150,6 +150,23 @@ CNCF의 [Cloud Native Landscape — Observability](https://landscape.cncf.io/gui
 - [ ] 알림 라우팅 표준화 (PagerDuty, Opsgenie 등 단일 통합)
 - [ ] 비용 모니터링 (관찰가능성 플랫폼 자체 비용)
 
+## 멀티클라우드 통합 모니터링 (Single Pane of Glass)
+
+AWS CloudWatch, Azure Monitor, GCP Cloud Monitoring을 각각 보는 것은 비효율적입니다. 멀티클라우드 환경에서는 **한 곳에서 모든 클라우드의 상태를 볼 수 있는 통합 대시보드**가 필요합니다.
+
+| 접근 방식 | 설명 | 도구 |
+| --- | --- | --- |
+| **OpenTelemetry 표준화** | 벤더 중립 계측 → 단일 백엔드로 수집 | OTel Collector + Grafana/Datadog |
+| **서드파티 통합 플랫폼** | 모든 벤더의 메트릭/로그를 하나의 SaaS로 | Datadog, New Relic, Dynatrace, Splunk |
+| **오픈소스 스택** | 자체 운영, 벤더 종속 없음 | Prometheus + Grafana + Loki + Tempo |
+
+**통합 모니터링 구성 시 고려사항:**
+
+- 각 벤더의 네이티브 메트릭을 OTel 또는 Prometheus 형식으로 변환
+- 알림을 단일 채널(PagerDuty, Opsgenie)로 라우팅
+- 대시보드에서 벤더별 필터링 가능하도록 태그/라벨 표준화
+- 비용: 서드파티 SaaS는 데이터 수집량 기반 과금이므로 로그 볼륨 관리 필요
+
 ## 참고하기
 
 ### 표준 및 오픈소스

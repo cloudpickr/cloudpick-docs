@@ -128,6 +128,20 @@ EC2, Lambda, 컨테이너, CI/CD 파이프라인 등 **사람이 아닌 워크�
 - [ ] 정기적(분기별) 권한 리뷰를 수행하는가
 - [ ] 퇴사자 계정 비활성화가 HR 프로세스에 포함되어 있는가
 
+## 멀티클라우드 통합 자격 증명 (Identity Federation)
+
+여러 클라우드를 사용할 때 각 벤더에 별도 계정을 만들면 관리가 파편화됩니다. **하나의 IdP(Identity Provider)로 모든 클라우드에 SSO(Single Sign-On)를 구성**하는 것이 멀티클라우드 IAM의 출발점입니다.
+
+| 접근 방식 | 설명 | 도구 |
+| --- | --- | --- |
+| **중앙 IdP + Federation** | 하나의 IdP에서 인증 후 각 클라우드에 SAML/OIDC로 연동 | Microsoft Entra ID, Okta, Google Workspace |
+| **AWS Identity Center** | AWS 전용 SSO. 외부 IdP 연동 가능 | AWS IAM Identity Center |
+| **크로스 클라우드 워크로드 ID** | 서비스 간 인증을 장기 키 없이 처리 | OIDC Federation, Workload Identity |
+
+{% hint style="info" %}
+멀티클라우드 환경에서 IdP를 통합하지 않으면: 계정 관리 파편화, 퇴사자 처리 누락, 권한 감사 불가능 등의 문제가 발생합니다. 가장 먼저 해야 할 일은 **하나의 IdP를 정하고 모든 클라우드를 연동**하는 것입니다.
+{% endhint %}
+
 ## 참고하기
 
 ### AWS

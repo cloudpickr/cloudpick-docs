@@ -94,6 +94,7 @@
 
 - [클라우드 AI 시작하기](ai/getting-started.md)
 - [AI와 머신러닝 서비스](ai/ai-ml.md)
+- [생성형 AI 모델 유형별 비교](ai/generative-models.md)
 - [벡터 스토어와 AI 데이터](ai/vector-store.md)
 - [임베딩 모델 선택 가이드](ai/embedding-models.md)
 - [RAG 고급 패턴](ai/rag-patterns.md)

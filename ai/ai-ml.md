@@ -139,6 +139,47 @@ graph LR
 AI 서비스는 다른 클라우드 서비스보다 **변경 빈도가 매우 높습니다.** 모델명, API 엔드포인트, 가격이 수시로 바뀌므로, 이 문서의 기준 시점 이후 변경사항은 각 벤더의 공식 문서를 확인하세요.
 {% endhint %}
 
+## AI 활용의 확장 방향
+
+AI는 모델 API 호출을 넘어 다양한 형태로 확장되고 있습니다.
+
+### Applied AI (산업별 AI 서비스)
+
+AI/ML을 직접 구축하지 않고, 특정 업무에 바로 적용할 수 있는 완성형 AI 서비스입니다.
+
+| 영역 | 예시 | 벤더 서비스 |
+| --- | --- | --- |
+| 컨택센터 (AICC) | 음성 봇, 실시간 상담 지원 | Amazon Connect, Azure AI Contact Center, GCP CCAI |
+| 문서 처리 | OCR, 문서 분류, 데이터 추출 | Textract, Document Intelligence, Document AI |
+| 코드 생성 | 코드 자동완성, 리뷰 | Amazon Q Developer, GitHub Copilot, Gemini Code Assist |
+| BI 자연어 질의 | 자연어로 데이터 분석 | Amazon Q in QuickSight, Copilot in Power BI, Gemini in Looker |
+
+### Physical AI (물리 세계 AI)
+
+IoT, 로보틱스, 디지털 트윈 등 물리 세계와 연결되는 AI입니다.
+
+| 영역 | 클라우드 연관 서비스 |
+| --- | --- |
+| IoT + 엣지 추론 | AWS IoT Greengrass, Azure IoT Edge, GCP Edge TPU |
+| 디지털 트윈 | AWS IoT TwinMaker, Azure Digital Twins |
+| 로보틱스 시뮬레이션 | AWS RoboMaker, NVIDIA Isaac (클라우드 GPU) |
+
+### Agentic Apps (AI 에이전트)
+
+자율적으로 도구를 호출하고 멀티스텝 작업을 수행하는 AI 앱입니다.
+
+| 벤더 | 서비스 | 특징 |
+| --- | --- | --- |
+| AWS | [Bedrock Agents](https://docs.aws.amazon.com/bedrock/latest/userguide/agents.html) | 도구 호출, 지식 베이스 연동, 코드 실행 |
+| Azure | [Azure AI Agent Service](https://learn.microsoft.com/azure/ai-services/agents/) | 멀티 에이전트 오케스트레이션, Azure 서비스 통합 |
+| GCP | [Vertex AI Agent Builder](https://cloud.google.com/products/agent-builder) | Grounding, 검색 연동, 엔터프라이즈 |
+
+**오케스트레이션 패턴:**
+
+- 단일 에이전트 (도구 호출 루프)
+- 멀티 에이전트 (역할 분담, 감독자 패턴)
+- Human-in-the-loop (승인 단계)
+
 ## 참고하기
 
 ### AWS

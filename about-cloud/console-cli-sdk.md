@@ -94,7 +94,7 @@ SDK는 CLI와 달리 애플리케이션 코드에 직접 통합되므로, 에러
 | **비용** | 무료 | 무료 (스토리지 비용 별도) | 무료 | 무료 |
 | **에디터** | 내장 에디터 | Monaco 에디터 (VS Code 기반) | Theia 에디터 (VS Code 기반) | 내장 에디터 |
 
-## IaC (Infrastructure as Code)와의 관계
+## 코드로 관리하는 인프라 (IaC)와의 관계
 
 콘솔, CLI, SDK는 리소스를 직접 생성하고 관리하는 **명령형** (Imperative) 방식입니다. "서버를 만들어라", "네트워크를 연결해라"처럼 한 단계씩 지시합니다.
 
@@ -107,10 +107,10 @@ SDK는 CLI와 달리 애플리케이션 코드에 직접 통합되므로, 에러
 
 실무에서는 콘솔로 현황을 확인하고, CLI로 긴급 대응하며, **프로덕션 인프라는 IaC로 관리**하는 것이 표준입니다.
 
-IaC 도구 비교, Terraform 상태 관리, 모듈 설계, 드리프트 관리 등 상세는 [IaC (Infrastructure as Code)](../devops/iac.md)를 참고하세요.
+IaC 도구 비교, Terraform 상태 관리, 모듈 설계, 드리프트 관리 등 상세는 [코드로 관리하는 인프라 (IaC)](../devops/iac.md)를 참고하세요.
 
 {% content-ref url="../devops/iac.md" %}
-[IaC (Infrastructure as Code)](../devops/iac.md)
+[코드로 관리하는 인프라 (IaC)](../devops/iac.md)
 {% endcontent-ref %}
 
 ## 참고하기

@@ -148,7 +148,7 @@ flowchart LR
 ## 관련 문서
 
 {% content-ref url="iac.md" %}
-[IaC (Infrastructure as Code)](iac.md)
+[코드로 관리하는 인프라 (IaC)](iac.md)
 {% endcontent-ref %}
 
 {% content-ref url="what-is-devops.md" %}

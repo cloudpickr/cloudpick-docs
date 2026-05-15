@@ -10,7 +10,7 @@ from urllib.parse import unquote, urlparse
 
 ROOT = Path(__file__).resolve().parents[1]
 SKIP_DIRS = {".git", "_book", "node_modules"}
-META_FILES = {"README.md", "SUMMARY.md", "GLOSSARY.md"}
+META_FILES = {"README.md", "SUMMARY.md", "GLOSSARY.md", "CONTRIBUTING.md"}
 
 MD_LINK_RE = re.compile(r"(?<!!)\[[^\]]+\]\(([^)]+)\)")
 CONTENT_REF_RE = re.compile(r'{%\s*content-ref\s+url="([^"]+)"\s*%}')
@@ -78,12 +78,14 @@ def check_summary_coverage(files: list[Path]) -> list[str]:
     for match in MD_LINK_RE.finditer(text):
         url = strip_fragment(match.group(1).strip())
         if url and not is_external(url):
-            linked.add(str((summary.parent / unquote(url)).resolve().relative_to(ROOT)))
+            resolved = str((summary.parent / unquote(url)).resolve().relative_to(ROOT))
+            if Path(resolved).name not in META_FILES:
+                linked.add(resolved)
 
     actual = {
         str(path.relative_to(ROOT))
         for path in files
-        if path.name != "SUMMARY.md"
+        if path.name not in META_FILES
     }
 
     errors: list[str] = []

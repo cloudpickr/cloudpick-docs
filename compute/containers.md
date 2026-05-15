@@ -116,20 +116,6 @@ flowchart TD
 - **Spot/Preemptible 노드 풀** — 배치 작업, CI
 - **ARM 노드 풀** — 비용 최적화 (Graviton, Cobalt, Ampere, Axion)
 
-## 관련 문서
-
-{% content-ref url="../devops/cicd.md" %}
-[CI/CD](../devops/cicd.md)
-{% endcontent-ref %}
-
-{% content-ref url="../devops/iac.md" %}
-[IaC](../devops/iac.md)
-{% endcontent-ref %}
-
-{% content-ref url="serverless.md" %}
-[서버리스](serverless.md)
-{% endcontent-ref %}
-
 ## Kubernetes 프로덕션 준비 체크리스트
 
 - [ ] 노드를 멀티 AZ에 분산 배치했는가
@@ -146,6 +132,20 @@ flowchart TD
 {% hint style="info" %}
 Day-2 운영 상세는 [Kubernetes 운영](../devops/kubernetes-operations.md)을 참고하세요.
 {% endhint %}
+
+## 관련 문서
+
+{% content-ref url="../devops/cicd.md" %}
+[CI/CD](../devops/cicd.md)
+{% endcontent-ref %}
+
+{% content-ref url="../devops/iac.md" %}
+[IaC](../devops/iac.md)
+{% endcontent-ref %}
+
+{% content-ref url="serverless.md" %}
+[서버리스](serverless.md)
+{% endcontent-ref %}
 
 ## 참고하기
 

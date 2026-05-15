@@ -50,8 +50,9 @@ CloudPick은 **멀티클라우드 환경에서 올바른 의사결정을 내리�
 4. [데이터 보호](security/data-protection.md)
 5. [보안 태세 관리](security/security-posture.md)
 6. [제로 트러스트](security/zero-trust.md)
-7. [DevSecOps](devops/devsecops.md)
-8. [보안 사고 대응](security/incident-response.md)
+7. [망분리와 네트워크 격리](security/network-isolation.md)
+8. [DevSecOps](devops/devsecops.md)
+9. [보안 사고 대응](security/incident-response.md)
 {% endtab %}
 
 {% tab title="🚚 마이그레이션" %}

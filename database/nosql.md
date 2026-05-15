@@ -90,10 +90,20 @@ NoSQL은 데이터 모델에 따라 여러 유형으로 나뉘며, 워크로드�
 
 **OCI NoSQL Database** — 키-값, 문서, 와이드 컬럼을 하나의 서비스로 지원하며, 서버리스 용량 관리와 예측 가능한 저지연 성능을 제공합니다.
 
-## 언제 무엇을 선택할 것인가
+## 결정 트리
 
-| 이럴 때 | 이것을 선택 |
-| --- | --- |
+```mermaid
+flowchart TD
+    A[NoSQL 필요] --> B{데이터 구조?}
+    B -->|Key-Value| C{지연시간 < 1ms?}
+    B -->|문서 JSON| D[DynamoDB / Cosmos DB<br/>Firestore / NoSQL DB]
+    B -->|넓은 열 Wide-Column| E[Bigtable / Cassandra 호환]
+    B -->|그래프 관계| F[Neptune / Cosmos DB Gremlin<br/>Neo4j]
+    C -->|예| G[인메모리 캐시<br/>ElastiCache / Memorystore]
+    C -->|아니오| D
+```
+
+## 언제 무엇을 선택할 것인가
 | 완전 서버리스 키-값/문서 DB + 밀리초 지연이 필요할 때 | AWS DynamoDB |
 | 하나의 DB로 문서, 키-값, 그래프를 모두 처리하고 싶을 때 | Azure Cosmos DB |
 | 글로벌 멀티 리전 쓰기가 필요할 때 | Azure Cosmos DB |

@@ -130,10 +130,20 @@ L4는 패킷 내용을 보지 않고 포트 단위로 분배하므로 지연이 
 [오토스케일링](../compute/auto-scaling.md)
 {% endcontent-ref %}
 
-## 언제 무엇을 선택할 것인가
+## 결정 트리
 
-| 요구사항 | 권장 | 이유 |
-| --- | --- | --- |
+```mermaid
+flowchart TD
+    A[로드밸런서 필요] --> B{글로벌 분산?}
+    B -->|예| C[글로벌 LB<br/>CloudFront/Front Door/Cloud LB/WAF]
+    B -->|아니오| D{L7 HTTP 라우팅 필요?}
+    D -->|예| E[L7 리전 LB<br/>ALB/App Gateway/Cloud LB]
+    D -->|아니오| F{TCP/UDP 고성능?}
+    F -->|예| G[L4 LB<br/>NLB/Azure LB/Network LB]
+    F -->|아니오| E
+```
+
+## 언제 무엇을 선택할 것인가
 | HTTP/HTTPS 라우팅, 경로 기반 분배 | L7 (ALB, App Gateway, Cloud LB, OCI LB) | URL/헤더 기반 라우팅, SSL 종료 |
 | TCP/UDP 고성능, 낮은 레이턴시 | L4 (NLB, Azure LB, Network LB, OCI NLB) | 패킷 수준 처리, 고정 IP |
 | 글로벌 트래픽 분산 + CDN + WAF | 글로벌 LB (CloudFront+ALB, Front Door, Cloud LB, OCI WAF) | 지역별 최적 라우팅 |

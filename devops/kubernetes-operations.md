@@ -73,6 +73,48 @@ graph LR
 | **컨트롤 플레인** | API Server 지연, etcd 상태, 스케줄러 | 벤더 관리형은 제한적 노출. 감사 로그로 보완 |
 | **이벤트** | Pod 재시작, OOM Kill, 스케줄 실패 | Kubernetes Events → 로그 수집 |
 
+## VPC 네트워킹
+
+Kubernetes 클러스터는 VPC 서브넷 위에서 동작하며, Pod 네트워킹 방식에 따라 IP 소비량과 성능이 달라집니다.
+
+### Pod CIDR과 서브넷 관계
+
+| 방식 | 설명 | 벤더 |
+| --- | --- | --- |
+| **VPC 네이티브 (Pod에 VPC IP 할당)** | Pod가 VPC IP를 직접 사용. VPC 내 다른 리소스와 직접 통신 가능 | AWS VPC CNI, Azure CNI, GCP Alias IP |
+| **오버레이 네트워크** | Pod에 별도 CIDR 할당. VPC IP를 소비하지 않지만 캡슐화 오버헤드 | Azure kubenet, Calico VXLAN, Flannel |
+
+### 서브넷 IP 소진 문제
+
+VPC 네이티브 방식에서는 노드 + Pod가 모두 VPC IP를 소비하여 서브넷이 부족해질 수 있습니다.
+
+| 벤더 | 대응 방법 |
+| --- | --- |
+| AWS | Prefix Delegation (노드당 /28 블록 할당), Secondary CIDR 추가 |
+| Azure | Azure CNI Overlay (Pod에 오버레이 IP 사용), Azure CNI + Dynamic IP Allocation |
+| GCP | Alias IP ranges, /14 기본 Pod CIDR (충분히 넓음) |
+
+### 서비스 노출 패턴
+
+| 단계 | 방식 | VPC 리소스 |
+| --- | --- | --- |
+| ClusterIP | 클러스터 내부에서만 접근 | 없음 |
+| NodePort | 노드 IP + 포트로 외부 노출 | Security Group 규칙 추가 |
+| LoadBalancer | 클라우드 LB 자동 생성 | LB + Target Group + Security Group |
+| Ingress/Gateway | L7 라우팅 (경로/호스트 기반) | ALB/App Gateway/Cloud LB 자동 생성 |
+
+### 네트워크 정책
+
+Pod 간 트래픽을 제어하는 Kubernetes 네이티브 기능입니다. VPC Security Group과는 역할이 다릅니다.
+
+| 구분 | Network Policy (Pod 레벨) | Security Group (VPC 레벨) |
+| --- | --- | --- |
+| 적용 대상 | Pod ↔ Pod | 인스턴스/ENI ↔ 외부 |
+| 구현 | Calico, Cilium, 벤더 네이티브 | 벤더 VPC 기능 |
+| 기본 동작 | 모두 허용 (정책 없으면) | 모두 거부 (인바운드) |
+
+관련: [VPC와 서브넷](../networking/vpc-subnet.md), [컨테이너 서비스](../compute/containers.md)
+
 ## 벤더별 차이점
 
 {% tabs %}

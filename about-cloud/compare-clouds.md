@@ -12,14 +12,14 @@ description: 주요 벤더의 특징, 강점, 멀티클라우드 연동 서비�
 | --- | --- | --- | --- | --- |
 | **운영사** | Amazon | Microsoft | Google | Oracle |
 | **출시** | 2006년 | 2010년 | 2008년 | 2016년 (Gen2) |
-| **시장 점유율** | 1위 (~31%) | 2위 (~25%) | 3위 (~11%) | 4위 (~2%) |
-| **서비스 수** | 200+ | 200+ | 150+ | 80+ |
-| **한국 리전** | 서울 (4 AZ) | 서울, 부산 | 서울 (3 Zone) | 서울, 춘천 |
+| **시장 위치** | [선두](https://www.srgresearch.com/) | [2위권](https://www.srgresearch.com/) | [3위권](https://www.srgresearch.com/) | [성장 중](https://www.srgresearch.com/) |
+| **서비스 포트폴리오** | 매우 넓음 | 매우 넓음 | 넓음 | 핵심 집중 |
+| **한국 리전** | [서울](https://aws.amazon.com/about-aws/global-infrastructure/regions_az/) | [서울, 부산](https://azure.microsoft.com/explore/global-infrastructure/geographies) | [서울](https://cloud.google.com/about/locations) | [서울, 춘천](https://www.oracle.com/cloud/public-cloud-regions/) |
 | **강점** | 가장 넓은 포트폴리오, 최대 커뮤니티 | 엔터프라이즈(M365, AD), 하이브리드 | AI/ML(Vertex AI, TPU), 데이터(BigQuery) | DB(Autonomous DB), 가격 경쟁력 |
 | **콘솔** | [Console](https://console.aws.amazon.com) | [Portal](https://portal.azure.com) | [Console](https://console.cloud.google.com) | [Console](https://cloud.oracle.com) |
 
 {% hint style="info" %}
-시장 점유율은 Synergy Research Group 2024년 기준 추정치이며, 측정 방법에 따라 차이가 있을 수 있습니다.
+시장 점유율, 리전 수, 서비스 수는 빠르게 변합니다. 최신 수치는 위 링크에서 확인하세요.
 {% endhint %}
 
 ## 주요 서비스 매핑
@@ -46,6 +46,12 @@ description: 주요 벤더의 특징, 강점, 멀티클라우드 연동 서비�
 | **위협 탐지** | GuardDuty | Defender for Cloud | Security Command Center | Cloud Guard |
 | **IaC** | CloudFormation / CDK | Bicep / ARM | Deployment Manager | Resource Manager |
 | **CI/CD** | CodePipeline / CodeBuild | Azure DevOps | Cloud Build | DevOps Service |
+| **데이터 이전 (대용량)** | Snowball / DataSync | Data Box / Data Factory | Transfer Appliance / Storage Transfer | OCI Data Transfer |
+| **DB 마이그레이션** | Database Migration Service (DMS) | Azure Database Migration Service | Database Migration Service | OCI Database Migration |
+| **메시지 큐** | SQS | Service Bus | Cloud Tasks / Pub/Sub | OCI Queue |
+| **이벤트 스트리밍** | MSK (Kafka) | Event Hubs | Pub/Sub | Streaming (Kafka 호환) |
+| **검색** | OpenSearch Service | Azure AI Search | — (마켓플레이스) | OCI Search with OpenSearch |
+| **데이터 파이프라인 (ETL)** | Glue / MWAA | Data Factory / Synapse Pipelines | Dataflow / Cloud Composer | OCI Data Integration |
 | **모니터링** | CloudWatch | Azure Monitor | Cloud Monitoring | OCI Monitoring |
 | **AI/LLM 플랫폼** | Bedrock | Azure OpenAI / Foundry | Vertex AI | OCI Generative AI |
 
@@ -137,24 +143,28 @@ AWS는 타사 대비 직접적인 서비스 비교 페이지를 제공하지 않
 - [AWS로의 클라우드 마이그레이션](https://aws.amazon.com/ko/cloud-migration/)
 - [AWS 서비스 개요 (전체 서비스 목록)](https://aws.amazon.com/ko/products/)
 
-## 3rd Party 비교 자료
+## 성능 비교 시 주의사항
 
-- [Public Cloud Services Comparison](https://comparecloud.in) — 주요 클라우드 벤더의 서비스를 카테고리별로 비교하는 커뮤니티 프로젝트
-  - [소스 코드](https://github.com/ilyas-it83/CloudComparer/)
+벤더 간 네트워크 성능을 단순 비교하여 "어느 벤더가 더 빠르다"고 결론 내기는 어렵습니다. 성능은 다음 요인에 따라 크게 달라집니다:
 
-## 속도 비교
+- **리전 위치** — 사용자와 가까운 리전을 선택하는 것이 벤더 선택보다 중요합니다.
+- **백본 네트워크** — 각 벤더의 글로벌 백본 구조가 다릅니다.
+- **워크로드 특성** — 대역폭 vs 지연시간 vs 패킷 처리량 중 무엇이 중요한지에 따라 결과가 다릅니다.
+- **측정 조건** — 시간대, ISP, 측정 도구에 따라 결과가 변동합니다.
 
 ### 벤더 공식 네트워크 성능 자료
 
-- [AWS — Infrastructure Performance](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/what-is-network-monitor.html)
+- [AWS — Network Monitor](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/what-is-network-monitor.html)
 - [Azure — 네트워크 왕복 지연 시간 통계](https://learn.microsoft.com/en-us/azure/networking/azure-network-latency)
 - [GCP — Performance Dashboard](https://cloud.google.com/network-intelligence-center/docs/performance-dashboard/concepts/overview)
 
-### 브라우저 기반 측정 도구
+### 참고용 측정 도구
+
+아래 도구는 참고용이며, 특정 시점의 측정 결과가 벤더의 전반적 성능을 대표하지 않습니다.
 
 - [GCPing](https://gcping.com) — GCP 리전별 지연 시간 측정
 - [Azure Speed Test 2.0](https://azurespeedtest.azurewebsites.net) — Azure 리전별 지연 시간 측정
-- [Kentik Cloud Latency Map](https://clm.kentik.com/) — AWS, Azure, GCP, Oracle 리전 간 지연 시간
+- [Kentik Cloud Latency Map](https://clm.kentik.com/) — 멀티 벤더 리전 간 지연 시간
 - [Cloud Ping Test](https://webping.cloud) — 멀티 벤더 동시 비교
 
 ## 참고하기
@@ -164,3 +174,4 @@ AWS는 타사 대비 직접적인 서비스 비교 페이지를 제공하지 않
 - [Synergy Research Group](https://www.srgresearch.com/) — 클라우드 시장 점유율 분기별 보고
 - [Gartner Magic Quadrant for Cloud Infrastructure](https://www.gartner.com/reviews/market/cloud-infrastructure-and-platform-services) — 클라우드 벤더 평가
 - [CNCF Cloud Native Survey](https://www.cncf.io/reports/cncf-annual-survey-2024/) — 클라우드 채택 현황 통계
+- [Public Cloud Services Comparison](https://comparecloud.in) — 커뮤니티 기반 서비스 비교

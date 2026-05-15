@@ -22,6 +22,48 @@ description: 플랫폼 엔지니어링과 IDP(Internal Developer Platform)의 �
 | **가드레일** | 보안/비용/규정 준수 자동 강제 | OPA, Azure Policy, AWS SCP |
 | **관측가능성** | 서비스 상태 대시보드 | Grafana, Backstage TechDocs |
 
+### 플랫폼 팀이 주로 만드는 컴포넌트
+
+| 컴포넌트 | 역할 | 자주 쓰는 오픈소스/도구 |
+| --- | --- | --- |
+| **개발자 포털** | 서비스 카탈로그, 소유자 추적, 온보딩 | Backstage (CNCF Incubating), Port, Cortex |
+| **인프라 셀프서비스** | PR로 환경 요청 → 자동 프로비저닝 | Crossplane, Terraform + Atlantis, Pulumi Operator |
+| **CI/CD 파이프라인 (공통)** | 표준화된 빌드/배포 파이프라인 템플릿 | Argo CD, Flux, Tekton, GitHub Actions reusable workflows |
+| **시크릿 관리** | 벤더 시크릿을 K8s/앱에 주입 | External Secrets Operator, HashiCorp Vault |
+| **관측가능성 스택** | 메트릭, 로그, 트레이스 통합 수집 | OpenTelemetry, Prometheus, Grafana, Loki, Tempo |
+| **정책 엔진 (가드레일)** | 보안/비용/규정 준수 자동 강제 | OPA/Gatekeeper, Kyverno, Checkov, tfsec |
+| **비용 가시성** | 팀/서비스별 비용 할당, 알림 | OpenCost, Kubecost, Infracost |
+| **환경 관리** | 임시 환경(Preview Env) 생성/삭제 | Argo CD ApplicationSet, vCluster |
+| **내부 모듈 레지스트리** | 검증된 Terraform 모듈, Helm 차트 | Terraform Registry (private), Harbor |
+
+### 오픈소스 생태계 맵
+
+**포털 & 카탈로그:**
+- Backstage (Spotify, CNCF Incubating) — 가장 넓은 생태계, 플러그인 풍부
+- Port — SaaS, 코드 불필요
+- Cortex — SaaS, 스코어카드 강점
+
+**GitOps & 배포:**
+- Argo CD — K8s 배포 표준, 멀티 클러스터
+- Flux — 경량, CNCF Graduated
+- Tekton — K8s 네이티브 CI/CD 파이프라인
+
+**인프라 추상화:**
+- Crossplane — K8s CRD로 클라우드 리소스 관리, 멀티클라우드
+- Terraform + Atlantis — PR 기반 plan/apply 자동화
+
+**정책 & 거버넌스:**
+- OPA/Gatekeeper — K8s Admission Control
+- Kyverno — YAML 기반 정책 (OPA보다 진입장벽 낮음)
+
+**관측가능성:**
+- OpenTelemetry — 벤더 중립 계측 표준 (CNCF Graduated)
+- Prometheus + Grafana — 메트릭 수집/시각화 사실상 표준
+
+**시크릿:**
+- HashiCorp Vault — 가장 성숙, 멀티클라우드
+- External Secrets Operator — K8s에서 벤더 시크릿 매니저 연동
+
 ## 멀티클라우드 표준화
 
 플랫폼 엔지니어링의 핵심 가치 중 하나는 **벤더 차이를 추상화**하는 것입니다.

@@ -34,10 +34,46 @@ description: 데이터 파이프라인(ETL/ELT)의 개념, 벤더별 서비스, 
 | **복잡도** | 낮음 | 높음 (순서, 중복, 지연 처리) |
 | **적합한 경우** | 일/주 단위 리포트, 대량 마이그레이션 | 실시간 대시보드, 이상 탐지, 추천 |
 
+## Zero-ETL
+
+운영 DB에서 분석 플랫폼으로 데이터를 **파이프라인 없이 자동으로** 복제/동기화하는 접근입니다. ETL 파이프라인 구축·유지보수 부담을 제거하는 것이 목표입니다.
+
+### ETL → ELT → Zero-ETL 흐름
+
+| 세대 | 방식 | 부담 |
+| --- | --- | --- |
+| ETL | 별도 엔진에서 변환 후 적재 | 파이프라인 구축·운영·모니터링 |
+| ELT | 적재 후 DW에서 변환 | 파이프라인은 단순화, 변환 로직은 여전히 필요 |
+| Zero-ETL | 소스 → 대상 자동 복제, 파이프라인 불필요 | 설정만 하면 됨 (이론상) |
+
+### 벤더별 Zero-ETL 현황
+
+| 벤더 | 서비스 | 소스 → 대상 |
+| --- | --- | --- |
+| AWS | Aurora Zero-ETL to Redshift | Aurora MySQL/PostgreSQL → Redshift |
+| AWS | DynamoDB Zero-ETL to Redshift | DynamoDB → Redshift |
+| Azure | Fabric Mirroring | Azure SQL/Cosmos DB → Microsoft Fabric |
+| GCP | BigQuery 연속 쿼리 + Change Streams | Spanner/Bigtable → BigQuery |
+| OCI | GoldenGate + Autonomous DB | 운영 DB → Autonomous DW |
+
+### 아직 남아있는 한계
+
+| 한계 | 설명 |
+| --- | --- |
+| **벤더 종속** | 같은 벤더 내 소스→대상만 지원. 크로스 벤더 Zero-ETL은 없음 |
+| **변환 로직 부재** | 데이터를 "그대로" 복제할 뿐, 비즈니스 변환(정제, 집계, 조인)은 별도 필요 |
+| **스키마 변경 대응** | 소스 스키마가 바뀌면 동기화가 깨지거나 수동 개입 필요 |
+| **지원 소스 제한** | 모든 DB가 지원되는 게 아님. 특정 엔진/버전만 가능 |
+
+{% hint style="info" %}
+Zero-ETL은 **단순 복제**에 적합하고, 복잡한 변환·다중 소스 조인·크로스 벤더 통합은 여전히 ETL/ELT 파이프라인이 필요합니다. 현실적으로는 Zero-ETL + 경량 ELT 조합이 될 것입니다.
+{% endhint %}
+
 ## 언제 무엇을 선택할 것인가
 
 | 요구사항 | 권장 |
 | --- | --- |
+| 단순 복제 (같은 벤더, 변환 불필요) | Zero-ETL |
 | 서버리스 배치 ETL (Spark) | Glue, Dataflow, Data Flow |
 | 코드 없는 ETL (GUI 기반) | Data Factory, OCI Data Integration |
 | 배치+스트리밍 통합 (Apache Beam) | GCP Dataflow |

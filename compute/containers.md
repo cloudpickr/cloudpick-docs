@@ -70,6 +70,7 @@ flowchart TD
 ```
 
 ## 언제 무엇을 선택할 것인가
+
 | Kubernetes 없이 간단하게 컨테이너를 운영하고 싶을 때 | AWS ECS 또는 Azure Container Apps |
 | 기존 컨테이너 앱을 코드 수정 없이 서버리스로 실행하고 싶을 때 | GCP Cloud Run |
 | Kubernetes가 필요하지만 컨트롤 플레인 비용을 아끼고 싶을 때 | Azure AKS 또는 OCI OKE (컨트롤 플레인 무료) |

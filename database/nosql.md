@@ -104,6 +104,7 @@ flowchart TD
 ```
 
 ## 언제 무엇을 선택할 것인가
+
 | 완전 서버리스 키-값/문서 DB + 밀리초 지연이 필요할 때 | AWS DynamoDB |
 | 하나의 DB로 문서, 키-값, 그래프를 모두 처리하고 싶을 때 | Azure Cosmos DB |
 | 글로벌 멀티 리전 쓰기가 필요할 때 | Azure Cosmos DB |

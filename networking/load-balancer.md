@@ -144,6 +144,7 @@ flowchart TD
 ```
 
 ## 언제 무엇을 선택할 것인가
+
 | HTTP/HTTPS 라우팅, 경로 기반 분배 | L7 (ALB, App Gateway, Cloud LB, OCI LB) | URL/헤더 기반 라우팅, SSL 종료 |
 | TCP/UDP 고성능, 낮은 레이턴시 | L4 (NLB, Azure LB, Network LB, OCI NLB) | 패킷 수준 처리, 고정 IP |
 | 글로벌 트래픽 분산 + CDN + WAF | 글로벌 LB (CloudFront+ALB, Front Door, Cloud LB, OCI WAF) | 지역별 최적 라우팅 |

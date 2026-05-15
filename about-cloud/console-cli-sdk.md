@@ -96,28 +96,22 @@ SDK는 CLI와 달리 애플리케이션 코드에 직접 통합되므로, 에러
 
 ## IaC (Infrastructure as Code)와의 관계
 
-콘솔, CLI, SDK는 리소스를 직접 생성하고 관리하는 **명령형** (Imperative) 방식입니다. "서버를 만들어라", "네트워크를 연결해라"처럼 **한 단계씩 지시**합니다. 요리에 비유하면 "양파를 썰고, 팬에 기름을 두르고, 중불에서 3분 볶아라"와 같습니다.
+콘솔, CLI, SDK는 리소스를 직접 생성하고 관리하는 **명령형** (Imperative) 방식입니다. "서버를 만들어라", "네트워크를 연결해라"처럼 한 단계씩 지시합니다.
 
-이와 대비되는 **선언형** (Declarative) 방식이 **IaC** (Infrastructure as Code)입니다. "서버 3대, 네트워크 1개가 있어야 한다"처럼 **원하는 최종 상태만 정의**하면, 도구가 현재 상태와 비교하여 필요한 변경을 자동으로 적용합니다. 요리에 비유하면 "양파 볶음 1인분"이라고 주문하면 셰프가 알아서 만드는 것과 같습니다.
+이와 대비되는 **선언형** (Declarative) 방식이 **IaC**입니다. "서버 3대, 네트워크 1개가 있어야 한다"처럼 원하는 최종 상태만 정의하면, 도구가 현재 상태와 비교하여 필요한 변경을 자동으로 적용합니다.
 
-### 벤더 네이티브 IaC 도구
-
-| 벤더 | 도구 | 언어/형식 |
+| 방식 | 특징 | 도구 예시 |
 | --- | --- | --- |
-| **AWS** | CloudFormation | YAML, JSON |
-| **AWS** | CDK (Cloud Development Kit) | TypeScript, Python, Java, C#, Go |
-| **Azure** | Bicep | Bicep (DSL) |
-| **Azure** | ARM Templates | JSON |
-| **GCP** | Config Connector | Kubernetes YAML |
-| **GCP** | Deployment Manager | YAML, Jinja2, Python |
+| **명령형** | 순서대로 실행. 빠른 테스트, 긴급 대응에 적합 | CLI 스크립트, SDK 코드 |
+| **선언형** | 최종 상태 정의. 재현성, 버전 관리, 팀 협업에 적합 | Terraform, CloudFormation, Bicep, CDK |
 
-### 멀티클라우드 IaC 도구
+실무에서는 콘솔로 현황을 확인하고, CLI로 긴급 대응하며, **프로덕션 인프라는 IaC로 관리**하는 것이 표준입니다.
 
-여러 벤더를 동시에 관리해야 하는 멀티클라우드 환경에서는 벤더 중립적인 IaC 도구가 유용합니다.
+IaC 도구 비교, Terraform 상태 관리, 모듈 설계, 드리프트 관리 등 상세는 [IaC (Infrastructure as Code)](../devops/iac.md)를 참고하세요.
 
-- **[Terraform](https://www.terraform.io/)** — HashiCorp이 개발한 가장 널리 사용되는 멀티클라우드 IaC 도구입니다. HCL(HashiCorp Configuration Language)로 인프라를 정의합니다.
-- **[Pulumi](https://www.pulumi.com/)** — TypeScript, Python, Go 등 일반 프로그래밍 언어로 인프라를 정의할 수 있습니다.
-- **[OpenTofu](https://opentofu.org/)** — Terraform의 오픈소스 포크로, Linux Foundation에서 관리합니다.
+{% content-ref url="../devops/iac.md" %}
+[IaC (Infrastructure as Code)](../devops/iac.md)
+{% endcontent-ref %}
 
 ## 참고하기
 
@@ -126,25 +120,21 @@ SDK는 CLI와 달리 애플리케이션 코드에 직접 통합되므로, 에러
 - [AWS CLI 설치 가이드](https://docs.aws.amazon.com/ko_kr/cli/latest/userguide/getting-started-install.html)
 - [AWS SDK 설치 (언어별)](https://docs.aws.amazon.com/ko_kr/sdkref/latest/guide/overview.html)
 - [AWS CloudShell 문서](https://docs.aws.amazon.com/ko_kr/cloudshell/latest/userguide/)
-- [AWS CloudFormation 문서](https://docs.aws.amazon.com/ko_kr/cloudformation/)
 
 ### Azure
 
 - [Azure CLI 설치 가이드](https://learn.microsoft.com/ko-kr/cli/azure/install-azure-cli)
 - [Azure SDK 설치 (언어별)](https://learn.microsoft.com/ko-kr/azure/developer/)
 - [Azure Cloud Shell 문서](https://learn.microsoft.com/ko-kr/azure/cloud-shell/overview)
-- [Bicep 설치 가이드](https://learn.microsoft.com/ko-kr/azure/azure-resource-manager/bicep/install)
 
 ### GCP
 
 - [Google Cloud CLI 설치 가이드](https://cloud.google.com/sdk/docs/install)
 - [Google Cloud Client Libraries (언어별)](https://cloud.google.com/apis/docs/cloud-client-libraries)
 - [Google Cloud Shell 문서](https://cloud.google.com/shell/docs)
-- [Terraform on Google Cloud](https://cloud.google.com/docs/terraform)
 
 ### OCI
 
 - [OCI CLI 설치 가이드](https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/cliinstall.htm)
 - [OCI SDK](https://docs.oracle.com/en-us/iaas/Content/API/Concepts/sdks.htm)
 - [OCI Cloud Shell](https://docs.oracle.com/en-us/iaas/Content/API/Concepts/cloudshellintro.htm)
-- [Terraform on OCI](https://docs.oracle.com/iaas/Content/ResourceManager/home.htm)

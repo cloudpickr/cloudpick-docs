@@ -67,7 +67,7 @@ description: 한국 ISMS-P, CSAP와 글로벌 ISO 27001, SOC 2 등 클라우드 
 | OCI | — (공식 페이지 확인) | Seoul, Chuncheon | [Oracle 컴플라이언스](https://www.oracle.com/corporate/cloud-compliance/) |
 
 {% hint style="info" %}
-CSAP 제도는 국정원 보안적합성 검증과의 통합, N2SF(국가망보안체계) 연계 등 제도 변화가 논의 중입니다. 도입 전 [KISA 공식 사이트](https://isms.kisa.or.kr/main/csap/intro/)에서 최신 현황을 확인하세요.
+CSAP 제도는 N2SF(국가망보안체계) 1.0 공개(2025.9)에 따라 등급별 차등 보안 체계와의 연계가 진행 중입니다. 도입 전 [KISA 공식 사이트](https://isms.kisa.or.kr/main/csap/intro/)와 [NCSC](https://www.ncsc.go.kr)에서 최신 현황을 확인하세요.
 {% endhint %}
 
 ### 금융권 관련 규제
@@ -76,7 +76,7 @@ CSAP 제도는 국정원 보안적합성 검증과의 통합, N2SF(국가망보�
 
 - **전자금융거래법 / 전자금융감독규정** — 금융회사의 클라우드 이용 시 안전성 확보 요건
 - **금융보안원 (FSI)** — 금융권 클라우드 이용 가이드 발간, 보안 컨설팅 제공
-- **망분리 규제** — 개인신용정보 처리 시스템은 일반 업무망과 분리 운영 필요 (완화 논의 중)
+- **망분리 규제** — 개인신용정보 처리 시스템은 일반 업무망과 분리 운영 필요. N2SF 1.0에 따라 등급별 차등 적용으로 전환 중 ([망분리와 네트워크 격리](../security/network-isolation.md) 참고)
 
 공식 자료:
 

@@ -100,25 +100,33 @@ description: 물리적·논리적 망분리 개념, 클라우드에서의 네트
 
 대부분의 금융/공공 워크로드는 에어갭까지 필요하지 않으며, 다음 패턴으로 규제 요건을 충족합니다.
 
-```text
-┌─────────────────────────────────────────────────┐
-│  VPC (프로덕션)                                    │
-│  ┌──────────────┐  ┌──────────────┐              │
-│  │ Public Subnet │  │ Private Subnet│              │
-│  │ (ALB/WAF만)  │  │ (앱/DB/내부API)│              │
-│  └──────┬───────┘  └──────┬───────┘              │
-│         │                  │                      │
-│         │    Security Group + NACL                │
-│         │    (최소 권한 인바운드)                    │
-│         │                  │                      │
-│  ┌──────┴──────────────────┴───────┐             │
-│  │       VPC Endpoint (S3, KMS 등)  │             │
-│  └──────────────────────────────────┘             │
-└─────────────────────┬───────────────────────────┘
-                      │ 전용선 (Direct Connect 등)
-              ┌───────┴───────┐
-              │  온프레미스 DC  │
-              └───────────────┘
+```mermaid
+flowchart TB
+    subgraph VPC["VPC (프로덕션)"]
+        subgraph pub["Public Subnet"]
+            ALB[ALB / WAF]
+        end
+        subgraph priv["Private Subnet"]
+            APP[앱 서버]
+            DB[DB / 내부 API]
+        end
+        subgraph ep["VPC Endpoint"]
+            S3EP[S3]
+            KMSEP[KMS]
+        end
+    end
+
+    Internet((인터넷)) -->|HTTPS only| ALB
+    ALB -->|SG 허용 포트만| APP
+    APP -->|SG 허용 포트만| DB
+    APP --- S3EP
+    APP --- KMSEP
+
+    subgraph OnPrem["온프레미스 DC"]
+        Legacy[기존 시스템]
+    end
+
+    VPC ===|전용선\nDirect Connect / ExpressRoute| OnPrem
 ```
 
 **핵심 원칙:**

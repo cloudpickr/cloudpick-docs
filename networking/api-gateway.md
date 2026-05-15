@@ -66,6 +66,38 @@ API Gateway 자체는 인증 로직을 처리하지 않고, 외부 인증 서비
 
 **OCI API Gateway** — OCI Functions와 네이티브 연동되며, 인증(JWT 검증), 속도 제한, 요청 변환을 정책 기반으로 설정할 수 있습니다.
 
+## AWS API Gateway 타입별 차이
+
+AWS는 용도에 따라 3가지 API 타입을 제공합니다.
+
+| 타입 | 용도 | 특징 | 제약 |
+| --- | --- | --- | --- |
+| **REST API** | 풀 기능 API | 요청 검증, 캐싱, WAF 연동, Usage Plan | 비용 높음, 지연 약간 높음 |
+| **HTTP API** | 경량 프록시 | 저비용(~70% 저렴), 저지연, JWT 인증 내장 | 캐싱·WAF·Usage Plan 없음 |
+| **WebSocket API** | 실시간 양방향 | 채팅, 알림, 게임 | 연결 유지 비용 별도 |
+
+**선택 기준:** 대부분의 새 프로젝트는 HTTP API로 시작하세요. 캐싱, WAF 연동, Usage Plan(API 키 쿼터)이 필요한 경우에만 REST API를 선택합니다.
+
+## OpenAPI(Swagger) 연동
+
+온프레미스에서 Swagger로 API 스펙을 정의하던 팀은 클라우드에서도 동일한 워크플로우를 유지할 수 있습니다.
+
+- **Import**: OpenAPI 스펙으로 API Gateway를 자동 생성 (AWS, Azure APIM, Apigee 모두 지원)
+- **Export**: API Gateway에서 OpenAPI 스펙을 추출하여 문서화
+- **IaC 연동**: CloudFormation/Terraform에서 OpenAPI 스펙을 인라인으로 정의하여 API 구성을 코드로 관리
+- **개발자 포털**: Azure APIM, Apigee는 OpenAPI 스펙 기반으로 인터랙티브 API 문서를 자동 생성
+
+## API 테스트 도구
+
+| 도구 | 역할 | API Gateway와의 관계 |
+| --- | --- | --- |
+| Postman | API 수동 테스트, 컬렉션 관리, 환경 변수 | Stage별 URL을 환경으로 관리, 인증 토큰 자동 갱신 |
+| Swagger UI | OpenAPI 스펙 기반 인터랙티브 문서 | API Gateway에서 export한 스펙으로 자동 생성 |
+| 벤더 콘솔 테스트 | AWS 콘솔 Test 탭, APIM Test 탭 | 배포 전 빠른 검증 |
+| curl / httpie | CLI 기반 빠른 테스트 | CI/CD 파이프라인에서 스모크 테스트 |
+
+클라우드 API는 인증 흐름(OAuth, API Key, IAM Sig v4)이 복잡하고, 환경(dev/staging/prod)별 전환이 빈번하므로 Postman 같은 도구로 환경 변수와 인증을 체계적으로 관리하는 것이 효율적입니다.
+
 ## API 배포 단계와 버전 관리
 
 API는 프로덕션에 배포되면 변경이 어렵기 때문에, 개발→스테이징→프로덕션의 단계적 배포와 버전 관리가 중요합니다.

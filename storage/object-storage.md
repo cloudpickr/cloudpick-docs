@@ -49,23 +49,13 @@ AWS S3 Intelligent-Tiering과 GCP Autoclass는 접근 패턴을 자동으로 분
 
 ## 핵심 차이점
 
-{% tabs %}
-{% tab title="AWS S3" %}
-2006년 출시로 가장 오래되었고, S3 API가 업계 사실상 표준이 되었습니다. 대부분의 3rd party 도구, 다른 클라우드 벤더, 온프레미스 스토리지까지 S3 호환 API를 지원합니다. S3 Tables, S3 Metadata, S3 Vectors 등 스토리지 자체에 분석 기능을 내장하는 방향으로 가장 적극적으로 진화하고 있습니다.
-{% endtab %}
+**AWS S3** — 2006년 출시로 가장 오래되었고, S3 API가 업계 사실상 표준이 되었습니다. 대부분의 3rd party 도구, 다른 클라우드 벤더, 온프레미스 스토리지까지 S3 호환 API를 지원합니다. S3 Tables, S3 Metadata, S3 Vectors 등 스토리지 자체에 분석 기능을 내장하는 방향으로 가장 적극적으로 진화하고 있습니다.
 
-{% tab title="Azure Blob Storage" %}
-Blob Storage와 Data Lake Storage Gen2가 동일한 스토리지 계정에서 통합됩니다. 계층적 네임스페이스(폴더 구조)를 지원하여 빅데이터 워크로드에서 파일 관리가 편리합니다. Microsoft Fabric과의 통합으로 분석 파이프라인 구성이 간편합니다.
-{% endtab %}
+**Azure Blob Storage** — Blob Storage와 Data Lake Storage Gen2가 동일한 스토리지 계정에서 통합됩니다. 계층적 네임스페이스(폴더 구조)를 지원하여 빅데이터 워크로드에서 파일 관리가 편리합니다. Microsoft Fabric과의 통합으로 분석 파이프라인 구성이 간편합니다.
 
-{% tab title="GCP Cloud Storage" %}
-Multi-region과 Dual-region 옵션으로 별도 복제 설정 없이 여러 리전에 자동 복제됩니다. Autoclass로 스토리지 클래스 자동 전환을 지원하며, BigLake를 통해 BigQuery에서 직접 쿼리할 수 있습니다.
-{% endtab %}
+**GCP Cloud Storage** — Multi-region과 Dual-region 옵션으로 별도 복제 설정 없이 여러 리전에 자동 복제됩니다. Autoclass로 스토리지 클래스 자동 전환을 지원하며, BigLake를 통해 BigQuery에서 직접 쿼리할 수 있습니다.
 
-{% tab title="OCI Object Storage" %}
-S3 호환 API를 지원하며, Auto-Tiering으로 접근 패턴에 따라 Standard/Infrequent Access 간 자동 전환됩니다. 이그레스 10TB/월 무료 정책으로 대량 데이터 전송 시 비용 이점이 큽니다.
-{% endtab %}
-{% endtabs %}
+**OCI Object Storage** — S3 호환 API를 지원하며, Auto-Tiering으로 접근 패턴에 따라 Standard/Infrequent Access 간 자동 전환됩니다. 이그레스 10TB/월 무료 정책으로 대량 데이터 전송 시 비용 이점이 큽니다.
 
 ## 언제 무엇을 선택할 것인가
 
@@ -77,6 +67,47 @@ S3 호환 API를 지원하며, Auto-Tiering으로 접근 패턴에 따라 Standa
 | 스토리지 클래스 자동 전환을 원할 때 | AWS S3 Intelligent-Tiering 또는 GCP Autoclass |
 | 대량 이그레스 비용을 절감하고 싶을 때 | OCI Object Storage (10TB/월 무료) |
 | 객체 스토리지에서 직접 SQL 분석을 하고 싶을 때 | AWS Athena + S3 또는 GCP BigQuery External Tables |
+
+## 활용 패턴
+
+### 유즈케이스별 적합성
+
+| 유즈케이스 | 설명 | 왜 객체 스토리지인가 |
+| --- | --- | --- |
+| 정적 웹 호스팅 | SPA, 정적 사이트 서빙 | CDN 연동, 서버리스, 무한 확장 |
+| 데이터 레이크 | 원본 데이터 저장소 | 스키마 불필요, 저비용 대용량, 다양한 포맷 |
+| 로그/이벤트 아카이브 | 감사 로그, 이벤트 스트림 저장 | append-only, 수명주기 정책으로 자동 아카이빙 |
+| ML 학습 데이터 | 이미지, 텍스트, 피처 스토어 | 대용량 비정형 데이터, 병렬 읽기 |
+| 백업/DR | DB 스냅샷, 시스템 이미지 | 내구성 99.999999999%, 크로스 리전 복제 |
+| 미디어 저장/스트리밍 | 동영상, 이미지 원본 | 대용량, CDN 오리진, 트랜스코딩 파이프라인 입력 |
+
+### 데이터 레이크 / 레이크하우스 패턴
+
+객체 스토리지에 원본 데이터를 그대로 두고, 테이블 포맷(Iceberg, Delta Lake, Hudi)으로 구조화하여 별도 데이터 웨어하우스 없이 직접 SQL 쿼리하는 아키텍처입니다.
+
+**메달리온 아키텍처 (Bronze/Silver/Gold):**
+
+- **Bronze** — 원본 그대로 (JSON, CSV, Parquet 혼재). 수명주기 정책으로 자동 아카이빙
+- **Silver** — 정제/변환된 데이터 (Parquet, 스키마 적용)
+- **Gold** — 비즈니스 집계/마트 (분석 즉시 가능)
+
+객체 스토리지의 prefix(폴더)로 계층을 분리합니다.
+
+### 이벤트 드리븐 파이프라인
+
+객체 업로드 시 이벤트를 트리거하여 변환/분석을 자동 실행하는 패턴입니다.
+
+| 벤더 | 트리거 | 처리 |
+| --- | --- | --- |
+| AWS | S3 Event Notification | Lambda, Step Functions, EventBridge |
+| Azure | Blob Trigger | Functions, Data Factory |
+| GCP | Cloud Storage Trigger | Cloud Functions, Dataflow |
+
+### 관련 문서
+
+- [데이터 분석 서비스](../database/analytics.md)
+- [데이터 파이프라인](../database/data-pipeline.md)
+- [서버리스](../compute/serverless.md)
 
 ## 객체 스토리지의 진화
 

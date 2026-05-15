@@ -59,7 +59,6 @@ description: 클라우드 문서에서 자주 등장하는 용어를 벤더 중�
 | 조건부 접근 | Conditional Access. 사용자의 위치, 기기 상태, 시간 등 컨텍스트에 따라 접근을 허용/차단하는 정책입니다. |
 | OIDC | OpenID Connect. OAuth 2.0 위에 구축된 인증 프로토콜입니다. 사용자 신원 확인과 SSO에 사용됩니다. |
 | SAML | Security Assertion Markup Language. 엔터프라이즈 SSO에 사용되는 XML 기반 인증/인가 표준입니다. |
-| Microsoft Entra ID | Microsoft의 클라우드 기반 ID 및 접근 관리 서비스입니다. 구 Azure Active Directory(Azure AD)입니다. |
 | 임시 자격 증명 | Temporary Credentials. 제한된 시간 동안만 유효한 인증 정보입니다. STS 토큰, 세션 토큰 등이 해당합니다. 동의어: 임시 토큰. |
 | 장기 자격 증명 | Long-term Credentials. 만료 없이 유효한 인증 정보입니다. Access Key, API Key 등이 해당합니다. 보안상 임시 자격 증명 사용을 권장합니다. |
 | CSPM | Cloud Security Posture Management. 클라우드 구성 오류를 지속적으로 탐지하는 보안 관리 체계입니다. |

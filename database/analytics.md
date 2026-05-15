@@ -8,7 +8,16 @@ description: 데이터 웨어하우스, 데이터 레이크하우스, 분석 플
 
 ## 개요
 
+### OLTP vs OLAP — 왜 분리하는가
+
 운영 데이터베이스([관리형 RDB](managed-rdb.md), [NoSQL](nosql.md))는 트랜잭션 처리(OLTP)에 최적화되어 있습니다. 대량 데이터를 집계·분석하려면 별도의 분석 플랫폼(OLAP)이 필요합니다.
+
+**비유:** 운영 DB는 매장 계산대(빠른 개별 거래 처리)이고, 웨어하우스는 본사 경영분석팀(전 매장 데이터를 모아서 추이 분석)입니다. 계산대에서 경영분석을 하면 줄이 길어집니다.
+
+운영 DB에서 대량 집계 쿼리를 돌리면:
+- 트랜잭션 처리 성능 저하 (주문이 느려짐)
+- 정규화된 스키마에서 분석 쿼리는 JOIN이 수십 개 → 느리고 복잡
+- 그래서 운영 DB → ETL → 분석 전용 DB(웨어하우스)로 분리
 
 | 구분 | OLTP (운영 DB) | OLAP (분석 플랫폼) |
 | --- | --- | --- |
@@ -62,6 +71,23 @@ Oracle Database 기반으로 자동 튜닝, 자동 스케일링을 제공합니�
 | Azure | ADLS Gen2 + Synapse + Delta Lake (Microsoft Fabric으로 통합) |
 | GCP | GCS + BigQuery (BigLake로 외부 테이블 통합) |
 | OCI | Object Storage + Autonomous DW + OCI Data Flow (Spark) |
+
+## BI 시각화 도구
+
+분석 결과를 사람이 보려면 BI(Business Intelligence) 도구가 필요합니다.
+
+| 벤더 | BI 도구 | 특징 |
+| --- | --- | --- |
+| AWS | [Amazon QuickSight](https://aws.amazon.com/quicksight/) | 서버리스, SPICE 인메모리 엔진, Q(자연어 질의) |
+| Azure | [Power BI](https://powerbi.microsoft.com/) | 가장 넓은 사용자 기반, Excel 친화적, Copilot 통합 |
+| GCP | [Looker / Looker Studio](https://cloud.google.com/looker) | LookML 기반 시맨틱 레이어, Looker Studio는 무료 |
+| OCI | [OCI Analytics Cloud](https://docs.oracle.com/en-us/iaas/analytics-cloud/index.html) | Oracle 네이티브, 셀프서비스 시각화 |
+| 3rd party | Tableau, Metabase, Apache Superset | 벤더 중립, 멀티클라우드 환경에서 유용 |
+
+BI 도구가 중요한 이유:
+- SQL 모르는 비즈니스 사용자도 데이터 활용 가능
+- 대시보드로 실시간 모니터링
+- 셀프서비스 분석 → 데이터팀 병목 해소
 
 ## 선택 기준
 

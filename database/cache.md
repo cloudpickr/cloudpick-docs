@@ -51,6 +51,11 @@ description: 인메모리 캐시의 개념, 캐시 패턴, 벤더별 관리형 �
 
 ## 참고하기
 
+### 오픈소스
+
+- [Valkey 공식 사이트](https://valkey.io/) — Linux Foundation 산하 Redis 포크
+- [Valkey GitHub](https://github.com/valkey-io/valkey)
+
 ### AWS
 
 - [Amazon ElastiCache 문서](https://docs.aws.amazon.com/elasticache/)

@@ -110,14 +110,6 @@ graph LR
 | **연결 대상** | 1:1 (클라우드 2개) | 1:1 | 1:N (여러 클라우드 동시) |
 | **적합한 상황** | PoC, 소규모, 빠른 시작 | 대용량, 안정성 필수, 프로덕션 | 3개 이상 클라우드 연결, 유연성 |
 
-## 자세한 내용
-
-트랜짓 아키텍처 패턴, 이그레스 비용 상세 비교, DNS 통합 전략은 아래 문서에서 다룹니다.
-
-{% content-ref url="multicloud-connectivity.md" %}
-[멀티클라우드 커넥티비티 (심화)](multicloud-connectivity.md)
-{% endcontent-ref %}
-
 ## 설계 시 체크리스트
 
 - [ ] 모든 클라우드/온프레미스의 CIDR이 겹치지 않는가?
@@ -126,3 +118,20 @@ graph LR
 - [ ] DNS 조건부 포워딩으로 크로스 클라우드 이름 해석이 가능한가?
 - [ ] 허브 장애 시 대체 경로(failover)가 있는가?
 - [ ] 보안 그룹/방화벽 규칙이 클라우드 간 트래픽을 허용하는가?
+
+## 관련 문서
+
+트랜짓 아키텍처 패턴, 이그레스 비용 상세 비교, DNS 통합 전략은 아래 문서에서 다룹니다.
+
+{% content-ref url="multicloud-connectivity.md" %}
+[멀티클라우드 커넥티비티 (심화)](multicloud-connectivity.md)
+{% endcontent-ref %}
+
+## 참고하기
+
+- [AWS Direct Connect](https://docs.aws.amazon.com/directconnect/latest/UserGuide/Welcome.html)
+- [Azure ExpressRoute](https://learn.microsoft.com/azure/expressroute/expressroute-introduction)
+- [Google Cloud Interconnect](https://cloud.google.com/network-connectivity/docs/interconnect/concepts/overview)
+- [OCI FastConnect](https://docs.oracle.com/en-us/iaas/Content/Network/Concepts/fastconnect.htm)
+- [RFC 1918 — Address Allocation for Private Internets](https://datatracker.ietf.org/doc/html/rfc1918)
+- [KINX Cloud Hub](https://www.kinx.net/service/cloud/)

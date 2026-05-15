@@ -22,6 +22,18 @@ FinOps의 3단계 라이프사이클:
 FinOps는 단순히 비용을 줄이는 활동이 아닙니다. 필요한 곳에는 비용을 쓰되, 비용과 비즈니스 가치의 관계를 투명하게 만드는 운영 방식입니다.
 {% endhint %}
 
+### 단위 경제 (Unit Economics)
+
+"월 비용이 얼마인가?"보다 "사용자 1명당 비용", "트랜잭션 1건당 비용"을 추적하는 것이 사업 의사결정에 유용합니다.
+
+| 지표 예시 | 계산 예 |
+| --- | --- |
+| 활성 사용자당 비용 | 월 인프라 비용 / 월간 활성 사용자 수 (MAU) |
+| 트랜잭션당 비용 | 월 비용 / 월 처리된 요청 수 |
+| 매출 대비 인프라 비중 | 월 인프라 비용 / 월 매출 |
+
+단위 경제를 추적하면 트래픽 증가 시 비용이 선형인지 확인하고, 서비스별 수익성을 평가할 수 있습니다.
+
 ## 주요 CSP 비용 관리 도구 비교
 
 | 항목 | AWS | Azure | GCP | OCI |
@@ -43,7 +55,9 @@ FinOps를 처음 시작할 때는 도구를 많이 도입하기보다, 비용을
 | 4 | 큰 비용 항목부터 최적화 | 미사용 리소스, 과대 사이징, 스토리지 클래스 |
 | 5 | 예약/약정 할인 검토 | RI, Savings Plans, CUD 등 |
 
-## 자주 보는 비용 최적화 항목
+---
+
+## Inform — 가시성 확보
 
 - **컴퓨팅 사이징** — CPU/메모리 사용률이 낮은 VM을 축소하거나 종료합니다.
 - **스케줄링** — 개발/테스트 환경은 업무 시간 외 자동 중지합니다.
@@ -55,7 +69,7 @@ FinOps를 처음 시작할 때는 도구를 많이 도입하기보다, 비용을
 비용 최적화는 보안, 가용성, 성능을 훼손하지 않는 범위에서 진행해야 합니다. 특히 백업 보관 기간이나 DR 구성을 비용만 보고 줄이면 장애 시 더 큰 손실이 발생할 수 있습니다.
 {% endhint %}
 
-## 태그/라벨 정책 설계
+### 태그/라벨 정책 설계
 
 FinOps의 출발점은 **누가, 무엇에, 얼마를 썼는가** 를 정확히 귀속시키는 것입니다. 계정/구독/프로젝트 단위 분리만으로는 부족한 경우(같은 계정에 여러 팀의 리소스가 있는 경우 등)가 많아, 태그/라벨이 필수입니다.
 
@@ -113,7 +127,7 @@ FinOps의 출발점은 **누가, 무엇에, 얼마를 썼는가** 를 정확히 
 - [ ] 월 1회 태그 규정 준수 리포트 생성
 - [ ] Showback/Chargeback 리포트의 태그 기반 필드 확인
 
-## 쇼백 vs 차지백 (Showback vs Chargeback)
+### 쇼백 vs 차지백 (Showback vs Chargeback)
 
 비용을 조직 내부에 어떻게 배분할지 결정하는 모델입니다. [FinOps Foundation 공식 프레임워크](https://www.finops.org/framework/capabilities/allocation/)에서 정의합니다.
 
@@ -130,7 +144,34 @@ Showback/Chargeback을 하려면 비용을 정확히 귀속시킬 수 있어야 
 - **계정/구독/프로젝트 분리** — 부서별 분리는 태그보다 확실한 비용 경계 ([계정과 조직 구조](../about-cloud/accounts-and-organizations.md) 참고)
 - **공유 비용 배분 정책** — 네트워크, 보안 서비스 같은 공통 비용을 어떻게 나눌지 정의
 
-## 약정 할인 전략
+### FOCUS 스펙
+
+[FOCUS(FinOps Open Cost and Usage Specification)](https://focus.finops.org/)는 FinOps Foundation에서 주도하는 멀티클라우드 비용 데이터 표준화 스펙입니다. 벤더별로 다른 비용 데이터 형식을 하나의 스키마로 통합하여 멀티클라우드 환경에서 일관된 비용 분석을 가능하게 합니다.
+
+| 벤더 | FOCUS 지원 현황 |
+| --- | --- |
+| AWS | [CUR 2.0 (FOCUS 호환)](https://docs.aws.amazon.com/cur/latest/userguide/table-columns-cur2.html) |
+| Azure | [Cost Management FOCUS export](https://learn.microsoft.com/en-us/azure/cost-management-billing/) |
+| GCP | [BigQuery 비용 내보내기 (FOCUS 호환)](https://cloud.google.com/billing/docs/how-to/export-data-bigquery-tables) |
+| OCI | [Cost Report (FOCUS 지원 진행 중)](https://docs.oracle.com/en-us/iaas/Content/Billing/Concepts/costanalysisoverview.htm) |
+
+---
+
+## Optimize — 최적화
+
+### 자주 보는 비용 최적화 항목
+
+- **컴퓨팅 사이징** — CPU/메모리 사용률이 낮은 VM을 축소하거나 종료합니다.
+- **스케줄링** — 개발/테스트 환경은 업무 시간 외 자동 중지합니다.
+- **스토리지 수명주기** — 오래된 로그와 백업은 저렴한 스토리지 클래스로 이동합니다.
+- **이그레스 비용** — 리전 간, 클라우드 간 데이터 전송 경로를 점검합니다.
+- **약정 할인** — 안정적으로 사용하는 베이스라인 워크로드에 예약/약정을 적용합니다.
+
+{% hint style="warning" %}
+비용 최적화는 보안, 가용성, 성능을 훼손하지 않는 범위에서 진행해야 합니다. 특히 백업 보관 기간이나 DR 구성을 비용만 보고 줄이면 장애 시 더 큰 손실이 발생할 수 있습니다.
+{% endhint %}
+
+### 약정 할인 전략
 
 각 벤더는 1년 또는 3년 약정 시 최대 70\~72% 할인을 제공합니다. 하지만 약정한 만큼 사용하지 못하면 비용 낭비가 됩니다.
 
@@ -154,24 +195,9 @@ Showback/Chargeback을 하려면 비용을 정확히 귀속시킬 수 있어야 
 **약정은 보험이 아니라 베팅입니다.** 사용량이 확실한 워크로드에만 적용하세요. 무조건 많이 약정하면 할인은 받지만 유연성을 잃습니다.
 {% endhint %}
 
-## 단위 경제 (Unit Economics)
+## Operate — 운영
 
-"월 비용이 얼마인가?"보다 "사용자 1명당 비용", "트랜잭션 1건당 비용"을 추적하는 것이 사업 의사결정에 유용합니다.
-
-| 지표 예시 | 계산 예 |
-| --- | --- |
-| 활성 사용자당 비용 | 월 인프라 비용 / 월간 활성 사용자 수 (MAU) |
-| 트랜잭션당 비용 | 월 비용 / 월 처리된 요청 수 |
-| 고객 획득당 인프라 비용 | 신규 고객 유치 비용 중 인프라 기여분 |
-| 매출 대비 인프라 비중 | 월 인프라 비용 / 월 매출 |
-
-단위 경제를 추적하면:
-
-- 트래픽이 늘어날 때 비용 증가가 선형인지 확인 (선형이 아니면 확장성 문제)
-- 서비스/기능별 수익성 평가
-- 예산 수립 시 매출 성장 대비 인프라 증가를 예측
-
-## 비용 이상 탐지
+### 비용 이상 탐지
 
 사람이 계속 모니터링하지 않고 머신러닝으로 비정상 비용 증가를 자동 탐지하는 기능입니다.
 
@@ -188,22 +214,6 @@ Showback/Chargeback을 하려면 비용을 정확히 귀속시킬 수 있어야 
 - 실수로 남겨진 리소스 (테스트용 대형 인스턴스, 미사용 NAT Gateway)
 - 자동 스케일링 이상 (이벤트 이후에도 축소 안 됨)
 - 보안 사고로 인한 악성 사용 (크립토 마이닝, 외부 공격)
-
-## FOCUS 스펙
-
-[FOCUS(FinOps Open Cost and Usage Specification)](https://focus.finops.org/)는 FinOps Foundation에서 주도하는 멀티클라우드 비용 데이터 표준화 스펙입니다.
-
-FOCUS의 목표:
-- 벤더별로 다른 비용 데이터 형식을 하나의 스키마로 통합
-- 멀티클라우드 환경에서 일관된 비용 분석 가능
-- 벤더 간 비용 비교를 위한 공통 용어 정의
-
-| 벤더 | FOCUS 지원 현황 |
-| --- | --- |
-| AWS | [CUR 2.0 (FOCUS 호환)](https://docs.aws.amazon.com/cur/latest/userguide/table-columns-cur2.html) |
-| Azure | [Cost Management FOCUS export](https://learn.microsoft.com/en-us/azure/cost-management-billing/) |
-| GCP | [BigQuery 비용 내보내기 (FOCUS 호환)](https://cloud.google.com/billing/docs/how-to/export-data-bigquery-tables) |
-| OCI | [Cost Report (FOCUS 지원 진행 중)](https://docs.oracle.com/en-us/iaas/Content/Billing/Concepts/costanalysisoverview.htm) |
 
 ## 참고하기
 

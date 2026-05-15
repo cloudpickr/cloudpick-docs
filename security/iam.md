@@ -21,11 +21,11 @@ description: IAM 실무 설계, 인증 방식, 권한 모델, 최소 권한 도�
 | 방식 | 특징 | 적합한 대상 |
 | --- | --- | --- |
 | **장기 자격 증명** (Access Key, API Key) | 만료 없음. 유출 시 즉시 악용 가능 | ❌ 가능하면 사용하지 말 것 |
-| **역할 기반 임시 토큰** (IAM Role, Managed Identity) | 자동 발급/만료. 코드에 시크릿 불필요 | ✅ 기기/서비스 (워크로드) |
+| **역할 기반 임시 자격 증명** (IAM Role, Managed Identity) | 자동 발급/만료. 코드에 시크릿 불필요 | ✅ 기기/서비스 (워크로드) |
 | **페더레이션** (OIDC, SAML, Workload Identity) | 외부 IdP 토큰을 클라우드 권한으로 교환 | ✅ 사람(SSO), 서드파티, CI/CD |
 
 {% hint style="warning" %}
-**원칙:** 사람은 SSO + MFA + 페더레이션, 서비스는 역할 기반 임시 토큰, 서드파티는 페더레이션 + 시간 제한. 장기 키는 최후의 수단입니다.
+**원칙:** 사람은 SSO + MFA + 페더레이션, 서비스는 역할 기반 임시 자격 증명, 서드파티는 페더레이션 + 시간 제한. 장기 키는 최후의 수단입니다.
 {% endhint %}
 
 {% hint style="danger" %}
@@ -44,7 +44,7 @@ IAM에서 관리하는 ID는 크게 3가지입니다. 각각 생성/권한 부�
 
 | 라이프사이클 | 해야 할 일 | 벤더별 방법 |
 | --- | --- | --- |
-| **입사** | 계정 생성 + 그룹 배정 + MFA 강제 | AWS: Identity Center에서 사용자 생성 또는 외부 IdP(Okta, Entra ID) 연동. Azure: Entra ID 사용자 생성. GCP: Cloud Identity 또는 Workspace. OCI: Identity Domain 사용자 생성 |
+| **입사** | 계정 생성 + 그룹 배정 + MFA 강제 | AWS: Identity Center에서 사용자 생성 또는 외부 IdP(Okta, Microsoft Entra ID) 연동. Azure: Entra ID 사용자 생성. GCP: Cloud Identity 또는 Workspace. OCI: Identity Domain 사용자 생성 |
 | **부서 이동** | 기존 그룹 제거 + 새 그룹 배정 | 그룹 기반 권한이면 그룹만 변경. 개별 정책 부여했다면 수동 정리 필요 |
 | **퇴사** | 계정 비활성화 → 세션 무효화 → 일정 기간 후 삭제 | 즉시 삭제하면 감사 추적 불가. 비활성화 후 90일 보존 권장 |
 | **정기 검토** | 미사용 계정/과다 권한 탐지 | AWS: Access Analyzer, Azure: Access Reviews, GCP: IAM Recommender |
@@ -60,7 +60,7 @@ EC2, Lambda, 컨테이너, CI/CD 파이프라인 등 **사람이 아닌 워크�
 
 | 벤더 | 권장 방식 | 설명 |
 | --- | --- | --- |
-| AWS | **IAM Role** (Instance Profile, Task Role, Execution Role) | EC2/ECS/Lambda에 역할을 연결하면 임시 토큰이 자동 주입됨 |
+| AWS | **IAM Role** (Instance Profile, Task Role, Execution Role) | EC2/ECS/Lambda에 역할을 연결하면 임시 자격 증명이 자동 주입됨 |
 | Azure | **Managed Identity** (System-assigned / User-assigned) | VM/App Service/Function에 연결. 토큰 자동 발급/갱신 |
 | GCP | **Attached Service Account** + Workload Identity | GKE Pod에 Service Account 연결. 키 파일 불필요 |
 | OCI | **Instance Principal / Resource Principal** | Compute/Function에 동적 그룹 매칭으로 권한 부여 |
@@ -71,7 +71,7 @@ EC2, Lambda, 컨테이너, CI/CD 파이프라인 등 **사람이 아닌 워크�
 
 **해야 할 것:**
 - 워크로드별 별도 역할/ID 생성 (최소 권한 적용 가능)
-- CI/CD 파이프라인은 OIDC Federation으로 임시 토큰 발급 (GitHub Actions → AWS Role 등)
+- CI/CD 파이프라인은 OIDC Federation으로 임시 자격 증명 발급 (GitHub Actions → AWS Role 등)
 
 ### 서드파티 (외부 파트너/SaaS/벤더)
 

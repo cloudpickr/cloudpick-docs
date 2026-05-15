@@ -56,10 +56,21 @@ EKS를 아시는 분을 위해: Azure는 AKS, GCP는 GKE, OCI는 OKE입니다.
 - **GCP** — Cloud Run으로 가장 간단하게 컨테이너를 서버리스 실행할 수 있습니다.
 - **OCI** — OKE 컨트롤 플레인이 무료이며, Virtual Nodes로 서버리스 Kubernetes 운영이 가능합니다.
 
+## 결정 트리
+
+```mermaid
+flowchart TD
+    A[컨테이너 워크로드] --> B{K8s 직접 운영 가능한 팀?}
+    B -->|예| C{멀티클라우드/온프렘 이식성 필요?}
+    B -->|아니오| D{서버리스로 충분?}
+    C -->|예| E[관리형 K8s<br/>EKS/GKE/AKS/OKE]
+    C -->|아니오| E
+    D -->|예| F[서버리스 컨테이너<br/>Fargate/Cloud Run/Container Apps]
+    D -->|아니오| E
+```
+
 ## 언제 무엇을 선택할 것인가
 
-| 이럴 때 | 이것을 선택 |
-| --- | --- |
 | Kubernetes 없이 간단하게 컨테이너를 운영하고 싶을 때 | AWS ECS 또는 Azure Container Apps |
 | 기존 컨테이너 앱을 코드 수정 없이 서버리스로 실행하고 싶을 때 | GCP Cloud Run |
 | Kubernetes가 필요하지만 컨트롤 플레인 비용을 아끼고 싶을 때 | Azure AKS 또는 OCI OKE (컨트롤 플레인 무료) |

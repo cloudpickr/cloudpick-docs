@@ -150,6 +150,12 @@ CNCF의 [Cloud Native Landscape — Observability](https://landscape.cncf.io/gui
 - [ ] 알림 라우팅 표준화 (PagerDuty, Opsgenie 등 단일 통합)
 - [ ] 비용 모니터링 (관찰가능성 플랫폼 자체 비용)
 
+## 지속적으로 해야 할 것
+
+- **대시보드/알림 정기 리뷰** — 분기마다 대시보드가 현재 아키텍처를 반영하는지 확인합니다.
+- **알림 노이즈 제거** — 무시되는 알림은 제거하거나 임계치를 조정합니다. 알림 피로는 실제 장애를 놓치게 합니다.
+- **SLO 기반 알림 튜닝** — 에러 버짓 소진 속도 기반 알림으로 전환하면 노이즈가 줄어듭니다.
+
 ## 멀티클라우드 통합 모니터링 (Single Pane of Glass)
 
 AWS CloudWatch, Azure Monitor, GCP Cloud Monitoring을 각각 보는 것은 비효율적입니다. 멀티클라우드 환경에서는 **한 곳에서 모든 클라우드의 상태를 볼 수 있는 통합 대시보드**가 필요합니다.

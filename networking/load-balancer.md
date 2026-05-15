@@ -65,13 +65,6 @@ description: L4/L7/글로벌 로드밸런서, SSL/TLS 처리, 헬스 체크 설�
 
 L4는 패킷 내용을 보지 않고 포트 단위로 분배하므로 지연이 매우 낮습니다. DB, gRPC, 게임 서버 등 HTTP가 아닌 프로토콜에 사용합니다.
 
-## 핵심 차이점
-
-- **AWS** — ALB/NLB가 리전 단위이며, 글로벌 라우팅은 Global Accelerator를 별도로 사용합니다.
-- **Azure** — Front Door가 글로벌 L7 + CDN + WAF를 하나의 서비스로 통합합니다.
-- **GCP** — 로드밸런서가 기본적으로 글로벌입니다. 하나의 IP로 전 세계 사용자에게 가장 가까운 백엔드로 라우팅합니다.
-- **OCI** — Load Balancer(L7)와 Network Load Balancer(L4)를 분리 제공하며, DNS Traffic Management로 글로벌 트래픽 분배를 구성합니다.
-
 ## SSL/TLS 처리
 
 로드밸런서는 TLS 암호화 종료/통과 방식을 선택할 수 있습니다.
@@ -116,6 +109,40 @@ L4는 패킷 내용을 보지 않고 포트 단위로 분배하므로 지연이 
 - **Interval과 Threshold** — 너무 짧으면 false positive, 너무 길면 장애 감지 지연
 - **404/500도 건강함으로 간주할지** — 특정 경로가 없어도 서버는 정상일 수 있음
 
+## 선택 가이드
+
+### 벤더별 차이점
+
+- **AWS** — ALB/NLB가 리전 단위이며, 글로벌 라우팅은 Global Accelerator를 별도로 사용합니다.
+- **Azure** — Front Door가 글로벌 L7 + CDN + WAF를 하나의 서비스로 통합합니다.
+- **GCP** — 로드밸런서가 기본적으로 글로벌입니다. 하나의 IP로 전 세계 사용자에게 가장 가까운 백엔드로 라우팅합니다.
+- **OCI** — Load Balancer(L7)와 Network Load Balancer(L4)를 분리 제공하며, DNS Traffic Management로 글로벌 트래픽 분배를 구성합니다.
+
+### 결정 트리
+
+```mermaid
+flowchart TD
+    A[로드밸런서 필요] --> B{글로벌 분산?}
+    B -->|예| C[글로벌 LB<br/>CloudFront/Front Door/Cloud LB/WAF]
+    B -->|아니오| D{L7 HTTP 라우팅 필요?}
+    D -->|예| E[L7 리전 LB<br/>ALB/App Gateway/Cloud LB]
+    D -->|아니오| F{TCP/UDP 고성능?}
+    F -->|예| G[L4 LB<br/>NLB/Azure LB/Network LB]
+    F -->|아니오| E
+```
+
+### 요구사항별 선택
+
+| 요구사항 | 추천 | 비고 |
+| --- | --- | --- |
+| HTTP/HTTPS 라우팅, 경로 기반 분배 | L7 (ALB, App Gateway, Cloud LB, OCI LB) | URL/헤더 기반 라우팅, SSL 종료 |
+| TCP/UDP 고성능, 낮은 레이턴시 | L4 (NLB, Azure LB, Network LB, OCI NLB) | 패킷 수준 처리, 고정 IP |
+| 글로벌 트래픽 분산 + CDN + WAF | 글로벌 LB (CloudFront+ALB, Front Door, Cloud LB, OCI WAF) | 지역별 최적 라우팅 |
+| 내부 서비스 간 통신만 | Internal LB | 퍼블릭 IP 불필요, 프라이빗 서브넷 내 |
+| gRPC, WebSocket | L7 (gRPC 지원 확인) | ALB, Cloud LB는 gRPC 네이티브 지원 |
+
+> 글로벌 가속기의 동작 원리, CDN과의 차이, 선택 기준은 [CDN — 글로벌 네트워크 가속기](cdn.md#글로벌-네트워크-가속기)를 참고하세요.
+
 ## 관련 문서
 
 {% content-ref url="dns.md" %}
@@ -129,27 +156,6 @@ L4는 패킷 내용을 보지 않고 포트 단위로 분배하므로 지연이 
 {% content-ref url="../compute/auto-scaling.md" %}
 [오토스케일링](../compute/auto-scaling.md)
 {% endcontent-ref %}
-
-## 결정 트리
-
-```mermaid
-flowchart TD
-    A[로드밸런서 필요] --> B{글로벌 분산?}
-    B -->|예| C[글로벌 LB<br/>CloudFront/Front Door/Cloud LB/WAF]
-    B -->|아니오| D{L7 HTTP 라우팅 필요?}
-    D -->|예| E[L7 리전 LB<br/>ALB/App Gateway/Cloud LB]
-    D -->|아니오| F{TCP/UDP 고성능?}
-    F -->|예| G[L4 LB<br/>NLB/Azure LB/Network LB]
-    F -->|아니오| E
-```
-
-## 언제 무엇을 선택할 것인가
-
-| HTTP/HTTPS 라우팅, 경로 기반 분배 | L7 (ALB, App Gateway, Cloud LB, OCI LB) | URL/헤더 기반 라우팅, SSL 종료 |
-| TCP/UDP 고성능, 낮은 레이턴시 | L4 (NLB, Azure LB, Network LB, OCI NLB) | 패킷 수준 처리, 고정 IP |
-| 글로벌 트래픽 분산 + CDN + WAF | 글로벌 LB (CloudFront+ALB, Front Door, Cloud LB, OCI WAF) | 지역별 최적 라우팅 |
-| 내부 서비스 간 통신만 | Internal LB | 퍼블릭 IP 불필요, 프라이빗 서브넷 내 |
-| gRPC, WebSocket | L7 (gRPC 지원 확인) | ALB, Cloud LB는 gRPC 네이티브 지원 |
 
 ## 참고하기
 

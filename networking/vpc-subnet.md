@@ -89,9 +89,7 @@ NAT Gateway는 시간당 비용 + 데이터 처리 비용이 발생합니다. �
 - **AZ별로 서브넷 분산**. 최소 3개 AZ에 배치하여 고가용성 확보.
 - **VPC 간 CIDR 중복 피하기**. 피어링/전용 연결 시 라우팅 불가.
 
-{% content-ref url="multicloud-connectivity.md" %}
-[멀티클라우드 커넥티비티](multicloud-connectivity.md)
-{% endcontent-ref %}
+멀티클라우드 환경에서의 네트워크 연결은 [멀티클라우드 커넥티비티](multicloud-connectivity.md)를 참고하세요.
 
 ## 라우팅 테이블
 

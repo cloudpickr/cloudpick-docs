@@ -1,5 +1,5 @@
 ---
-description: 키-값, 문서, 인메모리 캐시, 검색 엔진 등 NoSQL 유형별 제품을 벤더별로 비교합니다.
+description: 키-값, 문서, 와이드 컬럼, 그래프 등 NoSQL 유형별 제품을 벤더별로 비교하고 키 설계 패턴을 설명합니다.
 ---
 
 # NoSQL
@@ -47,19 +47,7 @@ NoSQL은 데이터 모델에 따라 여러 유형으로 나뉘며, 워크로드�
 
 ### 인메모리 캐시
 
-| 벤더 | 제품 | 비고 |
-| --- | --- | --- |
-| AWS | ElastiCache for Valkey | Valkey(Redis 오픈소스 포크) 기반. 벡터 검색 지원 (v8.2+) |
-| AWS | ElastiCache for Redis | Redis 호환. 기존 워크로드용 |
-| AWS | MemoryDB for Valkey | Valkey 호환 + 내구성 보장 (디스크 영속화) |
-| Azure | Azure Cache for Redis | |
-| GCP | Memorystore for Valkey | Valkey 기반. 2025년 출시 |
-| GCP | Memorystore for Redis | |
-| OCI | OCI Cache with Redis | Redis 호환 관리형 캐시 |
-
-{% hint style="info" %}
-**Valkey**는 Redis의 오픈소스 포크로, Linux Foundation에서 관리합니다. Redis가 2024년 라이선스를 변경한 이후 AWS, GCP 등이 Valkey로 전환하고 있습니다. 기존 Redis 클라이언트와 호환됩니다.
-{% endhint %}
+인메모리 캐시(Redis/Valkey)의 상세 비교는 [캐시](cache.md)를 참고하세요.
 
 ### 검색 / 로그 분석 엔진
 
@@ -89,6 +77,56 @@ NoSQL은 데이터 모델에 따라 여러 유형으로 나뉘며, 워크로드�
 **GCP Firestore** — 모바일/웹 클라이언트에서 직접 접근할 수 있는 실시간 동기화가 강점입니다. Bigtable은 대규모 분석 워크로드에 특화되어 있습니다.
 
 **OCI NoSQL Database** — 키-값, 문서, 와이드 컬럼을 하나의 서비스로 지원하며, 서버리스 용량 관리와 예측 가능한 저지연 성능을 제공합니다.
+
+## NoSQL 유즈케이스와 관리형 옵션
+
+### 자주 쓰이는 NoSQL과 용도
+
+| DB | 유형 | 대표 유즈케이스 | 왜 RDB가 아닌 이것인가 |
+| --- | --- | --- | --- |
+| DynamoDB | 키-값/문서 | 세션, 장바구니, 게임 상태, IoT | 무한 스케일, 단일 자릿수 ms 보장, 스키마 유연 |
+| MongoDB (Atlas/DocumentDB/Cosmos DB) | 문서 | 카탈로그, CMS, 사용자 프로필 | 스키마리스, 중첩 문서, 빠른 개발 |
+| Cassandra / Bigtable | 와이드 컬럼 | 시계열, 로그, 추천 | 대규모 쓰기, 리전 분산 |
+| Neptune / Cosmos DB Gremlin | 그래프 | 소셜, 사기 탐지, 지식 그래프 | 관계 탐색이 JOIN보다 빠름 |
+
+### MongoDB 관리형 옵션
+
+| 벤더 | 서비스 | 비고 |
+| --- | --- | --- |
+| AWS | DocumentDB | MongoDB 호환 API, 완전한 MongoDB는 아님 |
+| Azure | Cosmos DB for MongoDB | MongoDB API 호환 모드 |
+| GCP/OCI | — | 네이티브 서비스 없음 |
+| MongoDB Atlas | Atlas (AWS/Azure/GCP) | 멀티클라우드 관리형. 호환성 완벽. 벤더 중립 선택지 |
+
+## 키 설계 패턴
+
+NoSQL은 RDB와 달리 **쿼리 패턴을 먼저 정하고 키를 설계**해야 합니다.
+
+### RDB vs NoSQL 설계 접근
+
+- **RDB**: 데이터 정규화 → 쿼리는 나중에 JOIN으로 해결
+- **NoSQL**: 접근 패턴(어떤 쿼리를 할 것인가)을 먼저 정의 → 그에 맞게 키/테이블 설계
+
+### DynamoDB 스타일 키 설계
+
+- **Partition Key (PK)** — 데이터 분산 단위. 균등 분산이 핵심
+- **Sort Key (SK)** — PK 내에서 정렬/범위 조회
+- **단일 테이블 설계** — 여러 엔티티를 하나의 테이블에 PK/SK 조합으로 저장
+- **핫 파티션 안티패턴** — 특정 PK에 트래픽 집중 → 스로틀링
+
+### MongoDB 스타일 키 설계
+
+- **\_id 필드와 인덱스 전략** — 쿼리 패턴에 맞는 복합 인덱스 설계
+- **임베딩 vs 레퍼런스** — 중첩 문서(1:1, 1:소수) vs 별도 컬렉션 참조(1:다수)
+- **샤드 키 선택** — 카디널리티, 쓰기 분산, 쿼리 격리 고려
+
+### 공통 안티패턴
+
+| 안티패턴 | 문제 | 대응 |
+| --- | --- | --- |
+| 시퀀셜 키 (타임스탬프만으로 PK) | 핫스팟 발생 | 랜덤 접두사 또는 복합 키 사용 |
+| 무한 성장하는 배열/리스트 | 문서 크기 제한 초과 | 별도 컬렉션으로 분리 |
+| RDB처럼 정규화 | 성능 저하 (조인 없음) | 읽기 패턴에 맞게 비정규화 |
 
 ## 결정 트리
 

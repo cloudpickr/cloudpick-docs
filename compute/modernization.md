@@ -10,7 +10,7 @@ description: 레거시 애플리케이션을 클라우드 네이티브로 전환
 
 **모더나이제이션** (Modernization)은 기존 애플리케이션을 클라우드 환경에 맞게 재구성하여 확장성, 배포 속도, 운영 효율을 개선하는 작업입니다.
 
-Microsoft 공식 정의: "클라우드 모더나이제이션은 기존 클라우드 워크로드를 비즈니스 요구에 더 잘 맞도록 개선하는 실무로, 새 기능을 추가하지 않고 클라우드 모범 사례에 맞게 정렬하는 것입니다." — [Microsoft Azure CAF](https://learn.microsoft.com/azure/cloud-adoption-framework/modernize/prepare-organization-cloud-modernization)
+Microsoft 공식 정의: *"클라우드 모더나이제이션은 기존 클라우드 워크로드를 비즈니스 요구에 더 잘 맞도록 개선하는 실무로, 새 기능을 추가하지 않고 클라우드 모범 사례에 맞게 정렬하는 것입니다."* — [Microsoft Azure CAF](https://learn.microsoft.com/azure/cloud-adoption-framework/modernize/prepare-organization-cloud-modernization)
 
 ### 마이그레이션과의 차이
 
@@ -34,7 +34,7 @@ Microsoft 공식 정의: "클라우드 모더나이제이션은 기존 클라우
 - **운영 부담** — OS 패치, 보안, 모니터링을 직접 관리해야 합니다.
 - **비용** — 관리형/서버리스 대비 비효율적입니다.
 
-Google Cloud 공식 가이드는 모더나이제이션을 "레거시 애플리케이션의 한계를 벗어나 확장 가능하고, 복원력 있으며, 유연한 시스템으로 전환하는 점진적 여정"으로 설명합니다 — [Google Cloud Architecture](https://cloud.google.com/architecture/modernization-path-dotnet-applications-google-cloud)
+Google Cloud 공식 가이드는 모더나이제이션을 *"레거시 애플리케이션의 한계를 벗어나 확장 가능하고, 복원력 있으며, 유연한 시스템으로 전환하는 점진적 여정"*으로 설명합니다 — [Google Cloud Architecture](https://cloud.google.com/architecture/modernization-path-dotnet-applications-google-cloud)
 
 ## 모더나이제이션 전략
 

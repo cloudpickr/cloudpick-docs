@@ -48,6 +48,15 @@ description: 클라우드 문서에서 자주 등장하는 용어를 벤더 중�
 | Least Privilege | 최소 권한 원칙. 필요한 최소 권한만 부여하는 보안 원칙입니다. |
 | JIT 접근 | Just-In-Time Access. 상시 권한 대신 필요 시 요청→승인→시간 제한 부여하는 접근 방식입니다. |
 | Zero Trust | "절대 신뢰하지 말고, 항상 검증하라"는 보안 모델입니다. 네트워크 경계가 아닌 ID와 컨텍스트 기반으로 접근을 제어합니다. |
+| 마이크로세그멘테이션 | Microsegmentation. 네트워크를 세밀하게 분리하여 워크로드 간 통신을 최소 권한으로 제한하는 기법입니다. Zero Trust의 핵심 구현 수단입니다. |
+| 워크로드 아이덴티티 | Workload Identity. 사람이 아닌 애플리케이션/서비스에 부여하는 ID입니다. 장기 자격 증명 없이 클라우드 리소스에 접근할 수 있게 합니다. |
+| 서비스 계정 | Service Account. 사람이 아닌 애플리케이션이나 자동화 프로세스가 사용하는 계정입니다. |
+| 조건부 접근 | Conditional Access. 사용자의 위치, 기기 상태, 시간 등 컨텍스트에 따라 접근을 허용/차단하는 정책입니다. |
+| OIDC | OpenID Connect. OAuth 2.0 위에 구축된 인증 프로토콜입니다. 사용자 신원 확인과 SSO에 사용됩니다. |
+| SAML | Security Assertion Markup Language. 엔터프라이즈 SSO에 사용되는 XML 기반 인증/인가 표준입니다. |
+| Microsoft Entra ID | Microsoft의 클라우드 기반 ID 및 접근 관리 서비스입니다. 구 Azure Active Directory(Azure AD)입니다. |
+| 임시 자격 증명 | Temporary Credentials. 제한된 시간 동안만 유효한 인증 정보입니다. STS 토큰, 세션 토큰 등이 해당합니다. 동의어: 임시 토큰. |
+| 장기 자격 증명 | Long-term Credentials. 만료 없이 유효한 인증 정보입니다. Access Key, API Key 등이 해당합니다. 보안상 임시 자격 증명 사용을 권장합니다. |
 | CSPM | Cloud Security Posture Management. 클라우드 구성 오류를 지속적으로 탐지하는 보안 관리 체계입니다. |
 | CWPP | Cloud Workload Protection Platform. VM, 컨테이너, 서버리스 등 워크로드의 런타임 보안을 보호하는 플랫폼입니다. |
 | SIEM | Security Information and Event Management. 보안 이벤트를 수집·상관 분석하여 위협을 탐지하는 시스템입니다. |

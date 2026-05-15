@@ -87,6 +87,21 @@ CloudPick은 **멀티클라우드 환경에서 올바른 의사결정을 내리�
 
 ---
 
+## 이 문서 다음에는
+
+CloudPick은 **"무엇을 선택할지"** 를 돕는 비교 가이드입니다. 각 서비스의 사용법, 튜토리얼, 핸즈온은 벤더 공식 자료를 병행하세요.
+
+| 벤더 | 공식 학습 플랫폼 | 자격증 |
+| --- | --- | --- |
+| AWS | [AWS Skill Builder](https://skillbuilder.aws/) | Cloud Practitioner → SA Associate → Specialty |
+| Azure | [Microsoft Learn](https://learn.microsoft.com/training/) | AZ-900 → AZ-104/204 → Specialty |
+| GCP | [Google Cloud Skills Boost](https://www.cloudskillsboost.google/) | Cloud Digital Leader → Associate → Professional |
+| OCI | [OCI Training](https://education.oracle.com/oracle-cloud-infrastructure) | Foundations → Architect Associate → Professional |
+
+각 문서 하단의 **참고하기** 링크도 해당 주제의 공식 문서로 바로 연결됩니다.
+
+---
+
 ## 문서 작성 원칙
 
 > CloudPick의 제 1원칙입니다. 모든 기여자는 이 원칙을 따릅니다.

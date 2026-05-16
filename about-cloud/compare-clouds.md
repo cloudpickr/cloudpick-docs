@@ -100,13 +100,13 @@ Oracle의 데이터베이스 기술력을 클라우드로 확장한 OCI는 Oracl
 
 ## 벤더 간 멀티클라우드 연동 서비스
 
-주요 CSP는 경쟁 관계이면서도, 고객의 멀티클라우드 수요에 대응하여 벤더 간 직접 연동 서비스를 출시하고 있습니다.
+주요 CSP는 경쟁 관계이면서도, 고객의 멀티클라우드 수요에 대응하여 벤더 간 직접 연동 서비스를 출시하고 있습니다. 단일 벤더에 올인하지 않는 고객이 늘면서, "경쟁사 인프라 위에서도 자사 서비스를 쓸 수 있게" 하는 전략이 확산되고 있습니다.
 
-| 카테고리 | 대표 서비스 | 설명 | 상세 |
-| --- | --- | --- | --- |
-| **네트워크 직접 연결** | AWS Interconnect–multicloud, Google Cross-Cloud Interconnect, Oracle Interconnect | 벤더 간 전용 네트워크로 프라이빗 연결 | [멀티클라우드 커넥티비티 (심화)](../networking/multicloud-connectivity.md#cross-cloud-interconnect) |
-| **타 클라우드 내 DB 배치** | Oracle Database@Azure/AWS/GCP | 경쟁사 데이터센터 안에 Oracle DB를 네이티브 배치 | [관리형 RDB — Database@Cloud](../database/managed-rdb.md#database-cloud-db) |
-| **멀티클라우드 관리 플랫폼** | Azure Arc, GKE Enterprise, OCI Multicloud | 타 클라우드 리소스를 자사 도구로 통합 관리 | 아래 참조 |
+| 카테고리 | 설명 | 상세 |
+| --- | --- | --- |
+| **네트워크 직접 연결** | 벤더 간 전용 네트워크로 프라이빗 연결. 인터넷을 경유하지 않아 지연과 보안 모두 유리 | [멀티클라우드 커넥티비티](../networking/multicloud-connectivity.md) |
+| **타 클라우드 내 DB 배치** | 경쟁사 데이터센터 안에 자사 DB를 네이티브 배치. 앱은 AWS/Azure/GCP에 두고 DB만 Oracle을 쓰는 구성이 가능 | [관리형 RDB — Database@Cloud](../database/managed-rdb.md#database-cloud-db) |
+| **멀티클라우드 관리 플랫폼** | 타 클라우드의 서버, Kubernetes, DB를 자사 콘솔에서 통합 관리. 운영 도구를 하나로 통일하려는 수요에 대응 | 아래 참조 |
 
 ### 멀티클라우드 관리 플랫폼
 

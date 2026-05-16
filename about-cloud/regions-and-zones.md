@@ -52,17 +52,16 @@ graph TB
 | **가용영역** | Availability Zone | Availability Zone | Zone | Fault Domain / AD |
 | **리전 범위** | 리전별 독립 | Geography → Region | **글로벌 VPC** | Realm → Region |
 | **리전당 최소 AZ** | 3개 | 3개 | 3개 | 3 Fault Domain |
-| **온프레미스 확장** | Outposts | Azure Local | Google Distributed Cloud | Dedicated Region |
 | **주요 대륙 커버리지** | 북미, 남미, 유럽, 아시아, 오세아니아, 중동, 아프리카 | 북미, 남미, 유럽, 아시아, 오세아니아, 중동, 아프리카 | 북미, 남미, 유럽, 아시아, 오세아니아, 중동 | 북미, 남미, 유럽, 아시아, 오세아니아, 중동 |
 
 ### 핵심 차이점
 
 | 벤더 | 계층 구조 | VPC 범위 | 고유 특징 |
 | --- | --- | --- | --- |
-| **AWS** | Region → AZ | 리전 단위 | Local Zone (특정 도시에 초저지연 인프라 배치) |
-| **Azure** | Geography → Region → AZ | 리전 단위 | 리전 쌍(Region Pair): 같은 Geography 내 두 리전이 쌍으로 지정되어 플랫폼 업데이트가 동시에 적용되지 않음. 한국: `koreacentral` ↔ `koreasouth` |
-| **GCP** | Region → Zone | **글로벌** (하나의 VPC에 여러 리전의 서브넷 배치 가능) | Multi-region 스토리지로 자동 복제 |
-| **OCI** | Realm → Region → AD → Fault Domain | 리전 단위 | Dedicated Region (고객 DC에 OCI 전체를 설치). 대형 리전은 3개 AD, 소형 리전은 1개 AD + 3 Fault Domain |
+| **AWS** | Region → AZ | 리전 단위 | Local Zone (특정 도시에 초저지연), Sovereign Cloud (유럽 데이터 주권 전용 리전) |
+| **Azure** | Geography → Region → AZ | 리전 단위 | 리전 쌍(Region Pair): 같은 Geography 내 두 리전이 쌍으로 지정. 한국: `koreacentral` ↔ `koreasouth` |
+| **GCP** | Region → Zone | **글로벌** (하나의 VPC에 여러 리전의 서브넷 배치 가능) | Multi-region 스토리지 자동 복제, Assured Workloads (규제 워크로드 격리) |
+| **OCI** | Realm → Region → AD → Fault Domain | 리전 단위 | 대형 리전은 3개 AD, 소형 리전은 1개 AD + 3 Fault Domain |
 
 {% hint style="info" %}
 GCP의 VPC는 **글로벌 리소스**입니다. AWS와 Azure가 리전마다 VPC/VNet을 따로 만드는 것과 달리, GCP는 하나의 VPC에 여러 리전의 서브넷을 배치할 수 있습니다. 단, 서브넷 자체는 리전 단위입니다.

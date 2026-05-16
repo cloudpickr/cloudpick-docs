@@ -45,11 +45,15 @@ S3를 아시는 분을 위해: Azure는 Blob Storage, GCP는 Cloud Storage, OCI�
 | 아카이브 | S3 Glacier Deep Archive | Archive | Archive (365일) | Archive |
 | **자동 전환** | S3 Intelligent-Tiering | — | Autoclass | Auto-Tiering |
 
-AWS S3 Intelligent-Tiering과 GCP Autoclass는 접근 패턴을 자동으로 분석하여 최적의 클래스로 이동시켜 줍니다. 수동으로 수명 주기 정책을 설정할 필요가 없어 운영 부담이 줄어듭니다.
+AWS S3 Intelligent-Tiering과 GCP Autoclass, OCI Auto-Tiering은 접근 패턴을 자동으로 분석하여 최적의 클래스로 이동시켜 줍니다. 수동으로 수명 주기 정책을 설정할 필요가 없어 운영 부담이 줄어듭니다.
+
+{% hint style="info" %}
+확실하지 않으면 표준 클래스로 시작하고, 접근 패턴 분석 후 수명 주기 정책(Lifecycle Policy)으로 자동 전환하세요. 자동 전환 서비스를 사용하면 수동 정책 설정이 불필요합니다.
+{% endhint %}
 
 ## 핵심 차이점
 
-**AWS S3** — 2006년 출시로 가장 오래되었고, S3 API가 업계 사실상 표준이 되었습니다. 대부분의 3rd party 도구, 다른 클라우드 벤더, 온프레미스 스토리지까지 S3 호환 API를 지원합니다. S3 Tables, S3 Metadata, S3 Vectors 등 스토리지 자체에 분석 기능을 내장하는 방향으로 가장 적극적으로 진화하고 있습니다.
+**AWS S3** — 2006년 출시로 가장 오래되었고, S3 API가 업계 사실상 표준이 되었습니다. 대부분의 3rd party 도구, 다른 클라우드 벤더, 온프레미스 스토리지까지 S3 호환 API를 지원합니다. S3 Tables, S3 Metadata, S3 Vectors 등 스토리지 자체에 분석 기능을 내장하는 방향으로 진화하고 있습니다.
 
 **Azure Blob Storage** — Blob Storage와 Data Lake Storage Gen2가 동일한 스토리지 계정에서 통합됩니다. 계층적 네임스페이스(폴더 구조)를 지원하여 빅데이터 워크로드에서 파일 관리가 편리합니다. Microsoft Fabric과의 통합으로 분석 파이프라인 구성이 간편합니다.
 
@@ -64,7 +68,7 @@ AWS S3 Intelligent-Tiering과 GCP Autoclass는 접근 패턴을 자동으로 분
 | S3 호환 API 생태계를 최대한 활용하고 싶을 때 | AWS S3 |
 | 빅데이터 + 계층적 네임스페이스(폴더 구조)가 필요할 때 | Azure Data Lake Storage Gen2 |
 | 별도 설정 없이 멀티 리전 자동 복제를 원할 때 | GCP Cloud Storage (Multi-region) |
-| 스토리지 클래스 자동 전환을 원할 때 | AWS S3 Intelligent-Tiering 또는 GCP Autoclass |
+| 스토리지 클래스 자동 전환을 원할 때 | AWS S3 Intelligent-Tiering, GCP Autoclass, OCI Auto-Tiering |
 | 대량 이그레스 비용을 절감하고 싶을 때 | OCI Object Storage (10TB/월 무료) |
 | 객체 스토리지에서 직접 SQL 분석을 하고 싶을 때 | AWS Athena + S3 또는 GCP BigQuery External Tables |
 
@@ -102,6 +106,7 @@ AWS S3 Intelligent-Tiering과 GCP Autoclass는 접근 패턴을 자동으로 분
 | AWS | S3 Event Notification | Lambda, Step Functions, EventBridge |
 | Azure | Blob Trigger | Functions, Data Factory |
 | GCP | Cloud Storage Trigger | Cloud Functions, Dataflow |
+| OCI | OCI Events | OCI Functions, Data Flow |
 
 ### 관련 문서
 
@@ -122,19 +127,6 @@ AWS S3 Intelligent-Tiering과 GCP Autoclass는 접근 패턴을 자동으로 분
 | **SQL 직접 쿼리** | S3 Select, Athena | Query Acceleration, Synapse | BigQuery External Tables | OCI Data Flow (Spark) |
 
 각 벤더 모두 "스토리지에서 데이터 플랫폼으로"의 방향을 추구하고 있습니다. AWS는 S3 자체에 기능을 내장하는 방향이고, Azure는 Data Lake Storage + Fabric 통합, GCP는 BigLake + BigQuery 통합으로 접근하고 있습니다.
-
-## 스토리지 클래스 선택 기준
-
-| 접근 빈도 | 권장 클래스 | AWS | Azure | GCP | OCI |
-| --- | --- | --- | --- | --- | --- |
-| 자주 (일 1회 이상) | 표준 | S3 Standard | Hot | Standard | Standard |
-| 가끔 (월 1회) | 저빈도 | S3 Standard-IA | Cool | Nearline | Infrequent Access |
-| 드물게 (분기 1회) | 아카이브 | S3 Glacier Instant | Cold | Coldline | Archive |
-| 거의 안 봄 (연 1회 미만) | 딥 아카이브 | S3 Glacier Deep Archive | Archive | Archive | — |
-
-{% hint style="info" %}
-확실하지 않으면 표준 클래스로 시작하고, 접근 패턴 분석 후 수명 주기 정책(Lifecycle Policy)으로 자동 전환하세요. AWS S3 Intelligent-Tiering, Azure 수명 주기 관리가 이를 자동화합니다.
-{% endhint %}
 
 ## 참고하기
 

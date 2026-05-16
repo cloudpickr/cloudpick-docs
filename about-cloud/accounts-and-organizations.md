@@ -79,7 +79,9 @@ description: 클라우드 계정과 조직 구조, 멀티 계정 전략, 주요 
 
 예: SCP로 "서울 리전만 허용"을 설정하면, IAM에서 아무리 넓은 권한을 줘도 다른 리전에는 접근 불가합니다.
 
+{% hint style="info" %}
 IAM 설계 상세는 [IAM 개요](iam-overview.md) → [IAM 실무 설계](../security/iam.md)를 참고하세요.
+{% endhint %}
 
 ## 비용 구조
 

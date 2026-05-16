@@ -78,7 +78,7 @@ AWS S3 Intelligent-Tiering과 GCP Autoclass, OCI Auto-Tiering은 접근 패턴�
 
 {% hint style="warning" %}
 **이그레스 비용을 반드시 확인하세요.** 객체 스토리지에 데이터를 넣는 건 무료지만, 꺼낼 때(이그레스) 비용이 발생합니다. 대량 데이터를 외부로 전송하는 워크로드에서는 벤더 선택의 핵심 TCO 요소입니다.
-- AWS/Azure/GCP: 이그레스 $0.08~0.12/GB (리전별 상이)
+- AWS/Azure/GCP: 이그레스 $0.08\~0.12/GB (리전별 상이)
 - OCI: **10TB/월 무료**, 이후 $0.0085/GB
 {% endhint %}
 

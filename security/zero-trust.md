@@ -120,7 +120,7 @@ graph LR
 
 ## IAM과의 관계
 
-Zero Trust는 **보안 모델(철학)**이고, IAM은 **구현 수단**입니다. Zero Trust의 "항상 검증하라"를 실현하는 핵심 도구가 IAM입니다. IAM 실무 설계는 [IAM 심화](iam.md)를 참고하세요.
+Zero Trust는 보안 모델(철학)이고, IAM은 구현 수단입니다. Zero Trust의 "항상 검증하라"를 실현하는 핵심 도구가 IAM입니다. IAM 실무 설계는 [IAM 심화](iam.md)를 참고하세요.
 
 ## 참고하기
 

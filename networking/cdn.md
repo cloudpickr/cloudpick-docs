@@ -43,7 +43,7 @@ sequenceDiagram
 클라우드 CDN은 기본적으로 **HTTPS 전용**이며, TLS 인증서 관리가 통합되어 별도 인증서 구매 없이 무료 SSL/TLS를 제공합니다.
 
 {% hint style="info" %}
-CDN 엣지에서 TLS를 종료하면 클라이언트↔엣지 간 핸드셰이크 지연이 줄어듭니다. 물리적으로 가까운 엣지에서 TLS를 처리하므로 RTT가 감소하여 TTFB(Time To First Byte)가 개선됩니다. TLS 처리 방식(종료/통과/재암호화)은 [로드밸런서 — SSL/TLS 처리](load-balancer.md#ssltls-처리)를 참고하세요.
+CDN 엣지에서 TLS를 종료하면 클라이언트↔엣지 간 핸드셰이크 RTT가 줄어 TTFB가 개선됩니다. 캐싱이 불가능한 TCP/UDP 워크로드의 네트워크 경로 가속은 아래 [글로벌 네트워크 가속기](#글로벌-네트워크-가속기)를 참고하세요.
 {% endhint %}
 
 ## 적용 대상

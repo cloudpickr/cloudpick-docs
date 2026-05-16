@@ -108,7 +108,7 @@ CDN을 통해 배포하면서도 접근을 제한해야 하는 경우 (유료 �
 | **Signed URL** | 시간 제한이 있는 서명된 URL | CloudFront Signed URL | Front Door Private Link | Cloud CDN Signed URL |
 | **Signed Cookie** | 쿠키 기반 인증. 여러 파일 동시 적용 | CloudFront Signed Cookie | — | — |
 | **Token 인증** | 엣지에서 토큰 검증 | CloudFront Functions | Front Door Rules Engine | — |
-| **지역 제한** | 특정 국가/지역 허용 또는 차단 | ✅ | ✅ | ✅ |
+| **지역 제한** | 특정 국가/지역 허용 또는 차단 | 지원 | 지원 | 지원 |
 | **WAF 연동** | IP 제한, Rate Limiting, Bot 차단 | CloudFront + WAF | Front Door + WAF | Cloud Armor |
 
 {% hint style="info" %}
@@ -139,7 +139,7 @@ CDN은 콘텐츠를 **캐싱**하여 빠르게 전달하지만, 캐싱이 불가
 | 구분 | CDN | 네트워크 가속기 |
 | --- | --- | --- |
 | 목적 | 콘텐츠 캐싱 + 엣지 서빙 | TCP/TLS 연결 경로 최적화 |
-| 캐싱 | ✅ | — |
+| 캐싱 | 지원 | — |
 | 대상 프로토콜 | HTTP/HTTPS | TCP/UDP 모든 프로토콜 |
 | 동작 | 캐시 히트 시 오리진 불필요 | 항상 오리진으로 전달, 경로만 최적화 |
 | 사용 예 | 정적 파일, 스트리밍, API 캐싱 | 게임 서버, IoT, 글로벌 API (캐싱 불가) |

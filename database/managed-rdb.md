@@ -28,35 +28,8 @@ AWS RDS를 아시는 분을 위해: Azure는 Azure SQL/Flexible Server, GCP는 C
 특별한 이유가 없다면 관리형을 우선 선택하세요. VM에 직접 설치하는 경우는 "관리형이 지원하지 않는 엔진/버전", "OS 레벨 접근 필요", "BYOL 라이선스 비용 절감" 등 명확한 요건이 있을 때입니다.
 {% endhint %}
 
-### 관리형이라도 DBA가 해야 할 일
-
-관리형 RDB는 인프라를 자동화하지만, **쿼리 성능은 자동으로 좋아지지 않습니다.**
-
-| 문제 | 증상 | 대응 |
-| --- | --- | --- |
-| **무분별한 JOIN** | 테이블 5개 이상 JOIN 시 응답 수 초. 분석 쿼리가 OLTP를 압박 | 읽기 복제본 분리, 비정규화, 또는 데이터 웨어하우스로 분석 쿼리 이관 |
-| **인덱스 미설계** | 풀 테이블 스캔 발생. 데이터 증가에 따라 점점 느려짐 | 실행 계획(EXPLAIN) 확인, 쿼리 패턴에 맞는 인덱스 추가 |
-| **슬로쿼리 방치** | 특정 쿼리가 DB 전체 성능을 저하 | 슬로쿼리 로그 활성화, 정기 리뷰, 쿼리 리팩터링 |
-| **DB를 스토리지처럼 사용** | 로그/이벤트를 RDB에 무한 적재 | 시계열 데이터는 객체 스토리지/시계열 DB로 분리 |
-
 {% hint style="info" %}
-OLTP(트랜잭션)와 OLAP(분석)을 같은 DB에서 처리하면 서로 성능을 압박합니다. 분석 쿼리가 많아지면 [데이터 분석 플랫폼](../database/analytics.md)으로 분리하는 것이 일반적입니다.
-{% endhint %}
-
-### RDB 확장 패턴
-
-RDB는 NoSQL과 달리 수평 확장(샤딩)이 어렵습니다. 대부분의 확장은 **읽기 분산**으로 이루어집니다.
-
-| 단계 | 방법 | 효과 |
-| --- | --- | --- |
-| 1. **수직 확장** | 인스턴스 타입 업그레이드 (CPU/메모리 증가) | 가장 단순. 한계 있음 |
-| 2. **읽기 복제본** | 읽기 트래픽을 복제본으로 분산 | 읽기 80%+ 워크로드에 효과적 |
-| 3. **캐시 레이어** | 자주 읽는 데이터를 캐시(Redis/Valkey)에 저장 | DB 부하 대폭 감소. 밀리초 응답 |
-| 4. **CQRS** | 쓰기(Command)와 읽기(Query) DB를 분리 | 각각 독립적으로 최적화 가능 |
-| 5. **샤딩** | 데이터를 여러 DB에 분산 저장 | 최후의 수단. 앱 복잡도 급증 |
-
-{% hint style="info" %}
-대부분의 웹 서비스는 읽기가 80~90%입니다. 읽기 복제본 + 캐시 조합으로 RDB 부하의 대부분을 해결할 수 있습니다. 캐시 설계 상세는 [캐시와 인메모리](cache.md)를 참고하세요.
+DB 선택 후의 운영 — 확장 패턴, 쿼리 성능, 캐시, HA, 백업 — 은 [데이터베이스 운영](operations.md)을 참고하세요.
 {% endhint %}
 
 ## 제품 비교
@@ -147,29 +120,6 @@ Oracle은 자사 데이터베이스를 경쟁사 데이터센터 안에 직접 �
 | Oracle DB + 자동 튜닝/패치 | OCI Autonomous Database |
 | 유휴 시 비용 0 (개발/테스트) | Aurora Serverless, Azure SQL Serverless |
 | OLTP + OLAP 통합 MySQL | OCI MySQL HeatWave |
-
-## 운영: HA와 백업
-
-### 고가용성 옵션
-
-| 기능 | AWS | Azure | GCP | OCI |
-| --- | --- | --- | --- | --- |
-| **멀티 AZ 동기 복제** | RDS Multi-AZ, Aurora 스토리지 복제 | Zone-redundant HA | Cloud SQL HA | ADB 자동 HA |
-| **읽기 복제본** | Aurora Read Replica | Read Replica | Cloud SQL Read Replica | ADB Read-only Replica |
-| **크로스 리전 복제** | Aurora Global Database | Geo-replication | Cross-Region Replica | Autonomous Data Guard |
-
-### 자동 백업 및 PITR
-
-| 벤더 | 백업 보존 기간 | PITR |
-| --- | --- | --- |
-| AWS RDS / Aurora | 최대 35일 | 초 단위 복구 |
-| Azure SQL Database | 최대 35일 | 초 단위 복구 |
-| GCP Cloud SQL / AlloyDB | 최대 365일 | 초 단위 복구 |
-| OCI Autonomous Database | 최대 60일 | 초 단위 복구 |
-
-{% hint style="info" %}
-백업 전략과 DR 구성 상세는 [백업과 복구](../storage/backup.md), [재해복구](../governance/dr.md)를 참고하세요.
-{% endhint %}
 
 ## 참고하기
 

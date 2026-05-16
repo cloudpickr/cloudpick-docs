@@ -56,6 +56,7 @@
 - [데이터 파이프라인과 ETL](database/data-pipeline.md)
 - [검색과 로그 분석](database/search.md)
 - [데이터베이스 마이그레이션](database/migration.md)
+- [데이터베이스 운영](database/operations.md)
 
 ## DevOps <a id="devops"></a>
 

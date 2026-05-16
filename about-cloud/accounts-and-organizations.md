@@ -191,6 +191,21 @@ flowchart TD
 
 보안 로그, 감사 로그, CloudTrail/Activity Log 등을 중앙 집중식으로 수집하는 전용 계정을 두는 것이 모범 사례입니다. 이 계정은 읽기 전용으로 운영하여, 로그의 무결성을 보장합니다.
 
+### 크로스 계정 리소스 공유
+
+계정을 분리하면 격리는 되지만, 공유 서브넷, 중앙 이미지, 공통 DNS 등 계정 간 리소스 공유가 필요한 경우가 생깁니다.
+
+| 벤더 | 서비스 | 공유 대상 예시 |
+| --- | --- | --- |
+| AWS | [Resource Access Manager (RAM)](https://docs.aws.amazon.com/ram/) | 서브넷, Transit Gateway, Route 53 Resolver, AMI |
+| Azure | 구독 간 VNet Peering + RBAC | VNet, DNS Zone, Image Gallery |
+| GCP | [Shared VPC](https://cloud.google.com/vpc/docs/shared-vpc) | 호스트 프로젝트의 서브넷을 서비스 프로젝트에 공유 |
+| OCI | Cross-Tenancy Policy + DRG | VCN, Object Storage 버킷 |
+
+{% hint style="info" %}
+네트워크 공유가 가장 흔한 사용 사례입니다. 중앙 네트워크 계정에서 서브넷을 만들고 워크로드 계정에 공유하면, IP 관리를 중앙화하면서 워크로드는 독립적으로 운영할 수 있습니다.
+{% endhint %}
+
 ## 서비스 쿼타 (할당량) 관리
 
 클라우드 서비스에는 계정당 사용할 수 있는 리소스 상한(**쿼타** 또는 **서비스 한도**)이 있습니다. 예: 리전당 VPC 수, EC2 인스턴스 수, API 호출 횟수/초 등.

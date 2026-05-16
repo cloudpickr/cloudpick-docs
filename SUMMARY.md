@@ -12,7 +12,7 @@
 - [공동 책임 모델](about-cloud/shared-responsibility.md)
 - [계정과 조직 구조](about-cloud/accounts-and-organizations.md)
 - [IAM 개요](about-cloud/iam-overview.md)
-- [콘솔, CLI, SDK](about-cloud/console-cli-sdk.md)
+- [클라우드 관리 도구](about-cloud/console-cli-sdk.md)
 - [비용 구조 이해하기](about-cloud/pricing-model.md)
 - [멀티클라우드 이해하기](about-cloud/why-multicloud.md)
 - [Well-Architected Framework](about-cloud/well-architected.md)

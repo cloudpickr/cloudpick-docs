@@ -12,14 +12,14 @@ description: 주요 벤더의 특징, 강점, 멀티클라우드 연동 서비�
 | --- | --- | --- | --- | --- |
 | **운영사** | Amazon | Microsoft | Google | Oracle |
 | **출시** | 2006년 | 2010년 | 2008년 | 2016년 (Gen2) |
-| **시장 위치** | [선두](https://www.srgresearch.com/) | [2위권](https://www.srgresearch.com/) | [3위권](https://www.srgresearch.com/) | [성장 중](https://www.srgresearch.com/) |
+| **시장 위치** | 선두 | 2위권 | 3위권 | 성장 중 |
 | **서비스 포트폴리오** | 매우 넓음 | 매우 넓음 | 넓음 | 핵심 집중 |
 | **한국 리전** | [서울](https://aws.amazon.com/about-aws/global-infrastructure/regions_az/) | [서울, 부산](https://azure.microsoft.com/explore/global-infrastructure/geographies) | [서울](https://cloud.google.com/about/locations) | [서울, 춘천](https://www.oracle.com/cloud/public-cloud-regions/) |
 | **강점** | 가장 넓은 포트폴리오, 최대 커뮤니티 | 엔터프라이즈(M365, AD), 하이브리드 | AI/ML(Vertex AI, TPU), 데이터(BigQuery) | DB(Autonomous DB), 가격 경쟁력 |
 | **콘솔** | [Console](https://console.aws.amazon.com) | [Portal](https://portal.azure.com) | [Console](https://console.cloud.google.com) | [Console](https://cloud.oracle.com) |
 
 {% hint style="info" %}
-시장 점유율, 리전 수, 서비스 수는 빠르게 변합니다. 최신 수치는 위 링크에서 확인하세요.
+시장 점유율, 리전 수, 서비스 수는 빠르게 변합니다. 최신 수치는 [Synergy Research Group](https://www.srgresearch.com/)에서 확인하세요.
 {% endhint %}
 
 ## 주요 서비스 매핑

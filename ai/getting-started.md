@@ -82,6 +82,15 @@ RAG는 [벡터 스토어](vector-store.md)와 함께 동작합니다.
 
 대부분의 조직에는 필요하지 않습니다. 구글, OpenAI, Anthropic 같은 회사들이 하는 일입니다.
 
+{% hint style="info" %}
+각 단계의 상세 가이드:
+- 벤더별 AI 서비스 비교 → [AI와 머신러닝 서비스](ai-ml.md)
+- 프롬프트 설계 기법 → [프롬프트 엔지니어링](prompt-engineering.md)
+- RAG 구현 패턴 → [벡터 스토어](vector-store.md), [RAG 고급 패턴](rag-patterns.md)
+- 모델 운영과 평가 → [LLMOps](llmops.md)
+- AI 보안과 가드레일 → [AI 보안](../security/ai-security.md)
+{% endhint %}
+
 ## 언제 어떤 방법을 쓸까
 
 | 상황 | 권장 방법 |

@@ -46,7 +46,6 @@ description: 키-값, 문서, 와이드 컬럼, 그래프 등 NoSQL 유형별 �
 | --- | --- | --- |
 | AWS | DocumentDB | MongoDB 호환 API, 완전한 MongoDB는 아님 |
 | Azure | Cosmos DB for MongoDB | MongoDB API 호환 모드 |
-| GCP/OCI | — | 네이티브 서비스 없음 |
 | MongoDB Atlas | Atlas (AWS/Azure/GCP) | 멀티클라우드 관리형. 호환성 완벽. 벤더 중립 선택지 |
 
 ## 제품 비교
@@ -67,7 +66,6 @@ description: 키-값, 문서, 와이드 컬럼, 그래프 등 NoSQL 유형별 �
 | --- | --- | --- |
 | AWS | OpenSearch Service | Elasticsearch/OpenSearch 관리형. 검색 + 로그 분석 + 대시보드 |
 | Azure | Azure AI Search (구 Cognitive Search) | 검색 + AI 보강(벡터, 시맨틱) |
-| GCP | — | Elastic Cloud on GCP (3rd party) 또는 BigQuery 활용 |
 | OCI | OCI Search with OpenSearch | OpenSearch 관리형. 검색 + 로그 분석 |
 
 ### 그래프 DB
@@ -76,7 +74,6 @@ description: 키-값, 문서, 와이드 컬럼, 그래프 등 NoSQL 유형별 �
 | --- | --- | --- |
 | AWS | Neptune | |
 | Azure | Cosmos DB (Gremlin API) | |
-| GCP | — | (3rd party 사용: Neo4j on GCP) |
 
 {% hint style="info" %}
 인메모리 캐시(Redis/Valkey)의 상세 비교는 [캐시와 인메모리](cache.md)를 참고하세요.

@@ -6,6 +6,8 @@ description: CloudPick에 오신 것을 환영합니다.
 
 CloudPick은 **멀티클라우드 환경에서 올바른 의사결정을 내리기 위한 벤더 중립 가이드**입니다.
 
+멀티클라우드를 기본값으로 권장하지 않습니다. 단일 벤더, 하이브리드, 멀티클라우드는 각각의 비용과 책임이 있으며, 워크로드와 조직 상황에 따라 선택해야 합니다. 온프레미스와 망분리 중심 운영이 왜 필요했는지 이해하고, 현대 환경에서 통제 방식을 어떻게 확장할 수 있는지 설명합니다.
+
 각 벤더의 공식 문서는 자기 서비스만 설명합니다. CloudPick은 주요 글로벌 클라우드 벤더를 같은 기준으로 나란히 놓고, "이 상황에서 무엇을 선택해야 하는가"를 돕습니다. 모든 내용은 벤더 공식 문서와 업계 표준(NIST, CNCF, FinOps Foundation)을 근거로 하며, 개인 의견이나 추측은 배제합니다.
 
 클라우드를 처음 접하는 분부터 멀티클라우드 아키텍처를 설계하는 분까지, 각자의 수준과 목적에 맞는 읽기 경로를 제공합니다.
@@ -61,6 +63,17 @@ CloudPick은 **멀티클라우드 환경에서 올바른 의사결정을 내리�
 3. [스토리지 마이그레이션](storage/migration.md)
 4. [모더나이제이션](compute/modernization.md)
 5. [벤더 종속성과 출구 전략](governance/exit-strategy.md)
+{% endtab %}
+
+{% tab title="🏛️ 규제 시장" %}
+1. [클라우드 시작하기](about-cloud/getting-started.md)
+2. [공동 책임 모델](about-cloud/shared-responsibility.md)
+3. [망분리와 네트워크 격리](security/network-isolation.md)
+4. [규정 준수](governance/compliance.md)
+5. [데이터 보호](security/data-protection.md)
+6. [벤더 선택 의사결정](about-cloud/decision-framework.md)
+7. [벤더 종속성과 출구 전략](governance/exit-strategy.md)
+8. [재해복구](governance/dr.md)
 {% endtab %}
 
 {% tab title="🤖 AI 도입" %}

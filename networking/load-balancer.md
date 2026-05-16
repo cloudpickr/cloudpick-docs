@@ -54,6 +54,10 @@ description: L4/L7/글로벌 로드밸런서, SSL/TLS 처리, 헬스 체크 설�
 | GCP | Cloud Load Balancing | 기본적으로 글로벌 (단일 Anycast IP) |
 | OCI | OCI DNS Traffic Management | DNS 기반 글로벌 트래픽 분배 |
 
+{% hint style="info" %}
+글로벌 가속기는 CDN과 혼동되기 쉽습니다. 캐싱 여부, 대상 프로토콜, 선택 기준은 [CDN — 글로벌 네트워크 가속기](cdn.md#글로벌-네트워크-가속기)를 참고하세요.
+{% endhint %}
+
 ## 핵심 구성 요소
 
 로드밸런서는 어디로 보낼지(규칙)와 누구에게 보낼지(대상 그룹)를 설정해야 합니다. L7과 L4는 라우팅 방식이 다릅니다.
@@ -153,8 +157,6 @@ flowchart TD
 | 글로벌 트래픽 분산 + CDN + WAF | 글로벌 LB (CloudFront+ALB, Front Door, Cloud LB, OCI WAF) | 지역별 최적 라우팅 |
 | 내부 서비스 간 통신만 | Internal LB | 퍼블릭 IP 불필요, 프라이빗 서브넷 내 |
 | gRPC, WebSocket | L7 (gRPC 지원 확인) | ALB, Cloud LB는 gRPC 네이티브 지원 |
-
-> 글로벌 가속기의 동작 원리, CDN과의 차이, 선택 기준은 [CDN — 글로벌 네트워크 가속기](cdn.md#글로벌-네트워크-가속기)를 참고하세요.
 
 ## 관련 문서
 

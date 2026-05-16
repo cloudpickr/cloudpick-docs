@@ -140,7 +140,7 @@ OCI의 특징은 **Compartment가 리소스 격리와 조직 구조를 동시에
 벤더별 특징:
 
 - **GCP** — Billing Account와 Project가 독립적이어서 가장 유연합니다. 조직 개편 시 Project의 Billing Account만 변경하면 됩니다.
-- **AWS** — **Billing Transfer** (2025년 출시)로 Organization 간 빌링 이전이 가능해졌습니다.
+- **AWS** — **Billing Transfer** (2025년 출시)로 Organization 간 빌링 이전이 가능해졌습니다. 파트너를 통해 통합빌링을 사용하는 경우에는 파트너와 사전 협의가 필요합니다.
 - **Azure** — EA/MCA 계약에 따라 Billing Account → Billing Profile → Invoice Section 계층으로 부서별 분리가 가능합니다.
 - **OCI** — Tenancy가 빌링 최상위 단위이므로, 법인별로 Tenancy를 나누는 것이 일반적입니다.
 

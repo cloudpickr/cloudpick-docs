@@ -167,6 +167,20 @@ OCI의 특징은 **Compartment가 리소스 격리와 조직 구조를 동시에
 멀티 계정 구조의 실제 구현 — VPC 분리 패턴, 가드레일 설정, 도입 순서 — 은 [랜딩존](../governance/landing-zone.md)을 참고하세요.
 {% endhint %}
 
+### 보안 경계와 IAM의 관계
+
+계정 분리는 **격리**(blast radius 제한)를 제공하고, 조직 정책(SCP/Azure Policy/Organization Policy)은 **최대 허용 범위**를 제한합니다. IAM은 그 범위 안에서 **실제 권한을 부여**합니다. 세 계층이 함께 동작합니다.
+
+| 계층 | 역할 | 벤더 예시 |
+| --- | --- | --- |
+| **계정 격리** | 장애/보안 사고의 영향 범위 제한 | Account, Subscription, Project, Compartment |
+| **조직 정책 (가드레일)** | 계정이 할 수 있는 최대 범위 제한 | SCP, Azure Policy, Organization Policy, Compartment Policy |
+| **IAM (권한 부여)** | 사용자/서비스에 실제 권한 부여 | IAM Policy, RBAC, IAM Binding, IAM Policy |
+
+예: SCP로 "서울 리전만 허용"을 설정하면, IAM에서 아무리 넓은 권한을 줘도 다른 리전에는 접근 불가합니다.
+
+IAM 설계 상세는 [IAM 개요](iam-overview.md) → [IAM 실무 설계](../security/iam.md)를 참고하세요.
+
 ### 환경별 분리
 
 가장 기본적인 전략으로, 개발(dev), 스테이징(staging), 프로덕션(prod) 환경을 별도의 계정으로 분리합니다. 개발 환경에서의 실수가 프로덕션에 영향을 주지 않도록 격리합니다.

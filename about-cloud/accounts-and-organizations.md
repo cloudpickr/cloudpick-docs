@@ -167,15 +167,20 @@ OCI의 특징은 **Compartment가 리소스 격리와 조직 구조를 동시에
 
 가장 기본적인 전략으로, 개발(dev), 스테이징(staging), 프로덕션(prod) 환경을 별도의 계정으로 분리합니다. 개발 환경에서의 실수가 프로덕션에 영향을 주지 않도록 격리합니다.
 
-```text
-Organization
-├── Dev OU/Folder
-│   ├── dev-account-a
-│   └── dev-account-b
-├── Staging OU/Folder
-│   └── staging-account
-└── Prod OU/Folder
-    └── prod-account
+```mermaid
+flowchart TD
+    subgraph org["Organization"]
+        subgraph dev["Dev OU"]
+            DA[dev-account-a]
+            DB[dev-account-b]
+        end
+        subgraph stg["Staging OU"]
+            SA[staging-account]
+        end
+        subgraph prd["Prod OU"]
+            PA[prod-account]
+        end
+    end
 ```
 
 ### 워크로드별 분리

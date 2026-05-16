@@ -39,10 +39,6 @@ graph TB
         D --> D2[개발 계정]
         D --> D3[테스트 계정]
     end
-    style A fill:#f9f,stroke:#333
-    style B fill:#fcc,stroke:#333
-    style C fill:#cfc,stroke:#333
-    style D fill:#ccf,stroke:#333
 ```
 
 ## 주요 CSP 랜딩존 비교

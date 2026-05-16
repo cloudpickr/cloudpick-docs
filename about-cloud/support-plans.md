@@ -66,6 +66,10 @@ MSP는 일반적으로 **클라우드 사용료에 대한 추가 마진을 받�
 | AWS | [AWSKRUG](https://www.awskr.org/) | 한국 AWS 사용자 커뮤니티 |
 | GCP | [GDG Cloud Korea](https://gdg.community.dev/gdg-cloud-korea/) | 한국 GCP 사용자 커뮤니티 |
 
+{% hint style="info" %}
+위 목록은 활성도가 높은 한국 사용자 커뮤니티만 선별한 것입니다. 이 외에도 벤더별·주제별 커뮤니티가 다수 존재합니다.
+{% endhint %}
+
 ## 어드바이저 / 권장 사항 서비스
 
 각 벤더는 자동으로 환경을 분석하여 비용 절감, 보안 강화, 성능 개선을 권장하는 서비스를 제공합니다.

@@ -59,6 +59,45 @@ OLTP(트랜잭션)와 OLAP(분석)을 같은 DB에서 처리하면 서로 성능
 인덱스 추가 전에 반드시 `EXPLAIN`(실행 계획)으로 현재 쿼리가 어떻게 동작하는지 확인하세요. 풀 테이블 스캔이 발생하는 쿼리부터 우선 개선합니다.
 {% endhint %}
 
+## 고가용성 (HA)
+
+| 방식 | 동작 | RPO | RTO | 비용 | 적합한 경우 |
+| --- | --- | --- | --- | --- | --- |
+| **멀티 AZ 동기 복제** | 같은 리전 내 여러 AZ에 동기 복제. 자동 페일오버 | 0 | 수십 초~수 분 | 중간 (대기 인스턴스 비용) | 프로덕션 기본 |
+| **읽기 복제본** | 비동기 복제. 읽기 분산 + 수동 승격으로 DR 가능 | 수 초 (복제 지연) | 수 분 (수동 승격) | 낮음 | 읽기 부하 분산 + 간이 DR |
+| **크로스 리전 복제** | 다른 리전에 비동기 복제. 리전 장애 대비 | 수 초~수 분 | 수 분 (수동 승격) | 높음 (리전 간 전송) | 리전 장애 DR |
+
+### 벤더별 HA 서비스
+
+| 기능 | AWS | Azure | GCP | OCI |
+| --- | --- | --- | --- | --- |
+| **멀티 AZ 동기** | RDS Multi-AZ, Aurora 스토리지 복제 | Zone-redundant HA | Cloud SQL HA | ADB 자동 HA |
+| **읽기 복제본** | Aurora Read Replica | Read Replica | Cloud SQL Read Replica | ADB Read-only Replica |
+| **크로스 리전** | Aurora Global Database | Geo-replication | Cross-Region Replica | Autonomous Data Guard |
+
+## 백업과 PITR
+
+| 벤더 | 백업 보존 기간 | PITR |
+| --- | --- | --- |
+| AWS RDS / Aurora | 최대 35일 | 초 단위 복구 |
+| Azure SQL Database | 최대 35일 | 초 단위 복구 |
+| GCP Cloud SQL / AlloyDB | 최대 365일 | 초 단위 복구 |
+| OCI Autonomous Database | 최대 60일 | 초 단위 복구 |
+
+{% hint style="info" %}
+백업 전략과 DR 구성 상세는 [백업과 복구](../storage/backup.md), [재해복구](../governance/dr.md)를 참고하세요.
+{% endhint %}
+
+## 커넥션 풀 관리
+
+DB 커넥션은 유한한 리소스입니다. 특히 서버리스/오토스케일링 환경에서 인스턴스가 급증하면 커넥션이 폭발합니다.
+
+| 문제 | 대응 |
+| --- | --- |
+| 커넥션 고갈 | 커넥션 풀러(RDS Proxy, Cloud SQL Auth Proxy, PgBouncer) 사용 |
+| 서버리스 함수 동시성 폭발 | Reserved Concurrency로 제한 + 커넥션 풀러 필수 |
+| 유휴 커넥션 점유 | idle timeout 설정, 커넥션 재사용 |
+
 ## NoSQL 키 설계 안티패턴
 
 NoSQL은 RDB와 달리 **쿼리 패턴을 먼저 정하고 키를 설계**해야 합니다.
@@ -96,45 +135,6 @@ NoSQL은 RDB와 달리 **쿼리 패턴을 먼저 정하고 키를 설계**해야
 | **모든 데이터를 캐시에 적재** | 메모리 비용 폭증, eviction 빈번 | 핫 데이터만 캐시. 접근 빈도 기반 선별 |
 | **TTL 없이 캐시** | 데이터가 영원히 남아 DB와 불일치 | 모든 키에 TTL 설정. 비즈니스 요건에 맞는 만료 시간 |
 | **캐시 의존 아키텍처** | 캐시 장애 = 서비스 장애 | 캐시 미스 시 DB 직접 조회 가능한 fallback 필수 |
-
-## 커넥션 풀 관리
-
-DB 커넥션은 유한한 리소스입니다. 특히 서버리스/오토스케일링 환경에서 인스턴스가 급증하면 커넥션이 폭발합니다.
-
-| 문제 | 대응 |
-| --- | --- |
-| 커넥션 고갈 | 커넥션 풀러(RDS Proxy, Cloud SQL Auth Proxy, PgBouncer) 사용 |
-| 서버리스 함수 동시성 폭발 | Reserved Concurrency로 제한 + 커넥션 풀러 필수 |
-| 유휴 커넥션 점유 | idle timeout 설정, 커넥션 재사용 |
-
-## 고가용성 (HA)
-
-| 방식 | 동작 | RPO | RTO | 비용 | 적합한 경우 |
-| --- | --- | --- | --- | --- | --- |
-| **멀티 AZ 동기 복제** | 같은 리전 내 여러 AZ에 동기 복제. 자동 페일오버 | 0 | 수십 초~수 분 | 중간 (대기 인스턴스 비용) | 프로덕션 기본 |
-| **읽기 복제본** | 비동기 복제. 읽기 분산 + 수동 승격으로 DR 가능 | 수 초 (복제 지연) | 수 분 (수동 승격) | 낮음 | 읽기 부하 분산 + 간이 DR |
-| **크로스 리전 복제** | 다른 리전에 비동기 복제. 리전 장애 대비 | 수 초~수 분 | 수 분 (수동 승격) | 높음 (리전 간 전송) | 리전 장애 DR |
-
-### 벤더별 HA 서비스
-
-| 기능 | AWS | Azure | GCP | OCI |
-| --- | --- | --- | --- | --- |
-| **멀티 AZ 동기** | RDS Multi-AZ, Aurora 스토리지 복제 | Zone-redundant HA | Cloud SQL HA | ADB 자동 HA |
-| **읽기 복제본** | Aurora Read Replica | Read Replica | Cloud SQL Read Replica | ADB Read-only Replica |
-| **크로스 리전** | Aurora Global Database | Geo-replication | Cross-Region Replica | Autonomous Data Guard |
-
-## 백업과 PITR
-
-| 벤더 | 백업 보존 기간 | PITR |
-| --- | --- | --- |
-| AWS RDS / Aurora | 최대 35일 | 초 단위 복구 |
-| Azure SQL Database | 최대 35일 | 초 단위 복구 |
-| GCP Cloud SQL / AlloyDB | 최대 365일 | 초 단위 복구 |
-| OCI Autonomous Database | 최대 60일 | 초 단위 복구 |
-
-{% hint style="info" %}
-백업 전략과 DR 구성 상세는 [백업과 복구](../storage/backup.md), [재해복구](../governance/dr.md)를 참고하세요.
-{% endhint %}
 
 ## 참고하기
 

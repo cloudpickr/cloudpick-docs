@@ -1,5 +1,5 @@
 ---
-description: CDN 개념, 캐싱 전략, 엣지 컴퓨팅을 벤더별로 비교합니다.
+description: CDN 개념, 캐싱 전략, 글로벌 네트워크 가속기, 엣지 컴퓨팅을 벤더별로 비교합니다.
 ---
 
 # CDN
@@ -8,33 +8,39 @@ description: CDN 개념, 캐싱 전략, 엣지 컴퓨팅을 벤더별로 비교�
 
 ## 개요
 
-**CDN** (Content Delivery Network)은 전 세계 엣지 로케이션에 콘텐츠를 캐싱하여, 사용자에게 가장 가까운 위치에서 빠르게 전달하는 서비스입니다. 오리진 서버까지 가지 않고 엣지에서 응답하므로 지연 시간이 크게 줄어듭니다.
+웹 서비스의 사용자는 전 세계에 분산되어 있지만, 오리진 서버는 특정 리전에 있습니다. 서울에 있는 서버에 미국 사용자가 접속하면, 물리적 거리만큼 지연이 발생합니다.
 
-클라우드 CDN은 기본적으로 **HTTPS 전용**입니다. TLS 인증서 관리가 통합되어 있어, 별도 인증서 구매 없이 무료 SSL/TLS를 제공합니다.
+**CDN** (Content Delivery Network)은 전 세계 엣지 로케이션에 콘텐츠를 캐싱하여, 사용자에게 가장 가까운 위치에서 빠르게 전달하는 서비스입니다. 오리진 서버까지 가지 않고 엣지에서 응답하므로 지연 시간이 크게 줄어들고, 오리진 부하도 감소합니다.
+
+### 동작 원리
+
+```mermaid
+sequenceDiagram
+    participant User as 사용자
+    participant Edge as CDN 엣지
+    participant Origin as 오리진 서버
+
+    User->>Edge: 요청
+    alt 캐시 히트
+        Edge-->>User: 즉시 응답 (빠름)
+    else 캐시 미스
+        Edge->>Origin: 원본 요청
+        Origin-->>Edge: 응답 + 캐싱
+        Edge-->>User: 응답
+    end
+```
 
 ### 핵심 개념
 
-- **오리진** (Origin) — 원본 콘텐츠가 있는 서버. S3, Blob Storage, VM, 로드밸런서 등이 오리진이 됩니다.
-- **엣지** (Edge) — 사용자에게 가까운 캐시 서버. 오리진에서 가져온 콘텐츠를 저장하고 서빙합니다.
-- **캐시 히트/미스** — 엣지에 콘텐츠가 있으면 히트(빠름), 없으면 미스(오리진에서 가져옴).
-- **TTL(Time To Live)** — 캐시 유효 시간. 만료되면 오리진에서 다시 가져옵니다.
+| 개념 | 설명 |
+| --- | --- |
+| **오리진 (Origin)** | 원본 콘텐츠가 있는 서버. 객체 스토리지, VM, 로드밸런서 등 |
+| **엣지 (Edge/PoP)** | 사용자에게 가까운 캐시 서버. 전 세계 수백 개 지점 |
+| **캐시 히트/미스** | 엣지에 콘텐츠가 있으면 히트(빠름), 없으면 미스(오리진에서 가져옴) |
+| **TTL (Time To Live)** | 캐시 유효 시간. 만료되면 오리진에서 다시 가져옴 |
+| **캐시 무효화 (Invalidation)** | TTL 만료 전에 강제로 캐시를 삭제. 전 세계 전파에 시간 소요 |
 
-## 제품 비교
-
-| 벤더 | 제품 | 비고 |
-| --- | --- | --- |
-| AWS | CloudFront | 400+ 엣지 로케이션. Origin Shield(오리진 보호 캐시 계층) |
-| Azure | Azure CDN / Front Door | Front Door에 CDN + WAF + 글로벌 LB 통합 |
-| GCP | Cloud CDN | Cloud Load Balancing과 통합. 캐시 무효화 빠름 |
-| OCI | — | 자체 CDN 미제공. Akamai, Cloudflare 등 3rd party 사용 |
-
-## 핵심 차이점
-
-**AWS CloudFront** — 엣지 로케이션 수가 가장 많고, Lambda@Edge/CloudFront Functions로 엣지에서 코드를 실행할 수 있습니다. Origin Shield로 오리진 부하를 추가로 줄일 수 있습니다.
-
-**Azure Front Door** — CDN, 글로벌 로드밸런서, WAF를 하나의 서비스로 통합합니다. 별도 CDN 설정 없이 Front Door 하나로 전체 트래픽을 관리할 수 있습니다.
-
-**GCP Cloud CDN** — Cloud Load Balancing에 체크박스 하나로 활성화할 수 있어 설정이 가장 간단합니다. 캐시 무효화(Invalidation)가 수 초 내에 전파됩니다.
+클라우드 CDN은 기본적으로 **HTTPS 전용**이며, TLS 인증서 관리가 통합되어 별도 인증서 구매 없이 무료 SSL/TLS를 제공합니다.
 
 ## 적용 대상
 
@@ -47,7 +53,9 @@ CDN은 정적 파일뿐 아니라 다양한 워크로드에 적용할 수 있습
 | **동영상 스트리밍** | MP4 다운로드, HLS/DASH 적응형 스트리밍. 대용량 전송에 필수 |
 | **동적 콘텐츠** | 캐싱은 안 되지만, 엣지 ↔ 오리진 간 최적화된 네트워크 경로 활용 |
 
-## 캐싱 계층과 전략
+## 캐싱 전략
+
+### 캐싱 계층
 
 | 계층 | 위치 | 제어 방법 |
 | --- | --- | --- |
@@ -55,14 +63,7 @@ CDN은 정적 파일뿐 아니라 다양한 워크로드에 적용할 수 있습
 | **CDN 엣지 캐시** | 벤더 엣지 로케이션 | TTL 정책, 캐시 키 설정 |
 | **오리진 캐시** | 오리진 서버 앞단 (선택) | 리버스 프록시, 오리진 쉴드 |
 
-캐시 무효화(Invalidation)는 전 세계 엣지에 전파해야 하므로 시간이 걸리고, 빈번하면 CDN의 이점이 사라집니다. 무효화를 최소화하는 것이 좋은 캐시 전략입니다.
-
-**파일명에 버전/해시를 포함하세요.** 파일 내용이 바뀌면 파일명도 바뀌므로, 캐시 무효화 없이 즉시 새 버전이 서빙됩니다.
-
-```text
-❌ /static/app.js          → 내용 바뀌어도 URL 동일, 캐시 무효화 필요
-✅ /static/app.a3f2c1.js   → 내용 바뀌면 해시 변경, 자동으로 새 파일 요청
-```
+### 캐시 키 전략
 
 | 전략 | 방법 | TTL 설정 |
 | --- | --- | --- |
@@ -74,6 +75,21 @@ CDN은 정적 파일뿐 아니라 다양한 워크로드에 적용할 수 있습
 {% hint style="info" %}
 대부분의 프론트엔드 빌드 도구(Webpack, Vite 등)는 해시 파일명을 자동 생성합니다. `index.html`만 짧은 TTL로 설정하고, 나머지 정적 파일은 긴 TTL + 해시 파일명으로 운영하는 것이 일반적인 패턴입니다.
 {% endhint %}
+
+## 제품 비교
+
+| 벤더 | 제품 | 비고 |
+| --- | --- | --- |
+| AWS | CloudFront | 400+ 엣지 로케이션. Origin Shield(오리진 보호 캐시 계층) |
+| Azure | Azure CDN / Front Door | Front Door에 CDN + WAF + 글로벌 LB 통합 |
+| GCP | Cloud CDN | Cloud Load Balancing과 통합. 캐시 무효화 빠름 |
+| OCI | — | 자체 CDN 미제공. Akamai, Cloudflare 등 3rd party 사용 |
+
+### 핵심 차이점
+
+- **AWS CloudFront** — 엣지 로케이션 수가 가장 많고, Lambda@Edge/CloudFront Functions로 엣지에서 코드를 실행할 수 있습니다. Origin Shield로 오리진 부하를 추가로 줄일 수 있습니다.
+- **Azure Front Door** — CDN, 글로벌 로드밸런서, WAF를 하나의 서비스로 통합합니다. 별도 CDN 설정 없이 Front Door 하나로 전체 트래픽을 관리할 수 있습니다.
+- **GCP Cloud CDN** — Cloud Load Balancing에 체크박스 하나로 활성화할 수 있어 설정이 가장 간단합니다. 캐시 무효화가 수 초 내에 전파됩니다.
 
 ## 글로벌 네트워크 가속기
 
@@ -88,16 +104,6 @@ CDN은 콘텐츠를 **캐싱**하여 빠르게 전달하지만, 캐싱이 불가
 | 대상 프로토콜 | HTTP/HTTPS | TCP/UDP 모든 프로토콜 |
 | 동작 | 캐시 히트 시 오리진 불필요 | 항상 오리진으로 전달, 경로만 최적화 |
 | 사용 예 | 정적 파일, 스트리밍, API 캐싱 | 게임 서버, IoT, 글로벌 API (캐싱 불가) |
-
-### 가속 원리와 제약
-
-Anycast IP로 가장 가까운 엣지에서 TCP/TLS 핸드셰이크를 수행한 뒤, 벤더 백본 네트워크로 오리진까지 전달합니다. 인터넷 공용 경로 대비 지연이 감소합니다(특히 장거리, 혼잡 구간).
-
-**제약:**
-
-- 캐싱 없음 — 오리진 부하 감소 효과 없음
-- L4 한정 서비스(Global Accelerator)는 HTTP 경로/헤더 기반 라우팅 불가
-- 오리진이 다운되면 가속기도 무의미 — 헬스 체크 + 페일오버 필수
 
 ### 벤더별 서비스
 
@@ -117,7 +123,9 @@ Anycast IP로 가장 가까운 엣지에서 TCP/TLS 핸드셰이크를 수행한
 | HTTP + 글로벌 분산 + WAF 통합 | Azure Front Door / CloudFront + GA 조합 |
 | 고정 Anycast IP 필요 (IP 화이트리스트) | Global Accelerator |
 
+{% hint style="info" %}
 리전 내 L4/L7 분배는 [로드밸런서](load-balancer.md)를, DNS 기반 글로벌 분배는 [DNS](dns.md)를 참고하세요.
+{% endhint %}
 
 ## 엣지 컴퓨팅
 
@@ -137,7 +145,6 @@ CDN 엣지에서 코드를 실행하여 요청/응답을 변환하거나, 간단
 
 - [Amazon CloudFront 문서](https://docs.aws.amazon.com/ko_kr/cloudfront/)
 - [Lambda@Edge 문서](https://docs.aws.amazon.com/ko_kr/lambda/latest/dg/lambda-edge.html)
-- [CloudFront Functions 문서](https://docs.aws.amazon.com/ko_kr/AmazonCloudFront/latest/DeveloperGuide/cloudfront-functions.html)
 
 ### Azure
 

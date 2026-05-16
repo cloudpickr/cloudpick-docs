@@ -14,6 +14,10 @@ description: 워크로드 마이그레이션 전략(7R), 평가/실행 단계, �
 데이터베이스 마이그레이션은 [데이터베이스 마이그레이션](../database/migration.md), 대용량 파일 이전은 [스토리지 마이그레이션](../storage/migration.md)을 참고하세요.
 {% endhint %}
 
+{% hint style="warning" %}
+마이그레이션 전에 **거버넌스 기반을 먼저 준비하세요.** 계정/조직 구조, 네트워크(VPC/서브넷), IAM 정책, 태그 체계, 로깅이 없는 상태에서 워크로드를 옮기면 나중에 전부 재구성해야 합니다. [클라우드 거버넌스 시작하기](../governance/getting-started.md) → [랜딩존](../governance/landing-zone.md)을 먼저 확인하세요.
+{% endhint %}
+
 ## 7R 마이그레이션 전략
 
 Gartner가 제시하고 AWS가 확장한 **7R 프레임워크** 는 워크로드별 마이그레이션 전략을 분류하는 표준입니다.

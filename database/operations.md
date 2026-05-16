@@ -109,11 +109,19 @@ DB 커넥션은 유한한 리소스입니다. 특히 서버리스/오토스케�
 
 ## 고가용성 (HA)
 
+| 방식 | 동작 | RPO | RTO | 비용 | 적합한 경우 |
+| --- | --- | --- | --- | --- | --- |
+| **멀티 AZ 동기 복제** | 같은 리전 내 여러 AZ에 동기 복제. 자동 페일오버 | 0 | 수십 초~수 분 | 중간 (대기 인스턴스 비용) | 프로덕션 기본 |
+| **읽기 복제본** | 비동기 복제. 읽기 분산 + 수동 승격으로 DR 가능 | 수 초 (복제 지연) | 수 분 (수동 승격) | 낮음 | 읽기 부하 분산 + 간이 DR |
+| **크로스 리전 복제** | 다른 리전에 비동기 복제. 리전 장애 대비 | 수 초~수 분 | 수 분 (수동 승격) | 높음 (리전 간 전송) | 리전 장애 DR |
+
+### 벤더별 HA 서비스
+
 | 기능 | AWS | Azure | GCP | OCI |
 | --- | --- | --- | --- | --- |
-| **멀티 AZ 동기 복제** | RDS Multi-AZ, Aurora 스토리지 복제 | Zone-redundant HA | Cloud SQL HA | ADB 자동 HA |
+| **멀티 AZ 동기** | RDS Multi-AZ, Aurora 스토리지 복제 | Zone-redundant HA | Cloud SQL HA | ADB 자동 HA |
 | **읽기 복제본** | Aurora Read Replica | Read Replica | Cloud SQL Read Replica | ADB Read-only Replica |
-| **크로스 리전 복제** | Aurora Global Database | Geo-replication | Cross-Region Replica | Autonomous Data Guard |
+| **크로스 리전** | Aurora Global Database | Geo-replication | Cross-Region Replica | Autonomous Data Guard |
 
 ## 백업과 PITR
 

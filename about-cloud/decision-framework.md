@@ -186,8 +186,3 @@ graph TD
 - [Gartner Magic Quadrant for Cloud Infrastructure](https://www.gartner.com/reviews/market/cloud-infrastructure-and-platform-services)
 - [CNCF Annual Survey](https://www.cncf.io/reports/)
 - [FinOps Foundation](https://www.finops.org/)
-- [벤더 비교하기](compare-clouds.md)
-- [멀티클라우드 이해하기](why-multicloud.md)
-- [비용 구조 이해하기](pricing-model.md)
-- [규정 준수](../governance/compliance.md)
-- [출구 전략](../governance/exit-strategy.md)

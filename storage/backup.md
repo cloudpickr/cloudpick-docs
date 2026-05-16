@@ -122,11 +122,9 @@ description: 통합 백업 서비스, RPO/RTO 트레이드오프, 3-2-1 규칙, 
 | 방식 | 스냅샷 + 크로스 리전 복사 | Pilot Light / Warm Standby / Active-Active |
 | 비용 | 저렴 (스토리지 비용만) | 대기 인프라 비용 발생 |
 
+{% hint style="info" %}
 실제 DR 전략과 구현 방법은 [재해복구](../governance/dr.md)를 참고하세요.
-
-{% content-ref url="../governance/dr.md" %}
-[재해복구](../governance/dr.md)
-{% endcontent-ref %}
+{% endhint %}
 
 ## 지속적으로 해야 할 것
 

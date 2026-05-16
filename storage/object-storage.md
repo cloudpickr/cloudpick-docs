@@ -132,7 +132,9 @@ AWS S3 Intelligent-Tiering과 GCP Autoclass, OCI Auto-Tiering은 접근 패턴�
 | **벡터 저장/검색** | S3 Vectors (Preview) | AI Search + Blob 연동 | BigQuery Vector Index | AI Vector Search (Autonomous DB) |
 | **SQL 직접 쿼리** | S3 Select, Athena | Query Acceleration, Synapse | BigQuery External Tables | OCI Data Flow (Spark) |
 
+{% hint style="info" %}
 각 벤더 모두 "스토리지에서 데이터 플랫폼으로"의 방향을 추구하고 있습니다. AWS는 S3 자체에 기능을 내장하는 방향이고, Azure는 Data Lake Storage + Fabric 통합, GCP는 BigLake + BigQuery 통합으로 접근하고 있습니다.
+{% endhint %}
 
 ## 참고하기
 

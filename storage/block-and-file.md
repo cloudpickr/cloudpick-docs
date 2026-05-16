@@ -129,6 +129,10 @@ description: 블록/파일 스토리지 차이, 볼륨 타입, AZ 종속성, 안
 | GCP | Backup and DR Service | Compute Engine, GKE, Cloud SQL 등 통합 |
 | OCI | OCI Backup | Block Volume, Boot Volume, DB 백업 통합 관리 |
 
+{% hint style="info" %}
+백업 주기 설계, 3-2-1 규칙, 랜섬웨어 대비, DR과의 관계 등 상세는 [백업과 복구](backup.md)를 참고하세요.
+{% endhint %}
+
 ## 참고하기
 
 ### AWS

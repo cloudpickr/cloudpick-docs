@@ -133,7 +133,9 @@ RPO/RTO 정의, BIA(비즈니스 영향 분석), 벤더별 DR 서비스 비교 �
 | GCP | `asia-northeast3` (서울) | 3개 Zone | 2020년 |
 | OCI | `ap-seoul-1`, `ap-chuncheon-1` | 3 FD | 2020년 |
 
-Azure(서울-부산)와 OCI(서울-춘천)는 국내에 2개 리전을 보유하여, 데이터 주권 규제가 엄격한 경우에도 국내에서 DR을 구성할 수 있습니다. 벤더별 DR 전략 상세는 [재해복구 (DR)](../governance/dr.md)를 참고하세요.
+{% hint style="info" %}
+Azure(서울-부산)와 OCI(서울-춘천)는 국내 2개 리전을 보유하여 데이터가 국외로 나가지 않는 DR 구성이 가능합니다. AWS/GCP는 도쿄·오사카가 가장 가까운 DR 후보입니다. 벤더별 DR 전략 상세는 [재해복구 (DR)](../governance/dr.md)를 참고하세요.
+{% endhint %}
 
 ### 데이터 주권
 

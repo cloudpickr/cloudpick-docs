@@ -84,43 +84,124 @@ NAT Gateway는 시간당 비용 + 데이터 처리 비용이 발생합니다. �
 
 ### CIDR 계획
 
-- **VPC CIDR**은 `/16` (65,536개 IP)을 권장. 너무 작으면 확장 어려움.
-- **서브넷 CIDR**은 `/24` (256개 IP) 단위로 시작. 필요 시 `/20` (4,096개)로 확대.
-- **AZ별로 서브넷 분산**. 최소 3개 AZ에 배치하여 고가용성 확보.
-- **VPC 간 CIDR 중복 피하기**. 피어링/전용 연결 시 라우팅 불가.
+CIDR 설계는 나중에 바꾸기 가장 어려운 결정입니다. VPC를 만든 뒤에는 CIDR을 변경할 수 없으므로(AWS는 Secondary CIDR 추가만 가능), 처음부터 여유 있게 설계해야 합니다.
 
-멀티클라우드 환경에서의 네트워크 연결은 [멀티클라우드 커넥티비티](multicloud-connectivity.md)를 참고하세요.
+**단일 VPC 설계:**
+
+- **VPC CIDR**은 `/16` (65,536개 IP)을 권장. `/24`로 시작하면 서브넷 분할이 어려움
+- **서브넷 CIDR**은 `/24` (256개 IP) 단위로 시작. EKS/AKS 노드가 많으면 `/20` (4,096개) 필요
+- **AZ별로 서브넷 분산**. 최소 2개, 권장 3개 AZ에 배치
+
+**멀티 VPC / 멀티 계정 설계:**
+
+조직에 VPC가 여러 개 생기면 CIDR 충돌이 가장 큰 문제입니다. 피어링이나 Transit Gateway로 연결할 때 CIDR이 겹치면 라우팅이 불가능합니다.
+
+| 전략 | 예시 | 설명 |
+| --- | --- | --- |
+| 환경별 대역 분리 | `10.0.0.0/16` (prod), `10.1.0.0/16` (dev), `10.2.0.0/16` (staging) | 환경 간 충돌 방지 |
+| 팀/서비스별 할당 | `10.10.0.0/16` (팀A), `10.20.0.0/16` (팀B) | 팀 자율성 확보 |
+| 온프렘 대역 회피 | 온프렘이 `172.16.0.0/12` 사용 중이면 클라우드는 `10.0.0.0/8` 사용 | 전용선 연결 시 충돌 방지 |
+
+{% hint style="warning" %}
+`10.0.0.0/16`은 가장 흔한 기본값이라 여러 VPC가 동일 CIDR을 갖는 경우가 많습니다. 조직 차원에서 CIDR 할당 레지스트리를 관리하세요.
+{% endhint %}
+
+**멀티클라우드 CIDR 설계:**
+
+AWS, Azure, GCP를 동시에 사용하면서 전용선으로 연결하는 경우, 세 벤더의 VPC/VNet CIDR이 모두 겹치지 않아야 합니다. 멀티클라우드 환경의 네트워크 설계 상세는 [멀티클라우드 커넥티비티](multicloud-connectivity.md)를 참고하세요.
 
 ## 라우팅 테이블
 
-각 서브넷은 라우팅 테이블에 연결됩니다. 라우팅 테이블은 트래픽의 목적지에 따라 어디로 전송할지 결정합니다.
+각 서브넷은 라우팅 테이블에 연결됩니다. 라우팅 테이블은 트래픽의 목적지에 따라 어디로 전송할지 결정합니다. 온프레미스의 라우터 설정과 동일한 역할이지만, 클라우드에서는 코드로 관리할 수 있습니다.
 
 ### 기본 라우팅 규칙
 
 | 목적지 | 대상 | 설명 |
 | --- | --- | --- |
-| `10.0.0.0/16` (VPC CIDR) | `local` | VPC 내부 트래픽 |
-| `0.0.0.0/0` (모든 외부) | Internet Gateway | 퍼블릭 서브넷 |
-| `0.0.0.0/0` | NAT Gateway | 프라이빗 서브넷 (아웃바운드만) |
-| `192.168.0.0/16` | VPC Peering / Transit Gateway | 다른 VPC/온프레미스 |
+| `10.0.0.0/16` (VPC CIDR) | `local` | VPC 내부 트래픽. 자동 생성, 삭제 불가 |
+| `0.0.0.0/0` (모든 외부) | Internet Gateway | 퍼블릭 서브넷용. 인터넷 양방향 |
+| `0.0.0.0/0` | NAT Gateway | 프라이빗 서브넷용. 아웃바운드만 |
+| `192.168.0.0/16` | VPC Peering / Transit Gateway | 다른 VPC/온프레미스 대역 |
+| `pl-xxxxxxxx` (Prefix List) | VPC Endpoint | S3, DynamoDB 등 벤더 서비스 |
+
+### 서브넷별 라우팅 설계 패턴
+
+서브넷 계층마다 다른 라우팅 테이블을 연결하는 것이 핵심입니다.
+
+| 서브넷 계층 | 기본 경로 (`0.0.0.0/0`) | 추가 경로 | 이유 |
+| --- | --- | --- | --- |
+| **퍼블릭** | Internet Gateway | — | 외부 트래픽 수신/발신 |
+| **프라이빗** | NAT Gateway | 온프렘 대역 → TGW/VPN | 아웃바운드만 허용, 인바운드 차단 |
+| **격리 (DB)** | 없음 (기본 경로 없음) | VPC Endpoint만 | 인터넷 접근 자체를 차단 |
+
+{% hint style="warning" %}
+격리 서브넷에 `0.0.0.0/0` 경로를 넣지 마세요. DB가 인터넷에 나갈 이유가 없습니다. 패치가 필요하면 VPC Endpoint(SSM, S3)를 통해 내부 경로로 해결합니다.
+{% endhint %}
+
+### 라우팅 설계 안티패턴
+
+| 안티패턴 | 문제 | 올바른 접근 |
+| --- | --- | --- |
+| 모든 서브넷에 동일 라우팅 테이블 | 격리 계층 무의미 | 계층별 별도 라우팅 테이블 |
+| 프라이빗 서브넷에 IGW 경로 | 사실상 퍼블릭 | NAT Gateway 또는 경로 없음 |
+| 온프렘 경로를 모든 서브넷에 전파 | 불필요한 노출 | 필요한 서브넷에만 선택적 전파 |
+| CIDR 겹침 무시 | 피어링/TGW 연결 시 라우팅 불가 | 사전 CIDR 계획 필수 |
 
 ## VPC 간 연결
 
-### VPC 피어링 vs Transit Gateway
+VPC가 여러 개 생기면 서로 통신해야 하는 상황이 발생합니다. 공유 서비스(로깅, DNS, 보안 도구)에 접근하거나, 온프레미스와 연결하거나, 환경 간 제한적 통신이 필요한 경우입니다.
 
-| 방식 | 특징 | 사용 시점 |
+### VPC 피어링 — 단순하지만 확장이 어려움
+
+VPC 피어링은 두 VPC를 1:1로 직접 연결합니다. 설정이 간단하고 추가 비용이 낮지만(데이터 전송 비용만), **전이적 라우팅(transitive routing)을 지원하지 않습니다.**
+
+전이적 라우팅이 안 된다는 것은: VPC-A ↔ VPC-B 피어링, VPC-B ↔ VPC-C 피어링이 있어도, VPC-A에서 VPC-C로 VPC-B를 경유하여 통신할 수 없다는 뜻입니다. A↔C 통신이 필요하면 별도 피어링을 만들어야 합니다.
+
+**VPC가 늘어나면 피어링이 폭발합니다:**
+
+- 3개 VPC → 3개 피어링
+- 5개 VPC → 10개 피어링
+- 10개 VPC → 45개 피어링
+- N개 VPC → N×(N-1)/2개 피어링
+
+각 피어링마다 양쪽 라우팅 테이블을 업데이트해야 하므로, 운영 복잡도가 기하급수적으로 증가합니다.
+
+### Transit Gateway — 허브-스포크로 해결
+
+이 문제를 해결하기 위해 등장한 것이 **Transit Gateway**(AWS) / **Virtual WAN**(Azure) / **DRG**(OCI)입니다. 중앙 허브를 두고 모든 VPC와 온프레미스를 허브에 연결하는 구조입니다.
+
+```mermaid
+flowchart TD
+    subgraph hub["Transit Gateway (허브)"]
+    end
+    VPC_A[VPC-A<br/>프로덕션] --- hub
+    VPC_B[VPC-B<br/>개발] --- hub
+    VPC_C[VPC-C<br/>공유서비스] --- hub
+    OnPrem[온프레미스] --- hub
+```
+
+| 구분 | VPC 피어링 | Transit Gateway / vWAN |
 | --- | --- | --- |
-| **VPC 피어링** | 1:1 직접 연결, 전이적(transitive) 아님 | 소수의 VPC 연결 |
-| **Transit Gateway / vWAN** | 허브-스포크, N:N 연결, 전이적 라우팅 | 다수의 VPC + 온프레미스 |
+| **연결 구조** | 1:1 (메시) | 허브-스포크 (스타) |
+| **전이적 라우팅** | 불가 | 가능 (허브 경유) |
+| **VPC 10개 연결 시** | 45개 피어링 | 10개 연결 (허브에 각 1개) |
+| **온프렘 연결** | VPC마다 VPN 필요 | 허브에 1개 VPN/전용선 |
+| **라우팅 관리** | VPC마다 개별 관리 | 허브에서 중앙 관리 |
+| **비용** | 데이터 전송만 | 시간당 + 데이터 처리 비용 |
+| **적합한 경우** | VPC 2~3개, 단순 구조 | VPC 4개 이상, 온프렘 연결, 중앙 관리 필요 |
 
-벤더별 비교:
+{% hint style="info" %}
+GCP는 VPC가 글로벌이므로 리전 간 서브넷을 하나의 VPC로 관리할 수 있어, Transit Gateway 같은 별도 허브가 필요 없는 경우가 많습니다. 다만 조직/프로젝트 간 연결에는 VPC Peering이나 Shared VPC를 사용합니다.
+{% endhint %}
 
-| 벤더 | 1:1 피어링 | 허브-스포크 |
-| --- | --- | --- |
-| AWS | VPC Peering | Transit Gateway |
-| Azure | VNet Peering (글로벌 가능) | Azure Virtual WAN |
-| GCP | VPC Network Peering | 글로벌 VPC (피어링 불필요) |
-| OCI | Local Peering Gateway (LPG) / Remote Peering Connector (RPC) | Dynamic Routing Gateway (DRG) |
+### 벤더별 비교
+
+| 벤더 | 1:1 피어링 | 허브-스포크 | 비고 |
+| --- | --- | --- | --- |
+| AWS | VPC Peering | Transit Gateway (TGW) | TGW는 리전 단위, 리전 간은 TGW Peering |
+| Azure | VNet Peering (글로벌 가능) | Azure Virtual WAN / Hub VNet | vWAN은 Microsoft 관리형 허브 |
+| GCP | VPC Network Peering | 글로벌 VPC + Shared VPC | 대부분 피어링으로 충분 |
+| OCI | Local/Remote Peering Gateway | Dynamic Routing Gateway (DRG) | DRG v2는 허브 역할 |
 
 ### VPC 엔드포인트 (PrivateLink)
 

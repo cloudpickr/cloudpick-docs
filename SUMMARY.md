@@ -5,7 +5,7 @@
 
 ## 클라우드의 개념 <a id="about-cloud"></a>
 
-- [클라우드란?](about-cloud/what-is-cloud.md)
+- [클라우드 시작하기](about-cloud/what-is-cloud.md)
 - [벤더 비교하기](about-cloud/compare-clouds.md)
 - [벤더 선택 의사결정 프레임워크](about-cloud/decision-framework.md)
 - [리전과 가용영역](about-cloud/regions-and-zones.md)
@@ -59,7 +59,7 @@
 
 ## DevOps <a id="devops"></a>
 
-- [DevOps란?](devops/what-is-devops.md)
+- [DevOps 시작하기](devops/what-is-devops.md)
 - [CI/CD](devops/cicd.md)
 - [코드로 관리하는 인프라 (IaC)](devops/iac.md)
 - [DevSecOps](devops/devsecops.md)

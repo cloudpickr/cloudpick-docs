@@ -61,7 +61,7 @@ EKS를 아시는 분을 위해: Azure는 AKS, GCP는 GKE, OCI는 OKE입니다.
 ```mermaid
 flowchart TD
     A[컨테이너 워크로드] --> B{K8s 직접 운영 가능한 팀?}
-    B -->|예| C{멀티클라우드/온프렘 이식성 필요?}
+    B -->|예| C{멀티클라우드/온프레미스 이식성 필요?}
     B -->|아니오| D{서버리스로 충분?}
     C -->|예| E[관리형 K8s<br/>EKS/GKE/AKS/OKE]
     C -->|아니오| E

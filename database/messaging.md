@@ -25,7 +25,7 @@ description: 메시지 큐와 이벤트 스트리밍의 개념, 벤더별 서비
 
 ### 온프레미스에서 쓰던 것
 
-| 클라우드 서비스 | 온프렘 대응 |
+| 클라우드 서비스 | 온프레미스 대응 |
 | --- | --- |
 | SQS, Service Bus Queue | IBM MQ(MQ Series), RabbitMQ, ActiveMQ |
 | MSK, Event Hubs | Apache Kafka (직접 운영) |

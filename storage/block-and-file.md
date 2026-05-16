@@ -20,14 +20,14 @@ description: 블록/파일 스토리지 차이, 볼륨 타입, AZ 종속성, 안
 
 **블록 스토리지:**
 
-- 온프렘에서의 SAN(Storage Area Network) 디스크, DAS(Direct Attached Storage)에 해당
+- 온프레미스에서의 SAN(Storage Area Network) 디스크, DAS(Direct Attached Storage)에 해당
 - FC/iSCSI로 연결하던 LUN이 클라우드에서는 API 한 줄로 생성/연결
 - 서버의 로컬 디스크처럼 보이지만 실제로는 네트워크 연결 (성능 특성이 다름)
 - RAID 구성 불필요 — 벤더가 내부적으로 복제/내구성 보장
 
 **파일 스토리지:**
 
-- 온프렘에서의 NAS(NetApp, EMC Isilon, Windows File Server)에 해당
+- 온프레미스에서의 NAS(NetApp, EMC Isilon, Windows File Server)에 해당
 - NFS/SMB 마운트 방식 동일 — 기존 앱 코드 수정 없이 이전 가능
 - 용량 프로비저닝 vs 서버리스(자동 확장) 차이
 

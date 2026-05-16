@@ -37,7 +37,7 @@ Apache Lucene (검색 엔진 라이브러리)
        └─ OpenSearch (2021~, AWS 포크, Apache 2.0 라이선스)
 ```
 
-- **Solr**: 여전히 사용되지만 클라우드 관리형 서비스가 거의 없음. 온프렘 레거시에 남아있는 경우 많음
+- **Solr**: 여전히 사용되지만 클라우드 관리형 서비스가 거의 없음. 온프레미스 레거시에 남아있는 경우 많음
 - **Elasticsearch**: Elastic사가 라이선스 변경 (SSPL). Elastic Cloud로 관리형 제공
 - **OpenSearch**: AWS가 포크. 클라우드 관리형의 주류. Valkey와 비슷한 맥락 (라이선스 이슈 → 오픈소스 포크)
 

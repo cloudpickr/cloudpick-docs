@@ -63,8 +63,8 @@ MSP는 일반적으로 **클라우드 사용료에 대한 추가 마진을 받�
 | Azure | [Tech Community](https://techcommunity.microsoft.com/) | 블로그, 포럼, 이벤트 |
 | GCP | [Google Cloud Community](https://www.googlecloudcommunity.com/) | 토론 포럼 |
 | GCP | [Stack Overflow (google-cloud 태그)](https://stackoverflow.com/questions/tagged/google-cloud-platform) | 개발 관련 Q&A |
-| AWS | [AWSKRUG (한국 사용자 모임)](https://www.awskr.org/) | 한국 AWS 커뮤니티 |
-| GCP | [GDG Cloud Korea](https://gdg.community.dev/gdg-cloud-korea/) | 한국 GCP 커뮤니티 |
+| AWS | [AWSKRUG](https://www.awskr.org/) | 한국 AWS 사용자 커뮤니티 |
+| GCP | [GDG Cloud Korea](https://gdg.community.dev/gdg-cloud-korea/) | 한국 GCP 사용자 커뮤니티 |
 
 ## 어드바이저 / 권장 사항 서비스
 

@@ -10,13 +10,13 @@ description: VPC/VNet/VCN 개념, 서브넷 설계, 보안 계층, NAT, VPC 간 
 
 온프레미스에서는 물리적인 네트워크 장비(스위치, 라우터, 방화벽)로 네트워크를 구성합니다. 클라우드에서는 이 모든 것을 소프트웨어로 정의합니다.
 
-**VPC** (Virtual Private Cloud)는 클라우드 안에 만드는 논리적으로 격리된 가상 네트워크입니다. 온프레미스의 사내 네트워크에 해당하며, IP 대역, 서브넷, 라우팅, 방화벽 규칙을 사용자가 직접 설계합니다.
+**VPC** (Virtual Private Cloud)는 클라우드 안에 만드는 논리적으로 격리된 가상 네트워크입니다. 각 VPC는 다른 고객의 VPC와 완전히 분리되어 있으며, **명시적으로 연결을 설정하지 않는 한 VPC 간 통신은 불가능**합니다. 온프레미스의 사내 네트워크에 해당하며, IP 대역, 서브넷, 라우팅, 방화벽 규칙을 사용자가 직접 설계합니다.
 
 {% hint style="info" %}
-AWS VPC를 아시는 분을 위해: GCP는 VPC가 글로벌이고, OCI는 VCN이라 부릅니다.
+AWS VPC를 아시는 분을 위해: Azure는 VNet, OCI는 VCN이라 부릅니다. GCP는 VPC가 글로벌입니다.
 {% endhint %}
 
-서브넷은 가용영역(AZ) 단위로 배치되며, 여러 AZ에 서브넷을 분산하면 장애 도메인을 분리하여 고가용성을 확보할 수 있습니다. 리전과 가용영역의 개념은 [리전과 가용영역](../about-cloud/regions-and-zones.md)에서 자세히 다룹니다.
+**서브넷**은 VPC 안에서 IP 대역을 더 작게 나눈 네트워크 영역입니다. 서브넷을 여러 가용영역(AZ)에 분산 배치하면 장애 도메인을 분리하여 고가용성을 확보할 수 있습니다. 리전과 가용영역의 개념은 [리전과 가용영역](../about-cloud/regions-and-zones.md)에서 다룹니다.
 
 ## 제품 비교
 
@@ -55,45 +55,6 @@ Security Groups/NSG만으로 기본 보안은 가능하지만, 프로덕션 환�
 {% hint style="warning" %}
 NAT Gateway는 시간당 비용 + 데이터 처리 비용이 발생합니다. 대량 아웃바운드 트래픽이 있는 경우 비용에 주의해야 합니다.
 {% endhint %}
-
-### 프라이빗 연결 (온프레미스 ↔ 클라우드)
-
-온프레미스와 클라우드를 연결하는 방법은 **전용선**과 **VPN(IPSec)** 두 가지입니다.
-
-| 구분 | 전용선 | VPN (IPSec) |
-| --- | --- | --- |
-| **경로** | 벤더 로케이션까지 물리 회선 | 인터넷 경유 암호화 터널 |
-| **대역폭** | 1~100 Gbps | 일반적으로 1~5 Gbps |
-| **지연/안정성** | 낮고 일정 | 인터넷 상태에 따라 변동 |
-| **비용** | 회선비 + 포트비 (월 고정) | 시간당 과금 (상대적 저렴) |
-| **구축 기간** | 수 주~수 개월 (물리 회선 개통) | 수 분~수 시간 (설정만) |
-| **적합한 경우** | 대용량 데이터, 안정적 지연 필요, 프로덕션 | PoC, 백업 경로, 소규모 트래픽 |
-
-#### 벤더별 서비스
-
-| 벤더 | 전용선 | VPN | 비고 |
-| --- | --- | --- | --- |
-| AWS | Direct Connect | Site-to-Site VPN | Direct Connect는 전용선, VPN은 백업 경로로 조합 권장 |
-| Azure | ExpressRoute | VPN Gateway | ExpressRoute Global Reach로 리전 간 연결 가능 |
-| GCP | Cloud Interconnect (Dedicated/Partner) | Cloud VPN (HA VPN) | HA VPN은 99.99% SLA |
-| OCI | FastConnect | Site-to-Site VPN | FastConnect 이그레스 10TB/월 무료에 포함 |
-
-#### 한국 내 전용선 연결
-
-전용선을 사용하려면 벤더의 물리적 접속 지점(PoP)까지 **온프레미스 사이트에서 회선을 끌어야** 합니다. 직접 연결(Dedicated)이 어려우면 통신사(LG U+, KT 등)를 통해 Partner 방식으로 연결할 수 있습니다.
-
-| 벤더 | 로케이션 목록 |
-| --- | --- |
-| AWS | [Direct Connect 로케이션](https://aws.amazon.com/directconnect/locations/) |
-| Azure | [ExpressRoute 피어링 위치](https://learn.microsoft.com/azure/expressroute/expressroute-locations) |
-| GCP | [Cloud Interconnect 위치](https://cloud.google.com/network-connectivity/docs/interconnect/concepts/choosing-colocation-facilities) |
-| OCI | [FastConnect 위치](https://docs.oracle.com/en-us/iaas/Content/Network/Concepts/fastconnectprovider.htm) |
-
-{% hint style="warning" %}
-전용선은 "벤더까지의 연결"만 제공합니다. 온프레미스(사무실/IDC)에서 벤더 PoP까지의 물리 회선은 별도로 통신사와 계약해야 하며, 개통에 수 주~수 개월이 소요됩니다. 이 구간의 비용과 리드타임을 사전에 확인하세요.
-{% endhint %}
-
-글로벌 네트워크 관리(AWS Cloud WAN, Azure Virtual WAN 등)와 멀티사이트 연결 상세는 [멀티클라우드 네트워킹](multicloud-networking.md)을 참고하세요.
 
 ## 핵심 차이점
 
@@ -254,6 +215,45 @@ GCP는 VPC가 글로벌이므로 리전 간 서브넷을 하나의 VPC로 관리
 | Azure | Private Endpoint / Private Link | 서비스별 Private Endpoint 생성 |
 | GCP | Private Service Connect / Private Google Access | Private Google Access는 설정만으로 활성화 |
 | OCI | Service Gateway / Private Endpoint | Service Gateway는 Oracle 서비스 접근용 |
+
+## 온프레미스 연결 (전용선 / VPN)
+
+온프레미스와 클라우드를 연결하는 방법은 **전용선**과 **VPN(IPSec)** 두 가지입니다.
+
+| 구분 | 전용선 | VPN (IPSec) |
+| --- | --- | --- |
+| **경로** | 벤더 로케이션까지 물리 회선 | 인터넷 경유 암호화 터널 |
+| **대역폭** | 1~100 Gbps | 일반적으로 1~5 Gbps |
+| **지연/안정성** | 낮고 일정 | 인터넷 상태에 따라 변동 |
+| **비용** | 회선비 + 포트비 (월 고정) | 시간당 과금 (상대적 저렴) |
+| **구축 기간** | 수 주~수 개월 (물리 회선 개통) | 수 분~수 시간 (설정만) |
+| **적합한 경우** | 대용량 데이터, 안정적 지연 필요, 프로덕션 | PoC, 백업 경로, 소규모 트래픽 |
+
+### 벤더별 서비스
+
+| 벤더 | 전용선 | VPN | 비고 |
+| --- | --- | --- | --- |
+| AWS | Direct Connect | Site-to-Site VPN | 전용선 + VPN 백업 조합 권장 |
+| Azure | ExpressRoute | VPN Gateway | Global Reach로 리전 간 연결 가능 |
+| GCP | Cloud Interconnect (Dedicated/Partner) | Cloud VPN (HA VPN) | HA VPN은 99.99% SLA |
+| OCI | FastConnect | Site-to-Site VPN | 이그레스 10TB/월 무료에 포함 |
+
+### 전용선 연결 시 주의사항
+
+전용선을 사용하려면 벤더의 물리적 접속 지점(PoP)까지 **온프레미스 사이트에서 회선을 끌어야** 합니다. 직접 연결(Dedicated)이 어려우면 통신사를 통해 Partner 방식으로 연결할 수 있습니다.
+
+| 벤더 | 로케이션 목록 |
+| --- | --- |
+| AWS | [Direct Connect 로케이션](https://aws.amazon.com/directconnect/locations/) |
+| Azure | [ExpressRoute 피어링 위치](https://learn.microsoft.com/azure/expressroute/expressroute-locations) |
+| GCP | [Cloud Interconnect 위치](https://cloud.google.com/network-connectivity/docs/interconnect/concepts/choosing-colocation-facilities) |
+| OCI | [FastConnect 위치](https://docs.oracle.com/en-us/iaas/Content/Network/Concepts/fastconnectprovider.htm) |
+
+{% hint style="warning" %}
+전용선은 "벤더까지의 연결"만 제공합니다. 온프레미스 사이트에서 벤더 PoP까지의 물리 회선은 별도로 통신사와 계약해야 하며, 개통에 수 주~수 개월이 소요됩니다. 이 구간의 비용과 리드타임을 사전에 확인하세요.
+{% endhint %}
+
+글로벌 네트워크 관리(AWS Cloud WAN, Azure Virtual WAN 등)와 멀티사이트 연결 상세는 [멀티클라우드 네트워킹](multicloud-networking.md)을 참고하세요.
 
 ## 프로덕션 VPC 설계 체크리스트
 

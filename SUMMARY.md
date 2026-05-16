@@ -22,8 +22,8 @@
 
 - [가상머신](compute/virtual-machines.md)
 - [컨테이너 서비스](compute/containers.md)
-- [서버리스](compute/serverless.md)
 - [오토스케일링](compute/auto-scaling.md)
+- [서버리스](compute/serverless.md)
 - [서비스 메시](compute/service-mesh.md)
 - [하이브리드/엣지 컴퓨팅](compute/hybrid-and-edge.md)
 - [애플리케이션 마이그레이션](compute/migration.md)

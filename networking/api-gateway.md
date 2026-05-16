@@ -66,9 +66,9 @@ API Gateway 자체는 인증 로직을 처리하지 않고, 외부 인증 서비
 
 **OCI API Gateway** — OCI Functions와 네이티브 연동되며, 인증(JWT 검증), 속도 제한, 요청 변환을 정책 기반으로 설정할 수 있습니다.
 
-## AWS API Gateway 타입별 차이
+## API 타입 선택 (AWS 고유)
 
-AWS는 용도에 따라 3가지 API 타입을 제공합니다.
+AWS는 용도에 따라 3가지 API 타입을 별도 서비스로 제공합니다. Azure APIM, GCP Apigee, OCI API Gateway는 단일 서비스에서 REST/WebSocket/GraphQL을 모두 처리하므로 이 구분이 없습니다.
 
 | 타입 | 용도 | 특징 | 제약 |
 | --- | --- | --- | --- |
@@ -76,7 +76,7 @@ AWS는 용도에 따라 3가지 API 타입을 제공합니다.
 | **HTTP API** | 경량 프록시 | 저비용(~70% 저렴), 저지연, JWT 인증 내장 | 캐싱·WAF·Usage Plan 없음 |
 | **WebSocket API** | 실시간 양방향 | 채팅, 알림, 게임 | 연결 유지 비용 별도 |
 
-**선택 기준:** 대부분의 새 프로젝트는 HTTP API로 시작하세요. 캐싱, WAF 연동, Usage Plan(API 키 쿼터)이 필요한 경우에만 REST API를 선택합니다.
+**선택 기준:** AWS를 사용하는 경우, 대부분의 새 프로젝트는 HTTP API로 시작하세요. 캐싱, WAF 연동, Usage Plan이 필요한 경우에만 REST API를 선택합니다.
 
 ## OpenAPI(Swagger) 연동
 

@@ -115,6 +115,13 @@ Pod 간 트래픽을 제어하는 Kubernetes 네이티브 기능입니다. VPC S
 
 관련: [VPC와 서브넷](../networking/vpc-subnet.md), [컨테이너 서비스](../compute/containers.md)
 
+**벤더별 Kubernetes VPC/서브넷 설계 가이드:**
+
+- [AWS EKS — VPC and Subnet Best Practices](https://docs.aws.amazon.com/eks/latest/best-practices/subnets.html)
+- [Azure AKS — IP Address Planning](https://learn.microsoft.com/azure/aks/concepts-network-ip-address-planning)
+- [GCP GKE — VPC-native Cluster Networking](https://cloud.google.com/kubernetes-engine/docs/concepts/alias-ips)
+- [OCI OKE — Network Configuration](https://docs.oracle.com/en-us/iaas/Content/ContEng/Concepts/contengnetworkconfig.htm)
+
 ## 벤더별 차이점
 
 {% tabs %}

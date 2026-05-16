@@ -132,7 +132,9 @@ OCI는 전통적인 공동 책임 모델을 기반으로 하되, **자동화된 
 | GCP | [Compliance Reports Manager](https://cloud.google.com/security/compliance/compliance-reports-manager) | ISO, SOC 보고서 다운로드 |
 | OCI | [Oracle Cloud Compliance](https://www.oracle.com/corporate/cloud-compliance/) | 인증 현황 및 보고서 |
 
+{% hint style="info" %}
 상세 규정 준수 가이드는 [규정 준수](../governance/compliance.md)를 참고하세요.
+{% endhint %}
 
 ## 참고하기
 

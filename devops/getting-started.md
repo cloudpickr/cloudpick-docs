@@ -34,6 +34,10 @@ description: DevOps의 정의, GitOps, 플랫폼 엔지니어링, SLI/SLO/에러
 - **관리형 서비스** — CI/CD, 모니터링, 로깅을 직접 구축하지 않아도 됩니다.
 - **종량제** — 테스트 환경을 사용할 때만 켜고, 끝나면 삭제하여 비용을 절감합니다.
 
+{% hint style="info" %}
+인프라를 코드로 관리하는 방법은 [코드로 관리하는 인프라 (IaC)](iac.md)를, 빌드·테스트·배포 자동화는 [CI/CD](cicd.md)를 참고하세요.
+{% endhint %}
+
 ## GitOps
 
 **GitOps**는 DevOps의 실천 방법 중 하나로, Git 저장소를 인프라와 애플리케이션의 **단일 진실 원천** (Single Source of Truth)으로 사용합니다. 특히 **Kubernetes 환경**에서 표준적인 배포 방식으로 자리잡았습니다. K8s의 선언형 매니페스트(YAML)와 GitOps의 "Git에 선언된 상태 = 클러스터 상태" 철학이 자연스럽게 맞기 때문입니다.

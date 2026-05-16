@@ -107,11 +107,9 @@ SDK는 CLI와 달리 애플리케이션 코드에 직접 통합되므로, 에러
 
 실무에서는 콘솔로 현황을 확인하고, CLI로 긴급 대응하며, **프로덕션 인프라는 IaC로 관리**하는 것이 표준입니다.
 
+{% hint style="info" %}
 IaC 도구 비교, Terraform 상태 관리, 모듈 설계, 드리프트 관리 등 상세는 [코드로 관리하는 인프라 (IaC)](../devops/iac.md)를 참고하세요.
-
-{% content-ref url="../devops/iac.md" %}
-[코드로 관리하는 인프라 (IaC)](../devops/iac.md)
-{% endcontent-ref %}
+{% endhint %}
 
 ## 참고하기
 

@@ -64,6 +64,16 @@ MSP는 일반적으로 **클라우드 사용료에 대한 추가 마진을 받�
 | GCP | [Google Cloud Community](https://www.googlecloudcommunity.com/) | 토론 포럼 |
 | GCP | [Stack Overflow (google-cloud 태그)](https://stackoverflow.com/questions/tagged/google-cloud-platform) | 개발 관련 Q&A |
 
+### 한국 커뮤니티
+
+| 커뮤니티 | 대상 | 링크 |
+| --- | --- | --- |
+| AWSKRUG (AWS 한국 사용자 모임) | AWS 전반 | [awskrug.github.io](https://awskrug.github.io/) |
+| Azure Korea Community | Azure 전반 | [Facebook 그룹](https://www.facebook.com/groups/AzureKorea/) |
+| GDG Cloud Korea | GCP 전반 | [gdg.community.dev](https://gdg.community.dev/gdg-cloud-korea/) |
+| CNCG Seoul | Kubernetes/클라우드 네이티브 | [community.cncf.io](https://community.cncf.io/cloud-native-community-groups-seoul/) |
+| 한국 DevOps 커뮤니티 | DevOps/SRE | [Facebook 그룹](https://www.facebook.com/groups/korea.devops/) |
+
 ## 어드바이저 / 권장 사항 서비스
 
 각 벤더는 자동으로 환경을 분석하여 비용 절감, 보안 강화, 성능 개선을 권장하는 서비스를 제공합니다.

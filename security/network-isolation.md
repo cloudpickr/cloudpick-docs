@@ -244,7 +244,8 @@ flowchart TB
 
 - [전자금융감독규정 (금융위원회)](https://www.law.go.kr/행정규칙/전자금융감독규정)
 - [CSAP 클라우드 보안인증 (KISA)](https://isms.kisa.or.kr/main/csap/intro/)
-- [N2SF 국가망보안체계 1.0 (국가사이버안보센터)](https://www.ncsc.go.kr)
+- [N2SF 국가망보안체계 1.0 보안가이드라인 (국가사이버안보센터 자료실)](https://www.ncsc.go.kr)
+- [국정원, N2SF 보안가이드라인 정식판 공개 (2025.9.30)](https://www.digitaltoday.co.kr/news/articleView.html?idxno=537182)
 - [PCI DSS v4.0 (PCI SSC)](https://www.pcisecuritystandards.org/)
 
 ### AWS

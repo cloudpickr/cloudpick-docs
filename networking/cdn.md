@@ -122,7 +122,6 @@ CDN을 통해 배포하면서도 접근을 제한해야 하는 경우 (유료 �
 | AWS | CloudFront | 400+ 엣지 로케이션. Origin Shield(오리진 보호 캐시 계층) |
 | Azure | Azure CDN / Front Door | Front Door에 CDN + WAF + 글로벌 LB 통합 |
 | GCP | Cloud CDN | Cloud Load Balancing과 통합. 캐시 무효화 빠름 |
-| OCI | — | 자체 CDN 미제공. Akamai, Cloudflare 등 3rd party 사용 |
 
 ### 핵심 차이점
 
@@ -151,7 +150,6 @@ CDN은 콘텐츠를 **캐싱**하여 빠르게 전달하지만, 캐싱이 불가
 | AWS | Global Accelerator | TCP/UDP | L4만. HTTP 라우팅 필요 시 ALB와 조합 |
 | Azure | Front Door | HTTP + TCP | L7 통합. TCP 프록시는 Premium 티어 |
 | GCP | Cloud LB (Premium Tier) | HTTP/TCP/UDP | 기본 글로벌. Standard Tier는 리전 한정 |
-| OCI | DNS Traffic Management | DNS 기반 | 네트워크 가속 아님, DNS 레벨 분배만 |
 
 ### 선택 기준
 

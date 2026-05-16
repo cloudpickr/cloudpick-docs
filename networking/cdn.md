@@ -103,13 +103,13 @@ CDN은 정적 파일뿐 아니라 다양한 워크로드에 적용할 수 있습
 
 CDN을 통해 배포하면서도 접근을 제한해야 하는 경우 (유료 콘텐츠, 인증된 사용자만 접근):
 
-| 방법 | 설명 | 벤더 |
-| --- | --- | --- |
-| **Signed URL** | 시간 제한이 있는 서명된 URL 발급. 만료 후 접근 불가 | CloudFront Signed URL, Cloud CDN Signed URL |
-| **Signed Cookie** | 쿠키 기반 인증. 여러 파일에 동시 적용 가능 | CloudFront Signed Cookie |
-| **Token 인증** | 엣지에서 토큰 검증 후 허용/차단 | Front Door Token Validation, Akamai Token Auth |
-| **지역 제한 (Geo Restriction)** | 특정 국가/지역에서만 접근 허용 또는 차단 | 모든 벤더 지원 |
-| **WAF 연동** | IP 제한, Rate Limiting, Bot 차단 | CloudFront + WAF, Front Door + WAF, Cloud Armor |
+| 방법 | 설명 | AWS | Azure | GCP |
+| --- | --- | --- | --- | --- |
+| **Signed URL** | 시간 제한이 있는 서명된 URL | CloudFront Signed URL | Front Door Private Link | Cloud CDN Signed URL |
+| **Signed Cookie** | 쿠키 기반 인증. 여러 파일 동시 적용 | CloudFront Signed Cookie | — | — |
+| **Token 인증** | 엣지에서 토큰 검증 | CloudFront Functions | Front Door Rules Engine | — |
+| **지역 제한** | 특정 국가/지역 허용 또는 차단 | ✅ | ✅ | ✅ |
+| **WAF 연동** | IP 제한, Rate Limiting, Bot 차단 | CloudFront + WAF | Front Door + WAF | Cloud Armor |
 
 {% hint style="info" %}
 유료 동영상 스트리밍처럼 콘텐츠 보호가 중요한 경우, Signed URL + DRM(Digital Rights Management)을 조합합니다. CDN은 전송 경로를 보호하고, DRM은 콘텐츠 자체를 보호합니다.

@@ -19,7 +19,7 @@ description: 주요 벤더의 특징, 강점, 멀티클라우드 연동 서비�
 | **콘솔** | [Console](https://console.aws.amazon.com) | [Portal](https://portal.azure.com) | [Console](https://console.cloud.google.com) | [Console](https://cloud.oracle.com) |
 
 {% hint style="info" %}
-시장 점유율, 리전 수, 서비스 수는 빠르게 변합니다. 최신 수치는 [Synergy Research Group](https://www.srgresearch.com/)에서 확인하세요.
+시장 점유율은 [Synergy Research Group](https://www.srgresearch.com/)을 참고하세요. 리전 수, 서비스 수 등은 빠르게 변하므로 각 벤더 공식 페이지에서 최신 현황을 확인하세요.
 {% endhint %}
 
 ## 주요 서비스 매핑

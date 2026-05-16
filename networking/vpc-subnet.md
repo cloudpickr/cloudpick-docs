@@ -76,14 +76,7 @@ CIDR 설계는 나중에 바꾸기 가장 어려운 결정입니다.
 
 ### 원격 접근
 
-퍼블릭 서브넷에 Bastion Host를 두는 전통적 방식 외에, 각 벤더는 에이전트 기반 접근 서비스를 제공합니다.
-
-| 벤더 | 서비스 | 비고 |
-| --- | --- | --- |
-| AWS | Systems Manager Session Manager | SSH 키/Bastion 불필요. IAM 기반 접근 |
-| Azure | Azure Bastion | 브라우저 기반 RDP/SSH. 퍼블릭 IP 불필요 |
-| GCP | Identity-Aware Proxy (IAP) | IAM 기반 터널링. 퍼블릭 IP 불필요 |
-| OCI | OCI Bastion Service | 관리형 Bastion. 세션 시간 제한 |
+프라이빗 서브넷의 리소스에 접근하려면 Bastion Host 또는 에이전트 기반 접근 서비스를 사용합니다. 상세는 [원격 접근 관리](../devops/remote-access.md)를 참고하세요.
 
 ## 라우팅
 

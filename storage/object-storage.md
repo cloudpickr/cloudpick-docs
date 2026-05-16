@@ -84,8 +84,6 @@ AWS S3 Intelligent-Tiering과 GCP Autoclass, OCI Auto-Tiering은 접근 패턴�
 
 ## 활용 패턴
 
-### 유즈케이스별 적합성
-
 | 유즈케이스 | 설명 | 왜 객체 스토리지인가 |
 | --- | --- | --- |
 | 정적 웹 호스팅 | SPA, 정적 사이트 서빙 | CDN 연동, 서버리스, 무한 확장 |
@@ -95,9 +93,15 @@ AWS S3 Intelligent-Tiering과 GCP Autoclass, OCI Auto-Tiering은 접근 패턴�
 | 백업/DR | DB 스냅샷, 시스템 이미지 | 내구성 99.999999999%, 크로스 리전 복제 |
 | 미디어 저장/스트리밍 | 동영상, 이미지 원본 | 대용량, CDN 오리진, 트랜스코딩 파이프라인 입력 |
 
-### 데이터 레이크 / 레이크하우스 패턴
+관련: [데이터 분석 서비스](../database/analytics.md), [데이터 파이프라인](../database/data-pipeline.md), [서버리스](../compute/serverless.md)
 
-객체 스토리지에 원본 데이터를 그대로 두고, 테이블 포맷(Iceberg, Delta Lake, Hudi)으로 구조화하여 별도 데이터 웨어하우스 없이 직접 SQL 쿼리하는 아키텍처입니다.
+## 객체 스토리지의 진화
+
+객체 스토리지는 단순 파일 저장소를 넘어 **데이터 레이크의 기본 저장소**로 자리잡았습니다. 과거에는 데이터 분석을 위해 별도의 데이터 웨어하우스에 데이터를 복사해야 했지만, 이제는 객체 스토리지에 데이터를 그대로 두고 직접 분석하는 **레이크하우스** (Lakehouse) 아키텍처가 표준이 되고 있습니다.
+
+### 레이크하우스 패턴
+
+객체 스토리지에 원본 데이터를 그대로 두고, 테이블 포맷(Iceberg, Delta Lake, Hudi)으로 구조화하여 별도 데이터 웨어하우스 없이 직접 SQL 쿼리합니다.
 
 **메달리온 아키텍처 (Bronze/Silver/Gold):**
 
@@ -105,11 +109,9 @@ AWS S3 Intelligent-Tiering과 GCP Autoclass, OCI Auto-Tiering은 접근 패턴�
 - **Silver** — 정제/변환된 데이터 (Parquet, 스키마 적용)
 - **Gold** — 비즈니스 집계/마트 (분석 즉시 가능)
 
-객체 스토리지의 prefix(폴더)로 계층을 분리합니다.
-
 ### 이벤트 드리븐 파이프라인
 
-객체 업로드 시 이벤트를 트리거하여 변환/분석을 자동 실행하는 패턴입니다.
+객체 업로드 시 이벤트를 트리거하여 변환/분석을 자동 실행합니다.
 
 | 벤더 | 트리거 | 처리 |
 | --- | --- | --- |
@@ -118,15 +120,7 @@ AWS S3 Intelligent-Tiering과 GCP Autoclass, OCI Auto-Tiering은 접근 패턴�
 | GCP | Cloud Storage Trigger | Cloud Functions, Dataflow |
 | OCI | OCI Events | OCI Functions, Data Flow |
 
-### 관련 문서
-
-- [데이터 분석 서비스](../database/analytics.md)
-- [데이터 파이프라인](../database/data-pipeline.md)
-- [서버리스](../compute/serverless.md)
-
-## 객체 스토리지의 진화
-
-객체 스토리지는 단순 파일 저장소를 넘어 **데이터 레이크의 기본 저장소**로 자리잡았습니다. 과거에는 데이터 분석을 위해 별도의 데이터 웨어하우스에 데이터를 복사해야 했지만, 이제는 객체 스토리지에 데이터를 그대로 두고 직접 분석하는 **레이크하우스** (Lakehouse) 아키텍처가 표준이 되고 있습니다.
+### 벤더별 데이터 플랫폼 서비스
 
 | 기능 | AWS | Azure | GCP | OCI |
 | --- | --- | --- | --- | --- |

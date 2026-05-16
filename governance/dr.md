@@ -96,14 +96,39 @@ graph LR
 | **Warm Standby** | 초\~분 | 분 단위 | 높음 | 축소된 규모의 전체 환경을 상시 가동. 장애 시 스케일업 |
 | **Active-Active** | 0 | 거의 0 | 매우 높음 | 두 리전에서 동시에 트래픽 처리. 장애 시 자동 페일오버 |
 
-## 주요 CSP DR 서비스 비교
+## 전략별 구현 — 벤더 서비스 매핑
 
-| 항목 | AWS | Azure | GCP | OCI |
+위 전략을 실제로 구현할 때 사용하는 벤더 서비스입니다.
+
+### Backup & Restore 구현
+
+데이터를 다른 리전에 복제해두고, 장애 시 해당 리전에서 인프라를 새로 생성하여 복원합니다.
+
+| 역할 | AWS | Azure | GCP | OCI |
 | --- | --- | --- | --- | --- |
-| **DR 전용 서비스** | Elastic Disaster Recovery (DRS) | Azure Site Recovery | — (아키텍처 패턴 가이드) | OCI Full Stack DR |
-| **크로스 리전 복제** | S3 CRR, RDS Cross-Region Read Replica | Geo-Redundant Storage, Azure SQL Geo-Replication | Multi-region Storage, Cloud SQL Cross-Region Replica | Object Storage Cross-Region Copy, Data Guard |
-| **자동 페일오버** | Route 53 Health Check + Failover | Traffic Manager / Front Door | Cloud DNS + Global LB | OCI DNS + Traffic Management |
-| **DR 오케스트레이션** | CloudFormation StackSets | Recovery Services Vault + Recovery Plans | — | Full Stack DR (복구 계획 자동 실행) |
+| 스토리지 복제 | S3 Cross-Region Replication | Geo-Redundant Storage (GRS) | Multi-region Storage | Cross-Region Copy |
+| DB 백업 복제 | RDS 자동 백업 크로스 리전 복사 | Azure SQL Geo-Backup | Cloud SQL 크로스 리전 백업 | Data Guard (Standby) |
+| 인프라 재생성 | CloudFormation / Terraform | ARM / Bicep / Terraform | Terraform | Resource Manager / Terraform |
+
+### Pilot Light ~ Warm Standby 구현
+
+DR 리전에 핵심 인프라를 최소/축소 규모로 상시 가동하고, 장애 시 스케일업합니다.
+
+| 역할 | AWS | Azure | GCP | OCI |
+| --- | --- | --- | --- | --- |
+| DR 오케스트레이션 | Elastic Disaster Recovery (DRS) | Azure Site Recovery | — (아키텍처 패턴으로 구성) | Full Stack DR |
+| DB 실시간 복제 | RDS Cross-Region Read Replica, Aurora Global DB | Azure SQL Geo-Replication | Cloud SQL Cross-Region Replica | Data Guard (Active) |
+| 트래픽 전환 | Route 53 Failover | Traffic Manager / Front Door | Cloud DNS + Global LB | DNS Traffic Management |
+
+### Active-Active 구현
+
+두 리전에서 동시에 트래픽을 처리하며, 한쪽 장애 시 나머지가 전체를 흡수합니다.
+
+| 역할 | AWS | Azure | GCP | OCI |
+| --- | --- | --- | --- | --- |
+| 글로벌 라우팅 | Route 53 + Global Accelerator | Front Door | Global HTTP(S) LB | DNS Traffic Management |
+| 글로벌 DB | Aurora Global Database, DynamoDB Global Tables | Cosmos DB (Multi-region Write) | Spanner | Autonomous DB (Cross-Region) |
+| 상태 동기화 | ElastiCache Global Datastore | Azure Cache Geo-Replication | Memorystore Cross-Region | — |
 
 ## DR 테스트
 

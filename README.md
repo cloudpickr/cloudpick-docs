@@ -18,7 +18,7 @@ CloudPick은 **멀티클라우드 환경에서 올바른 의사결정을 내리�
 
 {% tabs %}
 {% tab title="☁️ 클라우드 입문" %}
-1. [클라우드 시작하기](about-cloud/what-is-cloud.md)
+1. [클라우드 시작하기](about-cloud/getting-started.md)
 2. [벤더 비교하기](about-cloud/compare-clouds.md)
 3. [리전과 가용영역](about-cloud/regions-and-zones.md)
 4. [공동 책임 모델](about-cloud/shared-responsibility.md)

@@ -5,7 +5,7 @@
 
 ## 클라우드의 개념 <a id="about-cloud"></a>
 
-- [클라우드 시작하기](about-cloud/what-is-cloud.md)
+- [클라우드 시작하기](about-cloud/getting-started.md)
 - [벤더 비교하기](about-cloud/compare-clouds.md)
 - [벤더 선택 의사결정 프레임워크](about-cloud/decision-framework.md)
 - [리전과 가용영역](about-cloud/regions-and-zones.md)
@@ -59,7 +59,7 @@
 
 ## DevOps <a id="devops"></a>
 
-- [DevOps 시작하기](devops/what-is-devops.md)
+- [DevOps 시작하기](devops/getting-started.md)
 - [CI/CD](devops/cicd.md)
 - [코드로 관리하는 인프라 (IaC)](devops/iac.md)
 - [DevSecOps](devops/devsecops.md)
@@ -73,7 +73,7 @@
 
 ## 보안 <a id="security"></a>
 
-- [클라우드 보안 시작하기](security/overview.md)
+- [클라우드 보안 시작하기](security/getting-started.md)
 - [IAM 실무 설계와 보안 운영](security/iam.md)
 - [시크릿 관리](security/secrets.md)
 - [데이터 보호와 워크로드 보안](security/data-protection.md)
@@ -85,7 +85,7 @@
 
 ## 거버넌스 <a id="governance"></a>
 
-- [클라우드 거버넌스 시작하기](governance/overview.md)
+- [클라우드 거버넌스 시작하기](governance/getting-started.md)
 - [랜딩존](governance/landing-zone.md)
 - [FinOps](governance/finops.md)
 - [재해복구](governance/dr.md)

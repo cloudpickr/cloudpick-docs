@@ -7,7 +7,7 @@ description: 멀티클라우드 환경에서 로그, 메트릭, 트레이스를 
 > 문서 기준: 2026년 5월
 
 {% hint style="info" %}
-단일 클라우드 모니터링 기초는 [모니터링](monitoring.md)을 참고하세요. 관찰가능성(Observability) 기초와 SLI/SLO/SLA 개념은 [모니터링](monitoring.md)과 [DevOps란?](what-is-devops.md)에서 먼저 다루고 있습니다. 이 문서는 **멀티클라우드 환경에서 어떻게 관찰가능성을 통합하는가** 에 초점을 둡니다.
+단일 클라우드 모니터링 기초는 [모니터링](monitoring.md)을 참고하세요. 관찰가능성(Observability) 기초와 SLI/SLO/SLA 개념은 [모니터링](monitoring.md)과 [DevOps란?](getting-started.md)에서 먼저 다루고 있습니다. 이 문서는 **멀티클라우드 환경에서 어떻게 관찰가능성을 통합하는가** 에 초점을 둡니다.
 {% endhint %}
 
 ## 왜 통합이 문제인가
@@ -163,7 +163,7 @@ AWS CloudWatch, Azure Monitor, GCP Cloud Monitoring을 각각 보는 것은 비�
 - [ ] 로그 레벨별 수집/보존 정책 수립 (예: ERROR 90일, INFO 7일)
 - [ ] 클라우드 네이티브 메트릭(CPU, 네트워크)은 벤더 도구 유지
 - [ ] 애플리케이션 메트릭/트레이스는 중앙 플랫폼으로 통합
-- [ ] SLO 정의와 에러 버짓 대시보드 구성 ([DevOps란?](what-is-devops.md)의 SLO 섹션 참고)
+- [ ] SLO 정의와 에러 버짓 대시보드 구성 ([DevOps란?](getting-started.md)의 SLO 섹션 참고)
 - [ ] 알림 라우팅 표준화 (PagerDuty, Opsgenie 등 단일 통합)
 - [ ] 비용 모니터링 (관찰가능성 플랫폼 자체 비용)
 

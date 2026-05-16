@@ -58,12 +58,40 @@ NAT Gateway는 시간당 비용 + 데이터 처리 비용이 발생합니다. �
 
 ### 프라이빗 연결 (온프레미스 ↔ 클라우드)
 
-| 벤더 | 제품 | 비고 |
+온프레미스와 클라우드를 연결하는 방법은 **전용선**과 **VPN(IPSec)** 두 가지입니다.
+
+| 구분 | 전용선 | VPN (IPSec) |
 | --- | --- | --- |
-| AWS | Direct Connect / Site-to-Site VPN | |
-| Azure | ExpressRoute / VPN Gateway | |
-| GCP | Cloud Interconnect / Cloud VPN | |
-| OCI | FastConnect / Site-to-Site VPN | |
+| **경로** | 벤더 로케이션까지 물리 회선 | 인터넷 경유 암호화 터널 |
+| **대역폭** | 1~100 Gbps | 일반적으로 1~5 Gbps |
+| **지연/안정성** | 낮고 일정 | 인터넷 상태에 따라 변동 |
+| **비용** | 회선비 + 포트비 (월 고정) | 시간당 과금 (상대적 저렴) |
+| **구축 기간** | 수 주~수 개월 (물리 회선 개통) | 수 분~수 시간 (설정만) |
+| **적합한 경우** | 대용량 데이터, 안정적 지연 필요, 프로덕션 | PoC, 백업 경로, 소규모 트래픽 |
+
+#### 벤더별 서비스
+
+| 벤더 | 전용선 | VPN | 비고 |
+| --- | --- | --- | --- |
+| AWS | Direct Connect | Site-to-Site VPN | Direct Connect는 전용선, VPN은 백업 경로로 조합 권장 |
+| Azure | ExpressRoute | VPN Gateway | ExpressRoute Global Reach로 리전 간 연결 가능 |
+| GCP | Cloud Interconnect (Dedicated/Partner) | Cloud VPN (HA VPN) | HA VPN은 99.99% SLA |
+| OCI | FastConnect | Site-to-Site VPN | FastConnect 이그레스 10TB/월 무료에 포함 |
+
+#### 한국 내 전용선 로케이션
+
+전용선을 사용하려면 벤더의 물리적 접속 지점(PoP)까지 회선을 끌어야 합니다.
+
+| 벤더 | 한국 로케이션 | 참고 |
+| --- | --- | --- |
+| AWS | 서울 (KINX 가산, LG U+ 평촌) | [Direct Connect 로케이션](https://aws.amazon.com/directconnect/locations/) |
+| Azure | 서울 (KINX 가산, LG U+) | [ExpressRoute 피어링 위치](https://learn.microsoft.com/azure/expressroute/expressroute-locations) |
+| GCP | 서울 (KINX 가산, LG U+, 세종텔레콤) | [Cloud Interconnect 위치](https://cloud.google.com/network-connectivity/docs/interconnect/concepts/choosing-colocation-facilities) |
+| OCI | 서울 (KINX 가산) | [FastConnect 위치](https://docs.oracle.com/en-us/iaas/Content/Network/Concepts/fastconnectprovider.htm) |
+
+{% hint style="info" %}
+대부분의 한국 전용선은 KINX 가산 IDC를 경유합니다. 자체 IDC가 가산에 없다면 통신사(LG U+, KT 등)를 통해 Partner 방식으로 연결할 수 있습니다.
+{% endhint %}
 
 ## 핵심 차이점
 

@@ -37,23 +37,13 @@ description: 데이터 웨어하우스, 데이터 레이크하우스, 분석 플
 
 ### 핵심 차이점
 
-{% tabs %}
-{% tab title="BigQuery (GCP)" %}
-완전 서버리스로 클러스터 관리가 불필요합니다. 쿼리가 스캔한 데이터량으로 과금되어, 사용하지 않으면 비용이 0입니다. BigQuery ML로 SQL만으로 ML 모델을 학습할 수 있고, Vertex AI와 직접 연동됩니다.
-{% endtab %}
+**BigQuery (GCP)** — 완전 서버리스로 클러스터 관리가 불필요합니다. 쿼리가 스캔한 데이터량으로 과금되어, 사용하지 않으면 비용이 0입니다. BigQuery ML로 SQL만으로 ML 모델을 학습할 수 있습니다.
 
-{% tab title="Redshift (AWS)" %}
-전통적 클러스터 기반이지만 Serverless 옵션도 제공합니다. S3의 데이터를 Redshift Spectrum으로 직접 쿼리할 수 있어 데이터 레이크와 통합이 용이합니다. RA3 인스턴스는 컴퓨팅과 스토리지를 분리합니다.
-{% endtab %}
+**Redshift (AWS)** — 전통적 클러스터 기반이지만 Serverless 옵션도 제공합니다. S3의 데이터를 Redshift Spectrum으로 직접 쿼리할 수 있어 데이터 레이크와 통합이 용이합니다.
 
-{% tab title="Synapse (Azure)" %}
-SQL 분석, Apache Spark, Data Explorer를 하나의 플랫폼에서 제공합니다. 서버리스 SQL 풀로 데이터 레이크(ADLS Gen2)를 직접 쿼리할 수 있습니다. Power BI와 네이티브 통합됩니다.
-{% endtab %}
+**Synapse (Azure)** — SQL 분석, Apache Spark, Data Explorer를 하나의 플랫폼에서 제공합니다. 서버리스 SQL 풀로 데이터 레이크를 직접 쿼리할 수 있으며, Power BI와 네이티브 통합됩니다.
 
-{% tab title="Autonomous DW (OCI)" %}
-Oracle Database 기반으로 자동 튜닝, 자동 스케일링을 제공합니다. 기존 Oracle 워크로드와 호환성이 높고, OCI Analytics Cloud로 BI 시각화를 통합합니다.
-{% endtab %}
-{% endtabs %}
+**Autonomous DW (OCI)** — Oracle Database 기반으로 자동 튜닝, 자동 스케일링을 제공합니다. 기존 Oracle 워크로드와 호환성이 높습니다.
 
 ## 데이터 레이크 vs 데이터 웨어하우스 vs 레이크하우스
 

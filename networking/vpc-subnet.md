@@ -166,13 +166,20 @@ VPC 피어링은 두 VPC를 1:1로 직접 연결합니다. 설정이 간단하�
 
 각 피어링마다 양쪽 라우팅 테이블을 업데이트해야 하므로, 운영 복잡도가 기하급수적으로 증가합니다.
 
-### Transit Gateway — 허브-스포크로 해결
+### 허브-스포크 연결 (Transit Gateway / Virtual WAN / DRG)
 
-이 문제를 해결하기 위해 등장한 것이 **Transit Gateway**(AWS) / **Virtual WAN**(Azure) / **DRG**(OCI)입니다. 중앙 허브를 두고 모든 VPC와 온프레미스를 허브에 연결하는 구조입니다.
+이 문제를 해결하기 위해 등장한 것이 **중앙 허브 라우터**입니다. 모든 VPC와 온프레미스를 허브에 연결하면, 허브가 전이적 라우팅을 처리합니다.
+
+| 벤더 | 허브 서비스 | 비고 |
+| --- | --- | --- |
+| AWS | Transit Gateway (TGW) | 리전 단위. 리전 간은 TGW Peering |
+| Azure | Virtual WAN / Hub VNet | Microsoft 관리형 허브. 글로벌 |
+| GCP | — (글로벌 VPC로 대부분 불필요) | 프로젝트 간은 Shared VPC 또는 Peering |
+| OCI | Dynamic Routing Gateway (DRG v2) | 허브 역할. VCN/온프렘/타 리전 연결 |
 
 ```mermaid
 flowchart TD
-    subgraph hub["Transit Gateway (허브)"]
+    subgraph hub["중앙 허브 라우터<br/>(TGW / vWAN / DRG)"]
     end
     VPC_A[VPC-A<br/>프로덕션] --- hub
     VPC_B[VPC-B<br/>개발] --- hub
@@ -180,7 +187,7 @@ flowchart TD
     OnPrem[온프레미스] --- hub
 ```
 
-| 구분 | VPC 피어링 | Transit Gateway / vWAN |
+| 구분 | VPC 피어링 | 허브-스포크 (TGW / vWAN / DRG) |
 | --- | --- | --- |
 | **연결 구조** | 1:1 (메시) | 허브-스포크 (스타) |
 | **전이적 라우팅** | 불가 | 가능 (허브 경유) |
@@ -194,7 +201,7 @@ flowchart TD
 GCP는 VPC가 글로벌이므로 리전 간 서브넷을 하나의 VPC로 관리할 수 있어, Transit Gateway 같은 별도 허브가 필요 없는 경우가 많습니다. 다만 조직/프로젝트 간 연결에는 VPC Peering이나 Shared VPC를 사용합니다.
 {% endhint %}
 
-### 벤더별 비교
+### 벤더별 피어링 및 허브 서비스 정리
 
 | 벤더 | 1:1 피어링 | 허브-스포크 | 비고 |
 | --- | --- | --- | --- |
@@ -203,16 +210,16 @@ GCP는 VPC가 글로벌이므로 리전 간 서브넷을 하나의 VPC로 관리
 | GCP | VPC Network Peering | 글로벌 VPC + Shared VPC | 대부분 피어링으로 충분 |
 | OCI | Local/Remote Peering Gateway | Dynamic Routing Gateway (DRG) | DRG v2는 허브 역할 |
 
-### VPC 엔드포인트 (PrivateLink)
+### 프라이빗 서비스 연결 (VPC Endpoint / Private Link)
 
-인터넷을 거치지 않고 VPC 내에서 벤더 서비스(S3, Blob 등)에 접근할 수 있습니다. 보안과 비용(데이터 전송) 모두 이점이 있습니다.
+클라우드 관리형 서비스(스토리지, DB 등)에 접근할 때, 기본적으로는 인터넷 또는 NAT Gateway를 경유합니다. **프라이빗 서비스 연결**을 사용하면 트래픽이 벤더 내부 네트워크를 벗어나지 않아 보안과 비용 모두 이점이 있습니다.
 
-| 벤더 | 제품 |
-| --- | --- |
-| AWS | VPC Endpoint / PrivateLink |
-| Azure | Private Endpoint / Private Link |
-| GCP | Private Service Connect |
-| OCI | Service Gateway / Private Endpoint |
+| 벤더 | 제품 | 비고 |
+| --- | --- | --- |
+| AWS | VPC Endpoint (Gateway/Interface) / PrivateLink | Gateway(S3, DynamoDB)는 무료, Interface는 시간당 과금 |
+| Azure | Private Endpoint / Private Link | 서비스별 Private Endpoint 생성 |
+| GCP | Private Service Connect / Private Google Access | Private Google Access는 설정만으로 활성화 |
+| OCI | Service Gateway / Private Endpoint | Service Gateway는 Oracle 서비스 접근용 |
 
 ## 프로덕션 VPC 설계 체크리스트
 

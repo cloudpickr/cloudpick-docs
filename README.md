@@ -34,21 +34,21 @@ CloudPick은 **멀티클라우드 환경에서 올바른 의사결정을 내리�
 {% endtab %}
 
 {% tab title="⚙️ 실무 운영" %}
-1. [계정과 조직 구조](about-cloud/accounts-and-organizations.md) → [랜딩존](governance/landing-zone.md)
-2. [비용 구조](about-cloud/pricing-model.md) → [FinOps](governance/finops.md)
-3. [Well-Architected Framework](about-cloud/well-architected.md)
-4. [재해복구](governance/dr.md)
-5. [모니터링](devops/monitoring.md) → [SLI/SLO](devops/slo.md) → [관찰가능성](devops/observability.md)
-6. [원격 접근 관리](devops/remote-access.md)
-7. [패치/취약점 대응](devops/patch-and-vulnerability.md)
+1. [DevOps 시작하기](devops/getting-started.md)
+2. [계정과 조직 구조](about-cloud/accounts-and-organizations.md) → [랜딩존](governance/landing-zone.md)
+3. [비용 구조](about-cloud/pricing-model.md) → [FinOps](governance/finops.md)
+4. [Well-Architected Framework](about-cloud/well-architected.md)
+5. [재해복구](governance/dr.md)
+6. [모니터링](devops/monitoring.md) → [SLI/SLO](devops/slo.md) → [관찰가능성](devops/observability.md)
+7. [원격 접근 관리](devops/remote-access.md)
 {% endtab %}
 
 {% tab title="🔒 보안 강화" %}
-1. [공동 책임 모델](about-cloud/shared-responsibility.md)
-2. [IAM 개요](about-cloud/iam-overview.md) → [IAM 심화](security/iam.md)
-3. [시크릿 관리](security/secrets.md)
-4. [데이터 보호](security/data-protection.md)
-5. [보안 태세 관리](security/security-posture.md)
+1. [클라우드 보안 시작하기](security/getting-started.md)
+2. [공동 책임 모델](about-cloud/shared-responsibility.md)
+3. [IAM 개요](about-cloud/iam-overview.md) → [IAM 심화](security/iam.md)
+4. [시크릿 관리](security/secrets.md)
+5. [데이터 보호](security/data-protection.md)
 6. [망분리와 네트워크 격리](security/network-isolation.md)
 7. [제로 트러스트](security/zero-trust.md)
 8. [DevSecOps](devops/devsecops.md)

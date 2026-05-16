@@ -135,8 +135,8 @@ SLI/SLO/SLA 개념과 에러 버짓에 대해서는 [SLI/SLO와 에러 버짓](s
 
 ## 관련 문서
 
-{% content-ref url="getting-started.md" %}
-[DevOps란? (SLI/SLO/에러 버짓)](getting-started.md)
+{% content-ref url="slo.md" %}
+[SLI/SLO와 에러 버짓](slo.md)
 {% endcontent-ref %}
 
 {% content-ref url="../governance/dr.md" %}

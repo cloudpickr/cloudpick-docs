@@ -151,8 +151,8 @@ flowchart LR
 [코드로 관리하는 인프라 (IaC)](iac.md)
 {% endcontent-ref %}
 
-{% content-ref url="getting-started.md" %}
-[DevOps란?](getting-started.md)
+{% content-ref url="slo.md" %}
+[SLI/SLO와 에러 버짓](slo.md)
 {% endcontent-ref %}
 
 ## 지속적으로 해야 할 것

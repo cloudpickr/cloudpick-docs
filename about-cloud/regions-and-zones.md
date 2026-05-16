@@ -56,14 +56,41 @@ graph TB
 
 ### 벤더별 특징
 
-**AWS** — Region → Availability Zone 구조. VPC는 리전 단위입니다. Local Zone으로 특정 도시(서울 외 부산 등)에 초저지연 인프라를 배치할 수 있으며, AWS Sovereign Cloud(유럽)로 데이터 주권 전용 리전을 제공합니다.
+#### AWS
 
-**Azure** — Geography → Region → Availability Zone 구조. VNet은 리전 단위입니다. 같은 Geography 내 두 리전이 **리전 쌍(Region Pair)**으로 지정되어 플랫폼 업데이트가 동시에 적용되지 않습니다. 한국은 `koreacentral`(서울) ↔ `koreasouth`(부산) 쌍으로, 국내에서 DR을 구성할 수 있습니다.
+| 항목 | 내용 |
+| --- | --- |
+| 계층 구조 | Region → Availability Zone (AZ) |
+| VPC 범위 | 리전 단위 |
+| Local Zone | 특정 도시에 초저지연 인프라 배치 (서울 외 부산 등) |
+| Sovereign Cloud | 유럽 데이터 주권 전용 리전 (EU 운영 인력, EU 내 데이터 보관) |
 
-**GCP** — Region → Zone 구조. VPC가 **글로벌 리소스**여서 하나의 VPC에 여러 리전의 서브넷을 배치할 수 있습니다(AWS/Azure는 리전마다 VPC를 따로 생성). Multi-region 스토리지로 별도 설정 없이 자동 복제되며, Assured Workloads로 규제 워크로드를 특정 리전에 격리할 수 있습니다.
+#### Azure
 
-**OCI** — Realm → Region → Availability Domain(AD) → Fault Domain 구조. 대형 리전은 3개 AD, 소형 리전은 1개 AD + 3 Fault Domain으로 구성됩니다. VCN은 리전 단위이며, 서브넷을 리전 또는 AD 단위로 배치할 수 있습니다.
-{% endhint %}
+| 항목 | 내용 |
+| --- | --- |
+| 계층 구조 | Geography → Region → Availability Zone |
+| VNet 범위 | 리전 단위 |
+| 리전 쌍 (Region Pair) | 같은 Geography 내 두 리전이 쌍으로 지정. 플랫폼 업데이트가 동시에 적용되지 않음 |
+| 한국 리전 쌍 | `koreacentral`(서울) ↔ `koreasouth`(부산) — 국내 DR 가능 |
+
+#### GCP
+
+| 항목 | 내용 |
+| --- | --- |
+| 계층 구조 | Region → Zone |
+| VPC 범위 | **글로벌** — 하나의 VPC에 여러 리전의 서브넷 배치 가능 |
+| Multi-region 스토리지 | 별도 설정 없이 여러 리전에 자동 복제 |
+| Assured Workloads | 규제 워크로드를 특정 리전에 격리 |
+
+#### OCI
+
+| 항목 | 내용 |
+| --- | --- |
+| 계층 구조 | Realm → Region → Availability Domain (AD) → Fault Domain |
+| VCN 범위 | 리전 단위. 서브넷은 리전 또는 AD 단위 배치 가능 |
+| 대형 리전 | 3개 AD (물리적으로 분리된 데이터센터) |
+| 소형 리전 | 1개 AD + 3 Fault Domain (논리적 장애 격리) |
 
 ## 리전 선택 시 고려사항
 

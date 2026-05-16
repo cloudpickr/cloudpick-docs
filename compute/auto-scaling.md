@@ -92,35 +92,6 @@ CPU가 병목이 아닌 워크로드(I/O 바운드, 메모리 바운드, DB 커�
 VM 레벨 오토스케일링을 직접 설정하기 전에, 워크로드가 위 서비스에 적합한지 먼저 검토하세요. PaaS/서버리스를 사용하면 VM 스케일링 정책은 크게 단순해지지만, 동시성 제한·최대 인스턴스 수·다운스트림 보호 설정은 별도로 필요합니다.
 {% endhint %}
 
-## 제품 비교
-
-### VM 오토스케일링
-
-| 벤더 | 제품 | 비고 |
-| --- | --- | --- |
-| AWS | Auto Scaling Groups | EC2 인스턴스 자동 확장/축소 |
-| Azure | VM Scale Sets (VMSS) | VM 배포와 스케일링 통합 관리 |
-| GCP | Managed Instance Groups (MIG) | Auto-healing(비정상 인스턴스 자동 교체) 내장 |
-| OCI | OCI Autoscaling | Instance Pool 기반. 메트릭/스케줄 기반 스케일링 |
-
-### 예측 스케일링
-
-| 벤더 | 제품 | 비고 |
-| --- | --- | --- |
-| AWS | Predictive Scaling | 최대 14일 트래픽 학습, 사전 확장 |
-| Azure | Autoscale (Predictive) | Preview |
-| GCP | Predictive Autoscaling | 과거 패턴 기반 |
-| OCI | — | 스케줄 기반 스케일링으로 대응 |
-
-### 애플리케이션 레벨 스케일링
-
-| 벤더 | 제품 | 비고 |
-| --- | --- | --- |
-| AWS | Application Auto Scaling | ECS, DynamoDB, Lambda 등 다양한 서비스 대상 |
-| Azure | Autoscale | App Service, Functions, VMSS 등 |
-| GCP | Autoscaler | Compute Engine, GKE 등 |
-| OCI | OCI Autoscaling | Compute, OKE 등 |
-
 ## 핵심 차이점
 
 - **AWS** — Mixed Instances Policy로 온디맨드/Spot 혼합 배포. Warm Pool로 사전 초기화된 인스턴스를 대기시켜 콜드 스타트 완화.

@@ -151,6 +151,10 @@ flowchart TD
 | 내부 서비스 간 통신만 | Internal LB | 퍼블릭 IP 불필요, 프라이빗 서브넷 내 |
 | gRPC, WebSocket | L7 (gRPC 지원 확인) | ALB, Cloud LB는 gRPC 네이티브 지원 |
 
+{% hint style="info" %}
+글로벌 트래픽 분배는 LB뿐 아니라 DNS 라우팅(지리적 라우팅, 장애 조치)으로도 구현할 수 있습니다. DNS 기반 트래픽 관리는 [DNS](dns.md)를 참고하세요.
+{% endhint %}
+
 ## 관련 문서
 
 {% content-ref url="dns.md" %}

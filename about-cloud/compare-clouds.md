@@ -19,7 +19,7 @@ description: 주요 벤더의 특징, 강점, 멀티클라우드 연동 서비�
 | **콘솔** | [Console](https://console.aws.amazon.com) | [Portal](https://portal.azure.com) | [Console](https://console.cloud.google.com) | [Console](https://cloud.oracle.com) |
 
 {% hint style="info" %}
-시장 점유율은 [Synergy Research Group](https://www.srgresearch.com/)을 참고하세요. 리전 수, 서비스 수 등은 빠르게 변하므로 각 벤더 공식 페이지에서 최신 현황을 확인하세요.
+시장 점유율은 [Synergy Research Group — Q4 2025 Cloud Market](https://www.srgresearch.com/articles/genai-helps-drive-quarterly-cloud-revenues-to-119-billion-as-growth-rate-jumped-yet-again-in-q4)을 참고하세요. 리전 수, 서비스 수 등은 빠르게 변하므로 각 벤더 공식 페이지에서 최신 현황을 확인하세요.
 {% endhint %}
 
 ## 주요 서비스 매핑

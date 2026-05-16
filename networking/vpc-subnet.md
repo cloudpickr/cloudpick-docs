@@ -80,7 +80,7 @@ NAT Gateway는 시간당 비용 + 데이터 처리 비용이 발생합니다. �
 
 #### 한국 내 전용선 연결
 
-전용선을 사용하려면 벤더의 물리적 접속 지점(PoP)까지 **고객 캠퍼스에서 회선을 끌어야** 합니다. 직접 연결(Dedicated)이 어려우면 통신사(LG U+, KT 등)를 통해 Partner 방식으로 연결할 수 있습니다.
+전용선을 사용하려면 벤더의 물리적 접속 지점(PoP)까지 **온프레미스 환경에서 회선을 끌어야** 합니다. 직접 연결(Dedicated)이 어려우면 통신사(LG U+, KT 등)를 통해 Partner 방식으로 연결할 수 있습니다.
 
 | 벤더 | 로케이션 목록 |
 | --- | --- |
@@ -90,7 +90,7 @@ NAT Gateway는 시간당 비용 + 데이터 처리 비용이 발생합니다. �
 | OCI | [FastConnect 위치](https://docs.oracle.com/en-us/iaas/Content/Network/Concepts/fastconnectprovider.htm) |
 
 {% hint style="warning" %}
-전용선은 "벤더까지의 연결"만 제공합니다. 고객 사무실/IDC에서 벤더 PoP까지의 물리 회선은 별도로 통신사와 계약해야 하며, 개통에 수 주~수 개월이 소요됩니다. 이 구간의 비용과 리드타임을 사전에 확인하세요.
+전용선은 "벤더까지의 연결"만 제공합니다. 온프레미스(사무실/IDC)에서 벤더 PoP까지의 물리 회선은 별도로 통신사와 계약해야 하며, 개통에 수 주~수 개월이 소요됩니다. 이 구간의 비용과 리드타임을 사전에 확인하세요.
 {% endhint %}
 
 글로벌 네트워크 관리(AWS Cloud WAN, Azure Virtual WAN 등)와 멀티사이트 연결 상세는 [멀티클라우드 네트워킹](multicloud-networking.md)을 참고하세요.

@@ -58,25 +58,13 @@ API Gateway 자체는 인증 로직을 처리하지 않고, 외부 인증 서비
 
 ## 핵심 차이점
 
-**AWS API Gateway** — Lambda와의 통합이 가장 깊어, 서버리스 백엔드를 API로 노출하는 데 최적화되어 있습니다. HTTP API 타입은 비용이 REST API의 약 1/3 수준입니다.
+**AWS API Gateway** — Lambda와의 통합이 가장 깊어, 서버리스 백엔드를 API로 노출하는 데 최적화되어 있습니다. 용도별로 3가지 타입(REST API / HTTP API / WebSocket API)이 분리되어 있으며, HTTP API는 REST API 대비 비용이 약 1/3 수준입니다. 대부분의 새 프로젝트는 HTTP API로 시작하고, 캐싱·WAF·Usage Plan이 필요한 경우에만 REST API를 선택합니다.
 
-**Azure API Management** — 개발자 포털, API 버전 관리, 정책 엔진이 내장된 풀 기능 플랫폼입니다. 온프레미스 API와 클라우드 API를 하나의 게이트웨이로 통합할 수 있습니다.
+**Azure API Management** — 개발자 포털, API 버전 관리, 정책 엔진이 내장된 풀 기능 플랫폼입니다. 단일 서비스에서 REST, WebSocket, GraphQL을 모두 처리합니다. 온프레미스 API와 클라우드 API를 하나의 게이트웨이로 통합할 수 있습니다.
 
-**GCP Apigee** — API를 제품으로 관리하는 엔터프라이즈 플랫폼입니다. API 사용량 분석, 수익화(monetization), 파트너 관리 기능이 강점입니다.
+**GCP Apigee** — API를 제품으로 관리하는 엔터프라이즈 플랫폼입니다. 단일 서비스에서 모든 프로토콜을 처리하며, API 사용량 분석, 수익화(monetization), 파트너 관리 기능이 강점입니다.
 
-**OCI API Gateway** — OCI Functions와 네이티브 연동되며, 인증(JWT 검증), 속도 제한, 요청 변환을 정책 기반으로 설정할 수 있습니다.
-
-## API 타입 선택 (AWS 고유)
-
-AWS는 용도에 따라 3가지 API 타입을 별도 서비스로 제공합니다. Azure APIM, GCP Apigee, OCI API Gateway는 단일 서비스에서 REST/WebSocket/GraphQL을 모두 처리하므로 이 구분이 없습니다.
-
-| 타입 | 용도 | 특징 | 제약 |
-| --- | --- | --- | --- |
-| **REST API** | 풀 기능 API | 요청 검증, 캐싱, WAF 연동, Usage Plan | 비용 높음, 지연 약간 높음 |
-| **HTTP API** | 경량 프록시 | 저비용(~70% 저렴), 저지연, JWT 인증 내장 | 캐싱·WAF·Usage Plan 없음 |
-| **WebSocket API** | 실시간 양방향 | 채팅, 알림, 게임 | 연결 유지 비용 별도 |
-
-**선택 기준:** AWS를 사용하는 경우, 대부분의 새 프로젝트는 HTTP API로 시작하세요. 캐싱, WAF 연동, Usage Plan이 필요한 경우에만 REST API를 선택합니다.
+**OCI API Gateway** — OCI Functions와 네이티브 연동되며, 단일 서비스에서 인증(JWT 검증), 속도 제한, 요청 변환을 정책 기반으로 설정할 수 있습니다.
 
 ## OpenAPI(Swagger) 연동
 

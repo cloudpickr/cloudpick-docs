@@ -43,7 +43,7 @@ graph TD
 
 ### 단계 1: API 호출
 
-가장 간단한 시작점입니다. Bedrock, Azure OpenAI, Vertex AI, OCI Generative AI 중 하나의 API로 질문을 보내고 답을 받습니다.
+가장 간단한 시작점입니다. Bedrock, Azure OpenAI, Vertex AI, OCI Generative AI 중 하나의 API로 질문을 보내고 답을 받습니다. 벤더별 서비스 비교는 [AI와 머신러닝 서비스](ai-ml.md)를 참고하세요.
 
 **사용 예시:**
 - 사용자 질문에 답하는 챗봇
@@ -52,7 +52,7 @@ graph TD
 
 ### 단계 2: 프롬프트 엔지니어링
 
-같은 API라도 어떻게 묻느냐에 따라 답이 크게 달라집니다. 예를 들어 "당신은 법률 전문가입니다. 아래 계약서에서 위험 요소를 5가지 찾아주세요"처럼 역할과 지시를 명확히 주면 품질이 올라갑니다.
+같은 API라도 어떻게 묻느냐에 따라 답이 크게 달라집니다. 예를 들어 "당신은 법률 전문가입니다. 아래 계약서에서 위험 요소를 5가지 찾아주세요"처럼 역할과 지시를 명확히 주면 품질이 올라갑니다. 설계 기법 상세는 [프롬프트 엔지니어링](prompt-engineering.md)을 참고하세요.
 
 **코드 작성 없이 가능한 개선 방법입니다.**
 
@@ -67,7 +67,7 @@ graph TD
 - 제품 FAQ 자동 응답
 - 법률/의료 문서 조회
 
-RAG는 [벡터 스토어](vector-store.md)와 함께 동작합니다.
+RAG는 [벡터 스토어](vector-store.md)와 함께 동작합니다. 구현 패턴 상세는 [RAG 고급 패턴](rag-patterns.md)을 참고하세요.
 
 ### 단계 4: Fine-tuning
 
@@ -82,14 +82,7 @@ RAG는 [벡터 스토어](vector-store.md)와 함께 동작합니다.
 
 대부분의 조직에는 필요하지 않습니다. 구글, OpenAI, Anthropic 같은 회사들이 하는 일입니다.
 
-{% hint style="info" %}
-각 단계의 상세 가이드:
-- 벤더별 AI 서비스 비교 → [AI와 머신러닝 서비스](ai-ml.md)
-- 프롬프트 설계 기법 → [프롬프트 엔지니어링](prompt-engineering.md)
-- RAG 구현 패턴 → [벡터 스토어](vector-store.md), [RAG 고급 패턴](rag-patterns.md)
-- 모델 운영과 평가 → [LLMOps](llmops.md)
-- AI 보안과 가드레일 → [AI 보안](../security/ai-security.md)
-{% endhint %}
+모델 운영·평가·비용 추적은 [LLMOps](llmops.md)를, AI 보안과 가드레일은 [AI 보안](../security/ai-security.md)을 참고하세요.
 
 ## 언제 어떤 방법을 쓸까
 

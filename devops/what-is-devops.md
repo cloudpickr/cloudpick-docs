@@ -74,6 +74,20 @@ DevOps/SRE에서 "서비스가 충분히 안정적인가?"를 체계적으로 �
 상세 내용은 [SLI/SLO와 에러 버짓](slo.md)를 참고하세요.
 {% endhint %}
 
+## 다음 단계
+
+이 섹션의 문서들은 DevOps의 각 실천 영역을 다룹니다.
+
+| 관심사 | 문서 |
+| --- | --- |
+| 코드 빌드·테스트·배포 자동화 | [CI/CD](cicd.md) |
+| 인프라를 코드로 관리 | [코드로 관리하는 인프라 (IaC)](iac.md) |
+| 보안을 파이프라인에 내장 | [DevSecOps](devsecops.md) |
+| 시스템 상태 파악 | [모니터링](monitoring.md) → [관찰가능성](observability.md) |
+| 안정성 목표 설정 | [SLI/SLO와 에러 버짓](slo.md) |
+| Kubernetes 운영 | [Kubernetes 운영](kubernetes-operations.md) |
+| 내부 개발자 플랫폼 | [플랫폼 엔지니어링](platform-engineering.md) |
+
 ## 참고하기
 
 ### AWS

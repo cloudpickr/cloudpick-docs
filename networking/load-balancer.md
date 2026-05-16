@@ -128,13 +128,6 @@ L4는 패킷 내용을 보지 않고 포트 단위로 분배하므로 지연이 
 
 ## 선택 가이드
 
-### 벤더별 차이점
-
-- **AWS** — ALB/NLB가 리전 단위이며, 글로벌 라우팅은 Global Accelerator를 별도로 사용합니다.
-- **Azure** — Front Door가 글로벌 L7 + CDN + WAF를 하나의 서비스로 통합합니다.
-- **GCP** — 로드밸런서가 기본적으로 글로벌입니다. 하나의 IP로 전 세계 사용자에게 가장 가까운 백엔드로 라우팅합니다.
-- **OCI** — Load Balancer(L7)와 Network Load Balancer(L4)를 분리 제공하며, DNS Traffic Management로 글로벌 트래픽 분배를 구성합니다.
-
 ### 결정 트리
 
 ```mermaid

@@ -74,6 +74,10 @@ NoSQL은 데이터 모델에 따라 여러 유형으로 나뉘며, 워크로드�
 
 **Azure Cosmos DB** — 하나의 서비스로 문서, 키-값, 그래프, 와이드 컬럼을 모두 지원합니다. 글로벌 분산(멀티 리전 쓰기)이 기본 기능으로 내장되어 있습니다.
 
+{% hint style="info" %}
+글로벌 분산 DB(DynamoDB Global Tables, Cosmos DB, Spanner 등)의 일관성 트레이드오프와 선택 기준은 [관리형 RDB — 글로벌 분산 DB](managed-rdb.md#글로벌-분산-db)를 참고하세요.
+{% endhint %}
+
 **GCP Firestore** — 모바일/웹 클라이언트에서 직접 접근할 수 있는 실시간 동기화가 강점입니다. Bigtable은 대규모 분석 워크로드에 특화되어 있습니다.
 
 **OCI NoSQL Database** — 키-값, 문서, 와이드 컬럼을 하나의 서비스로 지원하며, 서버리스 용량 관리와 예측 가능한 저지연 성능을 제공합니다.

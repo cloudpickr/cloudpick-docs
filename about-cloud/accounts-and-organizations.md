@@ -109,7 +109,7 @@ IAM 설계 상세는 [IAM 개요](iam-overview.md) → [IAM 실무 설계](../se
 | **빌링 이관** | Billing Transfer (2025) | Subscription Transfer | Billing Account 변경 | Cross-Tenancy |
 
 {% hint style="info" %}
-파트너를 통해 통합빌링을 사용하는 경우, 빌링 이관 시 파트너와 사전 협의가 필요합니다.
+파트너(MSP/리셀러)를 통해 통합빌링을 사용하는 경우, 빌링 이관 시 파트너와 사전 협의가 필요합니다.
 {% endhint %}
 
 ## 서비스 쿼타 (할당량)

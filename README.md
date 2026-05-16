@@ -43,6 +43,7 @@ CloudPick은 **멀티클라우드 환경에서 올바른 의사결정을 내리�
 5. [재해복구](governance/dr.md)
 6. [모니터링](devops/monitoring.md) → [SLI/SLO](devops/slo.md) → [관찰가능성](devops/observability.md)
 7. [원격 접근 관리](devops/remote-access.md)
+8. [데이터베이스 운영](database/operations.md)
 {% endtab %}
 
 {% tab title="🔒 보안 강화" %}

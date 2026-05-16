@@ -123,7 +123,6 @@ VPC/서브넷 설계 기초(CIDR 계획, 퍼블릭/프라이빗 분리, Transit 
 - [Azure AKS — IP Address Planning](https://learn.microsoft.com/azure/aks/concepts-network-ip-address-planning)
 - [GCP GKE — VPC-native Cluster Networking](https://cloud.google.com/kubernetes-engine/docs/concepts/alias-ips)
 - [OCI OKE — Network Configuration](https://docs.oracle.com/en-us/iaas/Content/ContEng/Concepts/contengnetworkconfig.htm)
-- [SubnetTool — EKS/AKS/GKE 서브넷 크기 계산기](https://subnettool.com/) (노드 수·Pod 수 입력 → 필요 CIDR 계산)
 
 ## 벤더별 차이점
 
@@ -170,6 +169,10 @@ VPC/서브넷 설계 기초(CIDR 계획, 퍼블릭/프라이빗 분리, Transit 
 ### OCI
 
 - [OCI OKE 문서](https://docs.oracle.com/en-us/iaas/Content/ContEng/home.htm)
+
+### 도구
+
+- [SubnetTool — EKS/AKS/GKE 서브넷 크기 계산기](https://subnettool.com/)
 
 ### 표준 및 커뮤니티
 

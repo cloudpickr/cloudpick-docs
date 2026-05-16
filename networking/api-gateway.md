@@ -103,9 +103,15 @@ API는 프로덕션에 배포되면 변경이 어렵기 때문에, 개발→스�
 API를 외부에 공개한 뒤에는 **하위 호환성 유지**가 핵심입니다. 기존 소비자가 있는 엔드포인트는 삭제하거나 응답 형식을 바꾸지 말고, 새 버전(`/v2`)을 추가하는 방식으로 관리하세요.
 {% endhint %}
 
-- **Blue/Green** — 두 환경을 동시 운영 후 트래픽 전환. 롤백 즉시 가능
-- **Canary** — 새 버전에 소량 트래픽(5~10%)을 보내고 모니터링 후 점진적 확대
-- **A/B 테스트** — 사용자 세그먼트별로 다른 버전 노출
+| 전략 | 설명 | 벤더별 구현 |
+| --- | --- | --- |
+| **Canary** | 새 버전에 소량 트래픽(5~10%)을 보내고 모니터링 후 확대 | AWS: API Gateway Canary Deployment (Stage 가중치), Azure APIM: Revision + Traffic Split, GCP Apigee: TargetServer 가중치 |
+| **Blue/Green** | 두 환경을 동시 운영 후 트래픽 전환. 롤백 즉시 가능 | AWS: Stage 전환, Azure APIM: Revision 전환, GCP: Revision 전환 |
+| **버전 분리** | `/v1`, `/v2` 별도 엔드포인트로 공존 | 모든 벤더 지원. 기존 소비자 영향 없이 새 버전 추가 |
+
+{% hint style="warning" %}
+API Gateway 자체의 Canary 기능은 "게이트웨이 설정 변경"에 대한 Canary입니다. 백엔드 코드 배포의 Canary는 별도로 Lambda Alias 가중치, 로드밸런서 Target Group 가중치, 또는 서비스 메시를 사용해야 합니다.
+{% endhint %}
 
 ## 참고하기
 

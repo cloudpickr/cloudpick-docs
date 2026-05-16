@@ -67,9 +67,10 @@ TAM은 벤더 내부 조직과의 연결 통로 역할을 합니다. 대규모 �
 
 | 벤더 | 제품 | 비고 |
 | --- | --- | --- |
-| AWS | Trusted Advisor | 비용, 보안, 성능, 내결함성, 서비스 한도 검사. 상위 플랜에서 전체 검사 가능 |
-| Azure | Azure Advisor | 비용, 보안, 안정성, 운영 우수성, 성능 권장 사항 |
-| GCP | Recommender / Active Assist | 비용, 보안, 성능, 관리 효율성 권장 사항 |
+| AWS | Trusted Advisor | 비용, 보안, 성능, 내결함성, 서비스 한도 검사. 전체 검사는 Business Support 이상 |
+| Azure | Azure Advisor | 비용, 보안, 안정성, 운영 우수성, 성능 권장 사항. 모든 플랜에서 이용 가능 |
+| GCP | Recommender / Active Assist | 비용, 보안, 성능, 관리 효율성 권장 사항. 모든 플랜에서 이용 가능 |
+| OCI | Cloud Advisor | 비용 최적화, 보안, 성능 권장 사항. 모든 테넌시에서 이용 가능 |
 
 이 서비스들은 정기적으로 확인하고 권장 사항을 적용하면 비용과 보안 모두 개선할 수 있습니다.
 

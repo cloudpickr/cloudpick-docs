@@ -172,9 +172,13 @@ flowchart TD
 전용선은 "벤더까지의 연결"만 제공합니다. 온프레미스 사이트에서 벤더 PoP까지의 물리 회선은 별도로 통신사와 계약해야 하며, 개통에 수 주~수 개월이 소요됩니다.
 {% endhint %}
 
+{% hint style="info" %}
 벤더별 PoP 위치: [AWS](https://aws.amazon.com/directconnect/locations/) · [Azure](https://learn.microsoft.com/azure/expressroute/expressroute-locations) · [GCP](https://cloud.google.com/network-connectivity/docs/interconnect/concepts/choosing-colocation-facilities) · [OCI](https://docs.oracle.com/en-us/iaas/Content/Network/Concepts/fastconnectprovider.htm)
+{% endhint %}
 
-글로벌 네트워크 관리(Cloud WAN, Virtual WAN 등)는 [멀티클라우드 네트워킹](multicloud-networking.md)을 참고하세요.
+{% hint style="info" %}
+글로벌 네트워크 관리(Cloud WAN, Virtual WAN 등)와 멀티사이트 연결 상세는 [멀티클라우드 네트워킹](multicloud-networking.md)을 참고하세요.
+{% endhint %}
 
 ## 프로덕션 VPC 설계 체크리스트
 

@@ -32,13 +32,10 @@ Kubernetes는 연 3회 마이너 버전을 릴리스하며, 각 벤더는 일정
 
 ## 배포 운영 (GitOps)
 
-| 도구 | 방식 | 특징 |
-| --- | --- | --- |
-| [Argo CD](https://argo-cd.readthedocs.io/) | Pull 기반 | Git 상태와 클러스터 상태를 지속 동기화. 멀티 클러스터 지원 |
-| [Flux](https://fluxcd.io/) | Pull 기반 | CNCF 졸업 프로젝트. Helm/Kustomize 네이티브 |
-| Helm + CI/CD | Push 기반 | 기존 CI/CD 파이프라인에서 `helm upgrade` 실행 |
+Git 저장소를 단일 진실 원천으로 사용하여 클러스터 상태를 선언적으로 관리합니다. GitOps 개념과 도구 비교는 [DevOps 시작하기](getting-started.md#gitops)를, CI/CD 파이프라인 설계는 [CI/CD](cicd.md)를 참고하세요.
 
-**프로모션 전략:**
+**Kubernetes 프로모션 전략:**
+
 ```mermaid
 graph LR
     A[dev] -->|자동| B[staging]

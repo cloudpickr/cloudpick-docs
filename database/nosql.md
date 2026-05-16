@@ -22,9 +22,7 @@ description: 키-값, 문서, 와이드 컬럼, 그래프 등 NoSQL 유형별 �
 | **조인** | 복잡한 조인 가능 | 조인 없음 또는 제한적 |
 | **적합한 경우** | 정형 데이터, 복잡한 관계, 일관성 중요 | 대규모 트래픽, 유연한 구조, 빠른 응답 |
 
-### 어떤 NoSQL을 선택할까?
-
-NoSQL은 데이터 모델에 따라 여러 유형으로 나뉘며, 워크로드에 맞는 유형을 선택해야 합니다.
+### NoSQL 유형
 
 | 유형 | 데이터 구조 | 이럴 때 선택 | 사용 사례 |
 | --- | --- | --- | --- |
@@ -33,58 +31,7 @@ NoSQL은 데이터 모델에 따라 여러 유형으로 나뉘며, 워크로드�
 | **와이드 컬럼** (Wide Column) | 행마다 컬럼이 다를 수 있음 | 대규모 시계열/이벤트 데이터 쓰기 | IoT, 로그, 분석, 추천 |
 | **그래프** (Graph) | 노드 + 엣지(관계) | 데이터 간 관계/연결이 핵심일 때 | 소셜 네트워크, 사기 탐지, 지식 그래프 |
 
-## 제품 비교
-
-### 키-값 / 문서 DB
-
-| 벤더 | 제품 | 비고 |
-| --- | --- | --- |
-| AWS | DynamoDB | 완전 서버리스. 밀리초 지연. 용량 자동 확장 |
-| Azure | Cosmos DB | 멀티 모델(문서, 키-값, 그래프, 와이드 컬럼). 글로벌 분산 |
-| GCP | Firestore | 문서 DB. 모바일/웹 앱에 최적화. 실시간 동기화 |
-| GCP | Bigtable | 와이드 컬럼. 대규모 분석/시계열 |
-| OCI | OCI NoSQL Database | 키-값 + 문서 + 와이드 컬럼. 서버리스 용량 관리 |
-
-### 인메모리 캐시
-
-인메모리 캐시(Redis/Valkey)의 상세 비교는 [캐시](cache.md)를 참고하세요.
-
-### 검색 / 로그 분석 엔진
-
-전문 검색(Full-Text Search)이나 대규모 로그 분석에 특화된 엔진입니다.
-
-| 벤더 | 제품 | 비고 |
-| --- | --- | --- |
-| AWS | OpenSearch Service | Elasticsearch/OpenSearch 관리형. 검색 + 로그 분석 + 대시보드 |
-| Azure | Azure AI Search (구 Cognitive Search) | 검색 + AI 보강(벡터, 시맨틱) |
-| GCP | — | Elastic Cloud on GCP (3rd party) 또는 BigQuery 활용 |
-| OCI | OCI Search with OpenSearch | OpenSearch 관리형. 검색 + 로그 분석 |
-
-### 그래프 DB
-
-| 벤더 | 제품 | 비고 |
-| --- | --- | --- |
-| AWS | Neptune | |
-| Azure | Cosmos DB (Gremlin API) | |
-| GCP | — | (3rd party 사용: Neo4j on GCP) |
-
-## 핵심 차이점
-
-**AWS DynamoDB** — 완전 서버리스로 용량 관리가 불필요합니다. 단일 자릿수 밀리초 지연을 보장하며, DAX(인메모리 캐시)를 추가하면 마이크로초 지연도 가능합니다.
-
-**Azure Cosmos DB** — 하나의 서비스로 문서, 키-값, 그래프, 와이드 컬럼을 모두 지원합니다. 글로벌 분산(멀티 리전 쓰기)이 기본 기능으로 내장되어 있습니다.
-
-{% hint style="info" %}
-글로벌 분산 DB(DynamoDB Global Tables, Cosmos DB, Spanner 등)의 일관성 트레이드오프와 선택 기준은 [관리형 RDB — 글로벌 분산 DB](managed-rdb.md#글로벌-분산-db)를 참고하세요.
-{% endhint %}
-
-**GCP Firestore** — 모바일/웹 클라이언트에서 직접 접근할 수 있는 실시간 동기화가 강점입니다. Bigtable은 대규모 분석 워크로드에 특화되어 있습니다.
-
-**OCI NoSQL Database** — 키-값, 문서, 와이드 컬럼을 하나의 서비스로 지원하며, 서버리스 용량 관리와 예측 가능한 저지연 성능을 제공합니다.
-
-## NoSQL 유즈케이스와 관리형 옵션
-
-### 자주 쓰이는 NoSQL과 용도
+## 유즈케이스
 
 | DB | 유형 | 대표 유즈케이스 | 왜 RDB가 아닌 이것인가 |
 | --- | --- | --- | --- |
@@ -101,6 +48,76 @@ NoSQL은 데이터 모델에 따라 여러 유형으로 나뉘며, 워크로드�
 | Azure | Cosmos DB for MongoDB | MongoDB API 호환 모드 |
 | GCP/OCI | — | 네이티브 서비스 없음 |
 | MongoDB Atlas | Atlas (AWS/Azure/GCP) | 멀티클라우드 관리형. 호환성 완벽. 벤더 중립 선택지 |
+
+## 제품 비교
+
+### 키-값 / 문서 DB
+
+| 벤더 | 제품 | 비고 |
+| --- | --- | --- |
+| AWS | DynamoDB | 완전 서버리스. 밀리초 지연. 용량 자동 확장 |
+| Azure | Cosmos DB | 멀티 모델(문서, 키-값, 그래프, 와이드 컬럼). 글로벌 분산 |
+| GCP | Firestore | 문서 DB. 모바일/웹 앱에 최적화. 실시간 동기화 |
+| GCP | Bigtable | 와이드 컬럼. 대규모 분석/시계열 |
+| OCI | OCI NoSQL Database | 키-값 + 문서 + 와이드 컬럼. 서버리스 용량 관리 |
+
+### 검색 / 로그 분석 엔진
+
+| 벤더 | 제품 | 비고 |
+| --- | --- | --- |
+| AWS | OpenSearch Service | Elasticsearch/OpenSearch 관리형. 검색 + 로그 분석 + 대시보드 |
+| Azure | Azure AI Search (구 Cognitive Search) | 검색 + AI 보강(벡터, 시맨틱) |
+| GCP | — | Elastic Cloud on GCP (3rd party) 또는 BigQuery 활용 |
+| OCI | OCI Search with OpenSearch | OpenSearch 관리형. 검색 + 로그 분석 |
+
+### 그래프 DB
+
+| 벤더 | 제품 | 비고 |
+| --- | --- | --- |
+| AWS | Neptune | |
+| Azure | Cosmos DB (Gremlin API) | |
+| GCP | — | (3rd party 사용: Neo4j on GCP) |
+
+{% hint style="info" %}
+인메모리 캐시(Redis/Valkey)의 상세 비교는 [캐시와 인메모리](cache.md)를 참고하세요.
+{% endhint %}
+
+## 핵심 차이점
+
+**AWS DynamoDB** — 완전 서버리스로 용량 관리가 불필요합니다. 단일 자릿수 밀리초 지연을 보장하며, DAX(인메모리 캐시)를 추가하면 마이크로초 지연도 가능합니다.
+
+**Azure Cosmos DB** — 하나의 서비스로 문서, 키-값, 그래프, 와이드 컬럼을 모두 지원합니다. 글로벌 분산(멀티 리전 쓰기)이 기본 기능으로 내장되어 있습니다.
+
+**GCP Firestore** — 모바일/웹 클라이언트에서 직접 접근할 수 있는 실시간 동기화가 강점입니다. Bigtable은 대규모 분석 워크로드에 특화되어 있습니다.
+
+**OCI NoSQL Database** — 키-값, 문서, 와이드 컬럼을 하나의 서비스로 지원하며, 서버리스 용량 관리와 예측 가능한 저지연 성능을 제공합니다.
+
+{% hint style="info" %}
+글로벌 분산 DB(DynamoDB Global Tables, Cosmos DB, Spanner 등)의 일관성 트레이드오프와 선택 기준은 [관리형 RDB — 글로벌 분산 DB](managed-rdb.md#글로벌-분산-db)를 참고하세요.
+{% endhint %}
+
+## 선택 가이드
+
+```mermaid
+flowchart TD
+    A[NoSQL 필요] --> B{데이터 구조?}
+    B -->|Key-Value| C{지연시간 < 1ms?}
+    B -->|문서 JSON| D[DynamoDB / Cosmos DB<br/>Firestore / NoSQL DB]
+    B -->|넓은 열 Wide-Column| E[Bigtable / Cassandra 호환]
+    B -->|그래프 관계| F[Neptune / Cosmos DB Gremlin<br/>Neo4j]
+    C -->|예| G[인메모리 캐시<br/>ElastiCache / Memorystore]
+    C -->|아니오| D
+```
+
+| 상황 | 추천 |
+| --- | --- |
+| 완전 서버리스 키-값/문서 DB + 밀리초 지연 | AWS DynamoDB |
+| 하나의 DB로 문서, 키-값, 그래프를 모두 처리 | Azure Cosmos DB |
+| 글로벌 멀티 리전 쓰기 | Azure Cosmos DB |
+| 모바일/웹 앱 실시간 동기화 | GCP Firestore |
+| 대규모 시계열/IoT 데이터 쓰기 | GCP Bigtable |
+| 전문 검색 + 로그 분석 | AWS OpenSearch / OCI Search |
+| 그래프 DB | AWS Neptune / Azure Cosmos DB (Gremlin) |
 
 ## 키 설계 패턴
 
@@ -124,65 +141,26 @@ NoSQL은 RDB와 달리 **쿼리 패턴을 먼저 정하고 키를 설계**해야
 - **임베딩 vs 레퍼런스** — 중첩 문서(1:1, 1:소수) vs 별도 컬렉션 참조(1:다수)
 - **샤드 키 선택** — 카디널리티, 쓰기 분산, 쿼리 격리 고려
 
-### 공통 안티패턴
-
-| 안티패턴 | 문제 | 대응 |
-| --- | --- | --- |
-| 시퀀셜 키 (타임스탬프만으로 PK) | 핫스팟 발생 | 랜덤 접두사 또는 복합 키 사용 |
-| 무한 성장하는 배열/리스트 | 문서 크기 제한 초과 | 별도 컬렉션으로 분리 |
-| RDB처럼 정규화 | 성능 저하 (조인 없음) | 읽기 패턴에 맞게 비정규화 |
-
 {% hint style="info" %}
 키 설계 안티패턴과 DB 운영 전반(커넥션 풀, 캐시 전략, HA)은 [데이터베이스 운영](operations.md)을 참고하세요.
 {% endhint %}
-
-## 결정 트리
-
-```mermaid
-flowchart TD
-    A[NoSQL 필요] --> B{데이터 구조?}
-    B -->|Key-Value| C{지연시간 < 1ms?}
-    B -->|문서 JSON| D[DynamoDB / Cosmos DB<br/>Firestore / NoSQL DB]
-    B -->|넓은 열 Wide-Column| E[Bigtable / Cassandra 호환]
-    B -->|그래프 관계| F[Neptune / Cosmos DB Gremlin<br/>Neo4j]
-    C -->|예| G[인메모리 캐시<br/>ElastiCache / Memorystore]
-    C -->|아니오| D
-```
-
-## 언제 무엇을 선택할 것인가
-
-| 상황 | 추천 |
-| --- | --- |
-| 완전 서버리스 키-값/문서 DB + 밀리초 지연이 필요할 때 | AWS DynamoDB |
-| 하나의 DB로 문서, 키-값, 그래프를 모두 처리하고 싶을 때 | Azure Cosmos DB |
-| 글로벌 멀티 리전 쓰기가 필요할 때 | Azure Cosmos DB |
-| 모바일/웹 앱에서 실시간 동기화가 필요할 때 | GCP Firestore |
-| 대규모 시계열/IoT 데이터 쓰기가 필요할 때 | GCP Bigtable |
-| 인메모리 캐시 + 오픈소스 호환이 필요할 때 | AWS ElastiCache for Valkey 또는 GCP Memorystore for Valkey |
-| 전문 검색 + 로그 분석이 필요할 때 | AWS OpenSearch Service 또는 OCI Search with OpenSearch |
-| 그래프 DB가 필요할 때 | AWS Neptune 또는 Azure Cosmos DB (Gremlin API) |
 
 ## 참고하기
 
 ### AWS
 
 - [Amazon DynamoDB 문서](https://docs.aws.amazon.com/ko_kr/dynamodb/)
-- [Amazon ElastiCache 문서](https://docs.aws.amazon.com/ko_kr/elasticache/)
 - [Amazon Neptune 문서](https://docs.aws.amazon.com/ko_kr/neptune/)
 
 ### Azure
 
 - [Azure Cosmos DB 문서](https://learn.microsoft.com/ko-kr/azure/cosmos-db/)
-- [Azure Cache for Redis 문서](https://learn.microsoft.com/ko-kr/azure/azure-cache-for-redis/)
 
 ### GCP
 
 - [Firestore 문서](https://cloud.google.com/firestore/docs)
 - [Bigtable 문서](https://cloud.google.com/bigtable/docs)
-- [Memorystore 문서](https://cloud.google.com/memorystore/docs)
 
 ### OCI
 
 - [OCI NoSQL Database 문서](https://docs.oracle.com/en-us/iaas/nosql-database/index.html)
-- [OCI Cache with Redis 문서](https://docs.oracle.com/en-us/iaas/Content/ocicache/home.htm)
-- [OCI Search with OpenSearch 문서](https://docs.oracle.com/en-us/iaas/Content/search-opensearch/home.htm)

@@ -135,6 +135,39 @@ AWS는 Account 하나가 권한 경계이자 비용 경계입니다. 다른 벤�
 - **Azure/GCP** — 권한 분리와 비용 분리를 독립적으로 설계할 수 있습니다. 조직 개편 시 비용 구조만 바꾸고 리소스는 그대로 둘 수 있습니다.
 - **OCI** — Compartment로 세밀하게 격리하되, 비용은 Tenancy 단위로 관리합니다.
 
+### 실무 설계 — 조직 상황별 접근
+
+#### 예시 1: 스타트업 (팀 10명, 서비스 1~2개)
+
+계정을 많이 나눌 필요 없습니다. 환경 분리만 하면 충분합니다.
+
+| 벤더 | 구성 |
+| --- | --- |
+| AWS | 3개 Account (dev/staging/prod) + Organizations 통합 결제 |
+| GCP | 3개 Project + 1개 Billing Account |
+| Azure | 3개 Resource Group (1개 Subscription 내) |
+
+#### 예시 2: 중견기업 (팀 5개, 서비스 10개+)
+
+팀별 권한 격리와 비용 추적이 필요합니다.
+
+| 벤더 | 구성 |
+| --- | --- |
+| AWS | 팀별 Account + 환경별 OU + 공유서비스 Account (로깅, 네트워크) |
+| GCP | 팀별 Folder + 서비스별 Project. Billing Account는 법인 단위 1개 |
+| Azure | 팀별 Subscription + Management Group으로 정책 상속 |
+
+#### 예시 3: 대기업/공공 (법인 여러 개, 규제 요건)
+
+법인별 비용 분리 + 중앙 거버넌스 + 감사 대응이 필요합니다.
+
+| 벤더 | 구성 |
+| --- | --- |
+| AWS | 법인별 Organization 또는 Billing Transfer로 인보이스 분리. 중앙 보안/로깅 Account |
+| GCP | 법인별 Billing Account + 중앙 Organization. 조직 개편 시 Project만 이동 |
+| Azure | 법인별 Billing Profile + 중앙 Management Group. EA 계약으로 통합 할인 |
+| OCI | 법인별 Tenancy + Cross-Tenancy Policy로 공유 리소스 접근 |
+
 ### 비용 할당과 예산 관리
 
 | 항목 | AWS | Azure | GCP | OCI |
@@ -146,13 +179,6 @@ AWS는 Account 하나가 권한 경계이자 비용 경계입니다. 다른 벤�
 {% hint style="info" %}
 파트너를 통해 통합빌링을 사용하는 경우, 빌링 이관 시 파트너와 사전 협의가 필요합니다.
 {% endhint %}
-
-### 실무 팁
-
-- **부서별로 법적/세무적 분리가 필요** → 별도 Billing Account/Organization/Tenancy
-- **그룹 단위로 통합 결제 + 부서별 비용 가시성** → 단일 Billing Account + 태그 기반 비용 할당
-- **자주 변경되는 조직 구조** → Project↔Billing Account 분리 가능한 GCP가 유리
-- **대량 약정 할인 극대화** → 하나의 Billing Account로 묶어 약정 단가 협상
 
 공식 문서:
 

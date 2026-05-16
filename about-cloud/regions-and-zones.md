@@ -120,6 +120,8 @@ graph TB
 | Warm Standby | 초~분 | 높음 |
 | Active-Active | 거의 0 | 매우 높음 |
 
+RPO/RTO 정의, BIA(비즈니스 영향 분석), 벤더별 DR 서비스 비교 등 상세는 [재해복구 (DR)](../governance/dr.md)를 참고하세요.
+
 ## 한국에서의 고려사항
 
 ### 한국 리전 현황

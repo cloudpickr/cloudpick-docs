@@ -53,7 +53,7 @@ graph TB
 | **리전 범위** | 리전별 독립 | Geography → Region | **글로벌 VPC** | Realm → Region |
 | **리전당 최소 AZ** | 3개 | 3개 | 3개 | 3 Fault Domain |
 | **온프레미스 확장** | Outposts | Azure Local | Google Distributed Cloud | Dedicated Region |
-| **글로벌 리전 수** | 38+ | 60+ | 40+ | 48+ |
+| **주요 대륙 커버리지** | 북미, 남미, 유럽, 아시아, 오세아니아, 중동, 아프리카 | 북미, 남미, 유럽, 아시아, 오세아니아, 중동, 아프리카 | 북미, 남미, 유럽, 아시아, 오세아니아, 중동 | 북미, 남미, 유럽, 아시아, 오세아니아, 중동 |
 
 ### 핵심 차이점
 

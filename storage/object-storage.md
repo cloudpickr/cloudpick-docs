@@ -93,7 +93,9 @@ AWS S3 Intelligent-Tiering과 GCP Autoclass, OCI Auto-Tiering은 접근 패턴�
 | 백업/DR | DB 스냅샷, 시스템 이미지 | 내구성 99.999999999%, 크로스 리전 복제 |
 | 미디어 저장/스트리밍 | 동영상, 이미지 원본 | 대용량, CDN 오리진, 트랜스코딩 파이프라인 입력 |
 
-관련: [데이터 분석 서비스](../database/analytics.md), [데이터 파이프라인](../database/data-pipeline.md), [서버리스](../compute/serverless.md)
+{% hint style="info" %}
+데이터 레이크 위에서의 분석 서비스는 [데이터 분석 서비스](../database/analytics.md)를, ETL/ELT 파이프라인 구성은 [데이터 파이프라인](../database/data-pipeline.md)을, 이벤트 트리거 기반 처리는 [서버리스](../compute/serverless.md)를 참고하세요.
+{% endhint %}
 
 ## 객체 스토리지의 진화
 

@@ -170,7 +170,7 @@ VPC/서브넷 설계 기초(CIDR 계획, 퍼블릭/프라이빗 분리, Transit 
 
 - [OCI OKE 문서](https://docs.oracle.com/en-us/iaas/Content/ContEng/home.htm)
 
-### 도구
+### 도구 (SubnetTool)
 
 - [Kubernetes Pod CIDR Calculator](https://subnettool.com/kubernetes-pod-cidr-calculator) — 노드 수·Pod 수 입력 → 필요 CIDR 계산
 - [Cloud Kubernetes Subnet Planner](https://subnettool.com/cloud-kubernetes-subnet-planner) — AKS/EKS/GKE/ARO별 서브넷 크기 계산

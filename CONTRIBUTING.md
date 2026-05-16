@@ -82,8 +82,8 @@ flowchart TD
 
 ```markdown
 {% hint style="warning" %}
-- **"VPN이 있으면 Zero Trust다"** — VPN은 네트워크 경계만 만들며 Zero Trust와 다른 개념입니다.
-- **"내부망은 안전하다"** — 내부 공격자, 계정 탈취 시나리오를 고려하지 않는 전통적 접근입니다.
+- "**VPN이 있으면 Zero Trust다**" — VPN은 네트워크 경계만 만들며 Zero Trust와 다른 개념입니다.
+- "**내부망은 안전하다**" — 내부 공격자, 계정 탈취 시나리오를 고려하지 않는 전통적 접근입니다.
 {% endhint %}
 ```
 

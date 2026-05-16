@@ -51,6 +51,32 @@ VM을 사용하면 서버를 빠르게 만들 수 있지만, 트래픽 변화에
 - **GCP**: 기본 60초 (Initial Delay), Auto-healing과 함께 동작
 - **OCI**: 기본 300초, 쿨다운 기간 설정 가능
 
+### Spot/Preemptible 인스턴스 혼합
+
+오토스케일링 그룹에 온디맨드와 Spot 인스턴스를 혼합하면 비용을 크게 줄일 수 있습니다.
+
+| 벤더 | 방법 | 비고 |
+| --- | --- | --- |
+| AWS | ASG Mixed Instances Policy | 온디맨드 베이스 + Spot 비율 지정. 여러 인스턴스 타입 풀 |
+| Azure | VMSS Spot Priority Mix | Spot VM 비율 설정. Eviction Policy 선택 |
+| GCP | MIG + Spot VMs | Spot VM을 MIG에 포함. Preemption 시 자동 재생성 |
+| OCI | Instance Pool + Preemptible | Preemptible 인스턴스를 풀에 혼합 |
+
+### 오토스케일링이 내장된 서비스
+
+직접 스케일링 정책을 설정하지 않아도 플랫폼이 자동으로 처리하는 서비스들입니다.
+
+| 벤더 | 서비스 | 설명 |
+| --- | --- | --- |
+| AWS | Elastic Beanstalk, ECS Service Auto Scaling, Lambda | 앱 배포 시 스케일링 내장 |
+| Azure | App Service (Auto Scale), Container Apps, Functions | PaaS 레벨 자동 스케일링 |
+| GCP | Cloud Run, App Engine, GKE Autopilot | 요청 기반 자동 확장/축소 |
+| OCI | Container Instances, Functions | 서버리스 자동 스케일링 |
+
+{% hint style="info" %}
+VM 레벨 오토스케일링을 직접 설정하기 전에, 워크로드가 위 서비스에 적합한지 먼저 검토하세요. PaaS/서버리스를 사용하면 스케일링 정책 설계 자체가 불필요해집니다.
+{% endhint %}
+
 ## 오토스케일링의 한계
 
 오토스케일링은 만능이 아닙니다. 다음과 같은 상황에서는 한계가 있습니다.
@@ -100,6 +126,17 @@ VM을 사용하면 서버를 빠르게 만들 수 있지만, 트래픽 변화에
 {% hint style="warning" %}
 오토스케일링은 트래픽 증가에 대응하지만, **스케일 아웃에 수 분이 소요**됩니다. 갑작스러운 트래픽 스파이크(초단위)에는 충분히 대응하지 못할 수 있습니다. 예측 스케일링과 최소 인스턴스 수를 함께 설정하세요.
 {% endhint %}
+
+## 오토스케일링 설정 체크리스트
+
+- [ ] 스케일링 메트릭을 워크로드에 맞게 선택했는가 (CPU만이 아닌 요청 수, 큐 깊이, 응답 시간 등)
+- [ ] Grace Period / Warm-up 시간을 설정했는가 (새 인스턴스 기동 직후 메트릭 불안정 구간 무시)
+- [ ] 헬스 체크를 LB와 오토스케일링 양쪽에 설정했는가
+- [ ] 종료 정책(Termination Policy)을 확인했는가 (AZ 균형, 최신/최구 등)
+- [ ] 스케일 인 보호가 필요한 인스턴스(배포 중, 장시간 작업)를 제외했는가
+- [ ] 최소 인스턴스 수를 콜드 스타트 허용 범위에 맞게 설정했는가
+- [ ] Spot/Preemptible 혼합 시 Fallback(온디맨드 전환) 전략을 설정했는가
+- [ ] 쿨다운 시간이 앱 기동 시간보다 긴지 확인했는가
 
 ## 참고하기
 

@@ -16,7 +16,7 @@ description: 주요 벤더의 특징, 강점, 멀티클라우드 연동 서비�
 | **서비스 포트폴리오** | 매우 넓음 | 매우 넓음 | 넓음 | 핵심 집중 |
 | **리전 수** | [39개](https://aws.amazon.com/about-aws/global-infrastructure/regions_az/) | [70+](https://azure.microsoft.com/explore/global-infrastructure/geographies) | [43개](https://cloud.google.com/about/locations) | [50+](https://www.oracle.com/cloud/public-cloud-regions/) |
 | **한국 리전** | 서울 | 서울, 부산 | 서울 | 서울, 춘천 |
-| **강점** | 가장 넓은 포트폴리오, 최대 커뮤니티 | 엔터프라이즈(M365, AD), 하이브리드 | AI/ML(Vertex AI, TPU), 데이터(BigQuery) | DB(Autonomous DB), 가격 경쟁력 |
+| **강점** | 가장 넓은 서비스 포트폴리오 | 엔터프라이즈 통합 (M365, AD) | AI/ML과 데이터 분석 | 데이터베이스와 가격 경쟁력 |
 | **콘솔** | [Console](https://console.aws.amazon.com) | [Portal](https://portal.azure.com) | [Console](https://console.cloud.google.com) | [Console](https://cloud.oracle.com) |
 
 {% hint style="info" %}

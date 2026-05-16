@@ -40,6 +40,16 @@ Google Cloud 공식 가이드는 모더나이제이션을 다음과 같이 설�
 
 > "레거시 애플리케이션의 한계를 벗어나 확장 가능하고, 복원력 있으며, 유연한 시스템으로 전환하는 점진적 여정" — [Google Cloud Architecture](https://cloud.google.com/architecture/modernization-path-dotnet-applications-google-cloud)
 
+## 흔한 실패 사례
+
+여러 벤더 가이드가 공통으로 언급하는 실패 패턴:
+
+- **전체 시스템 동시 재작성** — 리스크가 크고 일정이 무너집니다. Strangler Fig로 점진적으로.
+- **비즈니스 가치 없는 과도한 분해** — 변경이 거의 없는 레거시를 마이크로서비스로 쪼개는 것은 운영 비용만 증가시킵니다.
+- **모놀리식에서 상태 유지 문제 방치** — 컨테이너로 옮겨도 세션이 인스턴스에 붙어 있으면 오토스케일링이 동작하지 않습니다.
+- **관찰가능성 미비** — 분산 시스템의 장애 원인 파악이 어려워집니다. 분산 추적/로그 집계를 먼저 구축하세요.
+- **조직 구조 변화 부재** — Conway's Law: 시스템 구조는 조직 구조를 따릅니다. 기술만 바꾸고 팀 구조를 유지하면 모더나이제이션이 정착하지 못합니다.
+
 ## 모더나이제이션 전략
 
 Microsoft Cloud Adoption Framework이 제시하는 3가지 주요 전략:
@@ -177,16 +187,6 @@ graph LR
 | [OKE (Oracle Kubernetes Engine)](https://docs.oracle.com/en-us/iaas/Content/ContEng/home.htm) | 컨테이너 플랫폼 |
 | [OCI API Gateway](https://docs.oracle.com/en-us/iaas/Content/APIGateway/home.htm) | Strangler Fig 라우팅 |
 | [OCI Functions](https://docs.oracle.com/en-us/iaas/Content/Functions/home.htm) | 서버리스로 재작성 |
-
-## 흔한 실패 사례
-
-여러 벤더 가이드가 공통으로 언급하는 실패 패턴:
-
-- **전체 시스템 동시 재작성** — 리스크가 크고 일정이 무너집니다. Strangler Fig로 점진적으로.
-- **비즈니스 가치 없는 과도한 분해** — 변경이 거의 없는 레거시를 마이크로서비스로 쪼개는 것은 운영 비용만 증가시킵니다.
-- **모놀리식에서 상태 유지 문제 방치** — 컨테이너로 옮겨도 세션이 인스턴스에 붙어 있으면 오토스케일링이 동작하지 않습니다.
-- **관찰가능성 미비** — 분산 시스템의 장애 원인 파악이 어려워집니다. 분산 추적/로그 집계를 먼저 구축하세요.
-- **조직 구조 변화 부재** — Conway's Law: 시스템 구조는 조직 구조를 따릅니다. 기술만 바꾸고 팀 구조를 유지하면 모더나이제이션이 정착하지 못합니다.
 
 ## 참고하기
 

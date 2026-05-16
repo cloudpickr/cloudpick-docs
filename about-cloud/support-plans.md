@@ -73,6 +73,10 @@ TAM은 벤더 내부 조직과의 연결 통로 역할을 합니다. 대규모 �
 
 이 서비스들은 정기적으로 확인하고 권장 사항을 적용하면 비용과 보안 모두 개선할 수 있습니다.
 
+{% hint style="warning" %}
+일부 권장 사항은 유료 지원 플랜에서만 전체가 노출됩니다. 예: AWS Trusted Advisor는 Basic 플랜에서 핵심 검사만 제공하고, 전체 검사(비용 최적화 등)는 Business Support 이상에서 활성화됩니다.
+{% endhint %}
+
 ## MSP (Managed Service Provider) 파트너
 
 ### CSP와 MSP의 역할 차이

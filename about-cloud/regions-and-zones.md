@@ -54,17 +54,15 @@ graph TB
 | **리전당 최소 AZ** | 3개 | 3개 | 3개 | 3 Fault Domain |
 | **주요 대륙 커버리지** | 북미, 남미, 유럽, 아시아, 오세아니아, 중동, 아프리카 | 북미, 남미, 유럽, 아시아, 오세아니아, 중동, 아프리카 | 북미, 남미, 유럽, 아시아, 오세아니아, 중동 | 북미, 남미, 유럽, 아시아, 오세아니아, 중동 |
 
-### 핵심 차이점
+### 벤더별 특징
 
-| 벤더 | 계층 구조 | VPC 범위 | 고유 특징 |
-| --- | --- | --- | --- |
-| **AWS** | Region → AZ | 리전 단위 | Local Zone (특정 도시에 초저지연), Sovereign Cloud (유럽 데이터 주권 전용 리전) |
-| **Azure** | Geography → Region → AZ | 리전 단위 | 리전 쌍(Region Pair): 같은 Geography 내 두 리전이 쌍으로 지정. 한국: `koreacentral` ↔ `koreasouth` |
-| **GCP** | Region → Zone | **글로벌** (하나의 VPC에 여러 리전의 서브넷 배치 가능) | Multi-region 스토리지 자동 복제, Assured Workloads (규제 워크로드 격리) |
-| **OCI** | Realm → Region → AD → Fault Domain | 리전 단위 | 대형 리전은 3개 AD, 소형 리전은 1개 AD + 3 Fault Domain |
+**AWS** — Region → Availability Zone 구조. VPC는 리전 단위입니다. Local Zone으로 특정 도시(서울 외 부산 등)에 초저지연 인프라를 배치할 수 있으며, AWS Sovereign Cloud(유럽)로 데이터 주권 전용 리전을 제공합니다.
 
-{% hint style="info" %}
-GCP의 VPC는 **글로벌 리소스**입니다. AWS와 Azure가 리전마다 VPC/VNet을 따로 만드는 것과 달리, GCP는 하나의 VPC에 여러 리전의 서브넷을 배치할 수 있습니다. 단, 서브넷 자체는 리전 단위입니다.
+**Azure** — Geography → Region → Availability Zone 구조. VNet은 리전 단위입니다. 같은 Geography 내 두 리전이 **리전 쌍(Region Pair)**으로 지정되어 플랫폼 업데이트가 동시에 적용되지 않습니다. 한국은 `koreacentral`(서울) ↔ `koreasouth`(부산) 쌍으로, 국내에서 DR을 구성할 수 있습니다.
+
+**GCP** — Region → Zone 구조. VPC가 **글로벌 리소스**여서 하나의 VPC에 여러 리전의 서브넷을 배치할 수 있습니다(AWS/Azure는 리전마다 VPC를 따로 생성). Multi-region 스토리지로 별도 설정 없이 자동 복제되며, Assured Workloads로 규제 워크로드를 특정 리전에 격리할 수 있습니다.
+
+**OCI** — Realm → Region → Availability Domain(AD) → Fault Domain 구조. 대형 리전은 3개 AD, 소형 리전은 1개 AD + 3 Fault Domain으로 구성됩니다. VCN은 리전 단위이며, 서브넷을 리전 또는 AD 단위로 배치할 수 있습니다.
 {% endhint %}
 
 ## 리전 선택 시 고려사항

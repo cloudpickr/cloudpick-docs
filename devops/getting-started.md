@@ -51,6 +51,10 @@ description: DevOps의 정의, GitOps, 플랫폼 엔지니어링, SLI/SLO/에러
 | Azure GitOps (Flux 기반) | AKS에 내장 |
 | GCP Config Sync | GKE에 내장 |
 
+{% hint style="info" %}
+Kubernetes 환경에서의 GitOps 프로모션 전략, 클러스터 업그레이드, Day-2 운영 상세는 [Kubernetes 운영](kubernetes-operations.md)을 참고하세요.
+{% endhint %}
+
 ## 플랫폼 엔지니어링
 
 DevOps가 성숙해지면, 개발자가 직접 인프라를 다루는 것이 오히려 부담이 됩니다. **플랫폼 엔지니어링**은 개발자가 셀프서비스로 인프라를 사용할 수 있도록 내부 플랫폼을 구축하는 것입니다.

@@ -85,6 +85,7 @@
 
 ## 거버넌스 <a id="governance"></a>
 
+- [클라우드 거버넌스 시작하기](governance/overview.md)
 - [랜딩존](governance/landing-zone.md)
 - [FinOps](governance/finops.md)
 - [재해복구](governance/dr.md)

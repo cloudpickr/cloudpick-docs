@@ -118,31 +118,34 @@ OCI의 특징은 **Compartment가 리소스 격리와 조직 구조를 동시에
 
 ## 빌링 구조
 
-각 벤더의 빌링은 두 가지 관점에서 이해하면 됩니다.
+### 권한 경계와 비용 경계 — 같은가, 다른가?
 
-### 기본 구조: 비용이 어디에 쌓이는가
+AWS는 Account 하나가 권한 경계이자 비용 경계입니다. 다른 벤더는 이 둘이 분리되어 있어 더 유연하지만, 이해하기 복잡합니다.
+
+| 벤더 | 권한 경계 (리소스 격리) | 비용 경계 (청구 단위) | 관계 |
+| --- | --- | --- | --- |
+| **AWS** | Account | Account | **동일** — 계정을 나누면 비용도 자동 분리 |
+| **Azure** | Subscription | Billing Account / Billing Profile | **분리** — 여러 Subscription을 하나의 청구로 묶거나, 하나의 Subscription 비용을 부서별로 나눌 수 있음 |
+| **GCP** | Project | Billing Account | **분리** — Project를 다른 Billing Account로 자유롭게 이동 가능. 가장 유연 |
+| **OCI** | Compartment | Tenancy | **분리** — Compartment로 권한을 나누되, 비용은 Tenancy 단위로 통합 청구 |
+
+**실무적 의미:**
+
+- **AWS** — 비용을 분리하려면 계정을 나눠야 합니다. 계정이 많아지면 Organizations 통합 결제로 묶습니다.
+- **Azure/GCP** — 권한 분리와 비용 분리를 독립적으로 설계할 수 있습니다. 조직 개편 시 비용 구조만 바꾸고 리소스는 그대로 둘 수 있습니다.
+- **OCI** — Compartment로 세밀하게 격리하되, 비용은 Tenancy 단위로 관리합니다.
+
+### 비용 할당과 예산 관리
 
 | 항목 | AWS | Azure | GCP | OCI |
 | --- | --- | --- | --- | --- |
-| **빌링 단위** | Account | Subscription | Project | Tenancy |
-| **통합 빌링** | Organizations 통합 결제 | Billing Account에 여러 Subscription | Billing Account에 여러 Project | Tenancy 단위 통합 |
 | **비용 할당** | 태그 기반 Cost Allocation | Resource Group + 태그 | 라벨 + Project 단위 | Compartment + 태그 |
 | **예산 알림** | AWS Budgets | Azure Budgets | GCP Budget Alerts | OCI Budgets |
+| **빌링 이관** | Billing Transfer (2025) | Subscription Transfer | Project의 Billing Account 변경 | Cross-Tenancy 전환 |
 
-### 유연성: 인보이스를 어떻게 나누고 옮기는가
-
-| 시나리오 | AWS | Azure | GCP | OCI |
-| --- | --- | --- | --- | --- |
-| **인보이스 분리** | 별도 Organization 또는 Billing Transfer | 별도 Billing Account | Billing Account 분리 | 별도 Tenancy |
-| **빌링 이관 (M&A 등)** | Billing Transfer (2025) | Subscription Transfer | Project의 Billing Account 변경 | Cross-Tenancy 전환 |
-| **부서별 결제 수단** | Billing Transfer | EA Department/Account | Project별 Billing Account 매핑 | Tenancy 단위 |
-
-벤더별 특징:
-
-- **GCP** — Billing Account와 Project가 독립적이어서 가장 유연합니다. 조직 개편 시 Project의 Billing Account만 변경하면 됩니다.
-- **AWS** — **Billing Transfer** (2025년 출시)로 Organization 간 빌링 이전이 가능해졌습니다. 파트너를 통해 통합빌링을 사용하는 경우에는 파트너와 사전 협의가 필요합니다.
-- **Azure** — EA/MCA 계약에 따라 Billing Account → Billing Profile → Invoice Section 계층으로 부서별 분리가 가능합니다.
-- **OCI** — Tenancy가 빌링 최상위 단위이므로, 법인별로 Tenancy를 나누는 것이 일반적입니다.
+{% hint style="info" %}
+파트너를 통해 통합빌링을 사용하는 경우, 빌링 이관 시 파트너와 사전 협의가 필요합니다.
+{% endhint %}
 
 ### 실무 팁
 
@@ -150,7 +153,6 @@ OCI의 특징은 **Compartment가 리소스 격리와 조직 구조를 동시에
 - **그룹 단위로 통합 결제 + 부서별 비용 가시성** → 단일 Billing Account + 태그 기반 비용 할당
 - **자주 변경되는 조직 구조** → Project↔Billing Account 분리 가능한 GCP가 유리
 - **대량 약정 할인 극대화** → 하나의 Billing Account로 묶어 약정 단가 협상
-- **환율/세금 처리** → 벤더별 Reserved Currency, 세금계산서 발행 주체 확인 필요
 
 공식 문서:
 

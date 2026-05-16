@@ -88,6 +88,33 @@ CDN은 정적 파일뿐 아니라 다양한 워크로드에 적용할 수 있습
 대부분의 프론트엔드 빌드 도구(Webpack, Vite 등)는 해시 파일명을 자동 생성합니다. `index.html`만 짧은 TTL로 설정하고, 나머지 정적 파일은 긴 TTL + 해시 파일명으로 운영하는 것이 일반적인 패턴입니다.
 {% endhint %}
 
+## 아키텍처 패턴
+
+### CDN이 효과적인 상황
+
+| 패턴 | 설명 | CDN 효과 |
+| --- | --- | --- |
+| **단일 리전 오리진 + 글로벌 사용자** | DB/앱이 한 리전에만 있고 사용자는 전 세계 | 엣지 캐싱으로 오리진 리전까지의 지연 제거 |
+| **1:다수 배포** | 동일 콘텐츠를 수만~수백만 사용자에게 전달 | 오리진 부하를 엣지로 분산. 오리진 1대로도 대규모 서빙 가능 |
+| **트래픽 스파이크 흡수** | 이벤트/뉴스 등 갑작스러운 트래픽 급증 | 엣지가 대부분 흡수, 오리진은 평소 부하 유지 |
+| **정적 사이트 호스팅** | SPA/정적 사이트를 객체 스토리지에서 서빙 | CDN + 객체 스토리지만으로 서버 없이 운영 |
+
+### 콘텐츠 보호 (Signed URL / Token)
+
+CDN을 통해 배포하면서도 접근을 제한해야 하는 경우 (유료 콘텐츠, 인증된 사용자만 접근):
+
+| 방법 | 설명 | 벤더 |
+| --- | --- | --- |
+| **Signed URL** | 시간 제한이 있는 서명된 URL 발급. 만료 후 접근 불가 | CloudFront Signed URL, Cloud CDN Signed URL |
+| **Signed Cookie** | 쿠키 기반 인증. 여러 파일에 동시 적용 가능 | CloudFront Signed Cookie |
+| **Token 인증** | 엣지에서 토큰 검증 후 허용/차단 | Front Door Token Validation, Akamai Token Auth |
+| **지역 제한 (Geo Restriction)** | 특정 국가/지역에서만 접근 허용 또는 차단 | 모든 벤더 지원 |
+| **WAF 연동** | IP 제한, Rate Limiting, Bot 차단 | CloudFront + WAF, Front Door + WAF, Cloud Armor |
+
+{% hint style="info" %}
+유료 동영상 스트리밍처럼 콘텐츠 보호가 중요한 경우, Signed URL + DRM(Digital Rights Management)을 조합합니다. CDN은 전송 경로를 보호하고, DRM은 콘텐츠 자체를 보호합니다.
+{% endhint %}
+
 ## 제품 비교
 
 | 벤더 | 제품 | 비고 |

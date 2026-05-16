@@ -133,28 +133,18 @@ RPO/RTO 정의, BIA(비즈니스 영향 분석), 벤더별 DR 서비스 비교 �
 | GCP | `asia-northeast3` (서울) | 3개 Zone | 2020년 |
 | OCI | `ap-seoul-1`, `ap-chuncheon-1` | 3 FD | 2020년 |
 
-### DR 시 인접 리전
-
-| 벤더 | 프라이머리 (한국) | 세컨더리 후보 | 지연 시간 |
-| --- | --- | --- | --- |
-| AWS | `ap-northeast-2` (서울) | `ap-northeast-1` (도쿄), `ap-northeast-3` (오사카) | 약 30\~50ms |
-| Azure | `koreacentral` (서울) | `koreasouth` (부산) — **국내 DR 가능** | 약 5ms |
-| Azure | `koreacentral` (서울) | `japaneast` (도쿄) | 약 30ms |
-| GCP | `asia-northeast3` (서울) | `asia-northeast1` (도쿄), `asia-northeast2` (오사카) | 약 30\~50ms |
-| OCI | `ap-seoul-1` (서울) | `ap-chuncheon-1` (춘천) — **국내 DR 가능** | 약 5ms |
-| OCI | `ap-seoul-1` (서울) | `ap-tokyo-1` (도쿄) | 약 30ms |
-
-Azure는 한국 내에 서울-부산 리전 쌍이 있어, 데이터 주권 규제가 엄격한 경우에도 국내에서 DR을 구성할 수 있다는 차별점이 있습니다.
+Azure(서울-부산)와 OCI(서울-춘천)는 국내에 2개 리전을 보유하여, 데이터 주권 규제가 엄격한 경우에도 국내에서 DR을 구성할 수 있습니다. 벤더별 DR 전략 상세는 [재해복구 (DR)](../governance/dr.md)를 참고하세요.
 
 ### 데이터 주권
 
 한국의 **개인정보보호법**은 개인정보의 국외 이전 시 정보주체의 동의 또는 법적 근거를 요구합니다. **신용정보법**은 금융 분야의 개인신용정보에 대해 더 엄격한 규제를 적용합니다. 클라우드 벤더를 선택할 때 한국 리전의 유무와 데이터 저장 위치를 반드시 확인해야 합니다.
 
-각 CSP는 다음과 같이 리전 제한을 강제할 수 있습니다:
+각 CSP는 리전 제한을 정책으로 강제할 수 있습니다:
 
-- **AWS** — SCP(Service Control Policy)로 특정 리전 외 리소스 생성을 차단할 수 있습니다.
-- **Azure** — Azure Policy로 허용 리전을 제한할 수 있습니다.
-- **GCP** — Organization Policy로 리소스 생성 가능 리전을 제한할 수 있습니다.
+- **AWS** — SCP(Service Control Policy)로 특정 리전 외 리소스 생성 차단
+- **Azure** — Azure Policy로 허용 리전 제한
+- **GCP** — Organization Policy로 리소스 생성 가능 리전 제한
+- **OCI** — Compartment Policy로 리전 제한
 
 ## 참고하기
 

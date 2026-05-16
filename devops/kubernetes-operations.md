@@ -113,7 +113,9 @@ Pod 간 트래픽을 제어하는 Kubernetes 네이티브 기능입니다. VPC S
 | 구현 | Calico, Cilium, 벤더 네이티브 | 벤더 VPC 기능 |
 | 기본 동작 | 모두 허용 (정책 없으면) | 모두 거부 (인바운드) |
 
-관련: [VPC와 서브넷](../networking/vpc-subnet.md), [컨테이너 서비스](../compute/containers.md)
+{% hint style="info" %}
+VPC/서브넷 설계 기초(CIDR 계획, 퍼블릭/프라이빗 분리, Transit Gateway)는 [VPC와 서브넷](../networking/vpc-subnet.md)을, 관리형 Kubernetes 선택과 노드 전략은 [컨테이너 서비스](../compute/containers.md)를 참고하세요.
+{% endhint %}
 
 **벤더별 Kubernetes VPC/서브넷 설계 가이드:**
 

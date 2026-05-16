@@ -149,7 +149,6 @@ CDN 엣지에서 코드를 실행하여 요청/응답을 변환하거나, 간단
 | AWS | Lambda@Edge | 풀 기능 (오리진 요청/응답 변환, 인증). 수 밀리초 |
 | Azure | Front Door Rules Engine | 규칙 기반 라우팅/변환 |
 | GCP | Cloud CDN + Cloud Functions | 별도 조합 |
-| OCI | — | 자체 CDN/엣지 컴퓨팅 미제공 |
 
 ## 참고하기
 

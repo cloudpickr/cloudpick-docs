@@ -46,6 +46,21 @@ description: CSP 기술 지원 플랜, MSP 파트너 역할, 어드바이저 서
 TAM은 벤더 내부 조직과의 연결 통로 역할을 합니다. 대규모 도입이나 규제 시장 진입 시 TAM이 있으면 벤더 내부 리소스(보안 팀, 컴플라이언스 팀, 서비스 팀)에 빠르게 접근할 수 있습니다.
 {% endhint %}
 
+### 응답 시간 SLA
+
+유료 플랜의 가장 큰 차이는 장애 발생 시 응답 시간입니다.
+
+| 심각도 | 설명 | AWS Business Support+ | Azure Professional Direct | GCP Enhanced | OCI Premier |
+| --- | --- | --- | --- | --- | --- |
+| **위기 (Critical)** | 프로덕션 중단 | < 15분 | < 1시간 | < 1시간 | < 1시간 |
+| **긴급 (Urgent)** | 프로덕션 일부 영향 | < 4시간 | < 4시간 | < 4시간 | < 2시간 |
+| **일반 (Normal)** | 비프로덕션 영향 | < 12시간 | < 8시간 | < 8시간 | < 6시간 |
+| **문의 (Low)** | 일반 질문 | < 24시간 | < 24시간 | < 24시간 | < 24시간 |
+
+{% hint style="info" %}
+표의 값은 벤더 공식 SLA 기준이며, 플랜/계약에 따라 달라질 수 있습니다. 최신 수치는 각 벤더 공식 Support 페이지에서 확인하세요.
+{% endhint %}
+
 ## MSP (Managed Service Provider) 파트너
 
 ### CSP와 MSP의 역할 차이
@@ -104,30 +119,6 @@ MSP는 일반적으로 **클라우드 사용료에 대한 추가 마진을 받�
 | GCP | Recommender / Active Assist | 비용, 보안, 성능, 관리 효율성 권장 사항 |
 
 이 서비스들은 정기적으로 확인하고 권장 사항을 적용하면 비용과 보안 모두 개선할 수 있습니다.
-
-## 응답 시간 SLA
-
-유료 플랜의 가장 큰 차이는 장애 발생 시 응답 시간입니다. 프로덕션 워크로드를 운영한다면 응답 시간을 확인하고 플랜을 선택해야 합니다.
-
-### 심각도별 응답 시간
-
-| 심각도 | 설명 | AWS Business Support+ | Azure Professional Direct | GCP Enhanced | OCI Premier |
-| --- | --- | --- | --- | --- | --- |
-| **위기 (Critical)** | 프로덕션 중단 | < 15분 | < 1시간 | < 1시간 | < 1시간 |
-| **긴급 (Urgent)** | 프로덕션 일부 영향 | < 4시간 | < 4시간 | < 4시간 | < 2시간 |
-| **일반 (Normal)** | 비프로덕션 영향 | < 12시간 | < 8시간 | < 8시간 | < 6시간 |
-| **문의 (Low)** | 일반 질문 | < 24시간 | < 24시간 | < 24시간 | < 24시간 |
-
-공식 SLA 문서:
-
-- [AWS Premium Support 플랜](https://aws.amazon.com/premiumsupport/plans/)
-- [Azure Support 플랜](https://azure.microsoft.com/en-us/support/plans/)
-- [GCP Customer Care](https://cloud.google.com/support)
-- [OCI Premier Support](https://www.oracle.com/support/premier/)
-
-{% hint style="info" %}
-표의 값은 벤더 공식 SLA 기준이며, 플랜/계약에 따라 달라질 수 있습니다. 최신 수치는 위 공식 SLA 문서에서 확인하세요.
-{% endhint %}
 
 ## 참고하기
 

@@ -23,6 +23,29 @@ description: CSP 기술 지원 플랜, MSP 파트너 역할, 어드바이저 서
 
 프로덕션 워크로드를 운영한다면 유료 플랜 가입을 권장합니다. 장애 발생 시 응답 시간이 크게 달라지며, 아키텍처 리뷰나 비용 최적화 조언도 받을 수 있습니다.
 
+### TAM (Technical Account Manager)
+
+상위 플랜에서는 전담 기술 계정 관리자(TAM)가 배정됩니다. TAM은 단순 장애 대응이 아니라, 조직의 클라우드 운영 전반을 지속적으로 지원하는 역할입니다.
+
+**TAM이 하는 일:**
+
+- 정기적인 아키텍처 리뷰 및 개선 권고
+- 비용 최적화 분석 및 약정 전략 조언
+- 장애 발생 시 내부 에스컬레이션 및 우선 대응
+- 벤더 내부 로드맵 공유 및 신규 서비스 도입 지원
+- 운영 성숙도 평가 및 Well-Architected 리뷰
+
+| 벤더 | TAM 배정 플랜 | 명칭 |
+| --- | --- | --- |
+| AWS | Enterprise / Unified Operations | Technical Account Manager |
+| Azure | Unified (구 Premier) | Designated Support Engineer |
+| GCP | Premium | Technical Account Manager |
+| OCI | Premier | Customer Success Manager (CSM) |
+
+{% hint style="info" %}
+TAM은 벤더 내부 조직과의 연결 통로 역할을 합니다. 대규모 도입이나 규제 시장 진입 시 TAM이 있으면 벤더 내부 리소스(보안 팀, 컴플라이언스 팀, 서비스 팀)에 빠르게 접근할 수 있습니다.
+{% endhint %}
+
 ## MSP (Managed Service Provider) 파트너
 
 ### CSP와 MSP의 역할 차이
@@ -105,17 +128,6 @@ MSP는 일반적으로 **클라우드 사용료에 대한 추가 마진을 받�
 {% hint style="info" %}
 표의 값은 벤더 공식 SLA 기준이며, 플랜/계약에 따라 달라질 수 있습니다. 최신 수치는 위 공식 SLA 문서에서 확인하세요.
 {% endhint %}
-
-### TAM (Technical Account Manager) 배정
-
-상위 플랜에서는 전담 기술 계정 관리자가 배정됩니다.
-
-| 벤더 | 플랜 | TAM 역할 |
-| --- | --- | --- |
-| AWS | Enterprise, Unified Operations | 전담 TAM. 아키텍처 리뷰, 비용 최적화, 운영 지원 |
-| Azure | Unified (구 Premier) | Designated Support Engineer |
-| GCP | Premium | Technical Account Manager |
-| OCI | Premier | Customer Success Manager (CSM) |
 
 ## 참고하기
 

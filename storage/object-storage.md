@@ -51,6 +51,10 @@ AWS S3 Intelligent-Tiering과 GCP Autoclass, OCI Auto-Tiering은 접근 패턴�
 확실하지 않으면 표준 클래스로 시작하고, 접근 패턴 분석 후 수명 주기 정책(Lifecycle Policy)으로 자동 전환하세요. 자동 전환 서비스를 사용하면 수동 정책 설정이 불필요합니다.
 {% endhint %}
 
+{% hint style="warning" %}
+**아카이브 클래스 주의:** 저장 비용은 매우 저렴하지만, 복구 시 별도 비용과 대기 시간(수 시간~12시간)이 발생합니다. 또한 최소 보관 기간(90~365일)이 있어 조기 삭제 시 수수료가 부과됩니다. 자주 접근할 가능성이 있는 데이터는 아카이브에 넣지 마세요.
+{% endhint %}
+
 ## 핵심 차이점
 
 **AWS S3** — 2006년 출시로 가장 오래되었고, S3 API가 업계 사실상 표준이 되었습니다. 대부분의 3rd party 도구, 다른 클라우드 벤더, 온프레미스 스토리지까지 S3 호환 API를 지원합니다. S3 Tables, S3 Metadata, S3 Vectors 등 스토리지 자체에 분석 기능을 내장하는 방향으로 진화하고 있습니다.
@@ -71,6 +75,12 @@ AWS S3 Intelligent-Tiering과 GCP Autoclass, OCI Auto-Tiering은 접근 패턴�
 | 스토리지 클래스 자동 전환을 원할 때 | AWS S3 Intelligent-Tiering, GCP Autoclass, OCI Auto-Tiering |
 | 대량 이그레스 비용을 절감하고 싶을 때 | OCI Object Storage (10TB/월 무료) |
 | 객체 스토리지에서 직접 SQL 분석을 하고 싶을 때 | AWS Athena + S3 또는 GCP BigQuery External Tables |
+
+{% hint style="warning" %}
+**이그레스 비용을 반드시 확인하세요.** 객체 스토리지에 데이터를 넣는 건 무료지만, 꺼낼 때(이그레스) 비용이 발생합니다. 대량 데이터를 외부로 전송하는 워크로드에서는 벤더 선택의 핵심 TCO 요소입니다.
+- AWS/Azure/GCP: 이그레스 $0.08~0.12/GB (리전별 상이)
+- OCI: **10TB/월 무료**, 이후 $0.0085/GB
+{% endhint %}
 
 ## 활용 패턴
 

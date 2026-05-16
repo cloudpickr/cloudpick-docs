@@ -93,9 +93,9 @@ flowchart TD
 
 | 벤더 | 컨트롤 플레인 비용 | 비고 |
 | --- | --- | --- |
-| AWS EKS | 시간당 ~$0.10 (클러스터당) | 월 ~$73 |
+| AWS EKS | 유료 (클러스터당 시간 과금) | [EKS 요금](https://aws.amazon.com/eks/pricing/) |
 | Azure AKS | 무료 | Uptime SLA 활성화 시 유료 |
-| GCP GKE Standard | 시간당 ~$0.10 | 월 ~$73. 월당 한 개 존 무료 |
+| GCP GKE Standard | 유료 (클러스터당 시간 과금) | 월당 한 개 존 무료. [GKE 요금](https://cloud.google.com/kubernetes-engine/pricing) |
 | GCP GKE Autopilot | 무료 (Pod 단위 과금) | 노드 없음 |
 | OCI OKE | 무료 | Enhanced 클러스터 시 유료 |
 

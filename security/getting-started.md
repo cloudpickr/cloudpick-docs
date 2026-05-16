@@ -56,17 +56,6 @@ description: 클라우드 보안의 접근 방식과 보호 영역을 구조화�
 | 3. 자동화 | 정책 as Code, 자동 탐지/차단 | SCP, GuardDuty, 자동 격리 |
 | 4. 지속적 | 레드팀, 카오스 보안, 위협 인텔리전스 | 침투 테스트, 위협 모델링 정기화 |
 
-## 다음 단계
-
-보안 섹션을 처음 읽는다면 다음 순서를 권장합니다:
-
-1. [공동 책임 모델](../about-cloud/shared-responsibility.md) — 벤더와 내 책임의 경계
-2. [IAM 개요](../about-cloud/iam-overview.md) → [IAM 심화](iam.md) — 접근 제어의 기본
-3. [시크릿 관리](secrets.md) — 자격 증명 보호
-4. [데이터 보호](data-protection.md) — 암호화와 키 관리
-5. [보안 태세 관리](security-posture.md) — 지속적 모니터링
-6. [제로 트러스트](zero-trust.md) — 현대적 보안 모델
-
 ## 참고하기
 
 - [NIST Cybersecurity Framework](https://www.nist.gov/cyberframework)

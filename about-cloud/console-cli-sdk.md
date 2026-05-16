@@ -2,7 +2,7 @@
 description: 콘솔, CLI, SDK, Cloud Shell의 역할과 IaC와의 관계를 벤더별로 비교합니다.
 ---
 
-# 클라우드 관리 도구
+# 클라우드 관리 도구 (콘솔, CLI, SDK)
 
 > 문서 기준: 2026년 5월
 

@@ -68,7 +68,7 @@ description: 데이터 웨어하우스, 데이터 레이크하우스, 분석 플
 
 | 벤더 | BI 도구 | 특징 |
 | --- | --- | --- |
-| AWS | [Amazon QuickSight](https://aws.amazon.com/quicksight/) | 서버리스, SPICE 인메모리 엔진, Q(자연어 질의) |
+| AWS | [Amazon QuickSight](https://aws.amazon.com/quick/quicksight/) | 서버리스 BI, Amazon Q 통합(자연어 질의, 생성형 BI) |
 | Azure | [Power BI](https://powerbi.microsoft.com/) | 가장 넓은 사용자 기반, Excel 친화적, Copilot 통합 |
 | GCP | [Looker / Looker Studio](https://cloud.google.com/looker) | LookML 기반 시맨틱 레이어, Looker Studio는 무료 |
 | OCI | [OCI Analytics Cloud](https://docs.oracle.com/en-us/iaas/analytics-cloud/index.html) | Oracle 네이티브, 셀프서비스 시각화 |

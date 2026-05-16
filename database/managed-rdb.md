@@ -36,16 +36,16 @@ DB 선택 후의 운영 — 확장 패턴, 쿼리 성능, 캐시, HA, 백업 —
 
 ### 범용 관리형 RDB
 
-| 벤더 | 제품 | 지원 엔진 |
-| --- | --- | --- |
-| AWS | RDS | MySQL, PostgreSQL, MariaDB, Oracle, SQL Server |
-| AWS | Aurora | MySQL/PostgreSQL 호환. 자체 설계 분산 스토리지 |
-| Azure | Azure SQL Database | SQL Server 기반 |
-| Azure | Azure Database for MySQL/PostgreSQL | 오픈소스 엔진 관리형 |
-| GCP | Cloud SQL | MySQL, PostgreSQL, SQL Server |
-| GCP | AlloyDB | PostgreSQL 호환. 자체 설계. 벡터 검색 내장 |
-| OCI | Autonomous Database | Oracle DB 기반. 자동 튜닝/패치/스케일링 |
-| OCI | MySQL HeatWave | MySQL 호환. OLTP + OLAP 통합 처리 |
+| 벤더 | 제품 | 유형 | 지원 엔진 |
+| --- | --- | --- | --- |
+| AWS | RDS | 관리형 | MySQL, PostgreSQL, MariaDB, Oracle, SQL Server |
+| AWS | Aurora | **네이티브** | MySQL/PostgreSQL 호환. 자체 설계 분산 스토리지 |
+| Azure | Azure SQL Database | 관리형 | SQL Server 기반 |
+| Azure | Azure Database for MySQL/PostgreSQL | 관리형 | 오픈소스 엔진 관리형 |
+| GCP | Cloud SQL | 관리형 | MySQL, PostgreSQL, SQL Server |
+| GCP | AlloyDB | **네이티브** | PostgreSQL 호환. 자체 설계. 벡터 검색 내장 |
+| OCI | Autonomous Database | **네이티브** | Oracle DB 기반. 자동 튜닝/패치/스케일링 |
+| OCI | MySQL HeatWave | 관리형 | MySQL 호환. OLTP + OLAP 통합 처리 |
 
 ### 클라우드 네이티브 DB란
 

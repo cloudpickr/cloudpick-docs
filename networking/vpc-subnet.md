@@ -165,7 +165,7 @@ AWS, Azure, GCP를 동시에 사용하면서 전용선으로 연결하는 경우
 | **라우팅 테이블 단위** | 서브넷별 연결 | 서브넷별 연결 (UDR) | VPC 전체 (암묵적) + 커스텀 경로 | 서브넷별 연결 |
 | **기본 인터넷 경로** | 명시적 IGW 경로 추가 필요 | 기본 제공 (NSG로 제어) | 기본 제공 (방화벽 규칙으로 제어) | 명시적 IGW 경로 추가 필요 |
 | **NAT** | NAT Gateway (AZ별) | NAT Gateway (서브넷별) | Cloud NAT (리전별) | NAT Gateway (VCN별) |
-| **온프렘 경로 전파** | Route Propagation (TGW/VPN) | BGP 전파 (VPN Gateway) | Cloud Router (BGP) | DRG Route Table |
+| **온프렘 경로 전파** | Route Propagation (자동) | 자동 전파 (VPN Gateway) | Cloud Router (자동) | DRG Route Table |
 | **특이점** | Prefix List로 벤더 서비스 경로 관리 | System Routes 자동 생성 | **글로벌 VPC라 리전 간 라우팅 자동** | Security List가 라우팅과 별도 |
 
 {% hint style="info" %}

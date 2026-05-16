@@ -47,6 +47,25 @@ Gartner가 제시하고 AWS가 확장한 **7R 프레임워크** 는 워크로드
 **주의:** 모든 워크로드를 Refactor하려 하면 시간과 비용이 급증합니다. 대부분의 기업은 **Rehost/Replatform을 기본으로 하고, 핵심 워크로드만 Refactor** 하는 하이브리드 접근을 사용합니다.
 {% endhint %}
 
+## 리프트앤시프트 vs 리팩터링 트레이드오프
+
+가장 흔한 선택지인 Rehost(Lift & Shift)와 Refactor의 비교입니다.
+
+| 항목 | Rehost (Lift & Shift) | Refactor (클라우드 네이티브) |
+| --- | --- | --- |
+| **이전 기간** | 수 주\~수 개월 | 수 개월\~수 년 |
+| **개발 비용** | 낮음 (변경 최소) | 높음 (재설계/재구현) |
+| **운영 비용** | 온프레미스와 유사 | 클라우드 최적화로 절감 가능 |
+| **확장성** | 제한적 (VM 단위) | 높음 (서버리스, 수평 확장) |
+| **장애 복구** | 기존 방식 유지 | 클라우드 네이티브 HA/DR |
+| **위험도** | 낮음 | 높음 (재설계 실패 가능) |
+| **클라우드 이점 활용** | 제한적 | 최대 |
+| **데이터센터 철수 기한** | 짧아도 대응 가능 | 긴 기간 필요 |
+
+{% hint style="info" %}
+**일반적 패턴:** 데이터센터 철수 기한이 있다면 **먼저 Rehost로 이전한 후, 안정화 후 점진적으로 Replatform/Refactor** 하는 전략이 현실적입니다. 처음부터 모든 워크로드를 Refactor하면 일정 지연과 품질 문제가 발생하기 쉽습니다.
+{% endhint %}
+
 ## 마이그레이션 프로세스
 
 대규모 마이그레이션은 여러 단계를 거치는 프로젝트입니다.
@@ -69,56 +88,6 @@ Gartner가 제시하고 AWS가 확장한 **7R 프레임워크** 는 워크로드
 - **Pilot Wave** — 간단하고 위험이 낮은 워크로드로 경험 축적 (예: 내부 도구, 개발 환경)
 - **Core Waves** — 애플리케이션 그룹 단위로 묶어 순차적으로 이전
 - **Critical Wave** — 비즈니스 크리티컬 워크로드는 마지막에 이전 (충분한 검증 후)
-
-## 마이그레이션 도구
-
-### 평가 및 발견
-
-| 벤더 | 제품 | 기능 |
-| --- | --- | --- |
-| AWS | [AWS Application Discovery Service](https://aws.amazon.com/application-discovery/) | 에이전트/에이전트리스 방식으로 온프레미스 인벤토리 수집 |
-| AWS | [AWS Migration Hub](https://aws.amazon.com/migration-hub/) | 마이그레이션 중앙 대시보드 |
-| Azure | [Azure Migrate](https://azure.microsoft.com/products/azure-migrate/) | 평가, 서버/DB 마이그레이션 통합 |
-| GCP | [Migration Center](https://cloud.google.com/migration-center/docs) | 포트폴리오 평가, 의존성 매핑 |
-| OCI | [OCI Cloud Advisor / Cloud Migrations](https://docs.oracle.com/en-us/iaas/Content/cloud-migration/home.htm) | 평가 및 실행 통합 |
-
-### VM/서버 마이그레이션
-
-| 벤더 | 제품 | 기능 |
-| --- | --- | --- |
-| AWS | [AWS Application Migration Service (MGN)](https://aws.amazon.com/application-migration-service/) | 에이전트 기반 블록 수준 복제. 최소 다운타임 Rehost |
-| Azure | [Azure Migrate: Server Migration](https://learn.microsoft.com/azure/migrate/migrate-services-overview) | VMware/Hyper-V/물리 서버 → Azure VM |
-| GCP | [Migrate to Virtual Machines](https://cloud.google.com/migrate/virtual-machines/docs) | VMware/AWS/Azure → Compute Engine |
-| OCI | [OCI Cloud Migrations](https://docs.oracle.com/en-us/iaas/Content/cloud-migration/home.htm) | VMware/AWS → OCI |
-
-### 컨테이너/쿠버네티스 마이그레이션
-
-| 벤더 | 제품 | 기능 |
-| --- | --- | --- |
-| AWS | [AWS App2Container](https://aws.amazon.com/app2container/) | Java/.NET 앱을 컨테이너화 |
-| AWS | [AWS Copilot](https://aws.amazon.com/containers/copilot/) | ECS/App Runner 배포 자동화 |
-| Azure | [Migrate to containers (Azure Migrate)](https://learn.microsoft.com/azure/migrate/tutorial-app-containerization-aspnet-kubernetes) | ASP.NET/Java → AKS |
-| GCP | [Migrate to Containers](https://cloud.google.com/migrate/containers/docs) | VM → GKE 컨테이너 |
-| OCI | [OCI DevOps + OKE](https://docs.oracle.com/en-us/iaas/Content/ContEng/home.htm) | 컨테이너 이미지화 후 OKE 배포 |
-
-## 리프트앤시프트 vs 리팩터링 트레이드오프
-
-가장 흔한 선택지인 Rehost(Lift & Shift)와 Refactor의 비교입니다.
-
-| 항목 | Rehost (Lift & Shift) | Refactor (클라우드 네이티브) |
-| --- | --- | --- |
-| **이전 기간** | 수 주\~수 개월 | 수 개월\~수 년 |
-| **개발 비용** | 낮음 (변경 최소) | 높음 (재설계/재구현) |
-| **운영 비용** | 온프레미스와 유사 | 클라우드 최적화로 30\~70% 절감 가능 |
-| **확장성** | 제한적 (VM 단위) | 높음 (서버리스, 수평 확장) |
-| **장애 복구** | 기존 방식 유지 | 클라우드 네이티브 HA/DR |
-| **위험도** | 낮음 | 높음 (재설계 실패 가능) |
-| **클라우드 이점 활용** | 제한적 | 최대 |
-| **데이터센터 철수 기한** | 짧아도 대응 가능 | 긴 기간 필요 |
-
-{% hint style="info" %}
-**일반적 패턴:** 데이터센터 철수 기한이 있다면 **먼저 Rehost로 이전한 후, 안정화 후 점진적으로 Replatform/Refactor** 하는 전략이 현실적입니다. 처음부터 모든 워크로드를 Refactor하면 일정 지연과 품질 문제가 발생하기 쉽습니다.
-{% endhint %}
 
 ## 다운타임 최소화
 
@@ -145,6 +114,35 @@ Gartner가 제시하고 AWS가 확장한 **7R 프레임워크** 는 워크로드
 - [ ] 이해관계자 통보 및 Go/No-Go 승인
 - [ ] Cutover 시간대(주말/야간) 확정
 - [ ] 장애 발생 시 대응 인력 대기
+
+## 마이그레이션 도구
+
+### 평가 및 발견
+
+| 벤더 | 제품 | 기능 |
+| --- | --- | --- |
+| AWS | [Application Discovery Service](https://aws.amazon.com/application-discovery/) | 에이전트/에이전트리스 방식으로 온프레미스 인벤토리 수집 |
+| AWS | [Migration Hub](https://aws.amazon.com/migration-hub/) | 마이그레이션 중앙 대시보드 |
+| Azure | [Azure Migrate](https://azure.microsoft.com/products/azure-migrate/) | 평가, 서버/DB 마이그레이션 통합 |
+| GCP | [Migration Center](https://cloud.google.com/migration-center/docs) | 포트폴리오 평가, 의존성 매핑 |
+| OCI | [Cloud Migrations](https://docs.oracle.com/en-us/iaas/Content/cloud-migration/home.htm) | 평가 및 실행 통합 |
+
+### VM/서버 마이그레이션
+
+| 벤더 | 제품 | 기능 |
+| --- | --- | --- |
+| AWS | [Application Migration Service (MGN)](https://aws.amazon.com/application-migration-service/) | 블록 수준 복제. 최소 다운타임 Rehost |
+| Azure | [Azure Migrate: Server Migration](https://learn.microsoft.com/azure/migrate/migrate-services-overview) | VMware/Hyper-V/물리 서버 → Azure VM |
+| GCP | [Migrate to Virtual Machines](https://cloud.google.com/migrate/virtual-machines/docs) | VMware/AWS/Azure → Compute Engine |
+| OCI | [OCI Cloud Migrations](https://docs.oracle.com/en-us/iaas/Content/cloud-migration/home.htm) | VMware/AWS → OCI |
+
+### 컨테이너화
+
+| 벤더 | 제품 | 기능 |
+| --- | --- | --- |
+| AWS | [App2Container](https://aws.amazon.com/app2container/) | Java/.NET 앱을 컨테이너화 |
+| Azure | [Migrate to containers](https://learn.microsoft.com/azure/migrate/tutorial-app-containerization-aspnet-kubernetes) | ASP.NET/Java → AKS |
+| GCP | [Migrate to Containers](https://cloud.google.com/migrate/containers/docs) | VM → GKE 컨테이너 |
 
 ## 참고하기
 

@@ -68,11 +68,8 @@ MSP는 일반적으로 **클라우드 사용료에 대한 추가 마진을 받�
 
 | 커뮤니티 | 대상 | 링크 |
 | --- | --- | --- |
-| AWSKRUG (AWS 한국 사용자 모임) | AWS 전반 | [awskrug.github.io](https://awskrug.github.io/) |
-| Azure Korea Community | Azure 전반 | [Facebook 그룹](https://www.facebook.com/groups/AzureKorea/) |
+| AWSKRUG (AWS 한국 사용자 모임) | AWS 전반 | [awskr.org](https://www.awskr.org/) |
 | GDG Cloud Korea | GCP 전반 | [gdg.community.dev](https://gdg.community.dev/gdg-cloud-korea/) |
-| CNCG Seoul | Kubernetes/클라우드 네이티브 | [community.cncf.io](https://community.cncf.io/cloud-native-community-groups-seoul/) |
-| 한국 DevOps 커뮤니티 | DevOps/SRE | [Facebook 그룹](https://www.facebook.com/groups/korea.devops/) |
 
 ## 어드바이저 / 권장 사항 서비스
 

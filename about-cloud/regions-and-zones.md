@@ -46,7 +46,7 @@ graph TB
 
 ## 벤더별 비교
 
-| 개념 | AWS | Azure | GCP | OCI |
+| 개념 | AWS | Azure | Google Cloud | OCI |
 | --- | --- | --- | --- | --- |
 | **리전** | Region | Region | Region | Region |
 | **가용영역** | Availability Zone | Availability Zone | Zone | Fault Domain / AD |
@@ -125,11 +125,11 @@ graph TB
 | --- | --- | --- | --- |
 | AWS | `ap-northeast-2` (서울) | 4개 AZ | 2016년 |
 | Azure | `koreacentral` (서울), `koreasouth` (부산) | 3개 AZ (Central) | 2017년 |
-| GCP | `asia-northeast3` (서울) | 3개 Zone | 2020년 |
+| Google Cloud | `asia-northeast3` (서울) | 3개 Zone | 2020년 |
 | OCI | `ap-seoul-1`, `ap-chuncheon-1` | 3 FD | 2020년 |
 
 {% hint style="info" %}
-Azure(서울-부산)와 OCI(서울-춘천)는 국내 2개 리전을 보유하여 데이터가 국외로 나가지 않는 DR 구성이 가능합니다. AWS/GCP는 도쿄·오사카가 가장 가까운 DR 후보입니다. 벤더별 DR 전략 상세는 [재해복구 (DR)](../governance/dr.md)를 참고하세요.
+Azure(서울-부산)와 OCI(서울-춘천)는 국내 2개 리전을 보유하여 데이터가 국외로 나가지 않는 DR 구성이 가능합니다. AWS/Google Cloud는 도쿄·오사카가 가장 가까운 DR 후보입니다. 벤더별 DR 전략 상세는 [재해복구 (DR)](../governance/dr.md)를 참고하세요.
 {% endhint %}
 
 ### 데이터 주권
@@ -140,7 +140,7 @@ Azure(서울-부산)와 OCI(서울-춘천)는 국내 2개 리전을 보유하여
 
 - **AWS** — SCP(Service Control Policy)로 특정 리전 외 리소스 생성 차단
 - **Azure** — Azure Policy로 허용 리전 제한
-- **GCP** — Organization Policy로 리소스 생성 가능 리전 제한
+- **Google Cloud** — Organization Policy로 리소스 생성 가능 리전 제한
 - **OCI** — Compartment Policy로 리전 제한
 
 ## 참고하기

@@ -18,14 +18,14 @@ description: 멀티클라우드 AI 아키텍처 패턴, RAG 파이프라인, GPU
 | --- | --- | --- |
 | AWS | [Amazon Bedrock](https://aws.amazon.com/bedrock/), [Amazon SageMaker AI](https://aws.amazon.com/sagemaker/ai/) | 자체 **Amazon Nova** 모델 + Anthropic/OpenAI/Meta/Mistral/NVIDIA 등 최대 규모 모델 카탈로그, 자체 AI 칩(Trainium/Inferentia) |
 | Azure | [Azure OpenAI / Microsoft Foundry](https://azure.microsoft.com/products/ai-services/openai-service) | OpenAI GPT 시리즈 주력, Microsoft 365/GitHub/Power Platform 통합, 엔터프라이즈 보안 |
-| GCP | [Vertex AI](https://cloud.google.com/vertex-ai), [Gemini](https://cloud.google.com/gemini) | 자체 **Gemini 2.5** 네이티브 멀티모달, TPU 인프라, BigQuery/Search 통합 |
+| Google Cloud | [Vertex AI](https://cloud.google.com/vertex-ai), [Gemini](https://cloud.google.com/gemini) | 자체 **Gemini 2.5** 네이티브 멀티모달, TPU 인프라, BigQuery/Search 통합 |
 | OCI | [OCI Generative AI](https://docs.oracle.com/iaas/Content/generative-ai/home.htm), [OCI AI Services](https://www.oracle.com/artificial-intelligence/ai-services/) | Cohere/Llama/Grok 제공, **Dedicated AI Cluster** (RDMA 기반 전용 GPU 클러스터, 다른 테넌트와 공유 없음), Oracle DB 네이티브 벡터 검색 통합, 이그레스 10TB 무료로 멀티클라우드 AI 파이프라인에 유리 |
 
 ## GPU 가용성
 
 AI 학습 및 추론에 필수적인 GPU 인스턴스를 주요 CSP별로 비교합니다.
 
-| 항목 | AWS | Azure | GCP | OCI |
+| 항목 | AWS | Azure | Google Cloud | OCI |
 | --- | --- | --- | --- | --- |
 | A100 인스턴스 | [p4d.24xlarge](https://aws.amazon.com/ec2/instance-types/p4/) (8×A100 40/80GB) | [ND A100 v4](https://learn.microsoft.com/en-us/azure/virtual-machines/nda100-v4-series) (8×A100 80GB) | [a2-highgpu-8g](https://cloud.google.com/compute/docs/gpus#a100-gpus) (8×A100 80GB) | [BM.GPU.A100-v2.8](https://docs.oracle.com/en-us/iaas/Content/Compute/References/computeshapes.htm) (8×A100 80GB) |
 | H100 인스턴스 | [p5.48xlarge](https://aws.amazon.com/ec2/instance-types/p5/) (8×H100 80GB) | [ND H100 v5](https://learn.microsoft.com/en-us/azure/virtual-machines/nd-h100-v5-series) (8×H100 80GB) | [a3-highgpu-8g](https://cloud.google.com/compute/docs/gpus#h100-gpus) (8×H100 80GB) | [BM.GPU.H100.8](https://docs.oracle.com/en-us/iaas/Content/Compute/References/computeshapes.htm) (8×H100 80GB) |
@@ -40,7 +40,7 @@ GPU 인스턴스 가격은 리전, 약정 기간, 가용성에 따라 크게 달
 
 RAG(Retrieval-Augmented Generation) 파이프라인은 Vector DB, Embedding 모델, LLM의 조합으로 구성됩니다. 각 벤더별 주요 구성 요소를 비교합니다.
 
-| 구성 요소 | AWS | Azure | GCP | OCI |
+| 구성 요소 | AWS | Azure | Google Cloud | OCI |
 | --- | --- | --- | --- | --- |
 | Vector DB | [Amazon OpenSearch Serverless](https://aws.amazon.com/opensearch-service/serverless-vector-engine/), [Amazon Aurora pgvector](https://aws.amazon.com/about-aws/whats-new/2023/07/amazon-aurora-postgresql-pgvector-vector-storage-similarity-search/) | [Azure AI Search](https://azure.microsoft.com/en-us/products/ai-services/ai-search), [Azure Cosmos DB (vCore)](https://learn.microsoft.com/en-us/azure/cosmos-db/vector-search) | [Vertex AI Vector Search](https://cloud.google.com/vertex-ai/docs/vector-search/overview), [AlloyDB](https://cloud.google.com/alloydb/docs/ai/work-with-embeddings) | [OCI Search with OpenSearch](https://www.oracle.com/cloud/search/), [Oracle Database 23ai](https://www.oracle.com/database/23ai/) |
 | Embedding | [Amazon Titan Embeddings](https://aws.amazon.com/bedrock/titan/) (Bedrock) | [text-embedding-ada-002](https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/models) (Azure OpenAI) | [text-embedding-005](https://cloud.google.com/vertex-ai/generative-ai/docs/embeddings/get-text-embeddings) (Vertex AI) | [Cohere Embed](https://docs.oracle.com/en-us/iaas/Content/generative-ai/embed-models.htm) (OCI Generative AI) |
@@ -80,7 +80,7 @@ RAG(Retrieval-Augmented Generation) 파이프라인은 Vector DB, Embedding 모�
 - [Azure AI Services 문서](https://learn.microsoft.com/en-us/azure/ai-services/)
 - [Azure OpenAI Service 문서](https://learn.microsoft.com/en-us/azure/ai-services/openai/)
 
-### GCP
+### Google Cloud
 
 - [Vertex AI 문서](https://cloud.google.com/vertex-ai/docs)
 - [Gemini API 문서](https://cloud.google.com/gemini/docs)

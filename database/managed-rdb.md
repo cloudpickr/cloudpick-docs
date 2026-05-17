@@ -11,7 +11,7 @@ description: 관리형 RDB와 클라우드 네이티브 DB의 차이, HA 구성,
 온프레미스에서 데이터베이스를 운영하려면 서버 설치, OS 패치, DB 엔진 설치, 백업 설정, 복제 구성, 장애 조치를 모두 직접 해야 합니다. **관리형 RDB**는 이 운영 부담을 벤더가 대신 처리하고, 사용자는 데이터와 쿼리에만 집중할 수 있게 합니다.
 
 {% hint style="info" %}
-AWS RDS를 아시는 분을 위해: Azure는 Azure SQL/Flexible Server, GCP는 Cloud SQL, OCI는 Autonomous Database입니다.
+AWS RDS를 아시는 분을 위해: Azure는 Azure SQL/Flexible Server, Google Cloud는 Cloud SQL, OCI는 Autonomous Database입니다.
 {% endhint %}
 
 ### DBA 역할의 변화
@@ -42,8 +42,8 @@ DB 선택 후의 운영 — 확장 패턴, 쿼리 성능, 캐시, HA, 백업 —
 | AWS | Aurora | **네이티브** | MySQL/PostgreSQL 호환. 자체 설계 분산 스토리지 |
 | Azure | Azure SQL Database | 관리형 | SQL Server 기반 |
 | Azure | Azure Database for MySQL/PostgreSQL | 관리형 | 오픈소스 엔진 관리형 |
-| GCP | Cloud SQL | 관리형 | MySQL, PostgreSQL, SQL Server |
-| GCP | AlloyDB | **네이티브** | PostgreSQL 호환. 자체 설계. 벡터 검색 내장 |
+| Google Cloud | Cloud SQL | 관리형 | MySQL, PostgreSQL, SQL Server |
+| Google Cloud | AlloyDB | **네이티브** | PostgreSQL 호환. 자체 설계. 벡터 검색 내장 |
 | OCI | Autonomous Database | **네이티브** | Oracle DB 기반. 자동 튜닝/패치/스케일링 |
 | OCI | MySQL HeatWave | 관리형 | MySQL 호환. OLTP + OLAP 통합 처리 |
 
@@ -66,7 +66,7 @@ DB 선택 후의 운영 — 확장 패턴, 쿼리 성능, 캐시, HA, 백업 —
 | 유형 | 벤더 | 제품 | 멀티 리전 쓰기 | 일관성 |
 | --- | --- | --- | --- | --- |
 | **RDB** | AWS | Aurora Global Database | — (읽기만 분산, 쓰기는 단일 리전) | 강한 일관성 (프라이머리) |
-| **RDB** | GCP | Spanner | 지원 | 강한 일관성 (글로벌 트랜잭션) |
+| **RDB** | Google Cloud | Spanner | 지원 | 강한 일관성 (글로벌 트랜잭션) |
 | **NoSQL** | Azure | Cosmos DB | 지원 | 5가지 수준 선택 가능 |
 | **NoSQL** | AWS | DynamoDB Global Tables | 지원 | 최종 일관성 (리전 간) |
 | **RDB** | OCI | Autonomous Data Guard | — (크로스 리전 복제) | 강한 일관성 (프라이머리) |
@@ -94,7 +94,7 @@ DB 선택 후의 운영 — 확장 패턴, 쿼리 성능, 캐시, HA, 백업 —
 
 **Azure SQL Database** — SQL Server 기반. 기존 SQL Server 워크로드를 가장 쉽게 마이그레이션할 수 있습니다. Hyperscale 티어에서 100TB까지 확장.
 
-**GCP AlloyDB** — PostgreSQL 호환. 벡터 검색이 내장되어 AI 워크로드와의 통합이 강점입니다.
+**Google Cloud AlloyDB** — PostgreSQL 호환. 벡터 검색이 내장되어 AI 워크로드와의 통합이 강점입니다.
 
 **OCI Autonomous Database** — Oracle DB 기반. 자동 튜닝, 자동 패치, 자동 스케일링. MySQL HeatWave로 OLTP+OLAP 통합 처리도 지원합니다.
 
@@ -106,7 +106,7 @@ Oracle은 자사 데이터베이스를 경쟁사 데이터센터 안에 직접 �
 | --- | --- | --- |
 | [Oracle Database@Azure](https://www.oracle.com/cloud/azure/) | Azure DC | Azure Portal에서 네이티브 프로비저닝 |
 | [Oracle Database@AWS](https://www.oracle.com/cloud/aws/) | AWS DC | AWS 콘솔에서 직접 사용 |
-| [Oracle Database@Google Cloud](https://www.oracle.com/cloud/google/) | GCP DC | GCP 콘솔에서 직접 사용 |
+| [Oracle Database@Google Cloud](https://www.oracle.com/cloud/google/) | Google Cloud DC | Google Cloud 콘솔에서 직접 사용 |
 
 앱과 DB가 같은 데이터센터에 있어 레이턴시 최소화, 이그레스 비용 없음, 데이터 주권 충족이 가능합니다.
 
@@ -116,7 +116,7 @@ Oracle은 자사 데이터베이스를 경쟁사 데이터센터 안에 직접 �
 | --- | --- |
 | MySQL/PostgreSQL + 고가용성 + 자동 스토리지 확장 | AWS Aurora |
 | 기존 SQL Server 워크로드 마이그레이션 | Azure SQL Database |
-| PostgreSQL + AI/벡터 검색 통합 | GCP AlloyDB |
+| PostgreSQL + AI/벡터 검색 통합 | Google Cloud AlloyDB |
 | Oracle DB + 자동 튜닝/패치 | OCI Autonomous Database |
 | 유휴 시 비용 0 (개발/테스트) | Aurora Serverless, Azure SQL Serverless |
 | OLTP + OLAP 통합 MySQL | OCI MySQL HeatWave |
@@ -133,7 +133,7 @@ Oracle은 자사 데이터베이스를 경쟁사 데이터센터 안에 직접 �
 - [Azure SQL Database 문서](https://learn.microsoft.com/ko-kr/azure/azure-sql/)
 - [Azure Database for PostgreSQL 문서](https://learn.microsoft.com/ko-kr/azure/postgresql/)
 
-### GCP
+### Google Cloud
 
 - [Cloud SQL 문서](https://cloud.google.com/sql/docs)
 - [AlloyDB 문서](https://cloud.google.com/alloydb/docs)

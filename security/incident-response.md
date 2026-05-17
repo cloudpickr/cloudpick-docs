@@ -36,9 +36,9 @@ graph LR
 
 | 상황 | 조치 | 벤더별 방법 |
 | --- | --- | --- |
-| **API 키/자격 증명 유출** | 키 즉시 비활성화 + 활성 세션 무효화 | AWS: Access Key 비활성화 + 세션 취소, Azure: Entra ID 세션 취소, GCP: Service Account 키 삭제 |
-| **역할/권한 탈취** | 해당 역할에 Deny 정책 추가 또는 세션 만료 강제 | AWS: SCP Deny, Azure: Conditional Access 차단, GCP: Organization Policy |
-| **계정 전체 침해** | 계정/구독/프로젝트를 조직에서 격리 | AWS: SCP 전체 Deny, Azure: Subscription 비활성화, GCP: Project 정지 |
+| **API 키/자격 증명 유출** | 키 즉시 비활성화 + 활성 세션 무효화 | AWS: Access Key 비활성화 + 세션 취소, Azure: Entra ID 세션 취소, Google Cloud: Service Account 키 삭제 |
+| **역할/권한 탈취** | 해당 역할에 Deny 정책 추가 또는 세션 만료 강제 | AWS: SCP Deny, Azure: Conditional Access 차단, Google Cloud: Organization Policy |
+| **계정 전체 침해** | 계정/구독/프로젝트를 조직에서 격리 | AWS: SCP 전체 Deny, Azure: Subscription 비활성화, Google Cloud: Project 정지 |
 
 ### 네트워크 기반 격리
 
@@ -64,7 +64,7 @@ graph LR
 
 ## 벤더별 사고 대응 도구
 
-| 영역 | AWS | Azure | GCP | OCI |
+| 영역 | AWS | Azure | Google Cloud | OCI |
 | --- | --- | --- | --- | --- |
 | **탐지** | GuardDuty | Defender for Cloud | Security Command Center | Cloud Guard |
 | **조사** | Detective | Sentinel (Investigation) | Chronicle | Logging Analytics |
@@ -99,9 +99,9 @@ graph LR
 
 - [Azure Security Incident Response](https://learn.microsoft.com/azure/security/fundamentals/incident-response-overview)
 
-### GCP
+### Google Cloud
 
-- [GCP Responding to Security Incidents](https://cloud.google.com/security/incident-response)
+- [Google Cloud Responding to Security Incidents](https://cloud.google.com/security/incident-response)
 
 ### OCI
 

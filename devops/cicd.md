@@ -62,7 +62,7 @@ flowchart LR
 | --- | --- | --- |
 | AWS | CodeBuild | 완전 관리형. 분 단위 과금. Docker 이미지 빌드 지원 |
 | Azure | Azure Pipelines | GitHub/Azure Repos 연동. 무료 티어 (월 1,800분) |
-| GCP | Cloud Build | 컨테이너 기반. 120분/일 무료 |
+| Google Cloud | Cloud Build | 컨테이너 기반. 120분/일 무료 |
 | OCI | OCI DevOps Build Pipelines | 관리형 빌드. OCI 서비스 네이티브 연동 |
 
 ### 배포 (CD)
@@ -72,7 +72,7 @@ flowchart LR
 | AWS | CodeDeploy | EC2, ECS, Lambda 배포. Blue/Green, Rolling 지원 |
 | AWS | CodePipeline | 빌드→테스트→배포 파이프라인 오케스트레이션 |
 | Azure | Azure Pipelines (Release) | 멀티 스테이지 파이프라인. 승인 게이트 |
-| GCP | Cloud Deploy | GKE, Cloud Run 배포. 프로모션 기반 |
+| Google Cloud | Cloud Deploy | GKE, Cloud Run 배포. 프로모션 기반 |
 | OCI | OCI DevOps Deployment Pipelines | OKE, Compute, Functions 배포. 승인 단계 지원 |
 
 ### 소스 저장소
@@ -81,7 +81,7 @@ flowchart LR
 | --- | --- | --- |
 | AWS | CodeCommit | 2024년 신규 생성 중단. GitHub/GitLab 사용 권장 |
 | Azure | Azure Repos | Git 기반. Azure DevOps에 포함 |
-| GCP | Cloud Source Repositories | 미러링 지원. GitHub/GitLab 연동 |
+| Google Cloud | Cloud Source Repositories | 미러링 지원. GitHub/GitLab 연동 |
 | OCI | OCI DevOps Code Repositories | Git 기반. OCI DevOps에 포함 |
 
 ### 아티팩트 저장소
@@ -90,7 +90,7 @@ flowchart LR
 | --- | --- | --- |
 | AWS | CodeArtifact | Maven, npm, PyPI, NuGet 패키지 |
 | Azure | Azure Artifacts | Azure DevOps에 포함 |
-| GCP | Artifact Registry | 컨테이너 이미지 + 언어별 패키지 통합 |
+| Google Cloud | Artifact Registry | 컨테이너 이미지 + 언어별 패키지 통합 |
 | OCI | OCI Artifact Registry | 컨테이너 이미지 + 일반 아티팩트 |
 
 ## 핵심 차이점
@@ -99,7 +99,7 @@ flowchart LR
 
 **Azure** — Azure DevOps가 소스 관리, CI/CD, 보드(이슈 트래킹), 테스트를 하나의 플랫폼으로 통합합니다. GitHub Actions와도 긴밀히 연동됩니다.
 
-**GCP** — Cloud Build가 빌드와 배포를 모두 처리할 수 있어 단순합니다. Cloud Deploy는 GKE/Cloud Run에 특화된 CD 도구입니다.
+**Google Cloud** — Cloud Build가 빌드와 배포를 모두 처리할 수 있어 단순합니다. Cloud Deploy는 GKE/Cloud Run에 특화된 CD 도구입니다.
 
 **OCI** — OCI DevOps가 빌드/배포 파이프라인을 통합 제공하며, OKE, Compute, Functions 배포와 승인 단계를 네이티브로 지원합니다.
 
@@ -176,7 +176,7 @@ flowchart LR
 - [Azure Pipelines 문서](https://learn.microsoft.com/ko-kr/azure/devops/pipelines/)
 - [Azure DevOps 문서](https://learn.microsoft.com/ko-kr/azure/devops/)
 
-### GCP
+### Google Cloud
 
 - [Cloud Build 문서](https://cloud.google.com/build/docs)
 - [Cloud Deploy 문서](https://cloud.google.com/deploy/docs)

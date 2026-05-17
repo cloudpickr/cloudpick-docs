@@ -103,7 +103,7 @@ CDN은 정적 파일뿐 아니라 다양한 워크로드에 적용할 수 있습
 
 CDN을 통해 배포하면서도 접근을 제한해야 하는 경우 (유료 콘텐츠, 인증된 사용자만 접근):
 
-| 방법 | 설명 | AWS | Azure | GCP |
+| 방법 | 설명 | AWS | Azure | Google Cloud |
 | --- | --- | --- | --- | --- |
 | **Signed URL** | 시간 제한이 있는 서명된 URL | CloudFront Signed URL | Front Door Private Link | Cloud CDN Signed URL |
 | **Signed Cookie** | 쿠키 기반 인증. 여러 파일 동시 적용 | CloudFront Signed Cookie | — | — |
@@ -121,13 +121,13 @@ CDN을 통해 배포하면서도 접근을 제한해야 하는 경우 (유료 �
 | --- | --- | --- |
 | AWS | CloudFront | 400+ 엣지 로케이션. Origin Shield(오리진 보호 캐시 계층) |
 | Azure | Azure CDN / Front Door | Front Door에 CDN + WAF + 글로벌 LB 통합 |
-| GCP | Cloud CDN | Cloud Load Balancing과 통합. 캐시 무효화 빠름 |
+| Google Cloud | Cloud CDN | Cloud Load Balancing과 통합. 캐시 무효화 빠름 |
 
 ### 핵심 차이점
 
 - **AWS CloudFront** — 엣지 로케이션 수가 가장 많고, Lambda@Edge/CloudFront Functions로 엣지에서 코드를 실행할 수 있습니다. Origin Shield로 오리진 부하를 추가로 줄일 수 있습니다.
 - **Azure Front Door** — CDN, 글로벌 로드밸런서, WAF를 하나의 서비스로 통합합니다. 별도 CDN 설정 없이 Front Door 하나로 전체 트래픽을 관리할 수 있습니다.
-- **GCP Cloud CDN** — Cloud Load Balancing에 체크박스 하나로 활성화할 수 있어 설정이 가장 간단합니다. 캐시 무효화가 수 초 내에 전파됩니다.
+- **Google Cloud Cloud CDN** — Cloud Load Balancing에 체크박스 하나로 활성화할 수 있어 설정이 가장 간단합니다. 캐시 무효화가 수 초 내에 전파됩니다.
 
 ## 글로벌 네트워크 가속기
 
@@ -149,7 +149,7 @@ CDN은 콘텐츠를 **캐싱**하여 빠르게 전달하지만, 캐싱이 불가
 | --- | --- | --- | --- |
 | AWS | Global Accelerator | TCP/UDP | L4만. HTTP 라우팅 필요 시 ALB와 조합 |
 | Azure | Front Door | HTTP + TCP | L7 통합. TCP 프록시는 Premium 티어 |
-| GCP | Cloud LB (Premium Tier) | HTTP/TCP/UDP | 기본 글로벌. Standard Tier는 리전 한정 |
+| Google Cloud | Cloud LB (Premium Tier) | HTTP/TCP/UDP | 기본 글로벌. Standard Tier는 리전 한정 |
 
 ### 선택 기준
 
@@ -173,7 +173,7 @@ CDN 엣지에서 코드를 실행하여 요청/응답을 변환하거나, 간단
 | AWS | CloudFront Functions | 경량 (요청/응답 헤더 변환, 리다이렉트). 밀리초 이내 |
 | AWS | Lambda@Edge | 풀 기능 (오리진 요청/응답 변환, 인증). 수 밀리초 |
 | Azure | Front Door Rules Engine | 규칙 기반 라우팅/변환 |
-| GCP | Cloud CDN + Cloud Functions | 별도 조합 |
+| Google Cloud | Cloud CDN + Cloud Functions | 별도 조합 |
 
 ## 참고하기
 
@@ -188,7 +188,7 @@ CDN 엣지에서 코드를 실행하여 요청/응답을 변환하거나, 간단
 - [Azure Front Door 문서](https://learn.microsoft.com/ko-kr/azure/frontdoor/)
 - [Azure CDN 문서](https://learn.microsoft.com/ko-kr/azure/cdn/)
 
-### GCP
+### Google Cloud
 
 - [Cloud CDN 문서](https://cloud.google.com/cdn/docs)
 - [Media CDN 문서](https://cloud.google.com/media-cdn/docs)

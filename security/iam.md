@@ -44,10 +44,10 @@ IAM에서 관리하는 ID는 크게 3가지입니다. 각각 생성/권한 부�
 
 | 라이프사이클 | 해야 할 일 | 벤더별 방법 |
 | --- | --- | --- |
-| **입사** | 계정 생성 + 그룹 배정 + MFA 강제 | AWS: Identity Center에서 사용자 생성 또는 외부 IdP(Okta, Microsoft Entra ID) 연동. Azure: Entra ID 사용자 생성. GCP: Cloud Identity 또는 Workspace. OCI: Identity Domain 사용자 생성 |
+| **입사** | 계정 생성 + 그룹 배정 + MFA 강제 | AWS: Identity Center에서 사용자 생성 또는 외부 IdP(Okta, Microsoft Entra ID) 연동. Azure: Entra ID 사용자 생성. Google Cloud: Cloud Identity 또는 Workspace. OCI: Identity Domain 사용자 생성 |
 | **부서 이동** | 기존 그룹 제거 + 새 그룹 배정 | 그룹 기반 권한이면 그룹만 변경. 개별 정책 부여했다면 수동 정리 필요 |
 | **퇴사** | 계정 비활성화 → 세션 무효화 → 일정 기간 후 삭제 | 즉시 삭제하면 감사 추적 불가. 비활성화 후 90일 보존 권장 |
-| **정기 검토** | 미사용 계정/과다 권한 탐지 | AWS: Access Analyzer, Azure: Access Reviews, GCP: IAM Recommender |
+| **정기 검토** | 미사용 계정/과다 권한 탐지 | AWS: Access Analyzer, Azure: Access Reviews, Google Cloud: IAM Recommender |
 
 **실무 원칙:**
 - 개별 사용자에게 직접 정책을 붙이지 말 것 → **그룹 기반** 권한 관리
@@ -62,7 +62,7 @@ EC2, Lambda, 컨테이너, CI/CD 파이프라인 등 **사람이 아닌 워크�
 | --- | --- | --- |
 | AWS | **IAM Role** (Instance Profile, Task Role, Execution Role) | EC2/ECS/Lambda에 역할을 연결하면 임시 자격 증명이 자동 주입됨 |
 | Azure | **Managed Identity** (System-assigned / User-assigned) | VM/App Service/Function에 연결. 토큰 자동 발급/갱신 |
-| GCP | **Attached Service Account** + Workload Identity | GKE Pod에 Service Account 연결. 키 파일 불필요 |
+| Google Cloud | **Attached Service Account** + Workload Identity | GKE Pod에 Service Account 연결. 키 파일 불필요 |
 | OCI | **Instance Principal / Resource Principal** | Compute/Function에 동적 그룹 매칭으로 권한 부여 |
 
 **절대 하지 말 것:**
@@ -79,7 +79,7 @@ EC2, Lambda, 컨테이너, CI/CD 파이프라인 등 **사람이 아닌 워크�
 
 | 시나리오 | 권장 방법 | 주의점 |
 | --- | --- | --- |
-| **외부 SaaS가 우리 S3/Blob 접근** | Cross-account Role (AWS), Service Principal + RBAC (Azure), Workload Identity Federation (GCP) | 외부 계정 ID를 신뢰 정책에 명시. 와일드카드(`*`) 금지 |
+| **외부 SaaS가 우리 S3/Blob 접근** | Cross-account Role (AWS), Service Principal + RBAC (Azure), Workload Identity Federation (Google Cloud) | 외부 계정 ID를 신뢰 정책에 명시. 와일드카드(`*`) 금지 |
 | **파트너사 엔지니어가 콘솔 접근** | 별도 역할 생성 + 시간 제한 + MFA 강제 | 상시 접근 금지. JIT 방식으로 필요 시에만 활성화 |
 | **감사/컨설팅 업체** | 읽기 전용 역할 + 특정 리소스만 | 전체 계정 읽기 권한 부여 금지. 필요한 서비스만 |
 | **CI/CD 외부 서비스 (GitHub Actions 등)** | OIDC Federation (키 없이 토큰 교환) | 장기 키 대신 OIDC 사용. 리포지토리/브랜치 조건 제한 |
@@ -90,7 +90,7 @@ EC2, Lambda, 컨테이너, CI/CD 파이프라인 등 **사람이 아닌 워크�
 | --- | --- | --- |
 | AWS | Cross-account IAM Role (신뢰 정책에 외부 계정 ID 지정) | OIDC/SAML Federation, IAM Identity Center |
 | Azure | B2B Collaboration (Entra ID 게스트), Lighthouse (MSP용) | Entra External ID, Workload Identity Federation |
-| GCP | Cross-project IAM binding, Workload Identity Pool | Workforce Identity Federation, Workload Identity Federation |
+| Google Cloud | Cross-project IAM binding, Workload Identity Pool | Workforce Identity Federation, Workload Identity Federation |
 | OCI | Cross-tenancy Policy (`define tenancy`), Identity Domain Federation | SAML/OIDC Federation |
 
 {% hint style="warning" %}
@@ -106,8 +106,8 @@ EC2, Lambda, 컨테이너, CI/CD 파이프라인 등 **사람이 아닌 워크�
 | AWS | IAM Access Analyzer | 미사용 역할/권한 탐지. CloudTrail 기반 최소 권한 정책 자동 생성 |
 | AWS | CloudTrail | 모든 API 호출 기록. 누가 무엇을 했는지 감사 |
 | Azure | Entra ID Governance (Access Reviews) | 정기적 권한 검토 자동화. 과다 권한 탐지 |
-| GCP | IAM Recommender | 미사용 권한 탐지 + 축소 권장 |
-| GCP | Policy Analyzer | 누가 어떤 리소스에 접근 가능한지 분석 |
+| Google Cloud | IAM Recommender | 미사용 권한 탐지 + 축소 권장 |
+| Google Cloud | Policy Analyzer | 누가 어떤 리소스에 접근 가능한지 분석 |
 
 ### 실천 가이드
 
@@ -160,7 +160,7 @@ EC2, Lambda, 컨테이너, CI/CD 파이프라인 등 **사람이 아닌 워크�
 - [Entra ID Governance](https://learn.microsoft.com/ko-kr/entra/id-governance/)
 - [Conditional Access](https://learn.microsoft.com/ko-kr/entra/identity/conditional-access/)
 
-### GCP
+### Google Cloud
 
 - [Cloud IAM 문서](https://cloud.google.com/iam/docs)
 - [IAM Recommender](https://cloud.google.com/iam/docs/recommender-overview)

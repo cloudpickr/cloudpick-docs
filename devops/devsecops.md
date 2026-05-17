@@ -56,7 +56,7 @@ graph LR
 | --- | --- | --- |
 | AWS | [Amazon Inspector (코드 스캔)](https://docs.aws.amazon.com/inspector/latest/user/scanning-code.html) | Lambda/ECR 코드 취약점 자동 스캔. Python, Java, JavaScript 등 |
 | Azure | [Microsoft Defender for DevOps](https://learn.microsoft.com/azure/defender-for-cloud/defender-for-devops-introduction) + GitHub Advanced Security | CodeQL 기반. GitHub/Azure DevOps 네이티브 통합 |
-| GCP | 네이티브 SAST 없음 — Cloud Build에 [Semgrep](https://semgrep.dev/) 또는 [SonarQube](https://www.sonarsource.com/products/sonarqube/) 통합 | 서드파티 도구를 파이프라인에 연동 |
+| Google Cloud | 네이티브 SAST 없음 — Cloud Build에 [Semgrep](https://semgrep.dev/) 또는 [SonarQube](https://www.sonarsource.com/products/sonarqube/) 통합 | 서드파티 도구를 파이프라인에 연동 |
 | 벤더 중립 | [SonarQube](https://www.sonarsource.com/products/sonarqube/), [Semgrep](https://semgrep.dev/), [Snyk Code](https://snyk.io/product/snyk-code/) | 멀티클라우드 환경에서 일관된 분석 |
 
 ## DAST (Dynamic Application Security Testing)
@@ -79,7 +79,7 @@ graph LR
 | --- | --- | --- |
 | AWS | [Inspector SBOM](https://docs.aws.amazon.com/inspector/latest/user/sbom-generator.html) | SBOM 생성 + CVE 매칭 |
 | Azure | [Defender for DevOps](https://learn.microsoft.com/azure/defender-for-cloud/defender-for-devops-introduction) + [GitHub Dependabot](https://docs.github.com/en/code-security/dependabot) | Defender for DevOps로 Azure DevOps/GitHub 통합. Dependabot은 GitHub 기능 |
-| GCP | [Artifact Analysis](https://cloud.google.com/artifact-analysis/docs) | 컨테이너 이미지 + 언어 패키지 스캔 |
+| Google Cloud | [Artifact Analysis](https://cloud.google.com/artifact-analysis/docs) | 컨테이너 이미지 + 언어 패키지 스캔 |
 | 벤더 중립 | [Snyk Open Source](https://snyk.io/product/snyk-open-source/), [Trivy](https://trivy.dev/), [Grype](https://github.com/anchore/grype) | 멀티 레지스트리, 멀티 언어 지원 |
 
 ## IaC 보안 검증
@@ -113,7 +113,7 @@ graph LR
 | --- | --- | --- |
 | [AWS SCP (Service Control Policies)](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps.html) | AWS | Organization 수준에서 허용/거부 액션 강제 |
 | [Azure Policy](https://learn.microsoft.com/azure/governance/policy/overview) | Azure | 리소스 생성/변경 시 정책 평가. 거부/감사/자동 교정 |
-| [GCP Organization Policy](https://cloud.google.com/resource-manager/docs/organization-policy/overview) | GCP | 조직 수준 제약 조건 (리전 제한, 서비스 제한 등) |
+| [Google Cloud Organization Policy](https://cloud.google.com/resource-manager/docs/organization-policy/overview) | Google Cloud | 조직 수준 제약 조건 (리전 제한, 서비스 제한 등) |
 | [OCI Security Zones](https://docs.oracle.com/en-us/iaas/security-zone/home.htm) | OCI | 컴파트먼트에 보안 정책 부착. 위반 작업 거부 (예방적 정책 강제) |
 | [OPA (Open Policy Agent)](https://www.openpolicyagent.org/) | 벤더 중립 | Rego 언어로 범용 정책 정의. Kubernetes, Terraform, API 게이트웨이 등 |
 | [HashiCorp Sentinel](https://www.hashicorp.com/sentinel) | 벤더 중립 | Terraform Enterprise/Cloud에서 정책 강제 |
@@ -162,7 +162,7 @@ graph LR
 
 - [Microsoft Security Development Lifecycle](https://www.microsoft.com/en-us/securityengineering/sdl)
 
-### GCP
+### Google Cloud
 
 - [Google Cloud Security Best Practices](https://cloud.google.com/security/best-practices)
 

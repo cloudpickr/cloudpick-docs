@@ -18,7 +18,7 @@ description: CSP 기술 지원 플랜, MSP 파트너 역할, 어드바이저 서
 | --- | --- | --- |
 | AWS | Basic → Business Support+ → Enterprise → Unified Operations | [2027년 1월부터 새 체계 적용](https://aws.amazon.com/premiumsupport/plans/) |
 | Azure | Basic → Developer → Standard → Professional Direct → Unified | |
-| GCP | Basic → Standard → Enhanced → Premium | |
+| Google Cloud | Basic → Standard → Enhanced → Premium | |
 | OCI | Basic → Paid (Premier) | Premier는 전담 CSM 배정 |
 
 프로덕션 워크로드를 운영한다면 유료 플랜 가입을 권장합니다. 장애 발생 시 응답 시간이 크게 달라지며, 아키텍처 리뷰나 비용 최적화 조언도 받을 수 있습니다.
@@ -39,7 +39,7 @@ description: CSP 기술 지원 플랜, MSP 파트너 역할, 어드바이저 서
 | --- | --- | --- |
 | AWS | Enterprise / Unified Operations | Technical Account Manager |
 | Azure | Unified (구 Premier) | Designated Support Engineer |
-| GCP | Premium | Technical Account Manager |
+| Google Cloud | Premium | Technical Account Manager |
 | OCI | Premier | Customer Success Manager (CSM) |
 
 {% hint style="info" %}
@@ -69,7 +69,7 @@ TAM은 벤더 내부 조직과의 연결 통로 역할을 합니다. 대규모 �
 | --- | --- | --- |
 | AWS | Trusted Advisor | 비용, 보안, 성능, 내결함성, 서비스 한도 검사. 전체 검사는 Business Support 이상 |
 | Azure | Azure Advisor | 비용, 보안, 안정성, 운영 우수성, 성능 권장 사항. 모든 플랜에서 이용 가능 |
-| GCP | Recommender / Active Assist | 비용, 보안, 성능, 관리 효율성 권장 사항. 모든 플랜에서 이용 가능 |
+| Google Cloud | Recommender / Active Assist | 비용, 보안, 성능, 관리 효율성 권장 사항. 모든 플랜에서 이용 가능 |
 | OCI | Cloud Advisor | 비용 최적화, 보안, 성능 권장 사항. 모든 테넌시에서 이용 가능 |
 
 이 서비스들은 정기적으로 확인하고 권장 사항을 적용하면 비용과 보안 모두 개선할 수 있습니다.
@@ -115,11 +115,11 @@ MSP는 일반적으로 **클라우드 사용료에 대한 추가 마진을 받�
 | AWS | [re:Post Knowledge Center](https://repost.aws/knowledge-center) | 자주 묻는 질문 모음 |
 | Azure | [Microsoft Q&A](https://learn.microsoft.com/ko-kr/answers/) | 제품별 Q&A |
 | Azure | [Tech Community](https://techcommunity.microsoft.com/) | 블로그, 포럼, 이벤트 |
-| GCP | [Google Cloud Community](https://www.googlecloudcommunity.com/) | 토론 포럼 |
-| GCP | [Stack Overflow (google-cloud 태그)](https://stackoverflow.com/questions/tagged/google-cloud-platform) | 개발 관련 Q&A |
+| Google Cloud | [Google Cloud Community](https://www.googlecloudcommunity.com/) | 토론 포럼 |
+| Google Cloud | [Stack Overflow (google-cloud 태그)](https://stackoverflow.com/questions/tagged/google-cloud-platform) | 개발 관련 Q&A |
 | OCI | [Oracle Cloud Community](https://community.oracle.com/mosc/categories/oci) | Oracle 공식 포럼 |
 | AWS | [AWSKRUG](https://www.awskr.org/) | 한국 AWS 사용자 커뮤니티 |
-| GCP | [GDG Cloud Korea](https://gdg.community.dev/gdg-cloud-korea/) | 한국 GCP 사용자 커뮤니티 |
+| Google Cloud | [GDG Cloud Korea](https://gdg.community.dev/gdg-cloud-korea/) | 한국 Google Cloud 사용자 커뮤니티 |
 
 {% hint style="info" %}
 위 목록은 대표적인 커뮤니티만 선별한 것입니다. 이 외에도 벤더별·주제별·지역별 커뮤니티가 다수 존재합니다.
@@ -139,7 +139,7 @@ MSP는 일반적으로 **클라우드 사용료에 대한 추가 마진을 받�
 - [Azure Advisor](https://learn.microsoft.com/ko-kr/azure/advisor/)
 - [Azure 파트너](https://partner.microsoft.com/ko-kr/)
 
-### GCP
+### Google Cloud
 
 - [Google Cloud 지원](https://cloud.google.com/support/docs)
 - [Recommender](https://cloud.google.com/recommender/docs)

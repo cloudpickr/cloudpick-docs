@@ -26,8 +26,8 @@ description: DB 마이그레이션 전략(Rehost/Replatform/Refactor)과 다운�
 | AWS | SCT (Schema Conversion Tool) | 이종 마이그레이션 시 스키마 자동 변환 |
 | Azure | Azure Database Migration Service | 온라인/오프라인 마이그레이션. Azure SQL로의 이동에 최적화 |
 | Azure | Azure Migrate | DB 포함 전체 워크로드 마이그레이션 평가/실행 |
-| GCP | Database Migration Service | MySQL, PostgreSQL, SQL Server → Cloud SQL/AlloyDB |
-| GCP | Datastream | CDC 기반 실시간 복제. BigQuery로 스트리밍 가능 |
+| Google Cloud | Database Migration Service | MySQL, PostgreSQL, SQL Server → Cloud SQL/AlloyDB |
+| Google Cloud | Datastream | CDC 기반 실시간 복제. BigQuery로 스트리밍 가능 |
 | OCI | OCI Database Migration | Oracle/MySQL → OCI DB. 온라인 마이그레이션(Zero Downtime) 지원 |
 
 ## 핵심 차이점
@@ -36,7 +36,7 @@ description: DB 마이그레이션 전략(Rehost/Replatform/Refactor)과 다운�
 
 **Azure** — Azure SQL로의 마이그레이션에 특화되어 있으며, SQL Server 워크로드 이전이 가장 매끄럽습니다. Azure Migrate로 마이그레이션 전 평가(호환성, 비용 추정)를 수행할 수 있습니다.
 
-**GCP Datastream** — CDC 기반 실시간 복제를 제공하며, BigQuery로 직접 스트리밍하여 분석 파이프라인을 구성할 수 있습니다.
+**Google Cloud Datastream** — CDC 기반 실시간 복제를 제공하며, BigQuery로 직접 스트리밍하여 분석 파이프라인을 구성할 수 있습니다.
 
 **OCI Database Migration** — Oracle/MySQL DB를 OCI로 온라인 마이그레이션(Zero Downtime)할 수 있으며, GoldenGate 기반의 실시간 복제를 지원합니다.
 
@@ -135,7 +135,7 @@ DB 마이그레이션은 일회성 데이터 이동이 아니라 여러 단계�
 - [Azure Database Migration Service 문서](https://learn.microsoft.com/ko-kr/azure/dms/)
 - [Azure Migrate 문서](https://learn.microsoft.com/ko-kr/azure/migrate/)
 
-### GCP
+### Google Cloud
 
 - [Database Migration Service 문서](https://cloud.google.com/database-migration/docs)
 - [Datastream 문서](https://cloud.google.com/datastream/docs)

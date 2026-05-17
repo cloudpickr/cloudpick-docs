@@ -62,7 +62,7 @@ description: 클라우드 공동 책임 모델, IaaS/PaaS/SaaS별 책임 경계,
 | **기본 구조** | 전통적 공동 책임 | AWS와 유사 | 공동 운명 모델 | 전통적 + 자동화 강조 |
 | **벤더의 추가 지원** | Well-Architected Tool, Trusted Advisor | Defender for Cloud, Secure Score | Security Command Center, Assured Workloads | Cloud Guard, Security Zones |
 | **보안 기본값** | 사용자가 명시적으로 설정 | 사용자가 명시적으로 설정 | 보안 기본값이 더 엄격 | Security Zones로 자동 강제 |
-| **공식 문서** | [AWS](https://aws.amazon.com/ko/compliance/shared-responsibility-model/) | [Azure](https://learn.microsoft.com/ko-kr/azure/security/fundamentals/shared-responsibility) | [GCP](https://cloud.google.com/architecture/framework/security/shared-responsibility-shared-fate) | [OCI](https://docs.oracle.com/en-us/iaas/Content/Security/Concepts/security_guide.htm) |
+| **공식 문서** | [AWS](https://aws.amazon.com/ko/compliance/shared-responsibility-model/) | [Azure](https://learn.microsoft.com/ko-kr/azure/security/fundamentals/shared-responsibility) | [Google Cloud](https://cloud.google.com/architecture/framework/security/shared-responsibility-shared-fate) | [OCI](https://docs.oracle.com/en-us/iaas/Content/Security/Concepts/security_guide.htm) |
 
 {% hint style="info" %}
 각 벤더의 보안 설계 원칙과 프레임워크는 [Well-Architected Framework](well-architected.md)를 참고하세요.
@@ -85,15 +85,15 @@ Microsoft의 엔터프라이즈 보안 생태계(Active Directory, Defender, Sen
 **모델명:** Shared Responsibility
 {% endtab %}
 
-{% tab title="GCP" %}
-GCP는 전통적인 공동 책임 모델에서 한 발 더 나아가 **공동 운명 모델** (Shared Fate)을 제시합니다.
+{% tab title="Google Cloud" %}
+Google Cloud는 전통적인 공동 책임 모델에서 한 발 더 나아가 **공동 운명 모델** (Shared Fate)을 제시합니다.
 
 - **벤더의 적극적 관여** — 고객이 보안을 잘 구성할 수 있도록 더 적극적으로 도구와 가이드를 제공합니다.
 - **보안 기본값 강화** — Cloud Storage 버킷은 기본적으로 공개 접근이 차단되어 있습니다.
 - **Assured Workloads** — 규제 요건에 맞는 워크로드 환경을 자동으로 구성해 줍니다.
 - **Security Command Center** — 보안 취약점을 자동으로 탐지하고 권장 조치를 제시합니다.
 
-AWS/Azure가 "여기까지는 우리 책임, 나머지는 당신 책임"이라면, GCP는 "당신의 보안 성공이 곧 우리의 성공"이라는 입장입니다.
+AWS/Azure가 "여기까지는 우리 책임, 나머지는 당신 책임"이라면, Google Cloud는 "당신의 보안 성공이 곧 우리의 성공"이라는 입장입니다.
 
 **모델명:** Shared Fate
 {% endtab %}
@@ -129,7 +129,7 @@ OCI는 전통적인 공동 책임 모델을 기반으로 하되, **자동화된 
 | --- | --- | --- |
 | AWS | [AWS Artifact](https://aws.amazon.com/artifact/) | SOC, ISO, PCI 등 감사 보고서 직접 다운로드 |
 | Azure | [Service Trust Portal](https://servicetrust.microsoft.com/) | 감사 보고서, 컴플라이언스 가이드 |
-| GCP | [Compliance Reports Manager](https://cloud.google.com/security/compliance/compliance-reports-manager) | ISO, SOC 보고서 다운로드 |
+| Google Cloud | [Compliance Reports Manager](https://cloud.google.com/security/compliance/compliance-reports-manager) | ISO, SOC 보고서 다운로드 |
 | OCI | [Oracle Cloud Compliance](https://www.oracle.com/corporate/cloud-compliance/) | 인증 현황 및 보고서 |
 
 {% hint style="info" %}
@@ -156,7 +156,7 @@ OCI는 전통적인 공동 책임 모델을 기반으로 하되, **자동화된 
 - [Azure 보안](https://azure.microsoft.com/ko-kr/explore/security)
 - [Azure 컴플라이언스](https://learn.microsoft.com/ko-kr/azure/compliance/)
 
-### GCP
+### Google Cloud
 
 - [Shared Fate (공동 운명 모델)](https://cloud.google.com/architecture/framework/security/shared-responsibility-shared-fate)
 - [Google Cloud 보안](https://cloud.google.com/security)

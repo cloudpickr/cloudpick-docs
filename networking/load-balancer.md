@@ -33,7 +33,7 @@ description: L4/L7/글로벌 로드밸런서, SSL/TLS 처리, 헬스 체크 설�
 | --- | --- | --- |
 | AWS | ALB (Application Load Balancer) | 경로/호스트 기반 라우팅, WebSocket, gRPC |
 | Azure | Application Gateway | WAF 통합 가능 |
-| GCP | External HTTP(S) Load Balancer | 글로벌 (단일 IP로 전 세계 서빙) |
+| Google Cloud | External HTTP(S) Load Balancer | 글로벌 (단일 IP로 전 세계 서빙) |
 | OCI | OCI Load Balancer | L7. 경로/호스트 기반 라우팅, SSL 종료 |
 
 ### L4 (TCP/UDP) 로드밸런서
@@ -42,7 +42,7 @@ description: L4/L7/글로벌 로드밸런서, SSL/TLS 처리, 헬스 체크 설�
 | --- | --- | --- |
 | AWS | NLB (Network Load Balancer) | 초저지연, 고정 IP |
 | Azure | Azure Load Balancer | Standard/Basic 티어 |
-| GCP | TCP/UDP Load Balancer | 리전 또는 글로벌 |
+| Google Cloud | TCP/UDP Load Balancer | 리전 또는 글로벌 |
 | OCI | OCI Network Load Balancer | L4. 초저지연, IP 해시/5-tuple 해시 |
 
 ### 글로벌 로드밸런서 / 가속기
@@ -51,7 +51,7 @@ description: L4/L7/글로벌 로드밸런서, SSL/TLS 처리, 헬스 체크 설�
 | --- | --- | --- |
 | AWS | Global Accelerator | Anycast IP로 가장 가까운 엣지로 라우팅 |
 | Azure | Front Door | 글로벌 L7 + CDN + WAF 통합 |
-| GCP | Cloud Load Balancing | 기본적으로 글로벌 (단일 Anycast IP) |
+| Google Cloud | Cloud Load Balancing | 기본적으로 글로벌 (단일 Anycast IP) |
 | OCI | OCI DNS Traffic Management | DNS 기반 글로벌 트래픽 분배 |
 
 {% hint style="info" %}
@@ -64,7 +64,7 @@ description: L4/L7/글로벌 로드밸런서, SSL/TLS 처리, 헬스 체크 설�
 
 ### L7 (HTTP/HTTPS)
 
-| 개념 | AWS ALB | Azure App Gateway | GCP HTTP(S) LB | OCI Load Balancer |
+| 개념 | AWS ALB | Azure App Gateway | Google Cloud HTTP(S) LB | OCI Load Balancer |
 | --- | --- | --- | --- | --- |
 | **라우팅 규칙** | Listener Rule (경로/호스트/헤더) | URL Path Map | URL Map | Routing Policy (경로/호스트) |
 | **대상 그룹** | Target Group | Backend Pool | Backend Service | Backend Set |
@@ -74,7 +74,7 @@ description: L4/L7/글로벌 로드밸런서, SSL/TLS 처리, 헬스 체크 설�
 
 ### L4 (TCP/UDP)
 
-| 개념 | AWS NLB | Azure LB | GCP TCP/UDP LB | OCI Network LB |
+| 개념 | AWS NLB | Azure LB | Google Cloud TCP/UDP LB | OCI Network LB |
 | --- | --- | --- | --- | --- |
 | **라우팅** | 포트 기반 | Frontend IP + Port | Forwarding Rule | Listener (포트 기반) |
 | **대상 그룹** | Target Group (IP/인스턴스) | Backend Pool | Backend Service | Backend Set |
@@ -98,7 +98,7 @@ L4는 패킷 내용을 보지 않고 포트 단위로 분배하므로 지연이 
 | --- | --- |
 | AWS | AWS Certificate Manager (ACM) |
 | Azure | App Service Managed Certificate, Key Vault |
-| GCP | Certificate Manager |
+| Google Cloud | Certificate Manager |
 | OCI | OCI Certificates |
 
 모두 자동 갱신을 지원하며, LB에 네이티브 연동됩니다.
@@ -181,7 +181,7 @@ flowchart TD
 - [Azure Load Balancer 문서](https://learn.microsoft.com/ko-kr/azure/load-balancer/)
 - [Azure Front Door 문서](https://learn.microsoft.com/ko-kr/azure/frontdoor/)
 
-### GCP
+### Google Cloud
 
 - [Google Cloud Load Balancing 문서](https://cloud.google.com/load-balancing/docs)
 

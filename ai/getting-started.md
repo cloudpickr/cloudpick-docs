@@ -119,7 +119,7 @@ RAG는 [벡터 스토어](vector-store.md)와 함께 동작합니다. 구현 패
 - [Microsoft Foundry 공식 문서](https://learn.microsoft.com/azure/ai-studio/)
 - [Microsoft Foundry Portal](https://ai.azure.com/)
 
-### GCP
+### Google Cloud
 - [Gemini Enterprise Agent Platform 문서](https://cloud.google.com/vertex-ai/docs)
 - [Gemini 모델 공식 사이트](https://deepmind.google/technologies/gemini/)
 

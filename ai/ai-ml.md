@@ -34,7 +34,7 @@ description: 생성형 AI 서비스, ML 플랫폼, GPU 인스턴스를 벤더별
 | --- | --- | --- | --- |
 | AWS | [Amazon Bedrock](https://aws.amazon.com/bedrock/) | **Amazon Nova** (Nova Premier/Pro/Lite/Micro/Sonic), Anthropic Claude (Opus/Sonnet/Haiku), OpenAI GPT-OSS, Meta Llama, Mistral, NVIDIA Nemotron, AI21, Cohere ([지원 모델 목록](https://docs.aws.amazon.com/bedrock/latest/userguide/model-ids.html)) | 단일 API로 멀티 모델 선택. Amazon Nova는 텍스트/이미지/비디오/음성 멀티모달 |
 | Azure | [Azure OpenAI / Microsoft Foundry](https://azure.microsoft.com/products/ai-services/openai-service) | OpenAI (GPT-5 시리즈, o-시리즈), Anthropic Claude, Meta Llama, Mistral, Cohere 등 ([Foundry 모델 카탈로그](https://ai.azure.com/catalog)) | OpenAI 주력, 엔터프라이즈 보안/규정 준수 |
-| GCP | [Vertex AI Model Garden](https://cloud.google.com/vertex-ai/generative-ai/docs/learn/models) | Google **Gemini 2.5** 시리즈 (Pro/Flash/Flash-Lite), Anthropic Claude, Meta Llama, Mistral, AI21 ([Model Garden](https://cloud.google.com/vertex-ai/generative-ai/docs/learn/models)) | Gemini는 네이티브 멀티모달, Model Garden에 200+ 모델 |
+| Google Cloud | [Vertex AI Model Garden](https://cloud.google.com/vertex-ai/generative-ai/docs/learn/models) | Google **Gemini 2.5** 시리즈 (Pro/Flash/Flash-Lite), Anthropic Claude, Meta Llama, Mistral, AI21 ([Model Garden](https://cloud.google.com/vertex-ai/generative-ai/docs/learn/models)) | Gemini는 네이티브 멀티모달, Model Garden에 200+ 모델 |
 | OCI | [OCI Generative AI](https://docs.oracle.com/iaas/Content/generative-ai/home.htm) | Cohere Command, Meta Llama, xAI Grok 등 ([지원 모델 목록](https://docs.oracle.com/en-us/iaas/Content/generative-ai/pretrained-models.htm)) | Oracle DB 네이티브 통합, **Dedicated AI Cluster** (전용 RDMA GPU, 타 테넌트 비공유), 이그레스 10TB 무료 |
 
 {% hint style="info" %}
@@ -53,7 +53,7 @@ description: 생성형 AI 서비스, ML 플랫폼, GPU 인스턴스를 벤더별
 | --- | --- | --- |
 | AWS | Bedrock Agents + Knowledge Bases | 문서 기반 RAG 자동 구성. 도구 호출(Tool Use) 지원 |
 | Azure | Azure AI Agent Service | OpenAI Assistants API 기반. Azure 서비스 연동 |
-| GCP | Vertex AI Agent Builder | 검색 + 대화 + RAG 통합 |
+| Google Cloud | Vertex AI Agent Builder | 검색 + 대화 + RAG 통합 |
 | OCI | OCI Generative AI Agents | RAG 기반 에이전트. OCI Search 연동 |
 
 ### 코드 어시스턴트
@@ -62,7 +62,7 @@ description: 생성형 AI 서비스, ML 플랫폼, GPU 인스턴스를 벤더별
 | --- | --- | --- |
 | AWS | Kiro | AI 코딩 에이전트. 코드 생성, 변환, 보안 스캔 |
 | Azure | GitHub Copilot | 코드 자동 완성. VS Code/JetBrains 통합 |
-| GCP | Gemini Code Assist | 코드 생성, 설명, 변환 |
+| Google Cloud | Gemini Code Assist | 코드 생성, 설명, 변환 |
 | OCI | 전용 코드 어시스턴트 없음 | OCI Generative AI API를 통한 코드 생성 가능 (Cohere Command, Llama). IDE 통합 플러그인은 미제공 |
 
 ## ML 플랫폼
@@ -73,7 +73,7 @@ description: 생성형 AI 서비스, ML 플랫폼, GPU 인스턴스를 벤더별
 | --- | --- | --- |
 | AWS | SageMaker AI | 학습, 튜닝, 배포, MLOps 통합 플랫폼 |
 | Azure | Azure Machine Learning | 노트북, AutoML, 파이프라인, 모델 레지스트리 |
-| GCP | Vertex AI | 학습, 배포, 파이프라인, Feature Store 통합 |
+| Google Cloud | Vertex AI | 학습, 배포, 파이프라인, Feature Store 통합 |
 | OCI | OCI Data Science | 노트북, 모델 학습/배포, 파이프라인 |
 
 ### GPU / AI 가속기
@@ -82,7 +82,7 @@ description: 생성형 AI 서비스, ML 플랫폼, GPU 인스턴스를 벤더별
 | --- | --- | --- |
 | AWS | P5 (NVIDIA H100), Trn2 (Trainium), Inf2 (Inferentia) | 학습: Trainium, 추론: Inferentia로 비용 최적화 |
 | Azure | ND H100 v5, ND H200 v5 | NVIDIA 최신 GPU |
-| GCP | A3 (H100), TPU v5p | TPU: Google 자체 AI 가속기. 대규모 학습에 강점 |
+| Google Cloud | A3 (H100), TPU v5p | TPU: Google 자체 AI 가속기. 대규모 학습에 강점 |
 | OCI | GPU Instances (A100, H100) | NVIDIA GPU. Bare Metal + RDMA 클러스터 지원 |
 
 ## 핵심 차이점
@@ -149,7 +149,7 @@ AI/ML을 직접 구축하지 않고, 특정 업무에 바로 적용할 수 있�
 
 | 영역 | 예시 | 벤더 서비스 |
 | --- | --- | --- |
-| 컨택센터 (AICC) | 음성 봇, 실시간 상담 지원 | Amazon Connect, Azure AI Contact Center, GCP CCAI |
+| 컨택센터 (AICC) | 음성 봇, 실시간 상담 지원 | Amazon Connect, Azure AI Contact Center, Google Cloud CCAI |
 | 문서 처리 | OCR, 문서 분류, 데이터 추출 | Textract, Document Intelligence, Document AI |
 | 코드 생성 | 코드 자동완성, 리뷰 | Amazon Q Developer, GitHub Copilot, Gemini Code Assist |
 | BI 자연어 질의 | 자연어로 데이터 분석 | Amazon Q in QuickSight, Copilot in Power BI, Gemini in Looker |
@@ -160,7 +160,7 @@ IoT, 로보틱스, 디지털 트윈 등 물리 세계와 연결되는 AI입니�
 
 | 영역 | 클라우드 연관 서비스 |
 | --- | --- |
-| IoT + 엣지 추론 | AWS IoT Greengrass, Azure IoT Edge, GCP Edge TPU |
+| IoT + 엣지 추론 | AWS IoT Greengrass, Azure IoT Edge, Google Cloud Edge TPU |
 | 디지털 트윈 | AWS IoT TwinMaker, Azure Digital Twins |
 | 로보틱스 시뮬레이션 | AWS RoboMaker, NVIDIA Isaac (클라우드 GPU) |
 
@@ -172,7 +172,7 @@ IoT, 로보틱스, 디지털 트윈 등 물리 세계와 연결되는 AI입니�
 | --- | --- | --- |
 | AWS | [Bedrock Agents](https://docs.aws.amazon.com/bedrock/latest/userguide/agents.html) | 도구 호출, 지식 베이스 연동, 코드 실행 |
 | Azure | [Azure AI Agent Service](https://learn.microsoft.com/azure/ai-services/agents/) | 멀티 에이전트 오케스트레이션, Azure 서비스 통합 |
-| GCP | [Vertex AI Agent Builder](https://cloud.google.com/products/agent-builder) | Grounding, 검색 연동, 엔터프라이즈 |
+| Google Cloud | [Vertex AI Agent Builder](https://cloud.google.com/products/agent-builder) | Grounding, 검색 연동, 엔터프라이즈 |
 
 **오케스트레이션 패턴:**
 
@@ -193,7 +193,7 @@ IoT, 로보틱스, 디지털 트윈 등 물리 세계와 연결되는 AI입니�
 - [Azure OpenAI Service 문서](https://learn.microsoft.com/ko-kr/azure/ai-services/openai/)
 - [Azure Machine Learning 문서](https://learn.microsoft.com/ko-kr/azure/machine-learning/)
 
-### GCP
+### Google Cloud
 
 - [Vertex AI 문서](https://cloud.google.com/vertex-ai/docs)
 - [Gemini API 문서](https://cloud.google.com/vertex-ai/generative-ai/docs)

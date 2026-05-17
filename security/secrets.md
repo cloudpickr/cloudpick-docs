@@ -26,7 +26,7 @@ description: 시크릿 관리, KMS, 인증서 관리 서비스를 벤더별로 �
 | AWS | Secrets Manager | 자동 교체(RDS, Redshift 등 네이티브 연동). 크로스 계정 공유 |
 | AWS | SSM Parameter Store | 간단한 키-값 저장. 무료 티어 있음. 자동 교체는 제한적 |
 | Azure | Key Vault (Secrets) | 시크릿 + 키 + 인증서 통합 관리 |
-| GCP | Secret Manager | 버전 관리 내장. IAM으로 접근 제어 |
+| Google Cloud | Secret Manager | 버전 관리 내장. IAM으로 접근 제어 |
 | OCI | OCI Vault (Secrets) | 시크릿 저장 + 버전 관리. IAM 정책으로 접근 제어 |
 
 ### 암호화 키 관리 (KMS)
@@ -37,7 +37,7 @@ description: 시크릿 관리, KMS, 인증서 관리 서비스를 벤더별로 �
 | --- | --- | --- |
 | AWS | KMS (Key Management Service) | 벤더 관리 키 / 고객 관리 키(CMK) / BYOK |
 | Azure | Key Vault (Keys) | HSM 지원. Managed HSM으로 전용 HSM |
-| GCP | Cloud KMS | HSM, 외부 키 관리(EKM) 지원 |
+| Google Cloud | Cloud KMS | HSM, 외부 키 관리(EKM) 지원 |
 | OCI | OCI Vault (Keys) | 소프트웨어 키 / HSM 키. BYOK 지원 |
 
 ### 인증서 관리
@@ -46,7 +46,7 @@ description: 시크릿 관리, KMS, 인증서 관리 서비스를 벤더별로 �
 | --- | --- | --- |
 | AWS | ACM (Certificate Manager) | 무료 공인 인증서 발급. ALB/CloudFront 자동 연동 |
 | Azure | App Service Certificates / Key Vault | Key Vault에서 인증서 수명 주기 관리 |
-| GCP | Certificate Manager | 무료 관리형 인증서. Load Balancer 자동 연동 |
+| Google Cloud | Certificate Manager | 무료 관리형 인증서. Load Balancer 자동 연동 |
 | OCI | OCI Certificates | 인증서 발급 및 수명 주기 관리. Load Balancer 연동 |
 
 ## 핵심 차이점
@@ -55,7 +55,7 @@ description: 시크릿 관리, KMS, 인증서 관리 서비스를 벤더별로 �
 
 **Azure** — Key Vault 하나로 시크릿, 암호화 키, 인증서를 모두 관리합니다. 서비스가 분리되지 않아 관리가 단순합니다.
 
-**GCP** — Secret Manager가 버전 관리를 기본 제공하여, 시크릿 변경 이력을 추적하고 이전 버전으로 롤백할 수 있습니다.
+**Google Cloud** — Secret Manager가 버전 관리를 기본 제공하여, 시크릿 변경 이력을 추적하고 이전 버전으로 롤백할 수 있습니다.
 
 **OCI** — Vault 하나로 시크릿과 암호화 키를 통합 관리하며, HSM 키와 소프트웨어 키를 선택할 수 있습니다. IAM 정책으로 세밀한 접근 제어가 가능합니다.
 
@@ -82,7 +82,7 @@ description: 시크릿 관리, KMS, 인증서 관리 서비스를 벤더별로 �
 | --- | --- |
 | AWS Secrets Manager | RDS, DocumentDB, Redshift 네이티브 교체. Lambda로 커스텀 교체 함수 작성 가능 |
 | Azure Key Vault | 인증서 자동 갱신. 시크릿은 Event Grid + Function App으로 교체 구현 |
-| GCP Secret Manager | 시크릿 버전 관리만 제공. 교체 로직은 Cloud Scheduler + Cloud Function으로 구현 |
+| Google Cloud Secret Manager | 시크릿 버전 관리만 제공. 교체 로직은 Cloud Scheduler + Cloud Function으로 구현 |
 | OCI Vault | Secret Rotation 지원 (Autonomous DB, MySQL 네이티브). Function으로 커스텀 교체 |
 
 ### 외부 시크릿 저장소 연동
@@ -91,7 +91,7 @@ HashiCorp Vault, CyberArk 등 외부 시크릿 관리 솔루션을 사용하는 
 
 | 통합 방식 | 설명 |
 | --- | --- |
-| **External Secrets Operator** | Kubernetes에서 AWS/Azure/GCP 시크릿을 외부 저장소에서 동기화 |
+| **External Secrets Operator** | Kubernetes에서 AWS/Azure/Google Cloud 시크릿을 외부 저장소에서 동기화 |
 | **HashiCorp Vault Dynamic Secrets** | Vault가 AWS IAM, DB 자격 증명을 동적으로 생성 |
 | **CSI Secret Store Driver** | Kubernetes Pod에 시크릿을 파일로 마운트 |
 
@@ -116,7 +116,7 @@ HashiCorp Vault, CyberArk 등 외부 시크릿 관리 솔루션을 사용하는 
 | AWS | [SSM Parameter Store](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-parameter-store.html) | 계층형 키-값 저장. String/StringList/SecureString 타입. 무료 표준 티어 (10,000개). 고급 티어는 정책 기반 만료/알림 |
 | AWS | [AWS AppConfig](https://docs.aws.amazon.com/appconfig/latest/userguide/what-is-appconfig.html) | Feature flag + 구성 배포. 점진적 롤아웃, 검증 후 배포, 자동 롤백 |
 | Azure | [Azure App Configuration](https://learn.microsoft.com/azure/azure-app-configuration/overview) | 중앙 구성 저장소. Feature flag 내장. Key Vault 참조로 시크릿 연동. 라벨로 환경별 분리 |
-| GCP | [Runtime Configurator](https://cloud.google.com/deployment-manager/runtime-configurator) (레거시) / [Firebase Remote Config](https://firebase.google.com/docs/remote-config) | Runtime Configurator는 제한적. 서버 앱은 Secret Manager에 비밀이 아닌 값도 저장하는 패턴이 일반적 |
+| Google Cloud | [Runtime Configurator](https://cloud.google.com/deployment-manager/runtime-configurator) (레거시) / [Firebase Remote Config](https://firebase.google.com/docs/remote-config) | Runtime Configurator는 제한적. 서버 앱은 Secret Manager에 비밀이 아닌 값도 저장하는 패턴이 일반적 |
 | OCI | [OCI Resource Manager Variables](https://docs.oracle.com/en-us/iaas/Content/ResourceManager/Concepts/resourcemanager.htm) / Vault | 전용 구성 서비스 없음. Vault에 비밀이 아닌 값도 저장하거나, Object Storage + 앱 로직으로 구현 |
 
 ### 실무 패턴
@@ -127,7 +127,7 @@ HashiCorp Vault, CyberArk 등 외부 시크릿 관리 솔루션을 사용하는 
 - **시크릿 참조** — 구성 서비스에서 시크릿 값을 직접 저장하지 않고, Secrets Manager/Key Vault의 ARN/URI를 참조
 
 {% hint style="info" %}
-**GCP/OCI 사용자:** 전용 구성 관리 서비스가 약하므로, Kubernetes ConfigMap + External Secrets Operator 조합이나 HashiCorp Consul을 고려하세요. 멀티클라우드 환경에서는 벤더 중립적인 외부 도구가 유리할 수 있습니다.
+**Google Cloud/OCI 사용자:** 전용 구성 관리 서비스가 약하므로, Kubernetes ConfigMap + External Secrets Operator 조합이나 HashiCorp Consul을 고려하세요. 멀티클라우드 환경에서는 벤더 중립적인 외부 도구가 유리할 수 있습니다.
 {% endhint %}
 
 ## 참고하기
@@ -145,7 +145,7 @@ HashiCorp Vault, CyberArk 등 외부 시크릿 관리 솔루션을 사용하는 
 - [Key Vault 시크릿](https://learn.microsoft.com/ko-kr/azure/key-vault/secrets/)
 - [Key Vault 인증서](https://learn.microsoft.com/ko-kr/azure/key-vault/certificates/)
 
-### GCP
+### Google Cloud
 
 - [Secret Manager 문서](https://cloud.google.com/secret-manager/docs)
 - [Cloud KMS 문서](https://cloud.google.com/kms/docs)

@@ -107,7 +107,7 @@ description: 물리적·논리적 망분리 개념, 클라우드에서의 네트
 | AWS | Snow Family (Snowball Edge) | 완전 오프라인 환경에서 컴퓨팅/스토리지 제공 |
 | Azure | Azure Stack Hub / HCI | 고객 DC에서 Azure 서비스 운영. 연결/비연결 모드 |
 | Azure | Azure Government (격리 리전) | 미국 정부 전용 물리적 분리 리전 |
-| GCP | Google Distributed Cloud (GDC) Air-gapped | 완전 오프라인 환경에서 GCP 서비스 운영 |
+| Google Cloud | Google Distributed Cloud (GDC) Air-gapped | 완전 오프라인 환경에서 Google Cloud 서비스 운영 |
 | OCI | Dedicated Region | 고객 DC에 OCI 전체 리전 설치. 완전 격리 |
 | OCI | Roving Edge Infrastructure | 오프라인 환경용 이동식 컴퓨팅 |
 
@@ -206,9 +206,9 @@ flowchart TB
 
 | 가드레일 | 동작 | 벤더 예시 |
 | --- | --- | --- |
-| **조직 정책으로 위험 행위 원천 차단** | 특정 리전 외 리소스 생성 금지, 퍼블릭 접근 차단 | AWS SCP, Azure Policy, GCP Organization Policy |
-| **설정 변경 시 자동 탐지·복구** | 규칙 위반 리소스를 즉시 알림 또는 자동 수정 | AWS Config Rules, Azure Policy (remediation), GCP Security Command Center |
-| **네트워크 변경 실시간 감시** | Security Group 변경, 새 인터넷 경로 생성 시 즉시 알림 | CloudTrail + EventBridge, Azure Monitor, GCP Cloud Audit Logs |
+| **조직 정책으로 위험 행위 원천 차단** | 특정 리전 외 리소스 생성 금지, 퍼블릭 접근 차단 | AWS SCP, Azure Policy, Google Cloud Organization Policy |
+| **설정 변경 시 자동 탐지·복구** | 규칙 위반 리소스를 즉시 알림 또는 자동 수정 | AWS Config Rules, Azure Policy (remediation), Google Cloud Security Command Center |
+| **네트워크 변경 실시간 감시** | Security Group 변경, 새 인터넷 경로 생성 시 즉시 알림 | CloudTrail + EventBridge, Azure Monitor, Google Cloud Cloud Audit Logs |
 
 단, 가드레일은 **설정해야 작동합니다.** 기본 상태에서는 대부분 비활성화되어 있으며, 조직의 보안 요건에 맞게 정책을 정의하고 유지하는 것은 사용자의 책임입니다.
 
@@ -260,7 +260,7 @@ flowchart TB
 - [Azure Private Link 문서](https://learn.microsoft.com/ko-kr/azure/private-link/)
 - [Azure Stack Hub 문서](https://learn.microsoft.com/ko-kr/azure-stack/operator/)
 
-### GCP
+### Google Cloud
 
 - [VPC 보안 모범사례](https://cloud.google.com/architecture/framework/security/network-security)
 - [Private Google Access 문서](https://cloud.google.com/vpc/docs/private-google-access)

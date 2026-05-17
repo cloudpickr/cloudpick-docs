@@ -44,7 +44,7 @@ RAG, 시맨틱 검색, 추천 시스템의 성능은 임베딩 모델의 품질�
 
 text-embedding-3 시리즈는 **Matryoshka Representation** 를 지원하여 `dimensions` 파라미터로 차원을 축소해도 품질 저하가 적습니다.
 
-### GCP Vertex AI
+### Google Cloud Vertex AI
 
 | 모델 | 차원 | 특징 | 참고 |
 | --- | --- | --- | --- |
@@ -66,7 +66,7 @@ text-embedding-3 시리즈는 **Matryoshka Representation** 를 지원하여 `di
 | 주요 언어 | 권장 모델 |
 | --- | --- |
 | 영어만 | text-embedding-3-large (Azure), Cohere Embed 3 English |
-| 한국어 포함 다국어 | Cohere Embed Multilingual, text-multilingual-embedding-002 (GCP), Titan Text Embeddings V2 |
+| 한국어 포함 다국어 | Cohere Embed Multilingual, text-multilingual-embedding-002 (Google Cloud), Titan Text Embeddings V2 |
 | 일본어/중국어 포함 | Cohere Embed Multilingual (지원 언어 공식 목록 확인) |
 
 ### 사용 규모에 따라
@@ -87,7 +87,7 @@ text-embedding-3 시리즈는 **Matryoshka Representation** 를 지원하여 `di
 
 - **Amazon Nova Multimodal Embeddings** — 텍스트+이미지+비디오+오디오 통합 ([공식 발표](https://aws.amazon.com/blogs/machine-learning/power-video-semantic-search-with-amazon-nova-multimodal-embeddings/))
 - **Amazon Titan Multimodal Embeddings G1** — 텍스트+이미지
-- **GCP multimodalembedding@001** — 텍스트+이미지+비디오
+- **Google Cloud multimodalembedding@001** — 텍스트+이미지+비디오
 
 ## 성능 평가
 
@@ -125,7 +125,7 @@ Azure의 `text-embedding-3-large`는 `dimensions=1024`로 호출하면 3072의 �
 - [Embeddings 사용 가이드](https://learn.microsoft.com/azure/ai-services/openai/how-to/embeddings)
 - [Azure OpenAI Embeddings tutorial](https://learn.microsoft.com/azure/ai-services/openai/tutorials/embeddings)
 
-### GCP
+### Google Cloud
 
 - [Vertex AI Text Embeddings](https://cloud.google.com/vertex-ai/generative-ai/docs/embeddings/get-text-embeddings)
 - [Vertex AI Multimodal Embeddings](https://cloud.google.com/vertex-ai/generative-ai/docs/embeddings/get-multimodal-embeddings)

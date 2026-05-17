@@ -18,7 +18,7 @@ Well-Architected Framework은 이러한 문제를 사전에 방지하기 위한 
 
 각 벤더 모두 Well-Architected Framework을 제공하지만, 핵심 원칙(Pillar)의 구성과 강조점에 차이가 있습니다.
 
-| 원칙 영역 | AWS | Azure | GCP | OCI |
+| 원칙 영역 | AWS | Azure | Google Cloud | OCI |
 | --- | --- | --- | --- | --- |
 | **운영 우수성** | Operational Excellence | Operational Excellence | Operational Excellence | — |
 | **보안** | Security | Security | Security, Privacy, Compliance | Security |
@@ -59,8 +59,8 @@ Microsoft의 엔터프라이즈 경험이 반영되어 하이브리드 환경과
 **프레임워크 이름:** Well-Architected Framework
 {% endtab %}
 
-{% tab title="GCP — 5개 Pillar" %}
-GCP는 **Architecture Framework**라는 이름으로 제공하며, 5개 Pillar 외에 **시스템 설계 원칙**을 별도로 다루는 것이 특징입니다.
+{% tab title="Google Cloud — 5개 Pillar" %}
+Google Cloud는 **Architecture Framework**라는 이름으로 제공하며, 5개 Pillar 외에 **시스템 설계 원칙**을 별도로 다루는 것이 특징입니다.
 
 1. **운영 우수성 (Operational Excellence)** — 효율적인 운영, 자동화, 모니터링
 2. **보안, 개인정보, 컴플라이언스** — 보안과 규제 준수를 하나의 Pillar로 통합
@@ -68,7 +68,7 @@ GCP는 **Architecture Framework**라는 이름으로 제공하며, 5개 Pillar �
 4. **비용 최적화 (Cost Optimization)** — 비용 관리, 리소스 최적화
 5. **성능 최적화 (Performance Optimization)** — 확장성, 지연 시간 최적화
 
-보안과 컴플라이언스를 하나의 Pillar로 통합한 것이 특징입니다. GCP의 Shared Fate 모델과 일맥상통합니다.
+보안과 컴플라이언스를 하나의 Pillar로 통합한 것이 특징입니다. Google Cloud의 Shared Fate 모델과 일맥상통합니다.
 
 **프레임워크 이름:** Architecture Framework
 {% endtab %}
@@ -107,7 +107,7 @@ AWS 콘솔에 내장된 도구로, 워크로드를 정의하고 각 Pillar별 �
 
 Azure Advisor가 자동으로 리소스를 분석하여 권장 사항을 제시하며, 별도의 Assessment 도구를 통해 체계적인 리뷰를 수행할 수 있습니다.
 
-### GCP Architecture Framework
+### Google Cloud Architecture Framework
 
 문서 기반의 체크리스트와 가이드를 제공하며, Recommender와 Active Assist가 자동으로 최적화 권장 사항을 제시합니다.
 
@@ -121,7 +121,7 @@ Well-Architected Framework이 개별 워크로드의 설계 모범 사례라면,
 | **구성** | 6개 관점 (비즈니스, 인력, 거버넌스, 플랫폼, 보안, 운영) | 9단계 방법론 (전략, 계획, 준비, 채택, 거버넌스, 관리 등) | 아키텍처 프레임워크 내 도입 가이드 포함 | CIS Benchmark 기반 Landing Zone |
 | **특징** | 관점(Perspective)별 이해관계자 중심 | 단계별 실행 가이드, Landing Zone 포함 | 아키텍처 프레임워크와 통합 | Terraform 기반 자동 배포 |
 
-AWS와 Azure는 독립적인 CAF를 제공하며, GCP는 Architecture Framework 안에 도입 가이드를 포함하는 형태입니다. Azure의 CAF는 특히 상세한 단계별 가이드와 Landing Zone 구성 방법을 제공하여, 대규모 조직의 클라우드 전환에 많이 참고됩니다.
+AWS와 Azure는 독립적인 CAF를 제공하며, Google Cloud는 Architecture Framework 안에 도입 가이드를 포함하는 형태입니다. Azure의 CAF는 특히 상세한 단계별 가이드와 Landing Zone 구성 방법을 제공하여, 대규모 조직의 클라우드 전환에 많이 참고됩니다.
 
 ## 관련 문서
 
@@ -154,7 +154,7 @@ AWS와 Azure는 독립적인 CAF를 제공하며, GCP는 Architecture Framework 
 - [Well-Architected Review](https://learn.microsoft.com/ko-kr/assessments/azure-architecture-review/)
 - [Cloud Adoption Framework](https://learn.microsoft.com/ko-kr/azure/cloud-adoption-framework/)
 
-### GCP
+### Google Cloud
 
 - [Architecture Framework](https://cloud.google.com/architecture/framework)
 - [Architecture Center](https://cloud.google.com/architecture)

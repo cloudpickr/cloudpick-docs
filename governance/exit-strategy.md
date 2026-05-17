@@ -69,7 +69,7 @@ IaC는 포터빌리티의 기반입니다. Terraform은 멀티클라우드 정�
 | [Crossplane](https://www.crossplane.io/) | Kubernetes 기반 추상화 | 높음 |
 | AWS CloudFormation | AWS 전용 | 낮음 |
 | Azure Bicep / ARM | Azure 전용 | 낮음 |
-| GCP Deployment Manager | GCP 전용 | 낮음 |
+| Google Cloud Deployment Manager | Google Cloud 전용 | 낮음 |
 | OCI Resource Manager | OCI 전용 (Terraform 기반) | 중간 |
 
 {% hint style="info" %}
@@ -85,7 +85,7 @@ graph LR
     A[비즈니스 로직] --> B[추상화 인터페이스]
     B --> C1[AWS 구현]
     B --> C2[Azure 구현]
-    B --> C3[GCP 구현]
+    B --> C3[Google Cloud 구현]
 ```
 
 대표적인 추상화 라이브러리/프레임워크:
@@ -158,10 +158,10 @@ graph LR
 - [Microsoft EU Data Boundary](https://learn.microsoft.com/privacy/eudb/eu-data-boundary-learn)
 - [Azure 서비스 종료 공지](https://azure.microsoft.com/updates/?status=retirement)
 
-### GCP
+### Google Cloud
 
 - [Google Cloud Data Processing and Security Terms](https://cloud.google.com/terms/data-processing-addendum)
-- [GCP 서비스 종료 공지](https://cloud.google.com/terms/deprecation)
+- [Google Cloud 서비스 종료 공지](https://cloud.google.com/terms/deprecation)
 
 ### OCI
 

@@ -45,7 +45,7 @@ description: 메시지 큐와 이벤트 스트리밍의 개념, 벤더별 서비
 
 ## 벤더별 서비스 비교
 
-| 영역 | AWS | Azure | GCP | OCI |
+| 영역 | AWS | Azure | Google Cloud | OCI |
 | --- | --- | --- | --- | --- |
 | **메시지 큐** | [SQS](https://docs.aws.amazon.com/sqs/) | [Service Bus Queue](https://learn.microsoft.com/azure/service-bus-messaging/) | [Cloud Tasks](https://cloud.google.com/tasks/docs) | [OCI Queue](https://docs.oracle.com/en-us/iaas/Content/queue/home.htm) |
 | **Pub/Sub** | [SNS](https://docs.aws.amazon.com/sns/) | [Service Bus Topic](https://learn.microsoft.com/azure/service-bus-messaging/) | [Pub/Sub](https://cloud.google.com/pubsub/docs) | [OCI Streaming](https://docs.oracle.com/en-us/iaas/Content/Streaming/home.htm) |
@@ -76,7 +76,7 @@ description: 메시지 큐와 이벤트 스트리밍의 개념, 벤더별 서비
 - [Azure Service Bus 문서](https://learn.microsoft.com/azure/service-bus-messaging/)
 - [Azure Event Hubs 문서](https://learn.microsoft.com/azure/event-hubs/)
 
-### GCP
+### Google Cloud
 
 - [Cloud Pub/Sub 문서](https://cloud.google.com/pubsub/docs)
 - [Eventarc 문서](https://cloud.google.com/eventarc/docs)

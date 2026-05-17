@@ -46,7 +46,7 @@ description: 키-값, 문서, 와이드 컬럼, 그래프 등 NoSQL 유형별 �
 | --- | --- | --- |
 | AWS | DocumentDB | MongoDB 호환 API, 완전한 MongoDB는 아님 |
 | Azure | Cosmos DB for MongoDB | MongoDB API 호환 모드 |
-| MongoDB Atlas | Atlas (AWS/Azure/GCP) | 멀티클라우드 관리형. 호환성 완벽. 벤더 중립 선택지 |
+| MongoDB Atlas | Atlas (AWS/Azure/Google Cloud) | 멀티클라우드 관리형. 호환성 완벽. 벤더 중립 선택지 |
 
 ## 제품 비교
 
@@ -56,8 +56,8 @@ description: 키-값, 문서, 와이드 컬럼, 그래프 등 NoSQL 유형별 �
 | --- | --- | --- |
 | AWS | DynamoDB | 완전 서버리스. 밀리초 지연. 용량 자동 확장 |
 | Azure | Cosmos DB | 멀티 모델(문서, 키-값, 그래프, 와이드 컬럼). 글로벌 분산 |
-| GCP | Firestore | 문서 DB. 모바일/웹 앱에 최적화. 실시간 동기화 |
-| GCP | Bigtable | 와이드 컬럼. 대규모 분석/시계열 |
+| Google Cloud | Firestore | 문서 DB. 모바일/웹 앱에 최적화. 실시간 동기화 |
+| Google Cloud | Bigtable | 와이드 컬럼. 대규모 분석/시계열 |
 | OCI | OCI NoSQL Database | 키-값 + 문서 + 와이드 컬럼. 서버리스 용량 관리 |
 
 ### 검색 / 로그 분석 엔진
@@ -85,7 +85,7 @@ description: 키-값, 문서, 와이드 컬럼, 그래프 등 NoSQL 유형별 �
 
 **Azure Cosmos DB** — 하나의 서비스로 문서, 키-값, 그래프, 와이드 컬럼을 모두 지원합니다. 글로벌 분산(멀티 리전 쓰기)이 기본 기능으로 내장되어 있습니다.
 
-**GCP Firestore** — 모바일/웹 클라이언트에서 직접 접근할 수 있는 실시간 동기화가 강점입니다. Bigtable은 대규모 분석 워크로드에 특화되어 있습니다.
+**Google Cloud Firestore** — 모바일/웹 클라이언트에서 직접 접근할 수 있는 실시간 동기화가 강점입니다. Bigtable은 대규모 분석 워크로드에 특화되어 있습니다.
 
 **OCI NoSQL Database** — 키-값, 문서, 와이드 컬럼을 하나의 서비스로 지원하며, 서버리스 용량 관리와 예측 가능한 저지연 성능을 제공합니다.
 
@@ -111,8 +111,8 @@ flowchart TD
 | 완전 서버리스 키-값/문서 DB + 밀리초 지연 | AWS DynamoDB |
 | 하나의 DB로 문서, 키-값, 그래프를 모두 처리 | Azure Cosmos DB |
 | 글로벌 멀티 리전 쓰기 | Azure Cosmos DB |
-| 모바일/웹 앱 실시간 동기화 | GCP Firestore |
-| 대규모 시계열/IoT 데이터 쓰기 | GCP Bigtable |
+| 모바일/웹 앱 실시간 동기화 | Google Cloud Firestore |
+| 대규모 시계열/IoT 데이터 쓰기 | Google Cloud Bigtable |
 | 전문 검색 + 로그 분석 | AWS OpenSearch / OCI Search |
 | 그래프 DB | AWS Neptune / Azure Cosmos DB (Gremlin) |
 
@@ -153,7 +153,7 @@ NoSQL은 RDB와 달리 **쿼리 패턴을 먼저 정하고 키를 설계**해야
 
 - [Azure Cosmos DB 문서](https://learn.microsoft.com/ko-kr/azure/cosmos-db/)
 
-### GCP
+### Google Cloud
 
 - [Firestore 문서](https://cloud.google.com/firestore/docs)
 - [Bigtable 문서](https://cloud.google.com/bigtable/docs)

@@ -22,7 +22,7 @@ description: 전송 중/저장 시 암호화, WAF, 네트워크 보안을 벤더
 | --- | --- | --- |
 | **사용자 ↔ 서비스** | TLS/HTTPS | CDN, LB에서 TLS 종료. 무료 인증서 제공 (ACM, Let's Encrypt 등) |
 | **서비스 ↔ 서비스** | mTLS, VPC 내부 통신 | 서비스 메시(Istio, App Mesh)로 자동 mTLS |
-| **리전 ↔ 리전** | 벤더 백본 암호화 | AWS/Azure/GCP 모두 리전 간 트래픽 자동 암호화 |
+| **리전 ↔ 리전** | 벤더 백본 암호화 | AWS/Azure/Google Cloud 모두 리전 간 트래픽 자동 암호화 |
 | **온프레미스 ↔ 클라우드** | VPN (IPsec) / 전용선 | Direct Connect, ExpressRoute, Cloud Interconnect |
 
 각 벤더 모두 관리형 서비스 간 통신은 기본적으로 TLS로 암호화됩니다.
@@ -31,7 +31,7 @@ description: 전송 중/저장 시 암호화, WAF, 네트워크 보안을 벤더
 
 저장된 데이터가 물리적으로 탈취되어도 읽을 수 없도록 암호화합니다.
 
-| 항목 | AWS | Azure | GCP | OCI |
+| 항목 | AWS | Azure | Google Cloud | OCI |
 | --- | --- | --- | --- | --- |
 | **기본 암호화** | 대부분 서비스 기본 활성화 (S3, EBS 등) | 모든 서비스 기본 활성화 | 모든 데이터 기본 암호화 | 모든 데이터 기본 암호화 |
 | **키 관리** | KMS (벤더 관리 키 / 고객 관리 키) | Key Vault | Cloud KMS | OCI Vault |
@@ -55,7 +55,7 @@ description: 전송 중/저장 시 암호화, WAF, 네트워크 보안을 벤더
 | --- | --- | --- |
 | AWS | Security Groups, Network ACL, Network Firewall | SG: 인스턴스 단위. Network Firewall: VPC 단위 IDS/IPS |
 | Azure | NSG, Azure Firewall | Azure Firewall: L7 필터링 + 위협 인텔리전스 |
-| GCP | Firewall Rules, Cloud Armor | Cloud Armor: DDoS 방어 + WAF |
+| Google Cloud | Firewall Rules, Cloud Armor | Cloud Armor: DDoS 방어 + WAF |
 | OCI | Security Lists, NSG, OCI Network Firewall | Network Firewall: L7 IDS/IPS |
 
 ### 웹 애플리케이션 방화벽 (WAF)
@@ -64,7 +64,7 @@ description: 전송 중/저장 시 암호화, WAF, 네트워크 보안을 벤더
 | --- | --- | --- |
 | AWS | [AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/what-is-aws-waf.html) | ALB/CloudFront/API Gateway에 연결. 관리형 규칙 + 커스텀 규칙 |
 | Azure | [Azure WAF](https://learn.microsoft.com/azure/web-application-firewall/overview) (Front Door / App Gateway) | OWASP CRS 3.2 기본 제공. 정책 기반 관리 |
-| GCP | [Cloud Armor](https://cloud.google.com/armor/docs) | DDoS + WAF 통합. 사전 구성된 WAF 규칙 + 적응형 보호(ML) |
+| Google Cloud | [Cloud Armor](https://cloud.google.com/armor/docs) | DDoS + WAF 통합. 사전 구성된 WAF 규칙 + 적응형 보호(ML) |
 | OCI | [OCI WAF](https://docs.oracle.com/en-us/iaas/Content/WAF/home.htm) | Load Balancer/Edge 연동. OWASP 규칙 세트 제공 |
 
 #### OWASP와 WAF 규칙
@@ -88,7 +88,7 @@ description: 전송 중/저장 시 암호화, WAF, 네트워크 보안을 벤더
 | **관리 주체** | 벤더 또는 보안 파트너가 업데이트 | 사용자가 직접 작성·유지 |
 | **적합한 경우** | OWASP Top 10 기본 방어, 빠른 적용 | 애플리케이션 특화 로직, 비즈니스 규칙 |
 | **업데이트** | 새 위협 발견 시 벤더가 자동 업데이트 | 사용자가 직접 업데이트 |
-| **비용** | 규칙 그룹당 과금 (AWS), 기본 포함 (Azure/GCP/OCI) | 규칙 수에 따라 과금 |
+| **비용** | 규칙 그룹당 과금 (AWS), 기본 포함 (Azure/Google Cloud/OCI) | 규칙 수에 따라 과금 |
 
 **실무 권장:**
 
@@ -131,7 +131,7 @@ description: 전송 중/저장 시 암호화, WAF, 네트워크 보안을 벤더
 - [Azure Key Vault 문서](https://learn.microsoft.com/ko-kr/azure/key-vault/)
 - [Azure WAF 문서](https://learn.microsoft.com/ko-kr/azure/web-application-firewall/)
 
-### GCP
+### Google Cloud
 
 - [Google Cloud 보안 문서](https://cloud.google.com/security)
 - [Cloud KMS 문서](https://cloud.google.com/kms/docs)

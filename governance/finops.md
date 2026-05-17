@@ -36,7 +36,7 @@ FinOps는 단순히 비용을 줄이는 활동이 아닙니다. 필요한 곳에
 
 ## 주요 CSP 비용 관리 도구 비교
 
-| 항목 | AWS | Azure | GCP | OCI |
+| 항목 | AWS | Azure | Google Cloud | OCI |
 | --- | --- | --- | --- | --- |
 | 비용 분석 | [AWS Cost Explorer](https://aws.amazon.com/aws-cost-management/aws-cost-explorer/) | [Microsoft Cost Management](https://azure.microsoft.com/en-us/products/cost-management) | [Cloud Billing Reports](https://cloud.google.com/billing/docs/reports) | [OCI Cost Analysis](https://docs.oracle.com/iaas/Content/Billing/Concepts/costanalysisoverview.htm) |
 | 예산/알림 | [AWS Budgets](https://aws.amazon.com/aws-cost-management/aws-budgets/) | [Azure Budgets](https://learn.microsoft.com/en-us/azure/cost-management-billing/costs/tutorial-acm-create-budgets) | [Budget Alerts](https://cloud.google.com/billing/docs/how-to/budgets) | [OCI Budgets](https://docs.oracle.com/en-us/iaas/Content/Billing/Concepts/budgetsoverview.htm) |
@@ -104,7 +104,7 @@ FinOps의 출발점은 **누가, 무엇에, 얼마를 썼는가** 를 정확히 
 | --- | --- | --- |
 | AWS | [AWS Tag Policies](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html), [Resource Groups Tagging API](https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/Welcome.html), [Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html) | Organization 수준에서 태그 정책 정의, Config Rule로 규정 위반 탐지 |
 | Azure | [Azure Policy 태그 enforcement](https://learn.microsoft.com/azure/azure-resource-manager/management/tag-policies), [Cost allocation rules](https://learn.microsoft.com/azure/cost-management-billing/costs/allocate-costs) | Management Group 단위로 태그 정책 적용, 상속 정책 제공 |
-| GCP | [Resource Tags](https://cloud.google.com/resource-manager/docs/tags/tags-overview), [Labels](https://cloud.google.com/resource-manager/docs/creating-managing-labels), [Organization Policy](https://cloud.google.com/resource-manager/docs/organization-policy/tags-organization-policy) | Resource Tags는 IAM과 정책에, Labels는 비용 분석에 사용 (용도 분리) |
+| Google Cloud | [Resource Tags](https://cloud.google.com/resource-manager/docs/tags/tags-overview), [Labels](https://cloud.google.com/resource-manager/docs/creating-managing-labels), [Organization Policy](https://cloud.google.com/resource-manager/docs/organization-policy/tags-organization-policy) | Resource Tags는 IAM과 정책에, Labels는 비용 분석에 사용 (용도 분리) |
 | OCI | [Tag Namespaces](https://docs.oracle.com/en-us/iaas/Content/Tagging/Tasks/managingtagsandtagnamespaces.htm), [Tag Defaults](https://docs.oracle.com/en-us/iaas/Content/Tagging/Tasks/managingtagdefaults.htm), [Cost Tracking Tags](https://docs.oracle.com/en-us/iaas/Content/Tagging/Tasks/usingcosttrackingtags.htm) | Tag Namespace로 키 관리, Tag Defaults로 Compartment 수준 자동 태깅 |
 
 ### 배포 파이프라인에서의 강제
@@ -112,9 +112,9 @@ FinOps의 출발점은 **누가, 무엇에, 얼마를 썼는가** 를 정확히 
 태그는 사람이 직접 붙이면 누락되기 쉽습니다. 정책 코드화로 강제합니다.
 
 - **IaC 모듈 표준화** — Terraform 모듈에 필수 태그를 입력 변수로 강제. 누락 시 plan 단계에서 실패.
-- **정책 게이트** — AWS SCP, Azure Policy, GCP Organization Policy로 태그 없는 리소스 생성 거부.
+- **정책 게이트** — AWS SCP, Azure Policy, Google Cloud Organization Policy로 태그 없는 리소스 생성 거부.
 - **CI/CD 검증** — PR 단계에서 `tflint`, `checkov`, `opa`로 태그 존재 여부 확인.
-- **지속 감사** — AWS Config, Azure Resource Graph, GCP Asset Inventory 쿼리로 정기 리포트.
+- **지속 감사** — AWS Config, Azure Resource Graph, Google Cloud Asset Inventory 쿼리로 정기 리포트.
 
 ### 시작 체크리스트
 
@@ -152,7 +152,7 @@ Showback/Chargeback을 하려면 비용을 정확히 귀속시킬 수 있어야 
 | --- | --- |
 | AWS | [CUR 2.0 (FOCUS 호환)](https://docs.aws.amazon.com/cur/latest/userguide/table-columns-cur2.html) |
 | Azure | [Cost Management FOCUS export](https://learn.microsoft.com/en-us/azure/cost-management-billing/) |
-| GCP | [BigQuery 비용 내보내기 (FOCUS 호환)](https://cloud.google.com/billing/docs/how-to/export-data-bigquery-tables) |
+| Google Cloud | [BigQuery 비용 내보내기 (FOCUS 호환)](https://cloud.google.com/billing/docs/how-to/export-data-bigquery-tables) |
 | OCI | [Cost Report (FOCUS 지원 진행 중)](https://docs.oracle.com/en-us/iaas/Content/Billing/Concepts/costanalysisoverview.htm) |
 
 ---
@@ -186,7 +186,7 @@ VPC 관련 비용은 숨겨져 있어 예상치 못한 청구가 발생하기 �
 **벤더별 차이:**
 
 - **AWS** — 크로스 AZ 트래픽 $0.01/GB 양방향. NAT Gateway $0.045/시간 + $0.045/GB
-- **GCP** — 같은 존(Zone) 내 무료. 같은 리전 내 다른 존은 $0.01/GB
+- **Google Cloud** — 같은 존(Zone) 내 무료. 같은 리전 내 다른 존은 $0.01/GB
 - **Azure** — 같은 VNet 내 무료. VNet 피어링은 인바운드/아웃바운드 각각 과금
 
 관련: [VPC와 서브넷](../networking/vpc-subnet.md)
@@ -197,7 +197,7 @@ VPC 관련 비용은 숨겨져 있어 예상치 못한 청구가 발생하기 �
 
 ### 약정 상품 유형
 
-| 유형 | 특징 | AWS | Azure | GCP | OCI |
+| 유형 | 특징 | AWS | Azure | Google Cloud | OCI |
 | --- | --- | --- | --- | --- | --- |
 | **인스턴스 예약** | 특정 인스턴스 타입 고정 | Reserved Instances | Reserved VM Instances | — | — |
 | **사용 금액 약정 (유연)** | 시간당 지출 금액 약정, 인스턴스 유형 변경 가능 | Savings Plans | Savings Plans | CUD (Flexible) | Universal Credits |
@@ -225,7 +225,7 @@ VPC 관련 비용은 숨겨져 있어 예상치 못한 청구가 발생하기 �
 | --- | --- |
 | AWS | [AWS Cost Anomaly Detection](https://docs.aws.amazon.com/cost-management/latest/userguide/manage-ad.html) |
 | Azure | [Microsoft Cost Management — Anomaly Detection](https://learn.microsoft.com/azure/cost-management-billing/understand/analyze-unexpected-charges) |
-| GCP | [Recommender / Cost Anomaly Detection](https://cloud.google.com/billing/docs/how-to/manage-anomalies) |
+| Google Cloud | [Recommender / Cost Anomaly Detection](https://cloud.google.com/billing/docs/how-to/manage-anomalies) |
 | OCI | [OCI Monitoring 알람 기반 구성](https://docs.oracle.com/en-us/iaas/Content/Monitoring/home.htm) |
 
 ### 탐지 시 확인할 것
@@ -250,7 +250,7 @@ VPC 관련 비용은 숨겨져 있어 예상치 못한 청구가 발생하기 �
 
 - [Microsoft Cost Management 문서](https://learn.microsoft.com/en-us/azure/cost-management-billing/)
 
-### GCP
+### Google Cloud
 
 - [Cloud Billing 문서](https://cloud.google.com/billing/docs)
 

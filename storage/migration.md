@@ -62,8 +62,8 @@ description: 대용량 데이터를 클라우드로 이전하는 온라인/오�
 | AWS | [Storage Gateway](https://aws.amazon.com/storagegateway/) | 온프레미스 캐시 + S3 백엔드 |
 | Azure | [AzCopy](https://learn.microsoft.com/azure/storage/common/storage-use-azcopy-v10) | CLI 기반 고성능 Blob 전송 |
 | Azure | [Azure File Sync](https://learn.microsoft.com/azure/storage/file-sync/) | 온프레미스 Windows 파일 서버와 Azure Files 동기화 |
-| GCP | [Storage Transfer Service](https://cloud.google.com/storage-transfer-service) | S3/Azure Blob/HTTP에서 Cloud Storage로 전송 |
-| GCP | [gsutil / gcloud storage](https://cloud.google.com/storage/docs/gsutil) | CLI 기반 병렬 전송 |
+| Google Cloud | [Storage Transfer Service](https://cloud.google.com/storage-transfer-service) | S3/Azure Blob/HTTP에서 Cloud Storage로 전송 |
+| Google Cloud | [gsutil / gcloud storage](https://cloud.google.com/storage/docs/gsutil) | CLI 기반 병렬 전송 |
 | OCI | [OCI Data Transfer](https://docs.oracle.com/en-us/iaas/Content/DataTransfer/home.htm) | CLI와 오프라인 방식 모두 지원 |
 | OCI | [rclone / OCI CLI](https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/cliinstall.htm) | 다목적 동기화 도구 |
 
@@ -76,7 +76,7 @@ description: 대용량 데이터를 클라우드로 이전하는 온라인/오�
 | AWS | S3 Cross-Region Replication (CRR) | 같은 계정/다른 계정 모두 지원 |
 | AWS | S3 Replication Time Control (RTC) | 15분 내 99.99% 복제 SLA |
 | Azure | Blob Object Replication | 계정 간 비동기 복제 |
-| GCP | Cloud Storage Cross-Region / Multi-Region | 스토리지 클래스 선택 시 자동 복제 |
+| Google Cloud | Cloud Storage Cross-Region / Multi-Region | 스토리지 클래스 선택 시 자동 복제 |
 | OCI | Object Storage Replication | 리전 간/네임스페이스 간 복제 |
 
 ## 오프라인 전송 서비스
@@ -91,7 +91,7 @@ description: 대용량 데이터를 클라우드로 이전하는 온라인/오�
 | Azure | [Data Box Disk](https://azure.microsoft.com/products/databox/) | \~35 TB | SSD 기반 소용량 |
 | Azure | [Data Box](https://azure.microsoft.com/products/databox/) | \~100 TB | 표준 장비 |
 | Azure | Data Box Heavy | \~1 PB | 대용량 장비 |
-| GCP | [Transfer Appliance](https://cloud.google.com/transfer-appliance/docs) | TA40: \~40 TB, TA300: \~300 TB | 일반/대용량 |
+| Google Cloud | [Transfer Appliance](https://cloud.google.com/transfer-appliance/docs) | TA40: \~40 TB, TA300: \~300 TB | 일반/대용량 |
 | OCI | [Data Transfer Appliance](https://docs.oracle.com/en-us/iaas/Content/DataTransfer/home.htm) | \~150 TB | 임대 장비로 전송 |
 | OCI | Data Transfer Disk | \~32 TB | 고객이 디스크 구매 후 발송 |
 
@@ -114,7 +114,7 @@ description: 대용량 데이터를 클라우드로 이전하는 온라인/오�
 | --- | --- | --- |
 | AWS | [Storage Gateway](https://aws.amazon.com/storagegateway/) | File/Volume/Tape Gateway |
 | Azure | [Azure File Sync](https://learn.microsoft.com/azure/storage/file-sync/) | 파일 서버 확장 |
-| GCP | [Cloud Storage FUSE](https://cloud.google.com/storage/docs/cloud-storage-fuse/overview) | 파일 시스템처럼 마운트 |
+| Google Cloud | [Cloud Storage FUSE](https://cloud.google.com/storage/docs/cloud-storage-fuse/overview) | 파일 시스템처럼 마운트 |
 | OCI | [Storage Gateway](https://docs.oracle.com/en-us/iaas/Content/StorageGateway/home.htm) | NFS v4 인터페이스 |
 
 ## 검증과 무결성
@@ -144,7 +144,7 @@ description: 대용량 데이터를 클라우드로 이전하는 온라인/오�
 - [Azure Data Box 문서](https://learn.microsoft.com/azure/databox/)
 - [Azure File Sync 문서](https://learn.microsoft.com/azure/storage/file-sync/)
 
-### GCP
+### Google Cloud
 
 - [Storage Transfer Service 문서](https://cloud.google.com/storage-transfer-service/docs)
 - [Transfer Appliance 문서](https://cloud.google.com/transfer-appliance/docs)

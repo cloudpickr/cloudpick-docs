@@ -33,7 +33,7 @@ description: IaC 개념, 벤더 네이티브/멀티클라우드 도구 비교, T
 | AWS | CDK (Cloud Development Kit) | TypeScript, Python, Java, Go, C# | 프로그래밍 언어로 CloudFormation 생성 |
 | Azure | Bicep | Bicep DSL | ARM Template의 간결한 대안 |
 | Azure | ARM Templates | JSON | Azure 네이티브. 복잡하지만 완전한 기능 |
-| GCP | Config Connector | Kubernetes YAML | K8s 리소스처럼 GCP 리소스 관리 |
+| Google Cloud | Config Connector | Kubernetes YAML | K8s 리소스처럼 Google Cloud 리소스 관리 |
 | OCI | OCI Resource Manager | HCL (Terraform) | Terraform 기반. OCI 네이티브 관리형 |
 
 ### 멀티클라우드 IaC
@@ -52,7 +52,7 @@ IaC 도구가 리소스를 관리하려면 각 서비스별 API를 호출해야 
 | --- | --- | --- |
 | AWS | Cloud Control API | 모든 AWS + 3rd party 리소스를 CRUD-L 단일 API로 관리. Terraform 등 IaC 도구의 백엔드로 사용 |
 | Azure | Azure Resource Manager (ARM) REST API | 모든 Azure 리소스를 단일 관리 계층으로 제어. AzAPI Terraform 프로바이더로 직접 호출 가능 |
-| GCP | — (서비스별 개별 API) | Config Connector가 K8s API로 추상화하지만, 통합 CRUD API는 없음 |
+| Google Cloud | — (서비스별 개별 API) | Config Connector가 K8s API로 추상화하지만, 통합 CRUD API는 없음 |
 | OCI | OCI Resource Manager API | Terraform State 관리 + 리소스 프로비저닝 API |
 
 AWS Cloud Control API는 Terraform이 새 AWS 리소스를 지원할 때 개별 서비스 API 대신 Cloud Control API를 백엔드로 사용할 수 있어, 새 서비스 출시 시 IaC 지원이 빨라집니다.
@@ -63,7 +63,7 @@ AWS Cloud Control API는 Terraform이 새 AWS 리소스를 지원할 때 개별 
 
 **Azure Bicep** — ARM Template의 복잡한 JSON을 간결한 DSL로 대체합니다. VS Code 확장으로 자동 완성과 검증을 제공합니다.
 
-**Terraform** — 멀티클라우드 환경에서 사실상 표준입니다. 하나의 언어(HCL)로 AWS, Azure, GCP를 모두 관리할 수 있습니다. 상태 파일(State) 관리가 필요합니다.
+**Terraform** — 멀티클라우드 환경에서 사실상 표준입니다. 하나의 언어(HCL)로 AWS, Azure, Google Cloud를 모두 관리할 수 있습니다. 상태 파일(State) 관리가 필요합니다.
 
 **OCI Resource Manager** — Terraform 기반의 관리형 IaC 서비스로, 상태 파일 관리와 리소스 프로비저닝을 OCI 콘솔에서 통합 운영할 수 있습니다.
 
@@ -92,7 +92,7 @@ Terraform은 현재 인프라 상태를 `terraform.tfstate` 파일에 저장합�
 | --- | --- |
 | **S3 + DynamoDB** | AWS 환경. S3는 상태 저장, DynamoDB는 동시 실행 잠금 |
 | **Azure Storage** | Azure 환경. Blob Storage + Lease 기반 잠금 |
-| **GCS** | GCP 환경. 객체 버전 관리로 이력 추적 |
+| **GCS** | Google Cloud 환경. 객체 버전 관리로 이력 추적 |
 | **OCI Resource Manager** | OCI 관리형 백엔드. 상태와 실행을 OCI에서 통합 관리 |
 | **Terraform Cloud / HCP Terraform** | 멀티클라우드. UI, 정책, 팀 관리 통합 |
 
@@ -133,7 +133,7 @@ IaC 외부에서 리소스가 수동으로 변경되면 코드와 실제 상태�
 | --- | --- |
 | AWS | CloudFormation Drift Detection, Config Rules |
 | Azure | Policy, Blueprints Compliance |
-| GCP | Config Connector (K8s 모델로 드리프트 자동 수정) |
+| Google Cloud | Config Connector (K8s 모델로 드리프트 자동 수정) |
 | OCI | Resource Manager Drift Detection |
 | Terraform | `terraform plan` (현재 상태와 코드 비교) |
 
@@ -161,7 +161,7 @@ IaC 외부에서 리소스가 수동으로 변경되면 코드와 실제 상태�
 - [Bicep 문서](https://learn.microsoft.com/ko-kr/azure/azure-resource-manager/bicep/)
 - [ARM Templates 문서](https://learn.microsoft.com/ko-kr/azure/azure-resource-manager/templates/)
 
-### GCP
+### Google Cloud
 
 - [Config Connector 문서](https://cloud.google.com/config-connector/docs)
 

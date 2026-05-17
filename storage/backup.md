@@ -18,14 +18,14 @@ description: 통합 백업 서비스, RPO/RTO 트레이드오프, 3-2-1 규칙, 
 | --- | --- | --- |
 | AWS | AWS Backup | EBS, EFS, RDS, DynamoDB, S3 등 통합. 크로스 리전/크로스 계정 백업 지원 |
 | Azure | Azure Backup | VM, Disks, Files, SQL, Blob 등 통합. Recovery Services Vault로 관리 |
-| GCP | Backup and DR Service | Compute Engine, GKE, Cloud SQL 등 통합 |
+| Google Cloud | Backup and DR Service | Compute Engine, GKE, Cloud SQL 등 통합 |
 | OCI | OCI Backup | Block Volume, Boot Volume, DB 시스템 백업. 정책 기반 자동 백업 |
 
 ### 개별 서비스 백업
 
 통합 서비스 외에도 각 스토리지/DB 서비스 자체에 백업 기능이 내장되어 있습니다.
 
-| 대상 | AWS | Azure | GCP | OCI |
+| 대상 | AWS | Azure | Google Cloud | OCI |
 | --- | --- | --- | --- | --- |
 | **블록 디스크** | EBS 스냅샷 | Managed Disk 스냅샷 | Persistent Disk 스냅샷 | Block Volume 백업 |
 | **VM 전체** | AMI | VM Image / Restore Point | Machine Image | Custom Image |
@@ -38,7 +38,7 @@ description: 통합 백업 서비스, RPO/RTO 트레이드오프, 3-2-1 규칙, 
 
 **Azure Backup** — Recovery Services Vault 하나로 VM, 디스크, 파일, SQL을 통합 관리합니다. Azure Site Recovery와 연동하면 백업과 DR을 하나의 체계로 운영할 수 있습니다.
 
-**GCP Backup and DR** — 관리 콘솔에서 백업 계획을 정의하고, 복구 시 원본 또는 다른 위치로 복원할 수 있습니다.
+**Google Cloud Backup and DR** — 관리 콘솔에서 백업 계획을 정의하고, 복구 시 원본 또는 다른 위치로 복원할 수 있습니다.
 
 **OCI Backup** — Block Volume, Boot Volume, DB 시스템의 정책 기반 자동 백업을 지원하며, 크로스 리전 복제로 DR을 구성할 수 있습니다.
 
@@ -91,7 +91,7 @@ description: 통합 백업 서비스, RPO/RTO 트레이드오프, 3-2-1 규칙, 
 
 백업 자체가 랜섬웨어 공격 대상이 될 수 있습니다. 불변(immutable) 백업이 필수입니다.
 
-| 기능 | AWS | Azure | GCP | OCI |
+| 기능 | AWS | Azure | Google Cloud | OCI |
 | --- | --- | --- | --- | --- |
 | **불변 백업** | Backup Vault Lock (WORM) | Recovery Services Vault Immutability | Backup Vault Immutability | Immutable Backup |
 | **MFA 삭제 보호** | Backup Vault Lock | Soft Delete + MFA | Bucket Lock | Resource Lock |
@@ -143,7 +143,7 @@ description: 통합 백업 서비스, RPO/RTO 트레이드오프, 3-2-1 규칙, 
 - [Azure Backup 문서](https://learn.microsoft.com/ko-kr/azure/backup/)
 - [Azure Site Recovery 문서](https://learn.microsoft.com/ko-kr/azure/site-recovery/)
 
-### GCP
+### Google Cloud
 
 - [Backup and DR Service 문서](https://cloud.google.com/backup-disaster-recovery/docs)
 - [Persistent Disk 스냅샷](https://cloud.google.com/compute/docs/disks/create-snapshots)

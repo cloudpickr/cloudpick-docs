@@ -152,7 +152,7 @@ Answer: 2024년 올림픽 개최지는 파리이며, 서울과의 거리는 약 
 | --- | --- | --- |
 | **AWS Bedrock (Claude)** | XML 태그로 구조화 (`<context>...</context>`), 명확한 지시 선두 배치 | [Claude 4 best practices](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/claude-4-best-practices) |
 | **Azure OpenAI (GPT)** | 시스템 프롬프트로 역할 고정, 형식 예시 제공 | [Azure 프롬프트 엔지니어링 가이드](https://learn.microsoft.com/azure/ai-services/openai/concepts/prompt-engineering) |
-| **GCP Vertex AI (Gemini)** | 명확한 지시, 제약 조건 명시, 반복 실험 | [Vertex AI Prompt strategies](https://cloud.google.com/vertex-ai/generative-ai/docs/learn/prompts/prompt-design-strategies) |
+| **Google Cloud Vertex AI (Gemini)** | 명확한 지시, 제약 조건 명시, 반복 실험 | [Vertex AI Prompt strategies](https://cloud.google.com/vertex-ai/generative-ai/docs/learn/prompts/prompt-design-strategies) |
 | **OCI Generative AI (Cohere)** | Preamble(시스템 지시)로 페르소나 설정, 도구 사용 시 정확한 JSON 스키마 | [Cohere Prompt Engineering](https://docs.cohere.com/docs/prompt-engineering) |
 
 ## 프롬프트 개선 반복 루프
@@ -190,9 +190,9 @@ graph LR
 - [Azure OpenAI — Prompt engineering techniques](https://learn.microsoft.com/azure/ai-services/openai/concepts/prompt-engineering)
 - [Microsoft — Generative AI for Beginners](https://learn.microsoft.com/shows/generative-ai-for-beginners/)
 
-### GCP
+### Google Cloud
 
-- [GCP Vertex AI — Prompting strategies](https://cloud.google.com/vertex-ai/generative-ai/docs/learn/prompts/prompt-design-strategies)
+- [Google Cloud Vertex AI — Prompting strategies](https://cloud.google.com/vertex-ai/generative-ai/docs/learn/prompts/prompt-design-strategies)
 
 ### 표준 및 커뮤니티
 

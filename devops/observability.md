@@ -18,7 +18,7 @@ description: 멀티클라우드 환경에서 로그, 메트릭, 트레이스를 
 | --- | --- | --- | --- |
 | AWS | CloudWatch Logs | CloudWatch Metrics | X-Ray |
 | Azure | Azure Monitor Logs | Azure Monitor Metrics | Application Insights |
-| GCP | Cloud Logging | Cloud Monitoring | Cloud Trace |
+| Google Cloud | Cloud Logging | Cloud Monitoring | Cloud Trace |
 | OCI | OCI Logging | OCI Monitoring | OCI APM |
 
 이 도구들을 각각 운영하면:
@@ -36,7 +36,7 @@ description: 멀티클라우드 환경에서 로그, 메트릭, 트레이스를 
 graph LR
     A1[AWS 워크로드] --> O[OpenTelemetry<br/>Collector]
     A2[Azure 워크로드] --> O
-    A3[GCP 워크로드] --> O
+    A3[Google Cloud 워크로드] --> O
     A4[OCI 워크로드] --> O
     O --> B[중앙 관찰가능성<br/>플랫폼]
 ```
@@ -62,7 +62,7 @@ graph LR
 graph LR
     A[AWS] --> C[중앙 플랫폼]
     B[Azure] --> C
-    G[GCP] --> C
+    G[Google Cloud] --> C
     O[OCI] --> C
 ```
 
@@ -79,7 +79,7 @@ graph LR
     U[운영자/쿼리] --> F[쿼리 연합 계층]
     F --> A[AWS 로그]
     F --> B[Azure 로그]
-    F --> G[GCP 로그]
+    F --> G[Google Cloud 로그]
 ```
 
 - **장점** — 데이터 이동 없음, 이그레스 비용 절감
@@ -138,7 +138,7 @@ CNCF의 [Cloud Native Landscape — Observability](https://landscape.cncf.io/gui
 
 ## 멀티클라우드 통합 모니터링 (Single Pane of Glass)
 
-AWS CloudWatch, Azure Monitor, GCP Cloud Monitoring을 각각 보는 것은 비효율적입니다. 멀티클라우드 환경에서는 **한 곳에서 모든 클라우드의 상태를 볼 수 있는 통합 대시보드**가 필요합니다.
+AWS CloudWatch, Azure Monitor, Google Cloud Cloud Monitoring을 각각 보는 것은 비효율적입니다. 멀티클라우드 환경에서는 **한 곳에서 모든 클라우드의 상태를 볼 수 있는 통합 대시보드**가 필요합니다.
 
 | 접근 방식 | 설명 | 도구 |
 | --- | --- | --- |
@@ -200,7 +200,7 @@ AWS CloudWatch, Azure Monitor, GCP Cloud Monitoring을 각각 보는 것은 비�
 - [Application Insights 문서](https://learn.microsoft.com/azure/azure-monitor/app/app-insights-overview)
 - [Azure Monitor 문서](https://learn.microsoft.com/azure/azure-monitor/)
 
-### GCP
+### Google Cloud
 
 - [Google Cloud OpenTelemetry](https://cloud.google.com/stackdriver/docs/instrumentation/overview)
 - [Cloud Logging 문서](https://cloud.google.com/logging/docs)

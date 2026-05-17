@@ -43,9 +43,9 @@ graph TB
 
 ## 주요 CSP 랜딩존 비교
 
-| 항목 | AWS | Azure | GCP | OCI |
+| 항목 | AWS | Azure | Google Cloud | OCI |
 | --- | --- | --- | --- | --- |
-| 서비스명 | [AWS Control Tower](https://aws.amazon.com/controltower/) | [Azure Landing Zone](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/) | [GCP Foundation Toolkit](https://cloud.google.com/foundation-toolkit) | [OCI Landing Zone](https://docs.oracle.com/en/solutions/cis-oci-benchmark/) |
+| 서비스명 | [AWS Control Tower](https://aws.amazon.com/controltower/) | [Azure Landing Zone](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/) | [Google Cloud Foundation Toolkit](https://cloud.google.com/foundation-toolkit) | [OCI Landing Zone](https://docs.oracle.com/en/solutions/cis-oci-benchmark/) |
 | 계정 구조 | AWS Organizations + OU | Management Group + Subscription | Organization + Folder + Project | Tenancy + Compartment |
 | 가드레일 | Controls (예방적/탐지적/사전 예방적) | Azure Policy + Deployment Stacks | Organization Policy | CIS Benchmark 기반 정책 |
 | 네트워크 기본 구조 | VPC + Transit Gateway | Hub-Spoke VNet + Azure Firewall | Shared VPC + Cloud Interconnect | Hub-Spoke VCN + DRG |
@@ -98,7 +98,7 @@ graph TB
 | --- | --- | --- | --- |
 | AWS | Organizations + OU | RAM으로 서브넷 공유 | Transit Gateway |
 | Azure | 구독별 분리 | Hub-Spoke VNet | Virtual WAN |
-| GCP | Shared VPC (호스트+서비스 프로젝트) | 호스트 프로젝트에서 서브넷 공유 | VPC Peering / NCC |
+| Google Cloud | Shared VPC (호스트+서비스 프로젝트) | 호스트 프로젝트에서 서브넷 공유 | VPC Peering / NCC |
 | OCI | Compartment 분리 | — | DRG 허브 |
 
 ### CIDR 계획
@@ -150,7 +150,7 @@ graph TB
 - [Azure Landing Zone 아키텍처](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/)
 - [Cloud Adoption Framework](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/)
 
-### GCP
+### Google Cloud
 
 - [Foundation Toolkit 문서](https://cloud.google.com/foundation-toolkit)
 - [Security Foundation Blueprint](https://cloud.google.com/architecture/security-foundations)

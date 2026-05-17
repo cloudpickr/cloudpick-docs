@@ -38,7 +38,7 @@ graph LR
 
 ## 벤더별 제로 트러스트 서비스
 
-| 영역 | AWS | Azure | GCP | OCI |
+| 영역 | AWS | Azure | Google Cloud | OCI |
 | --- | --- | --- | --- | --- |
 | **네트워크 접근 (ZTNA)** | [Verified Access](https://docs.aws.amazon.com/verified-access/latest/ug/what-is-verified-access.html) | [Entra Private Access](https://learn.microsoft.com/entra/global-secure-access/concept-private-access) | [BeyondCorp Enterprise](https://cloud.google.com/beyondcorp-enterprise/docs) | [Zero Trust Packet Routing](https://docs.oracle.com/en-us/iaas/Content/zero-trust-packet-routing/home.htm) |
 | **ID 기반 접근** | IAM + Identity Center | Entra ID + Conditional Access | IAM + Workload Identity Federation | Identity Domains + 동적 그룹 |
@@ -132,7 +132,7 @@ Zero Trust는 **보안 모델**(철학)이고, IAM은 **구현 수단**입니다
 
 - [Microsoft Zero Trust 가이드](https://learn.microsoft.com/security/zero-trust/)
 
-### GCP
+### Google Cloud
 
 - [Google BeyondCorp Enterprise](https://cloud.google.com/beyondcorp-enterprise/docs)
 

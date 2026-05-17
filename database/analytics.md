@@ -32,12 +32,12 @@ description: 데이터 웨어하우스, 데이터 레이크하우스, 분석 플
 | --- | --- | --- | --- |
 | AWS | [Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/mgmt/welcome.html) | 클러스터 기반 + Serverless 옵션. S3 데이터 직접 쿼리(Spectrum) | 노드 시간 또는 RPU(Serverless) |
 | Azure | [Azure Synapse Analytics](https://learn.microsoft.com/azure/synapse-analytics/) | 통합 분석 플랫폼 (SQL + Spark + Data Explorer). 서버리스 SQL 풀 | DWU(전용) 또는 쿼리 데이터 처리량(서버리스) |
-| GCP | [BigQuery](https://cloud.google.com/bigquery/docs) | 완전 서버리스. 인프라 관리 불필요. ML 내장(BQML) | 쿼리 스캔량 또는 슬롯(용량 예약) |
+| Google Cloud | [BigQuery](https://cloud.google.com/bigquery/docs) | 완전 서버리스. 인프라 관리 불필요. ML 내장(BQML) | 쿼리 스캔량 또는 슬롯(용량 예약) |
 | OCI | [OCI Analytics Cloud](https://docs.oracle.com/en-us/iaas/analytics-cloud/index.html) + [Autonomous Data Warehouse](https://docs.oracle.com/en-us/iaas/autonomous-database-serverless/index.html) | Oracle DB 기반 자동 튜닝. BI 시각화 통합 | OCPU 시간 |
 
 ### 핵심 차이점
 
-**BigQuery (GCP)** — 완전 서버리스로 클러스터 관리가 불필요합니다. 쿼리가 스캔한 데이터량으로 과금되어, 사용하지 않으면 비용이 0입니다. BigQuery ML로 SQL만으로 ML 모델을 학습할 수 있습니다.
+**BigQuery (Google Cloud)** — 완전 서버리스로 클러스터 관리가 불필요합니다. 쿼리가 스캔한 데이터량으로 과금되어, 사용하지 않으면 비용이 0입니다. BigQuery ML로 SQL만으로 ML 모델을 학습할 수 있습니다.
 
 **Redshift (AWS)** — 전통적 클러스터 기반이지만 Serverless 옵션도 제공합니다. S3의 데이터를 Redshift Spectrum으로 직접 쿼리할 수 있어 데이터 레이크와 통합이 용이합니다.
 
@@ -59,7 +59,7 @@ description: 데이터 웨어하우스, 데이터 레이크하우스, 분석 플
 | --- | --- |
 | AWS | S3 + Glue Catalog + Redshift Spectrum + Athena (Apache Iceberg 지원) |
 | Azure | ADLS Gen2 + Synapse + Delta Lake (Microsoft Fabric으로 통합) |
-| GCP | GCS + BigQuery (BigLake로 외부 테이블 통합) |
+| Google Cloud | GCS + BigQuery (BigLake로 외부 테이블 통합) |
 | OCI | Object Storage + Autonomous DW + OCI Data Flow (Spark) |
 
 ## BI 시각화 도구
@@ -70,7 +70,7 @@ description: 데이터 웨어하우스, 데이터 레이크하우스, 분석 플
 | --- | --- | --- |
 | AWS | [Amazon Quick Sight](https://aws.amazon.com/quick/quicksight/) | Amazon Quick Suite 산하 BI 서비스. AI 기반 서버리스 BI, 자연어 질의(Q), 대시보드·분석 |
 | Azure | [Power BI](https://powerbi.microsoft.com/) | 가장 넓은 사용자 기반, Excel 친화적, Copilot 통합 |
-| GCP | [Looker / Looker Studio](https://cloud.google.com/looker) | LookML 기반 시맨틱 레이어, Looker Studio는 무료 |
+| Google Cloud | [Looker / Looker Studio](https://cloud.google.com/looker) | LookML 기반 시맨틱 레이어, Looker Studio는 무료 |
 | OCI | [OCI Analytics Cloud](https://docs.oracle.com/en-us/iaas/analytics-cloud/index.html) | Oracle 네이티브, 셀프서비스 시각화 |
 | 3rd party | Tableau, Metabase, Apache Superset | 벤더 중립, 멀티클라우드 환경에서 유용 |
 
@@ -103,7 +103,7 @@ BI 도구가 중요한 이유:
 
 - [Azure Synapse Analytics 문서](https://learn.microsoft.com/azure/synapse-analytics/)
 
-### GCP
+### Google Cloud
 
 - [Google BigQuery 문서](https://cloud.google.com/bigquery/docs)
 

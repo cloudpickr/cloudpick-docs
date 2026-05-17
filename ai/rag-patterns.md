@@ -77,7 +77,7 @@ graph LR
 | --- | --- | --- |
 | AWS | Bedrock Knowledge Bases Reranker (Amazon Rerank, Cohere Rerank) | [Reranker 가이드](https://docs.aws.amazon.com/bedrock/latest/userguide/kb-reranker.html) |
 | Azure | Azure AI Search Semantic Ranker | [Semantic Ranker](https://learn.microsoft.com/azure/search/semantic-search-overview) |
-| GCP | Vertex AI Ranking API | [Ranking API](https://cloud.google.com/generative-ai-app-builder/docs/ranking) |
+| Google Cloud | Vertex AI Ranking API | [Ranking API](https://cloud.google.com/generative-ai-app-builder/docs/ranking) |
 | OCI | Cohere Rerank (OCI Generative AI) | [OCI Generative AI 모델](https://docs.oracle.com/en-us/iaas/Content/generative-ai/pretrained-models.htm) |
 
 ## 하이브리드 검색
@@ -88,7 +88,7 @@ graph LR
 | --- | --- | --- |
 | AWS | OpenSearch Vector + BM25 (RRF 알고리즘) | [Hybrid Search](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/knn-retrieval.html) |
 | Azure | Azure AI Search 하이브리드 쿼리 | [Hybrid Search](https://learn.microsoft.com/azure/search/hybrid-search-overview) |
-| GCP | Vertex AI Search (자동 하이브리드) | [Vertex AI Search](https://cloud.google.com/enterprise-search) |
+| Google Cloud | Vertex AI Search (자동 하이브리드) | [Vertex AI Search](https://cloud.google.com/enterprise-search) |
 | OCI | OCI AI Vector Search에서 SQL로 조합 | [OCI AI Vector Search](https://docs.oracle.com/en-us/iaas/autonomous-database-serverless/doc/oracle-ai-vector-search-autonomous-database.html) |
 
 ## 쿼리 확장과 변환
@@ -148,7 +148,7 @@ RAG 시스템은 단순히 "답이 나온다"가 아니라, **검색 품질**과
 - [Azure AI Search Hybrid Search](https://learn.microsoft.com/azure/search/hybrid-search-overview)
 - [Azure AI Search Semantic Ranker](https://learn.microsoft.com/azure/search/semantic-search-overview)
 
-### GCP
+### Google Cloud
 
 - [Vertex AI RAG Engine](https://cloud.google.com/vertex-ai/generative-ai/docs/rag-overview)
 - [Vertex AI Ranking API](https://cloud.google.com/generative-ai-app-builder/docs/ranking)

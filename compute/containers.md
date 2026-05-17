@@ -13,7 +13,7 @@ VM은 유연하지만, 하나의 앱을 배포하기 위해 OS 전체를 포함�
 **컨테이너**는 앱과 그 의존성만 가볍게 패키징하여 어디서든 동일하게 실행되도록 합니다. VM보다 가볍고, 시작이 빠르고, 환경 차이 문제를 해결합니다.
 
 {% hint style="info" %}
-EKS를 아시는 분을 위해: Azure는 AKS, GCP는 GKE, OCI는 OKE입니다.
+EKS를 아시는 분을 위해: Azure는 AKS, Google Cloud는 GKE, OCI는 OKE입니다.
 {% endhint %}
 
 컨테이너가 수십~수백 개로 늘어나면 이를 관리하는 오케스트레이션이 필요합니다. 직접 Kubernetes를 설치하고 운영할 수도 있지만, 클라우드 벤더의 **관리형 서비스**를 사용하면 컨트롤 플레인 관리, 업그레이드, 보안 패치를 벤더가 담당합니다. 사용자는 앱 배포에만 집중할 수 있습니다.
@@ -26,18 +26,18 @@ EKS를 아시는 분을 위해: Azure는 AKS, GCP는 GKE, OCI는 OKE입니다.
 | --- | --- | --- |
 | AWS | EKS (Elastic Kubernetes Service) | 컨트롤 플레인 유료 |
 | Azure | AKS (Azure Kubernetes Service) | 컨트롤 플레인 무료 |
-| GCP | GKE (Google Kubernetes Engine) | Autopilot 모드: 노드 관리 불필요, Pod 단위 과금 |
+| Google Cloud | GKE (Google Kubernetes Engine) | Autopilot 모드: 노드 관리 불필요, Pod 단위 과금 |
 | OCI | OKE (Oracle Kubernetes Engine) | 컨트롤 플레인 무료. Virtual Nodes로 서버리스 운영 가능 |
 
 ### 서버리스 / 간편 컨테이너 실행
 
-서버(노드)를 직접 관리하지 않고 컨테이너를 실행하는 서비스입니다. AWS Fargate, Azure Container Apps, GCP Cloud Run, OCI Container Instances 등이 있으며, 각 제품의 상세 비교는 [서버리스](serverless.md#서버리스-컨테이너) 문서를 참고하세요.
+서버(노드)를 직접 관리하지 않고 컨테이너를 실행하는 서비스입니다. AWS Fargate, Azure Container Apps, Google Cloud Cloud Run, OCI Container Instances 등이 있으며, 각 제품의 상세 비교는 [서버리스](serverless.md#서버리스-컨테이너) 문서를 참고하세요.
 
 | 벤더 | 대표 제품 |
 | --- | --- |
 | AWS | Fargate · ECS · App Runner |
 | Azure | Container Apps · Container Instances (ACI) |
-| GCP | Cloud Run |
+| Google Cloud | Cloud Run |
 | OCI | OCI Container Instances |
 
 ### 컨테이너 레지스트리
@@ -46,14 +46,14 @@ EKS를 아시는 분을 위해: Azure는 AKS, GCP는 GKE, OCI는 OKE입니다.
 | --- | --- | --- |
 | AWS | ECR (Elastic Container Registry) | |
 | Azure | ACR (Azure Container Registry) | |
-| GCP | Artifact Registry | 컨테이너 외 패키지도 지원 |
+| Google Cloud | Artifact Registry | 컨테이너 외 패키지도 지원 |
 | OCI | OCI Container Registry (OCIR) | |
 
 ## 핵심 차이점
 
 - **AWS** — ECS(자체 오케스트레이터)와 EKS(Kubernetes) 두 가지 선택지를 제공합니다.
 - **Azure** — Container Apps로 K8s를 몰라도 컨테이너를 운영할 수 있습니다.
-- **GCP** — Cloud Run으로 가장 간단하게 컨테이너를 서버리스 환경에서 실행할 수 있습니다.
+- **Google Cloud** — Cloud Run으로 가장 간단하게 컨테이너를 서버리스 환경에서 실행할 수 있습니다.
 - **OCI** — OKE 컨트롤 플레인이 무료이며, Virtual Nodes로 서버리스 Kubernetes 운영이 가능합니다.
 
 ## 결정 트리
@@ -74,7 +74,7 @@ flowchart TD
 | 상황 | 추천 |
 | --- | --- |
 | Kubernetes 없이 간단하게 컨테이너를 운영하고 싶을 때 | AWS ECS 또는 Azure Container Apps |
-| 기존 컨테이너 앱을 코드 수정 없이 서버리스로 실행하고 싶을 때 | GCP Cloud Run |
+| 기존 컨테이너 앱을 코드 수정 없이 서버리스로 실행하고 싶을 때 | Google Cloud Cloud Run |
 | Kubernetes가 필요하지만 컨트롤 플레인 비용을 아끼고 싶을 때 | Azure AKS 또는 OCI OKE (컨트롤 플레인 무료) |
 | 노드 관리 없이 Pod 단위로만 과금받고 싶을 때 | GKE Autopilot 또는 AWS Fargate |
 | 서버리스 Kubernetes를 원할 때 | OCI OKE Virtual Nodes |
@@ -95,8 +95,8 @@ flowchart TD
 | --- | --- | --- |
 | AWS EKS | 유료 (클러스터당 시간 과금) | [EKS 요금](https://aws.amazon.com/eks/pricing/) |
 | Azure AKS | 무료 | Uptime SLA 활성화 시 유료 |
-| GCP GKE Standard | 유료 (클러스터당 시간 과금) | 월당 한 개 존 무료. [GKE 요금](https://cloud.google.com/kubernetes-engine/pricing) |
-| GCP GKE Autopilot | 무료 (Pod 단위 과금) | 노드 없음 |
+| Google Cloud GKE Standard | 유료 (클러스터당 시간 과금) | 월당 한 개 존 무료. [GKE 요금](https://cloud.google.com/kubernetes-engine/pricing) |
+| Google Cloud GKE Autopilot | 무료 (Pod 단위 과금) | 노드 없음 |
 | OCI OKE | 무료 | Enhanced 클러스터 시 유료 |
 
 ## 노드 관리 전략
@@ -163,7 +163,7 @@ Day-2 운영 상세는 [Kubernetes 운영](../devops/kubernetes-operations.md)�
 - [Container Apps 문서](https://learn.microsoft.com/ko-kr/azure/container-apps/)
 - [Container Instances 문서](https://learn.microsoft.com/ko-kr/azure/container-instances/)
 
-### GCP
+### Google Cloud
 
 - [Google Kubernetes Engine 문서](https://cloud.google.com/kubernetes-engine/docs)
 - [Google Cloud Run 문서](https://cloud.google.com/run/docs)

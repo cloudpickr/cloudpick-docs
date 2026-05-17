@@ -20,7 +20,7 @@ description: 트랜짓 아키텍처 패턴, 이그레스 비용 상세 비교, D
 graph TD
     Hub[Hub VPC / Transit] --> AWS[AWS Spoke]
     Hub --> Azure[Azure Spoke]
-    Hub --> GCP[GCP Spoke]
+    Hub --> Google Cloud[Google Cloud Spoke]
     Hub --> OCI[OCI Spoke]
 ```
 
@@ -34,7 +34,7 @@ graph TD
 | --- | --- | --- |
 | AWS 내부 VPC 간 | Transit Gateway Attachment | 리전 내 ~$0.02/GB |
 | AWS ↔ Azure | Site-to-Site VPN (TGW 연결) | BGP 경로 교환 |
-| AWS ↔ GCP | AWS Interconnect – multicloud | GA (2026.04) |
+| AWS ↔ Google Cloud | AWS Interconnect – multicloud | GA (2026.04) |
 | AWS ↔ OCI | Oracle Interconnect for AWS | 2026년 내 출시 예정 |
 
 ## 이그레스 비용 비교
@@ -45,11 +45,11 @@ graph TD
 | --- | --- | --- |
 | AWS → 인터넷 | $0.126/GB (처음 10TB) | 이후 체감 |
 | Azure → 인터넷 | $0.12/GB | 처음 5GB/월 무료 |
-| GCP → 인터넷 | $0.12/GB | 처음 200GB/월 무료 |
+| Google Cloud → 인터넷 | $0.12/GB | 처음 200GB/월 무료 |
 | OCI → 인터넷 | 10TB/월 무료, 이후 ~$0.0085/GB | 타사 대비 매우 저렴 |
 | AWS → Direct Connect | ~$0.04/GB | 회선비 별도 |
 | Azure → ExpressRoute | 포함 (Unlimited 플랜) | 회선비에 포함 |
-| GCP → Interconnect | ~$0.05/GB | 회선비 별도 |
+| Google Cloud → Interconnect | ~$0.05/GB | 회선비 별도 |
 | OCI → FastConnect | 10TB/월 무료에 포함 | 회선비 별도 |
 
 ### 비용 최적화 팁
@@ -69,7 +69,7 @@ graph TD
 | --- | --- | --- |
 | AWS | Route 53 Private Hosted Zone | VPC 연결, 조건부 포워딩 |
 | Azure | Azure Private DNS Zone | VNet 링크 |
-| GCP | Cloud DNS Private Zone | VPC 바인딩 |
+| Google Cloud | Cloud DNS Private Zone | VPC 바인딩 |
 | OCI | OCI DNS Private View | VCN 연결 |
 
 ### 통합 패턴: 조건부 포워딩
@@ -90,7 +90,7 @@ graph TD
 3. 온프레미스 DNS 서버 또는 허브 VPC의 DNS를 중앙 포워더로 사용
 
 {% hint style="info" %}
-**팁:** Route 53 Resolver의 아웃바운드 엔드포인트를 허브로 사용하면, AWS에서 Azure/GCP의 프라이빗 레코드를 조회할 수 있습니다.
+**팁:** Route 53 Resolver의 아웃바운드 엔드포인트를 허브로 사용하면, AWS에서 Azure/Google Cloud의 프라이빗 레코드를 조회할 수 있습니다.
 {% endhint %}
 
 ## 벤더 간 직접 연결 (Cross-Cloud Interconnect)
@@ -99,10 +99,10 @@ graph TD
 
 | 서비스 | 연결 구간 | 상태 (2026년 4월 기준) |
 | --- | --- | --- |
-| **[AWS Interconnect – multicloud](https://aws.amazon.com/interconnect/multicloud/)** | AWS ↔ GCP | GA (2026.04). Azure, OCI는 2026년 내 추가 예정 |
-| **[Google Cross-Cloud Interconnect](https://cloud.google.com/network-connectivity/docs/interconnect/concepts/cross-cloud-overview)** | GCP ↔ AWS/Azure/OCI | GA. AWS와 공동 개발한 오픈 상호운용 스펙 기반 |
+| **[AWS Interconnect – multicloud](https://aws.amazon.com/interconnect/multicloud/)** | AWS ↔ Google Cloud | GA (2026.04). Azure, OCI는 2026년 내 추가 예정 |
+| **[Google Cross-Cloud Interconnect](https://cloud.google.com/network-connectivity/docs/interconnect/concepts/cross-cloud-overview)** | Google Cloud ↔ AWS/Azure/OCI | GA. AWS와 공동 개발한 오픈 상호운용 스펙 기반 |
 | **[Oracle Interconnect for Azure](https://docs.oracle.com/iaas/Content/multicloud/interconnect-azure.htm)** | OCI ↔ Azure | GA. 크로스 클라우드 데이터 전송 무료 |
-| **[Oracle Interconnect for Google Cloud](https://docs.oracle.com/iaas/Content/Network/Concepts/access-to-google-cloud-platform.htm)** | OCI ↔ GCP | GA. 크로스 클라우드 데이터 전송 무료 |
+| **[Oracle Interconnect for Google Cloud](https://docs.oracle.com/iaas/Content/Network/Concepts/access-to-google-cloud-platform.htm)** | OCI ↔ Google Cloud | GA. 크로스 클라우드 데이터 전송 무료 |
 | **Oracle Interconnect for AWS** | OCI ↔ AWS | 2026년 내 출시 예정 (AWS Interconnect–multicloud 연동) |
 
 {% hint style="info" %}
@@ -136,7 +136,7 @@ graph TD
 - [Azure — Hub-spoke Network Topology](https://learn.microsoft.com/azure/architecture/networking/architecture/hub-spoke)
 - [Azure ExpressRoute](https://azure.microsoft.com/ko-kr/products/expressroute/)
 
-### GCP
+### Google Cloud
 
 - [Google Cloud — Hybrid and Multi-cloud Network Architectures](https://cloud.google.com/architecture/network-hybrid-multicloud)
 - [Google Cloud Interconnect](https://cloud.google.com/network-connectivity/docs/interconnect)

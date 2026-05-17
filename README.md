@@ -1,129 +1,129 @@
 ---
-description: CloudPick에 오신 것을 환영합니다.
+description: CloudPickì ì¤ì  ê²ì íìí©ëë¤.
 ---
 
 # CloudPick Docs
 
-CloudPick은 **멀티클라우드 환경에서 올바른 의사결정을 내리기 위한 벤더 중립 가이드**입니다.
+CloudPickì **ë©í°í´ë¼ì°ë íê²½ìì ì¬ë°ë¥¸ ìì¬ê²°ì ì ë´ë¦¬ê¸° ìí ë²¤ë ì¤ë¦½ ê°ì´ë**ìëë¤.
 
-멀티클라우드를 기본값으로 권장하지 않습니다. 단일 벤더, 하이브리드, 멀티클라우드는 각각의 비용과 책임이 있으며, 워크로드와 조직 상황에 따라 선택해야 합니다. 온프레미스와 망분리 중심 운영이 왜 필요했는지 이해하고, 현대 환경에서 통제 방식을 어떻게 확장할 수 있는지 설명합니다.
+ë©í°í´ë¼ì°ëë¥¼ ê¸°ë³¸ê°ì¼ë¡ ê¶ì¥íì§ ììµëë¤. ë¨ì¼ ë²¤ë, íì´ë¸ë¦¬ë, ë©í°í´ë¼ì°ëë ê°ê°ì ë¹ì©ê³¼ ì±ìì´ ìì¼ë©°, ìí¬ë¡ëì ì¡°ì§ ìí©ì ë°ë¼ ì íí´ì¼ í©ëë¤. ì¨íë ë¯¸ì¤ì ë§ë¶ë¦¬ ì¤ì¬ ì´ìì´ ì íìíëì§ ì´í´íê³ , íë íê²½ìì íµì  ë°©ìì ì´ë»ê² íì¥í  ì ìëì§ ì¤ëªí©ëë¤.
 
-각 벤더의 공식 문서는 자기 서비스만 설명합니다. CloudPick은 주요 글로벌 클라우드 벤더를 같은 기준으로 나란히 놓고, "이 상황에서 무엇을 선택해야 하는가"를 돕습니다. 모든 내용은 벤더 공식 문서와 업계 표준(NIST, CNCF, FinOps Foundation)을 근거로 하며, 개인 의견이나 추측은 배제합니다.
+ê° ë²¤ëì ê³µì ë¬¸ìë ìê¸° ìë¹ì¤ë§ ì¤ëªí©ëë¤. CloudPickì ì£¼ì ê¸ë¡ë² í´ë¼ì°ë ë²¤ëë¥¼ ê°ì ê¸°ì¤ì¼ë¡ ëëí ëê³ , "ì´ ìí©ìì ë¬´ìì ì íí´ì¼ íëê°"ë¥¼ ëìµëë¤. ëª¨ë  ë´ì©ì ë²¤ë ê³µì ë¬¸ìì ìê³ íì¤(NIST, CNCF, FinOps Foundation)ì ê·¼ê±°ë¡ íë©°, ê°ì¸ ìê²¬ì´ë ì¶ì¸¡ì ë°°ì í©ëë¤.
 
-클라우드를 처음 접하는 분부터 멀티클라우드 아키텍처를 설계하는 분까지, 각자의 수준과 목적에 맞는 읽기 경로를 제공합니다.
+í´ë¼ì°ëë¥¼ ì²ì ì íë ë¶ë¶í° ë©í°í´ë¼ì°ë ìí¤íì²ë¥¼ ì¤ê³íë ë¶ê¹ì§, ê°ìì ìì¤ê³¼ ëª©ì ì ë§ë ì½ê¸° ê²½ë¡ë¥¼ ì ê³µí©ëë¤.
 
 {% hint style="info" %}
-모든 기술 내용은 벤더 공식 문서 또는 업계 표준 자료를 근거로 합니다. 실제 도입·운영 시에는 각 벤더의 최신 공식 문서를 함께 확인하세요.
+ëª¨ë  ê¸°ì  ë´ì©ì ë²¤ë ê³µì ë¬¸ì ëë ìê³ íì¤ ìë£ë¥¼ ê·¼ê±°ë¡ í©ëë¤. ì¤ì  ëìÂ·ì´ì ììë ê° ë²¤ëì ìµì  ê³µì ë¬¸ìë¥¼ í¨ê» íì¸íì¸ì.
 {% endhint %}
 
-## 어디서부터 읽을까?
+## ì´ëìë¶í° ì½ìê¹?
 
 {% tabs %}
-{% tab title="☁️ 클라우드 입문" %}
-1. [클라우드 시작하기](about-cloud/getting-started.md)
-2. [벤더 비교하기](about-cloud/compare-clouds.md)
-3. [리전과 가용영역](about-cloud/regions-and-zones.md)
-4. [공동 책임 모델](about-cloud/shared-responsibility.md)
-5. [비용 구조 이해하기](about-cloud/pricing-model.md)
+{% tab title="âï¸ í´ë¼ì°ë ìë¬¸" %}
+1. [í´ë¼ì°ë ììíê¸°](about-cloud/getting-started.md)
+2. [ë²¤ë ë¹êµíê¸°](about-cloud/compare-clouds.md)
+3. [ë¦¬ì ê³¼ ê°ì©ìì­](about-cloud/regions-and-zones.md)
+4. [ê³µë ì±ì ëª¨ë¸](about-cloud/shared-responsibility.md)
+5. [ë¹ì© êµ¬ì¡° ì´í´íê¸°](about-cloud/pricing-model.md)
 {% endtab %}
 
-{% tab title="🔀 멀티클라우드" %}
-1. [멀티클라우드 이해하기](about-cloud/why-multicloud.md)
-2. [벤더 비교하기](about-cloud/compare-clouds.md)
-3. [벤더 선택 의사결정](about-cloud/decision-framework.md)
-4. [멀티클라우드 네트워킹](networking/multicloud-networking.md) → [커넥티비티 심화](networking/multicloud-connectivity.md)
-5. [하이브리드/엣지 컴퓨팅](compute/hybrid-and-edge.md)
+{% tab title="ð ë©í°í´ë¼ì°ë" %}
+1. [ë©í°í´ë¼ì°ë ì´í´íê¸°](about-cloud/why-multicloud.md)
+2. [ë²¤ë ë¹êµíê¸°](about-cloud/compare-clouds.md)
+3. [ë²¤ë ì í ìì¬ê²°ì ](about-cloud/decision-framework.md)
+4. [ë©í°í´ë¼ì°ë ë¤í¸ìí¹](networking/multicloud-networking.md) â [ì»¤ë¥í°ë¹í° ì¬í](networking/multicloud-connectivity.md)
+5. [íì´ë¸ë¦¬ë/ì£ì§ ì»´í¨í](compute/hybrid-and-edge.md)
 {% endtab %}
 
-{% tab title="⚙️ 실무 운영" %}
-1. [DevOps 시작하기](devops/getting-started.md)
-2. [계정과 조직 구조](about-cloud/accounts-and-organizations.md) → [랜딩존](governance/landing-zone.md)
-3. [비용 구조](about-cloud/pricing-model.md) → [FinOps](governance/finops.md)
+{% tab title="âï¸ ì¤ë¬´ ì´ì" %}
+1. [DevOps ììíê¸°](devops/getting-started.md)
+2. [ê³ì ê³¼ ì¡°ì§ êµ¬ì¡°](about-cloud/accounts-and-organizations.md) â [ëë©ì¡´](governance/landing-zone.md)
+3. [ë¹ì© êµ¬ì¡°](about-cloud/pricing-model.md) â [FinOps](governance/finops.md)
 4. [Well-Architected Framework](about-cloud/well-architected.md)
-5. [재해복구](governance/dr.md)
-6. [모니터링](devops/monitoring.md) → [SLI/SLO](devops/slo.md) → [관찰가능성](devops/observability.md)
-7. [원격 접근 관리](devops/remote-access.md)
-8. [데이터베이스 운영](database/operations.md)
+5. [ì¬í´ë³µêµ¬](governance/dr.md)
+6. [ëª¨ëí°ë§](devops/monitoring.md) â [SLI/SLO](devops/slo.md) â [ê´ì°°ê°ë¥ì±](devops/observability.md)
+7. [ìê²© ì ê·¼ ê´ë¦¬](devops/remote-access.md)
+8. [ë°ì´í°ë² ì´ì¤ ì´ì](database/operations.md)
 {% endtab %}
 
-{% tab title="🔒 보안 강화" %}
-1. [클라우드 보안 시작하기](security/getting-started.md)
-2. [공동 책임 모델](about-cloud/shared-responsibility.md)
-3. [IAM 개요](about-cloud/iam-overview.md) → [IAM 심화](security/iam.md)
-4. [시크릿 관리](security/secrets.md)
-5. [데이터 보호](security/data-protection.md)
-6. [망분리와 네트워크 격리](security/network-isolation.md)
-7. [제로 트러스트](security/zero-trust.md)
+{% tab title="ð ë³´ì ê°í" %}
+1. [í´ë¼ì°ë ë³´ì ììíê¸°](security/getting-started.md)
+2. [ê³µë ì±ì ëª¨ë¸](about-cloud/shared-responsibility.md)
+3. [IAM ê°ì](about-cloud/iam-overview.md) â [IAM ì¬í](security/iam.md)
+4. [ìí¬ë¦¿ ê´ë¦¬](security/secrets.md)
+5. [ë°ì´í° ë³´í¸](security/data-protection.md)
+6. [ë§ë¶ë¦¬ì ë¤í¸ìí¬ ê²©ë¦¬](security/network-isolation.md)
+7. [ì ë¡ í¸ë¬ì¤í¸](security/zero-trust.md)
 8. [DevSecOps](devops/devsecops.md)
-9. [보안 사고 대응](security/incident-response.md)
+9. [ë³´ì ì¬ê³  ëì](security/incident-response.md)
 {% endtab %}
 
-{% tab title="🚚 마이그레이션" %}
-1. [애플리케이션 마이그레이션](compute/migration.md)
-2. [데이터베이스 마이그레이션](database/migration.md)
-3. [스토리지 마이그레이션](storage/migration.md)
-4. [모더나이제이션](compute/modernization.md)
-5. [벤더 종속성과 출구 전략](governance/exit-strategy.md)
+{% tab title="ð ë§ì´ê·¸ë ì´ì" %}
+1. [ì íë¦¬ì¼ì´ì ë§ì´ê·¸ë ì´ì](compute/migration.md)
+2. [ë°ì´í°ë² ì´ì¤ ë§ì´ê·¸ë ì´ì](database/migration.md)
+3. [ì¤í ë¦¬ì§ ë§ì´ê·¸ë ì´ì](storage/migration.md)
+4. [ëª¨ëëì´ì ì´ì](compute/modernization.md)
+5. [ë²¤ë ì¢ìì±ê³¼ ì¶êµ¬ ì ëµ](governance/exit-strategy.md)
 {% endtab %}
 
-{% tab title="🏛️ 규제 시장" %}
-1. [클라우드 시작하기](about-cloud/getting-started.md)
-2. [공동 책임 모델](about-cloud/shared-responsibility.md)
-3. [망분리와 네트워크 격리](security/network-isolation.md)
-4. [규정 준수](governance/compliance.md)
-5. [데이터 보호](security/data-protection.md)
-6. [벤더 선택 의사결정](about-cloud/decision-framework.md)
-7. [벤더 종속성과 출구 전략](governance/exit-strategy.md)
-8. [재해복구](governance/dr.md)
+{% tab title="ðï¸ ê·ì  ìì¥" %}
+1. [í´ë¼ì°ë ììíê¸°](about-cloud/getting-started.md)
+2. [ê³µë ì±ì ëª¨ë¸](about-cloud/shared-responsibility.md)
+3. [ë§ë¶ë¦¬ì ë¤í¸ìí¬ ê²©ë¦¬](security/network-isolation.md)
+4. [ê·ì  ì¤ì](governance/compliance.md)
+5. [ë°ì´í° ë³´í¸](security/data-protection.md)
+6. [ë²¤ë ì í ìì¬ê²°ì ](about-cloud/decision-framework.md)
+7. [ë²¤ë ì¢ìì±ê³¼ ì¶êµ¬ ì ëµ](governance/exit-strategy.md)
+8. [ì¬í´ë³µêµ¬](governance/dr.md)
 {% endtab %}
 
-{% tab title="🤖 AI 도입" %}
-1. [클라우드 AI 시작하기](ai/getting-started.md)
-2. [AI/ML 서비스](ai/ai-ml.md) — 모델 선택, 플랫폼 비교
-3. [벡터 스토어](ai/vector-store.md)
-4. [RAG 고급 패턴](ai/rag-patterns.md)
-5. [프롬프트 엔지니어링](ai/prompt-engineering.md)
-6. [멀티클라우드 AI](ai/multicloud-ai.md) — 비용, GPU, 벤더 조합
-7. [LLMOps](ai/llmops.md) — 평가, 운영, 비용 추적
-8. [AI 보안](security/ai-security.md) — 가드레일, 프롬프트 인젝션 방어
+{% tab title="ð¤ AI ëì" %}
+1. [í´ë¼ì°ë AI ììíê¸°](ai/getting-started.md)
+2. [AI/ML ìë¹ì¤](ai/ai-ml.md) â ëª¨ë¸ ì í, íë«í¼ ë¹êµ
+3. [ë²¡í° ì¤í ì´](ai/vector-store.md)
+4. [RAG ê³ ê¸ í¨í´](ai/rag-patterns.md)
+5. [íë¡¬íí¸ ìì§ëì´ë§](ai/prompt-engineering.md)
+6. [ë©í°í´ë¼ì°ë AI](ai/multicloud-ai.md) â ë¹ì©, GPU, ë²¤ë ì¡°í©
+7. [LLMOps](ai/llmops.md) â íê°, ì´ì, ë¹ì© ì¶ì 
+8. [AI ë³´ì](security/ai-security.md) â ê°ëë ì¼, íë¡¬íí¸ ì¸ì ì ë°©ì´
 {% endtab %}
 {% endtabs %}
 
-## 대상 클라우드 벤더
+## ëì í´ë¼ì°ë ë²¤ë
 
-| 벤더 | 홈페이지 | 콘솔 |
+| ë²¤ë | ííì´ì§ | ì½ì |
 | --- | --- | --- |
 | [AWS](https://aws.amazon.com/ko/) | Amazon Web Services | [Console](https://console.aws.amazon.com) |
 | [Azure](https://azure.microsoft.com/ko-kr/) | Microsoft Azure | [Portal](https://portal.azure.com) |
 | [Google Cloud](https://cloud.google.com/) | Google Cloud | [Console](https://console.cloud.google.com) |
 | [OCI](https://www.oracle.com/kr/cloud/) | Oracle Cloud Infrastructure | [Console](https://cloud.oracle.com) |
 
-클라우드 용어가 낯설다면 [용어집](GLOSSARY.md)을 함께 참고하세요.
+í´ë¼ì°ë ì©ì´ê° ë¯ì¤ë¤ë©´ [ì©ì´ì§](GLOSSARY.md)ì í¨ê» ì°¸ê³ íì¸ì.
 
 ---
 
-## 이 문서 다음에는
+## ì´ ë¬¸ì ë¤ììë
 
-CloudPick은 <strong>무엇을 선택할지</strong>를 돕는 비교 가이드입니다. 각 서비스의 사용법, 튜토리얼, 핸즈온은 벤더 공식 자료를 병행하세요.
+CloudPickì <strong>ë¬´ìì ì íí ì§</strong>ë¥¼ ëë ë¹êµ ê°ì´ëìëë¤. ê° ìë¹ì¤ì ì¬ì©ë², íí ë¦¬ì¼, í¸ì¦ì¨ì ë²¤ë ê³µì ìë£ë¥¼ ë³ííì¸ì.
 
-| 벤더 | 공식 학습 플랫폼 | 자격증 |
+| ë²¤ë | ê³µì íìµ íë«í¼ | ìê²©ì¦ |
 | --- | --- | --- |
-| AWS | [AWS Skill Builder](https://skillbuilder.aws/) | Cloud Practitioner → SA Associate → Specialty |
-| Azure | [Microsoft Learn](https://learn.microsoft.com/training/) | AZ-900 → AZ-104/204 → Specialty |
-| GCP | [Google Cloud Skills Boost](https://www.cloudskillsboost.google/) | Cloud Digital Leader → Associate → Professional |
-| OCI | [OCI Training](https://education.oracle.com/oracle-cloud-infrastructure) | Foundations → Architect Associate → Professional |
+| AWS | [AWS Skill Builder](https://skillbuilder.aws/) | Cloud Practitioner â SA Associate â Specialty |
+| Azure | [Microsoft Learn](https://learn.microsoft.com/training/) | AZ-900 â AZ-104/204 â Specialty |
+| Google Cloud | [Google Cloud Skills Boost](https://www.cloudskillsboost.google/) | Cloud Digital Leader â Associate â Professional |
+| OCI | [OCI Training](https://education.oracle.com/oracle-cloud-infrastructure) | Foundations â Architect Associate â Professional |
 
-각 문서 하단의 **참고하기** 링크도 해당 주제의 공식 문서로 바로 연결됩니다.
+ê° ë¬¸ì íë¨ì **ì°¸ê³ íê¸°** ë§í¬ë í´ë¹ ì£¼ì ì ê³µì ë¬¸ìë¡ ë°ë¡ ì°ê²°ë©ëë¤.
 
 ---
 
-## 문서 작성 원칙
+## ë¬¸ì ìì± ìì¹
 
-> CloudPick의 제1원칙입니다. 모든 기여자는 이 원칙을 따릅니다.
+> CloudPickì ì 1ìì¹ìëë¤. ëª¨ë  ê¸°ì¬ìë ì´ ìì¹ì ë°ë¦ëë¤.
 
-- **공식 문서 기반** — 모든 기술 내용은 벤더 공식 문서 또는 업계 표준 자료(NIST, CNCF, FinOps Foundation 등)를 근거로 합니다. 추측성 내용은 배제합니다.
-- **중립성** — 벤더를 비교하는 내용은 가능한 한 중립적으로 표현합니다.
-- **출처 명시** — 각 문서 하단 **참고하기** 섹션에 공식 문서 링크를 정리합니다.
-- **변동성 관리** — 가격, 리전 수, GA/Preview 상태 등 빠르게 바뀌는 정보는 구체적 수치 대신 공식 링크로 안내합니다. 각 문서 상단에 `문서 기준: YYYY년 M월`을 표기합니다.
-- **용어 표기** — 한글을 주 표기로 하되, 전문 용어나 약어는 첫 등장 시 영문을 병기합니다 (예: 가용 영역(Availability Zone)). 외래어 표기법을 준수합니다 (예: '메시지 큐' ○, '메세지 큐' ✗). 벤더명은 공식 최신 명칭을 사용합니다 (예: Microsoft Entra ID). 정식 표기는 [용어집](GLOSSARY.md)을 따릅니다.
-�니다.
+- **ê³µì ë¬¸ì ê¸°ë°** â ëª¨ë  ê¸°ì  ë´ì©ì ë²¤ë ê³µì ë¬¸ì ëë ìê³ íì¤ ìë£(NIST, CNCF, FinOps Foundation ë±)ë¥¼ ê·¼ê±°ë¡ í©ëë¤. ì¶ì¸¡ì± ë´ì©ì ë°°ì í©ëë¤.
+- **ì¤ë¦½ì±** â ë²¤ëë¥¼ ë¹êµíë ë´ì©ì ê°ë¥í í ì¤ë¦½ì ì¼ë¡ ííí©ëë¤.
+- **ì¶ì² ëªì** â ê° ë¬¸ì íë¨ **ì°¸ê³ íê¸°** ì¹ìì ê³µì ë¬¸ì ë§í¬ë¥¼ ì ë¦¬í©ëë¤.
+- **ë³ëì± ê´ë¦¬** â ê°ê²©, ë¦¬ì  ì, GA/Preview ìí ë± ë¹ ë¥´ê² ë°ëë ì ë³´ë êµ¬ì²´ì  ìì¹ ëì  ê³µì ë§í¬ë¡ ìë´í©ëë¤. ê° ë¬¸ì ìë¨ì `ë¬¸ì ê¸°ì¤: YYYYë Mì`ì íê¸°í©ëë¤.
+- **ì©ì´ íê¸°** â íê¸ì ì£¼ íê¸°ë¡ íë, ì ë¬¸ ì©ì´ë ì½ì´ë ì²« ë±ì¥ ì ìë¬¸ì ë³ê¸°í©ëë¤ (ì: ê°ì© ìì­(Availability Zone)). ì¸ëì´ íê¸°ë²ì ì¤ìí©ëë¤ (ì: 'ë©ìì§ í' â, 'ë©ì¸ì§ í' â). ë²¤ëëªì ê³µì ìµì  ëªì¹­ì ì¬ì©í©ëë¤ (ì: Microsoft Entra ID). ì ì íê¸°ë [ì©ì´ì§](GLOSSARY.md)ì ë°ë¦ëë¤.
+ëë¤.

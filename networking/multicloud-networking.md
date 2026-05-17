@@ -28,7 +28,7 @@ RFC 1918 프라이빗 대역을 벤더별로 분할합니다.
 | --- | --- | --- |
 | `10.0.0.0/8` | AWS | `10.0.0.0/16` (prod), `10.1.0.0/16` (dev) |
 | `172.16.0.0/12` | Azure | `172.16.0.0/16` (prod), `172.17.0.0/16` (dev) |
-| `192.168.0.0/16` | GCP / 기타 | `192.168.0.0/20` (GCP), `192.168.16.0/20` (기타) |
+| `192.168.0.0/16` | Google Cloud / 기타 | `192.168.0.0/20` (Google Cloud), `192.168.16.0/20` (기타) |
 
 {% hint style="info" %}
 **팁:** `/16` 단위로 벤더에 할당하고, 그 안에서 `/24` 서브넷을 나누면 향후 확장에 유연합니다. 온프레미스가 있다면 온프레미스 대역도 반드시 포함하여 계획하세요.
@@ -36,7 +36,7 @@ RFC 1918 프라이빗 대역을 벤더별로 분할합니다.
 
 ### 주의사항
 
-- GCP는 VPC가 글로벌이므로 리전별 서브넷만 다르면 됩니다
+- Google Cloud는 VPC가 글로벌이므로 리전별 서브넷만 다르면 됩니다
 - Azure VNet은 리전 단위이므로 리전마다 별도 CIDR 할당 필요
 
 ## 클라우드 간 연결 방식
@@ -45,17 +45,17 @@ RFC 1918 프라이빗 대역을 벤더별로 분할합니다.
 
 가장 빠르게 시작할 수 있는 방법입니다. 인터넷을 통해 IPsec 터널을 구성합니다.
 
-| 항목 | AWS | Azure | GCP | OCI |
+| 항목 | AWS | Azure | Google Cloud | OCI |
 | --- | --- | --- | --- | --- |
 | **서비스명** | Site-to-Site VPN | VPN Gateway | Cloud VPN | Site-to-Site VPN |
 | **최대 대역폭** | 1.25 Gbps (터널당) | 10 Gbps (VpnGw5) | 3 Gbps (HA VPN) | 250 Mbps (터널당) |
 | **HA 구성** | 2 터널 기본 제공 | Active-Active 모드 | HA VPN (99.99% SLA) | 이중화 터널 권장 |
 | **비용 (서울)** | ~$0.05/h + 이그레스 | ~$0.19/h (VpnGw1) | ~$0.075/h + 이그레스 | 시간당 과금 + 이그레스 |
 
-**AWS ↔ GCP 연결 예시:**
-1. AWS에서 Customer Gateway(GCP의 외부 IP) + VPN Connection 생성
-2. GCP에서 External VPN Gateway(AWS의 외부 IP) + HA VPN 터널 생성
-3. BGP로 경로 교환 (AWS ASN: 64512, GCP ASN: 65001 등)
+**AWS ↔ Google Cloud 연결 예시:**
+1. AWS에서 Customer Gateway(Google Cloud의 외부 IP) + VPN Connection 생성
+2. Google Cloud에서 External VPN Gateway(AWS의 외부 IP) + HA VPN 터널 생성
+3. BGP로 경로 교환 (AWS ASN: 64512, Google Cloud ASN: 65001 등)
 
 {% hint style="info" %}
 **언제 사용:** 대역폭 1Gbps 이하, 빠른 PoC, 비용 민감한 환경
@@ -65,7 +65,7 @@ RFC 1918 프라이빗 대역을 벤더별로 분할합니다.
 
 물리적 전용 회선으로 연결합니다. 지연시간이 낮고 대역폭이 크지만, 설치에 수 주가 걸립니다.
 
-| 항목 | AWS | Azure | GCP | OCI |
+| 항목 | AWS | Azure | Google Cloud | OCI |
 | --- | --- | --- | --- | --- |
 | **서비스명** | Direct Connect | ExpressRoute | Cloud Interconnect | FastConnect |
 | **최대 대역폭** | 100 Gbps | 100 Gbps | 200 Gbps | 100 Gbps |
@@ -85,12 +85,12 @@ Cloud Exchange는 하나의 물리적 연결로 여러 클라우드에 동시 �
 graph LR
     AWS[AWS DX] --> IX[KINX / Cloud Exchange]
     Azure[Azure ER] --> IX
-    GCP[GCP CI] --> IX
+    Google Cloud[Google Cloud CI] --> IX
     OCI[OCI FC] --> IX
 ```
 
 **한국에서의 선택지:**
-- **KINX**: 국내 최대 IX(Internet Exchange). AWS, Azure, GCP, OCI 모두 PoP 보유
+- **KINX**: 국내 최대 IX(Internet Exchange). AWS, Azure, Google Cloud, OCI 모두 PoP 보유
 - **Megaport**: 글로벌 Cloud Exchange. 서울 PoP 있음
 - **Equinix Fabric**: 글로벌 최대. 서울 데이터센터 운영
 

@@ -31,13 +31,13 @@ API Gateway 자체는 인증 로직을 처리하지 않고, 외부 인증 서비
 | AWS | Lambda Authorizer | 커스텀 인증 로직을 Lambda로 구현 |
 | Azure | Entra ID (구 Azure AD) | OAuth 2.0 / OpenID Connect |
 | Azure | APIM Policy (validate-jwt) | JWT 토큰 검증을 정책으로 설정 |
-| GCP | Firebase Auth / Identity Platform | 소셜 로그인, 멀티팩터 인증 |
-| GCP | Service Account + IAM | 서비스 간 인증 |
+| Google Cloud | Firebase Auth / Identity Platform | 소셜 로그인, 멀티팩터 인증 |
+| Google Cloud | Service Account + IAM | 서비스 간 인증 |
 | OCI | OCI IAM / Identity Domains | OAuth 2.0, JWT 검증 |
 
 ### 추가 기능
 
-| 기능 | AWS | Azure | GCP | OCI |
+| 기능 | AWS | Azure | Google Cloud | OCI |
 | --- | --- | --- | --- | --- |
 | **사용량 계획/쿼터** | Usage Plans + API Keys | Subscription + Quota Policy | Apigee Rate Limiting | Rate Limiting Policy |
 | **요청 검증** | Request Validator (모델 스키마) | APIM Policy (validate-content) | Apigee OAS Validation | Request Validation Policy |
@@ -52,8 +52,8 @@ API Gateway 자체는 인증 로직을 처리하지 않고, 외부 인증 서비
 | AWS | API Gateway (REST/HTTP/WebSocket) | Lambda와 네이티브 통합. 서버리스 API 구성에 최적 |
 | AWS | AppSync | GraphQL 전용. 실시간 구독 지원 |
 | Azure | API Management (APIM) | 개발자 포털 내장. 멀티 클라우드/하이브리드 API 통합 |
-| GCP | Apigee | 엔터프라이즈 API 관리 플랫폼. 분석/수익화 기능 |
-| GCP | API Gateway | 경량. Cloud Functions/Cloud Run 연동에 적합 |
+| Google Cloud | Apigee | 엔터프라이즈 API 관리 플랫폼. 분석/수익화 기능 |
+| Google Cloud | API Gateway | 경량. Cloud Functions/Cloud Run 연동에 적합 |
 | OCI | OCI API Gateway | OCI Functions 연동. 인증, 속도 제한, 요청 변환 지원 |
 
 ## 핵심 차이점
@@ -62,7 +62,7 @@ API Gateway 자체는 인증 로직을 처리하지 않고, 외부 인증 서비
 
 **Azure API Management** — 개발자 포털, API 버전 관리, 정책 엔진이 내장된 풀 기능 플랫폼입니다. 단일 서비스에서 REST, WebSocket, GraphQL을 모두 처리합니다. 온프레미스 API와 클라우드 API를 하나의 게이트웨이로 통합할 수 있습니다.
 
-**GCP Apigee** — API를 제품으로 관리하는 엔터프라이즈 플랫폼입니다. 단일 서비스에서 모든 프로토콜을 처리하며, API 사용량 분석, 수익화(monetization), 파트너 관리 기능이 강점입니다.
+**Google Cloud Apigee** — API를 제품으로 관리하는 엔터프라이즈 플랫폼입니다. 단일 서비스에서 모든 프로토콜을 처리하며, API 사용량 분석, 수익화(monetization), 파트너 관리 기능이 강점입니다.
 
 **OCI API Gateway** — OCI Functions와 네이티브 연동되며, 단일 서비스에서 인증(JWT 검증), 속도 제한, 요청 변환을 정책 기반으로 설정할 수 있습니다.
 
@@ -70,7 +70,7 @@ API Gateway 자체는 인증 로직을 처리하지 않고, 외부 인증 서비
 
 API는 프로덕션에 배포되면 변경이 어렵기 때문에, 개발→스테이징→프로덕션의 단계적 배포와 버전 관리가 중요합니다.
 
-| 기능 | AWS API Gateway | Azure APIM | GCP Apigee | OCI API Gateway |
+| 기능 | AWS API Gateway | Azure APIM | Google Cloud Apigee | OCI API Gateway |
 | --- | --- | --- | --- | --- |
 | **Stage/Environment** | Stages (dev, staging, prod) | Environments | Environments (test, prod) | Deployments |
 | **Canary 배포** | Canary Deployment (가중치 기반) | Revision + Release | Revision + TargetServer | Route Rule (가중치) |
@@ -85,8 +85,8 @@ API를 외부에 공개한 뒤에는 **하위 호환성 유지**가 핵심입니
 
 | 전략 | 설명 | 벤더별 구현 |
 | --- | --- | --- |
-| **Canary** | 새 버전에 소량 트래픽(5~10%)을 보내고 모니터링 후 확대 | AWS: API Gateway Canary Deployment (Stage 가중치), Azure APIM: Revision + Traffic Split, GCP Apigee: TargetServer 가중치 |
-| **Blue/Green** | 두 환경을 동시 운영 후 트래픽 전환. 롤백 즉시 가능 | AWS: Stage 전환, Azure APIM: Revision 전환, GCP: Revision 전환 |
+| **Canary** | 새 버전에 소량 트래픽(5~10%)을 보내고 모니터링 후 확대 | AWS: API Gateway Canary Deployment (Stage 가중치), Azure APIM: Revision + Traffic Split, Google Cloud Apigee: TargetServer 가중치 |
+| **Blue/Green** | 두 환경을 동시 운영 후 트래픽 전환. 롤백 즉시 가능 | AWS: Stage 전환, Azure APIM: Revision 전환, Google Cloud: Revision 전환 |
 | **버전 분리** | `/v1`, `/v2` 별도 엔드포인트로 공존 | 모든 벤더 지원. 기존 소비자 영향 없이 새 버전 추가 |
 
 {% hint style="warning" %}
@@ -128,7 +128,7 @@ API Gateway 자체의 Canary 기능은 "게이트웨이 설정 변경"에 대한
 - [APIM 인증 정책](https://learn.microsoft.com/ko-kr/azure/api-management/authentication-authorization-overview)
 - [Microsoft Entra ID 문서](https://learn.microsoft.com/ko-kr/entra/identity/)
 
-### GCP
+### Google Cloud
 
 - [Apigee 문서](https://cloud.google.com/apigee/docs)
 - [API Gateway 문서](https://cloud.google.com/api-gateway/docs)

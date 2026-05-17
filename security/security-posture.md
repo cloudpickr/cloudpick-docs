@@ -25,7 +25,7 @@ description: 클라우드 보안 태세 관리(CSPM), 워크로드 보호(CWPP),
 
 ## 벤더별 보안 태세 서비스
 
-| 영역 | AWS | Azure | GCP | OCI |
+| 영역 | AWS | Azure | Google Cloud | OCI |
 | --- | --- | --- | --- | --- |
 | **CSPM** | [Security Hub](https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html) | [Defender for Cloud (CSPM)](https://learn.microsoft.com/azure/defender-for-cloud/concept-cloud-security-posture-management) | [Security Command Center](https://cloud.google.com/security-command-center/docs) | [Cloud Guard](https://docs.oracle.com/en-us/iaas/cloud-guard/home.htm) |
 | **CWPP** | [GuardDuty Runtime Monitoring](https://docs.aws.amazon.com/guardduty/latest/ug/runtime-monitoring.html) + [Inspector](https://docs.aws.amazon.com/inspector/latest/user/what-is-inspector.html) | [Defender for Servers/Containers](https://learn.microsoft.com/azure/defender-for-cloud/defender-for-servers-introduction) | [SCC Premium (VM Threat Detection)](https://cloud.google.com/security-command-center/docs/concepts-vm-threat-detection-overview) | [Cloud Guard (Threat Detector)](https://docs.oracle.com/en-us/iaas/cloud-guard/using/detect-recipes.htm) |
@@ -43,7 +43,7 @@ description: 클라우드 보안 태세 관리(CSPM), 워크로드 보호(CWPP),
 
 | 대상 | 벤치마크 예시 |
 | --- | --- |
-| 클라우드 계정 | CIS AWS Foundations, CIS Azure Foundations, CIS GCP Foundations, CIS OCI Foundations |
+| 클라우드 계정 | CIS AWS Foundations, CIS Azure Foundations, CIS Google Cloud Foundations, CIS OCI Foundations |
 | OS | CIS Amazon Linux 2023, CIS Ubuntu, CIS Windows Server |
 | 컨테이너 | CIS Docker, CIS Kubernetes |
 | 데이터베이스 | CIS Oracle Database, CIS PostgreSQL, CIS MySQL |
@@ -54,7 +54,7 @@ description: 클라우드 보안 태세 관리(CSPM), 워크로드 보호(CWPP),
 | --- | --- | --- |
 | AWS | Security Hub | CIS AWS Foundations Benchmark v1.4/v3.0 자동 평가. 점수 대시보드 |
 | Azure | Defender for Cloud | CIS Azure Foundations 기반 규정 준수 대시보드. 권장 사항 자동 생성 |
-| GCP | Security Command Center | CIS GCP Foundations 기반 스캔. Security Health Analytics |
+| Google Cloud | Security Command Center | CIS Google Cloud Foundations 기반 스캔. Security Health Analytics |
 | OCI | Cloud Guard | CIS OCI Foundations Benchmark 기반 Detector 레시피 기본 제공 |
 
 ### CIS 리포트의 중요성
@@ -97,7 +97,7 @@ Defender for Cloud가 워크로드별 위협을 탐지하고, Sentinel이 SIEM�
 </details>
 
 <details>
-<summary>GCP Security Command Center</summary>
+<summary>Google Cloud Security Command Center</summary>
 
 Event Threat Detection이 Cloud Audit Logs, VPC Flow Logs를 분석하여 위협을 탐지합니다. Chronicle SIEM과 연동하면 대규모 로그 분석과 위협 헌팅이 가능합니다.
 
@@ -120,7 +120,7 @@ Event Threat Detection이 Cloud Audit Logs, VPC Flow Logs를 분석하여 위협
 | AWS | GuardDuty → EventBridge → Lambda (자동 격리, SG 변경) |
 | Azure | Defender 권장 사항 → Logic Apps / Azure Functions (자동 교정) |
 | Azure | Sentinel Playbook (SOAR) → 자동 격리, 계정 비활성화 |
-| GCP | SCC Finding → Cloud Functions / Workflows (자동 교정) |
+| Google Cloud | SCC Finding → Cloud Functions / Workflows (자동 교정) |
 | OCI | Cloud Guard Responder → 자동 액션 (리소스 중지, 태그 추가, 알림) |
 
 ### 자동 대응 설계 원칙
@@ -158,10 +158,10 @@ graph LR
 - [Microsoft Defender for Cloud 문서](https://learn.microsoft.com/azure/defender-for-cloud/)
 - [Microsoft Sentinel 문서](https://learn.microsoft.com/azure/sentinel/)
 
-### GCP
+### Google Cloud
 
-- [GCP Security Command Center 문서](https://cloud.google.com/security-command-center/docs)
-- [GCP Chronicle SIEM](https://cloud.google.com/chronicle/docs)
+- [Google Cloud Security Command Center 문서](https://cloud.google.com/security-command-center/docs)
+- [Google Cloud Chronicle SIEM](https://cloud.google.com/chronicle/docs)
 
 ### OCI
 

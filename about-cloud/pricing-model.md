@@ -45,7 +45,7 @@ description: 온디맨드, 예약, 스팟 과금 모델과 이그레스 등 숨�
 
 중단 시 대응:
 
-- **중단 신호** — 벤더가 회수 2분 전(AWS) 또는 30초 전(GCP/Azure)에 메타데이터 엔드포인트로 알림을 보냅니다. 애플리케이션이 이 신호를 감지하여 진행 중인 작업을 체크포인트로 저장하고 정상 종료해야 합니다.
+- **중단 신호** — 벤더가 회수 2분 전(AWS) 또는 30초 전(Google Cloud/Azure)에 메타데이터 엔드포인트로 알림을 보냅니다. 애플리케이션이 이 신호를 감지하여 진행 중인 작업을 체크포인트로 저장하고 정상 종료해야 합니다.
 - **상태 복구** — 작업 상태를 외부 스토리지(S3, Blob 등)에 주기적으로 저장(체크포인트)하고, 새 인스턴스가 시작되면 마지막 체크포인트부터 재개합니다.
 - **자동 재시도** — Auto Scaling Group이나 Managed Instance Group이 중단된 인스턴스를 자동으로 대체합니다. 작업 큐(SQS 등)와 조합하면 실패한 작업이 다른 인스턴스에서 자동 재처리됩니다.
 
@@ -55,7 +55,7 @@ description: 온디맨드, 예약, 스팟 과금 모델과 이그레스 등 숨�
 
 ## 벤더별 비교
 
-| 과금 모델 | AWS | Azure | GCP | OCI |
+| 과금 모델 | AWS | Azure | Google Cloud | OCI |
 | --- | --- | --- | --- | --- |
 | **온디맨드** | On-Demand | Pay-As-You-Go | On-Demand | Pay-As-You-Go |
 | **약정 할인 (인스턴스)** | Reserved Instances | Reserved VM Instances | — | — |
@@ -68,7 +68,7 @@ description: 온디맨드, 예약, 스팟 과금 모델과 이그레스 등 숨�
 
 ### 핵심 차이점
 
-**GCP의 SUD(Sustained Use Discounts)** — 약정 없이 한 달 동안 일정 시간 이상 사용하면 자동으로 최대 30% 할인.
+**Google Cloud의 SUD(Sustained Use Discounts)** — 약정 없이 한 달 동안 일정 시간 이상 사용하면 자동으로 최대 30% 할인.
 
 **OCI의 이그레스 정책** — 월 10TB까지 이그레스 무료. 멀티클라우드 환경에서 데이터 이동이 빈번한 경우 큰 비용 차이를 만듦.
 
@@ -86,11 +86,11 @@ description: 온디맨드, 예약, 스팟 과금 모델과 이그레스 등 숨�
 | --- | --- | --- | --- |
 | AWS | 월 100GB | $0.09\~0.12/GB (리전별 상이) | 무료 (신청 필요) |
 | Azure | 월 100GB | $0.08\~0.12/GB | 무료 (신청 필요) |
-| GCP | 월 200GB | $0.08\~0.12/GB | 무료 (신청 필요) |
+| Google Cloud | 월 200GB | $0.08\~0.12/GB | 무료 (신청 필요) |
 | OCI | **월 10TB** | $0.0085/GB | 해당 없음 (기본 무료 범위로 충분) |
 
 {% hint style="info" %}
-AWS, Azure, GCP 모두 다른 클라우드나 온프레미스로 완전히 전환하는 경우 이그레스 비용을 면제하는 정책을 제공합니다. 단, 사전 신청이 필요하며 일상적 데이터 전송에는 적용되지 않습니다.
+AWS, Azure, Google Cloud 모두 다른 클라우드나 온프레미스로 완전히 전환하는 경우 이그레스 비용을 면제하는 정책을 제공합니다. 단, 사전 신청이 필요하며 일상적 데이터 전송에는 적용되지 않습니다.
 {% endhint %}
 
 ### 멀티클라우드 데이터 이동 — 비용과 지연시간
@@ -119,7 +119,7 @@ AWS, Azure, GCP 모두 다른 클라우드나 온프레미스로 완전히 전�
 
 ### 로그/모니터링 비용
 
-CloudWatch(AWS), Azure Monitor(Azure), Cloud Logging(GCP) 등 모니터링 서비스의 로그 수집·저장 비용도 간과하기 쉽습니다. 로그 보존 기간과 수집 범위를 적절히 설정하지 않으면 예상치 못한 비용이 발생할 수 있습니다.
+CloudWatch(AWS), Azure Monitor(Azure), Cloud Logging(Google Cloud) 등 모니터링 서비스의 로그 수집·저장 비용도 간과하기 쉽습니다. 로그 보존 기간과 수집 범위를 적절히 설정하지 않으면 예상치 못한 비용이 발생할 수 있습니다.
 
 ## 비용 관리 도구
 
@@ -129,7 +129,7 @@ CloudWatch(AWS), Azure Monitor(Azure), Cloud Logging(GCP) 등 모니터링 서�
 | --- | --- | --- |
 | AWS | [Cost Explorer](https://aws.amazon.com/ko/aws-cost-management/aws-cost-explorer/) | [Pricing Calculator](https://calculator.aws/) |
 | Azure | [Cost Management](https://azure.microsoft.com/ko-kr/products/cost-management/) | [가격 계산기](https://azure.microsoft.com/ko-kr/pricing/calculator/) |
-| GCP | [Cost Management](https://cloud.google.com/cost-management) | [가격 계산기](https://cloud.google.com/products/calculator) |
+| Google Cloud | [Cost Management](https://cloud.google.com/cost-management) | [가격 계산기](https://cloud.google.com/products/calculator) |
 | OCI | [Cost Analysis](https://docs.oracle.com/en-us/iaas/Content/Billing/Concepts/costanalysisoverview.htm) | [Cost Estimator](https://www.oracle.com/cloud/costestimator.html) |
 
 ## 참고하기

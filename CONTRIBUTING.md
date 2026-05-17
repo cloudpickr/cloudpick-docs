@@ -256,7 +256,7 @@ python3 scripts/check-internal-links.py
 - `description`, H1, `문서 기준`, `참고하기`가 있는가?
 - 내부 링크가 상대 경로로 동작하는가?
 - 변동성 높은 수치를 고정값으로 남기지 않았는가?
-- 벤더 비교 표의 열 순서가 AWS → Azure → GCP → OCI인가?
+- 벤더 비교 표의 열 순서가 AWS → Azure → Google Cloud → OCI인가?
 - 공식 문서 링크가 오래된 제품명이나 폐기된 페이지를 가리키지 않는가?
 
 ## PR 체크리스트

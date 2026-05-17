@@ -48,7 +48,7 @@ graph LR
 | --- | --- | --- |
 | AWS | [Bedrock Evaluations](https://docs.aws.amazon.com/bedrock/latest/userguide/evaluation.html) | 자동 평가 + 사람 평가. 모델 비교 |
 | Azure | [Azure AI Evaluation SDK](https://learn.microsoft.com/azure/ai-studio/how-to/evaluate-generative-ai-app) | Python SDK 기반. CI/CD 통합 |
-| GCP | [Vertex AI Evaluation Service](https://cloud.google.com/vertex-ai/generative-ai/docs/models/evaluation-overview) | 자동 지표 + 사람 평가 |
+| Google Cloud | [Vertex AI Evaluation Service](https://cloud.google.com/vertex-ai/generative-ai/docs/models/evaluation-overview) | 자동 지표 + 사람 평가 |
 | 벤더 중립 | [Ragas](https://docs.ragas.io/), [DeepEval](https://docs.confident-ai.com/) | 오픈소스 RAG 평가 프레임워크 |
 
 ## 프롬프트/모델 버전 관리
@@ -74,7 +74,7 @@ graph LR
 벤더별 모니터링:
 - AWS: CloudWatch + Bedrock 메트릭 (InvocationLatency, InputTokenCount, OutputTokenCount)
 - Azure: Azure Monitor + AI Studio 메트릭
-- GCP: Cloud Monitoring + Vertex AI 메트릭
+- Google Cloud: Cloud Monitoring + Vertex AI 메트릭
 
 ## 운영 패턴
 
@@ -95,7 +95,7 @@ graph LR
 
 - [Azure AI Evaluation SDK](https://learn.microsoft.com/azure/ai-studio/how-to/evaluate-generative-ai-app)
 
-### GCP
+### Google Cloud
 
 - [Vertex AI Evaluation Service](https://cloud.google.com/vertex-ai/generative-ai/docs/models/evaluation-overview)
 - [Google SRE Book — Monitoring Distributed Systems](https://sre.google/sre-book/monitoring-distributed-systems/)

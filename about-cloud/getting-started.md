@@ -85,7 +85,7 @@ NIST 5대 특성이 실무에서 어떤 가치를 만드는지, 온프레미스�
 - **PaaS(Platform as a Service)** — 사무실을 임대하는 것과 비슷합니다. 책상과 의자(런타임, 미들웨어)까지 갖춰져 있어서, 업무(애플리케이션 코드)에만 집중할 수 있습니다.
 - **SaaS(Software as a Service)** — 호텔에 투숙하는 것과 비슷합니다. 모든 것이 준비되어 있고, 서비스를 그대로 사용하기만 하면 됩니다.
 
-| 서비스 모델 | 사용자 관리 영역 | AWS 예시 | Azure 예시 | GCP 예시 |
+| 서비스 모델 | 사용자 관리 영역 | AWS 예시 | Azure 예시 | Google Cloud 예시 |
 | --- | --- | --- | --- | --- |
 | **IaaS** | OS, 미들웨어, 앱, 데이터 | EC2, EBS, VPC | Virtual Machines, VNet | Compute Engine, VPC |
 | **PaaS** | 앱, 데이터 | Elastic Beanstalk, RDS | App Service, Azure SQL | App Engine, Cloud SQL |
@@ -109,9 +109,9 @@ AWS, Azure, Google Cloud 같은 벤더가 소유·운영하는 인프라를 인�
 
 퍼블릭 클라우드와 프라이빗 클라우드(또는 온프레미스)를 연결하여 함께 사용하는 모델입니다. 민감한 데이터는 프라이빗 환경에, 탄력적인 워크로드는 퍼블릭 클라우드에 배치하는 방식으로 운영합니다.
 
-| 배포 모델 | AWS | Azure | GCP | OCI |
+| 배포 모델 | AWS | Azure | Google Cloud | OCI |
 | --- | --- | --- | --- | --- |
-| **퍼블릭** | AWS 리전 | Azure 리전 | GCP 리전 | OCI 리전 |
+| **퍼블릭** | AWS 리전 | Azure 리전 | Google Cloud 리전 | OCI 리전 |
 | **프라이빗/온프레미스 확장** | Outposts | Azure Stack, Azure Local | Google Distributed Cloud | Dedicated Region |
 | **하이브리드 관리** | EKS Anywhere, ECS Anywhere | Azure Arc | Anthos | OCI Multicloud |
 
@@ -143,7 +143,7 @@ CloudPick은 주요 글로벌 클라우드 벤더를 중심으로, 멀티클라�
 - [Azure란?](https://azure.microsoft.com/ko-kr/resources/cloud-computing-dictionary/what-is-azure)
 - [Azure 글로벌 인프라](https://azure.microsoft.com/ko-kr/explore/global-infrastructure/)
 
-### GCP
+### Google Cloud
 
 - [What is Cloud Computing?](https://cloud.google.com/learn/what-is-cloud-computing)
 - [Why Google Cloud](https://cloud.google.com/why-google-cloud)

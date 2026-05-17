@@ -37,7 +37,7 @@ description: 메트릭/로그/트레이스, APM, SLO 모니터링, 알림 운영
 | --- | --- | --- |
 | AWS | X-Ray + CloudWatch Application Signals | 서비스 맵 + SLO 모니터링 |
 | Azure | Application Insights | 자동 계측. 성능 이상 자동 탐지 |
-| GCP | Cloud Trace + Cloud Profiler | 트레이싱 + 코드 레벨 프로파일링 |
+| Google Cloud | Cloud Trace + Cloud Profiler | 트레이싱 + 코드 레벨 프로파일링 |
 | OCI | OCI Application Performance Monitoring | 분산 트레이싱 + 합성 모니터링 |
 
 ### 왜 여럿이 함께 봐야 하는가
@@ -78,7 +78,7 @@ SLI/SLO/SLA 개념과 에러 버짓에 대해서는 [SLI/SLO와 에러 버짓](s
 | --- | --- | --- |
 | AWS | CloudWatch Application Signals | SLO 정의, 에러 버짓 추적, 서비스 맵 연동 |
 | Azure | Azure Monitor SLO (Preview) | SLI 기반 SLO 설정, 번다운 차트 |
-| GCP | Cloud Monitoring SLO | SLO 정의, 에러 버짓 알림, 서비스 대시보드 |
+| Google Cloud | Cloud Monitoring SLO | SLO 정의, 에러 버짓 알림, 서비스 대시보드 |
 | OCI | OCI Monitoring + Alarms | 커스텀 메트릭 기반 SLO 구성 |
 
 ## 제품 비교
@@ -89,7 +89,7 @@ SLI/SLO/SLA 개념과 에러 버짓에 대해서는 [SLI/SLO와 에러 버짓](s
 | --- | --- | --- |
 | AWS | CloudWatch Metrics + Alarms | AWS 서비스 메트릭 자동 수집. 커스텀 메트릭 지원 |
 | Azure | Azure Monitor Metrics + Alerts | Azure 서비스 통합. Action Groups로 알림 라우팅 |
-| GCP | Cloud Monitoring | 자동 수집 + 커스텀 메트릭. PromQL 호환 |
+| Google Cloud | Cloud Monitoring | 자동 수집 + 커스텀 메트릭. PromQL 호환 |
 | OCI | OCI Monitoring | OCI 서비스 메트릭 자동 수집. 알람 + 알림 |
 
 ### 로그
@@ -98,7 +98,7 @@ SLI/SLO/SLA 개념과 에러 버짓에 대해서는 [SLI/SLO와 에러 버짓](s
 | --- | --- | --- |
 | AWS | CloudWatch Logs | 로그 그룹/스트림 구조. Logs Insights로 쿼리 |
 | Azure | Azure Monitor Logs (Log Analytics) | KQL(Kusto Query Language)로 분석 |
-| GCP | Cloud Logging | 자동 수집. Log Analytics로 SQL 쿼리 |
+| Google Cloud | Cloud Logging | 자동 수집. Log Analytics로 SQL 쿼리 |
 | OCI | OCI Logging | 서비스 로그 자동 수집. Logging Analytics로 분석 |
 
 ### 분산 트레이싱
@@ -107,7 +107,7 @@ SLI/SLO/SLA 개념과 에러 버짓에 대해서는 [SLI/SLO와 에러 버짓](s
 | --- | --- | --- |
 | AWS | X-Ray | AWS 서비스 간 요청 추적. OpenTelemetry 호환 |
 | Azure | Application Insights | 자동 계측. 성능 이상 탐지 |
-| GCP | Cloud Trace | 자동 수집. OpenTelemetry 호환 |
+| Google Cloud | Cloud Trace | 자동 수집. OpenTelemetry 호환 |
 | OCI | OCI APM Tracing | 분산 트레이싱. OpenTelemetry 호환 |
 
 ### 통합 대시보드
@@ -116,7 +116,7 @@ SLI/SLO/SLA 개념과 에러 버짓에 대해서는 [SLI/SLO와 에러 버짓](s
 | --- | --- | --- |
 | AWS | CloudWatch Dashboards | |
 | Azure | Azure Dashboards / Workbooks | Workbooks로 인터랙티브 리포트 |
-| GCP | Cloud Monitoring Dashboards | |
+| Google Cloud | Cloud Monitoring Dashboards | |
 | OCI | OCI Monitoring Console | 커스텀 대시보드 |
 
 ## 핵심 차이점
@@ -125,7 +125,7 @@ SLI/SLO/SLA 개념과 에러 버짓에 대해서는 [SLI/SLO와 에러 버짓](s
 
 **Azure Monitor** — Application Insights가 애플리케이션 성능 모니터링(APM)을 기본 제공합니다. KQL로 강력한 로그 분석이 가능하며, Workbooks로 인터랙티브 리포트를 만들 수 있습니다.
 
-**GCP Cloud Operations** — OpenTelemetry와의 통합이 가장 자연스럽습니다. Cloud Logging이 모든 GCP 서비스 로그를 자동 수집하며, BigQuery로 내보내 장기 분석이 가능합니다.
+**Google Cloud Cloud Operations** — OpenTelemetry와의 통합이 가장 자연스럽습니다. Cloud Logging이 모든 Google Cloud 서비스 로그를 자동 수집하며, BigQuery로 내보내 장기 분석이 가능합니다.
 
 **OCI Monitoring** — OCI 서비스 메트릭을 자동 수집하며, Logging Analytics로 로그 분석과 시각화를 제공합니다. APM Tracing으로 분산 트레이싱도 지원합니다.
 
@@ -155,7 +155,7 @@ SLI/SLO/SLA 개념과 에러 버짓에 대해서는 [SLI/SLO와 에러 버짓](s
 - [Azure Monitor 문서](https://learn.microsoft.com/ko-kr/azure/azure-monitor/)
 - [Application Insights 문서](https://learn.microsoft.com/ko-kr/azure/azure-monitor/app/app-insights-overview)
 
-### GCP
+### Google Cloud
 
 - [Cloud Monitoring 문서](https://cloud.google.com/monitoring/docs)
 - [Cloud Logging 문서](https://cloud.google.com/logging/docs)

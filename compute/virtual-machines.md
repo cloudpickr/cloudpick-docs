@@ -22,7 +22,7 @@ description: 범용, Arm, GPU 가상머신 제품과 이미지(OS 템플릿)를 
 | --- | --- | --- |
 | AWS | EC2 (Elastic Compute Cloud) | 가장 다양한 인스턴스 유형 (400+) |
 | Azure | Virtual Machines | Windows 워크로드에 강점 (Hybrid Benefit) |
-| GCP | Compute Engine | Custom Machine Type으로 CPU/메모리 자유 조합 |
+| Google Cloud | Compute Engine | Custom Machine Type으로 CPU/메모리 자유 조합 |
 | OCI | OCI Compute | Flexible Shape으로 CPU/메모리 자유 조합. Ampere A1 무료 티어 |
 
 ### Arm 기반 VM
@@ -31,7 +31,7 @@ description: 범용, Arm, GPU 가상머신 제품과 이미지(OS 템플릿)를 
 | --- | --- | --- |
 | AWS | EC2 Graviton (t4g, m7g 등) | 자체 설계 Arm 프로세서. x86 대비 높은 가격 대비 성능 |
 | Azure | Dpsv5/Dplsv5 시리즈 | Ampere Altra 기반 |
-| GCP | Tau T2A | Arm 기반 범용 |
+| Google Cloud | Tau T2A | Arm 기반 범용 |
 | OCI | Ampere A1 Compute | Ampere Altra 기반. 무료 티어 제공 |
 
 ### GPU / AI 가속기
@@ -40,7 +40,7 @@ description: 범용, Arm, GPU 가상머신 제품과 이미지(OS 템플릿)를 
 | --- | --- | --- |
 | AWS | P5, G5, Inf2, Trn1 | NVIDIA + 자체 칩(Inferentia, Trainium) |
 | Azure | NC, ND, NV 시리즈 | NVIDIA A100, H100 |
-| GCP | A2, G2 시리즈 + TPU | NVIDIA + 자체 TPU |
+| Google Cloud | A2, G2 시리즈 + TPU | NVIDIA + 자체 TPU |
 | OCI | GPU Instances (A10, A100, H100) | NVIDIA GPU. Bare Metal 옵션 제공 |
 
 ### 이미지 (OS 템플릿)
@@ -49,7 +49,7 @@ description: 범용, Arm, GPU 가상머신 제품과 이미지(OS 템플릿)를 
 | --- | --- | --- |
 | AWS | AMI (Amazon Machine Image) | Marketplace에서 3rd party 이미지 제공 |
 | Azure | VM Image / Shared Image Gallery | |
-| GCP | Image / Image Family | |
+| Google Cloud | Image / Image Family | |
 | OCI | Custom Image / Platform Image | Marketplace에서 3rd party 이미지 제공 |
 
 {% hint style="info" %}
@@ -60,7 +60,7 @@ VM은 **관리 부담이 가장 큰 컴퓨팅 서비스**입니다. OS 패치, �
 
 - **AWS** — 인스턴스 유형이 가장 다양하고, 자체 Arm 프로세서(Graviton)로 비용 절감 가능합니다.
 - **Azure** — 기존 Windows 라이선스를 활용한 Hybrid Benefit으로 비용을 줄일 수 있습니다.
-- **GCP** — CPU와 메모리를 자유롭게 조합하는 Custom Machine Type을 제공합니다.
+- **Google Cloud** — CPU와 메모리를 자유롭게 조합하는 Custom Machine Type을 제공합니다.
 - **OCI** — Flexible Shape으로 CPU/메모리를 자유 조합하며, Ampere A1 무료 티어를 제공합니다.
 
 ## 언제 무엇을 선택할 것인가
@@ -69,7 +69,7 @@ VM은 **관리 부담이 가장 큰 컴퓨팅 서비스**입니다. OS 패치, �
 | --- | --- |
 | Windows 워크로드 + 기존 라이선스 활용 | Azure VM (Hybrid Benefit) |
 | 인스턴스 유형 선택지가 가장 많아야 할 때 | AWS EC2 |
-| CPU/메모리를 1 vCPU 단위로 자유 조합하고 싶을 때 | GCP Compute Engine (Custom Machine Type) 또는 OCI (Flexible Shape) |
+| CPU/메모리를 1 vCPU 단위로 자유 조합하고 싶을 때 | Google Cloud Compute Engine (Custom Machine Type) 또는 OCI (Flexible Shape) |
 | Arm 기반 비용 절감이 목표일 때 | AWS EC2 Graviton |
 | 무료 티어로 Arm VM을 사용하고 싶을 때 | OCI Ampere A1 |
 | GPU/AI 가속기 + 자체 칩(Inferentia, Trainium)이 필요할 때 | AWS EC2 (P5, Inf2, Trn1) |
@@ -93,7 +93,7 @@ VM은 **관리 부담이 가장 큰 컴퓨팅 서비스**입니다. OS 패치, �
 | --- | --- | --- | --- |
 | AWS | On-Demand | Reserved Instance + Savings Plans | Spot Instance |
 | Azure | Pay-As-You-Go | Reserved VM Instance + Savings Plan | Spot VM |
-| GCP | On-Demand | Committed Use Discount (CUD) | Preemptible / Spot VM |
+| Google Cloud | On-Demand | Committed Use Discount (CUD) | Preemptible / Spot VM |
 | OCI | Pay-As-You-Go | Monthly Flex / Annual Flex / Universal Credits | Preemptible Instance |
 
 {% hint style="info" %}
@@ -104,7 +104,7 @@ VM은 **관리 부담이 가장 큰 컴퓨팅 서비스**입니다. OS 패치, �
 
 고성능/컴플라이언스 요구사항에 따라 VM을 물리적으로 제어할 수 있습니다.
 
-| 기능 | 설명 | AWS | Azure | GCP | OCI |
+| 기능 | 설명 | AWS | Azure | Google Cloud | OCI |
 | --- | --- | --- | --- | --- | --- |
 | **동일 랙 배치** | 저지연 통신 (HPC, 분산 DB) | Placement Group (Cluster) | Proximity Placement Group | Compact Placement | Cluster Network |
 | **분산 배치** | 단일 장애점 제거 | Placement Group (Spread) | Availability Set | Spread Placement | Fault Domain |
@@ -122,7 +122,7 @@ VM은 **관리 부담이 가장 큰 컴퓨팅 서비스**입니다. OS 패치, �
 - [Azure Virtual Machines 문서](https://learn.microsoft.com/ko-kr/azure/virtual-machines/)
 - [Azure VM 크기](https://learn.microsoft.com/ko-kr/azure/virtual-machines/sizes/)
 
-### GCP
+### Google Cloud
 
 - [Google Compute Engine 문서](https://cloud.google.com/compute/docs)
 - [Google Compute Engine 머신 유형](https://cloud.google.com/compute/docs/machine-types)

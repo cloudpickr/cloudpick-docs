@@ -24,7 +24,7 @@ description: SSH/RDP 없이 안전하게 인스턴스에 접근하는 관리형 
 
 ## 벤더별 서비스 비교
 
-| 항목 | AWS | Azure | GCP | OCI |
+| 항목 | AWS | Azure | Google Cloud | OCI |
 | --- | --- | --- | --- | --- |
 | **서비스명** | [Systems Manager Session Manager](https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager.html) | [Azure Bastion](https://learn.microsoft.com/azure/bastion/bastion-overview) | [Identity-Aware Proxy (IAP)](https://cloud.google.com/iap/docs/using-tcp-forwarding) | [OCI Bastion](https://docs.oracle.com/en-us/iaas/Content/Bastion/home.htm) |
 | **방식** | 에이전트 기반 (SSM Agent) | 프록시 기반 (PaaS) | 프록시 기반 (TCP 포워딩) | 프록시 기반 (관리형 Bastion) |
@@ -41,7 +41,7 @@ description: SSH/RDP 없이 안전하게 인스턴스에 접근하는 관리형 
 
 **Azure Bastion** — VNet에 배포하는 PaaS 서비스로, 브라우저(Azure Portal)에서 직접 SSH/RDP 세션을 열 수 있습니다. 별도 클라이언트 설치가 불필요하지만, Bastion 호스트 자체에 시간 과금이 발생합니다.
 
-**GCP Identity-Aware Proxy (IAP)** — Google의 제로 트러스트 접근 모델의 일부입니다. TCP 포워딩을 통해 SSH/RDP뿐 아니라 임의 포트에 대한 터널을 생성할 수 있습니다. 웹 애플리케이션 접근 제어에도 동일한 IAP를 사용합니다.
+**Google Cloud Identity-Aware Proxy (IAP)** — Google의 제로 트러스트 접근 모델의 일부입니다. TCP 포워딩을 통해 SSH/RDP뿐 아니라 임의 포트에 대한 터널을 생성할 수 있습니다. 웹 애플리케이션 접근 제어에도 동일한 IAP를 사용합니다.
 
 **OCI Bastion** — 관리형 Bastion 서비스로, 세션 생성 시 TTL(최대 3시간)을 지정합니다. 세션 만료 후 자동 정리되어 장기 접근 경로가 남지 않습니다.
 
@@ -89,7 +89,7 @@ description: SSH/RDP 없이 안전하게 인스턴스에 접근하는 관리형 
 
 - **AWS** — IAM Identity Center + Permission Set (시간 제한) 또는 SSM Session Manager + Approval Workflow
 - **Azure** — Privileged Identity Management (PIM) — 역할 활성화 시 승인 + TTL
-- **GCP** — PAM (Privileged Access Manager) — Just-In-Time 접근 요청/승인
+- **Google Cloud** — PAM (Privileged Access Manager) — Just-In-Time 접근 요청/승인
 - **OCI** — OCI Bastion 세션 TTL (최대 3시간) + IAM 동적 그룹
 
 ### 접근 방식 선택 기준
@@ -98,7 +98,7 @@ description: SSH/RDP 없이 안전하게 인스턴스에 접근하는 관리형 
 | --- | --- |
 | 일상적 운영 (로그 확인, 설정 변경) | 관리형 서비스 사용 |
 | 긴급 장애 대응 | 관리형 서비스 + 사전 권한 설정 (break-glass) |
-| 대량 서버 명령 실행 | AWS Run Command / Azure Run Command / GCP OS Config |
+| 대량 서버 명령 실행 | AWS Run Command / Azure Run Command / Google Cloud OS Config |
 | 개발/테스트 환경 임시 접근 | IAP 터널 또는 Session Manager 포트 포워딩 |
 | 규정상 SSH 키 사용 필수 | OCI Bastion (SSH 키 기반 세션) |
 
@@ -123,7 +123,7 @@ description: SSH/RDP 없이 안전하게 인스턴스에 접근하는 관리형 
 | --- | --- | --- | --- |
 | AWS | **CloudTrail** (`StartSession`, `TerminateSession`, `SendCommand`) | Session Manager 세션 로깅 (명령 입출력 스트림) | CloudTrail → S3, 세션 로그 → S3/CloudWatch Logs |
 | Azure | **Activity Log** (Bastion 연결 이벤트) | Bastion 진단 로그 (연결 메타데이터) | Log Analytics Workspace |
-| GCP | **Cloud Audit Logs** (IAP 터널 생성/종료) | OS Login 감사 로그 (메타데이터만, 명령 내용 미기록) | Cloud Logging |
+| Google Cloud | **Cloud Audit Logs** (IAP 터널 생성/종료) | OS Login 감사 로그 (메타데이터만, 명령 내용 미기록) | Cloud Logging |
 | OCI | **Audit Log** (Bastion 세션 생성/만료) | OCI Logging (세션 메타데이터) | OCI Logging / Object Storage |
 
 **CloudTrail 연계 (AWS 예시):**
@@ -161,9 +161,9 @@ CloudTrail은 세션 접근의 "관리 행위"를 자동으로 기록합니다:
 - [Azure Bastion 문서](https://learn.microsoft.com/azure/bastion/bastion-overview)
 - [Azure Run Command](https://learn.microsoft.com/azure/virtual-machines/run-command-overview)
 
-### GCP
+### Google Cloud
 
-- [GCP IAP TCP 포워딩 문서](https://cloud.google.com/iap/docs/using-tcp-forwarding)
+- [Google Cloud IAP TCP 포워딩 문서](https://cloud.google.com/iap/docs/using-tcp-forwarding)
 
 ### OCI
 

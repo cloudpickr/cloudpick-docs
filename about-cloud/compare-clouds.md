@@ -8,7 +8,7 @@ description: 주요 벤더의 특징, 강점, 멀티클라우드 연동 서비�
 
 ## 한눈에 보기
 
-| 항목 | AWS | Azure | GCP | OCI |
+| 항목 | AWS | Azure | Google Cloud | OCI |
 | --- | --- | --- | --- | --- |
 | **운영사** | Amazon | Microsoft | Google | Oracle |
 | **출시** | 2006년 | 2010년 | 2008년 | 2016년 (Gen2) |
@@ -27,7 +27,7 @@ description: 주요 벤더의 특징, 강점, 멀티클라우드 연동 서비�
 
 특정 벤더에 익숙한 독자가 다른 벤더의 동등 서비스를 찾을 때 참고하세요.
 
-| 영역 | AWS | Azure | GCP | OCI |
+| 영역 | AWS | Azure | Google Cloud | OCI |
 | --- | --- | --- | --- | --- |
 | **가상머신** | EC2 | Virtual Machines | Compute Engine | Compute |
 | **관리형 K8s** | EKS | AKS | GKE | OKE |
@@ -82,7 +82,7 @@ Microsoft의 엔터프라이즈 소프트웨어 생태계(Microsoft 365, Active 
 
 ### Google Cloud — AI/ML과 데이터 분석
 
-Google의 검색·데이터 처리 인프라에서 발전한 GCP는 AI/ML과 대규모 데이터 분석에서 차별화됩니다. 글로벌 VPC, SUD(자동 할인) 등 독특한 설계 철학을 가지고 있습니다.
+Google의 검색·데이터 처리 인프라에서 발전한 Google Cloud는 AI/ML과 대규모 데이터 분석에서 차별화됩니다. 글로벌 VPC, SUD(자동 할인) 등 독특한 설계 철학을 가지고 있습니다.
 
 - **핵심 강점:** AI/ML(Gemini Enterprise, TPU), 데이터 분석(BigQuery), 컨테이너(GKE)
 - **차별점:** Gemini Enterprise Agent Platform(구 Vertex AI), 글로벌 VPC(리전 종속 아님), Shared Fate 보안 모델
@@ -105,7 +105,7 @@ Oracle의 데이터베이스 기술력을 클라우드로 확장한 OCI는 Oracl
 | 카테고리 | 설명 | 상세 |
 | --- | --- | --- |
 | **네트워크 직접 연결** | 벤더 간 전용 네트워크로 프라이빗 연결. 인터넷을 경유하지 않아 지연과 보안 모두 유리 | [멀티클라우드 커넥티비티](../networking/multicloud-connectivity.md) |
-| **타 클라우드 내 DB 배치** | 경쟁사 데이터센터 안에 자사 DB를 네이티브 배치. 앱은 AWS/Azure/GCP에 두고 DB만 Oracle을 쓰는 구성이 가능 | [관리형 RDB — Database@Cloud](../database/managed-rdb.md#database-cloud-db) |
+| **타 클라우드 내 DB 배치** | 경쟁사 데이터센터 안에 자사 DB를 네이티브 배치. 앱은 AWS/Azure/Google Cloud에 두고 DB만 Oracle을 쓰는 구성이 가능 | [관리형 RDB — Database@Cloud](../database/managed-rdb.md#database-cloud-db) |
 | **멀티클라우드 관리 플랫폼** | 타 클라우드의 서버, Kubernetes, DB를 자사 콘솔에서 통합 관리. 운영 도구를 하나로 통일하려는 수요에 대응 | 아래 참조 |
 
 ### 멀티클라우드 관리 플랫폼
@@ -122,11 +122,11 @@ Oracle의 데이터베이스 기술력을 클라우드로 확장한 OCI는 Oracl
 
 ### Microsoft Azure
 
-Azure는 AWS와 GCP 사용자를 위한 전환 가이드를 가장 체계적으로 제공합니다.
+Azure는 AWS와 Google Cloud 사용자를 위한 전환 가이드를 가장 체계적으로 제공합니다.
 
 - [AWS 전문가를 위한 Azure](https://learn.microsoft.com/ko-kr/azure/architecture/aws-professional/)
   - [AWS와 Azure 서비스 비교](https://learn.microsoft.com/ko-kr/azure/architecture/aws-professional/services)
-- [GCP 전문가를 위한 Azure](https://learn.microsoft.com/ko-kr/azure/architecture/gcp-professional/)
+- [Google Cloud 전문가를 위한 Azure](https://learn.microsoft.com/ko-kr/azure/architecture/gcp-professional/)
 
 ### Google Cloud
 
@@ -157,13 +157,13 @@ AWS는 타사 대비 직접적인 서비스 비교 페이지를 제공하지 않
 
 - [AWS — Network Monitor](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/what-is-network-monitor.html)
 - [Azure — 네트워크 왕복 지연 시간 통계](https://learn.microsoft.com/en-us/azure/networking/azure-network-latency)
-- [GCP — Performance Dashboard](https://cloud.google.com/network-intelligence-center/docs/performance-dashboard/concepts/overview)
+- [Google Cloud — Performance Dashboard](https://cloud.google.com/network-intelligence-center/docs/performance-dashboard/concepts/overview)
 
 ### 참고용 측정 도구
 
 아래 도구는 참고용이며, 특정 시점의 측정 결과가 벤더의 전반적 성능을 대표하지 않습니다.
 
-- [GCPing](https://gcping.com) — GCP 리전별 지연 시간 측정
+- [Google Clouding](https://gcping.com) — Google Cloud 리전별 지연 시간 측정
 - [Azure Speed Test 2.0](https://azurespeedtest.azurewebsites.net) — Azure 리전별 지연 시간 측정
 - [Kentik Cloud Latency Map](https://clm.kentik.com/) — 멀티 벤더 리전 간 지연 시간
 - [Cloud Ping Test](https://webping.cloud) — 멀티 벤더 동시 비교

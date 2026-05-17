@@ -63,7 +63,7 @@ Apache Lucene (검색 엔진 라이브러리)
 | --- | --- | --- | --- |
 | AWS | [OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/) | OpenSearch + k-NN | [CloudWatch Logs Insights](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/) |
 | Azure | [Azure AI Search](https://learn.microsoft.com/azure/search/) | AI Search (벡터 + 키워드 + 시맨틱) | [Log Analytics](https://learn.microsoft.com/azure/azure-monitor/logs/) |
-| GCP | — (Firestore 전문 검색 제한적) | [Vertex AI Search](https://cloud.google.com/generative-ai-app-builder/docs) | [Cloud Logging](https://cloud.google.com/logging/docs) + [BigQuery](https://cloud.google.com/bigquery/docs) |
+| Google Cloud | — (Firestore 전문 검색 제한적) | [Vertex AI Search](https://cloud.google.com/generative-ai-app-builder/docs) | [Cloud Logging](https://cloud.google.com/logging/docs) + [BigQuery](https://cloud.google.com/bigquery/docs) |
 | OCI | [OCI Search with OpenSearch](https://docs.oracle.com/en-us/iaas/Content/search-opensearch/home.htm) | OpenSearch + k-NN | [OCI Logging Analytics](https://docs.oracle.com/en-us/iaas/logging-analytics/home.htm) |
 
 ## 언제 무엇을 선택할 것인가
@@ -88,7 +88,7 @@ Apache Lucene (검색 엔진 라이브러리)
 - [Azure AI Search 문서](https://learn.microsoft.com/azure/search/)
 - [Log Analytics 문서](https://learn.microsoft.com/azure/azure-monitor/logs/)
 
-### GCP
+### Google Cloud
 
 - [Vertex AI Search 문서](https://cloud.google.com/generative-ai-app-builder/docs)
 - [Cloud Logging 문서](https://cloud.google.com/logging/docs)

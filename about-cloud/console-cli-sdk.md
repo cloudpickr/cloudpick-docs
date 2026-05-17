@@ -20,7 +20,7 @@ description: 콘솔, CLI, SDK, Cloud Shell의 역할과 IaC와의 관계를 벤�
 
 각 벤더는 웹 브라우저에서 클라우드 리소스를 관리할 수 있는 콘솔을 제공합니다.
 
-| 항목 | AWS | Azure | GCP | OCI |
+| 항목 | AWS | Azure | Google Cloud | OCI |
 | --- | --- | --- | --- | --- |
 | **이름** | AWS Management Console | Azure Portal | Google Cloud Console | OCI Console |
 | **URL** | [console.aws.amazon.com](https://console.aws.amazon.com) | [portal.azure.com](https://portal.azure.com) | [console.cloud.google.com](https://console.cloud.google.com) | [cloud.oracle.com](https://cloud.oracle.com) |
@@ -30,7 +30,7 @@ description: 콘솔, CLI, SDK, Cloud Shell의 역할과 IaC와의 관계를 벤�
 
 ### 콘솔 사용 시 주의사항
 
-- **리전 확인** — AWS와 GCP는 콘솔에서 리전을 명시적으로 선택해야 합니다. 잘못된 리전에서 리소스를 생성하는 실수가 흔합니다.
+- **리전 확인** — AWS와 Google Cloud는 콘솔에서 리전을 명시적으로 선택해야 합니다. 잘못된 리전에서 리소스를 생성하는 실수가 흔합니다.
 - **프로덕션 변경 자제** — 콘솔에서의 수동 변경은 추적이 어렵고 재현이 불가능합니다. 프로덕션 환경은 CLI나 IaC로 관리하는 것을 권장합니다.
 
 {% hint style="warning" %}
@@ -41,7 +41,7 @@ description: 콘솔, CLI, SDK, Cloud Shell의 역할과 IaC와의 관계를 벤�
 
 각 벤더는 터미널에서 클라우드 리소스를 관리할 수 있는 CLI 도구를 제공합니다.
 
-| 항목 | AWS | Azure | GCP | OCI |
+| 항목 | AWS | Azure | Google Cloud | OCI |
 | --- | --- | --- | --- | --- |
 | **CLI 이름** | AWS CLI (`aws`) | Azure CLI (`az`) | Google Cloud CLI (`gcloud`) | OCI CLI (`oci`) |
 | **추가 CLI** | — | Azure PowerShell | — | — |
@@ -58,7 +58,7 @@ aws ec2 describe-instances --region ap-northeast-2
 # Azure — VM 목록 조회
 az vm list --resource-group my-rg --output table
 
-# GCP — Compute Engine 인스턴스 목록 조회
+# Google Cloud — Compute Engine 인스턴스 목록 조회
 gcloud compute instances list --project my-project
 
 # OCI — Compute 인스턴스 목록 조회
@@ -71,7 +71,7 @@ Azure는 CLI 외에 **Azure PowerShell**도 제공합니다. Windows 환경에�
 
 각 벤더는 주요 프로그래밍 언어용 SDK를 제공하여, 애플리케이션 코드에서 직접 클라우드 서비스를 호출할 수 있습니다.
 
-| 언어 | AWS | Azure | GCP | OCI |
+| 언어 | AWS | Azure | Google Cloud | OCI |
 | --- | --- | --- | --- | --- |
 | **Python** | Boto3 | azure-sdk-for-python | google-cloud-python | oci-python-sdk |
 | **JavaScript/TypeScript** | AWS SDK for JavaScript | azure-sdk-for-js | google-cloud-node | oci-typescript-sdk |
@@ -86,7 +86,7 @@ SDK는 CLI와 달리 애플리케이션 코드에 직접 통합되므로, 에러
 
 각 벤더 모두 브라우저에서 바로 CLI를 사용할 수 있는 **Cloud Shell**을 제공합니다. 별도의 설치 없이 웹 브라우저만으로 CLI 작업이 가능하여, 빠른 테스트나 긴급 대응 시 유용합니다.
 
-| 항목 | AWS | Azure | GCP | OCI |
+| 항목 | AWS | Azure | Google Cloud | OCI |
 | --- | --- | --- | --- | --- |
 | **이름** | AWS CloudShell | Azure Cloud Shell | Google Cloud Shell | OCI Cloud Shell |
 | **사전 설치 도구** | AWS CLI, Python, Node.js, Git 등 | Azure CLI, PowerShell, Terraform 등 | gcloud, kubectl, Terraform, Python 등 | OCI CLI, Python, Terraform 등 |

@@ -22,7 +22,7 @@ Kubernetes는 연 3회 마이너 버전을 릴리스하며, 각 벤더는 일정
 | --- | --- | --- | --- |
 | AWS | EKS | 최근 4개 (+ Extended Support 유료) | 컨트롤 플레인 → 노드 그룹 순차 |
 | Azure | AKS | 최근 3개 | 컨트롤 플레인 → 노드 풀 순차. Auto-upgrade 옵션 |
-| GCP | GKE | 최근 3개 (Rapid/Regular/Stable 채널) | Release Channel 기반 자동 업그레이드 |
+| Google Cloud | GKE | 최근 3개 (Rapid/Regular/Stable 채널) | Release Channel 기반 자동 업그레이드 |
 | OCI | OKE | 최근 3개 | 컨트롤 플레인 → 노드 풀 순차 |
 
 **업그레이드 전략:**
@@ -49,7 +49,7 @@ graph LR
 | **Admission Control** | [OPA Gatekeeper](https://open-policy-agent.github.io/gatekeeper/), [Kyverno](https://kyverno.io/) | Pod 생성 시 정책 강제 (이미지 소스 제한, 리소스 제한 등) |
 | **Network Policy** | Calico, Cilium, 벤더 네이티브 | Pod 간 통신 제어 (기본: 모두 허용 → 명시적 허용만) |
 | **Image Policy** | 서명 검증 (Cosign, Notation) | 승인된 레지스트리/서명된 이미지만 배포 허용 |
-| **Workload Identity** | IRSA (AWS), Workload Identity (GCP/Azure) | Pod에 클라우드 IAM 역할 매핑 (Service Account Key 불필요) |
+| **Workload Identity** | IRSA (AWS), Workload Identity (Google Cloud/Azure) | Pod에 클라우드 IAM 역할 매핑 (Service Account Key 불필요) |
 
 ## 플랫폼 운영
 
@@ -78,7 +78,7 @@ Kubernetes 클러스터는 VPC 서브넷 위에서 동작하며, Pod 네트워�
 
 | 방식 | 설명 | 벤더 |
 | --- | --- | --- |
-| **VPC 네이티브 (Pod에 VPC IP 할당)** | Pod가 VPC IP를 직접 사용. VPC 내 다른 리소스와 직접 통신 가능 | AWS VPC CNI, Azure CNI, GCP Alias IP |
+| **VPC 네이티브 (Pod에 VPC IP 할당)** | Pod가 VPC IP를 직접 사용. VPC 내 다른 리소스와 직접 통신 가능 | AWS VPC CNI, Azure CNI, Google Cloud Alias IP |
 | **오버레이 네트워크** | Pod에 별도 CIDR 할당. VPC IP를 소비하지 않지만 캡슐화 오버헤드 | Azure kubenet, Calico VXLAN, Flannel |
 
 ### 서브넷 IP 소진 문제
@@ -89,7 +89,7 @@ VPC 네이티브 방식에서는 노드 + Pod가 모두 VPC IP를 소비하여 �
 | --- | --- |
 | AWS | Prefix Delegation (노드당 /28 블록 할당), Secondary CIDR 추가 |
 | Azure | Azure CNI Overlay (Pod에 오버레이 IP 사용), Azure CNI + Dynamic IP Allocation |
-| GCP | Alias IP ranges, /14 기본 Pod CIDR (충분히 넓음) |
+| Google Cloud | Alias IP ranges, /14 기본 Pod CIDR (충분히 넓음) |
 
 ### 서비스 노출 패턴
 
@@ -118,7 +118,7 @@ VPC/서브넷 설계 기초(CIDR 계획, 퍼블릭/프라이빗 분리, Transit 
 
 - [AWS EKS — VPC and Subnet Best Practices](https://docs.aws.amazon.com/eks/latest/best-practices/subnets.html)
 - [Azure AKS — IP Address Planning](https://learn.microsoft.com/azure/aks/concepts-network-ip-address-planning)
-- [GCP GKE — VPC-native Cluster Networking](https://cloud.google.com/kubernetes-engine/docs/concepts/alias-ips)
+- [Google Cloud GKE — VPC-native Cluster Networking](https://cloud.google.com/kubernetes-engine/docs/concepts/alias-ips)
 - [OCI OKE — Network Configuration](https://docs.oracle.com/en-us/iaas/Content/ContEng/Concepts/contengnetworkconfig.htm)
 
 ## 벤더별 차이점
@@ -138,7 +138,7 @@ VPC/서브넷 설계 기초(CIDR 계획, 퍼블릭/프라이빗 분리, Transit 
 - KEDA 네이티브 통합 (이벤트 기반 오토스케일링)
 {% endtab %}
 
-{% tab title="GCP GKE" %}
+{% tab title="Google Cloud GKE" %}
 - **Autopilot 모드**: 노드 관리 완전 자동화 (Pod 단위 과금)
 - Workload Identity로 Service Account Key 불필요
 - Gateway API 네이티브 지원
@@ -159,7 +159,7 @@ VPC/서브넷 설계 기초(CIDR 계획, 퍼블릭/프라이빗 분리, Transit 
 
 - [Azure AKS Best Practices](https://learn.microsoft.com/azure/aks/best-practices)
 
-### GCP
+### Google Cloud
 
 - [GKE Best Practices](https://cloud.google.com/kubernetes-engine/docs/best-practices)
 

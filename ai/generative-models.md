@@ -18,8 +18,8 @@ description: 생성형 AI 모델을 유형별(텍스트, 이미지, 음성, 비�
 | --- | --- | --- | --- |
 | **텍스트 (LLM)** | 텍스트 → 텍스트 | Bedrock(Claude, Llama), Azure OpenAI(GPT), Vertex AI(Gemini) | 챗봇, 요약, 코드 생성 |
 | **이미지 생성** | 텍스트 → 이미지 | Bedrock(Titan Image, Stable Diffusion), Azure OpenAI(DALL-E), Vertex AI(Imagen) | 마케팅 소재, 디자인 프로토타입 |
-| **음성 합성 (TTS)** | 텍스트 → 음성 | Amazon Polly, Azure Speech, GCP Text-to-Speech, OCI Speech | ARS, 오디오북, 접근성 |
-| **음성 인식 (STT)** | 음성 → 텍스트 | Amazon Transcribe, Azure Speech, GCP Speech-to-Text, OCI Speech | 회의록, 자막, 음성 검색 |
+| **음성 합성 (TTS)** | 텍스트 → 음성 | Amazon Polly, Azure Speech, Google Cloud Text-to-Speech, OCI Speech | ARS, 오디오북, 접근성 |
+| **음성 인식 (STT)** | 음성 → 텍스트 | Amazon Transcribe, Azure Speech, Google Cloud Speech-to-Text, OCI Speech | 회의록, 자막, 음성 검색 |
 | **비디오 생성** | 텍스트/이미지 → 비디오 | Amazon Nova Reel, Vertex AI(Veo) | 광고, 숏폼 콘텐츠 |
 | **멀티모달** | 텍스트+이미지+음성 → 텍스트 | GPT-4o, Gemini, Claude(비전) | 문서 이해, 이미지 분석, 비디오 요약 |
 | **임베딩** | 텍스트/이미지 → 벡터 | Titan Embeddings, Azure OpenAI Embeddings, Vertex AI Embeddings | RAG, 유사도 검색 |
@@ -42,7 +42,7 @@ description: 생성형 AI 모델을 유형별(텍스트, 이미지, 음성, 비�
 | --- | --- | --- |
 | AWS | [Bedrock Model Catalog](https://docs.aws.amazon.com/bedrock/latest/userguide/models-supported.html) | Anthropic, Meta, Mistral 등 다수 3rd party 모델 호스팅 |
 | Azure | [Azure AI Model Catalog](https://learn.microsoft.com/azure/ai-studio/how-to/model-catalog-overview) | OpenAI 독점 + 오픈소스 모델 카탈로그 |
-| GCP | [Vertex AI Model Garden](https://cloud.google.com/model-garden) | Google + 오픈소스 모델 |
+| Google Cloud | [Vertex AI Model Garden](https://cloud.google.com/model-garden) | Google + 오픈소스 모델 |
 | 공통 | Custom Model Import | 자체 모델 배포(BYOM)도 가능 |
 
 {% hint style="info" %}

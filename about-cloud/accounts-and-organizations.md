@@ -25,7 +25,7 @@ description: 클라우드 계정과 조직 구조, 멀티 계정 전략, 주요 
 
 ## 벤더별 계층 구조
 
-| 개념 | AWS | Azure | GCP | OCI |
+| 개념 | AWS | Azure | Google Cloud | OCI |
 | --- | --- | --- | --- | --- |
 | **조직** | Organization | Tenant | Organization | Tenancy |
 | **중간 그룹** | OU (Organizational Unit) | Management Group | Folder | Compartment (중첩) |
@@ -50,7 +50,7 @@ description: 클라우드 계정과 조직 구조, 멀티 계정 전략, 주요 
 - Azure Policy로 Management Group 수준에서 정책 상속
 {% endtab %}
 
-{% tab title="GCP" %}
+{% tab title="Google Cloud" %}
 **Organization → Folder → Project**
 
 - Project = 권한 경계, Billing Account = 비용 경계 (분리, 가장 유연)
@@ -91,18 +91,18 @@ IAM 설계 상세는 [IAM 개요](iam-overview.md) → [IAM 실무 설계](../se
 | --- | --- | --- | --- |
 | **AWS** | Account | Account | **동일** — 계정을 나누면 비용도 자동 분리 |
 | **Azure** | Subscription | Billing Account / Profile | **분리** — 여러 Subscription을 하나의 청구로 묶을 수 있음 |
-| **GCP** | Project | Billing Account | **분리** — Project를 다른 Billing Account로 이동 가능 |
+| **Google Cloud** | Project | Billing Account | **분리** — Project를 다른 Billing Account로 이동 가능 |
 | **OCI** | Compartment | Tenancy | **분리** — Compartment로 격리, 비용은 Tenancy 통합 |
 
 ### 조직 규모별 설계 예시
 
-| 규모 | AWS | Azure | GCP | OCI |
+| 규모 | AWS | Azure | Google Cloud | OCI |
 | --- | --- | --- | --- | --- |
 | **스타트업** | 3 Account (dev/stg/prod) | 1 Subscription + 3 Resource Group | 3 Project + 1 Billing Account | 3 Compartment |
 | **중견기업** | 팀별 Account + 공유서비스 Account | 팀별 Subscription + Management Group | 팀별 Folder + 서비스별 Project | 팀별 Compartment 중첩 |
 | **대기업/공공** | 법인별 Org 또는 Billing Transfer | 법인별 Billing Profile + 중앙 MG | 법인별 Billing Account + 중앙 Org | 법인별 Tenancy |
 
-| 항목 | AWS | Azure | GCP | OCI |
+| 항목 | AWS | Azure | Google Cloud | OCI |
 | --- | --- | --- | --- | --- |
 | **비용 할당** | 태그 기반 | Resource Group + 태그 | 라벨 + Project | Compartment + 태그 |
 | **예산 알림** | AWS Budgets | Azure Budgets | Budget Alerts | OCI Budgets |
@@ -120,7 +120,7 @@ IAM 설계 상세는 [IAM 개요](iam-overview.md) → [IAM 실무 설계](../se
 | --- | --- | --- |
 | AWS | [Service Quotas](https://docs.aws.amazon.com/servicequotas/) | 콘솔 또는 Support 티켓 |
 | Azure | 구독 → 사용량 + 할당량 | Portal에서 요청 |
-| GCP | IAM → 할당량 | 콘솔에서 요청 |
+| Google Cloud | IAM → 할당량 | 콘솔에서 요청 |
 | OCI | 거버넌스 → 서비스 한도 | Support 요청 |
 
 {% hint style="warning" %}
@@ -135,7 +135,7 @@ IAM 설계 상세는 [IAM 개요](iam-overview.md) → [IAM 실무 설계](../se
 | --- | --- | --- |
 | AWS | [RAM (Resource Access Manager)](https://docs.aws.amazon.com/ram/) | 서브넷, Transit Gateway, AMI |
 | Azure | VNet Peering + RBAC | VNet, DNS Zone, Image Gallery |
-| GCP | [Shared VPC](https://cloud.google.com/vpc/docs/shared-vpc) | 호스트 프로젝트 서브넷 → 서비스 프로젝트 |
+| Google Cloud | [Shared VPC](https://cloud.google.com/vpc/docs/shared-vpc) | 호스트 프로젝트 서브넷 → 서비스 프로젝트 |
 | OCI | Cross-Tenancy Policy + DRG | VCN, Object Storage 버킷 |
 
 ## 참고하기

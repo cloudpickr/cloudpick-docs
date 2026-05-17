@@ -53,7 +53,7 @@ description: DevOps의 정의, GitOps, 플랫폼 엔지니어링, SLI/SLO/에러
 | Flux | CNCF 프로젝트. 경량 GitOps |
 | AWS CodePipeline + GitSync | AWS 네이티브 |
 | Azure GitOps (Flux 기반) | AKS에 내장 |
-| GCP Config Sync | GKE에 내장 |
+| Google Cloud Config Sync | GKE에 내장 |
 
 {% hint style="info" %}
 Kubernetes 환경에서의 GitOps 프로모션 전략, 클러스터 업그레이드, Day-2 운영 상세는 [Kubernetes 운영](kubernetes-operations.md)을 참고하세요.
@@ -96,7 +96,7 @@ DevOps/SRE에서 "서비스가 충분히 안정적인가?"를 체계적으로 �
 
 - [Azure DevOps 소개](https://learn.microsoft.com/ko-kr/devops/what-is-devops)
 
-### GCP
+### Google Cloud
 
 - [Google Cloud DevOps](https://cloud.google.com/devops)
 

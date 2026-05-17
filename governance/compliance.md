@@ -41,7 +41,7 @@ description: 한국 ISMS-P, CSAP와 글로벌 ISO 27001, SOC 2 등 클라우드 
 
 - [AWS K-ISMS](https://aws.amazon.com/compliance/k-isms/)
 - [Azure K-ISMS](https://learn.microsoft.com/azure/compliance/offerings/offering-korea-k-isms)
-- [GCP K-ISMS](https://cloud.google.com/security/compliance/k-isms)
+- [Google Cloud K-ISMS](https://cloud.google.com/security/compliance/k-isms)
 - OCI: 공식 컴플라이언스 페이지에서 인증 현황 확인
 
 ### CSAP (클라우드 보안 인증제)
@@ -63,7 +63,7 @@ description: 한국 ISMS-P, CSAP와 글로벌 ISO 27001, SOC 2 등 클라우드 
 | --- | --- | --- | --- |
 | AWS | 하 (Low-tier) | 서울 `ap-northeast-2` | [AWS CSAP 공지](https://aws.amazon.com/blogs/security/aws-achieves-cloud-security-assurance-program-csap-low-tier-certification-in-aws-seoul-region/) |
 | Azure | 하 (Low-tier) | Korea Central / South | [Azure CSAP](https://learn.microsoft.com/azure/compliance/offerings/offering-korea-csap) |
-| GCP | 하 (Low-tier) | Seoul `asia-northeast3` | [GCP CSAP](https://cloud.google.com/security/compliance/csap) |
+| Google Cloud | 하 (Low-tier) | Seoul `asia-northeast3` | [Google Cloud CSAP](https://cloud.google.com/security/compliance/csap) |
 | OCI | — (공식 페이지 확인) | Seoul, Chuncheon | [Oracle 컴플라이언스](https://www.oracle.com/corporate/cloud-compliance/) |
 
 {% hint style="info" %}
@@ -91,7 +91,7 @@ CSAP 제도는 N2SF(국가망보안체계) 1.0 공개(2025.9)에 따라 등급�
 
 - [AWS ISO 27001](https://aws.amazon.com/compliance/iso-27001-faqs/)
 - [Azure ISO 27001](https://learn.microsoft.com/azure/compliance/offerings/offering-iso-27001)
-- [GCP ISO 27001](https://cloud.google.com/security/compliance/iso-27001)
+- [Google Cloud ISO 27001](https://cloud.google.com/security/compliance/iso-27001)
 - [Oracle ISO 27001](https://www.oracle.com/corporate/cloud-compliance/)
 
 ### SOC 1 / SOC 2 / SOC 3
@@ -114,7 +114,7 @@ AICPA(미국 공인회계사 협회) 기반 감사 보고서. 엔터프라이즈
 | **공공 (EU)** | C5 (독일), ENS (스페인) 등 | EU |
 | **개인정보 (EU)** | GDPR | EU |
 
-각 벤더의 해당 인증 현황은 **AWS Compliance Programs**, **Azure Trust Center**, **GCP Compliance**, **Oracle Cloud Compliance** 페이지에서 확인합니다.
+각 벤더의 해당 인증 현황은 **AWS Compliance Programs**, **Azure Trust Center**, **Google Cloud Compliance**, **Oracle Cloud Compliance** 페이지에서 확인합니다.
 
 ## 벤더별 컴플라이언스 허브
 
@@ -124,7 +124,7 @@ AICPA(미국 공인회계사 협회) 기반 감사 보고서. 엔터프라이즈
 | --- | --- |
 | AWS | [AWS Compliance Programs](https://aws.amazon.com/compliance/programs/), [AWS Artifact (보고서)](https://aws.amazon.com/artifact/) |
 | Azure | [Microsoft Trust Center](https://www.microsoft.com/trust-center), [Service Trust Portal](https://servicetrust.microsoft.com/) |
-| GCP | [GCP Compliance Resource Center](https://cloud.google.com/security/compliance), [Google Compliance Reports Manager](https://cloud.google.com/security/compliance/compliance-reports-manager) |
+| Google Cloud | [Google Cloud Compliance Resource Center](https://cloud.google.com/security/compliance), [Google Compliance Reports Manager](https://cloud.google.com/security/compliance/compliance-reports-manager) |
 | OCI | [Oracle Cloud Compliance](https://www.oracle.com/corporate/cloud-compliance/) |
 
 ## 클라우드에서 규정 준수를 어떻게 운영하는가
@@ -139,7 +139,7 @@ AICPA(미국 공인회계사 협회) 기반 감사 보고서. 엔터프라이즈
 | --- | --- |
 | AWS | [AWS Config](https://aws.amazon.com/config/), [AWS Security Hub](https://aws.amazon.com/security-hub/), SCP (Service Control Policy) |
 | Azure | [Azure Policy](https://learn.microsoft.com/azure/governance/policy/overview), [Microsoft Defender for Cloud](https://azure.microsoft.com/products/defender-for-cloud) |
-| GCP | [Organization Policy](https://cloud.google.com/resource-manager/docs/organization-policy/overview), [Security Command Center](https://cloud.google.com/security-command-center) |
+| Google Cloud | [Organization Policy](https://cloud.google.com/resource-manager/docs/organization-policy/overview), [Security Command Center](https://cloud.google.com/security-command-center) |
 | OCI | [OCI Security Zones](https://docs.oracle.com/en-us/iaas/Content/security-zone/home.htm), [OCI Cloud Guard](https://docs.oracle.com/en-us/iaas/cloud-guard/home.htm) |
 
 ### 2. 감사 추적
@@ -150,7 +150,7 @@ AICPA(미국 공인회계사 협회) 기반 감사 보고서. 엔터프라이즈
 | --- | --- |
 | AWS | [AWS CloudTrail](https://aws.amazon.com/cloudtrail/) |
 | Azure | [Azure Monitor Activity Log](https://learn.microsoft.com/azure/azure-monitor/essentials/activity-log) |
-| GCP | [Cloud Audit Logs](https://cloud.google.com/logging/docs/audit) |
+| Google Cloud | [Cloud Audit Logs](https://cloud.google.com/logging/docs/audit) |
 | OCI | [OCI Audit](https://docs.oracle.com/en-us/iaas/Content/Audit/Concepts/auditoverview.htm) |
 
 ### 3. 접근 통제와 최소 권한
@@ -169,7 +169,7 @@ AICPA(미국 공인회계사 협회) 기반 감사 보고서. 엔터프라이즈
 
 - AWS Security Hub — CIS Benchmark, NIST, PCI DSS 자동 검사. [보안 태세 관리](../security/security-posture.md)에서 상세히 다룹니다
 - Azure Defender for Cloud — Secure Score + 컴플라이언스 표준 자동 평가
-- GCP Security Command Center — 컴플라이언스 프레임워크 매핑
+- Google Cloud Security Command Center — 컴플라이언스 프레임워크 매핑
 - OCI Cloud Guard — 구성 오류 자동 감지
 
 ## 독자를 위한 체크리스트
@@ -186,7 +186,7 @@ AICPA(미국 공인회계사 협회) 기반 감사 보고서. 엔터프라이즈
 ## 지속적으로 해야 할 것
 
 - **인증 갱신 주기 관리** — ISMS-P는 3년 유효/연 1회 사후심사, ISO 27001은 3년 주기/연 1회 감시심사입니다. 갱신 일정을 캘린더에 등록하세요.
-- **지속적 감사(Continuous Compliance)** — 수동 점검 대신 AWS Config, Azure Policy, GCP Organization Policy로 정책 위반을 실시간 탐지합니다.
+- **지속적 감사(Continuous Compliance)** — 수동 점검 대신 AWS Config, Azure Policy, Google Cloud Organization Policy로 정책 위반을 실시간 탐지합니다.
 - **정책 드리프트 탐지** — IaC와 실제 환경의 차이를 정기적으로 확인하여 규정 준수 상태를 유지합니다.
 
 ## 참고하기
@@ -211,10 +211,10 @@ AICPA(미국 공인회계사 협회) 기반 감사 보고서. 엔터프라이즈
 - [Azure CSAP](https://learn.microsoft.com/azure/compliance/offerings/offering-korea-csap)
 - [Azure Compliance Offerings](https://learn.microsoft.com/azure/compliance/)
 
-### GCP
+### Google Cloud
 
-- [GCP Compliance Resource Center](https://cloud.google.com/security/compliance)
-- [GCP K-ISMS](https://cloud.google.com/security/compliance/k-isms)
+- [Google Cloud Compliance Resource Center](https://cloud.google.com/security/compliance)
+- [Google Cloud K-ISMS](https://cloud.google.com/security/compliance/k-isms)
 - [Google Compliance Reports Manager](https://cloud.google.com/security/compliance/compliance-reports-manager)
 
 ### OCI

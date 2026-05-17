@@ -55,7 +55,7 @@ description: 클라우드 벤더와 서비스를 선택할 때 고려할 기준�
 | --- | --- |
 | 포트폴리오 다양성 | AWS |
 | 엔터프라이즈/Microsoft 통합 | Azure |
-| AI/ML, 데이터 분석 | GCP |
+| AI/ML, 데이터 분석 | Google Cloud |
 | Oracle DB, 이그레스 비용 | OCI |
 
 ### 6. 비용 구조
@@ -95,9 +95,9 @@ description: 클라우드 벤더와 서비스를 선택할 때 고려할 기준�
 | 워크로드 유형 | 주요 요인 | 가능한 선택 |
 | --- | --- | --- |
 | **핵심 운영 시스템** | 안정성, 팀 역량, 지원 SLA | 조직의 주력 벤더 |
-| **AI/ML 학습** | GPU 가용성, ML 도구, 가격 | GCP, AWS |
+| **AI/ML 학습** | GPU 가용성, ML 도구, 가격 | Google Cloud, AWS |
 | **AI/ML 추론** | 레이턴시, 모델 호스팅 비용 | 사용자 근처 리전 |
-| **데이터 분석** | 웨어하우스 기능, BI 통합 | GCP BigQuery, Azure Synapse |
+| **데이터 분석** | 웨어하우스 기능, BI 통합 | Google Cloud BigQuery, Azure Synapse |
 | **Microsoft 워크로드** | Entra ID 통합, 라이선스 혜택 | Azure |
 | **Oracle DB** | 라이선스, 성능 최적화 | OCI |
 | **DR 사이트** | 리전 다양성, 비용 | 주력 벤더와 다른 지역/벤더 |
@@ -173,7 +173,7 @@ graph TD
 
 - [Microsoft Cloud Adoption Framework](https://learn.microsoft.com/azure/cloud-adoption-framework/)
 
-### GCP
+### Google Cloud
 
 - [Google Cloud Adoption Framework](https://cloud.google.com/adoption-framework)
 

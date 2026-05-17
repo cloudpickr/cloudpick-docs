@@ -16,7 +16,7 @@ description: 하이브리드 클라우드, 엣지 컴퓨팅, 멀티클라우드 
 | --- | --- | --- | --- |
 | AWS | [Outposts](https://aws.amazon.com/outposts/) (랙/서버) | [Local Zones](https://aws.amazon.com/about-aws/global-infrastructure/localzones/), [Wavelength](https://aws.amazon.com/wavelength/) | EKS Anywhere, ECS Anywhere |
 | Azure | [Azure Stack HCI](https://learn.microsoft.com/azure/azure-local/), [Azure Local](https://learn.microsoft.com/azure/azure-local/) | Azure Edge Zones | [Azure Arc](https://azure.microsoft.com/products/azure-arc/) |
-| GCP | [Google Distributed Cloud](https://cloud.google.com/distributed-cloud) (Connected/Edge/Air-gapped) | GDC Edge | [GKE Enterprise](https://cloud.google.com/kubernetes-engine/enterprise/docs) |
+| Google Cloud | [Google Distributed Cloud](https://cloud.google.com/distributed-cloud) (Connected/Edge/Air-gapped) | GDC Edge | [GKE Enterprise](https://cloud.google.com/kubernetes-engine/enterprise/docs) |
 | OCI | [Dedicated Region](https://www.oracle.com/cloud/cloud-at-customer/dedicated-region/), [Compute Cloud@Customer](https://www.oracle.com/cloud/cloud-at-customer/) | — | [OCI Multicloud](https://docs.oracle.com/en/solutions/oci-best-practices/deploy-multicloud-oci-oracle-database-services1.html) |
 
 ## 사용 사례
@@ -34,7 +34,7 @@ description: 하이브리드 클라우드, 엣지 컴퓨팅, 멀티클라우드 
 | --- | --- | --- |
 | **Split-stack** | 계층별로 다른 벤더 사용 | 프런트엔드(AWS CloudFront) + 백엔드/DB(OCI) |
 | **Data Gravity** | 대용량 데이터는 한 곳에, 분석/AI는 여러 벤더에서 접근 | 데이터레이크(GCS) + ML(Vertex AI) + 서빙(AWS) |
-| **Best-of-Breed** | 서비스 영역별 최적 벤더 선택 | AI(GCP) + 엔터프라이즈 앱(Azure) + DB(OCI) |
+| **Best-of-Breed** | 서비스 영역별 최적 벤더 선택 | AI(Google Cloud) + 엔터프라이즈 앱(Azure) + DB(OCI) |
 | **Cloud-bursting** | 평상시 온프레미스, 피크 시 퍼블릭 확장 | 온프레미스 K8s + EKS/AKS/GKE 버스트 |
 | **DR/Failover** | 주 벤더 장애 시 보조 벤더로 전환 | AWS(주) + Azure(DR) |
 
@@ -52,7 +52,7 @@ description: 하이브리드 클라우드, 엣지 컴퓨팅, 멀티클라우드 
 
 - [Azure Arc 문서](https://learn.microsoft.com/azure/azure-arc/)
 
-### GCP
+### Google Cloud
 
 - [Google Distributed Cloud 문서](https://cloud.google.com/distributed-cloud)
 

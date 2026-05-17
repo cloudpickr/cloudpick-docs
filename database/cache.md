@@ -31,12 +31,12 @@ description: 인메모리 캐시의 개념, 캐시 패턴, 벤더별 관리형 �
 | AWS | [ElastiCache for Redis](https://docs.aws.amazon.com/elasticache/) | Redis | 기존 워크로드 호환용 |
 | AWS | [MemoryDB for Valkey](https://docs.aws.amazon.com/memorydb/) | Valkey | 내구성 보장 (디스크 영속). 프라이머리 DB로 사용 가능 |
 | Azure | [Azure Cache for Redis](https://learn.microsoft.com/azure/azure-cache-for-redis/) | Redis | Enterprise 티어 (Redis Enterprise 기반) |
-| GCP | [Memorystore for Valkey](https://cloud.google.com/memorystore/docs) | Valkey | **기본 권장**. Cluster 모드, 자동 장애 조치 |
-| GCP | [Memorystore for Redis](https://cloud.google.com/memorystore/docs) | Redis | 기존 호환용 |
+| Google Cloud | [Memorystore for Valkey](https://cloud.google.com/memorystore/docs) | Valkey | **기본 권장**. Cluster 모드, 자동 장애 조치 |
+| Google Cloud | [Memorystore for Redis](https://cloud.google.com/memorystore/docs) | Redis | 기존 호환용 |
 | OCI | [OCI Cache](https://docs.oracle.com/en-us/iaas/Content/ocicache/home.htm) | Redis 호환 | 관리형 Redis 클러스터 |
 
 {% hint style="info" %}
-**Valkey란?** Redis가 2024년 라이선스를 변경(BSD → SSPL/RSALv2)하면서, Linux Foundation 산하에서 오픈소스 포크로 탄생한 프로젝트입니다. 기존 Redis 클라이언트와 호환되며, AWS와 GCP가 기본 엔진으로 전환했습니다. 신규 프로젝트는 Valkey 기반을 권장합니다.
+**Valkey란?** Redis가 2024년 라이선스를 변경(BSD → SSPL/RSALv2)하면서, Linux Foundation 산하에서 오픈소스 포크로 탄생한 프로젝트입니다. 기존 Redis 클라이언트와 호환되며, AWS와 Google Cloud가 기본 엔진으로 전환했습니다. 신규 프로젝트는 Valkey 기반을 권장합니다.
 {% endhint %}
 
 ## Valkey/Redis vs Memcached
@@ -75,7 +75,7 @@ description: 인메모리 캐시의 개념, 캐시 패턴, 벤더별 관리형 �
 
 - [Azure Cache for Redis 문서](https://learn.microsoft.com/azure/azure-cache-for-redis/)
 
-### GCP
+### Google Cloud
 
 - [Memorystore 문서](https://cloud.google.com/memorystore/docs)
 

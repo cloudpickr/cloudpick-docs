@@ -10,7 +10,7 @@ description: 관리형 DNS, 라우팅 정책, DNSSEC, Private DNS를 벤더별�
 
 **DNS** (Domain Name System)는 도메인 이름(예: example.com)을 IP 주소로 변환하는 서비스입니다. 모든 인터넷 통신의 첫 단계이므로, DNS가 중단되면 서비스 전체가 접근 불가능해집니다.
 
-온프레미스에서는 BIND나 Windows DNS를 직접 운영하지만, 클라우드 관리형 DNS는 글로벌 Anycast 네트워크에서 운영되어 단일 장애점이 없습니다. AWS Route 53, GCP Cloud DNS, Azure DNS는 모두 **100% 가용성 SLA**를 제공합니다.
+온프레미스에서는 BIND나 Windows DNS를 직접 운영하지만, 클라우드 관리형 DNS는 글로벌 Anycast 네트워크에서 운영되어 단일 장애점이 없습니다. AWS Route 53, Google Cloud Cloud DNS, Azure DNS는 모두 **100% 가용성 SLA**를 제공합니다.
 
 {% hint style="info" %}
 DNS가 중단되면 서비스 URL 자체가 응답하지 않아 전체 서비스가 접근 불가능해집니다. 프로덕션 환경에서는 **TTL을 낮게** 유지하여(300초 이하) DNS 장애 조치 시 빠르게 전파되도록 하세요.
@@ -32,7 +32,7 @@ DNS가 중단되면 서비스 URL 자체가 응답하지 않아 전체 서비스
 | **NS** | 해당 도메인의 권한 있는 네임서버 지정 | `example.com → ns1.example.com` |
 | **SRV** | 서비스 위치 지정 (포트 포함) | `_sip._tcp.example.com → 10 60 5060 sip.example.com` |
 | **PTR** | IP를 도메인으로 역방향 매핑 | `34.216.184.93.in-addr.arpa → example.com` |
-| **ALIAS/ANAME** | CNAME과 유사하되 루트 도메인에서 사용 가능 | AWS Alias, Azure Alias, GCP 자체 ALIAS 레코드 타입(Public Zone 한정) |
+| **ALIAS/ANAME** | CNAME과 유사하되 루트 도메인에서 사용 가능 | AWS Alias, Azure Alias, Google Cloud 자체 ALIAS 레코드 타입(Public Zone 한정) |
 
 ### AWS의 Alias 레코드 특징
 
@@ -57,7 +57,7 @@ DNS 호스팅존은 도메인의 레코드를 관리하는 컨테이너입니다
 | --- | --- | --- | --- |
 | AWS | Route 53 Public Hosted Zone | Route 53 Private Hosted Zone (VPC 연결) | Public/Private Zone 분리로 구현 |
 | Azure | Azure Public DNS Zone | Azure Private DNS Zone (VNet 링크, 자동 등록) | Public/Private Zone 분리 |
-| GCP | Cloud DNS Public Zone | Cloud DNS Private Zone (VPC 바인딩) | 네이티브 Split-horizon 지원 |
+| Google Cloud | Cloud DNS Public Zone | Cloud DNS Private Zone (VPC 바인딩) | 네이티브 Split-horizon 지원 |
 | OCI | OCI DNS Public Zone | OCI DNS Private Views (VCN 연결) | DNS Views로 조건부 응답 |
 
 ### 활용 시나리오
@@ -74,14 +74,14 @@ DNS 호스팅존은 도메인의 레코드를 관리하는 컨테이너입니다
 | --- | --- | --- |
 | AWS | Route 53 | 도메인 등록 + DNS + 헬스 체크 + 라우팅 정책 올인원. 100% SLA |
 | Azure | Azure DNS + Traffic Manager | DNS 호스팅과 트래픽 라우팅이 별도 서비스로 분리. **100% SLA** |
-| GCP | Cloud DNS | 100% SLA. DNSSEC 기본 지원. 자체 헬스 체크 없음 |
+| Google Cloud | Cloud DNS | 100% SLA. DNSSEC 기본 지원. 자체 헬스 체크 없음 |
 | OCI | OCI DNS | 글로벌 Anycast. Traffic Management로 라우팅 정책 제공 |
 
 ### 라우팅 정책
 
 DNS 수준에서 트래픽을 제어할 수 있는 라우팅 정책입니다.
 
-| 정책 | 설명 | AWS Route 53 | Azure Traffic Manager | GCP Cloud DNS | OCI DNS Traffic Management |
+| 정책 | 설명 | AWS Route 53 | Azure Traffic Manager | Google Cloud Cloud DNS | OCI DNS Traffic Management |
 | --- | --- | --- | --- | --- | --- |
 | **지리적** | 사용자 위치 기반 라우팅 | Geolocation / Geoproximity | Geographic | Geolocation | Geolocation Steering |
 | **가중치** | 비율 기반 분배 (A/B 테스트, 점진적 배포) | Weighted | Weighted | Weighted Round Robin | Load Balancer |
@@ -95,14 +95,14 @@ DNS 수준에서 트래픽을 제어할 수 있는 라우팅 정책입니다.
 | --- | --- | --- |
 | AWS | Route 53 Health Checks | HTTP/HTTPS/TCP. CloudWatch 알람 연동. 장애 시 자동 DNS 전환 |
 | Azure | Traffic Manager Probes | HTTP/HTTPS/TCP. 엔드포인트 모니터링 |
-| GCP | — | Cloud DNS 자체 헬스 체크 없음. Cloud Load Balancing 헬스 체크와 조합 |
+| Google Cloud | — | Cloud DNS 자체 헬스 체크 없음. Cloud Load Balancing 헬스 체크와 조합 |
 | OCI | Health Checks | HTTP/HTTPS/TCP. DNS Traffic Management와 연동 |
 
 ## 핵심 차이점
 
 - **AWS Route 53** — 도메인 등록부터 라우팅까지 올인원. 라우팅 정책이 가장 다양합니다(Geoproximity, Multivalue 등).
 - **Azure** — DNS 호스팅(Azure DNS)과 글로벌 트래픽 라우팅(Traffic Manager)이 별도 서비스입니다. Traffic Manager는 DNS 기반 글로벌 로드밸런서 역할을 합니다.
-- **GCP Cloud DNS** — DNSSEC 기본 지원, Split-horizon 네이티브 지원이 강점입니다. 자체 헬스 체크가 없어 장애 조치는 Cloud Load Balancing과 조합해야 합니다.
+- **Google Cloud Cloud DNS** — DNSSEC 기본 지원, Split-horizon 네이티브 지원이 강점입니다. 자체 헬스 체크가 없어 장애 조치는 Cloud Load Balancing과 조합해야 합니다.
 - **OCI DNS** — Traffic Management로 지리적 라우팅, 장애 조치 등의 정책을 제공하며, Health Checks와 연동하여 자동 DNS 전환이 가능합니다.
 
 ## DNSSEC
@@ -113,7 +113,7 @@ DNS 수준에서 트래픽을 제어할 수 있는 라우팅 정책입니다.
 | --- | --- |
 | AWS Route 53 | DNSSEC 서명 및 등록 지원 |
 | Azure DNS | DNSSEC 서명 지원 |
-| GCP Cloud DNS | DNSSEC 서명 지원 (기본 활성화 옵션) |
+| Google Cloud Cloud DNS | DNSSEC 서명 지원 (기본 활성화 옵션) |
 | OCI DNS | DNSSEC 서명 지원 |
 
 ## 관련 문서
@@ -144,7 +144,7 @@ DNS 수준에서 트래픽을 제어할 수 있는 라우팅 정책입니다.
 - [Azure Traffic Manager 문서](https://learn.microsoft.com/ko-kr/azure/traffic-manager/)
 - [Azure DNS SLA (100%)](https://azure.microsoft.com/en-us/support/legal/sla/dns/v1_1/)
 
-### GCP
+### Google Cloud
 
 - [Cloud DNS 문서](https://cloud.google.com/dns/docs)
 - [Cloud DNS ALIAS 레코드 개요](https://cloud.google.com/dns/docs/records-overview)

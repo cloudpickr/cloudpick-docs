@@ -28,12 +28,12 @@ ID 유형별 관리(사람/기기/서드파티), 최소 권한 실천, 보안 �
 | --- | --- | --- |
 | AWS | IAM + IAM Identity Center | 사용자, 그룹, 역할, 정책. Identity Center로 멀티 계정 SSO |
 | Azure | Microsoft Entra ID (구 Azure AD) | 디렉토리 서비스 + RBAC. Microsoft 365와 통합 |
-| GCP | Cloud IAM | 프로젝트/폴더/조직 수준 RBAC. 서비스 계정으로 서비스 간 인증 |
+| Google Cloud | Cloud IAM | 프로젝트/폴더/조직 수준 RBAC. 서비스 계정으로 서비스 간 인증 |
 | OCI | OCI IAM with Identity Domains | 사용자, 그룹, 정책, 컴파트먼트 기반 접근 제어 |
 
 ## 인증 방식
 
-| 방식 | AWS | Azure | GCP | OCI |
+| 방식 | AWS | Azure | Google Cloud | OCI |
 | --- | --- | --- | --- | --- |
 | **콘솔 로그인** | 사용자명 + 비밀번호 + MFA | Entra ID 계정 + MFA | Google 계정 + MFA | 사용자명 + 비밀번호 + MFA |
 | **CLI/SDK** | Access Key 또는 `aws login` | `az login` (브라우저) | `gcloud auth login` (브라우저) | API Key 또는 `oci session authenticate` |
@@ -46,7 +46,7 @@ ID 유형별 관리(사람/기기/서드파티), 최소 권한 실천, 보안 �
 | --- | --- | --- |
 | **AWS** | 정책 기반 (JSON) | ID 기반 + 리소스 기반 정책 조합. 가장 세밀하지만 복잡 |
 | **Azure** | RBAC (역할 기반) | 기본/커스텀 역할. 범위(구독/리소스그룹/리소스) 지정. Conditional Access로 동적 제어 |
-| **GCP** | RBAC (역할 기반, 계층 상속) | 조직→폴더→프로젝트 상속. Workload Identity Federation으로 외부 토큰 직접 사용 |
+| **Google Cloud** | RBAC (역할 기반, 계층 상속) | 조직→폴더→프로젝트 상속. Workload Identity Federation으로 외부 토큰 직접 사용 |
 | **OCI** | 정책 기반 (HCL 유사) | `Allow group X to manage Y in compartment Z` 직관적 구문. 컴파트먼트 계층 상속 |
 
 ## 자격 증명 방식 비교
@@ -55,7 +55,7 @@ ID 유형별 관리(사람/기기/서드파티), 최소 권한 실천, 보안 �
 | --- | --- | --- | --- |
 | AWS | Access Key | IAM Role (Instance Profile, Task Role) | OIDC/SAML Federation |
 | Azure | Service Principal Secret | Managed Identity | Entra External ID, Workload Identity Federation |
-| GCP | Service Account Key (JSON) | Attached Service Account | Workload Identity Federation |
+| Google Cloud | Service Account Key (JSON) | Attached Service Account | Workload Identity Federation |
 | OCI | API Signing Key | Instance Principal | SAML/OIDC Federation |
 
 ## 참고하기

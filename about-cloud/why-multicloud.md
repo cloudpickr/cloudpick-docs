@@ -20,12 +20,12 @@ ISO/IEC 22123-1은 멀티클라우드를 다음과 같이 정의합니다.
 
 | 전략 | 정의 | 예시 |
 | --- | --- | --- |
-| **멀티클라우드** | 2개 이상의 퍼블릭 클라우드를 조합 | AWS(컴퓨팅) + GCP(AI/ML) |
+| **멀티클라우드** | 2개 이상의 퍼블릭 클라우드를 조합 | AWS(컴퓨팅) + Google Cloud(AI/ML) |
 | **하이브리드 클라우드** | 온프레미스 + 퍼블릭 클라우드를 연결 | 사내 DC + AWS Direct Connect |
 | **멀티 계정** | 단일 벤더 내에서 여러 계정을 운영 | AWS Organizations로 dev/staging/prod 분리 |
 
 {% hint style="info" %}
-실무에서는 이 세 가지가 겹치는 경우가 많습니다. "온프레미스 + AWS + GCP"를 운영한다면 하이브리드이면서 동시에 멀티클라우드입니다.
+실무에서는 이 세 가지가 겹치는 경우가 많습니다. "온프레미스 + AWS + Google Cloud"를 운영한다면 하이브리드이면서 동시에 멀티클라우드입니다.
 {% endhint %}
 
 ## 채택 현황
@@ -49,8 +49,8 @@ ISO/IEC 22123-1은 멀티클라우드를 다음과 같이 정의합니다.
 
 각 벤더의 강점을 조합하는 전략입니다.
 
-- **AI/ML**: GCP Vertex AI + BigQuery로 학습, AWS SageMaker AI로 서빙
-- **데이터 분석**: GCP BigQuery(분석) + AWS S3(저장)
+- **AI/ML**: Google Cloud Vertex AI + BigQuery로 학습, AWS SageMaker AI로 서빙
+- **데이터 분석**: Google Cloud BigQuery(분석) + AWS S3(저장)
 - **엔터프라이즈**: Azure Entra ID(ID 통합) + AWS(인프라)
 - **DB 중심**: OCI Autonomous DB + AWS(앱 서버)
 

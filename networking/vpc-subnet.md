@@ -24,7 +24,7 @@ description: VPC/VNet/VCN 개념, 서브넷 설계, 보안 계층, 라우팅, VP
 | --- | --- | --- | --- | --- |
 | AWS | VPC | 리전 | AZ | 리전 간은 피어링/TGW 필요 |
 | Azure | VNet | 리전 | 리전 내 자유 배치 | 글로벌 피어링 가능 |
-| GCP | VPC | **글로벌** | 리전 | 하나의 VPC에 여러 리전 서브넷 배치 가능 |
+| Google Cloud | VPC | **글로벌** | 리전 | 하나의 VPC에 여러 리전 서브넷 배치 가능 |
 | OCI | VCN | 리전 | 리전 또는 AD | Security Lists와 NSG 조합 |
 
 ## 서브넷 설계
@@ -66,7 +66,7 @@ CIDR 설계는 나중에 바꾸기 가장 어려운 결정입니다.
 
 ## 보안 (네트워크 방화벽)
 
-| 계층 | AWS | Azure | GCP | OCI | 역할 |
+| 계층 | AWS | Azure | Google Cloud | OCI | 역할 |
 | --- | --- | --- | --- | --- | --- |
 | **인스턴스** | Security Groups | NSG | Firewall Rules | Security Lists / NSG | 인바운드/아웃바운드 규칙 |
 | **서브넷** | Network ACL | NSG (서브넷 연결) | — | Security Lists | 서브넷 경계 필터링 |
@@ -90,7 +90,7 @@ CIDR 설계는 나중에 바꾸기 가장 어려운 결정입니다.
 
 ### 벤더별 라우팅 모델
 
-| 항목 | AWS | Azure | GCP | OCI |
+| 항목 | AWS | Azure | Google Cloud | OCI |
 | --- | --- | --- | --- | --- |
 | **라우팅 단위** | 서브넷별 | 서브넷별 (UDR) | VPC 전체 (암묵적) + 커스텀 | 서브넷별 |
 | **기본 인터넷 경로** | 명시적 추가 필요 | 기본 제공 (NSG로 제어) | 기본 제공 (방화벽으로 제어) | 명시적 추가 필요 |
@@ -132,7 +132,7 @@ flowchart TD
 | --- | --- | --- |
 | AWS | VPC Peering | Transit Gateway |
 | Azure | VNet Peering (글로벌) | Virtual WAN |
-| GCP | VPC Peering / Shared VPC | 글로벌 VPC로 대부분 불필요 |
+| Google Cloud | VPC Peering / Shared VPC | 글로벌 VPC로 대부분 불필요 |
 | OCI | Local/Remote Peering Gateway | DRG v2 |
 
 ## 프라이빗 서비스 연결
@@ -143,7 +143,7 @@ flowchart TD
 | --- | --- | --- |
 | AWS | VPC Endpoint (Gateway/Interface) / PrivateLink | Gateway(S3, DynamoDB)는 무료 |
 | Azure | Private Endpoint / Private Link | 서비스별 Private Endpoint 생성 |
-| GCP | Private Service Connect / Private Google Access | Private Google Access는 설정만으로 활성화 |
+| Google Cloud | Private Service Connect / Private Google Access | Private Google Access는 설정만으로 활성화 |
 | OCI | Service Gateway / Private Endpoint | Service Gateway는 Oracle 서비스 접근용 |
 
 {% hint style="warning" %}
@@ -165,7 +165,7 @@ flowchart TD
 | --- | --- | --- |
 | AWS | Direct Connect | Site-to-Site VPN |
 | Azure | ExpressRoute | VPN Gateway |
-| GCP | Cloud Interconnect | Cloud VPN (HA VPN) |
+| Google Cloud | Cloud Interconnect | Cloud VPN (HA VPN) |
 | OCI | FastConnect | Site-to-Site VPN |
 
 {% hint style="warning" %}
@@ -173,7 +173,7 @@ flowchart TD
 {% endhint %}
 
 {% hint style="info" %}
-벤더별 PoP 위치: [AWS](https://aws.amazon.com/directconnect/locations/) · [Azure](https://learn.microsoft.com/azure/expressroute/expressroute-locations) · [GCP](https://cloud.google.com/network-connectivity/docs/interconnect/concepts/choosing-colocation-facilities) · [OCI](https://docs.oracle.com/en-us/iaas/Content/Network/Concepts/fastconnectprovider.htm)
+벤더별 PoP 위치: [AWS](https://aws.amazon.com/directconnect/locations/) · [Azure](https://learn.microsoft.com/azure/expressroute/expressroute-locations) · [Google Cloud](https://cloud.google.com/network-connectivity/docs/interconnect/concepts/choosing-colocation-facilities) · [OCI](https://docs.oracle.com/en-us/iaas/Content/Network/Concepts/fastconnectprovider.htm)
 {% endhint %}
 
 {% hint style="info" %}
@@ -203,7 +203,7 @@ flowchart TD
 
 - [Azure Virtual Network 문서](https://learn.microsoft.com/ko-kr/azure/virtual-network/)
 
-### GCP
+### Google Cloud
 
 - [Google Cloud VPC 문서](https://cloud.google.com/vpc/docs)
 

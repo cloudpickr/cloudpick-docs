@@ -13,7 +13,7 @@ description: 객체 스토리지 서비스, 스토리지 클래스, 레이크하
 **객체 스토리지**는 용량 제한 없이 파일을 저장할 수 있는 클라우드 스토리지입니다. 용량을 미리 정할 필요 없이, 저장한 만큼만 비용을 지불합니다. 이미지, 동영상, 백업, 로그, 데이터 레이크 등 거의 모든 비정형 데이터를 저장하는 데 사용됩니다.
 
 {% hint style="info" %}
-S3를 아시는 분을 위해: Azure는 Blob Storage, GCP는 Cloud Storage, OCI는 Object Storage입니다.
+S3를 아시는 분을 위해: Azure는 Blob Storage, Google Cloud는 Cloud Storage, OCI는 Object Storage입니다.
 {% endhint %}
 
 ### 왜 객체 스토리지인가
@@ -30,14 +30,14 @@ S3를 아시는 분을 위해: Azure는 Blob Storage, GCP는 Cloud Storage, OCI�
 | --- | --- | --- |
 | AWS | S3 (Simple Storage Service) | 사실상 업계 표준. 스토리지 클래스 다양 (Standard, IA, Glacier 등) |
 | Azure | Blob Storage | Hot/Cool/Cold/Archive 티어. Data Lake Storage Gen2 통합 |
-| GCP | Cloud Storage | Standard/Nearline/Coldline/Archive. Multi-region/Dual-region 자동 복제 |
+| Google Cloud | Cloud Storage | Standard/Nearline/Coldline/Archive. Multi-region/Dual-region 자동 복제 |
 | OCI | OCI Object Storage | Standard/Infrequent Access/Archive 티어. S3 호환 API 지원 |
 
 ### 스토리지 클래스 (접근 빈도별 비용 최적화)
 
 데이터는 시간이 지나면 접근 빈도가 줄어듭니다. 각 벤더 모두 접근 빈도에 따라 저장 비용을 낮출 수 있는 스토리지 클래스를 제공합니다. 저장 비용은 낮아지지만 조회 비용은 높아지므로, 접근 패턴에 맞는 클래스를 선택해야 합니다.
 
-| 접근 빈도 | AWS | Azure | GCP | OCI |
+| 접근 빈도 | AWS | Azure | Google Cloud | OCI |
 | --- | --- | --- | --- | --- |
 | 자주 접근 | S3 Standard | Hot | Standard | Standard |
 | 가끔 접근 | S3 Standard-IA | Cool | Nearline (30일) | Infrequent Access |
@@ -45,7 +45,7 @@ S3를 아시는 분을 위해: Azure는 Blob Storage, GCP는 Cloud Storage, OCI�
 | 아카이브 | S3 Glacier Deep Archive | Archive | Archive (365일) | Archive |
 | **자동 전환** | S3 Intelligent-Tiering | — | Autoclass | Auto-Tiering |
 
-AWS S3 Intelligent-Tiering과 GCP Autoclass, OCI Auto-Tiering은 접근 패턴을 자동으로 분석하여 최적의 클래스로 이동시켜 줍니다. 수동으로 수명 주기 정책을 설정할 필요가 없어 운영 부담이 줄어듭니다.
+AWS S3 Intelligent-Tiering과 Google Cloud Autoclass, OCI Auto-Tiering은 접근 패턴을 자동으로 분석하여 최적의 클래스로 이동시켜 줍니다. 수동으로 수명 주기 정책을 설정할 필요가 없어 운영 부담이 줄어듭니다.
 
 {% hint style="info" %}
 확실하지 않으면 표준 클래스로 시작하고, 접근 패턴 분석 후 수명 주기 정책(Lifecycle Policy)으로 자동 전환하세요. 자동 전환 서비스를 사용하면 수동 정책 설정이 불필요합니다.
@@ -61,7 +61,7 @@ AWS S3 Intelligent-Tiering과 GCP Autoclass, OCI Auto-Tiering은 접근 패턴�
 
 **Azure Blob Storage** — Blob Storage와 Data Lake Storage Gen2가 동일한 스토리지 계정에서 통합됩니다. 계층적 네임스페이스(폴더 구조)를 지원하여 빅데이터 워크로드에서 파일 관리가 편리합니다. Microsoft Fabric과의 통합으로 분석 파이프라인 구성이 간편합니다.
 
-**GCP Cloud Storage** — Multi-region과 Dual-region 옵션으로 별도 복제 설정 없이 여러 리전에 자동 복제됩니다. Autoclass로 스토리지 클래스 자동 전환을 지원하며, BigLake를 통해 BigQuery에서 직접 쿼리할 수 있습니다.
+**Google Cloud Cloud Storage** — Multi-region과 Dual-region 옵션으로 별도 복제 설정 없이 여러 리전에 자동 복제됩니다. Autoclass로 스토리지 클래스 자동 전환을 지원하며, BigLake를 통해 BigQuery에서 직접 쿼리할 수 있습니다.
 
 **OCI Object Storage** — S3 호환 API를 지원하며, Auto-Tiering으로 접근 패턴에 따라 Standard/Infrequent Access 간 자동 전환됩니다. 이그레스 10TB/월 무료 정책으로 대량 데이터 전송 시 비용 이점이 큽니다.
 
@@ -71,14 +71,14 @@ AWS S3 Intelligent-Tiering과 GCP Autoclass, OCI Auto-Tiering은 접근 패턴�
 | --- | --- |
 | S3 호환 API 생태계를 최대한 활용하고 싶을 때 | AWS S3 |
 | 빅데이터 + 계층적 네임스페이스(폴더 구조)가 필요할 때 | Azure Data Lake Storage Gen2 |
-| 별도 설정 없이 멀티 리전 자동 복제를 원할 때 | GCP Cloud Storage (Multi-region) |
-| 스토리지 클래스 자동 전환을 원할 때 | AWS S3 Intelligent-Tiering, GCP Autoclass, OCI Auto-Tiering |
+| 별도 설정 없이 멀티 리전 자동 복제를 원할 때 | Google Cloud Cloud Storage (Multi-region) |
+| 스토리지 클래스 자동 전환을 원할 때 | AWS S3 Intelligent-Tiering, Google Cloud Autoclass, OCI Auto-Tiering |
 | 대량 이그레스 비용을 절감하고 싶을 때 | OCI Object Storage (10TB/월 무료) |
-| 객체 스토리지에서 직접 SQL 분석을 하고 싶을 때 | AWS Athena + S3 또는 GCP BigQuery External Tables |
+| 객체 스토리지에서 직접 SQL 분석을 하고 싶을 때 | AWS Athena + S3 또는 Google Cloud BigQuery External Tables |
 
 {% hint style="warning" %}
 **이그레스 비용을 반드시 확인하세요.** 객체 스토리지에 데이터를 넣는 건 무료지만, 꺼낼 때(이그레스) 비용이 발생합니다. 대량 데이터를 외부로 전송하는 워크로드에서는 벤더 선택의 핵심 TCO 요소입니다.
-- AWS/Azure/GCP: 이그레스 $0.08\~0.12/GB (리전별 상이)
+- AWS/Azure/Google Cloud: 이그레스 $0.08\~0.12/GB (리전별 상이)
 - OCI: **10TB/월 무료**, 이후 $0.0085/GB
 {% endhint %}
 
@@ -119,12 +119,12 @@ AWS S3 Intelligent-Tiering과 GCP Autoclass, OCI Auto-Tiering은 접근 패턴�
 | --- | --- | --- |
 | AWS | S3 Event Notification | Lambda, Step Functions, EventBridge |
 | Azure | Blob Trigger | Functions, Data Factory |
-| GCP | Cloud Storage Trigger | Cloud Functions, Dataflow |
+| Google Cloud | Cloud Storage Trigger | Cloud Functions, Dataflow |
 | OCI | OCI Events | OCI Functions, Data Flow |
 
 ### 벤더별 데이터 플랫폼 서비스
 
-| 기능 | AWS | Azure | GCP | OCI |
+| 기능 | AWS | Azure | Google Cloud | OCI |
 | --- | --- | --- | --- | --- |
 | **데이터 레이크** | S3 + Lake Formation | Data Lake Storage Gen2 + Fabric | Cloud Storage + BigLake | OCI Object Storage + Data Lake |
 | **테이블 저장 (Iceberg)** | S3 Tables | Data Lake Storage + Synapse | BigLake (Iceberg 네이티브) | — |
@@ -133,7 +133,7 @@ AWS S3 Intelligent-Tiering과 GCP Autoclass, OCI Auto-Tiering은 접근 패턴�
 | **SQL 직접 쿼리** | S3 Select, Athena | Query Acceleration, Synapse | BigQuery External Tables | OCI Data Flow (Spark) |
 
 {% hint style="info" %}
-각 벤더 모두 "스토리지에서 데이터 플랫폼으로"의 방향을 추구하고 있습니다. AWS는 S3 자체에 기능을 내장하는 방향이고, Azure는 Data Lake Storage + Fabric 통합, GCP는 BigLake + BigQuery 통합으로 접근하고 있습니다.
+각 벤더 모두 "스토리지에서 데이터 플랫폼으로"의 방향을 추구하고 있습니다. AWS는 S3 자체에 기능을 내장하는 방향이고, Azure는 Data Lake Storage + Fabric 통합, Google Cloud는 BigLake + BigQuery 통합으로 접근하고 있습니다.
 {% endhint %}
 
 ## 참고하기
@@ -156,7 +156,7 @@ AWS S3 Intelligent-Tiering과 GCP Autoclass, OCI Auto-Tiering은 접근 패턴�
 - [Azure Synapse Analytics 문서](https://learn.microsoft.com/ko-kr/azure/synapse-analytics/)
 - [Microsoft Fabric 문서](https://learn.microsoft.com/ko-kr/fabric/)
 
-### GCP
+### Google Cloud
 
 - [Google Cloud Storage 문서](https://cloud.google.com/storage/docs)
 - [Cloud Storage 클래스](https://cloud.google.com/storage/docs/storage-classes)

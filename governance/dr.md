@@ -104,7 +104,7 @@ graph LR
 
 데이터를 다른 리전에 복제해두고, 장애 시 해당 리전에서 인프라를 새로 생성하여 복원합니다.
 
-| 역할 | AWS | Azure | GCP | OCI |
+| 역할 | AWS | Azure | Google Cloud | OCI |
 | --- | --- | --- | --- | --- |
 | 스토리지 복제 | S3 Cross-Region Replication | Geo-Redundant Storage (GRS) | Multi-region Storage | Cross-Region Copy |
 | DB 백업 복제 | RDS 자동 백업 크로스 리전 복사 | Azure SQL Geo-Backup | Cloud SQL 크로스 리전 백업 | Data Guard (Standby) |
@@ -114,7 +114,7 @@ graph LR
 
 DR 리전에 핵심 인프라를 최소/축소 규모로 상시 가동하고, 장애 시 스케일업합니다.
 
-| 역할 | AWS | Azure | GCP | OCI |
+| 역할 | AWS | Azure | Google Cloud | OCI |
 | --- | --- | --- | --- | --- |
 | DR 오케스트레이션 | Elastic Disaster Recovery (DRS) | Azure Site Recovery | — (아키텍처 패턴으로 구성) | Full Stack DR |
 | DB 실시간 복제 | RDS Cross-Region Read Replica, Aurora Global DB | Azure SQL Geo-Replication | Cloud SQL Cross-Region Replica | Data Guard (Active) |
@@ -124,7 +124,7 @@ DR 리전에 핵심 인프라를 최소/축소 규모로 상시 가동하고, �
 
 두 리전에서 동시에 트래픽을 처리하며, 한쪽 장애 시 나머지가 전체를 흡수합니다.
 
-| 역할 | AWS | Azure | GCP | OCI |
+| 역할 | AWS | Azure | Google Cloud | OCI |
 | --- | --- | --- | --- | --- |
 | 글로벌 라우팅 | Route 53 + Global Accelerator | Front Door | Global HTTP(S) LB | DNS Traffic Management |
 | 글로벌 DB | Aurora Global Database, DynamoDB Global Tables | Cosmos DB (Multi-region Write) | Spanner | Autonomous DB (Cross-Region) |
@@ -163,7 +163,7 @@ DR 테스트를 넘어, 일상적으로 장애를 주입하여 시스템의 복�
 | --- | --- |
 | AWS | [AWS Fault Injection Service](https://docs.aws.amazon.com/fis/) |
 | Azure | [Azure Chaos Studio](https://learn.microsoft.com/en-us/azure/chaos-studio/) |
-| GCP | — (3rd party: Gremlin, LitmusChaos) |
+| Google Cloud | — (3rd party: Gremlin, LitmusChaos) |
 | OCI | — (3rd party: Gremlin, LitmusChaos) |
 
 ## 한국 리전 기준 DR 구성
@@ -173,7 +173,7 @@ DR 테스트를 넘어, 일상적으로 장애를 주입하여 시스템의 복�
 | AWS | `ap-northeast-2` (서울) | `ap-northeast-1` (도쿄), `ap-northeast-3` (오사카) | 약 30~50ms | 국외 이전 |
 | Azure | `koreacentral` (서울) | `koreasouth` (부산) | 약 5ms | **국내 DR 가능** |
 | Azure | `koreacentral` (서울) | `japaneast` (도쿄) | 약 30ms | 국외 이전 |
-| GCP | `asia-northeast3` (서울) | `asia-northeast1` (도쿄), `asia-northeast2` (오사카) | 약 30~50ms | 국외 이전 |
+| Google Cloud | `asia-northeast3` (서울) | `asia-northeast1` (도쿄), `asia-northeast2` (오사카) | 약 30~50ms | 국외 이전 |
 | OCI | `ap-seoul-1` (서울) | `ap-chuncheon-1` (춘천) | 약 5ms | **국내 DR 가능** |
 | OCI | `ap-seoul-1` (서울) | `ap-tokyo-1` (도쿄) | 약 30ms | 국외 이전 |
 
@@ -209,10 +209,10 @@ DR 테스트를 넘어, 일상적으로 장애를 주입하여 시스템의 복�
 - [Azure 비즈니스 연속성](https://learn.microsoft.com/en-us/azure/reliability/business-continuity-management-program)
 - [Azure Chaos Studio](https://learn.microsoft.com/en-us/azure/chaos-studio/)
 
-### GCP
+### Google Cloud
 
-- [GCP DR 계획 가이드](https://cloud.google.com/architecture/dr-scenarios-planning-guide)
-- [GCP 재해복구 아키텍처](https://cloud.google.com/architecture/disaster-recovery)
+- [Google Cloud DR 계획 가이드](https://cloud.google.com/architecture/dr-scenarios-planning-guide)
+- [Google Cloud 재해복구 아키텍처](https://cloud.google.com/architecture/disaster-recovery)
 
 ### OCI
 

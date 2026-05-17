@@ -69,7 +69,7 @@ OLTP(트랜잭션)와 OLAP(분석)을 같은 DB에서 처리하면 서로 성능
 
 ### 벤더별 HA 서비스
 
-| 기능 | AWS | Azure | GCP | OCI |
+| 기능 | AWS | Azure | Google Cloud | OCI |
 | --- | --- | --- | --- | --- |
 | **멀티 AZ 동기** | RDS Multi-AZ, Aurora 스토리지 복제 | Zone-redundant HA | Cloud SQL HA | ADB 자동 HA |
 | **읽기 복제본** | Aurora Read Replica | Read Replica | Cloud SQL Read Replica | ADB Read-only Replica |
@@ -81,7 +81,7 @@ OLTP(트랜잭션)와 OLAP(분석)을 같은 DB에서 처리하면 서로 성능
 | --- | --- | --- |
 | AWS RDS / Aurora | 최대 35일 | 초 단위 복구 |
 | Azure SQL Database | 최대 35일 | 초 단위 복구 |
-| GCP Cloud SQL / AlloyDB | 최대 365일 | 초 단위 복구 |
+| Google Cloud Cloud SQL / AlloyDB | 최대 365일 | 초 단위 복구 |
 | OCI Autonomous Database | 최대 60일 | 초 단위 복구 |
 
 {% hint style="info" %}

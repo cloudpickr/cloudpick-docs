@@ -22,7 +22,7 @@ description: 데이터 파이프라인(ETL/ELT)의 개념, 벤더별 서비스, 
 | --- | --- | --- | --- |
 | AWS | [Glue](https://docs.aws.amazon.com/glue/) (서버리스 Spark) | [Kinesis Data Streams](https://docs.aws.amazon.com/kinesis/) | [Step Functions](https://docs.aws.amazon.com/step-functions/), [MWAA](https://docs.aws.amazon.com/mwaa/) (Airflow) |
 | Azure | [Data Factory](https://learn.microsoft.com/azure/data-factory/) | [Stream Analytics](https://learn.microsoft.com/azure/stream-analytics/) | Data Factory 파이프라인, [Synapse Pipelines](https://learn.microsoft.com/azure/synapse-analytics/) |
-| GCP | [Dataflow](https://cloud.google.com/dataflow/docs) (Apache Beam) | Dataflow (통합) | [Cloud Composer](https://cloud.google.com/composer/docs) (Airflow), [Workflows](https://cloud.google.com/workflows/docs) |
+| Google Cloud | [Dataflow](https://cloud.google.com/dataflow/docs) (Apache Beam) | Dataflow (통합) | [Cloud Composer](https://cloud.google.com/composer/docs) (Airflow), [Workflows](https://cloud.google.com/workflows/docs) |
 | OCI | [OCI Data Integration](https://docs.oracle.com/en-us/iaas/data-integration/home.htm) | [OCI Streaming](https://docs.oracle.com/en-us/iaas/Content/Streaming/home.htm) + [Data Flow](https://docs.oracle.com/en-us/iaas/data-flow/home.htm) (Spark) | OCI Data Integration 파이프라인 |
 
 ## 배치 vs 스트리밍
@@ -53,7 +53,7 @@ description: 데이터 파이프라인(ETL/ELT)의 개념, 벤더별 서비스, 
 | AWS | Aurora Zero-ETL to Redshift | Aurora MySQL/PostgreSQL → Redshift |
 | AWS | DynamoDB Zero-ETL to Redshift | DynamoDB → Redshift |
 | Azure | Fabric Mirroring | Azure SQL/Cosmos DB → Microsoft Fabric |
-| GCP | BigQuery 연속 쿼리 + Change Streams | Spanner/Bigtable → BigQuery |
+| Google Cloud | BigQuery 연속 쿼리 + Change Streams | Spanner/Bigtable → BigQuery |
 | OCI | GoldenGate + Autonomous DB | 운영 DB → Autonomous DW |
 
 ### 아직 남아있는 한계
@@ -76,7 +76,7 @@ Zero-ETL은 **단순 복제**에 적합하고, 복잡한 변환·다중 소스 �
 | 단순 복제 (같은 벤더, 변환 불필요) | Zero-ETL |
 | 서버리스 배치 ETL (Spark) | Glue, Dataflow, Data Flow |
 | 코드 없는 ETL (GUI 기반) | Data Factory, OCI Data Integration |
-| 배치+스트리밍 통합 (Apache Beam) | GCP Dataflow |
+| 배치+스트리밍 통합 (Apache Beam) | Google Cloud Dataflow |
 | 워크플로 오케스트레이션 (DAG) | Airflow (MWAA, Cloud Composer), Step Functions |
 | 실시간 스트리밍 분석 | Kinesis Analytics, Stream Analytics, Dataflow |
 
@@ -92,7 +92,7 @@ Zero-ETL은 **단순 복제**에 적합하고, 복잡한 변환·다중 소스 �
 - [Azure Data Factory 문서](https://learn.microsoft.com/azure/data-factory/)
 - [Azure Stream Analytics 문서](https://learn.microsoft.com/azure/stream-analytics/)
 
-### GCP
+### Google Cloud
 
 - [Dataflow 문서](https://cloud.google.com/dataflow/docs)
 - [Cloud Composer 문서](https://cloud.google.com/composer/docs)

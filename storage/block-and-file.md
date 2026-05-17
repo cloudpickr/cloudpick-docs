@@ -46,12 +46,12 @@ description: 블록/파일 스토리지 차이, 볼륨 타입, AZ 종속성, 안
 | --- | --- | --- |
 | AWS | EBS (Elastic Block Store) | 볼륨 타입이 가장 세분화 |
 | Azure | Managed Disks | Premium SSD v2, Ultra Disk |
-| GCP | Persistent Disk / Hyperdisk | 프로비저닝 후에도 IOPS/처리량 동적 변경 가능 |
+| Google Cloud | Persistent Disk / Hyperdisk | 프로비저닝 후에도 IOPS/처리량 동적 변경 가능 |
 | OCI | OCI Block Volumes | Balanced/Higher Performance/Ultra High Performance. 온라인 크기 변경 |
 
 ### 볼륨 타입별 사용 사례
 
-| 용도 | AWS EBS | Azure Managed Disks | GCP |
+| 용도 | AWS EBS | Azure Managed Disks | Google Cloud |
 | --- | --- | --- | --- |
 | 범용 (웹 서버, 개발) | gp3 | Premium SSD v2 | pd-balanced |
 | 고성능 DB (저지연 필수) | io2 Block Express | Ultra Disk | Hyperdisk Extreme |
@@ -68,7 +68,7 @@ description: 블록/파일 스토리지 차이, 볼륨 타입, AZ 종속성, 안
 | --- | --- | --- |
 | AWS | EBS는 단일 AZ에 종속 | 스냅샷으로 다른 AZ에 복원 |
 | Azure | Managed Disk는 단일 Zone에 종속 | ZRS(Zone-Redundant Storage) 옵션으로 3개 AZ에 동기 복제 |
-| GCP | Persistent Disk는 단일 Zone에 종속 | Regional Persistent Disk로 2개 Zone에 동기 복제 |
+| Google Cloud | Persistent Disk는 단일 Zone에 종속 | Regional Persistent Disk로 2개 Zone에 동기 복제 |
 | OCI | Block Volume은 단일 AD에 종속 | Block Volume 복제(Cross-AD)로 다른 AD에 동기 복제 |
 
 멀티 AZ 고가용성이 필요한 경우, 스냅샷 기반 복구 또는 벤더별 복제 옵션을 활용해야 합니다.
@@ -77,8 +77,8 @@ description: 블록/파일 스토리지 차이, 볼륨 타입, AZ 종속성, 안
 
 - **확장은 되지만 축소는 안 됨** — 볼륨 크기를 늘리는 것은 온라인으로 가능하지만, 줄이는 것은 지원되지 않습니다. 축소가 필요하면 작은 볼륨을 새로 만들어 데이터를 복사해야 합니다.
 - **스냅샷 = 백업 + 복제** — 스냅샷을 다른 AZ나 리전에 복사하여 DR용으로 활용할 수 있습니다.
-- **머신 이미지** — OS + 디스크 전체를 이미지로 저장하여 동일한 서버를 빠르게 복제할 수 있습니다 (AWS AMI, Azure VM Image, GCP Machine Image).
-- **성능 변경** — AWS gp3와 GCP Hyperdisk는 볼륨을 분리하지 않고도 IOPS/처리량을 동적으로 변경할 수 있습니다.
+- **머신 이미지** — OS + 디스크 전체를 이미지로 저장하여 동일한 서버를 빠르게 복제할 수 있습니다 (AWS AMI, Azure VM Image, Google Cloud Machine Image).
+- **성능 변경** — AWS gp3와 Google Cloud Hyperdisk는 볼륨을 분리하지 않고도 IOPS/처리량을 동적으로 변경할 수 있습니다.
 
 ## 파일 스토리지
 
@@ -91,7 +91,7 @@ description: 블록/파일 스토리지 차이, 볼륨 타입, AZ 종속성, 안
 | AWS | EFS (Elastic File System) | NFS. 서버리스 — 용량 자동 확장, Lambda/컨테이너에서도 마운트 가능 |
 | AWS | FSx | Windows(SMB), Lustre(HPC), NetApp, OpenZFS를 관리형으로 제공 |
 | Azure | Azure Files | SMB/NFS 모두 지원. Azure File Sync로 온프레미스 연동 |
-| GCP | Filestore | NFS 기반. Basic/Enterprise 티어 |
+| Google Cloud | Filestore | NFS 기반. Basic/Enterprise 티어 |
 | OCI | OCI File Storage | NFSv3. 스냅샷, 복제 지원 |
 
 ### 안티패턴: 배포 원본으로 사용하지 마세요
@@ -106,7 +106,7 @@ description: 블록/파일 스토리지 차이, 볼륨 타입, AZ 종속성, 안
 
 **Azure** — Azure Files가 SMB와 NFS를 모두 지원하여 Windows/Linux 혼합 환경에 유리합니다. File Sync로 온프레미스 파일 서버를 클라우드와 동기화할 수 있습니다.
 
-**GCP** — Hyperdisk로 블록 스토리지 성능을 프로비저닝 후에도 동적으로 조절할 수 있습니다. Filestore는 Enterprise 티어에서 리전 간 복제를 지원합니다.
+**Google Cloud** — Hyperdisk로 블록 스토리지 성능을 프로비저닝 후에도 동적으로 조절할 수 있습니다. Filestore는 Enterprise 티어에서 리전 간 복제를 지원합니다.
 
 **OCI** — Block Volumes는 온라인 크기 변경과 성능 티어 변경을 지원하며, File Storage는 NFSv3 기반으로 스냅샷과 크로스 AD 복제를 제공합니다.
 
@@ -115,9 +115,9 @@ description: 블록/파일 스토리지 차이, 볼륨 타입, AZ 종속성, 안
 | 이럴 때 | 이것을 선택 |
 | --- | --- |
 | 고성능 DB용 저지연 블록 스토리지가 필요할 때 | AWS EBS io2 Block Express 또는 Azure Ultra Disk |
-| 블록 스토리지 IOPS를 운영 중 동적으로 변경하고 싶을 때 | AWS EBS gp3 또는 GCP Hyperdisk |
-| AZ 장애에도 블록 디스크가 유지되어야 할 때 | Azure ZRS Disk 또는 GCP Regional Persistent Disk |
-| 여러 서버가 동시에 파일을 공유해야 할 때 (NFS) | AWS EFS 또는 GCP Filestore |
+| 블록 스토리지 IOPS를 운영 중 동적으로 변경하고 싶을 때 | AWS EBS gp3 또는 Google Cloud Hyperdisk |
+| AZ 장애에도 블록 디스크가 유지되어야 할 때 | Azure ZRS Disk 또는 Google Cloud Regional Persistent Disk |
+| 여러 서버가 동시에 파일을 공유해야 할 때 (NFS) | AWS EFS 또는 Google Cloud Filestore |
 | Windows SMB + Linux NFS 혼합 환경일 때 | Azure Files |
 | 온프레미스 파일 서버를 클라우드와 동기화할 때 | Azure File Sync |
 | HPC용 고성능 파일 시스템이 필요할 때 | AWS FSx for Lustre |
@@ -130,7 +130,7 @@ description: 블록/파일 스토리지 차이, 볼륨 타입, AZ 종속성, 안
 | --- | --- | --- |
 | AWS | AWS Backup | EBS, EFS, RDS, DynamoDB, S3 등 통합 관리. 크로스 리전/크로스 계정 백업 |
 | Azure | Azure Backup | VM, Disks, Files, SQL, Blob 등 통합. Recovery Services Vault |
-| GCP | Backup and DR Service | Compute Engine, GKE, Cloud SQL 등 통합 |
+| Google Cloud | Backup and DR Service | Compute Engine, GKE, Cloud SQL 등 통합 |
 | OCI | OCI Backup | Block Volume, Boot Volume, DB 백업 통합 관리 |
 
 {% hint style="info" %}
@@ -156,7 +156,7 @@ description: 블록/파일 스토리지 차이, 볼륨 타입, AZ 종속성, 안
 - [Azure Files 문서](https://learn.microsoft.com/ko-kr/azure/storage/files/)
 - [Azure File Sync](https://learn.microsoft.com/ko-kr/azure/storage/file-sync/)
 
-### GCP
+### Google Cloud
 
 - [Persistent Disk 문서](https://cloud.google.com/compute/docs/disks)
 - [Hyperdisk 문서](https://cloud.google.com/compute/docs/disks/hyperdisks)

@@ -16,9 +16,7 @@ description: 클라우드 벤더 종속성을 이해하고, 데이터/애플리�
 **"종속성 0%"는 비현실적이며, 종종 비생산적입니다.** 관리형 서비스의 이점(운영 부담 감소, 보안 자동화, 높은 가용성)을 포기하면서까지 완전한 포터빌리티를 추구하면 오히려 경쟁력이 떨어집니다. 목표는 **종속성 제거가 아니라 "수용 가능한 수준의 종속성"을 선택하는 것** 입니다.
 {% endhint %}
 
-[AWS Prescriptive Guidance](https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-multicloud-fsi/vendor-lockin.html)도 같은 입장을 명시합니다.
-
-> "종속성 방지는 기술 결정보다 조직의 인력·프로세스에 더 의존합니다"
+[AWS Prescriptive Guidance](https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-multicloud-fsi/vendor-lockin.html)도 같은 입장을 명시합니다 — *"종속성 방지는 기술 결정보다 조직의 인력·프로세스에 더 의존합니다."*
 
 ## 종속성의 4가지 양상
 

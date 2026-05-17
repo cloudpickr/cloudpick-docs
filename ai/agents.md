@@ -118,6 +118,7 @@ flowchart LR
 | 제품 | 제공사 | 형태 | 특징 |
 | --- | --- | --- | --- |
 | [Kiro](https://kiro.dev/) | AWS | IDE (VS Code 기반) | Spec-driven 개발. 요구사항→설계→태스크 3단계 워크플로. Hooks로 자동화 |
+| [GitHub Copilot](https://github.com/features/copilot) | Microsoft/GitHub | IDE + CLI + Cloud | Agent Mode(VS Code/JetBrains), Copilot CLI(4개 병렬 에이전트), Copilot Workspace(멀티파일 변환), GitHub Issue 할당으로 자율 PR 생성 |
 | [Codex App](https://openai.com/codex/) | OpenAI | Desktop (macOS) | 멀티에이전트 병렬 실행. Git worktree 격리. Computer Use, 브라우저, 90+ 플러그인 |
 | [Claude Code](https://github.com/anthropics/claude-code) | Anthropic | CLI + Desktop | 터미널 에이전트. Agent View로 병렬 세션 관리. Dispatch로 원격 컴퓨터 제어. Routines로 스케줄 자동화 |
 | [Gemini CLI](https://google-gemini.github.io/gemini-cli/) | Google | CLI (오픈소스) | ReAct 루프 + MCP 서버 연동. Apache 2.0 라이선스 |

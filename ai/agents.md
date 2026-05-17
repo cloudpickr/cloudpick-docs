@@ -1,0 +1,145 @@
+---
+description: AI 에이전트의 개념, 기존 LLM 프롬프팅과의 차이, 벤더별 플랫폼 비교, 구현 패턴, 배포·운영, 보안을 다룹니다.
+---
+
+# AI 에이전트 (Agentic AI)
+
+> 문서 기준: 2026년 5월
+
+## 프롬프팅에서 에이전트로
+
+기존 LLM 활용은 **한 번의 프롬프트 → 한 번의 응답** 구조입니다. 사용자가 질문하면 모델이 답하고 끝납니다. 컨텍스트 윈도우 안에서 모든 것을 해결해야 하며, 외부 시스템과 상호작용할 수 없습니다.
+
+AI 에이전트는 이 한계를 넘어 **목표를 받으면 스스로 계획하고, 도구를 호출하며, 결과를 검증하고, 필요하면 재시도하는** 자율적 실행 루프를 갖습니다.
+
+| 구분 | LLM 프롬프팅 | AI 에이전트 |
+| --- | --- | --- |
+| **실행 방식** | 단일 요청-응답 | 다단계 루프 (관찰→사고→행동→반복) |
+| **외부 연동** | 없음 (텍스트 입출력만) | 도구 호출 (API, DB, 파일시스템 등) |
+| **상태 관리** | 컨텍스트 윈도우 내 | 장기 메모리, 세션 상태 유지 |
+| **자율성** | 사용자가 매 단계 지시 | 목표만 주면 스스로 분해·실행 |
+| **오류 처리** | 사용자가 재프롬프트 | 자체 검증 후 재시도 또는 대안 경로 |
+
+## 에이전트 아키텍처 패턴
+
+```mermaid
+flowchart LR
+    A[사용자 목표] --> B[계획 수립]
+    B --> C[도구 선택·호출]
+    C --> D[결과 관찰]
+    D --> E{목표 달성?}
+    E -->|아니오| B
+    E -->|예| F[최종 응답]
+```
+
+### 주요 오케스트레이션 패턴
+
+| 패턴 | 설명 | 적합한 경우 |
+| --- | --- | --- |
+| **ReAct** | 추론(Reasoning)과 행동(Action)을 번갈아 수행 | 단일 에이전트, 단순 도구 호출 |
+| **Plan-and-Execute** | 먼저 전체 계획을 세운 뒤 순차 실행 | 복잡한 다단계 작업 |
+| **멀티에이전트** | 역할별 전문 에이전트가 협업 | 대규모 워크플로, 도메인 분리 |
+| **Human-in-the-Loop** | 위험한 행동 전 사람 승인 요청 | 프로덕션 환경, 고위험 작업 |
+
+## 벤더별 에이전트 플랫폼
+
+| 벤더 | 플랫폼 | 특징 |
+| --- | --- | --- |
+| AWS | [Amazon Bedrock Agents](https://aws.amazon.com/bedrock/agents/) | Action Group으로 도구 정의, Knowledge Base 연동, 코드 해석기 내장 |
+| Azure | [Microsoft Foundry Agents](https://learn.microsoft.com/azure/ai-foundry/agents/) | Microsoft Agent Framework, Foundry 포털에서 빌드·배포·모니터링 통합 |
+| Google Cloud | [Gemini Enterprise Agent Platform](https://cloud.google.com/products/agent-builder) | Vertex AI Agent Builder, A2A 프로토콜로 에이전트 간 통신 |
+| OCI | [OCI Enterprise AI Agents](https://docs.oracle.com/iaas/Content/generative-ai/agents.htm) | RAG 에이전트 기본 제공, Oracle DB 네이티브 연동 |
+
+### 오픈소스 프레임워크
+
+| 프레임워크 | 특징 |
+| --- | --- |
+| [LangGraph](https://github.com/langchain-ai/langgraph) | 상태 머신 기반 멀티에이전트 오케스트레이션 |
+| [CrewAI](https://github.com/crewAIInc/crewAI) | 역할 기반 멀티에이전트 협업 |
+| [Strands Agents](https://strandsagents.com/) | AWS 오픈소스, 모델 비종속 에이전트 SDK |
+| [AutoGen](https://github.com/microsoft/autogen) | Microsoft 오픈소스, 대화형 멀티에이전트 |
+| [Semantic Kernel](https://github.com/microsoft/semantic-kernel) | .NET/Python/Java, 플러그인 기반 |
+
+## 구현 핵심 요소
+
+### 도구 (Tools/Functions)
+
+에이전트가 외부 세계와 상호작용하는 인터페이스입니다.
+
+- **API 호출** — REST/GraphQL 엔드포인트 실행
+- **데이터 조회** — DB 쿼리, 벡터 검색, 파일 읽기
+- **코드 실행** — 샌드박스 내 코드 해석기
+- **다른 에이전트 호출** — A2A(Agent-to-Agent) 프로토콜
+
+### 메모리와 상태
+
+| 유형 | 용도 | 구현 |
+| --- | --- | --- |
+| **단기 메모리** | 현재 대화/작업 컨텍스트 | 컨텍스트 윈도우, 요약 |
+| **장기 메모리** | 사용자 선호, 과거 작업 이력 | 벡터 DB, 키-값 저장소 |
+| **작업 메모리** | 현재 계획, 중간 결과 | 상태 머신, 체크포인트 |
+
+### 가드레일
+
+에이전트의 행동 범위를 제한합니다.
+
+- **입력 가드레일** — 프롬프트 인젝션 탐지, 주제 범위 제한
+- **출력 가드레일** — 유해 콘텐츠 필터, 할루시네이션 검증
+- **도구 가드레일** — 호출 가능 도구 화이트리스트, 파라미터 검증
+- **실행 가드레일** — 최대 반복 횟수, 비용 한도, 타임아웃
+
+## 배포와 운영
+
+| 항목 | 고려사항 |
+| --- | --- |
+| **호스팅** | 관리형(Bedrock Agents, Foundry Hosted) vs 자체 호스팅(컨테이너) |
+| **확장** | 동시 세션 수, 도구 호출 지연시간, 큐 기반 비동기 처리 |
+| **비용** | 토큰 사용량 × 루프 횟수로 기존 LLM 대비 수~수십 배 증가 가능 |
+| **모니터링** | 트레이싱(각 단계별 입출력), 성공률, 평균 루프 수, 도구 실패율 |
+| **평가** | 엔드투엔드 태스크 성공률, 도구 선택 정확도, 사용자 만족도 |
+
+## 보안
+
+에이전트는 기존 LLM보다 공격 표면이 넓습니다. 도구를 통해 실제 시스템에 영향을 줄 수 있기 때문입니다.
+
+| 위협 | 대응 |
+| --- | --- |
+| **프롬프트 인젝션** | 입력 검증, 시스템 프롬프트 격리, 도구 출력 새니타이징 |
+| **권한 상승** | 도구별 최소 권한 IAM, 민감 작업 사람 승인 |
+| **데이터 유출** | 도구 응답 필터링, PII 마스킹, 감사 로그 |
+| **무한 루프/비용 폭주** | 최대 반복 제한, 토큰 예산, 서킷 브레이커 |
+| **공급망 공격** | 도구/플러그인 출처 검증, 샌드박스 실행 |
+
+## 자주 하는 실수
+
+- **모든 것을 에이전트로** — 단순 프롬프트로 충분한 작업까지 에이전트로 만들면 비용과 지연만 증가합니다.
+- **가드레일 없이 프로덕션 배포** — 도구 권한을 제한하지 않으면 에이전트가 의도치 않은 시스템 변경을 수행할 수 있습니다.
+- **평가 없이 출시** — 에이전트는 비결정적이므로 반복 테스트와 엔드투엔드 평가가 필수입니다.
+
+## 체크리스트
+
+- [ ] 에이전트가 필요한 작업인지 판단 (단순 RAG/프롬프트로 충분한지)
+- [ ] 도구별 최소 권한 설정 및 화이트리스트 정의
+- [ ] 가드레일 설정 (입력/출력/실행 제한)
+- [ ] Human-in-the-Loop 정책 수립 (어떤 행동에 승인 필요한지)
+- [ ] 트레이싱·모니터링 설정 (각 단계 입출력 기록)
+- [ ] 비용 예산 및 서킷 브레이커 설정
+- [ ] 엔드투엔드 평가 파이프라인 구축
+
+## 관련 문서
+
+- [AI와 머신러닝 서비스](ai-ml.md) — 벤더별 AI 플랫폼 전체 비교
+- [프롬프트 엔지니어링](prompt-engineering.md) — 에이전트 시스템 프롬프트 설계
+- [RAG 고급 패턴](rag-patterns.md) — 에이전트의 지식 기반 구성
+- [LLMOps](llmops.md) — 에이전트 평가·운영·비용 추적
+- [AI 보안](../security/ai-security.md) — 가드레일, 프롬프트 인젝션 방어
+
+## 참고하기
+
+- [Amazon Bedrock Agents 문서](https://docs.aws.amazon.com/bedrock/latest/userguide/agents.html)
+- [Microsoft Foundry Agents 문서](https://learn.microsoft.com/azure/ai-foundry/agents/)
+- [Google Cloud Agent Builder 문서](https://cloud.google.com/products/agent-builder)
+- [OCI Enterprise AI Agents 문서](https://docs.oracle.com/iaas/Content/generative-ai/agents.htm)
+- [LangGraph 문서](https://langchain-ai.github.io/langgraph/)
+- [A2A Protocol](https://github.com/google/A2A) — Google 오픈소스 에이전트 간 통신 프로토콜
+- [MCP (Model Context Protocol)](https://modelcontextprotocol.io/) — Anthropic 오픈소스 도구 연결 표준

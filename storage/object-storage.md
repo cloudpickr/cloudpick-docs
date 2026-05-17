@@ -13,7 +13,7 @@ description: 객체 스토리지 서비스, 스토리지 클래스, 레이크하
 **객체 스토리지**는 용량 제한 없이 파일을 저장할 수 있는 클라우드 스토리지입니다. 용량을 미리 정할 필요 없이, 저장한 만큼만 비용을 지불합니다. 이미지, 동영상, 백업, 로그, 데이터 레이크 등 거의 모든 비정형 데이터를 저장하는 데 사용됩니다.
 
 {% hint style="info" %}
-S3를 아시는 분을 위해: Azure는 Blob Storage, Google Cloud는 Cloud Storage, OCI는 Object Storage입니다.
+AWS S3에 상응하는 서비스: Azure는 Blob Storage, Google Cloud는 Cloud Storage, OCI는 Object Storage입니다.
 {% endhint %}
 
 ### 왜 객체 스토리지인가

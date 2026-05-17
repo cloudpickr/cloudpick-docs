@@ -60,7 +60,7 @@ description: 주요 벤더의 특징, 강점, 멀티클라우드 연동 서비�
 서비스명은 빠르게 변경될 수 있습니다. Google Cloud는 자사 기준으로 AWS/Azure 서비스를 매핑한 [비교 문서](https://cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison)를 별도로 관리하고 있습니다.
 {% endhint %}
 
-## 각 사 특징
+## 벤더별 특징
 
 ### AWS — 넓은 서비스 포트폴리오
 

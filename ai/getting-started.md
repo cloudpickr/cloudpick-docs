@@ -16,7 +16,7 @@ AI 모델을 직접 만들려면 수백억 원의 GPU, 수천만 건의 학습 �
 
 ### 1. 파운데이션 모델 (Foundation Model)
 
-대량의 데이터로 이미 학습된 범용 AI 모델입니다. 대표적으로 **LLM** (Large Language Model, 대형 언어 모델)이 있습니다. GPT (OpenAI), Claude (Anthropic), Gemini (Google), Nova (Amazon) 같은 이름을 들어보셨을 것입니다.
+대량의 데이터로 이미 학습된 범용 AI 모델입니다. 대표적으로 **LLM** (Large Language Model, 대형 언어 모델)이 있습니다. GPT (OpenAI), Claude (Anthropic), Gemini (Google), Nova (Amazon) 같은 이름을 이름들이 여기에 해당합니다..
 
 - 직접 학습할 필요 없이 API를 호출해서 사용합니다.
 - "질문을 하면 답을 하는 똑똑한 비서"라고 생각하면 됩니다.

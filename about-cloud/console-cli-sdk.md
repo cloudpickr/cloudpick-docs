@@ -136,4 +136,3 @@ IaC 도구 비교, Terraform 상태 관리, 모듈 설계, 드리프트 관리 �
 - [OCI CLI 설치 가이드](https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/cliinstall.htm)
 - [OCI SDK](https://docs.oracle.com/en-us/iaas/Content/API/Concepts/sdks.htm)
 - [OCI Cloud Shell](https://docs.oracle.com/en-us/iaas/Content/API/Concepts/cloudshellintro.htm)
-udshellintro.htm)

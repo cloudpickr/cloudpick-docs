@@ -176,6 +176,3 @@ AWS는 타사 대비 직접적인 서비스 비교 페이지를 제공하지 않
 - [Gartner Magic Quadrant for Cloud Infrastructure](https://www.gartner.com/reviews/market/cloud-infrastructure-and-platform-services) — 클라우드 벤더 평가
 - [CNCF Cloud Native Survey](https://www.cncf.io/reports/cncf-annual-survey-2024/) — 클라우드 채택 현황 통계
 - [Public Cloud Services Comparison](https://comparecloud.in) — 커뮤니티 기반 서비스 비교
-loud-infrastructure-and-platform-services) — 클라우드 벤더 평가
-- [CNCF Cloud Native Survey](https://www.cncf.io/reports/cncf-annual-survey-2024/) — 클라우드 채택 현황 통계
-- [Public Cloud Services Comparison](https://comparecloud.in) — 커뮤니티 기반 서비스 비교

@@ -163,7 +163,7 @@ AWS는 타사 대비 직접적인 서비스 비교 페이지를 제공하지 않
 
 아래 도구는 참고용이며, 특정 시점의 측정 결과가 벤더의 전반적 성능을 대표하지 않습니다.
 
-- [Google Clouding](https://gcping.com) — Google Cloud 리전별 지연 시간 측정
+- [GCPing](https://gcping.com) — Google Cloud 리전별 지연 시간 측정
 - [Azure Speed Test 2.0](https://azurespeedtest.azurewebsites.net) — Azure 리전별 지연 시간 측정
 - [Kentik Cloud Latency Map](https://clm.kentik.com/) — 멀티 벤더 리전 간 지연 시간
 - [Cloud Ping Test](https://webping.cloud) — 멀티 벤더 동시 비교

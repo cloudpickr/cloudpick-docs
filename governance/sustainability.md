@@ -16,7 +16,7 @@ description: 클라우드 지속 가능성(GreenOps) — 탄소 배출 추적, �
 | --- | --- | --- |
 | AWS | [Customer Carbon Footprint Tool](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/what-is-ccft.html) | 계정별 탄소 배출량 대시보드. Scope 1/2/3 구분 |
 | Azure | [Emissions Impact Dashboard](https://learn.microsoft.com/azure/carbon-optimization/view-emissions) | Microsoft Sustainability Manager 연동. 리전별 탄소 강도 |
-| GCP | [Carbon Footprint](https://cloud.google.com/carbon-footprint) | 프로젝트별 배출량. 리전별 탄소 지수(CFE%) 공개 |
+| Google Cloud | [Carbon Footprint](https://cloud.google.com/carbon-footprint) | 프로젝트별 배출량. 리전별 탄소 지수(CFE%) 공개 |
 | OCI | [Sustainability 대시보드](https://www.oracle.com/corporate/citizenship/sustainability/) | 리전별 에너지 효율 리포트 |
 
 ## 지속 가능한 설계 원칙
@@ -25,7 +25,7 @@ description: 클라우드 지속 가능성(GreenOps) — 탄소 배출 추적, �
 
 각 리전의 전력 믹스(재생 에너지 비율)가 다릅니다. 레이턴시 요건이 유연한 워크로드는 탄소 강도가 낮은 리전을 선택할 수 있습니다.
 
-- GCP는 리전별 CFE(Carbon-Free Energy) 비율을 공개합니다
+- Google Cloud는 리전별 CFE(Carbon-Free Energy) 비율을 공개합니다
 - AWS/Azure도 리전별 재생 에너지 목표를 발표하고 있습니다
 
 ### 리소스 효율화
@@ -100,10 +100,10 @@ description: 클라우드 지속 가능성(GreenOps) — 탄소 배출 추적, �
 
 - [Azure Well-Architected — Sustainability](https://learn.microsoft.com/azure/well-architected/sustainability/)
 
-### GCP
+### Google Cloud
 
 - [Google Cloud Carbon Footprint](https://cloud.google.com/carbon-footprint)
-- [GCP Region Carbon-Free Energy](https://cloud.google.com/sustainability/region-carbon)
+- [Google Cloud Region Carbon-Free Energy](https://cloud.google.com/sustainability/region-carbon)
 
 ### OCI
 

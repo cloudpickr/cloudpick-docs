@@ -46,7 +46,7 @@ VM과 컨테이너는 서버 생성과 배포를 자동화했지만, 여전히 "
 | --- | --- | --- |
 | AWS | Lambda | 최대 15분. 200+ AWS 서비스 이벤트 연동 |
 | Azure | Azure Functions | Premium: 무제한 실행. Durable Functions로 상태 유지 워크플로우 |
-| GCP | Cloud Functions | 2세대: 최대 60분. Eventarc 연동 |
+| Google Cloud | Cloud Functions | 2세대: 최대 60분. Eventarc 연동 |
 | OCI | OCI Functions | Fn Project 기반. Docker 컨테이너로 실행 |
 
 ### 서버리스 컨테이너
@@ -56,7 +56,7 @@ VM과 컨테이너는 서버 생성과 배포를 자동화했지만, 여전히 "
 | AWS | Fargate | ECS/EKS에서 서버 없이 컨테이너 실행 |
 | AWS | App Runner | 소스/이미지에서 바로 배포 |
 | Azure | Container Apps | 이벤트 기반 스케일링 내장 |
-| GCP | Cloud Run | HTTP 기반. 기존 컨테이너 앱을 수정 없이 서버리스 전환 |
+| Google Cloud | Cloud Run | HTTP 기반. 기존 컨테이너 앱을 수정 없이 서버리스 전환 |
 | OCI | OCI Container Instances | 서버 관리 없이 컨테이너 실행 |
 
 ### 워크플로우 오케스트레이션
@@ -65,13 +65,13 @@ VM과 컨테이너는 서버 생성과 배포를 자동화했지만, 여전히 "
 | --- | --- | --- |
 | AWS | Step Functions | 시각적 워크플로우 편집기 |
 | Azure | Durable Functions / Logic Apps | 코드 기반 / 로우코드 |
-| GCP | Workflows | YAML 기반 서비스 오케스트레이션 |
+| Google Cloud | Workflows | YAML 기반 서비스 오케스트레이션 |
 | OCI | OCI Events + OCI Functions | 이벤트 기반 함수 체이닝 |
 
 ## 핵심 차이점
 
 - **AWS Lambda** — 이벤트 소스 연동이 가장 풍부합니다. AWS 생태계 안에서 서버리스 아키텍처를 가장 완성도 높게 구성할 수 있습니다.
-- **GCP Cloud Run** — 기존 컨테이너 이미지를 수정 없이 그대로 배포할 수 있어 마이그레이션 경로가 단순합니다.
+- **Google Cloud Cloud Run** — 기존 컨테이너 이미지를 수정 없이 그대로 배포할 수 있어 마이그레이션 경로가 단순합니다.
 - **Azure Functions** — Durable Functions로 장시간 상태 유지 워크플로우까지 서버리스로 처리할 수 있습니다.
 - **OCI Functions** — Fn Project(오픈소스) 기반으로 Docker 컨테이너를 그대로 함수로 실행할 수 있어, 벤더 종속이 낮습니다.
 
@@ -95,7 +95,7 @@ flowchart TD
 | 이럴 때 | 이것을 선택 |
 | --- | --- |
 | AWS 서비스 이벤트 연동이 핵심일 때 | AWS Lambda |
-| 기존 컨테이너 앱을 수정 없이 서버리스로 전환하고 싶을 때 | GCP Cloud Run |
+| 기존 컨테이너 앱을 수정 없이 서버리스로 전환하고 싶을 때 | Google Cloud Cloud Run |
 | 장시간 상태 유지 워크플로우를 서버리스로 처리할 때 | Azure Durable Functions |
 | 벤더 종속을 최소화하고 Docker 기반으로 함수를 실행할 때 | OCI Functions (Fn Project 기반) |
 | 시각적 워크플로우 오케스트레이션이 필요할 때 | AWS Step Functions |
@@ -109,7 +109,7 @@ flowchart TD
 
 Cold Start는 서버리스의 가장 큰 단점입니다. 벤더별 완화 방법을 정리합니다.
 
-| 전략 | 설명 | AWS Lambda | Azure Functions | GCP Cloud Functions/Run | OCI Functions |
+| 전략 | 설명 | AWS Lambda | Azure Functions | Google Cloud Cloud Functions/Run | OCI Functions |
 | --- | --- | --- | --- | --- | --- |
 | **사전 프로비저닝** | 미리 웜업된 인스턴스 유지 (유휴에도 비용 발생) | Provisioned Concurrency | Premium Plan (Pre-warmed) | Min Instances | — |
 | **Keep-warm 호출** | 주기적으로 함수를 호출하여 웜 상태 유지 | EventBridge 스케줄 | Timer Trigger | Cloud Scheduler | OCI Events |
@@ -125,7 +125,7 @@ Cold Start는 서버리스의 가장 큰 단점입니다. 벤더별 완화 방�
 | --- | --- | --- |
 | AWS Lambda | 계정당 1,000 동시 실행 (리전별) | 지원 요청으로 증가 가능 |
 | Azure Functions | Consumption Plan: 제한 있음. Premium: 더 높음 | Elastic Premium Plan |
-| GCP Cloud Functions (2세대) | 함수당 최대 1,000 동시 실행 | 조정 가능 |
+| Google Cloud Cloud Functions (2세대) | 함수당 최대 1,000 동시 실행 | 조정 가능 |
 | OCI Functions | 테넌시별 제한 | 지원 요청으로 증가 |
 
 ### 동시성 제한 전략
@@ -143,7 +143,7 @@ Cold Start는 서버리스의 가장 큰 단점입니다. 벤더별 완화 방�
 | --- | --- | --- |
 | AWS Lambda | 10GB | ECR에서 가져옴 |
 | Azure Functions | — (Custom Container) | 모든 이미지 |
-| GCP Cloud Run | — | Artifact Registry에서 가져옴 |
+| Google Cloud Cloud Run | — | Artifact Registry에서 가져옴 |
 | OCI Functions | — | OCI Registry 또는 외부 |
 
 ## 운영 고려사항
@@ -169,7 +169,7 @@ Cold Start는 서버리스의 가장 큰 단점입니다. 벤더별 완화 방�
 - [Azure Functions 문서](https://learn.microsoft.com/ko-kr/azure/azure-functions/)
 - [Azure Durable Functions 문서](https://learn.microsoft.com/ko-kr/azure/azure-functions/durable/)
 
-### GCP
+### Google Cloud
 
 - [Google Cloud Functions 문서](https://cloud.google.com/functions/docs)
 - [Google Cloud Run 문서](https://cloud.google.com/run/docs)

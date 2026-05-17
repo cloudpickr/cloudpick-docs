@@ -118,7 +118,7 @@ Gartner가 제시하고 AWS가 확장한 **7R 프레임워크** 는 워크로드
 ## 마이그레이션 도구
 
 {% hint style="info" %}
-**AI 지원 마이그레이션:** 각 CSP는 AI를 활용하여 마이그레이션 평가·코드 변환·테스트를 자동화하는 서비스를 제공하고 있습니다. [AWS Transform](https://aws.amazon.com/transform/)(Q Developer 기반 코드 변환), [Azure Migrate with Copilot](https://learn.microsoft.com/azure/migrate/)(평가 자동화), [GCP Dual Run](https://cloud.google.com/blog/products/databases/dual-run-for-mainframe-modernization)(메인프레임 병렬 검증) 등이 대표적입니다. 대규모 레거시 전환 시 수작업 분석 시간을 크게 줄일 수 있으나, AI 결과물에 대한 검증은 여전히 필요합니다.
+**AI 지원 마이그레이션:** 각 CSP는 AI를 활용하여 마이그레이션 평가·코드 변환·테스트를 자동화하는 서비스를 제공하고 있습니다. [AWS Transform](https://aws.amazon.com/transform/)(Q Developer 기반 코드 변환), [Azure Migrate with Copilot](https://learn.microsoft.com/azure/migrate/)(평가 자동화), [Google Cloud Dual Run](https://cloud.google.com/blog/products/databases/dual-run-for-mainframe-modernization)(메인프레임 병렬 검증) 등이 대표적입니다. 대규모 레거시 전환 시 수작업 분석 시간을 크게 줄일 수 있으나, AI 결과물에 대한 검증은 여전히 필요합니다.
 {% endhint %}
 
 ### 평가 및 발견
@@ -128,7 +128,7 @@ Gartner가 제시하고 AWS가 확장한 **7R 프레임워크** 는 워크로드
 | AWS | [Application Discovery Service](https://aws.amazon.com/application-discovery/) | 에이전트/에이전트리스 방식으로 온프레미스 인벤토리 수집 |
 | AWS | [Migration Hub](https://aws.amazon.com/migration-hub/) | 마이그레이션 중앙 대시보드 |
 | Azure | [Azure Migrate](https://azure.microsoft.com/products/azure-migrate/) | 평가, 서버/DB 마이그레이션 통합 |
-| GCP | [Migration Center](https://cloud.google.com/migration-center/docs) | 포트폴리오 평가, 의존성 매핑 |
+| Google Cloud | [Migration Center](https://cloud.google.com/migration-center/docs) | 포트폴리오 평가, 의존성 매핑 |
 | OCI | [Cloud Migrations](https://docs.oracle.com/en-us/iaas/Content/cloud-migration/home.htm) | 평가 및 실행 통합 |
 
 ### VM/서버 마이그레이션
@@ -137,7 +137,7 @@ Gartner가 제시하고 AWS가 확장한 **7R 프레임워크** 는 워크로드
 | --- | --- | --- |
 | AWS | [Application Migration Service (MGN)](https://aws.amazon.com/application-migration-service/) | 블록 수준 복제. 최소 다운타임 Rehost |
 | Azure | [Azure Migrate: Server Migration](https://learn.microsoft.com/azure/migrate/migrate-services-overview) | VMware/Hyper-V/물리 서버 → Azure VM |
-| GCP | [Migrate to Virtual Machines](https://cloud.google.com/migrate/virtual-machines/docs) | VMware/AWS/Azure → Compute Engine |
+| Google Cloud | [Migrate to Virtual Machines](https://cloud.google.com/migrate/virtual-machines/docs) | VMware/AWS/Azure → Compute Engine |
 | OCI | [OCI Cloud Migrations](https://docs.oracle.com/en-us/iaas/Content/cloud-migration/home.htm) | VMware/AWS → OCI |
 
 ### 컨테이너화
@@ -146,7 +146,7 @@ Gartner가 제시하고 AWS가 확장한 **7R 프레임워크** 는 워크로드
 | --- | --- | --- |
 | AWS | [App2Container](https://aws.amazon.com/app2container/) | Java/.NET 앱을 컨테이너화 |
 | Azure | [Migrate to containers](https://learn.microsoft.com/azure/migrate/tutorial-app-containerization-aspnet-kubernetes) | ASP.NET/Java → AKS |
-| GCP | [Migrate to Containers](https://cloud.google.com/migrate/containers/docs) | VM → GKE 컨테이너 |
+| Google Cloud | [Migrate to Containers](https://cloud.google.com/migrate/containers/docs) | VM → GKE 컨테이너 |
 
 ## 참고하기
 
@@ -163,7 +163,7 @@ Gartner가 제시하고 AWS가 확장한 **7R 프레임워크** 는 워크로드
 - [Cloud Adoption Framework — Migrate](https://learn.microsoft.com/azure/cloud-adoption-framework/migrate/)
 - [Azure Migrate 문서](https://learn.microsoft.com/azure/migrate/)
 
-### GCP
+### Google Cloud
 
 - [Migration Center](https://cloud.google.com/migration-center/docs)
 - [Migrate to Virtual Machines](https://cloud.google.com/migrate/virtual-machines/docs)

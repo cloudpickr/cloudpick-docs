@@ -46,7 +46,7 @@ description: 서비스 메시의 개념, 사이드카 vs 사이드카리스 모�
 | AWS | [App Mesh](https://docs.aws.amazon.com/app-mesh/latest/userguide/what-is-app-mesh.html) (유지보수 모드) / ECS Service Connect | Envoy | App Mesh는 신규 도입 비권장. ECS Service Connect 또는 VPC Lattice 권장 |
 | AWS | [VPC Lattice](https://docs.aws.amazon.com/vpc-lattice/latest/ug/what-is-vpc-lattice.html) | AWS 네이티브 | 서비스 간 연결을 VPC 수준에서 관리. 사이드카 불필요 |
 | Azure | [Istio add-on for AKS](https://learn.microsoft.com/azure/aks/istio-about) | Istio | AKS 네이티브 통합. 컨트롤 플레인 관리형 |
-| GCP | [Cloud Service Mesh](https://cloud.google.com/service-mesh/docs) | Istio 기반 | GKE 통합. 관리형 컨트롤 플레인 + 데이터 플레인 |
+| Google Cloud | [Cloud Service Mesh](https://cloud.google.com/service-mesh/docs) | Istio 기반 | GKE 통합. 관리형 컨트롤 플레인 + 데이터 플레인 |
 | OCI | 자체 관리형 없음 | — | OKE에서 Istio/Linkerd 직접 설치 |
 
 ## 언제 도입해야 하는가
@@ -72,9 +72,9 @@ description: 서비스 메시의 개념, 사이드카 vs 사이드카리스 모�
 
 - [Azure AKS Istio add-on](https://learn.microsoft.com/azure/aks/istio-about)
 
-### GCP
+### Google Cloud
 
-- [GCP Cloud Service Mesh](https://cloud.google.com/service-mesh/docs)
+- [Google Cloud Cloud Service Mesh](https://cloud.google.com/service-mesh/docs)
 
 ### 표준 및 커뮤니티
 

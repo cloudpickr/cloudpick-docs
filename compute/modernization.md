@@ -127,8 +127,8 @@ graph LR
 
 | 요소 | 벤더별 제품 |
 | --- | --- |
-| 메시징 | Amazon SQS/SNS/EventBridge, Azure Service Bus/Event Grid, GCP Pub/Sub/Eventarc, OCI Events/Streaming |
-| 이벤트 스트리밍 | Amazon MSK/Kinesis, Azure Event Hubs, GCP Pub/Sub, OCI Streaming |
+| 메시징 | Amazon SQS/SNS/EventBridge, Azure Service Bus/Event Grid, Google Cloud Pub/Sub/Eventarc, OCI Events/Streaming |
+| 이벤트 스트리밍 | Amazon MSK/Kinesis, Azure Event Hubs, Google Cloud Pub/Sub, OCI Streaming |
 
 ## 12-Factor App 원칙
 
@@ -171,7 +171,7 @@ graph LR
 | [Azure Migrate: Containerization](https://learn.microsoft.com/azure/migrate/tutorial-app-containerization-aspnet-kubernetes) | ASP.NET/Java 앱 컨테이너화 |
 | [Azure Service Fabric](https://azure.microsoft.com/products/service-fabric/) | 마이크로서비스 플랫폼 |
 
-### GCP
+### Google Cloud
 
 | 제품 | 목적 |
 | --- | --- |
@@ -203,7 +203,7 @@ graph LR
 - [Modernization guidance: Replatform, Refactor, Rearchitect](https://learn.microsoft.com/azure/cloud-adoption-framework/modernize/modernization-cloud-replatform-refactor-rearchitect)
 - [Azure Architecture Center — Application Modernization](https://learn.microsoft.com/azure/architecture/guide/)
 
-### GCP
+### Google Cloud
 
 - [Cloud Application Modernization Program (CAMP)](https://cloud.google.com/solutions/camp)
 - [Application Modernization Solutions](https://cloud.google.com/solutions/application-modernization/)

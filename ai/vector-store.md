@@ -67,7 +67,7 @@ graph LR
 | AWS | [OpenSearch Serverless 벡터 엔진](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-vector-search.html) | 대규모 벡터 검색 |
 | AWS | [S3 Vectors (Preview)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-vectors.html) | S3 내구성 + 저비용 |
 | Azure | [Azure AI Search](https://learn.microsoft.com/azure/search/vector-search-overview) | 벡터 + 키워드 + 시맨틱 랭킹 통합 |
-| GCP | [Vertex AI Vector Search](https://cloud.google.com/vertex-ai/docs/vector-search/overview) | Google ScaNN 알고리즘으로 고성능 |
+| Google Cloud | [Vertex AI Vector Search](https://cloud.google.com/vertex-ai/docs/vector-search/overview) | Google ScaNN 알고리즘으로 고성능 |
 | OCI | [OCI AI Vector Search](https://docs.oracle.com/en-us/iaas/autonomous-database-serverless/doc/oracle-ai-vector-search-autonomous-database.html) | Autonomous Database 내장, SQL 기반 |
 
 ### 2. 기존 DB의 벡터 확장
@@ -79,8 +79,8 @@ graph LR
 | AWS | [Aurora PostgreSQL (pgvector)](https://aws.amazon.com/about-aws/whats-new/2023/07/amazon-aurora-postgresql-pgvector-vector-storage-similarity-search/) | 관계형 + 벡터 한 DB에서 |
 | AWS | [ElastiCache for Valkey](https://aws.amazon.com/elasticache/what-is-valkey/) | 인메모리 벡터, 초저지연 |
 | Azure | [Cosmos DB 벡터 검색](https://learn.microsoft.com/azure/cosmos-db/vector-search) | 글로벌 분산 + 벡터 |
-| GCP | [AlloyDB (벡터 검색)](https://cloud.google.com/alloydb/docs/ai) | PostgreSQL 호환 + 고성능 |
-| GCP | [Cloud SQL (pgvector)](https://cloud.google.com/sql/docs/postgres/extensions#pgvector) | 간단한 시작 |
+| Google Cloud | [AlloyDB (벡터 검색)](https://cloud.google.com/alloydb/docs/ai) | PostgreSQL 호환 + 고성능 |
+| Google Cloud | [Cloud SQL (pgvector)](https://cloud.google.com/sql/docs/postgres/extensions#pgvector) | 간단한 시작 |
 
 ### 3. RAG 자동 파이프라인
 
@@ -90,7 +90,7 @@ graph LR
 | --- | --- | --- |
 | AWS | [Bedrock Knowledge Bases](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html) | 문서 → 임베딩 → 저장 → RAG 자동 |
 | Azure | [Azure AI Search + OpenAI "On Your Data"](https://learn.microsoft.com/azure/ai-services/openai/concepts/use-your-data) | 가장 빠른 RAG 구성 |
-| GCP | [Vertex AI RAG Engine](https://cloud.google.com/vertex-ai/generative-ai/docs/rag-overview) | 문서 → 임베딩 → 검색 통합 |
+| Google Cloud | [Vertex AI RAG Engine](https://cloud.google.com/vertex-ai/generative-ai/docs/rag-overview) | 문서 → 임베딩 → 검색 통합 |
 | OCI | [OCI Generative AI Agents](https://www.oracle.com/artificial-intelligence/generative-ai/agents/) | OCI Search 연동 RAG |
 
 ## 언제 무엇을 선택할까
@@ -144,7 +144,7 @@ graph LR
 | --- | --- |
 | AWS OpenSearch | Vector + BM25 결합 (RRF 알고리즘) |
 | Azure AI Search | 벡터 + 키워드 + 시맨틱 랭킹 자동 결합 |
-| GCP Vertex AI Vector Search | Filter로 키워드 조건 추가 |
+| Google Cloud Vertex AI Vector Search | Filter로 키워드 조건 추가 |
 | OCI AI Vector Search | SQL로 벡터 + 관계형 조건 조합 |
 
 ## 참고하기
@@ -160,7 +160,7 @@ graph LR
 - [Azure AI Search 벡터 검색](https://learn.microsoft.com/ko-kr/azure/search/vector-search-overview)
 - [Azure OpenAI On Your Data](https://learn.microsoft.com/ko-kr/azure/ai-services/openai/concepts/use-your-data)
 
-### GCP
+### Google Cloud
 
 - [Vertex AI Vector Search 문서](https://cloud.google.com/vertex-ai/docs/vector-search/overview)
 - [AlloyDB AI 문서](https://cloud.google.com/alloydb/docs/ai)

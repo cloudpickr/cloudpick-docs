@@ -43,7 +43,7 @@ CPU가 병목이 아닌 워크로드(I/O 바운드, 메모리 바운드, DB 커�
 | **예측 불가 스파이크** (게임, 바이럴) | 높은 최소 인스턴스 수 + CDN/캐시 + Rate Limiting | 스케일링 속도로는 대응 불가, 사전 여유분 확보 |
 
 {% hint style="info" %}
-대부분의 워크로드는 **메트릭 기반 자동 조정(Target Tracking / Target Utilization) 하나로 시작**하세요. 모든 벤더가 이 방식을 지원하며, 복잡한 정책 조합은 트래픽 패턴을 충분히 관찰한 뒤에 추가해도 늦지 않습니다. 다중 정책 적용 시 벤더마다 동작이 다르므로(AWS: 가장 큰 용량 선택, GCP: 가장 높은 신호 기준) 공식 문서를 확인하세요.
+대부분의 워크로드는 **메트릭 기반 자동 조정(Target Tracking / Target Utilization) 하나로 시작**하세요. 모든 벤더가 이 방식을 지원하며, 복잡한 정책 조합은 트래픽 패턴을 충분히 관찰한 뒤에 추가해도 늦지 않습니다. 다중 정책 적용 시 벤더마다 동작이 다르므로(AWS: 가장 큰 용량 선택, Google Cloud: 가장 높은 신호 기준) 공식 문서를 확인하세요.
 {% endhint %}
 
 ### 쿨다운(Cooldown) 시간
@@ -54,7 +54,7 @@ CPU가 병목이 아닌 워크로드(I/O 바운드, 메모리 바운드, DB 커�
 | --- | --- | --- |
 | AWS | 300초 | Warm Pool (사전 초기화된 인스턴스 대기) |
 | Azure | 5분 | Instance Protection, Custom Script Extension |
-| GCP | 60초 (Initial Delay) | Auto-healing + 사전 빌드 이미지 |
+| Google Cloud | 60초 (Initial Delay) | Auto-healing + 사전 빌드 이미지 |
 | OCI | 300초 | 쿨다운 기간 설정 가능 |
 
 ## 오토스케일링의 한계
@@ -74,7 +74,7 @@ CPU가 병목이 아닌 워크로드(I/O 바운드, 메모리 바운드, DB 커�
 | --- | --- | --- |
 | AWS | ASG Mixed Instances Policy | 온디맨드 베이스 + Spot 비율 지정. 여러 인스턴스 타입 풀 |
 | Azure | VMSS Spot Priority Mix | Spot VM 비율 설정. Eviction Policy 선택 |
-| GCP | MIG + Spot VMs | Spot VM을 MIG에 포함. Preemption 시 자동 재생성 |
+| Google Cloud | MIG + Spot VMs | Spot VM을 MIG에 포함. Preemption 시 자동 재생성 |
 | OCI | Instance Pool + Preemptible | Preemptible 인스턴스를 풀에 혼합 |
 
 ## 오토스케일링이 내장된 서비스
@@ -85,7 +85,7 @@ CPU가 병목이 아닌 워크로드(I/O 바운드, 메모리 바운드, DB 커�
 | --- | --- | --- |
 | AWS | Elastic Beanstalk, ECS Service Auto Scaling, Lambda | 앱 배포 시 스케일링 내장 |
 | Azure | App Service (Auto Scale), Container Apps, Functions | PaaS 레벨 자동 스케일링 |
-| GCP | Cloud Run, App Engine, GKE Autopilot | 요청 기반 자동 확장/축소 |
+| Google Cloud | Cloud Run, App Engine, GKE Autopilot | 요청 기반 자동 확장/축소 |
 | OCI | Container Instances, Functions | 서버리스 자동 스케일링 |
 
 {% hint style="info" %}
@@ -96,7 +96,7 @@ VM 레벨 오토스케일링을 직접 설정하기 전에, 워크로드가 위 
 
 - **AWS** — Mixed Instances Policy로 온디맨드/Spot 혼합 배포. Warm Pool로 사전 초기화된 인스턴스를 대기시켜 콜드 스타트 완화.
 - **Azure** — VMSS가 VM 배포와 스케일링을 하나의 리소스로 관리. Spot Priority Mix로 비용 최적화.
-- **GCP** — MIG에 Auto-healing이 기본 내장되어 비정상 인스턴스를 자동 교체. 쿨다운이 60초로 가장 짧아 빠른 반응.
+- **Google Cloud** — MIG에 Auto-healing이 기본 내장되어 비정상 인스턴스를 자동 교체. 쿨다운이 60초로 가장 짧아 빠른 반응.
 - **OCI** — Instance Pool 기반 오토스케일링. 메트릭/스케줄 기반 스케일링을 지원하며, Preemptible 인스턴스 혼합 가능.
 
 ## 오토스케일링 설정 체크리스트
@@ -127,7 +127,7 @@ VM 레벨 오토스케일링을 직접 설정하기 전에, 워크로드가 위 
 - [Azure VM Scale Sets 문서](https://learn.microsoft.com/ko-kr/azure/virtual-machine-scale-sets/)
 - [Azure Autoscale 문서](https://learn.microsoft.com/ko-kr/azure/azure-monitor/autoscale/autoscale-overview)
 
-### GCP
+### Google Cloud
 
 - [Google Cloud Autoscaler 문서](https://cloud.google.com/compute/docs/autoscaler)
 - [Google Cloud MIG 문서](https://cloud.google.com/compute/docs/instance-groups)

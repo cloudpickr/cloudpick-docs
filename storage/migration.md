@@ -31,6 +31,8 @@ description: 대용량 데이터를 클라우드로 이전하는 온라인/오�
 | 100TB | 약 10일 | 약 25시간 | 오프라인 (Snowball, Data Box) |
 | 1PB | 약 100일 | 약 10일 | 오프라인 (Snowmobile, Data Box Heavy) |
 
+> 위 수치는 예시이며 리전/시점에 따라 달라집니다. 최신 가격은 각 벤더 공식 가격표를 확인하세요.
+
 {% hint style="warning" %}
 실제 전송 시간은 네트워크 효율성, 재시도, 검증 시간을 포함하면 위 계산의 1.5~2배가 일반적입니다.
 {% endhint %}
@@ -47,6 +49,8 @@ description: 대용량 데이터를 클라우드로 이전하는 온라인/오�
 | **장비 임대비** | 없음 | $50~$15,000 (크기별) |
 | **전송 시간** | 네트워크 속도 의존 | 2~3주 고정 |
 | **인력 비용** | 자동화 가능 | 장비 수령/반송 처리 필요 |
+
+> 위 수치는 예시이며 리전/시점에 따라 달라집니다. 최신 가격은 각 벤더 공식 가격표를 확인하세요.
 
 {% hint style="info" %}
 **팁:** 10TB 이상의 일회성 마이그레이션이라면 오프라인 전송이 일반적으로 더 저렴하고 빠릅니다. 지속적인 동기화나 소규모 이전은 온라인 방식이 유리합니다.
@@ -94,6 +98,8 @@ description: 대용량 데이터를 클라우드로 이전하는 온라인/오�
 | Google Cloud | [Transfer Appliance](https://cloud.google.com/transfer-appliance/docs) | TA40: ~40 TB, TA300: ~300 TB | 일반/대용량 |
 | OCI | [Data Transfer Appliance](https://docs.oracle.com/en-us/iaas/Content/DataTransfer/home.htm) | ~150 TB | 임대 장비로 전송 |
 | OCI | Data Transfer Disk | ~32 TB | 고객이 디스크 구매 후 발송 |
+
+> 위 수치는 예시이며 리전/시점에 따라 달라집니다. 최신 가격은 각 벤더 공식 가격표를 확인하세요.
 
 ### 오프라인 전송 단계
 

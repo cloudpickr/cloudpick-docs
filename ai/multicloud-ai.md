@@ -7,7 +7,7 @@ description: 멀티클라우드 AI 아키텍처 패턴, RAG 파이프라인, GPU
 > 문서 기준: 2026년 5월 | 이 문서는 변동이 빠른 영역으로 분기별 리뷰 대상입니다.
 
 {% hint style="info" %}
-이 문서는 심화 내용입니다. AI 서비스 비교가 처음이라면 [클라우드 AI 시작하기](getting-started.md)와 [AI 플랫폼과 모델 비교](ai-ml.md)를 먼저 읽는 것을 권장합니다.
+이 문서는 심화 내용입니다. AI 서비스 비교가 처음이라면 [AI 시작하기](getting-started.md)와 [AI 플랫폼과 모델 비교](ai-ml.md)를 먼저 읽는 것을 권장합니다.
 {% endhint %}
 
 ## 왜 멀티클라우드 AI인가

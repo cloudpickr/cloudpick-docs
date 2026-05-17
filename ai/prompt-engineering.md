@@ -7,7 +7,7 @@ description: 프롬프트 엔지니어링의 핵심 패턴(Few-shot, Chain-of-Th
 > 문서 기준: 2026년 5월
 
 {% hint style="info" %}
-LLM/프롬프트가 처음이라면 [클라우드 AI 시작하기](getting-started.md)를 먼저 읽어보세요.
+LLM/프롬프트가 처음이라면 [AI 시작하기](getting-started.md)를 먼저 읽어보세요.
 {% endhint %}
 
 ## 프롬프트 엔지니어링이란

@@ -9,7 +9,7 @@ description: 벤더별 AI 플랫폼, 모델 카탈로그, GPU/AI 칩, Applied AI
 ## 개요
 
 {% hint style="info" %}
-**클라우드 AI가 처음이라면** [클라우드 AI 시작하기](getting-started.md)를 먼저 읽어보시는 것을 권장합니다. 이 문서는 AI 서비스 비교에 초점을 둡니다.
+**AI가 처음이라면** [AI 시작하기](getting-started.md)를 먼저 읽어보시는 것을 권장합니다. 이 문서는 AI 서비스 비교에 초점을 둡니다.
 {% endhint %}
 
 ### 전통 ML에서 생성형 AI까지
@@ -59,7 +59,9 @@ description: 벤더별 AI 플랫폼, 모델 카탈로그, GPU/AI 칩, Applied AI
 
 ### AI 에이전트 / RAG
 
+{% hint style="info" %}
 벤더별 에이전트 플랫폼, 오케스트레이션 패턴, 코딩 에이전트, 프로토콜(MCP/A2A/ACP)에 대한 상세 비교는 [AI 에이전트](agents.md)를 참고하세요.
+{% endhint %}
 
 | 벤더 | 에이전트 플랫폼 | RAG |
 | --- | --- | --- |

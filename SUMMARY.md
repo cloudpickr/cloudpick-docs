@@ -96,7 +96,7 @@
 
 ## AI <a id="ai"></a>
 
-- [클라우드 AI 시작하기](ai/getting-started.md)
+- [AI 시작하기](ai/getting-started.md)
 - [AI 플랫폼과 모델 비교](ai/ai-ml.md)
 - [생성형 AI 모델 유형별 비교](ai/generative-models.md)
 - [AI 에이전트 (Agentic AI)](ai/agents.md)

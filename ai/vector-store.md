@@ -9,7 +9,7 @@ description: 벡터 스토어가 무엇이고 왜 필요한지, 주요 제품과
 ## 개요
 
 {% hint style="info" %}
-**벡터/임베딩이 처음이라면** [클라우드 AI 시작하기](getting-started.md)의 RAG 섹션을 먼저 읽어보세요.
+**벡터/임베딩이 처음이라면** [AI 시작하기](getting-started.md)의 RAG 섹션을 먼저 읽어보세요.
 {% endhint %}
 
 ### 이런 상황에서 유용합니다

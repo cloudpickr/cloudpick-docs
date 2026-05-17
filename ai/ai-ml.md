@@ -87,13 +87,13 @@ description: 생성형 AI 서비스, ML 플랫폼, GPU 인스턴스를 벤더별
 
 ## 핵심 차이점
 
-**AWS Bedrock** — 자체 개발 **Amazon Nova** 모델군(Premier/Pro/Lite/Micro/Sonic)과 Anthropic Claude, OpenAI GPT-OSS, Meta Llama 등 다양한 제공사의 모델을 하나의 API로 접근할 수 있습니다. 모델 선택 폭이 가장 넓고, 자체 칩(Trainium/Inferentia)으로 비용 최적화도 가능합니다.
+**Amazon Bedrock** — 자체 개발 **Amazon Nova 2** 모델군(Premier/Pro/Lite/Micro/Sonic/Omni)과 Anthropic Claude, OpenAI GPT 시리즈 등 다양한 제공사의 모델을 하나의 API로 접근할 수 있습니다. 모델 선택 폭이 가장 넓으며, AI 에이전트 구축을 위한 AgentCore 등 운영 체계가 강점입니다.
 
-**Azure OpenAI / Microsoft Foundry** — OpenAI GPT 시리즈를 엔터프라이즈 환경에서 쓸 수 있는 주요 경로이며, Microsoft Foundry를 통해 Anthropic, Meta 등 타사 모델도 점차 확장되고 있습니다. Microsoft 365, GitHub, Power Platform 등 기존 Microsoft 생태계와의 통합이 강점입니다.
+**Microsoft Foundry** — 구 Azure AI Foundry가 브랜드를 통합한 상위 플랫폼입니다. OpenAI GPT 시리즈를 엔터프라이즈 환경에서 쓸 수 있는 주요 경로이며, Anthropic, Meta 등 타사 모델도 폭넓게 제공합니다. Microsoft 365, GitHub, Power Platform 등 기존 Microsoft 생태계와의 깊은 통합이 최대 강점입니다.
 
-**GCP Vertex AI** — Google 자체 **Gemini 2.5** 시리즈(Pro/Flash/Flash-Lite)의 네이티브 멀티모달 능력과 TPU 인프라가 강점입니다. Model Garden을 통해 Anthropic Claude와 타사 모델도 함께 제공하며, BigQuery/Google Search와의 결합이 차별점입니다.
+**Gemini Enterprise Agent Platform** — 구 Vertex AI가 에이전트 중심으로 전면 개편된 플랫폼입니다. Google 자체 **Gemini 2.5** 시리즈(Pro/Flash/Flash-Lite)의 네이티브 멀티모달 능력과 TPU 인프라가 강점입니다. Agent Studio를 통한 로우코드 에이전트 개발과 Google Search/BigQuery와의 결합이 차별점입니다.
 
-**OCI Generative AI** — Cohere, Meta Llama, xAI Grok 등의 모델을 OCI 인프라에서 호스팅하며, 전용 AI 클러스터(Dedicated AI Cluster)와 RDMA 기반 Bare Metal GPU로 대규모 학습 워크로드를 지원합니다. Oracle Database/애플리케이션과의 통합이 강점입니다.
+**OCI Enterprise AI** — 구 OCI Generative AI가 확장된 플랫폼입니다. Cohere, Meta Llama, xAI Grok 4.3 등의 모델을 OCI 인프라에서 호스팅하며, 전용 AI 클러스터(Dedicated AI Cluster)와 RDMA 기반 Bare Metal GPU로 고성능 워크로드를 지원합니다. Oracle Database/애플리케이션과의 네이티브 통합이 강점입니다.
 
 ## ML 파이프라인과 MLOps
 

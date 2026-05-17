@@ -64,10 +64,10 @@ CloudPick은 **멀티클라우드 환경에서 올바른 의사결정을 내리�
 {% tab title="🤖 AI 도입" %}
 1. [AI 시작하기](ai/getting-started.md)
 2. [AI 플랫폼과 모델 비교](ai/ai-ml.md) — 벤더별 플랫폼, 모델 카탈로그
-3. [AI 에이전트](ai/agents.md) — 에이전틱 AI, 벤더별 플랫폼, 구현·보안
-4. [벡터 스토어](ai/vector-store.md)
-5. [RAG 고급 패턴](ai/rag-patterns.md)
-6. [프롬프트 엔지니어링](ai/prompt-engineering.md)
+3. [프롬프트 엔지니어링](ai/prompt-engineering.md)
+4. [RAG 고급 패턴](ai/rag-patterns.md)
+5. [벡터 스토어](ai/vector-store.md)
+6. [AI 에이전트](ai/agents.md) — 에이전틱 AI, 코딩 에이전트, 프로토콜
 7. [멀티클라우드 AI](ai/multicloud-ai.md) — 비용, GPU, 벤더 조합
 8. [LLMOps](ai/llmops.md) — 평가, 운영, 비용 추적
 9. [AI 보안](security/ai-security.md) — 가드레일, 프롬프트 인젝션 방어

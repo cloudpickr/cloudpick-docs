@@ -145,6 +145,8 @@ flowchart LR
 | 제품 | 제공사 | 특징 |
 | --- | --- | --- |
 | [Perplexity Personal Computer](https://www.perplexity.ai/hub/blog/personal-computer-is-here) | Perplexity | Mac 네이티브 앱/파일시스템 접근, 24/7 상시 실행, 감사 로그·킬 스위치 내장 |
+| [OpenClaw](https://openclawdesktop.com/) | 오픈소스 | 로컬 실행, Ollama/LM Studio 연동, WhatsApp/Telegram/Discord에서 PC 원격 제어. 프라이버시 중심 |
+| [Sai](https://www.simular.ai/) | Simular | 클라우드 VM에서 실행, 승인 기반 안전 모델, 엔터프라이즈 워크플로 자동화 |
 
 {% hint style="warning" %}
 코딩 에이전트는 빠르게 진화 중입니다. 위 비교는 문서 작성 시점(2026년 5월) 기준이며, 각 제품의 최신 기능은 공식 사이트를 확인하세요.
@@ -162,14 +164,12 @@ flowchart LR
 
 ### 계층 구조
 
-```
-┌─────────────────────────────────────────────────┐
-│  A2A — 외부 조직/벤더 간 에이전트 협업           │
-├─────────────────────────────────────────────────┤
-│  ACP — 사내 피어 에이전트 간 메시징              │
-├─────────────────────────────────────────────────┤
-│  MCP — 에이전트가 도구/데이터에 접근             │
-└─────────────────────────────────────────────────┘
+```mermaid
+graph TD
+    A2A["A2A — 외부 조직/벤더 간 에이전트 협업"]
+    ACP["ACP — 사내 피어 에이전트 간 메시징"]
+    MCP["MCP — 에이전트가 도구/데이터에 접근"]
+    A2A --> ACP --> MCP
 ```
 
 ### 언제 무엇을 사용하는가

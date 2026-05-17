@@ -94,7 +94,7 @@
 - [벤더 종속성과 출구 전략](governance/exit-strategy.md)
 - [지속 가능성과 GreenOps](governance/sustainability.md)
 
-## AI와 머신러닝 <a id="ai"></a>
+## AI <a id="ai"></a>
 
 - [클라우드 AI 시작하기](ai/getting-started.md)
 - [AI 플랫폼과 모델 비교](ai/ai-ml.md)

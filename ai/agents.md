@@ -92,6 +92,44 @@ flowchart LR
 - **도구 가드레일** — 호출 가능 도구 화이트리스트, 파라미터 검증
 - **실행 가드레일** — 최대 반복 횟수, 비용 한도, 타임아웃
 
+## 코딩 에이전트 — 코드를 넘어 운영으로
+
+코딩 에이전트는 AI 에이전트의 대표적 응용 분야입니다. 초기에는 코드 자동완성에서 시작했지만, 현재는 **버그 수정, 리팩터링, 테스트 작성, PR 리뷰, 배포, 인프라 운영**까지 영역을 확장하고 있습니다.
+
+### 발전 단계
+
+| 세대 | 형태 | 예시 |
+| --- | --- | --- |
+| **1세대** | IDE 자동완성 | GitHub Copilot (초기) |
+| **2세대** | CLI 기반 에이전트 | Claude Code, Codex CLI, Gemini CLI, OpenCode, Pi |
+| **3세대** | Desktop/Cloud 에이전트 | Codex App, Claude Code Desktop, Kiro, Jules |
+
+### 주요 제품 비교
+
+| 제품 | 제공사 | 형태 | 특징 |
+| --- | --- | --- | --- |
+| [Kiro](https://kiro.dev/) | AWS | IDE (VS Code 기반) | Spec-driven 개발. 요구사항→설계→태스크 3단계 워크플로. Hooks로 자동화 |
+| [Codex App](https://openai.com/codex/) | OpenAI | Desktop (macOS) | 멀티에이전트 병렬 실행. Git worktree 격리. Computer Use, 브라우저, 90+ 플러그인 |
+| [Claude Code](https://github.com/anthropics/claude-code) | Anthropic | CLI + Desktop | 터미널 에이전트. Agent View로 병렬 세션 관리. Dispatch로 원격 컴퓨터 제어. Routines로 스케줄 자동화 |
+| [Gemini CLI](https://google-gemini.github.io/gemini-cli/) | Google | CLI (오픈소스) | ReAct 루프 + MCP 서버 연동. Apache 2.0 라이선스 |
+| [Jules](https://jules.google/) | Google | Cloud (비동기) | 태스크 큐 방식. Cloud VM에서 실행 후 PR로 결과 전달. 병렬 태스크 |
+| [OpenCode](https://opencode.ai/) | Anomaly | CLI + Desktop + IDE (오픈소스) | 모델 비종속. 터미널/데스크톱/확장 모두 지원 |
+| [Pi](https://github.com/badlogic/pi-mono) | 커뮤니티 | CLI (오픈소스) | 미니멀 설계. 로컬 LLM 지원에 강점 |
+
+### CLI에서 Desktop으로, 코드에서 운영으로
+
+최근 코딩 에이전트의 공통 트렌드:
+
+- **CLI → Desktop 확장** — Claude Code Desktop, Codex App 등 GUI 기반 멀티세션 관리 도입
+- **Computer Use** — 화면을 보고 마우스/키보드를 조작하는 원격 제어 기능 (Codex, Claude Dispatch)
+- **비동기 실행** — 백그라운드에서 장시간 작업 수행 후 결과 전달 (Jules, Codex 백그라운드 태스크)
+- **코드 → 풀스택 운영** — PR 리뷰, CI/CD 연동, 인프라 프로비저닝, 모니터링까지 확장
+- **멀티에이전트** — 여러 에이전트가 병렬로 다른 태스크를 수행 (Codex App, Claude Agent View)
+
+{% hint style="warning" %}
+코딩 에이전트는 빠르게 진화 중입니다. 위 비교는 문서 작성 시점(2026년 5월) 기준이며, 각 제품의 최신 기능은 공식 사이트를 확인하세요.
+{% endhint %}
+
 ## 배포와 운영
 
 | 항목 | 고려사항 |

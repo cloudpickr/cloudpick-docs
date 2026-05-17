@@ -34,7 +34,7 @@ RAG, 시맨틱 검색, 추천 시스템의 성능은 임베딩 모델의 품질�
 | Cohere Embed 3 (English) | 1024 | 영어 특화, 고품질 | [문서](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-embed.html) |
 | Cohere Embed 3 (Multilingual) | 1024 | 100+ 언어 | [문서](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-embed.html) |
 
-### Azure OpenAI
+### Microsoft Foundry
 
 | 모델 | 차원 | 특징 | 참고 |
 | --- | --- | --- | --- |
@@ -52,7 +52,7 @@ text-embedding-3 시리즈는 **Matryoshka Representation** 를 지원하여 `di
 | text-multilingual-embedding-002 | 768 | 다국어 (한국어 포함) | [문서](https://cloud.google.com/vertex-ai/generative-ai/docs/embeddings/get-text-embeddings) |
 | multimodalembedding@001 | 128/256/512/1408 | 텍스트 + 이미지 + 비디오 | [문서](https://cloud.google.com/vertex-ai/generative-ai/docs/embeddings/get-multimodal-embeddings) |
 
-### OCI Generative AI
+### OCI Enterprise AI
 
 | 모델 | 차원 | 특징 | 참고 |
 | --- | --- | --- | --- |
@@ -121,9 +121,9 @@ Azure의 `text-embedding-3-large`는 `dimensions=1024`로 호출하면 3072의 �
 
 ### Azure
 
-- [Azure OpenAI Embeddings](https://learn.microsoft.com/azure/ai-services/openai/concepts/models#embeddings)
+- [Microsoft Foundry Embeddings](https://learn.microsoft.com/azure/ai-services/openai/concepts/models#embeddings)
 - [Embeddings 사용 가이드](https://learn.microsoft.com/azure/ai-services/openai/how-to/embeddings)
-- [Azure OpenAI Embeddings tutorial](https://learn.microsoft.com/azure/ai-services/openai/tutorials/embeddings)
+- [Microsoft Foundry Embeddings tutorial](https://learn.microsoft.com/azure/ai-services/openai/tutorials/embeddings)
 
 ### Google Cloud
 
@@ -133,7 +133,7 @@ Azure의 `text-embedding-3-large`는 `dimensions=1024`로 호출하면 3072의 �
 
 ### OCI
 
-- [OCI Generative AI Embedding 모델](https://docs.oracle.com/en-us/iaas/Content/generative-ai/embed-models.htm)
+- [OCI Enterprise AI Embedding 모델](https://docs.oracle.com/en-us/iaas/Content/generative-ai/embed-models.htm)
 
 ### 벤치마크 및 평가
 

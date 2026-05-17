@@ -33,9 +33,9 @@ description: 생성형 AI 서비스, ML 플랫폼, GPU 인스턴스를 벤더별
 | 벤더 | 플랫폼 | 주요 제공 모델군 | 비고 |
 | --- | --- | --- | --- |
 | AWS | [Amazon Bedrock](https://aws.amazon.com/bedrock/) | **Amazon Nova** (Nova Premier/Pro/Lite/Micro/Sonic), Anthropic Claude (Opus/Sonnet/Haiku), OpenAI GPT-OSS, Meta Llama, Mistral, NVIDIA Nemotron, AI21, Cohere ([지원 모델 목록](https://docs.aws.amazon.com/bedrock/latest/userguide/model-ids.html)) | 단일 API로 멀티 모델 선택. Amazon Nova는 텍스트/이미지/비디오/음성 멀티모달 |
-| Azure | [Azure OpenAI / Microsoft Foundry](https://azure.microsoft.com/products/ai-services/openai-service) | OpenAI (GPT-5 시리즈, o-시리즈), Anthropic Claude, Meta Llama, Mistral, Cohere 등 ([Foundry 모델 카탈로그](https://ai.azure.com/catalog)) | OpenAI 주력, 엔터프라이즈 보안/규정 준수 |
+| Azure | [Microsoft Foundry(구 Azure OpenAI)](https://azure.microsoft.com/products/ai-services/openai-service) | OpenAI (GPT-5 시리즈, o-시리즈), Anthropic Claude, Meta Llama, Mistral, Cohere 등 ([Foundry 모델 카탈로그](https://ai.azure.com/catalog)) | OpenAI 주력, 엔터프라이즈 보안/규정 준수 |
 | Google Cloud | [Vertex AI Model Garden](https://cloud.google.com/vertex-ai/generative-ai/docs/learn/models) | Google **Gemini 2.5** 시리즈 (Pro/Flash/Flash-Lite), Anthropic Claude, Meta Llama, Mistral, AI21 ([Model Garden](https://cloud.google.com/vertex-ai/generative-ai/docs/learn/models)) | Gemini는 네이티브 멀티모달, Model Garden에 200+ 모델 |
-| OCI | [OCI Generative AI](https://docs.oracle.com/iaas/Content/generative-ai/home.htm) | Cohere Command, Meta Llama, xAI Grok 등 ([지원 모델 목록](https://docs.oracle.com/en-us/iaas/Content/generative-ai/pretrained-models.htm)) | Oracle DB 네이티브 통합, **Dedicated AI Cluster** (전용 RDMA GPU, 타 테넌트 비공유), 이그레스 10TB 무료 |
+| OCI | [OCI Enterprise AI(구 OCI Generative AI)](https://docs.oracle.com/iaas/Content/generative-ai/home.htm) | Cohere Command, Meta Llama, xAI Grok 등 ([지원 모델 목록](https://docs.oracle.com/en-us/iaas/Content/generative-ai/pretrained-models.htm)) | Oracle DB 네이티브 통합, **Dedicated AI Cluster** (전용 RDMA GPU, 타 테넌트 비공유), 이그레스 10TB 무료 |
 
 {% hint style="info" %}
 **모델 생태계는 빠르게 변합니다.** 최근에는 벤더 간 파트너십이 강화되어 "한 벤더 플랫폼에서 여러 제공사 모델 접근"이 일반화되었습니다:
@@ -54,7 +54,7 @@ description: 생성형 AI 서비스, ML 플랫폼, GPU 인스턴스를 벤더별
 | AWS | Bedrock Agents + Knowledge Bases | 문서 기반 RAG 자동 구성. 도구 호출(Tool Use) 지원 |
 | Azure | Azure AI Agent Service | OpenAI Assistants API 기반. Azure 서비스 연동 |
 | Google Cloud | Vertex AI Agent Builder | 검색 + 대화 + RAG 통합 |
-| OCI | OCI Generative AI Agents | RAG 기반 에이전트. OCI Search 연동 |
+| OCI | OCI Enterprise AI Agents | RAG 기반 에이전트. OCI Search 연동 |
 
 ### 코드 어시스턴트
 
@@ -63,7 +63,7 @@ description: 생성형 AI 서비스, ML 플랫폼, GPU 인스턴스를 벤더별
 | AWS | Kiro | AI 코딩 에이전트. 코드 생성, 변환, 보안 스캔 |
 | Azure | GitHub Copilot | 코드 자동 완성. VS Code/JetBrains 통합 |
 | Google Cloud | Gemini Code Assist | 코드 생성, 설명, 변환 |
-| OCI | 전용 코드 어시스턴트 없음 | OCI Generative AI API를 통한 코드 생성 가능 (Cohere Command, Llama). IDE 통합 플러그인은 미제공 |
+| OCI | 전용 코드 어시스턴트 없음 | OCI Enterprise AI API를 통한 코드 생성 가능 (Cohere Command, Llama). IDE 통합 플러그인은 미제공 |
 
 ## ML 플랫폼
 
@@ -128,7 +128,7 @@ graph LR
 
 | 요구사항 | 권장 접근 |
 | --- | --- |
-| 자연어 대화, 요약, 번역 | 파운데이션 모델 API (Bedrock/Azure OpenAI/Vertex AI) |
+| 자연어 대화, 요약, 번역 | 파운데이션 모델 API (Bedrock/Microsoft Foundry/Vertex AI) |
 | 도메인 특화 지식 + 일반 LLM | RAG (파운데이션 모델 + 벡터 스토어) |
 | 특정 태스크에 고도로 최적화 | Fine-tuning 또는 커스텀 모델 학습 |
 | 이미지/객체 인식 | 사전 학습 비전 모델 또는 Computer Vision API |
@@ -190,7 +190,7 @@ IoT, 로보틱스, 디지털 트윈 등 물리 세계와 연결되는 AI입니�
 
 ### Azure
 
-- [Azure OpenAI Service 문서](https://learn.microsoft.com/ko-kr/azure/ai-services/openai/)
+- [Microsoft Foundry(구 Azure OpenAI) Service 문서](https://learn.microsoft.com/ko-kr/azure/ai-services/openai/)
 - [Azure Machine Learning 문서](https://learn.microsoft.com/ko-kr/azure/machine-learning/)
 
 ### Google Cloud
@@ -202,4 +202,4 @@ IoT, 로보틱스, 디지털 트윈 등 물리 세계와 연결되는 AI입니�
 
 - [OCI AI Services 문서](https://www.oracle.com/artificial-intelligence/ai-services/)
 - [OCI Data Science 문서](https://docs.oracle.com/en-us/iaas/data-science/using/data-science.htm)
-- [OCI Generative AI 문서](https://docs.oracle.com/en-us/iaas/Content/generative-ai/home.htm)
+- [OCI Enterprise AI(구 OCI Generative AI) 문서](https://docs.oracle.com/en-us/iaas/Content/generative-ai/home.htm)

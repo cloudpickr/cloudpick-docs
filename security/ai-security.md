@@ -62,7 +62,7 @@ AI 에이전트가 도구(Tool)를 호출할 때 최소 권한 원칙을 적용�
 | AWS | [Bedrock Guardrails](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html) | 콘텐츠 필터, PII 탐지/마스킹, 주제 차단, 단어 필터 |
 | Azure | [Azure AI Content Safety](https://learn.microsoft.com/azure/ai-services/content-safety/) | 유해 콘텐츠 탐지 (폭력/혐오/성적/자해), 프롬프트 실드 |
 | Google Cloud | [Vertex AI Safety Filters](https://cloud.google.com/vertex-ai/generative-ai/docs/multimodal/configure-safety-filters) | 안전 카테고리별 차단 임계값 설정 |
-| OCI | OCI Generative AI 콘텐츠 필터 | 기본 안전 필터 제공 |
+| OCI | OCI Enterprise AI 콘텐츠 필터 | 기본 안전 필터 제공 |
 
 ## 참고하기
 

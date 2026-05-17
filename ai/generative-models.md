@@ -16,13 +16,13 @@ description: 생성형 AI 모델을 유형별(텍스트, 이미지, 음성, 비�
 
 | 유형 | 입력 → 출력 | 벤더 서비스/모델 | 사용 사례 |
 | --- | --- | --- | --- |
-| **텍스트 (LLM)** | 텍스트 → 텍스트 | Bedrock(Claude, Llama), Azure OpenAI(GPT), Vertex AI(Gemini) | 챗봇, 요약, 코드 생성 |
-| **이미지 생성** | 텍스트 → 이미지 | Bedrock(Titan Image, Stable Diffusion), Azure OpenAI(DALL-E), Vertex AI(Imagen) | 마케팅 소재, 디자인 프로토타입 |
+| **텍스트 (LLM)** | 텍스트 → 텍스트 | Bedrock(Claude, Llama), Microsoft Foundry(GPT 시리즈), Vertex AI(Gemini) | 챗봇, 요약, 코드 생성 |
+| **이미지 생성** | 텍스트 → 이미지 | Bedrock(Titan Image, Stable Diffusion), Microsoft Foundry(DALL-E), Vertex AI(Imagen) | 마케팅 소재, 디자인 프로토타입 |
 | **음성 합성 (TTS)** | 텍스트 → 음성 | Amazon Polly, Azure Speech, Google Cloud Text-to-Speech, OCI Speech | ARS, 오디오북, 접근성 |
 | **음성 인식 (STT)** | 음성 → 텍스트 | Amazon Transcribe, Azure Speech, Google Cloud Speech-to-Text, OCI Speech | 회의록, 자막, 음성 검색 |
 | **비디오 생성** | 텍스트/이미지 → 비디오 | Amazon Nova Reel, Vertex AI(Veo) | 광고, 숏폼 콘텐츠 |
 | **멀티모달** | 텍스트+이미지+음성 → 텍스트 | GPT-4o, Gemini, Claude(비전) | 문서 이해, 이미지 분석, 비디오 요약 |
-| **임베딩** | 텍스트/이미지 → 벡터 | Titan Embeddings, Azure OpenAI Embeddings, Vertex AI Embeddings | RAG, 유사도 검색 |
+| **임베딩** | 텍스트/이미지 → 벡터 | Titan Embeddings, Microsoft Foundry Embeddings, Vertex AI Embeddings | RAG, 유사도 검색 |
 
 ## 모델 선택 기준
 
@@ -59,6 +59,6 @@ description: 생성형 AI 모델을 유형별(텍스트, 이미지, 음성, 비�
 ## 참고하기
 
 - [AWS Bedrock 지원 모델](https://docs.aws.amazon.com/bedrock/latest/userguide/models-supported.html)
-- [Azure OpenAI 모델 목록](https://learn.microsoft.com/azure/ai-services/openai/concepts/models)
+- [Microsoft Foundry 모델 목록](https://learn.microsoft.com/azure/ai-services/openai/concepts/models)
 - [Vertex AI Model Garden](https://cloud.google.com/model-garden)
-- [OCI Generative AI](https://docs.oracle.com/iaas/Content/generative-ai/home.htm)
+- [OCI Enterprise AI(구 OCI Generative AI)](https://docs.oracle.com/iaas/Content/generative-ai/home.htm)

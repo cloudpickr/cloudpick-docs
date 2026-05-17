@@ -49,7 +49,7 @@ ISO/IEC 22123-1은 멀티클라우드를 다음과 같이 정의합니다.
 
 각 벤더의 강점을 조합하는 전략입니다.
 
-- **AI/ML**: Google Cloud Vertex AI + BigQuery로 학습, AWS SageMaker AI로 서빙
+- **AI/ML**: Google Cloud Vertex AI + BigQuery로 학습, Amazon SageMaker AI로 서빙
 - **데이터 분석**: Google Cloud BigQuery(분석) + AWS S3(저장)
 - **엔터프라이즈**: Azure Entra ID(ID 통합) + AWS(인프라)
 - **DB 중심**: OCI Autonomous DB + AWS(앱 서버)

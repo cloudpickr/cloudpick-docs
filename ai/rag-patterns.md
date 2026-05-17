@@ -78,7 +78,7 @@ graph LR
 | AWS | Bedrock Knowledge Bases Reranker (Amazon Rerank, Cohere Rerank) | [Reranker 가이드](https://docs.aws.amazon.com/bedrock/latest/userguide/kb-reranker.html) |
 | Azure | Azure AI Search Semantic Ranker | [Semantic Ranker](https://learn.microsoft.com/azure/search/semantic-search-overview) |
 | Google Cloud | Vertex AI Ranking API | [Ranking API](https://cloud.google.com/generative-ai-app-builder/docs/ranking) |
-| OCI | Cohere Rerank (OCI Generative AI) | [OCI Generative AI 모델](https://docs.oracle.com/en-us/iaas/Content/generative-ai/pretrained-models.htm) |
+| OCI | Cohere Rerank (OCI Enterprise AI) | [OCI Enterprise AI 모델](https://docs.oracle.com/en-us/iaas/Content/generative-ai/pretrained-models.htm) |
 
 ## 하이브리드 검색
 
@@ -157,4 +157,4 @@ RAG 시스템은 단순히 "답이 나온다"가 아니라, **검색 품질**과
 ### OCI
 
 - [OCI AI Vector Search](https://docs.oracle.com/en-us/iaas/autonomous-database-serverless/doc/oracle-ai-vector-search-autonomous-database.html)
-- [OCI Generative AI 모델](https://docs.oracle.com/en-us/iaas/Content/generative-ai/pretrained-models.htm)
+- [OCI Enterprise AI 모델](https://docs.oracle.com/en-us/iaas/Content/generative-ai/pretrained-models.htm)

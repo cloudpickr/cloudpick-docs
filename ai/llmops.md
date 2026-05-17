@@ -8,7 +8,7 @@ description: LLM 프로덕션 운영 — 평가, 관측, 프롬프트 버전 관
 
 ## 개요
 
-[AI와 머신러닝 서비스](ai-ml.md)에서 모델을 선택하고, [RAG 고급 패턴](rag-patterns.md)으로 파이프라인을 구축한 뒤에는 **프로덕션에서 지속적으로 품질을 유지하고 개선**해야 합니다. 이를 LLMOps라 합니다.
+[AI 플랫폼과 모델 비교](ai-ml.md)에서 모델을 선택하고, [RAG 고급 패턴](rag-patterns.md)으로 파이프라인을 구축한 뒤에는 **프로덕션에서 지속적으로 품질을 유지하고 개선**해야 합니다. 이를 LLMOps라 합니다.
 
 ```mermaid
 graph LR
@@ -17,7 +17,7 @@ graph LR
 ```
 
 {% hint style="info" %}
-모델 선택은 [AI와 머신러닝 서비스](ai-ml.md)를, RAG 파이프라인 구축은 [RAG 고급 패턴](rag-patterns.md)을, AI 보안은 [AI 보안](../security/ai-security.md)을 참고하세요.
+모델 선택은 [AI 플랫폼과 모델 비교](ai-ml.md)를, RAG 파이프라인 구축은 [RAG 고급 패턴](rag-patterns.md)을, AI 보안은 [AI 보안](../security/ai-security.md)을 참고하세요.
 {% endhint %}
 
 ## 평가 (Evaluation)

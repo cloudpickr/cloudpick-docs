@@ -132,7 +132,7 @@ flowchart LR
 
 ## 관련 문서
 
-- [AI와 머신러닝 서비스](ai-ml.md) — 벤더별 AI 플랫폼 전체 비교
+- [AI 플랫폼과 모델 비교](ai-ml.md) — 벤더별 AI 플랫폼 전체 비교
 - [프롬프트 엔지니어링](prompt-engineering.md) — 에이전트 시스템 프롬프트 설계
 - [RAG 고급 패턴](rag-patterns.md) — 에이전트의 지식 기반 구성
 - [LLMOps](llmops.md) — 에이전트 평가·운영·비용 추적

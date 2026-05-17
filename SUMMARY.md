@@ -97,7 +97,7 @@
 ## AI와 머신러닝 <a id="ai"></a>
 
 - [클라우드 AI 시작하기](ai/getting-started.md)
-- [AI와 머신러닝 서비스](ai/ai-ml.md)
+- [AI 플랫폼과 모델 비교](ai/ai-ml.md)
 - [생성형 AI 모델 유형별 비교](ai/generative-models.md)
 - [AI 에이전트 (Agentic AI)](ai/agents.md)
 - [벡터 스토어와 AI 데이터](ai/vector-store.md)

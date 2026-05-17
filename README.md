@@ -63,7 +63,7 @@ CloudPick은 **멀티클라우드 환경에서 올바른 의사결정을 내리�
 
 {% tab title="🤖 AI 도입" %}
 1. [클라우드 AI 시작하기](ai/getting-started.md)
-2. [AI/ML 서비스](ai/ai-ml.md) — 모델 선택, 플랫폼 비교
+2. [AI 플랫폼과 모델 비교](ai/ai-ml.md) — 벤더별 플랫폼, 모델 카탈로그
 3. [AI 에이전트](ai/agents.md) — 에이전틱 AI, 벤더별 플랫폼, 구현·보안
 4. [벡터 스토어](ai/vector-store.md)
 5. [RAG 고급 패턴](ai/rag-patterns.md)

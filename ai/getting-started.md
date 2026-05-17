@@ -43,7 +43,7 @@ graph TD
 
 ### 단계 1: API 호출
 
-가장 간단한 시작점입니다. Amazon Bedrock, Microsoft Foundry, Gemini Enterprise, OCI Enterprise AI 중 하나의 API로 질문을 보내고 답을 받습니다. 벤더별 서비스 비교는 [AI와 머신러닝 서비스](ai-ml.md)를 참고하세요.
+가장 간단한 시작점입니다. Amazon Bedrock, Microsoft Foundry, Gemini Enterprise, OCI Enterprise AI 중 하나의 API로 질문을 보내고 답을 받습니다. 벤더별 서비스 비교는 [AI 플랫폼과 모델 비교](ai-ml.md)를 참고하세요.
 
 **사용 예시:**
 - 사용자 질문에 답하는 챗봇

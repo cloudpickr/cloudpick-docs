@@ -6,3 +6,7 @@ node_modules/
 .vscode/
 .idea/
 *.log
+memory/
+scripts/standardize_naming.py
+.!*
+

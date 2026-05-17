@@ -50,12 +50,14 @@ description: 벤더별 AI 플랫폼, 모델 카탈로그, GPU/AI 칩, Applied AI
 
 ### AI 에이전트 / RAG
 
-| 벤더 | 제품 | 비고 |
+벤더별 에이전트 플랫폼, 오케스트레이션 패턴, 코딩 에이전트, 프로토콜(MCP/A2A/ACP)에 대한 상세 비교는 [AI 에이전트](agents.md)를 참고하세요.
+
+| 벤더 | 에이전트 플랫폼 | RAG |
 | --- | --- | --- |
-| AWS | Bedrock Agents + Knowledge Bases | 문서 기반 RAG 자동 구성. 도구 호출(Tool Use) 지원 |
-| Azure | Azure AI Agent Service | OpenAI Assistants API 기반. Azure 서비스 연동 |
-| Google Cloud | Vertex AI Agent Builder | 검색 + 대화 + RAG 통합 |
-| OCI | OCI Enterprise AI Agents | RAG 기반 에이전트. OCI Search 연동 |
+| AWS | [Bedrock AgentCore](https://aws.amazon.com/bedrock/agentcore/) | Bedrock Knowledge Bases |
+| Azure | [Microsoft Foundry Agents](https://learn.microsoft.com/azure/ai-foundry/agents/) | Azure AI Search |
+| Google Cloud | [Gemini Enterprise Agent Platform](https://cloud.google.com/products/agent-builder) | Vertex AI RAG Engine |
+| OCI | [OCI Enterprise AI Agents](https://docs.oracle.com/iaas/Content/generative-ai/agents.htm) | OCI Search 연동 |
 
 ### 코드 어시스턴트
 
@@ -167,19 +169,7 @@ IoT, 로보틱스, 디지털 트윈 등 물리 세계와 연결되는 AI입니�
 
 ### Agentic Apps (AI 에이전트)
 
-자율적으로 도구를 호출하고 멀티스텝 작업을 수행하는 AI 앱입니다.
-
-| 벤더 | 서비스 | 특징 |
-| --- | --- | --- |
-| AWS | [Bedrock Agents](https://docs.aws.amazon.com/bedrock/latest/userguide/agents.html) | 도구 호출, 지식 베이스 연동, 코드 실행 |
-| Azure | [Azure AI Agent Service](https://learn.microsoft.com/azure/ai-services/agents/) | 멀티 에이전트 오케스트레이션, Azure 서비스 통합 |
-| Google Cloud | [Vertex AI Agent Builder](https://cloud.google.com/products/agent-builder) | Grounding, 검색 연동, 엔터프라이즈 |
-
-**오케스트레이션 패턴:**
-
-- 단일 에이전트 (도구 호출 루프)
-- 멀티 에이전트 (역할 분담, 감독자 패턴)
-- Human-in-the-loop (승인 단계)
+자율적으로 도구를 호출하고 멀티스텝 작업을 수행하는 AI 앱입니다. 에이전트 아키텍처, 벤더별 플랫폼, 코딩 에이전트, 프로토콜에 대한 상세 내용은 [AI 에이전트](agents.md)를 참고하세요.
 
 ## 자주 하는 실수
 

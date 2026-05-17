@@ -91,7 +91,7 @@ HashiCorp Vault, CyberArk 등 외부 시크릿 관리 솔루션을 사용하는 
 
 | 통합 방식 | 설명 |
 | --- | --- |
-| **External Secrets Operator** | Kubernetes에서 AWS/Azure/Google Cloud 시크릿을 외부 저장소에서 동기화 |
+| **External Secrets Operator** | 클라우드 벤더 시크릿 저장소(AWS Secrets Manager, Azure Key Vault 등)의 시크릿을 Kubernetes Secret으로 자동 동기화 |
 | **HashiCorp Vault Dynamic Secrets** | Vault가 AWS IAM, DB 자격 증명을 동적으로 생성 |
 | **CSI Secret Store Driver** | Kubernetes Pod에 시크릿을 파일로 마운트 |
 

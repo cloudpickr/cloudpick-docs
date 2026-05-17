@@ -68,7 +68,7 @@ description: 클라우드 벤더와 서비스를 선택할 때 고려할 기준�
 
 ### 7. 탈출 비용 (Exit Cost)
 
-장기적으로 벤더를 변경할 수 있는 옵션 비용입니다. [출구 전략](../governance/exit-strategy.md)를 참고하세요.
+장기적으로 벤더를 변경할 수 있는 옵션 비용입니다. [출구 전략](../governance/exit-strategy.md)을 참고하세요.
 
 ## 의사결정 매트릭스 예시
 

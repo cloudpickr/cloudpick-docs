@@ -16,7 +16,7 @@ description: 주요 벤더의 특징, 강점, 멀티클라우드 연동 서비�
 | **서비스 포트폴리오** | 매우 넓음 | 매우 넓음 | 넓음 | 핵심 집중 |
 | **리전 수** | [39개](https://aws.amazon.com/about-aws/global-infrastructure/regions_az/) | [70+](https://azure.microsoft.com/explore/global-infrastructure/geographies) | [43개](https://cloud.google.com/about/locations) | [50+](https://www.oracle.com/cloud/public-cloud-regions/) |
 | **한국 리전** | 서울 | 서울, 부산 | 서울 | 서울, 춘천 |
-| **강점** | 가장 넓은 서비스 포트폴리오 | 엔터프라이즈 통합 (M365, AD) | AI/ML과 데이터 분석 | 데이터베이스와 가격 경쟁력 |
+| **강점** | 넓은 서비스 포트폴리오 | 엔터프라이즈 통합 (M365, AD) | AI/ML과 데이터 분석 | 데이터베이스와 가격 경쟁력 |
 | **콘솔** | [Console](https://console.aws.amazon.com) | [Portal](https://portal.azure.com) | [Console](https://console.cloud.google.com) | [Console](https://cloud.oracle.com) |
 
 {% hint style="info" %}
@@ -62,18 +62,18 @@ description: 주요 벤더의 특징, 강점, 멀티클라우드 연동 서비�
 
 ## 각 사 특징
 
-### AWS — 가장 넓은 서비스 포트폴리오
+### AWS — 넓은 서비스 포트폴리오
 
-Amazon의 이커머스 인프라에서 출발한 AWS는 가장 오래되고 가장 넓은 서비스 포트폴리오를 보유합니다. 새로운 서비스 카테고리를 가장 먼저 출시하는 경우가 많고, 글로벌 커뮤니티와 파트너 생태계가 가장 큽니다.
+Amazon의 이커머스 인프라에서 출발한 AWS는 성숙한 서비스 포트폴리오를 보유합니다. 새로운 서비스 카테고리를 일찍 출시하는 경우가 많고, 글로벌 커뮤니티와 파트너 생태계가 넓습니다.
 
 - **핵심 강점:** 서비스 다양성, 글로벌 리전 수, 커뮤니티/문서 풍부
-- **차별점:** Lambda(서버리스 선구자), S3(객체 스토리지 표준), 가장 세분화된 IAM
+- **차별점:** Lambda(서버리스 선구자), S3(객체 스토리지 표준), 세분화된 IAM
 - **주의점:** 서비스 수가 200+로 많아 초기 선택에 시간이 필요함. 이그레스 비용 구조를 사전에 확인할 것
 - **한국 리전:** 서울 4 AZ (2016~)
 
 ### Azure — 엔터프라이즈 통합의 강자
 
-Microsoft의 엔터프라이즈 소프트웨어 생태계(Microsoft 365, Active Directory, Dynamics 365)와 긴밀하게 통합됩니다. 기존 Microsoft 환경을 사용하는 기업에서 가장 자연스러운 선택입니다.
+Microsoft의 엔터프라이즈 소프트웨어 생태계(Microsoft 365, Active Directory, Dynamics 365)와 긴밀하게 통합됩니다. 기존 Microsoft 환경을 사용하는 기업에서 도입 경로가 비교적 명확합니다.
 
 - **핵심 강점:** Microsoft 365/AD 통합, 하이브리드(Azure Arc, Azure Stack), 엔터프라이즈 계약(EA)
 - **차별점:** 서울-부산 리전 쌍으로 국내 DR 가능, GitHub/VS Code 통합
@@ -91,9 +91,9 @@ Google의 검색·데이터 처리 인프라에서 발전한 GCP는 AI/ML과 대
 
 ### OCI — 데이터베이스와 가격 경쟁력
 
-Oracle의 데이터베이스 기술력을 클라우드로 확장한 OCI는 Oracle DB 워크로드에서 압도적 성능을 제공합니다. 이그레스 비용이 타사 대비 매우 저렴하고, 전용 베어메탈 인스턴스를 제공합니다.
+Oracle의 데이터베이스 기술력을 클라우드로 확장한 OCI는 Oracle DB 워크로드에 강점이 있습니다. 이그레스 비용 정책이 멀티클라우드 구성에 유리한 경우가 있고, 전용 베어메탈 인스턴스를 제공합니다.
 
-- **핵심 강점:** Autonomous Database, Oracle DB 최적화, 이그레스 비용 저렴(10TB/월 무료)
+- **핵심 강점:** Autonomous Database, Oracle DB 최적화, 이그레스 무료 범위(10TB/월)
 - **차별점:** 이그레스 10TB/월 무료, Dedicated Region(고객 DC에 OCI 설치), MySQL HeatWave
 - **주의점:** Oracle DB 외 워크로드는 서비스 카탈로그와 서드파티 생태계 규모를 사전에 확인할 것
 - **한국 리전:** 서울(`ap-seoul-1`), 춘천(`ap-chuncheon-1`)

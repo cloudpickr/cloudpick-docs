@@ -49,7 +49,8 @@ flowchart LR
 
 | 벤더 | 플랫폼 | 특징 |
 | --- | --- | --- |
-| AWS | [Amazon Bedrock Agents](https://aws.amazon.com/bedrock/agents/) | Action Group으로 도구 정의, Knowledge Base 연동, 코드 해석기 내장 |
+| AWS | [Amazon Bedrock Agents](https://aws.amazon.com/bedrock/agents/) | Lambda 기반 간편 에이전트. Action Group으로 도구 정의, Knowledge Base 연동 |
+| AWS | [Amazon Bedrock AgentCore](https://aws.amazon.com/bedrock/agentcore/) | 프레임워크 비종속 에이전트 호스팅·배포·운영 플랫폼 (LangGraph, CrewAI, Strands 등 지원) |
 | Azure | [Microsoft Foundry Agents](https://learn.microsoft.com/azure/ai-foundry/agents/) | Microsoft Agent Framework, Foundry 포털에서 빌드·배포·모니터링 통합 |
 | Google Cloud | [Gemini Enterprise Agent Platform](https://cloud.google.com/products/agent-builder) | Vertex AI Agent Builder, A2A 프로토콜로 에이전트 간 통신 |
 | OCI | [OCI Enterprise AI Agents](https://docs.oracle.com/iaas/Content/generative-ai/agents.htm) | RAG 에이전트 기본 제공, Oracle DB 네이티브 연동 |
@@ -141,6 +142,7 @@ flowchart LR
 ## 참고하기
 
 - [Amazon Bedrock Agents 문서](https://docs.aws.amazon.com/bedrock/latest/userguide/agents.html)
+- [Amazon Bedrock AgentCore 문서](https://docs.aws.amazon.com/bedrock/latest/userguide/agentcore.html)
 - [Microsoft Foundry Agents 문서](https://learn.microsoft.com/azure/ai-foundry/agents/)
 - [Google Cloud Agent Builder 문서](https://cloud.google.com/products/agent-builder)
 - [OCI Enterprise AI Agents 문서](https://docs.oracle.com/iaas/Content/generative-ai/agents.htm)

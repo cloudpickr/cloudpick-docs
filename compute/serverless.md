@@ -133,7 +133,7 @@ Cold Start는 서버리스의 가장 큰 단점입니다. 벤더별 완화 방�
 - **Reserved Concurrency** (AWS Lambda) — 특정 함수에 동시 실행 수 예약 또는 제한
 - **Throttling** — 지원되는 리트라이 정책 사용 (지수 백오프)
 - **큐 기반 버퍼링** — SQS/Service Bus/Pub/Sub로 트래픽 스파이크 흡수
-- **다운스트림 보호** — 동시성 1,000 = DB 커넥션 1,000개. RDS Proxy, Cloud SQL Auth Proxy, PgBouncer 등 커넥션 풀러를 반드시 사이에 두세요
+- **다운스트림 보호** — 동시성 1,000 = DB 커넥션 1,000개. RDS Proxy, Cloud SQL Auth Proxy, PgBouncer 등 Lambda와 DB 사이에 커넥션 풀러를 반드시 배치하세요
 
 ## 컨테이너 이미지 지원
 

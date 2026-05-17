@@ -57,7 +57,7 @@ AWS S3 Intelligent-Tiering과 Google Cloud Autoclass, OCI Auto-Tiering은 접근
 
 ## 핵심 차이점
 
-**AWS S3** — 2006년 출시로 가장 오래되었고, S3 API가 업계 사실상 표준이 되었습니다. 대부분의 3rd party 도구, 다른 클라우드 벤더, 온프레미스 스토리지까지 S3 호환 API를 지원합니다. S3 Tables, S3 Metadata, S3 Vectors 등 스토리지 자체에 분석 기능을 내장하는 방향으로 진화하고 있습니다.
+**AWS S3** — 2006년 출시된 최초의 퍼블릭 클라우드 객체 스토리지 서비스로, S3 API가 업계 사실상 표준이 되었습니다. 대부분의 3rd party 도구, 다른 클라우드 벤더, 온프레미스 스토리지까지 S3 호환 API를 지원합니다. S3 Tables, S3 Metadata, S3 Vectors 등 스토리지 자체에 분석 기능을 내장하는 방향으로 진화하고 있습니다.
 
 **Azure Blob Storage** — Blob Storage와 Data Lake Storage Gen2가 동일한 스토리지 계정에서 통합됩니다. 계층적 네임스페이스(폴더 구조)를 지원하여 빅데이터 워크로드에서 파일 관리가 편리합니다. Microsoft Fabric과의 통합으로 분석 파이프라인 구성이 간편합니다.
 
@@ -84,7 +84,7 @@ AWS S3 Intelligent-Tiering과 Google Cloud Autoclass, OCI Auto-Tiering은 접근
 
 ## 활용 패턴
 
-| 유즈케이스 | 설명 | 왜 객체 스토리지인가 |
+| 사용 사례 | 설명 | 왜 객체 스토리지인가 |
 | --- | --- | --- |
 | 정적 웹 호스팅 | SPA, 정적 사이트 서빙 | CDN 연동, 서버리스, 무한 확장 |
 | 데이터 레이크 | 원본 데이터 저장소 | 스키마 불필요, 저비용 대용량, 다양한 포맷 |

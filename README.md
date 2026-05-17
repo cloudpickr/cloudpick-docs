@@ -19,23 +19,17 @@ CloudPick은 **멀티클라우드 환경에서 올바른 의사결정을 내리�
 ## 어디서부터 읽을까?
 
 {% tabs %}
-{% tab title="☁️ 클라우드 입문" %}
+{% tab title="☁️ 처음 시작" %}
 1. [클라우드 시작하기](about-cloud/getting-started.md)
 2. [벤더 비교하기](about-cloud/compare-clouds.md)
 3. [리전과 가용영역](about-cloud/regions-and-zones.md)
 4. [공동 책임 모델](about-cloud/shared-responsibility.md)
 5. [비용 구조 이해하기](about-cloud/pricing-model.md)
+6. [멀티클라우드 이해하기](about-cloud/why-multicloud.md)
+7. [벤더 선택 의사결정](about-cloud/decision-framework.md)
 {% endtab %}
 
-{% tab title="🔀 멀티클라우드" %}
-1. [멀티클라우드 이해하기](about-cloud/why-multicloud.md)
-2. [벤더 비교하기](about-cloud/compare-clouds.md)
-3. [벤더 선택 의사결정](about-cloud/decision-framework.md)
-4. [멀티클라우드 네트워킹](networking/multicloud-networking.md) → [커넥티비티 심화](networking/multicloud-connectivity.md)
-5. [하이브리드/엣지 컴퓨팅](compute/hybrid-and-edge.md)
-{% endtab %}
-
-{% tab title="⚙️ 실무 운영" %}
+{% tab title="⚙️ 구축·운영" %}
 1. [DevOps 시작하기](devops/getting-started.md)
 2. [계정과 조직 구조](about-cloud/accounts-and-organizations.md) → [랜딩존](governance/landing-zone.md)
 3. [비용 구조](about-cloud/pricing-model.md) → [FinOps](governance/finops.md)
@@ -46,7 +40,7 @@ CloudPick은 **멀티클라우드 환경에서 올바른 의사결정을 내리�
 8. [데이터베이스 운영](database/operations.md)
 {% endtab %}
 
-{% tab title="🔒 보안 강화" %}
+{% tab title="🔒 보안·규제" %}
 1. [클라우드 보안 시작하기](security/getting-started.md)
 2. [공동 책임 모델](about-cloud/shared-responsibility.md)
 3. [IAM 개요](about-cloud/iam-overview.md) → [IAM 심화](security/iam.md)
@@ -54,8 +48,9 @@ CloudPick은 **멀티클라우드 환경에서 올바른 의사결정을 내리�
 5. [데이터 보호](security/data-protection.md)
 6. [망분리와 네트워크 격리](security/network-isolation.md)
 7. [제로 트러스트](security/zero-trust.md)
-8. [DevSecOps](devops/devsecops.md)
-9. [보안 사고 대응](security/incident-response.md)
+8. [규정 준수](governance/compliance.md)
+9. [DevSecOps](devops/devsecops.md)
+10. [보안 사고 대응](security/incident-response.md)
 {% endtab %}
 
 {% tab title="🚚 마이그레이션" %}
@@ -64,17 +59,6 @@ CloudPick은 **멀티클라우드 환경에서 올바른 의사결정을 내리�
 3. [스토리지 마이그레이션](storage/migration.md)
 4. [모더나이제이션](compute/modernization.md)
 5. [벤더 종속성과 출구 전략](governance/exit-strategy.md)
-{% endtab %}
-
-{% tab title="🏛️ 규제 시장" %}
-1. [클라우드 시작하기](about-cloud/getting-started.md)
-2. [공동 책임 모델](about-cloud/shared-responsibility.md)
-3. [망분리와 네트워크 격리](security/network-isolation.md)
-4. [규정 준수](governance/compliance.md)
-5. [데이터 보호](security/data-protection.md)
-6. [벤더 선택 의사결정](about-cloud/decision-framework.md)
-7. [벤더 종속성과 출구 전략](governance/exit-strategy.md)
-8. [재해복구](governance/dr.md)
 {% endtab %}
 
 {% tab title="🤖 AI 도입" %}

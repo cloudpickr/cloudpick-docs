@@ -167,8 +167,8 @@ flowchart TB
 | 규제/기준 | 요구사항 | 클라우드 대응 |
 | --- | --- | --- |
 | **전자금융감독규정** (금융) | 전산실 망분리, 내부망/DMZ/외부망 구분 | VPC 분리 + Private Subnet + 전용선 |
-| **CSAP 상 등급** (공공) | 물리적 망분리 | Outposts, Azure Stack, GDC Air-gapped, Dedicated Region |
-| **CSAP 중 등급** (공공) | 논리적 망분리 + 접근 통제 강화 | VPC 격리 + Private Link + 전용선 |
+| **CSAP 상 등급** (공공) | 물리적 망분리 | 국내 CSP 또는 공공 전용 인프라 (국가정보자원관리원, G-Cloud 등) |
+| **CSAP 중 등급** (공공) | 논리적 망분리 + 접근 통제 강화 | 국내 CSP 또는 글로벌 CSP (중 등급 인증 취득 시) |
 | **ISMS-P** (전 산업) | 네트워크 분리, 접근 통제, 암호화 | Security Group + NACL + VPC Endpoint + TLS |
 | **N2SF 1.0 (국가망보안체계)** | C/S/O 등급별 차등 보안, 280여 개 보안통제 항목 | 등급별 VPC 분리 + 등급 간 통신 통제 + 6대영역 매핑 |
 | **PCI DSS** (카드 결제) | CDE(카드 데이터 환경) 네트워크 격리 | 전용 VPC + 방화벽 + 로깅 |
@@ -179,9 +179,9 @@ flowchart TB
 
 | 우리 상황 | 첫 단계 | 목표 구성 |
 | --- | --- | --- |
-| **CSAP 상 등급 (물리적 분리 필수)** | Outposts/Azure Stack/GDC/Dedicated Region 도입 검토 | 고객 DC 내 클라우드 + 전용선 연결 |
-| **CSAP 중 등급 (논리적 분리)** | VPC 격리 + Private Subnet + 전용선 설계 | 인터넷 노출 최소화, VPC Endpoint 활용 |
-| **CSAP 하 등급 / ISMS-P** | 퍼블릭 클라우드 + Security Group + 암호화 | 표준 클라우드 보안 모범사례 적용 |
+| **CSAP 상 등급 (물리적 분리 필수)** | 국내 CSP 또는 공공 전용 인프라 활용 | 글로벌 CSP는 현재 상 등급 미인증 |
+| **CSAP 중 등급 (논리적 분리)** | 국내 CSP 또는 글로벌 CSP (중 등급 인증 취득 시) | VPC 격리 + Private Link + 전용선 |
+| **CSAP 하 등급 / ISMS-P** | 글로벌 CSP 퍼블릭 클라우드 | 표준 클라우드 보안 모범사례 적용 |
 | **N2SF C등급 (기밀)** | 에어갭 환경 또는 Dedicated Region | 인터넷 완전 차단, 국내 인력 운영 |
 | **N2SF S등급 (민감)** | VPC 격리 + 전용선 + 접근 통제 강화 | CSAP 중 등급과 유사한 수준 |
 | **N2SF O등급 (공개)** | 퍼블릭 클라우드 기본 보안 | 최소 보안 요건 충족 |

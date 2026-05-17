@@ -32,16 +32,16 @@ graph LR
 
 | 상황 | 조치 | 벤더별 방법 |
 | --- | --- | --- |
-| **IAM 키 유출** | 키 즉시 비활성화 + 세션 무효화 | AWS: `deactivate-mfa-device` + `revoke-sessions`, Azure: Entra ID 세션 취소, GCP: Service Account 키 삭제 |
-| **역할 탈취** | 역할 정책에 Deny 추가 또는 세션 만료 강제 | AWS: SCP로 해당 역할 Deny, Azure: Conditional Access 차단 |
-| **계정 침해** | 계정 전체 격리 (Organization에서 분리) | AWS: SCP `Deny *`, Azure: Subscription 비활성화 |
+| **API 키/자격 증명 유출** | 키 즉시 비활성화 + 활성 세션 무효화 | AWS: Access Key 비활성화 + 세션 취소, Azure: Entra ID 세션 취소, GCP: Service Account 키 삭제 |
+| **역할/권한 탈취** | 해당 역할에 Deny 정책 추가 또는 세션 만료 강제 | AWS: SCP Deny, Azure: Conditional Access 차단, GCP: Organization Policy |
+| **계정 전체 침해** | 계정/구독/프로젝트를 조직에서 격리 | AWS: SCP 전체 Deny, Azure: Subscription 비활성화, GCP: Project 정지 |
 
 ### 네트워크 기반 격리
 
 | 조치 | 방법 |
 | --- | --- |
-| **인스턴스 격리** | Security Group을 "모든 인바운드/아웃바운드 차단"으로 교체 (삭제하면 안 됨 — 증거 보존) |
-| **서브넷 격리** | NACL로 해당 서브넷 트래픽 전면 차단 |
+| **인스턴스 격리** | 방화벽 규칙을 "모든 인바운드/아웃바운드 차단"으로 교체 (삭제하면 안 됨 — 증거 보존) |
+| **서브넷 격리** | 서브넷 레벨 ACL로 해당 서브넷 트래픽 전면 차단 |
 | **DNS 싱크홀** | 악성 도메인을 내부 DNS에서 싱크홀로 리다이렉트 |
 
 {% hint style="warning" %}

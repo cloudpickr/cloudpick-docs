@@ -135,6 +135,20 @@ flowchart TD
 Day-2 운영 상세는 [Kubernetes 운영](../devops/kubernetes-operations.md)을 참고하세요.
 {% endhint %}
 
+
+## 자주 하는 실수
+
+- **K8s 없이 될 것을 K8s로** — 단순한 웹 앱이나 소규모 서비스에 Kubernetes를 도입하면 운영 복잡도만 높아집니다. ECS, Cloud Run, Container Apps로 충분한지 먼저 검토하세요.
+- **리소스 제한 미설정** — Pod에 requests/limits를 설정하지 않으면 하나의 Pod가 노드 전체 리소스를 점유하여 다른 Pod가 OOMKill되거나 스케줄링에 실패합니다.
+- **latest 태그 사용** — 이미지 태그를 `latest`로 사용하면 어떤 버전이 배포되었는지 추적할 수 없고, 롤백이 불가능합니다.
+
+## 체크리스트
+
+- [ ] 모든 Pod에 리소스 requests/limits를 설정했는가
+- [ ] 컨테이너 이미지 태그를 SHA 또는 시맨틱 버전으로 고정했는가
+- [ ] Liveness/Readiness Probe(헬스체크)를 설정했는가
+- [ ] 네임스페이스를 환경/팀별로 분리했는가
+
 ## 관련 문서
 
 {% content-ref url="../devops/cicd.md" %}

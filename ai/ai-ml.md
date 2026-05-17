@@ -75,7 +75,9 @@ description: 벤더별 AI 플랫폼, 모델 카탈로그, GPU/AI 칩, Applied AI
 | Google Cloud | Gemini Code Assist | 코드 생성, 설명, 변환 |
 | OCI | 전용 코드 어시스턴트 없음 | OCI Enterprise AI API를 통한 코드 생성 가능 (Cohere Command, Llama). IDE 통합 플러그인은 미제공 |
 
+{% hint style="info" %}
 코딩 에이전트의 발전 과정, 제품별 상세 비교(Kiro, Copilot, Codex, Claude Code 등)는 [AI 에이전트 — 코딩 에이전트](agents.md#코딩-에이전트--코드를-넘어-운영으로)를 참고하세요.
+{% endhint %}
 
 ## ML 플랫폼
 

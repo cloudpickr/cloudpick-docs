@@ -54,7 +54,7 @@ description: 주요 벤더의 특징, 강점, 멀티클라우드 연동 서비�
 | **검색** | OpenSearch Service | Azure AI Search | — (마켓플레이스) | OCI Search with OpenSearch |
 | **데이터 파이프라인 (ETL)** | Glue / MWAA | Data Factory / Synapse Pipelines | Dataflow / Cloud Composer | OCI Data Integration |
 | **모니터링** | CloudWatch | Azure Monitor | Cloud Monitoring | OCI Monitoring |
-| **AI/LLM 플랫폼** | Bedrock | Azure OpenAI / Foundry | Vertex AI | OCI Generative AI |
+| **AI/LLM 플랫폼** | Amazon Bedrock | Microsoft Foundry | Gemini Enterprise Agent Platform | OCI Enterprise AI |
 
 {% hint style="info" %}
 서비스명은 빠르게 변경될 수 있습니다. Google Cloud는 자사 기준으로 AWS/Azure 서비스를 매핑한 [비교 문서](https://cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison)를 별도로 관리하고 있습니다.
@@ -67,7 +67,7 @@ description: 주요 벤더의 특징, 강점, 멀티클라우드 연동 서비�
 Amazon의 이커머스 인프라에서 출발한 AWS는 성숙한 서비스 포트폴리오를 보유합니다. 새로운 서비스 카테고리를 일찍 출시하는 경우가 많고, 글로벌 커뮤니티와 파트너 생태계가 넓습니다.
 
 - **핵심 강점:** 서비스 다양성, 글로벌 리전 수, 커뮤니티/문서 풍부
-- **차별점:** Lambda(서버리스 선구자), S3(객체 스토리지 표준), 세분화된 IAM
+- **차별점:** Amazon Bedrock(AI OS로 진화), Nova 2 모델 출시, 세분화된 IAM
 - **주의점:** 서비스 수가 200+로 많아 초기 선택에 시간이 필요함. 이그레스 비용 구조를 사전에 확인할 것
 - **한국 리전:** 서울 4 AZ (2016~)
 
@@ -76,7 +76,7 @@ Amazon의 이커머스 인프라에서 출발한 AWS는 성숙한 서비스 포�
 Microsoft의 엔터프라이즈 소프트웨어 생태계(Microsoft 365, Active Directory, Dynamics 365)와 긴밀하게 통합됩니다. 기존 Microsoft 환경을 사용하는 기업에서 도입 경로가 비교적 명확합니다.
 
 - **핵심 강점:** Microsoft 365/AD 통합, 하이브리드(Azure Arc, Azure Stack), 엔터프라이즈 계약(EA)
-- **차별점:** 서울-부산 리전 쌍으로 국내 DR 가능, GitHub/VS Code 통합
+- **차별점:** Microsoft Foundry(구 Azure AI Foundry), 서울-부산 리전 쌍으로 국내 DR 가능, GitHub/VS Code 통합
 - **주의점:** 서비스 리브랜딩이 빈번하므로 최신 명칭을 공식 문서에서 확인할 것. 리전별 서비스 가용성이 다를 수 있음
 - **한국 리전:** 서울(Korea Central) 3 AZ + 부산(Korea South)
 
@@ -84,8 +84,8 @@ Microsoft의 엔터프라이즈 소프트웨어 생태계(Microsoft 365, Active 
 
 Google의 검색·데이터 처리 인프라에서 발전한 GCP는 AI/ML과 대규모 데이터 분석에서 차별화됩니다. 글로벌 VPC, SUD(자동 할인) 등 독특한 설계 철학을 가지고 있습니다.
 
-- **핵심 강점:** AI/ML(Vertex AI, TPU, Gemini), 데이터 분석(BigQuery), 컨테이너(GKE)
-- **차별점:** 글로벌 VPC(리전 종속 아님), SUD(약정 없이 자동 할인), Shared Fate 보안 모델
+- **핵심 강점:** AI/ML(Gemini Enterprise, TPU), 데이터 분석(BigQuery), 컨테이너(GKE)
+- **차별점:** Gemini Enterprise Agent Platform(구 Vertex AI), 글로벌 VPC(리전 종속 아님), Shared Fate 보안 모델
 - **주의점:** 엔터프라이즈 도입 시 지원 플랜과 한국어 리소스 가용성을 사전에 확인할 것
 - **한국 리전:** 서울 3 Zone (2020~)
 
@@ -94,7 +94,7 @@ Google의 검색·데이터 처리 인프라에서 발전한 GCP는 AI/ML과 대
 Oracle의 데이터베이스 기술력을 클라우드로 확장한 OCI는 Oracle DB 워크로드에 강점이 있습니다. 이그레스 비용 정책이 멀티클라우드 구성에 유리한 경우가 있고, 전용 베어메탈 인스턴스를 제공합니다.
 
 - **핵심 강점:** Autonomous Database, Oracle DB 최적화, 이그레스 무료 범위(10TB/월)
-- **차별점:** 이그레스 10TB/월 무료, Dedicated Region(고객 DC에 OCI 설치), MySQL HeatWave
+- **차별점:** OCI Enterprise AI(구 OCI Generative AI), 이그레스 10TB/월 무료, Dedicated Region(고객 DC에 OCI 설치)
 - **주의점:** Oracle DB 외 워크로드는 서비스 카탈로그와 서드파티 생태계 규모를 사전에 확인할 것
 - **한국 리전:** 서울(`ap-seoul-1`), 춘천(`ap-chuncheon-1`)
 
@@ -174,5 +174,8 @@ AWS는 타사 대비 직접적인 서비스 비교 페이지를 제공하지 않
 
 - [Synergy Research Group](https://www.srgresearch.com/) — 클라우드 시장 점유율 분기별 보고
 - [Gartner Magic Quadrant for Cloud Infrastructure](https://www.gartner.com/reviews/market/cloud-infrastructure-and-platform-services) — 클라우드 벤더 평가
+- [CNCF Cloud Native Survey](https://www.cncf.io/reports/cncf-annual-survey-2024/) — 클라우드 채택 현황 통계
+- [Public Cloud Services Comparison](https://comparecloud.in) — 커뮤니티 기반 서비스 비교
+loud-infrastructure-and-platform-services) — 클라우드 벤더 평가
 - [CNCF Cloud Native Survey](https://www.cncf.io/reports/cncf-annual-survey-2024/) — 클라우드 채택 현황 통계
 - [Public Cloud Services Comparison](https://comparecloud.in) — 커뮤니티 기반 서비스 비교

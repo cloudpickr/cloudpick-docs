@@ -86,7 +86,7 @@ graph TB
 | --- | --- | --- |
 | 환경별 | dev / staging / prod VPC | 프로덕션 격리, 실수 방지 |
 | 팀/서비스별 | 팀A VPC / 팀B VPC | 보안 경계, 독립적 운영 |
-| 규제별 | PCI VPC / 일반 VPC | 컴플라이언스 범위 최소화 |
+| 규제별 | PCI VPC / 일반 VPC | 규정 준수 범위 최소화 |
 
 ### 공유 서비스 VPC
 

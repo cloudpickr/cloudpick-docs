@@ -77,7 +77,7 @@ EC2, Lambda, 컨테이너, CI/CD 파이프라인 등 **사람이 아닌 워크�
 
 외부 조직이나 SaaS 서비스에 우리 클라우드 리소스 접근을 허용해야 할 때입니다.
 
-| 시나리오 | 권장 방법 | 주의점 |
+| 시나리오 | 권장 방법 | 주의사항 |
 | --- | --- | --- |
 | **외부 SaaS가 우리 S3/Blob 접근** | Cross-account Role (AWS), Service Principal + RBAC (Azure), Workload Identity Federation (Google Cloud) | 외부 계정 ID를 신뢰 정책에 명시. 와일드카드(`*`) 금지 |
 | **파트너사 엔지니어가 콘솔 접근** | 별도 역할 생성 + 시간 제한 + MFA 강제 | 상시 접근 금지. JIT 방식으로 필요 시에만 활성화 |

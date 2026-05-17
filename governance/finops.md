@@ -115,7 +115,7 @@ FinOps의 출발점은 **누가, 무엇에, 얼마를 썼는가** 를 정확히 
 
 ### 시작 체크리스트
 
-- [ ] 표준 태그 키 세트 정의 (8\~10개 이내로 시작, 이후 확장)
+- [ ] 표준 태그 키 세트 정의 (8~10개 이내로 시작, 이후 확장)
 - [ ] 태그 값 허용 목록 문서화 (예: `env` 값은 `prod`/`staging`/`dev`만)
 - [ ] 조직/OU/폴더/컴파트먼트 수준의 상속 정책 적용
 - [ ] IaC 모듈에 필수 태그 입력 강제
@@ -199,7 +199,7 @@ VPC 관련 비용은 숨겨져 있어 예상치 못한 청구가 발생하기 �
 | **인스턴스 예약** | 특정 인스턴스 타입 고정 | Reserved Instances | Reserved VM Instances | — | — |
 | **사용 금액 약정 (유연)** | 시간당 지출 금액 약정, 인스턴스 유형 변경 가능 | Savings Plans | Savings Plans | CUD (Flexible) | Universal Credits |
 | **자동 할인** | 약정 없이 사용량에 따라 자동 할인 | — | — | SUD (Sustained Use Discount) | — |
-| **스팟/Preemptible** | 중단 가능 대신 60\~90% 할인 | Spot Instances | Spot VMs | Spot VMs / Preemptible | Preemptible Instances |
+| **스팟/Preemptible** | 중단 가능 대신 60~90% 할인 | Spot Instances | Spot VMs | Spot VMs / Preemptible | Preemptible Instances |
 
 ### 적용 전략
 

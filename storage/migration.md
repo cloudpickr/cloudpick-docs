@@ -8,14 +8,14 @@ description: 대용량 데이터를 클라우드로 이전하는 온라인/오�
 
 ## 개요
 
-온프레미스나 다른 클라우드에 있는 대용량 데이터를 클라우드로 이전하는 작업입니다. 단순히 `aws s3 cp`로 올리면 될 것 같지만, 수 TB\~수 PB 규모에서는 네트워크 대역폭, 비용, 시간 모두가 큰 제약이 됩니다.
+온프레미스나 다른 클라우드에 있는 대용량 데이터를 클라우드로 이전하는 작업입니다. 단순히 `aws s3 cp`로 올리면 될 것 같지만, 수 TB~수 PB 규모에서는 네트워크 대역폭, 비용, 시간 모두가 큰 제약이 됩니다.
 
 ### 마이그레이션 유형
 
 | 유형 | 설명 | 대상 |
 | --- | --- | --- |
-| **온라인 전송** | 네트워크를 통해 데이터 전송 | 수 GB\~수 TB, 빠른 네트워크 환경 |
-| **오프라인 전송** | 물리 장치에 데이터를 담아 배송 | 수십 TB\~수 PB, 제한적 네트워크 환경 |
+| **온라인 전송** | 네트워크를 통해 데이터 전송 | 수 GB~수 TB, 빠른 네트워크 환경 |
+| **오프라인 전송** | 물리 장치에 데이터를 담아 배송 | 수십 TB~수 PB, 제한적 네트워크 환경 |
 | **하이브리드 복제** | 초기 오프라인 + 이후 온라인 증분 | 대용량 + 지속 업데이트 필요 |
 | **파일 게이트웨이** | 온프레미스 캐시 + 클라우드 저장소 | 점진적 전환, 접근 지연 허용 |
 
@@ -32,7 +32,7 @@ description: 대용량 데이터를 클라우드로 이전하는 온라인/오�
 | 1PB | 약 100일 | 약 10일 | 오프라인 (Snowmobile, Data Box Heavy) |
 
 {% hint style="warning" %}
-실제 전송 시간은 네트워크 효율성, 재시도, 검증 시간을 포함하면 위 계산의 1.5\~2배가 일반적입니다.
+실제 전송 시간은 네트워크 효율성, 재시도, 검증 시간을 포함하면 위 계산의 1.5~2배가 일반적입니다.
 {% endhint %}
 
 ## 비용 고려사항
@@ -41,11 +41,11 @@ description: 대용량 데이터를 클라우드로 이전하는 온라인/오�
 
 | 항목 | 온라인 전송 | 오프라인 전송 |
 | --- | --- | --- |
-| **이그레스 비용 (반출 시)** | GB당 $0.05\~$0.126 | 디바이스 고정 요금 |
+| **이그레스 비용 (반출 시)** | GB당 $0.05~$0.126 | 디바이스 고정 요금 |
 | **수집 비용** | 무료 (대부분) | 무료 |
 | **저장 비용** | 동일 | 동일 |
-| **장비 임대비** | 없음 | $50\~$15,000 (크기별) |
-| **전송 시간** | 네트워크 속도 의존 | 2\~3주 고정 |
+| **장비 임대비** | 없음 | $50~$15,000 (크기별) |
+| **전송 시간** | 네트워크 속도 의존 | 2~3주 고정 |
 | **인력 비용** | 자동화 가능 | 장비 수령/반송 처리 필요 |
 
 {% hint style="info" %}
@@ -85,15 +85,15 @@ description: 대용량 데이터를 클라우드로 이전하는 온라인/오�
 
 | 벤더 | 제품 | 용량 | 특징 |
 | --- | --- | --- | --- |
-| AWS | [Snowcone](https://aws.amazon.com/snowcone/) | \~8 TB | 소형, 배낭 휴대 가능 |
-| AWS | [Snowball Edge](https://aws.amazon.com/snowball/) | \~80 TB | 일반적인 대용량 이전 |
-| AWS | Snowmobile | \~100 PB | 컨테이너 트럭 규모 (단, 2024년 이후 신규 주문 종료) |
-| Azure | [Data Box Disk](https://azure.microsoft.com/products/databox/) | \~35 TB | SSD 기반 소용량 |
-| Azure | [Data Box](https://azure.microsoft.com/products/databox/) | \~100 TB | 표준 장비 |
-| Azure | Data Box Heavy | \~1 PB | 대용량 장비 |
-| Google Cloud | [Transfer Appliance](https://cloud.google.com/transfer-appliance/docs) | TA40: \~40 TB, TA300: \~300 TB | 일반/대용량 |
-| OCI | [Data Transfer Appliance](https://docs.oracle.com/en-us/iaas/Content/DataTransfer/home.htm) | \~150 TB | 임대 장비로 전송 |
-| OCI | Data Transfer Disk | \~32 TB | 고객이 디스크 구매 후 발송 |
+| AWS | [Snowcone](https://aws.amazon.com/snowcone/) | ~8 TB | 소형, 배낭 휴대 가능 |
+| AWS | [Snowball Edge](https://aws.amazon.com/snowball/) | ~80 TB | 일반적인 대용량 이전 |
+| AWS | Snowmobile | ~100 PB | 컨테이너 트럭 규모 (단, 2024년 이후 신규 주문 종료) |
+| Azure | [Data Box Disk](https://azure.microsoft.com/products/databox/) | ~35 TB | SSD 기반 소용량 |
+| Azure | [Data Box](https://azure.microsoft.com/products/databox/) | ~100 TB | 표준 장비 |
+| Azure | Data Box Heavy | ~1 PB | 대용량 장비 |
+| Google Cloud | [Transfer Appliance](https://cloud.google.com/transfer-appliance/docs) | TA40: ~40 TB, TA300: ~300 TB | 일반/대용량 |
+| OCI | [Data Transfer Appliance](https://docs.oracle.com/en-us/iaas/Content/DataTransfer/home.htm) | ~150 TB | 임대 장비로 전송 |
+| OCI | Data Transfer Disk | ~32 TB | 고객이 디스크 구매 후 발송 |
 
 ### 오프라인 전송 단계
 
@@ -104,7 +104,7 @@ description: 대용량 데이터를 클라우드로 이전하는 온라인/오�
 5. 벤더가 데이터센터에서 클라우드 스토리지로 업로드
 6. 검증 후 장치의 데이터는 안전하게 삭제
 
-전송 기간은 일반적으로 2\~3주 정도 소요되며, 네트워크 이그레스 비용을 크게 절감할 수 있습니다.
+전송 기간은 일반적으로 2~3주 정도 소요되며, 네트워크 이그레스 비용을 크게 절감할 수 있습니다.
 
 ## 하이브리드 캐시/게이트웨이
 

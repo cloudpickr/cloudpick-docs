@@ -63,12 +63,12 @@ Microsoft의 엔터프라이즈 경험이 반영되어 하이브리드 환경과
 Google Cloud는 **Architecture Framework**라는 이름으로 제공하며, 5개 Pillar 외에 **시스템 설계 원칙**을 별도로 다루는 것이 특징입니다.
 
 1. **운영 우수성 (Operational Excellence)** — 효율적인 운영, 자동화, 모니터링
-2. **보안, 개인정보, 컴플라이언스** — 보안과 규제 준수를 하나의 Pillar로 통합
+2. **보안, 개인정보, 규정 준수** — 보안과 규제 준수를 하나의 Pillar로 통합
 3. **안정성 (Reliability)** — 가용성, 복원력, 재해복구
 4. **비용 최적화 (Cost Optimization)** — 비용 관리, 리소스 최적화
 5. **성능 최적화 (Performance Optimization)** — 확장성, 지연 시간 최적화
 
-보안과 컴플라이언스를 하나의 Pillar로 통합한 것이 특징입니다. Google Cloud의 Shared Fate 모델과 같은 방향입니다.
+보안과 규정 준수를 하나의 Pillar로 통합한 것이 특징입니다. Google Cloud의 Shared Fate 모델과 같은 방향입니다.
 
 **프레임워크 이름:** Architecture Framework
 {% endtab %}

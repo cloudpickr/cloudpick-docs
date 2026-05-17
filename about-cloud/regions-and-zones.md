@@ -97,7 +97,7 @@ graph TB
 - **지연 시간** — 사용자와 가까운 리전을 선택합니다. 한국 사용자 대상이면 한국 리전이 최선입니다.
 - **서비스 가용성** — 모든 서비스가 모든 리전에 있지는 않습니다. 특히 AI/ML, 최신 서비스는 특정 리전에서만 제공됩니다.
 - **비용** — 같은 서비스라도 리전에 따라 가격이 다릅니다. 미국 리전이 보통 가장 저렴합니다.
-- **컴플라이언스** — 규제에 따라 특정 국가에 데이터를 저장해야 할 수 있습니다.
+- **규정 준수** — 규제에 따라 특정 국가에 데이터를 저장해야 할 수 있습니다.
 
 {% hint style="warning" %}
 **모든 서비스가 모든 리전에서 제공되지 않습니다.** 특히 신규 AI/ML 서비스는 특정 리전에서만 먼저 출시됩니다. 아키텍처 설계 전에 원하는 서비스가 선택 리전에서 제공되는지 반드시 확인하세요.
@@ -147,7 +147,7 @@ Azure(서울-부산)와 OCI(서울-춘천)는 국내 2개 리전을 보유하여
 
 ### AWS
 
-- [AWS 리전 및 가용 영역](https://docs.aws.amazon.com/ko_kr/AWSEC2/latest/UserGuide/using-regions-availability-zones.html)
+- [AWS 리전 및 가용영역](https://docs.aws.amazon.com/ko_kr/AWSEC2/latest/UserGuide/using-regions-availability-zones.html)
 - [AWS Local Zones](https://aws.amazon.com/about-aws/global-infrastructure/localzones/)
 - [AWS European Sovereign Cloud](https://aws.amazon.com/sovereign-cloud/)
 

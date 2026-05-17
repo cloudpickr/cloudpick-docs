@@ -102,13 +102,13 @@ VM은 **관리 부담이 가장 큰 컴퓨팅 서비스**입니다. OS 패치, �
 
 ## 배치 그룹과 전용 호스트
 
-고성능/컴플라이언스 요구사항에 따라 VM을 물리적으로 제어할 수 있습니다.
+고성능/규정 준수 요구사항에 따라 VM을 물리적으로 제어할 수 있습니다.
 
 | 기능 | 설명 | AWS | Azure | Google Cloud | OCI |
 | --- | --- | --- | --- | --- | --- |
 | **동일 랙 배치** | 저지연 통신 (HPC, 분산 DB) | Placement Group (Cluster) | Proximity Placement Group | Compact Placement | Cluster Network |
 | **분산 배치** | 단일 장애점 제거 | Placement Group (Spread) | Availability Set | Spread Placement | Fault Domain |
-| **전용 물리 서버** | 라이선스/컴플라이언스 | Dedicated Host | Dedicated Host | Sole-tenant Node | Dedicated VM Host |
+| **전용 물리 서버** | 라이선스/규정 준수 | Dedicated Host | Dedicated Host | Sole-tenant Node | Dedicated VM Host |
 
 ## 참고하기
 

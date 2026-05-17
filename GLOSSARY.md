@@ -15,7 +15,7 @@ description: 클라우드 문서에서 자주 등장하는 용어를 벤더 중�
 | 온프레미스 | On-Premises. 클라우드가 아닌 자체 데이터센터 또는 사무실에서 직접 운영하는 인프라입니다. |
 | Region | 지리적으로 분리된 데이터센터 클러스터입니다. 서울, 도쿄, 버지니아 같은 단위로 이해할 수 있습니다. |
 | Availability Zone / Zone | 하나의 리전 안에서 독립적으로 장애가 격리되는 데이터센터 또는 데이터센터 그룹입니다. AZ라고 줄여 부릅니다. |
-| CIDR | Classless Inter-Domain Routing. IP 주소 범위를 표기하는 방식입니다. 예: `10.0.0.0/16`은 10.0.0.0\~10.0.255.255 범위를 의미합니다. |
+| CIDR | Classless Inter-Domain Routing. IP 주소 범위를 표기하는 방식입니다. 예: `10.0.0.0/16`은 10.0.0.0~10.0.255.255 범위를 의미합니다. |
 | Edge Location | 사용자와 가까운 위치에 배치된 소규모 인프라입니다. CDN, DNS, 엣지 보안에 주로 사용됩니다. |
 | VPC / VNet / VCN | 클라우드 안에 만드는 논리적으로 격리된 가상 네트워크입니다. |
 | Subnet | VPC 안에서 IP 대역을 더 작게 나눈 네트워크 영역입니다. |
@@ -70,7 +70,7 @@ description: 클라우드 문서에서 자주 등장하는 용어를 벤더 중�
 | WAF | Web Application Firewall. 웹 애플리케이션을 SQL Injection, XSS 등 L7 공격으로부터 보호하는 방화벽입니다. |
 | OWASP Top 10 | 웹 애플리케이션의 가장 흔한 10가지 보안 위협을 정리한 업계 표준 목록입니다. |
 | CVE | Common Vulnerabilities and Exposures. 공개된 보안 취약점에 부여되는 고유 식별자입니다. |
-| CVSS | Common Vulnerability Scoring System. 취약점의 심각도를 0\~10 점수로 평가하는 표준입니다. |
+| CVSS | Common Vulnerability Scoring System. 취약점의 심각도를 0~10 점수로 평가하는 표준입니다. |
 | SBOM | Software Bill of Materials. 소프트웨어에 포함된 모든 구성 요소(라이브러리, 패키지)의 목록입니다. |
 
 ## DevOps / DevSecOps
@@ -118,7 +118,7 @@ description: 클라우드 문서에서 자주 등장하는 용어를 벤더 중�
 | ANN | Approximate Nearest Neighbor. 근사 최근접 이웃 탐색. 벡터 검색에서 속도를 위해 정확도를 약간 양보하는 알고리즘입니다. |
 | Prompt | 모델에게 보내는 입력 메시지입니다. 질문, 지시, 맥락을 포함합니다. |
 | Prompt Engineering | 모델이 더 좋은 답을 생성하도록 프롬프트를 설계하고 개선하는 기법입니다. |
-| Token | 모델이 텍스트를 처리하는 단위입니다. 대략 단어 한 개가 1\~2 토큰이며, 대부분 API는 토큰 수로 과금합니다. |
+| Token | 모델이 텍스트를 처리하는 단위입니다. 대략 단어 한 개가 1~2 토큰이며, 대부분 API는 토큰 수로 과금합니다. |
 | Fine-tuning | 사전 학습된 모델을 특정 데이터로 추가 학습하여 도메인에 맞게 조정하는 기법입니다. |
 | Inference | 추론. 학습된 모델이 입력을 받아 출력을 생성하는 과정입니다. 학습보다 빠르고 저렴합니다. |
 | Hallucination | 환각. LLM이 사실이 아닌 내용을 그럴듯하게 생성하는 현상입니다. RAG 등으로 완화합니다. |

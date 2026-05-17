@@ -14,7 +14,7 @@ description: 생성형 AI 모델을 유형별(텍스트, 이미지, 음성, 비�
 
 ## 모델 유형별 비교
 
-| 유형 | 입력 → 출력 | 벤더 서비스/모델 | 유즈케이스 |
+| 유형 | 입력 → 출력 | 벤더 서비스/모델 | 사용 사례 |
 | --- | --- | --- | --- |
 | **텍스트 (LLM)** | 텍스트 → 텍스트 | Bedrock(Claude, Llama), Azure OpenAI(GPT), Vertex AI(Gemini) | 챗봇, 요약, 코드 생성 |
 | **이미지 생성** | 텍스트 → 이미지 | Bedrock(Titan Image, Stable Diffusion), Azure OpenAI(DALL-E), Vertex AI(Imagen) | 마케팅 소재, 디자인 프로토타입 |

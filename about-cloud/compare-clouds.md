@@ -68,7 +68,7 @@ Amazon의 이커머스 인프라에서 출발한 AWS는 성숙한 서비스 포�
 
 - **핵심 강점:** 서비스 다양성, 글로벌 리전 수, 커뮤니티/문서 풍부
 - **차별점:** Amazon Bedrock(AI OS로 진화), Nova 2 모델 출시, 세분화된 IAM
-- **주의점:** 서비스 수가 200+로 많아 초기 선택에 시간이 필요함. 이그레스 비용 구조를 사전에 확인할 것
+- **주의사항:** 서비스 수가 200+로 많아 초기 선택에 시간이 필요함. 이그레스 비용 구조를 사전에 확인할 것
 - **한국 리전:** 서울 4 AZ (2016~)
 
 ### Azure — 엔터프라이즈 통합의 강자
@@ -77,7 +77,7 @@ Microsoft의 엔터프라이즈 소프트웨어 생태계(Microsoft 365, Active 
 
 - **핵심 강점:** Microsoft 365/AD 통합, 하이브리드(Azure Arc, Azure Stack), 엔터프라이즈 계약(EA)
 - **차별점:** Microsoft Foundry(구 Azure AI Foundry), 서울-부산 리전 쌍으로 국내 DR 가능, GitHub/VS Code 통합
-- **주의점:** 서비스 리브랜딩이 빈번하므로 최신 명칭을 공식 문서에서 확인할 것. 리전별 서비스 가용성이 다를 수 있음
+- **주의사항:** 서비스 리브랜딩이 빈번하므로 최신 명칭을 공식 문서에서 확인할 것. 리전별 서비스 가용성이 다를 수 있음
 - **한국 리전:** 서울(Korea Central) 3 AZ + 부산(Korea South)
 
 ### Google Cloud — AI/ML과 데이터 분석
@@ -86,7 +86,7 @@ Google의 검색·데이터 처리 인프라에서 발전한 Google Cloud는 AI/
 
 - **핵심 강점:** AI/ML(Gemini Enterprise, TPU), 데이터 분석(BigQuery), 컨테이너(GKE)
 - **차별점:** Gemini Enterprise Agent Platform(구 Vertex AI), 글로벌 VPC(리전 종속 아님), Shared Fate 보안 모델
-- **주의점:** 엔터프라이즈 도입 시 지원 플랜과 한국어 리소스 가용성을 사전에 확인할 것
+- **주의사항:** 엔터프라이즈 도입 시 지원 플랜과 한국어 리소스 가용성을 사전에 확인할 것
 - **한국 리전:** 서울 3 Zone (2020~)
 
 ### OCI — 데이터베이스와 가격 경쟁력
@@ -95,7 +95,7 @@ Oracle의 데이터베이스 기술력을 클라우드로 확장한 OCI는 Oracl
 
 - **핵심 강점:** Autonomous Database, Oracle DB 최적화, 이그레스 무료 범위(10TB/월)
 - **차별점:** OCI Enterprise AI(구 OCI Generative AI), 이그레스 10TB/월 무료, Dedicated Region(고객 DC에 OCI 설치)
-- **주의점:** Oracle DB 외 워크로드는 서비스 카탈로그와 서드파티 생태계 규모를 사전에 확인할 것
+- **주의사항:** Oracle DB 외 워크로드는 서비스 카탈로그와 서드파티 생태계 규모를 사전에 확인할 것
 - **한국 리전:** 서울(`ap-seoul-1`), 춘천(`ap-chuncheon-1`)
 
 ## 벤더 간 멀티클라우드 연동 서비스

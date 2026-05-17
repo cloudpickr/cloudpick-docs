@@ -140,7 +140,7 @@ CloudTrail은 세션 접근의 "관리 행위"를 자동으로 기록합니다:
 - [ ] API 감사 로그 활성화 확인 (CloudTrail/Activity Log/Audit Logs — 대부분 기본 활성)
 - [ ] 세션 내용 로깅 활성화 (AWS: Session Manager Preferences에서 S3/CloudWatch 설정)
 - [ ] 명령 입출력 기록 활성화 (AWS는 기본 비활성, 명시적으로 켜야 함)
-- [ ] 로그 보존 기간 설정 (규정 준수 요건에 따라 1년\~7년)
+- [ ] 로그 보존 기간 설정 (규정 준수 요건에 따라 1년~7년)
 - [ ] 로그 암호화 (KMS/Key Vault로 저장 시 암호화)
 - [ ] 로그 변조 방지 (S3 Object Lock, Immutable Storage 등)
 - [ ] SIEM 연동 (이상 패턴 탐지: 비정상 시간대 접근, 대량 명령 실행, 미승인 인스턴스 접근)

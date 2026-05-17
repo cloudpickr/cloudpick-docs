@@ -112,18 +112,22 @@ RAG는 [벡터 스토어](vector-store.md)와 함께 동작합니다. 구현 패
 ## 참고하기
 
 ### AWS
+
 - [Amazon Bedrock 소개](https://aws.amazon.com/ko/bedrock/)
 - [Amazon Nova 2 모델 가이드](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-nova.html)
 
 ### Azure
+
 - [Microsoft Foundry 공식 문서](https://learn.microsoft.com/azure/ai-studio/)
 - [Microsoft Foundry Portal](https://ai.azure.com/)
 
 ### Google Cloud
+
 - [Gemini Enterprise Agent Platform 문서](https://cloud.google.com/vertex-ai/docs)
 - [Gemini 모델 공식 사이트](https://deepmind.google/technologies/gemini/)
 
 ### OCI
+
 - [OCI Enterprise AI 개요](https://www.oracle.com/kr/artificial-intelligence/generative-ai/generative-ai-service/)
 - [OCI AI Database 26ai](https://www.oracle.com/kr/database/21c/ai-vector-search/)
 

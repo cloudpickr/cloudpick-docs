@@ -165,4 +165,3 @@ Azure(서울-부산)와 OCI(서울-춘천)는 국내 2개 리전을 보유하여
 
 - [OCI 리전 및 가용 도메인](https://docs.oracle.com/en-us/iaas/Content/General/Concepts/regions.htm)
 - [OCI Public Cloud Regions](https://www.oracle.com/cloud/public-cloud-regions/)
-

@@ -135,7 +135,6 @@ flowchart TD
 Day-2 운영 상세는 [Kubernetes 운영](../devops/kubernetes-operations.md)을 참고하세요.
 {% endhint %}
 
-
 ## 자주 하는 실수
 
 - **K8s 없이 될 것을 K8s로** — 단순한 웹 앱이나 소규모 서비스에 Kubernetes를 도입하면 운영 복잡도만 높아집니다. ECS, Cloud Run, Container Apps로 충분한지 먼저 검토하세요.

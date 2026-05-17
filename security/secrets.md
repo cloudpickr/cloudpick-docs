@@ -130,7 +130,6 @@ HashiCorp Vault, CyberArk 등 외부 시크릿 관리 솔루션을 사용하는 
 **Google Cloud/OCI 사용자:** 전용 구성 관리 서비스가 약하므로, Kubernetes ConfigMap + External Secrets Operator 조합이나 HashiCorp Consul을 고려하세요. 멀티클라우드 환경에서는 벤더 중립적인 외부 도구가 유리할 수 있습니다.
 {% endhint %}
 
-
 ## 자주 하는 실수
 
 - **시크릿 하드코딩** — 소스 코드나 설정 파일에 비밀번호, API 키를 직접 작성하면 Git 이력에 영구히 남아 유출 위험이 큽니다.

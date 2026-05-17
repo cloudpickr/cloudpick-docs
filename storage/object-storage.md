@@ -138,7 +138,6 @@ AWS S3 Intelligent-Tiering과 Google Cloud Autoclass, OCI Auto-Tiering은 접근
 각 벤더 모두 "스토리지에서 데이터 플랫폼으로"의 방향을 추구하고 있습니다. AWS는 S3 자체에 기능을 내장하는 방향이고, Azure는 Data Lake Storage + Fabric 통합, Google Cloud는 BigLake + BigQuery 통합으로 접근하고 있습니다.
 {% endhint %}
 
-
 ## 자주 하는 실수
 
 - **수명주기 정책 미설정** — 수명주기 정책 없이 운영하면 오래된 데이터가 고비용 스토리지 클래스에 계속 남아 불필요한 비용이 누적됩니다.

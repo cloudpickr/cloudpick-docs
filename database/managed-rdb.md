@@ -121,7 +121,6 @@ Oracle은 자사 데이터베이스를 경쟁사 데이터센터 안에 직접 �
 | 유휴 시 비용 0 (개발/테스트) | Aurora Serverless, Azure SQL Serverless |
 | OLTP + OLAP 통합 MySQL | OCI MySQL HeatWave |
 
-
 ## 자주 하는 실수
 
 - **싱글 AZ 배포** — 프로덕션 DB를 단일 AZ에 배포하면 해당 AZ 장애 시 서비스가 완전히 중단됩니다. Multi-AZ를 반드시 활성화하세요.

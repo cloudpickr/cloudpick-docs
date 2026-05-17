@@ -121,6 +121,8 @@ flowchart LR
 | [Codex App](https://openai.com/codex/) | OpenAI | Desktop (macOS) | 멀티에이전트 병렬 실행. Git worktree 격리. Computer Use, 브라우저, 90+ 플러그인 |
 | [Claude Code](https://github.com/anthropics/claude-code) | Anthropic | CLI + Desktop | 터미널 에이전트. Agent View로 병렬 세션 관리. Dispatch로 원격 컴퓨터 제어. Routines로 스케줄 자동화 |
 | [Gemini CLI](https://google-gemini.github.io/gemini-cli/) | Google | CLI (오픈소스) | ReAct 루프 + MCP 서버 연동. Apache 2.0 라이선스 |
+| [Google Antigravity](https://antigravity.google/) | Google | IDE (VS Code 포크) | Agent-first IDE. 최대 5개 병렬 에이전트, 내장 브라우저, Gemini/Claude/GPT-OSS 멀티모델. 무료 |
+| [Gemini Code Assist](https://codeassist.google/) | Google | IDE 확장 (VS Code, JetBrains) | Agent Mode로 멀티스텝 실행, Finish Changes/Outlines 기능. 엔터프라이즈 버전 제공 |
 | [Jules](https://jules.google/) | Google | Cloud (비동기) | 태스크 큐 방식. Cloud VM에서 실행 후 PR로 결과 전달. 병렬 태스크 |
 | [OpenCode](https://opencode.ai/) | Anomaly | CLI + Desktop + IDE (오픈소스) | 모델 비종속. 터미널/데스크톱/확장 모두 지원 |
 | [Pi](https://github.com/badlogic/pi-mono) | 커뮤니티 | CLI (오픈소스) | 미니멀 설계. 로컬 LLM 지원에 강점 |

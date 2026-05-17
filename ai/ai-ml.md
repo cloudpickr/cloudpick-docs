@@ -40,9 +40,9 @@ description: 생성형 AI 서비스, ML 플랫폼, GPU 인스턴스를 벤더별
 {% hint style="info" %}
 **모델 생태계는 빠르게 변합니다.** 최근에는 벤더 간 파트너십이 강화되어 "한 벤더 플랫폼에서 여러 제공사 모델 접근"이 일반화되었습니다:
 
-- **AWS Bedrock** — Anthropic(전략적 투자 파트너), OpenAI GPT-OSS, Meta, Mistral, NVIDIA 등 다수 제공사 호스팅
-- **Azure Foundry** — OpenAI 독점 파트너십 외에 Anthropic, Meta, Mistral 등 확장
-- **Vertex AI** — Google 자체 Gemini + Anthropic Claude + 타사 모델 카탈로그
+- **Amazon Bedrock** — Anthropic(전략적 투자 파트너), OpenAI GPT 시리즈, Meta, Mistral, NVIDIA 등 다수 제공사 호스팅
+- **Microsoft Foundry** — OpenAI 독점 파트너십 외에 Anthropic, Meta, Mistral 등 확장
+- **Gemini Enterprise Agent Platform** — Google 자체 Gemini + Anthropic Claude + 타사 모델 카탈로그
 
 정확한 현재 모델 목록은 각 벤더의 공식 모델 페이지에서 확인하세요. 모델명/버전은 수개월마다 변경될 수 있습니다.
 {% endhint %}

@@ -152,7 +152,7 @@ IAM 설계 상세는 [IAM 개요](iam-overview.md) → [IAM 실무 설계](../se
 - [Azure Policy](https://learn.microsoft.com/ko-kr/azure/governance/policy/overview)
 - [빌링 계정 이해하기](https://learn.microsoft.com/azure/cost-management-billing/manage/view-all-accounts)
 
-### GCP
+### Google Cloud
 
 - [Resource Manager](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy)
 - [Organization Policy](https://cloud.google.com/resource-manager/docs/organization-policy/overview)

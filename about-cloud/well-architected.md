@@ -91,7 +91,7 @@ OCI는 **Best Practices Framework**라는 이름으로 아키텍처 가이드를
 
 각 벤더는 Well-Architected Framework에 기반한 워크로드 리뷰 도구를 제공합니다.
 
-| 항목 | AWS | Azure | GCP | OCI |
+| 항목 | AWS | Azure | Google Cloud | OCI |
 | --- | --- | --- | --- | --- |
 | **도구 이름** | Well-Architected Tool | Well-Architected Review (Assessment) | Architecture Framework 체크리스트 | Cloud Advisor |
 | **위치** | AWS 콘솔 내장 | Azure Advisor + 별도 Assessment | 문서 기반 체크리스트 | OCI 콘솔 내장 |
@@ -115,7 +115,7 @@ Azure Advisor가 자동으로 리소스를 분석하여 권장 사항을 제시�
 
 Well-Architected Framework이 개별 워크로드의 설계 모범 사례라면, **Cloud Adoption Framework** (CAF)은 조직 전체의 클라우드 전환 전략을 다룹니다. 기술뿐 아니라 조직 구조, 프로세스, 거버넌스, 인력 교육까지 포괄하는 상위 수준의 프레임워크입니다.
 
-| 항목 | AWS | Azure | GCP | OCI |
+| 항목 | AWS | Azure | Google Cloud | OCI |
 | --- | --- | --- | --- | --- |
 | **이름** | AWS Cloud Adoption Framework | Azure Cloud Adoption Framework | Google Cloud Architecture Framework | OCI Landing Zone |
 | **구성** | 6개 관점 (비즈니스, 인력, 거버넌스, 플랫폼, 보안, 운영) | 9단계 방법론 (전략, 계획, 준비, 채택, 거버넌스, 관리 등) | 아키텍처 프레임워크 내 도입 가이드 포함 | CIS Benchmark 기반 Landing Zone |

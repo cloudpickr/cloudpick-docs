@@ -40,7 +40,7 @@ sequenceDiagram
 | **TTL (Time To Live)** | 캐시 유효 시간. 만료되면 오리진에서 다시 가져옴 |
 | **캐시 무효화 (Invalidation)** | TTL 만료 전에 강제로 캐시를 삭제. 전 세계 전파에 시간 소요 |
 
-클라우드 CDN은 기본적으로 **HTTPS 전용**이며, TLS 인증서 관리가 통합되어 별도 인증서 구매 없이 무료 SSL/TLS를 제공합니다.
+클라우드 CDN은 **HTTPS를 기본 권장**하며, 무료 TLS 인증서가 통합 제공되어 별도 인증서 구매 없이 SSL/TLS를 적용할 수 있습니다. HTTP도 지원하지만 보안상 HTTPS 전용 구성을 권장합니다.
 
 {% hint style="info" %}
 CDN 엣지에서 TLS를 종료하면 클라이언트↔엣지 간 핸드셰이크 RTT가 줄어 TTFB가 개선됩니다. 캐싱이 불가능한 TCP/UDP 워크로드의 네트워크 경로 가속은 이 문서 하단의 "글로벌 네트워크 가속기" 섹션을 참고하세요.
@@ -181,6 +181,7 @@ CDN 엣지에서 코드를 실행하여 요청/응답을 변환하거나, 간단
 
 - [Amazon CloudFront 문서](https://docs.aws.amazon.com/ko_kr/cloudfront/)
 - [Lambda@Edge 문서](https://docs.aws.amazon.com/ko_kr/lambda/latest/dg/lambda-edge.html)
+- [CloudFront HTTP/HTTPS 구성 가이드](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-https.html)
 
 ### Azure
 

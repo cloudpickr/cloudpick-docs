@@ -70,7 +70,7 @@ ID 유형별 관리(사람/기기/서드파티), 최소 권한 실천, 보안 �
 - [Microsoft Entra ID 문서](https://learn.microsoft.com/ko-kr/entra/identity/)
 - [Azure RBAC](https://learn.microsoft.com/ko-kr/azure/role-based-access-control/)
 
-### GCP
+### Google Cloud
 
 - [Cloud IAM 문서](https://cloud.google.com/iam/docs)
 

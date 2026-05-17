@@ -10,7 +10,7 @@ description: 관리형 DNS, 라우팅 정책, DNSSEC, Private DNS를 벤더별�
 
 **DNS** (Domain Name System)는 도메인 이름(예: example.com)을 IP 주소로 변환하는 서비스입니다. 모든 인터넷 통신의 첫 단계이므로, DNS가 중단되면 서비스 전체가 접근 불가능해집니다.
 
-온프레미스에서는 BIND나 Windows DNS를 직접 운영하지만, 클라우드 관리형 DNS는 글로벌 Anycast 네트워크에서 운영되어 단일 장애점이 없습니다. AWS Route 53과 GCP Cloud DNS는 **100% 가용성 SLA**를 제공합니다.
+온프레미스에서는 BIND나 Windows DNS를 직접 운영하지만, 클라우드 관리형 DNS는 글로벌 Anycast 네트워크에서 운영되어 단일 장애점이 없습니다. AWS Route 53, GCP Cloud DNS, Azure DNS는 모두 **100% 가용성 SLA**를 제공합니다.
 
 {% hint style="info" %}
 DNS가 중단되면 서비스 URL 자체가 응답하지 않아 전체 서비스가 접근 불가능해집니다. 프로덕션 환경에서는 **TTL을 낮게** 유지하여(300초 이하) DNS 장애 조치 시 빠르게 전파되도록 하세요.
@@ -32,7 +32,7 @@ DNS가 중단되면 서비스 URL 자체가 응답하지 않아 전체 서비스
 | **NS** | 해당 도메인의 권한 있는 네임서버 지정 | `example.com → ns1.example.com` |
 | **SRV** | 서비스 위치 지정 (포트 포함) | `_sip._tcp.example.com → 10 60 5060 sip.example.com` |
 | **PTR** | IP를 도메인으로 역방향 매핑 | `34.216.184.93.in-addr.arpa → example.com` |
-| **ALIAS/ANAME** | CNAME과 유사하되 루트 도메인에서 사용 가능 | AWS Alias, Azure Alias, GCP A 레코드 대체 |
+| **ALIAS/ANAME** | CNAME과 유사하되 루트 도메인에서 사용 가능 | AWS Alias, Azure Alias, GCP 자체 ALIAS 레코드 타입(Public Zone 한정) |
 
 ### AWS의 Alias 레코드 특징
 
@@ -73,7 +73,7 @@ DNS 호스팅존은 도메인의 레코드를 관리하는 컨테이너입니다
 | 벤더 | 제품 | 포지셔닝 |
 | --- | --- | --- |
 | AWS | Route 53 | 도메인 등록 + DNS + 헬스 체크 + 라우팅 정책 올인원. 100% SLA |
-| Azure | Azure DNS + Traffic Manager | DNS 호스팅과 트래픽 라우팅이 별도 서비스로 분리 |
+| Azure | Azure DNS + Traffic Manager | DNS 호스팅과 트래픽 라우팅이 별도 서비스로 분리. **100% SLA** |
 | GCP | Cloud DNS | 100% SLA. DNSSEC 기본 지원. 자체 헬스 체크 없음 |
 | OCI | OCI DNS | 글로벌 Anycast. Traffic Management로 라우팅 정책 제공 |
 
@@ -142,10 +142,12 @@ DNS 수준에서 트래픽을 제어할 수 있는 라우팅 정책입니다.
 
 - [Azure DNS 문서](https://learn.microsoft.com/ko-kr/azure/dns/)
 - [Azure Traffic Manager 문서](https://learn.microsoft.com/ko-kr/azure/traffic-manager/)
+- [Azure DNS SLA (100%)](https://azure.microsoft.com/en-us/support/legal/sla/dns/v1_1/)
 
 ### GCP
 
 - [Cloud DNS 문서](https://cloud.google.com/dns/docs)
+- [Cloud DNS ALIAS 레코드 개요](https://cloud.google.com/dns/docs/records-overview)
 
 ### OCI
 

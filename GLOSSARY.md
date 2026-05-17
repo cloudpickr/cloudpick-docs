@@ -52,7 +52,7 @@ description: 클라우드 문서에서 자주 등장하는 용어를 벤더 중�
 | 망분리 | Network Segregation. 업무망과 인터넷망을 분리하여 외부 위협의 내부 도달을 차단하는 보안 통제입니다. 물리적 분리와 논리적 분리(VPC 격리 등)로 구현합니다. |
 | N2SF | 국가망보안체계. 기존 일률적 망분리를 C(기밀)/S(민감)/O(공개) 등급별 차등 보안으로 전환하는 프레임워크입니다. 2025년 NCSC에서 1.0 공개. |
 | CSAP | 클라우드 보안 인증제. 공공기관에 클라우드를 제공하려는 CSP가 취득해야 하는 인증입니다. 상·중·하 3등급제로 운영됩니다. |
-| SCP | Service Control Policy. AWS Organizations에서 계정별로 허용/차단할 API를 제한하는 예방적 가드레일입니다. Azure Policy, GCP Organization Policy가 유사 역할을 합니다. |
+| SCP | Service Control Policy. AWS Organizations에서 계정별로 허용/차단할 API를 제한하는 예방적 가드레일입니다. Azure Policy, Google Cloud Organization Policy가 유사 역할을 합니다. |
 | 가드레일 | Guardrail. 조직 정책을 자동으로 강제하여 위험한 설정이나 행위를 사전에 차단하는 예방적 통제입니다. |
 | 마이크로세그멘테이션 | Microsegmentation. 네트워크를 세밀하게 분리하여 워크로드 간 통신을 최소 권한으로 제한하는 기법입니다. Zero Trust의 핵심 구현 수단입니다. |
 | 워크로드 아이덴티티 | Workload Identity. 사람이 아닌 애플리케이션/서비스에 부여하는 ID입니다. 장기 자격 증명 없이 클라우드 리소스에 접근할 수 있게 합니다. |

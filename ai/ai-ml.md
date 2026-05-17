@@ -114,7 +114,7 @@ graph LR
 
 ### 단계별 도구
 
-| 단계 | AWS | Azure | GCP | OCI |
+| 단계 | AWS | Azure | Google Cloud | OCI |
 | --- | --- | --- | --- | --- |
 | **데이터 준비** | SageMaker AI Data Wrangler, Ground Truth | Azure ML Data Labeling | Vertex AI Data Labeling | OCI Data Labeling |
 | **피처 스토어** | SageMaker AI Feature Store | Azure ML Feature Store | Vertex AI Feature Store | OCI Feature Store |

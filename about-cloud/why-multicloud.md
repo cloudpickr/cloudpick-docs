@@ -147,7 +147,7 @@ ISO/IEC 22123-1은 멀티클라우드를 다음과 같이 정의합니다.
 
 - [Azure — Cloud Adoption Framework](https://learn.microsoft.com/azure/cloud-adoption-framework/)
 
-### GCP
+### Google Cloud
 
 - [Google Cloud — Hybrid and Multi-cloud Reference Architectures](https://cloud.google.com/architecture/network-hybrid-multicloud)
 

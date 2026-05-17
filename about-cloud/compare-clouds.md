@@ -80,7 +80,7 @@ Microsoft의 엔터프라이즈 소프트웨어 생태계(Microsoft 365, Active 
 - **주의점:** 서비스 리브랜딩이 빈번하므로 최신 명칭을 공식 문서에서 확인할 것. 리전별 서비스 가용성이 다를 수 있음
 - **한국 리전:** 서울(Korea Central) 3 AZ + 부산(Korea South)
 
-### GCP — AI/ML과 데이터 분석
+### Google Cloud — AI/ML과 데이터 분석
 
 Google의 검색·데이터 처리 인프라에서 발전한 GCP는 AI/ML과 대규모 데이터 분석에서 차별화됩니다. 글로벌 VPC, SUD(자동 할인) 등 독특한 설계 철학을 가지고 있습니다.
 
@@ -114,9 +114,9 @@ Oracle의 데이터베이스 기술력을 클라우드로 확장한 OCI는 Oracl
 
 | 서비스 | 벤더 | 설명 |
 | --- | --- | --- |
-| **[Azure Arc](https://azure.microsoft.com/products/azure-arc/)** | Azure | AWS/GCP/온프레미스의 서버, Kubernetes, DB를 Azure Portal에서 통합 관리 |
-| **[GKE Enterprise (구 Anthos)](https://cloud.google.com/kubernetes-engine/enterprise/docs)** | GCP | AWS/Azure/온프레미스의 Kubernetes를 GCP에서 통합 관리 |
-| **[OCI Multicloud](https://docs.oracle.com/en/solutions/oci-best-practices/deploy-multicloud-oci-oracle-database-services1.html)** | OCI | Azure/AWS/GCP와의 연동을 위한 통합 솔루션 |
+| **[Azure Arc](https://azure.microsoft.com/products/azure-arc/)** | Azure | AWS/Google Cloud/온프레미스의 서버, Kubernetes, DB를 Azure Portal에서 통합 관리 |
+| **[GKE Enterprise (구 Anthos)](https://cloud.google.com/kubernetes-engine/enterprise/docs)** | Google Cloud | AWS/Azure/온프레미스의 Kubernetes를 Google Cloud에서 통합 관리 |
+| **[OCI Multicloud](https://docs.oracle.com/en/solutions/oci-best-practices/deploy-multicloud-oci-oracle-database-services1.html)** | OCI | Azure/AWS/Google Cloud와의 연동을 위한 통합 솔루션 |
 
 ## 벤더가 제공하는 공식 비교 자료
 

@@ -95,7 +95,7 @@ CloudPick은 **멀티클라우드 환경에서 올바른 의사결정을 내리�
 | --- | --- | --- |
 | [AWS](https://aws.amazon.com/ko/) | Amazon Web Services | [Console](https://console.aws.amazon.com) |
 | [Azure](https://azure.microsoft.com/ko-kr/) | Microsoft Azure | [Portal](https://portal.azure.com) |
-| [GCP](https://cloud.google.com/) | Google Cloud Platform | [Console](https://console.cloud.google.com) |
+| [Google Cloud](https://cloud.google.com/) | Google Cloud | [Console](https://console.cloud.google.com) |
 | [OCI](https://www.oracle.com/kr/cloud/) | Oracle Cloud Infrastructure | [Console](https://cloud.oracle.com) |
 
 클라우드 용어가 낯설다면 [용어집](GLOSSARY.md)을 함께 참고하세요.
@@ -126,3 +126,4 @@ CloudPick은 <strong>무엇을 선택할지</strong>를 돕는 비교 가이드�
 - **출처 명시** — 각 문서 하단 **참고하기** 섹션에 공식 문서 링크를 정리합니다.
 - **변동성 관리** — 가격, 리전 수, GA/Preview 상태 등 빠르게 바뀌는 정보는 구체적 수치 대신 공식 링크로 안내합니다. 각 문서 상단에 `문서 기준: YYYY년 M월`을 표기합니다.
 - **용어 표기** — 한글을 주 표기로 하되, 전문 용어나 약어는 첫 등장 시 영문을 병기합니다 (예: 가용 영역(Availability Zone)). 외래어 표기법을 준수합니다 (예: '메시지 큐' ○, '메세지 큐' ✗). 벤더명은 공식 최신 명칭을 사용합니다 (예: Microsoft Entra ID). 정식 표기는 [용어집](GLOSSARY.md)을 따릅니다.
+�니다.

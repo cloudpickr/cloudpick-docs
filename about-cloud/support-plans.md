@@ -50,7 +50,7 @@ TAM은 벤더 내부 조직과의 연결 통로 역할을 합니다. 대규모 �
 
 유료 플랜의 가장 큰 차이는 장애 발생 시 응답 시간입니다.
 
-| 심각도 | 설명 | AWS Business Support+ | Azure Professional Direct | GCP Enhanced | OCI Premier |
+| 심각도 | 설명 | AWS Business Support+ | Azure Professional Direct | Google Cloud Enhanced | OCI Premier |
 | --- | --- | --- | --- | --- | --- |
 | **위기 (Critical)** | 프로덕션 중단 | < 15분 | < 1시간 | < 1시간 | < 1시간 |
 | **긴급 (Urgent)** | 프로덕션 일부 영향 | < 4시간 | < 4시간 | < 4시간 | < 2시간 |

@@ -56,7 +56,7 @@ description: 클라우드 공동 책임 모델, IaaS/PaaS/SaaS별 책임 경계,
 
 ## 벤더별 비교
 
-| 항목 | AWS | Azure | GCP | OCI |
+| 항목 | AWS | Azure | Google Cloud | OCI |
 | --- | --- | --- | --- | --- |
 | **모델 이름** | Shared Responsibility Model | Shared Responsibility | Shared Fate | Shared Security Model |
 | **기본 구조** | 전통적 공동 책임 | AWS와 유사 | 공동 운명 모델 | 전통적 + 자동화 강조 |

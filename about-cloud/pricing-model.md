@@ -154,7 +154,7 @@ CloudWatch(AWS), Azure Monitor(Azure), Cloud Logging(GCP) 등 모니터링 서�
 - [Azure Cost Management](https://azure.microsoft.com/ko-kr/products/cost-management/)
 - [Azure 무료 계정](https://azure.microsoft.com/ko-kr/free/)
 
-### GCP
+### Google Cloud
 
 - [Google Cloud 가격 책정](https://cloud.google.com/pricing)
 - [Google Cloud 가격 계산기](https://cloud.google.com/products/calculator)

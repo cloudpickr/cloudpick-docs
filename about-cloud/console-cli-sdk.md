@@ -125,7 +125,7 @@ IaC 도구 비교, Terraform 상태 관리, 모듈 설계, 드리프트 관리 �
 - [Azure SDK 설치 (언어별)](https://learn.microsoft.com/ko-kr/azure/developer/)
 - [Azure Cloud Shell 문서](https://learn.microsoft.com/ko-kr/azure/cloud-shell/overview)
 
-### GCP
+### Google Cloud
 
 - [Google Cloud CLI 설치 가이드](https://cloud.google.com/sdk/docs/install)
 - [Google Cloud Client Libraries (언어별)](https://cloud.google.com/apis/docs/cloud-client-libraries)
@@ -136,3 +136,4 @@ IaC 도구 비교, Terraform 상태 관리, 모듈 설계, 드리프트 관리 �
 - [OCI CLI 설치 가이드](https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/cliinstall.htm)
 - [OCI SDK](https://docs.oracle.com/en-us/iaas/Content/API/Concepts/sdks.htm)
 - [OCI Cloud Shell](https://docs.oracle.com/en-us/iaas/Content/API/Concepts/cloudshellintro.htm)
+udshellintro.htm)

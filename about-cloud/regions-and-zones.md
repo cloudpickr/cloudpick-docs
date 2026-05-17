@@ -74,7 +74,7 @@ graph TB
 | 리전 쌍 (Region Pair) | 같은 Geography 내 두 리전이 쌍으로 지정. 플랫폼 업데이트가 동시에 적용되지 않음 |
 | 한국 리전 쌍 | `koreacentral`(서울) ↔ `koreasouth`(부산) — 국내 DR 가능 |
 
-#### GCP
+### Google Cloud
 
 | 항목 | 내용 |
 | --- | --- |
@@ -156,7 +156,7 @@ Azure(서울-부산)와 OCI(서울-춘천)는 국내 2개 리전을 보유하여
 - [Azure 지역 및 가용성 영역](https://learn.microsoft.com/ko-kr/azure/reliability/availability-zones-overview)
 - [Azure 리전 쌍 (Region Pairs)](https://learn.microsoft.com/ko-kr/azure/reliability/cross-region-replication-azure)
 
-### GCP
+### Google Cloud
 
 - [Google Cloud 위치](https://cloud.google.com/about/locations)
 - [Assured Workloads](https://cloud.google.com/assured-workloads/docs)
@@ -165,3 +165,4 @@ Azure(서울-부산)와 OCI(서울-춘천)는 국내 2개 리전을 보유하여
 
 - [OCI 리전 및 가용 도메인](https://docs.oracle.com/en-us/iaas/Content/General/Concepts/regions.htm)
 - [OCI Public Cloud Regions](https://www.oracle.com/cloud/public-cloud-regions/)
+

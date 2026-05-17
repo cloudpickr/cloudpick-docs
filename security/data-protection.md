@@ -99,6 +99,18 @@ description: 전송 중/저장 시 암호화, WAF, 네트워크 보안을 벤더
 
 위협 탐지(GuardDuty, Defender, SCC, Cloud Guard)와 컨테이너/런타임 보안(Inspector, Defender for Containers 등)은 [보안 태세 관리](security-posture.md)에서 상세히 다룹니다.
 
+## 자주 하는 실수
+
+- **WAF를 Block 모드로 바로 적용** — 오탐(False Positive)을 확인하지 않고 차단 모드로 전환하여 정상 트래픽이 차단됨. Count 모드로 먼저 검증해야 함
+- **벤더 관리 키로 충분한데 BYOK를 도입** — 규제 요건 없이 자체 키 관리를 선택하여 운영 복잡도와 장애 위험만 증가
+- **VPC Endpoint 없이 관리형 서비스 접근** — S3, KMS 등을 NAT Gateway 경유로 접근하여 불필요한 인터넷 노출과 비용 발생
+
+## 체크리스트
+
+- [ ] 저장 시 암호화가 모든 스토리지/DB에 활성화되어 있는가 (기본 암호화 확인)
+- [ ] WAF 관리형 규칙을 Count 모드로 먼저 적용하고 오탐을 확인한 후 Block으로 전환했는가
+- [ ] 관리형 서비스(S3, KMS 등) 접근에 VPC Endpoint / Private Link를 사용하는가
+
 ## 관련 문서
 
 {% content-ref url="security-posture.md" %}

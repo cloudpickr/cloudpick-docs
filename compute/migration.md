@@ -148,6 +148,18 @@ Gartner가 제시하고 AWS가 확장한 **7R 프레임워크** 는 워크로드
 | Azure | [Migrate to containers](https://learn.microsoft.com/azure/migrate/tutorial-app-containerization-aspnet-kubernetes) | ASP.NET/Java → AKS |
 | Google Cloud | [Migrate to Containers](https://cloud.google.com/migrate/containers/docs) | VM → GKE 컨테이너 |
 
+## 자주 하는 실수
+
+- **Discovery/Assessment 없이 바로 마이그레이션 시작** — 의존성과 트래픽 패턴을 파악하지 않으면 전환 후 장애가 발생하고 롤백해야 합니다.
+- **랜딩존 없이 워크로드를 먼저 이전** — 계정 구조, 네트워크, IAM, 태그 체계가 없는 상태에서 옮기면 나중에 전부 재구성해야 합니다.
+- **모든 워크로드를 동시에 Refactor 시도** — 일정이 무너지고 품질 문제가 발생합니다. 대부분은 Rehost 후 점진적 개선이 현실적입니다.
+
+## 체크리스트
+
+- [ ] 마이그레이션 대상 워크로드의 의존성 맵(서버, DB, 외부 연동)을 작성했는가
+- [ ] 롤백 계획과 롤백 판단 기준(Go/No-Go)을 사전에 정의했는가
+- [ ] Cutover 전 데이터 무결성 검증(체크섬, 레코드 수 비교)을 수행했는가
+
 ## 참고하기
 
 ### AWS

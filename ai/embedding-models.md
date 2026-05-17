@@ -110,6 +110,18 @@ text-embedding-3 시리즈는 **Matryoshka Representation** 를 지원하여 `di
 
 Azure의 `text-embedding-3-large`는 `dimensions=1024`로 호출하면 3072의 대부분 품질을 유지하면서 저장 공간이 1/3로 줄어듭니다 ([공식 문서](https://learn.microsoft.com/azure/ai-services/openai/how-to/embeddings?tabs=console#change-the-embeddings-dimensions)).
 
+## 자주 하는 실수
+
+- **한국어 데이터에 영어 전용 임베딩 모델 사용** — 다국어 모델을 선택하지 않아 한국어 검색 품질이 크게 떨어짐
+- **차원을 무조건 최대로 설정** — 3072차원을 사용하면 품질은 소폭 올라가지만 저장 비용과 검색 지연이 3배 증가. 512~1024가 대부분의 균형점
+- **공개 벤치마크(MTEB)만 보고 모델 선택** — 자체 데이터로 Recall@K를 측정하지 않아 실제 검색 품질이 기대에 미치지 못함
+
+## 체크리스트
+
+- [ ] 주요 언어(한국어 포함 여부)에 맞는 다국어/영어 전용 모델을 선택했는가
+- [ ] 자체 데이터로 Recall@K 등 검색 품질을 측정하고 차원/모델을 비교했는가
+- [ ] 데이터 규모에 맞는 차원 축소 전략(Matryoshka, 양자화)을 검토했는가
+
 ## 참고하기
 
 ### AWS

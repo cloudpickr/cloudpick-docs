@@ -132,6 +132,18 @@ CloudWatch(AWS), Azure Monitor(Azure), Cloud Logging(Google Cloud) 등 모니터
 | Google Cloud | [Cost Management](https://cloud.google.com/cost-management) | [가격 계산기](https://cloud.google.com/products/calculator) |
 | OCI | [Cost Analysis](https://docs.oracle.com/en-us/iaas/Content/Billing/Concepts/costanalysisoverview.htm) | [Cost Estimator](https://www.oracle.com/cloud/costestimator.html) |
 
+## 자주 하는 실수
+
+- **"클라우드는 쓴 만큼만 나온다"** — 이그레스, API 호출, 로그 저장 등 숨겨진 비용 항목이 있습니다. 주요 비용 항목을 사전에 파악해야 합니다.
+- **"약정 할인은 무조건 이득이다"** — 사용량이 불확실한 워크로드에 약정을 걸면 오히려 손해입니다. 안정적 사용 패턴이 확인된 후 약정하세요.
+- **"프리 티어는 완전 무료다"** — 무료 범위를 초과하면 자동으로 과금됩니다. 예산 알림을 설정하고 사용량을 모니터링하세요.
+
+## 체크리스트
+
+- [ ] 예산 알림(Budget Alert)을 설정하여 예상 비용 초과 시 통보받도록 했는가?
+- [ ] 이그레스 비용을 포함한 월간 예상 비용을 벤더 가격 계산기로 시뮬레이션했는가?
+- [ ] 개발/테스트 환경의 리소스를 업무 시간 외에 중지하는 정책을 수립했는가?
+
 ## 참고하기
 
 ### 표준 및 프레임워크

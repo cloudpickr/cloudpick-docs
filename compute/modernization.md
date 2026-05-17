@@ -188,6 +188,18 @@ graph LR
 | [OCI API Gateway](https://docs.oracle.com/en-us/iaas/Content/APIGateway/home.htm) | Strangler Fig 라우팅 |
 | [OCI Functions](https://docs.oracle.com/en-us/iaas/Content/Functions/home.htm) | 서버리스로 재작성 |
 
+## 자주 하는 실수
+
+- **변경 빈도가 낮은 레거시를 무리하게 마이크로서비스로 분해** — 운영 복잡도만 증가하고 비즈니스 가치는 없습니다. 변경이 거의 없는 시스템은 Rehost/Replatform에서 멈추세요.
+- **관찰가능성 없이 분산 시스템으로 전환** — 분산 추적, 로그 집계, 메트릭 수집이 없으면 장애 원인 파악이 불가능해집니다.
+- **조직 구조 변화 없이 기술만 전환** — Conway's Law에 따라 시스템은 조직 구조를 따릅니다. 팀 경계를 서비스 경계에 맞추지 않으면 모더나이제이션이 정착하지 못합니다.
+
+## 체크리스트
+
+- [ ] 모더나이제이션 대상 워크로드의 비즈니스 가치와 변경 빈도를 평가했는가
+- [ ] Strangler Fig 패턴 적용을 위한 라우팅 계층(API Gateway 등)이 준비되어 있는가
+- [ ] 분산 추적·로그 집계·메트릭 수집 등 관찰가능성 기반이 구축되어 있는가
+
 ## 참고하기
 
 ### AWS

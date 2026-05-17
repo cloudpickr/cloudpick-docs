@@ -152,6 +152,18 @@ graph LR
 | **Level 3 — 게이트 적용** | Critical/High 취약점 시 파이프라인 블록. 정책 코드화 시작 | Checkov + PR 블록, OPA |
 | **Level 4 — 완전 자동화** | 모든 단계에 보안 게이트. 자동 교정. 보안 메트릭 추적 | 전체 도구 체인 + SIEM 연동 |
 
+## 자주 하는 실수
+
+- **SAST/SCA 결과를 알림만 하고 블록하지 않음** — Critical 취약점이 프로덕션까지 배포됩니다. 최소 Critical/High는 파이프라인을 블록하세요.
+- **시크릿이 Git 히스토리에 남은 채 force push로만 제거** — 캐시와 포크에 여전히 남아있습니다. 시크릿을 즉시 교체(rotate)하는 것이 유일한 해결책입니다.
+- **IaC 보안 스캔 없이 terraform apply 실행** — 퍼블릭 S3 버킷, 과도한 Security Group 등이 그대로 배포됩니다. PR 단계에서 Checkov/tfsec을 게이트로 설정하세요.
+
+## 체크리스트
+
+- [ ] Pre-commit hook에 시크릿 스캔(GitLeaks 등)이 설정되어 있는가?
+- [ ] CI 파이프라인에 SAST + SCA + IaC 스캔이 포함되고, Critical 발견 시 빌드가 실패하는가?
+- [ ] 컨테이너 이미지 빌드 시 취약점 스캔이 자동 실행되는가?
+
 ## 참고하기
 
 ### AWS

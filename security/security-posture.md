@@ -146,6 +146,18 @@ graph LR
 
 이 프레임워크는 [NIST Cybersecurity Framework 2.0](https://www.nist.gov/cyberframework)의 6가지 기능에 대응합니다.
 
+## 자주 하는 실수
+
+- **자동 대응을 검증 없이 프로덕션에 적용** — 오탐으로 정상 리소스가 자동 격리되어 서비스 장애 발생. 비프로덕션에서 먼저 검증해야 함
+- **CIS Benchmark 미준수 항목을 문서화 없이 방치** — 비즈니스 사유가 있어도 예외 관리를 하지 않아 감사 시 지적됨
+- **CSPM 알림을 켜놓고 대응 프로세스를 정의하지 않음** — 알림만 쌓이고 아무도 처리하지 않아 실제 위협을 놓침
+
+## 체크리스트
+
+- [ ] CSPM(Security Hub, Defender for Cloud, SCC, Cloud Guard)을 활성화하고 CIS Benchmark 자동 평가를 수행하는가
+- [ ] 자동 대응 규칙을 비프로덕션에서 먼저 검증한 후 프로덕션에 적용하는가
+- [ ] 보안 점수(Secure Score) 목표를 설정하고 월간 추이를 추적하는가
+
 ## 참고하기
 
 ### AWS

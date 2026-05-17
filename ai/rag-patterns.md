@@ -132,6 +132,18 @@ RAG 시스템은 단순히 "답이 나온다"가 아니라, **검색 품질**과
 | **Amazon Bedrock Evaluations** | 모델/RAG 평가 통합 | [Bedrock Evaluations](https://docs.aws.amazon.com/bedrock/latest/userguide/model-evaluation.html) |
 | **Vertex AI Evaluation Service** | Gen AI 평가 프레임워크 | [Vertex AI Eval](https://cloud.google.com/vertex-ai/generative-ai/docs/models/evaluation-overview) |
 
+## 자주 하는 실수
+
+- **청크 크기를 한 번 정하고 조정하지 않음** — 대표 질문으로 검색 품질을 측정하지 않아 문맥이 잘리거나 여러 주제가 섞인 청크가 반환됨
+- **Re-ranking 없이 벡터 검색 결과를 그대로 LLM에 전달** — 상위 결과 중 관련 없는 문서가 섞여 환각(Hallucination) 발생
+- **하이브리드 검색을 고려하지 않음** — 제품 코드, 고유명사 등 정확한 문자열 매칭이 필요한 경우 벡터 검색만으로는 찾지 못함
+
+## 체크리스트
+
+- [ ] 청크 크기와 중첩(Overlap)을 대표 질문으로 검색 품질을 측정하며 조정했는가
+- [ ] Re-ranking(Semantic Ranker, Cohere Rerank 등)을 적용하여 검색 결과 정확도를 높였는가
+- [ ] Faithfulness, Answer Relevance 등 RAG 평가 지표를 정기적으로 측정하는가
+
 ## 참고하기
 
 ### AWS

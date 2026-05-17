@@ -113,6 +113,18 @@ API Gateway 자체의 Canary 기능은 "게이트웨이 설정 변경"에 대한
 
 클라우드 API는 인증 흐름(OAuth, API Key, IAM Sig v4)이 복잡하고, 환경(dev/staging/prod)별 전환이 빈번하므로 Postman 같은 도구로 환경 변수와 인증을 체계적으로 관리하는 것이 효율적입니다.
 
+## 자주 하는 실수
+
+- **REST API와 HTTP API를 구분하지 않고 REST API로 시작** — AWS에서 HTTP API가 비용 1/3이고 대부분의 요구를 충족합니다. 캐싱·WAF·Usage Plan이 필요한 경우에만 REST API를 선택하세요.
+- **API 버전 관리 없이 기존 응답 형식을 변경** — 기존 소비자(클라이언트)가 즉시 깨집니다. 새 버전(`/v2`)을 추가하고 기존 버전을 유지하세요.
+- **API Gateway의 Canary를 백엔드 코드 배포 Canary로 착각** — API Gateway Canary는 게이트웨이 설정 변경에 대한 것입니다. 백엔드 코드 배포는 Lambda Alias 가중치나 LB Target Group으로 별도 구성해야 합니다.
+
+## 체크리스트
+
+- [ ] 인증/인가(API Key, JWT, IAM)가 모든 엔드포인트에 적용되어 있는가?
+- [ ] 속도 제한(Throttling)이 설정되어 백엔드 과부하를 방지하고 있는가?
+- [ ] OpenAPI 스펙이 IaC와 동기화되어 API 구성이 코드로 관리되고 있는가?
+
 ## 참고하기
 
 ### AWS

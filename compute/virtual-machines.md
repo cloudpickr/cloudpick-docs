@@ -112,6 +112,18 @@ VM은 **관리 부담이 가장 큰 컴퓨팅 서비스**입니다. OS 패치, �
 | **분산 배치** | 단일 장애점 제거 | Placement Group (Spread) | Availability Set | Spread Placement | Fault Domain |
 | **전용 물리 서버** | 라이선스/규정 준수 | Dedicated Host | Dedicated Host | Sole-tenant Node | Dedicated VM Host |
 
+## 자주 하는 실수
+
+- **온디맨드로만 운영하면서 비용 불만** — 안정적으로 사용하는 워크로드는 Reserved Instance나 Savings Plans로 최대 72% 절감할 수 있습니다. 사용 패턴을 분석하세요.
+- **인스턴스 타입을 한 번 정하고 재검토하지 않음** — 벤더는 지속적으로 새로운 세대를 출시합니다. 같은 비용에 더 높은 성능을 얻을 수 있으므로 정기적으로 검토하세요.
+- **Golden Image 없이 매번 수동 설정** — 인스턴스를 생성할 때마다 패키지 설치와 설정을 반복하면 일관성이 깨지고 시간이 낭비됩니다. AMI/Image를 빌드 파이프라인으로 관리하세요.
+
+## 체크리스트
+
+- [ ] 워크로드 특성(CPU/메모리/GPU)에 맞는 인스턴스 패밀리를 선택했는가
+- [ ] 안정적 사용 워크로드에 대해 예약 인스턴스 또는 Savings Plans를 적용했는가
+- [ ] OS 패치, 보안 업데이트 자동화(SSM, Update Management 등)가 구성되어 있는가
+
 ## 참고하기
 
 ### AWS

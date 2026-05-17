@@ -58,6 +58,18 @@ ID 유형별 관리(사람/기기/서드파티), 최소 권한 실천, 보안 �
 | Google Cloud | Service Account Key (JSON) | Attached Service Account | Workload Identity Federation |
 | OCI | API Signing Key | Instance Principal | SAML/OIDC Federation |
 
+## 자주 하는 실수
+
+- **"관리자 권한을 주면 편하다"** — 편의를 위해 광범위한 권한을 부여하면 사고 시 피해 범위가 커집니다. 최소 권한 원칙을 처음부터 적용하세요.
+- **"Access Key를 코드에 넣어도 괜찮다"** — 장기 자격 증명이 소스 코드나 설정 파일에 노출되면 유출 위험이 큽니다. 역할(Role) 기반 임시 자격 증명을 사용하세요.
+- **"IAM은 한 번 설정하면 끝이다"** — 인원 변동, 서비스 변경에 따라 권한을 주기적으로 검토하지 않으면 미사용 권한이 누적됩니다.
+
+## 체크리스트
+
+- [ ] 루트/전역 관리자 계정에 MFA를 활성화하고 일상 작업에 사용하지 않도록 했는가?
+- [ ] 서비스 간 인증에 장기 자격 증명 대신 역할(Role/Managed Identity/Service Account)을 사용하는가?
+- [ ] 사용자와 그룹에 최소 권한 원칙을 적용하고, 정기 권한 리뷰 일정을 수립했는가?
+
 ## 참고하기
 
 ### AWS

@@ -175,6 +175,18 @@ CDN 엣지에서 코드를 실행하여 요청/응답을 변환하거나, 간단
 | Azure | Front Door Rules Engine | 규칙 기반 라우팅/변환 |
 | Google Cloud | Cloud CDN + Cloud Functions | 별도 조합 |
 
+## 자주 하는 실수
+
+- **`index.html`에 긴 TTL을 설정** — 정적 파일 해시가 바뀌어도 사용자가 구 버전 HTML을 계속 받습니다. `index.html`은 짧은 TTL(수 분), 나머지 정적 파일은 해시 파일명 + 긴 TTL로 운영하세요.
+- **캐시 무효화(Invalidation)를 배포 루틴으로 사용** — 전 세계 전파에 시간이 걸리고 비용이 발생합니다. 해시 파일명 전략이 정답입니다.
+- **인증 필요한 API에 CDN 캐싱을 적용** — 다른 사용자의 개인 데이터가 캐시에서 반환될 수 있습니다. `Cache-Control: no-store`를 명시하거나 캐시 키에 인증 토큰을 포함하세요.
+
+## 체크리스트
+
+- [ ] 정적 파일에 해시 파일명(content hash)이 적용되어 캐시 무효화 없이 배포 가능한가?
+- [ ] HTTPS 전용 구성이 적용되어 있고, HTTP→HTTPS 리다이렉트가 설정되어 있는가?
+- [ ] 오리진 보호(Origin Shield, Signed URL 등)가 적용되어 오리진 직접 접근이 차단되어 있는가?
+
 ## 참고하기
 
 ### AWS

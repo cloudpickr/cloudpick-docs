@@ -4,7 +4,7 @@ description: AI 에이전트의 개념, 기존 LLM 프롬프팅과의 차이, �
 
 # AI 에이전트 (Agentic AI)
 
-> 문서 기준: 2026년 5월
+> 문서 기준: 2024년 5월
 
 ## 프롬프팅에서 에이전트로
 
@@ -136,9 +136,7 @@ graph LR
 | --- | --- | --- | --- |
 | [GitHub Copilot](https://github.com/features/copilot) | Microsoft | IDE + CLI + Cloud | Agent Mode, Copilot Workspace, Issue→PR 자율 생성 |
 | [Kiro](https://kiro.dev/) | AWS | IDE | Spec-driven 개발, Hooks 자동화 |
-| [Codex](https://openai.com/codex/) | OpenAI | Desktop | 멀티에이전트 병렬, Computer Use |
-| [Claude Code](https://github.com/anthropics/claude-code) | Anthropic | CLI + Desktop | Agent View, Dispatch 원격 제어, Routines |
-| [Antigravity](https://antigravity.google/) | Google | IDE | Agent-first, 병렬 에이전트, 멀티모델 |
+| [ChatGPT (Code Interpreter/Advanced Data Analysis)](https://openai.com/research/openai-codex) | OpenAI | Desktop | 대화형 코드 생성/분석, 데이터 시각화, 파일 업로드/다운로드 |
 | [Hermes Agent](https://hermes-agent.nousresearch.com/) | Nous Research | CLI + Desktop (오픈소스) | 자기학습(스킬 자동 생성), NVIDIA RTX 로컬 |
 | [OpenCode](https://opencode.ai/) | Anomaly | CLI + Desktop (오픈소스) | 모델 비종속, 터미널/데스크톱/IDE 모두 지원 |
 

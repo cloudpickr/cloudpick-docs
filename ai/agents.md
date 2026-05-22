@@ -28,9 +28,9 @@ AI 에이전트는 이 한계를 넘어 **목표를 받으면 스스로 계획�
 
 모든 작업에 에이전트가 필요한 것은 아닙니다.
 
-- **단순 질의응답** — 프롬프트 한 번으로 충분하면 에이전트 오버헤드만 증가
-- **정형화된 파이프라인** — 단계가 고정된 워크플로는 기존 오케스트레이션(Step Functions, Workflows)이 더 안정적
-- **지연시간 민감** — 에이전트 루프는 수초~수분 소요. 실시간 응답이 필요하면 부적합
+-   **단순 질의응답** — 프롬프트 한 번으로 충분하면 에이전트 오버헤드만 증가
+-   **정형화된 파이프라인** — 단계가 고정된 워크플로는 기존 오케스트레이션(Step Functions, Workflows)이 더 안정적
+-   **지연시간 민감** — 에이전트 루프는 수초~수분 소요. 실시간 응답이 필요하면 부적합
 
 ## 에이전트 아키텍처 패턴
 
@@ -55,7 +55,7 @@ flowchart LR
 
 | 벤더 | 플랫폼 | 특징 |
 | --- | --- | --- |
-| AWS | [Amazon Bedrock AgentCore](https://aws.amazon.com/bedrock/agentcore/) | 프레임워크 비종속 인프라 플랫폼. Runtime, Gateway, Memory, Identity, Policy, Observability. 간단한 에이전트는 [Bedrock Agents](https://aws.amazon.com/bedrock/agents/)로도 가능 |
+| AWS | [Amazon Bedrock AgentCore](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/) | 프레임워크 비종속 인프라 플랫폼. Runtime, Gateway, Memory, Identity, Policy, Observability. 간단한 에이전트는 [Amazon Bedrock Agents](https://aws.amazon.com/bedrock/agents/)로도 가능 |
 | Azure | [Microsoft Foundry Agents](https://learn.microsoft.com/azure/ai-foundry/agents/) | Microsoft Agent Framework, Foundry 포털에서 빌드·배포·모니터링 통합 |
 | Google Cloud | [Gemini Enterprise Agent Platform](https://cloud.google.com/products/agent-builder) | Agent Builder + ADK(오픈소스), A2A 프로토콜 네이티브 지원 |
 | OCI | [OCI Enterprise AI Agents](https://docs.oracle.com/iaas/Content/generative-ai/agents.htm) | RAG 에이전트 기본 제공, Oracle DB 네이티브 연동 |
@@ -76,10 +76,10 @@ flowchart LR
 
 에이전트가 외부 세계와 상호작용하는 인터페이스입니다.
 
-- **API 호출** — REST/GraphQL 엔드포인트 실행
-- **데이터 조회** — DB 쿼리, 벡터 검색, 파일 읽기
-- **코드 실행** — 샌드박스 내 코드 해석기
-- **다른 에이전트 호출** — A2A(Agent-to-Agent) 프로토콜
+-   **API 호출** — REST/GraphQL 엔드포인트 실행
+-   **데이터 조회** — DB 쿼리, 벡터 검색, 파일 읽기
+-   **코드 실행** — 샌드박스 내 코드 해석기
+-   **다른 에이전트 호출** — A2A(Agent-to-Agent) 프로토콜
 
 ### 메모리와 상태
 
@@ -93,10 +93,10 @@ flowchart LR
 
 에이전트의 행동 범위를 제한합니다.
 
-- **입력 가드레일** — 프롬프트 인젝션 탐지, 주제 범위 제한
-- **출력 가드레일** — 유해 콘텐츠 필터, 할루시네이션 검증
-- **도구 가드레일** — 호출 가능 도구 화이트리스트, 파라미터 검증
-- **실행 가드레일** — 최대 반복 횟수, 비용 한도, 타임아웃
+-   **입력 가드레일** — 프롬프트 인젝션 탐지, 주제 범위 제한
+-   **출력 가드레일** — 유해 콘텐츠 필터, 할루시네이션 검증
+-   **도구 가드레일** — 호출 가능 도구 화이트리스트, 파라미터 검증
+-   **실행 가드레일** — 최대 반복 횟수, 비용 한도, 타임아웃
 
 ## 에이전트 프로토콜 — MCP, A2A, ACP
 
@@ -125,28 +125,26 @@ graph LR
 
 ### 왜 코딩 분야가 가장 빠르게 실용화되고 있는가
 
-- **검증이 자동화 가능** — 컴파일, 테스트, lint로 정답 여부를 즉시 판단
-- **피드백 루프가 빠름** — 에러→수정→재실행이 초 단위
-- **학습 데이터가 풍부** — 공개 코드 저장소에 구조화된 데이터가 대량 존재
-- **도구 인터페이스가 표준화** — git, 터미널, 파일시스템 등 일관된 인터페이스
+-   **검증이 자동화 가능** — 컴파일, 테스트, lint로 정답 여부를 즉시 판단
+-   **피드백 루프가 빠름** — 에러→수정→재실행이 초 단위
+-   **학습 데이터가 풍부** — 공개 코드 저장소에 구조화된 데이터가 대량 존재
+-   **도구 인터페이스가 표준화** — git, 터미널, 파일시스템 등 일관된 인터페이스
 
 ### 주요 제품
 
 | 제품 | 제공사 | 형태 | 특징 |
 | --- | --- | --- | --- |
 | [GitHub Copilot](https://github.com/features/copilot) | Microsoft | IDE + CLI + Cloud | Agent Mode, Copilot Workspace, Issue→PR 자율 생성 |
-| [Kiro](https://kiro.dev/) | AWS | IDE | Spec-driven 개발, Hooks 자동화 |
-| [Codex](https://openai.com/codex/) | OpenAI | Desktop | 멀티에이전트 병렬, Computer Use |
-| [Claude Code](https://github.com/anthropics/claude-code) | Anthropic | CLI + Desktop | Agent View, Dispatch 원격 제어, Routines |
-| [Antigravity](https://antigravity.google/) | Google | IDE | Agent-first, 병렬 에이전트, 멀티모델 |
+| [Kiro](https://kiro.dev/) | Kiro | IDE | Spec-driven 개발, Hooks 자동화 |
+| [ChatGPT Advanced Data Analysis / OpenAI API](https://openai.com/chatgpt/enterprise) | OpenAI | Desktop / Cloud | 다단계 문제 해결, 코드 생성/디버깅, 파일 시스템/터미널 연동 (sandbox) |
 | [Hermes Agent](https://hermes-agent.nousresearch.com/) | Nous Research | CLI + Desktop (오픈소스) | 자기학습(스킬 자동 생성), NVIDIA RTX 로컬 |
 | [OpenCode](https://opencode.ai/) | Anomaly | CLI + Desktop (오픈소스) | 모델 비종속, 터미널/데스크톱/IDE 모두 지원 |
 
 ### 트렌드
 
-- **CLI → Desktop** — GUI 기반 멀티세션 관리, 원격 제어(Computer Use)
-- **비동기 실행** — 백그라운드 장시간 작업 후 PR로 결과 전달
-- **코드 → 운영** — CI/CD, 인프라 프로비저닝, 모니터링까지 확장
+-   **CLI → Desktop** — GUI 기반 멀티세션 관리, 원격 제어(Computer Use)
+-   **비동기 실행** — 백그라운드 장시간 작업 후 PR로 결과 전달
+-   **코드 → 운영** — CI/CD, 인프라 프로비저닝, 모니터링까지 확장
 
 ### 범용 컴퓨터 에이전트
 
@@ -175,10 +173,10 @@ graph LR
 
 에이전트는 루프를 돌며 여러 번 모델을 호출하므로 **단순 LLM 대비 수~수십 배** 토큰을 소비할 수 있습니다.
 
-- **토큰 예산** — 태스크당 최대 토큰 한도 설정
-- **루프 제한** — 최대 반복 횟수로 무한 루프 방지
-- **모델 계층화** — 계획은 고성능 모델, 실행은 경량 모델로 분리
-- **서킷 브레이커** — 비용 임계값 초과 시 자동 중단
+-   **토큰 예산** — 태스크당 최대 토큰 한도 설정
+-   **루프 제한** — 최대 반복 횟수로 무한 루프 방지
+-   **모델 계층화** — 계획은 고성능 모델, 실행은 경량 모델로 분리
+-   **서킷 브레이커** — 비용 임계값 초과 시 자동 중단
 
 ### 평가 (Evaluation)
 
@@ -196,56 +194,3 @@ graph LR
 | 항목 | 도구/방법 |
 | --- | --- |
 | **트레이싱** | OpenTelemetry 기반 각 단계 입출력 기록. AgentCore Observability, Foundry Monitoring |
-| **메트릭** | 평균 루프 수, 도구 호출 지연, 세션 시간, 에러율 |
-| **대시보드** | CloudWatch, Azure Monitor, Cloud Monitoring 연동 |
-| **알림** | 도구 실패율 급증, 비용 임계값 초과, 태스크 타임아웃 |
-
-## 보안
-
-에이전트는 기존 LLM보다 공격 표면이 넓습니다. 도구를 통해 실제 시스템에 영향을 줄 수 있기 때문입니다.
-
-| 위협 | 대응 |
-| --- | --- |
-| **프롬프트 인젝션** | 입력 검증, 시스템 프롬프트 격리, 도구 출력 새니타이징 |
-| **권한 상승** | 도구별 최소 권한 IAM, 민감 작업 사람 승인 |
-| **데이터 유출** | 도구 응답 필터링, PII 마스킹, 감사 로그 |
-| **무한 루프/비용 폭주** | 최대 반복 제한, 토큰 예산, 서킷 브레이커 |
-| **공급망 공격** | 도구/플러그인 출처 검증, 샌드박스 실행 |
-
-{% hint style="info" %}
-프롬프트 인젝션 방어 전략, 벤더별 가드레일 서비스 비교, 에이전트 권한 통제 상세는 [AI 보안](../security/ai-security.md)을 참고하세요.
-{% endhint %}
-
-## 자주 하는 실수
-
-- **모든 것을 에이전트로** — 단순 프롬프트나 고정 파이프라인으로 충분한 작업까지 에이전트로 만들면 비용과 지연만 증가합니다.
-- **가드레일 없이 프로덕션 배포** — 도구 권한을 제한하지 않으면 에이전트가 의도치 않은 시스템 변경을 수행할 수 있습니다.
-- **평가 없이 출시** — 에이전트는 비결정적이므로 반복 테스트와 엔드투엔드 평가가 필수입니다.
-
-## 체크리스트
-
-- [ ] 에이전트가 필요한 작업인지 판단 (단순 RAG/프롬프트로 충분한지)
-- [ ] 도구별 최소 권한 설정 및 화이트리스트 정의
-- [ ] 가드레일 설정 (입력/출력/실행 제한)
-- [ ] Human-in-the-Loop 정책 수립 (어떤 행동에 승인 필요한지)
-- [ ] 트레이싱·모니터링 설정 (OpenTelemetry 기반)
-- [ ] 비용 예산 및 서킷 브레이커 설정
-- [ ] 엔드투엔드 평가 파이프라인 구축
-
-## 관련 문서
-
-- [AI 플랫폼과 모델 비교](ai-ml.md) — 벤더별 AI 플랫폼 전체 비교
-- [프롬프트 엔지니어링](prompt-engineering.md) — 에이전트 시스템 프롬프트 설계
-- [RAG 고급 패턴](rag-patterns.md) — 에이전트의 지식 기반 구성
-- [LLMOps](llmops.md) — 에이전트 평가·운영·비용 추적
-- [AI 보안](../security/ai-security.md) — 가드레일, 프롬프트 인젝션 방어
-
-## 참고하기
-
-- [Amazon Bedrock AgentCore](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/)
-- [Microsoft Foundry Agents](https://learn.microsoft.com/azure/ai-foundry/agents/)
-- [Gemini Enterprise Agent Platform](https://cloud.google.com/products/agent-builder)
-- [OCI Enterprise AI Agents](https://docs.oracle.com/iaas/Content/generative-ai/agents.htm)
-- [MCP (Model Context Protocol)](https://modelcontextprotocol.io/) — Anthropic, Linux Foundation
-- [A2A Protocol](https://github.com/google/A2A) — Google, Linux Foundation
-- [ACP (Agent Communication Protocol)](https://agentcommunicationprotocol.dev/) — IBM Research, Linux Foundation

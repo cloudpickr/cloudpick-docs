@@ -1,0 +1,27 @@
+name: Label Bridge for Docs Agent
+
+on:
+  pull_request_review:
+    types: [submitted]
+  issue_comment:
+    types: [created]
+
+jobs:
+  add-label:
+    runs-on: ubuntu-latest
+    if: |
+      (github.event_name == 'pull_request_review' && github.event.review.state == 'changes_requested') ||
+      (github.event_name == 'issue_comment' && contains(github.event.comment.body, '/fix'))
+    steps:
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            const prNumber = context.payload.pull_request?.number || context.payload.issue?.number;
+            if (!prNumber) return;
+            await github.rest.issues.addLabels({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: prNumber,
+              labels: ['needs-fix']
+            });
+            console.log(`Added needs-fix label to PR #${prNumber}`);

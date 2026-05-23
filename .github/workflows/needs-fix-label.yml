@@ -7,7 +7,7 @@ on:
     types: [created]
 
 jobs:
-  add-label:
+  add-needs-fix:
     runs-on: ubuntu-latest
     if: |
       (github.event_name == 'pull_request_review' && github.event.review.state == 'changes_requested') ||
@@ -18,10 +18,19 @@ jobs:
           script: |
             const prNumber = context.payload.pull_request?.number || context.payload.issue?.number;
             if (!prNumber) return;
+            // Remove ready-for-review/fixed/escalated if present
+            const currentLabels = (await github.rest.issues.listLabelsOnIssue({
+              owner: context.repo.owner, repo: context.repo.repo, issue_number: prNumber
+            })).data.map(l => l.name);
+            for (const old of ['ready-for-review', 'fixed', 'escalated', 'working', 'human-fixed']) {
+              if (currentLabels.includes(old)) {
+                await github.rest.issues.removeLabel({
+                  owner: context.repo.owner, repo: context.repo.repo, issue_number: prNumber, name: old
+                }).catch(() => {});
+              }
+            }
             await github.rest.issues.addLabels({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: prNumber,
-              labels: ['needs-fix']
+              owner: context.repo.owner, repo: context.repo.repo,
+              issue_number: prNumber, labels: ['needs-fix']
             });
-            console.log(`Added needs-fix label to PR #${prNumber}`);
+            console.log(`Added needs-fix to PR #${prNumber}`);

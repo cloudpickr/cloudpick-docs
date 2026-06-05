@@ -95,7 +95,7 @@ description: 대용량 데이터를 클라우드로 이전하는 온라인/오�
 | Azure | [Data Box Disk](https://azure.microsoft.com/products/databox/) | ~35 TB | SSD 기반 소용량 |
 | Azure | [Data Box](https://azure.microsoft.com/products/databox/) | ~100 TB | 표준 장비 |
 | Azure | Data Box Heavy | ~1 PB | 대용량 장비 |
-| Google Cloud | [Transfer Appliance](https://cloud.google.com/transfer-appliance/docs) | TA40: ~40 TB, TA300: ~300 TB | 일반/대용량 |
+| Google Cloud | [Transfer Appliance](https://cloud.google.com/transfer-appliance/docs) | TA40: 약 40 TB, TA300: 약 300 TB | 일반/대용량 |
 | OCI | [Data Transfer Appliance](https://docs.oracle.com/en-us/iaas/Content/DataTransfer/home.htm) | ~150 TB | 임대 장비로 전송 |
 | OCI | Data Transfer Disk | ~32 TB | 고객이 디스크 구매 후 발송 |
 

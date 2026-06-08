@@ -132,7 +132,7 @@ graph LR
 | OpenAI text-embedding-3-large | 3072 | 고품질, 더 많은 공간 |
 | Amazon Titan Embeddings | 384~1536 | 조정 가능 |
 | Cohere Embed | 1024 | 다국어 강점 |
-| Google text-embedding | 768~3072 | Vertex AI |
+| Google Gemini Embedding 2 | 768~3072 | Vertex AI 최신 |
 
 간단한 계산: 1,000,000개 × 1536차원 × 4바이트 = **약 6GB**
 

@@ -25,6 +25,31 @@ description: 멀티클라우드 AI 아키텍처 패턴, RAG 파이프라인, GPU
 
 AI 학습 및 추론에 필수적인 GPU 인스턴스를 주요 CSP별로 비교합니다.
 
+### NVIDIA GPU 세대별 비교
+
+현재 클라우드에서 제공되는 주요 NVIDIA 데이터센터 GPU의 스펙 비교입니다.
+
+| 항목 | H100 (Hopper) | H200 (Hopper) | B200 (Blackwell) | GB200 (Blackwell) |
+| --- | --- | --- | --- | --- |
+| **메모리** | 80GB HBM3 | 141GB HBM3e | 192GB HBM3e | 384GB (2×192GB) |
+| **대역폭** | 3.35 TB/s | 4.8 TB/s | 8.0 TB/s | 16 TB/s (Superchip) |
+| **NVLink** | 900 GB/s | 900 GB/s | 1.8 TB/s | NVL72 도메인 |
+| **TDP** | 700W | 700W | 1000W | 1200W (Superchip) |
+| **적합 워크로드** | 학습/추론 범용 | 대규모 추론, 긴 컨텍스트 | 차세대 학습 | 조 단위 파라미터 프론티어 모델 |
+| **H100 대비 추론 성능** | 1× | ~1.4× | ~4× | ~30× |
+
+**선택 가이드:**
+
+- **H100/H200** — 가장 넓은 리전 가용성. 중규모 학습, Fine-tuning, 일반 추론에 적합. H200은 H100과 동일 아키텍처이나 메모리·대역폭이 대폭 증가하여 긴 컨텍스트 추론에 강점
+- **B200** — 2026년 주력 GPU. H100 대비 메모리 2.4배, 대역폭 2.4배, LLM 추론 4배 빠름. 네이티브 FP4 지원으로 양자화 모델 추론 효율 극대화
+- **GB200 NVL72** — Grace CPU + B200 GPU를 하나의 Superchip으로 결합. 최대 72 GPU를 단일 NVLink 도메인으로 연결하여 조 단위 파라미터 모델 학습에 사용. 가용 리전 제한적
+
+{% hint style="info" %}
+대부분의 엔터프라이즈 AI 워크로드(RAG 추론, Fine-tuning, 중규모 학습)는 **H100/H200으로 충분**합니다. B200은 대규모 학습이나 높은 추론 처리량이 필요할 때, GB200은 프론티어 모델 학습에만 필요합니다. GPU 세대가 높을수록 리전 가용성이 제한적이고 약정 확보가 어려우므로, 워크로드에 맞는 최소 사양을 선택하세요.
+{% endhint %}
+
+### 벤더별 GPU 인스턴스
+
 | 항목 | AWS | Azure | Google Cloud | OCI |
 | --- | --- | --- | --- | --- |
 | **B200 (Blackwell)** | [P6-B200](https://aws.amazon.com/ec2/instance-types/p6/) (8×B200 180GB) | [ND GB200-v6](https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/gpu-accelerated/nd-gb200-v6-series) | [A4](https://cloud.google.com/blog/products/compute/introducing-a4-vms-powered-by-nvidia-b200-gpu-aka-blackwell/) (8×B200) | BM.GPU.B200.8 (8×B200) |

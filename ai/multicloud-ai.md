@@ -27,8 +27,11 @@ AI 학습 및 추론에 필수적인 GPU 인스턴스를 주요 CSP별로 비교
 
 | 항목 | AWS | Azure | Google Cloud | OCI |
 | --- | --- | --- | --- | --- |
-| A100 인스턴스 | [p4d.24xlarge](https://aws.amazon.com/ec2/instance-types/p4/) (8×A100 40/80GB) | [ND A100 v4](https://learn.microsoft.com/en-us/azure/virtual-machines/nda100-v4-series) (8×A100 80GB) | [a2-highgpu-8g](https://cloud.google.com/compute/docs/gpus#a100-gpus) (8×A100 80GB) | [BM.GPU.A100-v2.8](https://docs.oracle.com/en-us/iaas/Content/Compute/References/computeshapes.htm) (8×A100 80GB) |
+| **B200 (Blackwell)** | [P6-B200](https://aws.amazon.com/ec2/instance-types/p6/) (8×B200 180GB) | [ND GB200-v6](https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/gpu-accelerated/nd-gb200-v6-series) | [A4](https://cloud.google.com/blog/products/compute/introducing-a4-vms-powered-by-nvidia-b200-gpu-aka-blackwell/) (8×B200) | BM.GPU.B200.8 (8×B200) |
+| **GB200 (NVLink)** | [P6e-GB200 UltraServer](https://aws.amazon.com/ec2/instance-types/p6/) (최대 72 GPU) | ND GB200-v6 (NVLink 도메인) | [A4X](https://cloud.google.com/blog/products/compute/new-a4x-vms-powered-by-nvidia-gb200-gpus) (GB200 NVL72) | — |
 | H100 인스턴스 | [p5.48xlarge](https://aws.amazon.com/ec2/instance-types/p5/) (8×H100 80GB) | [ND H100 v5](https://learn.microsoft.com/en-us/azure/virtual-machines/nd-h100-v5-series) (8×H100 80GB) | [a3-highgpu-8g](https://cloud.google.com/compute/docs/gpus#h100-gpus) (8×H100 80GB) | [BM.GPU.H100.8](https://docs.oracle.com/en-us/iaas/Content/Compute/References/computeshapes.htm) (8×H100 80GB) |
+| A100 인스턴스 | [p4d.24xlarge](https://aws.amazon.com/ec2/instance-types/p4/) (8×A100 40/80GB) | [ND A100 v4](https://learn.microsoft.com/en-us/azure/virtual-machines/nda100-v4-series) (8×A100 80GB) | [a2-highgpu-8g](https://cloud.google.com/compute/docs/gpus#a100-gpus) (8×A100 80GB) | [BM.GPU.A100-v2.8](https://docs.oracle.com/en-us/iaas/Content/Compute/References/computeshapes.htm) (8×A100 80GB) |
+| 자체 AI 칩 | Trainium 2 (학습), Inferentia 2 (추론) | — | TPU v5p, TPU v6e | — |
 | 예약 옵션 | Reserved Instances, Savings Plans | Reserved VM Instances | CUD (Committed Use Discount) | Capacity Reservation |
 | 스팟/선점형 | Spot Instances | Spot VMs | Spot VMs (Preemptible) | Preemptible Instances |
 

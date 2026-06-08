@@ -76,6 +76,23 @@ graph LR
 - Azure: Azure Monitor + AI Studio 메트릭
 - Google Cloud: Cloud Monitoring + Vertex AI 메트릭
 
+### LLM Observability 플랫폼
+
+벤더 네이티브 모니터링 외에, LLM 워크로드에 특화된 전문 Observability 도구가 있습니다. 프롬프트 트레이싱, RAG 품질 분석, 비용 추적, 평가 자동화를 통합 제공합니다.
+
+| 제품 | 유형 | 주요 기능 | 참고 |
+| --- | --- | --- | --- |
+| [Arize AI](https://arize.com/) | 상용 | 트레이싱, 평가, 드리프트 탐지, RAG 분석, 가드레일 모니터링 | [Phoenix](https://github.com/Arize-ai/phoenix) (오픈소스 버전) |
+| [LangSmith](https://smith.langchain.com/) | 상용 (LangChain) | LangChain/LangGraph 네이티브 트레이싱·평가, 프롬프트 허브 | LangChain 생태계 사용 시 자연스러운 선택 |
+| [Langfuse](https://langfuse.com/) | 오픈소스 | 셀프호스팅 가능, 프롬프트 관리·트레이싱·비용 추적 | 벤더 종속 없이 자체 운영 가능 |
+| [Weights & Biases (Weave)](https://wandb.ai/site/weave) | 상용 | 실험 추적 + LLM 트레이싱 + 평가 | ML 실험 관리와 통합 |
+
+**선택 기준:**
+
+- 벤더 네이티브(CloudWatch/Azure Monitor)로 기본 메트릭은 충분하지만, **프롬프트 단위 트레이싱**과 **RAG 파이프라인 디버깅**에는 전문 도구가 필요
+- LangChain 기반이면 LangSmith, 프레임워크 비종속이면 Arize/Langfuse
+- 데이터 주권이 중요하면 Langfuse(셀프호스팅) 또는 Arize Phoenix(오픈소스)
+
 ## 운영 패턴
 
 | 패턴 | 설명 |

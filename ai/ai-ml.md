@@ -4,7 +4,7 @@ description: 벤더별 AI 플랫폼, 모델 카탈로그, GPU/AI 칩, Applied AI
 
 # AI 플랫폼과 모델 비교
 
-> 문서 기준: 2026년 5월 | 이 문서는 변동이 빠른 영역으로 분기별 리뷰 대상입니다.
+> 문서 기준: 2026년 6월 | 이 문서는 변동이 빠른 영역으로 분기별 리뷰 대상입니다.
 
 ## 개요
 
@@ -41,18 +41,18 @@ description: 벤더별 AI 플랫폼, 모델 카탈로그, GPU/AI 칩, Applied AI
 
 | 벤더 | 플랫폼 | 주요 제공 모델군 | 비고 |
 | --- | --- | --- | --- |
-| AWS | [Amazon Bedrock](https://aws.amazon.com/bedrock/) | **Amazon Nova** (Nova Premier/Pro/Lite/Micro/Sonic), Anthropic Claude (Opus/Sonnet/Haiku), OpenAI GPT-OSS, Meta Llama, Mistral, NVIDIA Nemotron, AI21, Cohere ([지원 모델 목록](https://docs.aws.amazon.com/bedrock/latest/userguide/model-ids.html)) | 단일 API로 멀티 모델 선택. Amazon Nova는 텍스트/이미지/비디오/음성 멀티모달 |
-| Azure | [Microsoft Foundry(구 Azure OpenAI)](https://azure.microsoft.com/products/ai-services/openai-service) | OpenAI (GPT-5 시리즈, o-시리즈), Anthropic Claude, Meta Llama, Mistral, Cohere 등 ([Foundry 모델 카탈로그](https://ai.azure.com/catalog)) | OpenAI 주력, 엔터프라이즈 보안/규정 준수 |
-| Google Cloud | [Vertex AI Model Garden](https://cloud.google.com/vertex-ai/generative-ai/docs/learn/models) | Google **Gemini 2.5** 시리즈 (Pro/Flash/Flash-Lite), Anthropic Claude, Meta Llama, Mistral, AI21 ([Model Garden](https://cloud.google.com/vertex-ai/generative-ai/docs/learn/models)) | Gemini는 네이티브 멀티모달, Model Garden에 200+ 모델 |
-| OCI | [OCI Enterprise AI(구 OCI Generative AI)](https://docs.oracle.com/iaas/Content/generative-ai/home.htm) | Cohere Command, Meta Llama, xAI Grok 등 ([지원 모델 목록](https://docs.oracle.com/en-us/iaas/Content/generative-ai/pretrained-models.htm)) | Oracle DB 네이티브 통합, **Dedicated AI Cluster** (전용 RDMA GPU, 타 테넌트 비공유), 이그레스 10TB 무료 |
+| AWS | [Amazon Bedrock](https://aws.amazon.com/bedrock/) | **Amazon Nova** (Nova Premier/Pro/Lite/Micro/Sonic), Anthropic Claude (Opus/Sonnet/Haiku), OpenAI GPT-5.5/5.4/GPT-OSS, Meta Llama, Mistral, NVIDIA Nemotron, DeepSeek, MiniMax, GLM ([지원 모델 목록](https://docs.aws.amazon.com/bedrock/latest/userguide/model-ids.html)) | 단일 API로 멀티 모델 선택. OpenAI Codex(GPT-5.5 기반)도 Bedrock에서 제공 |
+| Azure | [Microsoft Foundry(구 Azure OpenAI)](https://azure.microsoft.com/products/ai-services/openai-service) | OpenAI (GPT-5.5/5.4 시리즈, o-시리즈), Anthropic Claude, Meta Llama, Mistral, **MAI** (Image/Voice/Transcribe), DeepSeek V4 Pro, Kimi 2.6 ([Foundry 모델 카탈로그](https://ai.azure.com/catalog)) | OpenAI 주력 + 자체 MAI 모델군, Fireworks AI 통합, Foundry Local(로컬/단절망 실행) |
+| Google Cloud | [Vertex AI Model Garden](https://cloud.google.com/vertex-ai/generative-ai/docs/learn/models) | Google **Gemini 3.x/2.5** 시리즈 (3.5 Flash/3.1 Pro/2.5 Pro/2.5 Flash), **Gemini Omni** (비디오 생성), Anthropic Claude, xAI Grok, Meta Llama, Mistral, DeepSeek, OpenAI GPT-OSS ([Model Garden](https://cloud.google.com/vertex-ai/generative-ai/docs/learn/models)) | Gemini 3.5 Flash가 최신 GA Flash. 네이티브 멀티모달, Model Garden에 200+ 모델 |
+| OCI | [OCI Enterprise AI(구 OCI Generative AI)](https://docs.oracle.com/iaas/Content/generative-ai/home.htm) | Cohere Command, Meta Llama, xAI Grok 4.3, Google Gemini, DeepSeek 등 ([지원 모델 목록](https://docs.oracle.com/en-us/iaas/Content/generative-ai/pretrained-models.htm)) | Oracle DB 네이티브 통합, **Dedicated AI Cluster** (전용 RDMA GPU, 타 테넌트 비공유), AI Guardrails(콘텐츠/PII/프롬프트 인젝션), 이그레스 10TB 무료 |
 | xAI | [xAI API](https://x.ai/api) | **Grok 4.3**, Grok 4.1 Fast, Imagine (이미지/비디오 생성) | 100만 토큰 컨텍스트 윈도우, 경쟁력 있는 가격, 추론·코딩 특화. OCI에서도 호스팅 제공 |
 
 {% hint style="info" %}
 **모델 생태계는 빠르게 변합니다.** 최근에는 벤더 간 파트너십이 강화되어 "한 벤더 플랫폼에서 여러 제공사 모델 접근"이 일반화되었습니다:
 
-- **Amazon Bedrock** — Anthropic(전략적 투자 파트너), OpenAI GPT 시리즈, Meta, Mistral, NVIDIA 등 다수 제공사 호스팅
-- **Microsoft Foundry** — OpenAI 독점 파트너십 외에 Anthropic, Meta, Mistral 등 확장
-- **Gemini Enterprise Agent Platform** — Google 자체 Gemini + Anthropic Claude + 타사 모델 카탈로그
+- **Amazon Bedrock** — Anthropic(전략적 투자 파트너), OpenAI GPT-5.5/5.4 + Codex, Meta, Mistral, DeepSeek, NVIDIA 등 다수 제공사 호스팅
+- **Microsoft Foundry** — OpenAI 독점 파트너십 외에 Anthropic, Meta, Mistral, 자체 MAI 모델군(이미지/음성), Fireworks AI(DeepSeek V4 Pro, Kimi 2.6) 확장
+- **Gemini Enterprise Agent Platform** — Google 자체 Gemini 3.x/2.5 + Gemini Omni + Anthropic Claude + xAI Grok + 타사 모델 카탈로그
 
 정확한 현재 모델 목록은 각 벤더의 공식 모델 페이지에서 확인하세요. 모델명/버전은 수개월마다 변경될 수 있습니다.
 {% endhint %}
@@ -72,7 +72,8 @@ description: 벤더별 AI 플랫폼, 모델 카탈로그, GPU/AI 칩, Applied AI
 | --- | --- | --- |
 | AWS | Kiro | AI 코딩 에이전트. 코드 생성, 변환, 보안 스캔 |
 | Azure | GitHub Copilot | 코드 자동 완성. VS Code/JetBrains 통합 |
-| Google Cloud | Gemini Code Assist | 코드 생성, 설명, 변환 |
+| Google Cloud | Gemini Code Assist / Antigravity | 코드 생성·설명·변환. Antigravity는 Agent-first IDE |
+| xAI | Grok Build | CLI 코딩 에이전트. 8 병렬 서브에이전트, Git worktree 격리 |
 
 {% hint style="info" %}
 코딩 에이전트의 발전 과정, 제품별 상세 비교(Kiro, Copilot, Codex, Claude Code 등)는 [AI 에이전트 — 코딩 에이전트](agents.md#코딩-에이전트--코드를-넘어-운영으로)를 참고하세요.
@@ -102,11 +103,11 @@ description: 벤더별 AI 플랫폼, 모델 카탈로그, GPU/AI 칩, Applied AI
 
 **Amazon Bedrock** — 자체 개발 **Amazon Nova 2** 모델군(Premier/Pro/Lite/Micro/Sonic/Omni)과 Anthropic Claude, OpenAI GPT 시리즈 등 다양한 제공사의 모델을 하나의 API로 접근할 수 있습니다. 모델 선택 폭이 가장 넓으며, AI 에이전트 구축을 위한 AgentCore 등 운영 체계가 강점입니다.
 
-**Microsoft Foundry** — 구 Azure AI Foundry가 브랜드를 통합한 상위 플랫폼입니다. OpenAI GPT 시리즈를 엔터프라이즈 환경에서 쓸 수 있는 주요 경로이며, Anthropic, Meta 등 타사 모델도 폭넓게 제공합니다. Microsoft 365, GitHub, Power Platform 등 기존 Microsoft 생태계와의 깊은 통합이 최대 강점입니다.
+**Microsoft Foundry** — 구 Azure AI Foundry가 브랜드를 통합한 상위 플랫폼입니다. OpenAI GPT-5.5/5.4 시리즈를 엔터프라이즈 환경에서 쓸 수 있는 주요 경로이며, Anthropic, Meta 등 타사 모델도 폭넓게 제공합니다. 자체 **MAI 모델군**(Image-2.5, Voice-1, Transcribe-1)과 **Foundry Local**(로컬/단절망 실행)이 추가되었습니다. Microsoft 365, GitHub, Power Platform 등 기존 Microsoft 생태계와의 깊은 통합이 최대 강점입니다.
 
-**Gemini Enterprise Agent Platform** — 구 Vertex AI가 에이전트 중심으로 전면 개편된 플랫폼입니다. Google 자체 **Gemini 2.5** 시리즈(Pro/Flash/Flash-Lite)의 네이티브 멀티모달 능력과 TPU 인프라가 강점입니다. Agent Studio를 통한 로우코드 에이전트 개발과 Google Search/BigQuery와의 결합이 차별점입니다.
+**Gemini Enterprise Agent Platform** — 구 Vertex AI가 에이전트 중심으로 전면 개편된 플랫폼입니다. Google 자체 **Gemini 3.x/2.5** 시리즈(3.5 Flash/3.1 Pro/2.5 Pro)의 네이티브 멀티모달 능력과 TPU 인프라가 강점입니다. **Gemini Omni**(any-to-any 멀티모달 비디오 생성)와 Agent Studio를 통한 로우코드 에이전트 개발, Google Search/BigQuery와의 결합이 차별점입니다.
 
-**OCI Enterprise AI** — 구 OCI Generative AI가 확장된 플랫폼입니다. Cohere, Meta Llama, xAI Grok 4.3 등의 모델을 OCI 인프라에서 호스팅하며, 전용 AI 클러스터(Dedicated AI Cluster)와 RDMA 기반 Bare Metal GPU로 고성능 워크로드를 지원합니다. Oracle Database/애플리케이션과의 네이티브 통합이 강점입니다.
+**OCI Enterprise AI** — 구 OCI Generative AI가 확장된 플랫폼입니다. Cohere, Meta Llama, xAI Grok 4.3, Google Gemini 등의 모델을 OCI 인프라에서 호스팅하며, 전용 AI 클러스터(Dedicated AI Cluster)와 RDMA 기반 Bare Metal GPU로 고성능 워크로드를 지원합니다. **AI Guardrails**(콘텐츠 모더레이션, PII 탐지, 프롬프트 인젝션 방어)와 **Enterprise AI Agents**(GA)가 추가되었으며, Oracle Database/애플리케이션과의 네이티브 통합이 강점입니다.
 
 ## ML 파이프라인과 MLOps
 

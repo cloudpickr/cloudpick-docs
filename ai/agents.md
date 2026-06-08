@@ -4,7 +4,7 @@ description: AI 에이전트의 개념, 기존 LLM 프롬프팅과의 차이, �
 
 # AI 에이전트 (Agentic AI)
 
-> 문서 기준: 2026년 5월
+> 문서 기준: 2026년 6월
 
 ## 프롬프팅에서 에이전트로
 
@@ -56,9 +56,9 @@ flowchart LR
 | 벤더 | 플랫폼 | 특징 |
 | --- | --- | --- |
 | AWS | [Amazon Bedrock AgentCore](https://aws.amazon.com/bedrock/agentcore/) | 프레임워크 비종속 인프라 플랫폼. Runtime, Gateway, Memory, Identity, Policy, Observability. 간단한 에이전트는 [Bedrock Agents](https://aws.amazon.com/bedrock/agents/)로도 가능 |
-| Azure | [Microsoft Foundry Agents](https://learn.microsoft.com/azure/ai-foundry/agents/) | Microsoft Agent Framework, Foundry 포털에서 빌드·배포·모니터링 통합 |
+| Azure | [Microsoft Foundry Agents](https://learn.microsoft.com/azure/ai-foundry/agents/) | Foundry Agent Service(GA). Responses API 기반 에이전트 런타임, MCP 인증 확장, Voice Live(Preview). 포털에서 빌드·배포·모니터링 통합 |
 | Google Cloud | [Gemini Enterprise Agent Platform](https://cloud.google.com/products/agent-builder) | Agent Builder + ADK(오픈소스), A2A 프로토콜 네이티브 지원 |
-| OCI | [OCI Enterprise AI Agents](https://docs.oracle.com/iaas/Content/generative-ai/agents.htm) | RAG 에이전트 기본 제공, Oracle DB 네이티브 연동 |
+| OCI | [OCI Enterprise AI Agents](https://docs.oracle.com/iaas/Content/generative-ai/agents.htm) | RAG 에이전트 기본 제공, Oracle DB 네이티브 연동, AI Guardrails(콘텐츠/PII/프롬프트 인젝션) 내장. 2026.03 GA |
 
 ### 오픈소스 프레임워크
 
@@ -104,7 +104,7 @@ flowchart LR
 
 | 프로토콜 | 제정 | 역할 | 핵심 개념 |
 | --- | --- | --- | --- |
-| [MCP](https://modelcontextprotocol.io/) | Anthropic, 2024.11 | **에이전트 → 도구/데이터** 연결 | Tools, Resources, Prompts. JSON-RPC 2.0 |
+| [MCP](https://modelcontextprotocol.io/) | Anthropic, 2024.11 → AAIF(Linux Foundation) | **에이전트 → 도구/데이터** 연결 | Tools, Resources, Prompts. JSON-RPC 2.0. 2026-07-28 릴리스 후보: stateless core, MCP Apps, Tasks extension, OAuth/OIDC |
 | [A2A](https://github.com/google/A2A) | Google, 2025.04 | **에이전트 → 에이전트** (크로스 벤더/조직) | Agent Card, Task Lifecycle, SSE/gRPC |
 | [ACP](https://agentcommunicationprotocol.dev/) | IBM Research, 2025.03 | **에이전트 → 에이전트** (사내 피어 간) | REST 네이티브, SDK 불필요, 피어투피어 |
 
@@ -116,7 +116,7 @@ graph LR
 ```
 
 {% hint style="info" %}
-**도입 순서 권장:** MCP부터 시작 (가장 성숙) → 멀티에이전트 필요 시 A2A 추가 → 사내 피어 메시징 필요 시 ACP 검토. 세 프로토콜 모두 [Linux Foundation](https://www.linuxfoundation.org/) 거버넌스 하에 있으며 수렴 방향으로 진화 중입니다.
+**도입 순서 권장:** MCP부터 시작 (가장 성숙) → 멀티에이전트 필요 시 A2A 추가 → 사내 피어 메시징 필요 시 ACP 검토. 세 프로토콜 모두 [AAIF (Agentic AI Foundation)](https://www.linuxfoundation.org/press/linux-foundation-announces-the-formation-of-the-agentic-ai-foundation) 거버넌스 하에 있습니다. AAIF는 Anthropic, Block, OpenAI가 공동 설립하고 Google, Microsoft, AWS, Cloudflare가 지원하는 Linux Foundation 산하 재단입니다.
 {% endhint %}
 
 ## 코딩 에이전트
@@ -136,9 +136,10 @@ graph LR
 | --- | --- | --- | --- |
 | [GitHub Copilot](https://github.com/features/copilot) | Microsoft | IDE + CLI + Cloud | Agent Mode, Copilot Workspace, Issue→PR 자율 생성 |
 | [Kiro](https://kiro.dev/) | AWS | IDE | Spec-driven 개발, Hooks 자동화 |
-| [Codex](https://openai.com/codex/) | OpenAI | Desktop | 멀티에이전트 병렬, Computer Use |
-| [Claude Code](https://github.com/anthropics/claude-code) | Anthropic | CLI + Desktop | Agent View, Dispatch 원격 제어, Routines |
-| [Antigravity](https://antigravity.google/) | Google | IDE | Agent-first, 병렬 에이전트, 멀티모델 |
+| [Codex](https://openai.com/codex/) | OpenAI | Desktop + Bedrock | GPT-5.5 기반 멀티에이전트 병렬, Computer Use. Amazon Bedrock에서도 제공 |
+| [Claude Code](https://github.com/anthropics/claude-code) | Anthropic | CLI + Desktop | Opus 4.8 기반(88.6% SWE-bench), Agent Teams(병렬 서브에이전트), 29 hook events, 플러그인 마켓플레이스 |
+| [Antigravity](https://antigravity.google/) | Google | IDE | Agent-first, Managed Agents via Gemini API, 병렬 에이전트, 멀티모델 |
+| [Grok Build](https://x.ai/news/grok-build-cli) | xAI | CLI | 8 병렬 서브에이전트(Git worktree 격리), plan-review-approve 워크플로, 70.8% SWE-bench |
 | [Hermes Agent](https://hermes-agent.nousresearch.com/) | Nous Research | CLI + Desktop (오픈소스) | 자기학습(스킬 자동 생성), NVIDIA RTX 로컬 |
 | [OpenCode](https://opencode.ai/) | Anomaly | CLI + Desktop (오픈소스) | 모델 비종속, 터미널/데스크톱/IDE 모두 지원 |
 

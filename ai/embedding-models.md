@@ -48,7 +48,8 @@ text-embedding-3 시리즈는 **Matryoshka Representation** 를 지원하여 `di
 
 | 모델 | 차원 | 특징 | 참고 |
 | --- | --- | --- | --- |
-| text-embedding-005 (gecko) | 768 | 영어 중심 최신 버전 | [문서](https://cloud.google.com/vertex-ai/generative-ai/docs/embeddings/get-text-embeddings) |
+| **Gemini Embedding 2** | 768/3072 | 최신 모델. 텍스트 임베딩, task type 지원 | [문서](https://cloud.google.com/vertex-ai/generative-ai/docs/embeddings/get-text-embeddings) |
+| text-embedding-005 (gecko) | 768 | 영어 중심 이전 버전 | [문서](https://cloud.google.com/vertex-ai/generative-ai/docs/embeddings/get-text-embeddings) |
 | text-multilingual-embedding-002 | 768 | 다국어 (한국어 포함) | [문서](https://cloud.google.com/vertex-ai/generative-ai/docs/embeddings/get-text-embeddings) |
 | multimodalembedding@001 | 128/256/512/1408 | 텍스트 + 이미지 + 비디오 | [문서](https://cloud.google.com/vertex-ai/generative-ai/docs/embeddings/get-multimodal-embeddings) |
 

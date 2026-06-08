@@ -76,7 +76,7 @@ description: 벤더별 AI 플랫폼, 모델 카탈로그, GPU/AI 칩, Applied AI
 | xAI | Grok Build | CLI 코딩 에이전트. 8 병렬 서브에이전트, Git worktree 격리 |
 
 {% hint style="info" %}
-코딩 에이전트의 발전 과정, 제품별 상세 비교(Kiro, Copilot, Codex, Claude Code 등)는 [AI 에이전트 — 코딩 에이전트](agents.md#코딩-에이전트--코드를-넘어-운영으로)를 참고하세요.
+코딩 에이전트의 발전 과정, 제품별 상세 비교(Kiro, Copilot, Codex, Claude Code 등)는 [AI 에이전트 — 코딩 에이전트](agents.md#코딩-에이전트)를 참고하세요.
 {% endhint %}
 
 ## ML 플랫폼

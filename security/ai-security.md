@@ -4,7 +4,7 @@ description: AI 서비스의 보안 위협(프롬프트 인젝션, 민감정보 
 
 # AI 보안
 
-> 문서 기준: 2026년 5월 | 이 문서는 변동이 빠른 영역으로 분기별 리뷰 대상입니다.
+> 문서 기준: 2026년 6월 | 이 문서는 변동이 빠른 영역으로 분기별 리뷰 대상입니다.
 
 ## 개요
 
@@ -59,10 +59,43 @@ AI 에이전트가 도구(Tool)를 호출할 때 최소 권한 원칙을 적용�
 
 | 벤더 | 서비스 | 기능 |
 | --- | --- | --- |
-| AWS | [Bedrock Guardrails](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html) | 콘텐츠 필터, PII 탐지/마스킹, 주제 차단, 단어 필터 |
+| AWS | [Bedrock Guardrails](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html) | 콘텐츠 필터, PII 탐지/마스킹, 주제 차단, 단어 필터, 프롬프트 공격 탐지, 환각 탐지(Automated Reasoning¹) |
 | Azure | [Azure AI Content Safety](https://learn.microsoft.com/azure/ai-services/content-safety/) | 유해 콘텐츠 탐지 (폭력/혐오/성적/자해), 프롬프트 실드 |
 | Google Cloud | [Vertex AI Safety Filters](https://cloud.google.com/vertex-ai/generative-ai/docs/multimodal/configure-safety-filters) | 안전 카테고리별 차단 임계값 설정 |
-| OCI | OCI Enterprise AI 콘텐츠 필터 | 기본 안전 필터 제공 |
+| OCI | [OCI Enterprise AI Guardrails](https://docs.oracle.com/iaas/Content/generative-ai/home.htm) | 콘텐츠 모더레이션, PII 탐지, 프롬프트 인젝션 방어 |
+
+> ¹ Automated Reasoning checks는 현재 **영어(US) 전용**, detect 모드만 지원, 스트리밍 미지원. 한국어 워크로드에서는 다른 환각 탐지 방법(RAG 기반 검증 등)을 병행하세요.
+
+### 모델 수준 가드레일 — Claude Fable 5 / Mythos
+
+2026년 6월, Anthropic은 **모델 자체에 가드레일이 내장된** 새로운 접근 방식을 도입했습니다. Claude Fable 5는 Mythos급 능력을 가지면서도, 사이버보안·생물학·화학 분야에서 위험한 요청을 모델 레벨에서 차단합니다.
+
+| 모델 | 접근 방식 | 대상 |
+| --- | --- | --- |
+| **Claude Fable 5** | Mythos급 능력 + 내장 가드레일. 사이버/생물/화학 관련 위험 요청 자동 차단 | GA, 모든 사용자 |
+| **Claude Mythos 5** | 가드레일 선택적 해제. 사이버 방어·연구 목적으로만 접근 가능 | 제한적 접근 (신뢰된 조직만) |
+
+**운영 시사점:**
+
+- Bedrock에서 Fable 5 사용 시, Bedrock Guardrails와 모델 내장 가드레일이 **이중으로** 동작합니다
+- 모델 내장 가드레일은 사용자가 해제할 수 없으므로, 보안 요건이 높은 환경에 적합합니다
+- 다만 "알림 없는 기능 저하(Silent Downgrade)"(거부 사유를 알려주지 않음) 논란이 있었으며, Anthropic이 투명성을 개선 중입니다
+
+## CI/CD 파이프라인에서의 에이전트 보안
+
+AI 코딩 에이전트(Claude Code, Copilot, Codex)가 CI/CD 파이프라인에 통합되면서, **새로운 공격 표면**이 등장했습니다.
+
+### 위협: CI/CD 에이전트를 통한 시크릿 유출
+
+2026년 6월, Microsoft 보안팀이 [Claude Code GitHub Action의 취약점](https://www.microsoft.com/en-us/security/blog/2026/06/05/securing-ci-cd-in-agentic-world-claude-code-github-action-case/)을 발표했습니다. 이슈 본문이나 PR 설명에 삽입된 악의적 프롬프트가 에이전트를 조작하여, CI 환경의 시크릿을 외부로 유출할 수 있는 간접 인젝션 경로였습니다.
+
+### 방어 패턴
+
+- **환경 변수 격리** — CI 에이전트에게 필요한 최소한의 시크릿만 노출
+- **입력값 정화(Sanitizing)** — 이슈/PR/코멘트 등 비신뢰 입력을 에이전트에 전달하기 전 검증
+- **샌드박스 실행** — 에이전트의 코드 실행을 격리된 환경(컨테이너)으로 제한
+- **감사 로그** — 에이전트의 모든 도구 호출·파일 접근을 기록
+- **네트워크 제한** — CI 에이전트의 아웃바운드 네트워크를 화이트리스트로 제한
 
 ## 자주 하는 실수
 

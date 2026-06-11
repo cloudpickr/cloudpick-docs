@@ -4,7 +4,7 @@ description: FinOps 라이프사이클, 비용 관리 도구, 실무 적용 순�
 
 # FinOps
 
-> 문서 기준: 2026년 5월
+> 문서 기준: 2026년 6월
 
 ## FinOps란
 
@@ -42,6 +42,34 @@ FinOps는 단순히 비용을 줄이는 활동이 아닙니다. 필요한 곳에
 | 예산/알림 | [AWS Budgets](https://aws.amazon.com/aws-cost-management/aws-budgets/) | [Azure Budgets](https://learn.microsoft.com/en-us/azure/cost-management-billing/costs/tutorial-acm-create-budgets) | [Budget Alerts](https://cloud.google.com/billing/docs/how-to/budgets) | [OCI Budgets](https://docs.oracle.com/en-us/iaas/Content/Billing/Concepts/budgetsoverview.htm) |
 | 추천/어드바이저 | [AWS Cost Optimization Hub](https://aws.amazon.com/aws-cost-management/cost-optimization-hub/) | [Azure Advisor](https://azure.microsoft.com/en-us/products/advisor) | [Recommender](https://cloud.google.com/recommender/docs/overview) | [Cloud Advisor](https://docs.oracle.com/en-us/iaas/Content/CloudAdvisor/Concepts/cloudadvisoroverview.htm) |
 | 비용 할당 | Cost Allocation Tags | Cost Allocation (Tags + Subscriptions) | Labels + Billing Account | Cost Tracking Tags + Compartments |
+
+### AI 비용 거버넌스
+
+AI 워크로드(LLM API 호출, GPU 학습/추론)는 전통적 클라우드 비용과 **근본적으로 다른 과금 구조**(토큰 기반, 모델별 가격 차이, 에이전트 루프에 의한 비결정적 소비)를 가집니다. 기존 FinOps의 사이징·예약 레버가 그대로 적용되지 않으므로 별도의 거버넌스가 필요합니다.
+
+| 항목 | 기존 클라우드 비용 | AI 비용 |
+| --- | --- | --- |
+| 과금 단위 | 시간, GB, 요청 수 | 토큰(입력/출력), GPU-시간, 에이전트 세션 |
+| 예측 가능성 | 리소스 수 × 단가로 추정 | 프롬프트 길이, 에이전트 루프 수에 따라 비결정적 |
+| 최적화 레버 | 사이징, 예약, 스팟, 미사용 제거 | 모델 계층화, 토큰 예산, 프롬프트 캐싱, 서킷 브레이커 |
+
+**실무 대응:**
+
+- **태스크별 토큰 예산** — 에이전트/API 호출마다 최대 토큰 한도 설정
+- **모델 계층화** — 간단한 분류는 경량 모델(GPT-5.4 mini, Haiku), 복잡한 추론은 고성능 모델
+- **프롬프트 캐싱** — 반복되는 시스템 프롬프트를 캐싱하여 입력 토큰 절감
+- **비용 태그** — AI 워크로드를 별도 태그(`ai:true`, `model:claude-fable-5`)로 분리 추적
+
+### AWS FinOps Agent [Preview]
+
+2026년 6월 FinOps X에서 발표된 [AWS FinOps Agent](https://siliconangle.com/2026/06/11/aws-launches-finops-agent-bring-ai-cost-governance-cloud-spend-finopsx/)(Feature Preview)는 비용 이상을 AI가 자동 탐지하고, 근본 원인을 분석하여 담당 팀에 Slack/Jira로 라우팅합니다.
+
+| 기능 | 설명 |
+| --- | --- |
+| 이상 탐지 | 일별 비용 패턴에서 이상 자동 감지 |
+| 근본 원인 분석 | 어떤 서비스/태그/리전에서 비용이 급증했는지 분석 |
+| 팀 라우팅 | 비용 소유자에게 Slack/Jira 알림 자동 전송 |
+| 상태 | Feature Preview (2026.06) |
 
 ## 실무 적용 순서
 

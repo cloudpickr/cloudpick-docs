@@ -4,10 +4,25 @@ description: 트랜짓 아키텍처 패턴, 이그레스 비용 상세 비교, D
 
 # 멀티클라우드 커넥티비티 (심화)
 
-> 문서 기준: 2026년 5월
+> 문서 기준: 2026년 6월
 
 {% hint style="info" %}
 연결 방식 개요와 CIDR 설계는 [멀티클라우드 네트워킹 개요](../networking/multicloud-networking.md)를 참고하세요.
+{% endhint %}
+
+## AWS Interconnect — 멀티클라우드 프라이빗 연결
+
+2026년 4월 GA된 [AWS Interconnect – multicloud](https://aws.amazon.com/about-aws/whats-new/2026/04/aws-announces-ga-AWS-interconnect-multicloud/)는 AWS에서 다른 CSP로 **전용 프라이빗 고속 연결**을 제공하는 서비스입니다. 기존에는 VPN 또는 3rd party SD-WAN을 통해 클라우드 간을 연결해야 했으나, Interconnect는 벤더가 직접 제공하는 네이티브 연결로 설정이 간소화되고 지연/대역폭이 개선됩니다.
+
+| 항목 | 내용 |
+| --- | --- |
+| **GA 파트너** | Google Cloud (2026.04 GA) |
+| **예정 파트너** | Microsoft Azure, OCI (2026년 내) |
+| **특징** | 고복원력(Resilient), BGP 기반 라우팅, AWS 콘솔에서 단일 설정 |
+| **기존 방식 대비** | VPN 대비 낮은 지연·높은 대역폭, Direct Connect/Interconnect 별도 계약 불필요 |
+
+{% hint style="info" %}
+AWS Interconnect는 멀티클라우드 아키텍처의 네트워크 계층을 근본적으로 단순화합니다. 다만 현재 GA 파트너가 Google Cloud만이므로, Azure/OCI 연결이 필요한 경우 기존 VPN/전용선 방식을 병행해야 합니다. 최신 파트너 확장 현황은 [AWS Interconnect 공식 페이지](https://aws.amazon.com/interconnect/)를 확인하세요.
 {% endhint %}
 
 ## 트랜짓 아키텍처 패턴
@@ -33,9 +48,9 @@ graph TD
 | 구간 | 연결 방식 | 비고 |
 | --- | --- | --- |
 | AWS 내부 VPC 간 | Transit Gateway Attachment | 리전 내 ~$0.02/GB |
-| AWS ↔ Azure | Site-to-Site VPN (TGW 연결) | BGP 경로 교환 |
-| AWS ↔ Google Cloud | AWS Interconnect – multicloud | GA (2026.04) |
-| AWS ↔ OCI | Oracle Interconnect for AWS | 2026년 내 출시 예정 |
+| AWS ↔ Google Cloud | AWS Interconnect – multicloud | GA (2026.04). 프라이빗 고속 연결, BGP 지원 |
+| AWS ↔ Azure | AWS Interconnect – multicloud | 2026년 내 출시 예정 |
+| AWS ↔ OCI | AWS Interconnect – multicloud | 2026년 내 출시 예정 |
 
 ## 이그레스 비용 비교
 

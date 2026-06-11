@@ -4,7 +4,7 @@ description: CI/CD 파이프라인, 벤더별 제품 비교, 배포 전략, 승�
 
 # CI/CD
 
-> 문서 기준: 2026년 5월
+> 문서 기준: 2026년 6월
 
 ## 개요
 
@@ -175,6 +175,41 @@ flowchart LR
 - **의존성 업데이트** — 빌드 도구, 플러그인, 베이스 이미지를 정기적으로 업데이트합니다.
 - **실행 시간 최적화** — 파이프라인이 느려지면 개발 생산성이 떨어집니다. 캐시, 병렬화를 점검합니다.
 - **Flaky Test 관리** — 간헐적으로 실패하는 테스트는 신뢰를 떨어뜨립니다. 격리하거나 수정합니다.
+
+## AI 에이전트와 CI/CD — GitHub Agentic Workflows
+
+2026년, CI/CD 파이프라인에 **AI 코딩 에이전트**를 통합하는 패턴이 등장했습니다. [GitHub Agentic Workflows](https://github.github.com/gh-aw/)(2026.02 Technical Preview)는 기존의 결정론적 CI/CD에 "Continuous AI" 능력을 추가합니다.
+
+### 개념
+
+| 기존 CI/CD | + Agentic Workflows |
+| --- | --- |
+| 이벤트 → 빌드 → 테스트 → 배포 | 이벤트 → **에이전트 분석/수정** → 빌드 → 테스트 → 배포 |
+| 사람이 코드 작성, 파이프라인 실행 | 에이전트가 이슈 분류, CI 실패 분석, 문서 유지, 테스트 개선 |
+
+### 동작 방식
+
+GitHub Actions 워크플로에서 AI 에이전트(Copilot, Claude Code, OpenAI Codex)를 **이벤트 트리거** 또는 **스케줄**로 실행합니다. 에이전트는 전용 임시 환경(GitHub Actions runner)에서 코드를 분석·수정하고 PR을 생성합니다.
+
+```yaml
+# 예시: 매일 아침 에이전트가 이슈를 분류하고 테스트를 개선
+on:
+  schedule:
+    - cron: '0 9 * * *'
+  issues:
+    types: [opened]
+```
+
+### 사용 사례
+
+- **이슈 자동 분류** — 새 이슈가 열리면 에이전트가 라벨링·우선순위 지정
+- **CI 실패 자동 분석** — 빌드 실패 시 에이전트가 원인을 분석하고 수정 PR 생성
+- **문서 자동 유지** — 코드 변경 시 관련 문서를 자동 업데이트
+- **Copilot Code Review** — PR에 대해 에이전트가 자동 리뷰 (6/1부터 Actions minutes 소비)
+
+{% hint style="warning" %}
+**보안 주의:** AI 에이전트가 CI/CD에서 비신뢰 입력(이슈 본문, PR 설명)을 처리하면 **간접 프롬프트 인젝션**으로 시크릿이 유출될 수 있습니다. 에이전트에 최소 권한만 부여하고, 비신뢰 입력을 정화(Sanitize)하세요. 상세는 [AI 보안 — CI/CD 에이전트 보안](../security/ai-security.md)을 참고하세요.
+{% endhint %}
 
 ## 참고하기
 

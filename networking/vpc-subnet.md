@@ -4,7 +4,7 @@ description: VPC/VNet/VCN 개념, 서브넷 설계, 보안 계층, 라우팅, VP
 
 # VPC와 서브넷
 
-> 문서 기준: 2026년 5월
+> 문서 기준: 2026년 6월
 
 ## 개요
 
@@ -26,6 +26,10 @@ description: VPC/VNet/VCN 개념, 서브넷 설계, 보안 계층, 라우팅, VP
 | Azure | VNet | 리전 | 리전 내 자유 배치 | 글로벌 피어링 가능 |
 | Google Cloud | VPC | **글로벌** | 리전 | 하나의 VPC에 여러 리전 서브넷 배치 가능 |
 | OCI | VCN | 리전 | 리전 또는 AD | Security Lists와 NSG 조합 |
+
+{% hint style="warning" %}
+**Azure VNet 변경 (2026.03~):** API 버전 `2025-07-01` 이후 새로 생성하는 가상 네트워크의 서브넷이 **기본 프라이빗**으로 변경되었습니다(enforcement 시점: 2026년 3월 31일). 기존에는 서브넷의 VM에 공인 IP가 할당될 수 있었으나, 이제 명시적으로 NAT Gateway 또는 공인 IP를 설정해야 아웃바운드 인터넷 접근이 가능합니다. 기존 VNet은 영향 없으며 신규 생성 시에만 적용됩니다. [공식 안내](https://techcommunity.microsoft.com/blog/azurenetworkingblog/private-subnets-by-default-in-azure-virtual-networks-what-changed-and-how-to-use/4513778)
+{% endhint %}
 
 ## 서브넷 설계
 

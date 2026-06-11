@@ -4,7 +4,7 @@ description: 임베딩 모델의 차원, 다국어 지원, 비용을 기준으�
 
 # 임베딩 모델 선택 가이드
 
-> 문서 기준: 2026년 5월
+> 문서 기준: 2026년 6월
 
 {% hint style="info" %}
 임베딩과 벡터 스토어 기초는 [벡터 스토어와 AI 데이터](vector-store.md)를 먼저 참고하세요. 이 문서는 임베딩 모델 선택이라는 한 가지 주제에 집중합니다.
@@ -57,6 +57,7 @@ text-embedding-3 시리즈는 **Matryoshka Representation** 를 지원하여 `di
 
 | 모델 | 차원 | 특징 | 참고 |
 | --- | --- | --- | --- |
+| **Cohere Embed 4** | 1024 | **멀티모달** (텍스트+이미지+텍스트+이미지 결합 입력), 100+ 언어. Embed 3의 후속 | [문서](https://docs.oracle.com/en-us/iaas/Content/generative-ai/embed-models.htm) |
 | cohere.embed-english-v3.0 | 1024 | 영어 특화 | [문서](https://docs.oracle.com/en-us/iaas/Content/generative-ai/embed-models.htm) |
 | cohere.embed-multilingual-v3.0 | 1024 | 100+ 언어 | [문서](https://docs.oracle.com/en-us/iaas/Content/generative-ai/embed-models.htm) |
 
@@ -86,6 +87,7 @@ text-embedding-3 시리즈는 **Matryoshka Representation** 를 지원하여 `di
 
 텍스트 외에 이미지/오디오/비디오도 검색해야 한다면:
 
+- **Cohere Embed 4** — 텍스트+이미지+결합 입력 멀티모달. OCI Enterprise AI에서 제공 ([Oracle AI 블로그](https://blogs.oracle.com/ai-and-datascience/whats-new-in-ai-june-2026))
 - **Amazon Nova Multimodal Embeddings** — 텍스트+이미지+비디오+오디오 통합 ([공식 발표](https://aws.amazon.com/blogs/machine-learning/power-video-semantic-search-with-amazon-nova-multimodal-embeddings/))
 - **Amazon Titan Multimodal Embeddings G1** — 텍스트+이미지
 - **Google Cloud multimodalembedding@001** — 텍스트+이미지+비디오

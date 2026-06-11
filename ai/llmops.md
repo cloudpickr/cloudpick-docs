@@ -97,7 +97,7 @@ graph LR
 
 | 패턴 | 설명 |
 | --- | --- |
-| **모델 Fallback** | 주 모델 장애/지연 시 대체 모델로 자동 전환 (예: Claude Opus 4.8 → GPT-5.5 → Gemini 3.5 Flash) |
+| **모델 Fallback** | 주 모델 장애/지연 시 대체 모델로 자동 전환 (예: Claude Fable 5 → GPT-5.5 → Gemini 3.5 Pro) |
 | **Rate Limit 대응** | 벤더 Rate Limit 도달 시 큐잉 또는 대체 프로바이더로 라우팅 |
 | **Budget Guardrail** | 일/월 비용 상한 설정. 초과 시 요청 거부 또는 저렴한 모델로 전환 |
 | **PII 마스킹** | 프롬프트/응답 로그에서 개인정보 자동 마스킹 후 저장 |

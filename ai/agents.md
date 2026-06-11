@@ -55,7 +55,7 @@ flowchart LR
 
 | 벤더 | 플랫폼 | 특징 |
 | --- | --- | --- |
-| AWS | [Amazon Bedrock AgentCore](https://aws.amazon.com/bedrock/agentcore/) | 프레임워크 비종속 인프라 플랫폼. Runtime, Gateway, Memory, Identity, Policy, Observability. 간단한 에이전트는 [Bedrock Agents](https://aws.amazon.com/bedrock/agents/)로도 가능 |
+| AWS | [Amazon Bedrock AgentCore](https://aws.amazon.com/bedrock/agentcore/) | 프레임워크 비종속 인프라 플랫폼. Runtime, Gateway, Memory, Identity, Policy, Observability. Claude Fable 5(Mythos급) 지원. 간단한 에이전트는 [Bedrock Agents](https://aws.amazon.com/bedrock/agents/)로도 가능 |
 | Azure | [Microsoft Foundry Agents](https://learn.microsoft.com/azure/ai-foundry/agents/) | Foundry Agent Service(GA). Responses API 기반 에이전트 런타임, MCP 인증 확장, Voice Live(Preview). 포털에서 빌드·배포·모니터링 통합 |
 | Google Cloud | [Gemini Enterprise Agent Platform](https://cloud.google.com/products/agent-builder) | Agent Builder + ADK(오픈소스), A2A 프로토콜 네이티브 지원 |
 | OCI | [OCI Enterprise AI Agents](https://docs.oracle.com/iaas/Content/generative-ai/agents.htm) | RAG 에이전트 기본 제공, Oracle DB 네이티브 연동, AI Guardrails(콘텐츠/PII/프롬프트 인젝션) 내장. 2026.03 GA |
@@ -134,10 +134,10 @@ graph LR
 
 | 제품 | 제공사 | 형태 | 특징 |
 | --- | --- | --- | --- |
-| [GitHub Copilot](https://github.com/features/copilot) | Microsoft | IDE + CLI + Cloud | Agent Mode, Copilot Workspace, Issue→PR 자율 생성 |
-| [Kiro](https://kiro.dev/) | AWS | IDE | Spec-driven 개발, Hooks 자동화 |
-| [Codex](https://openai.com/codex/) | OpenAI | Desktop + Bedrock | GPT-5.5 기반 멀티에이전트 병렬, Computer Use. Amazon Bedrock에서도 제공 |
-| [Claude Code](https://github.com/anthropics/claude-code) | Anthropic | CLI + Desktop | Opus 4.8 기반(88.6% SWE-bench), Agent Teams(병렬 서브에이전트), 29 hook events, 플러그인 마켓플레이스 |
+| [GitHub Copilot](https://github.com/features/copilot) | Microsoft | IDE + CLI + Desktop App | Agent Mode, Agent Merge(PR 자동 병합), Cloud Sessions, 캔버스, Voice |
+| [Kiro](https://kiro.dev/) | AWS | IDE + Web | Spec-driven 개발, Hooks 자동화, Kiro Web(GitHub/GitLab), Kiro Powers |
+| [Codex](https://openai.com/codex/) | OpenAI | Desktop + Bedrock + OCI | GPT-5.5 기반 멀티에이전트 병렬, Computer Use, Ona 인수로 장기 실행 에이전트 확장. Amazon Bedrock/OCI에서도 제공 |
+| [Claude Code](https://github.com/anthropics/claude-code) | Anthropic | CLI + Desktop | Fable 5 기반(80.3% SWE-bench Pro), Agent Teams(병렬 서브에이전트), 29 hook events, 플러그인 마켓플레이스 |
 | [Antigravity](https://antigravity.google/) | Google | IDE | Agent-first, Managed Agents via Gemini API, 병렬 에이전트, 멀티모델 |
 | [Grok Build](https://x.ai/news/grok-build-cli) | xAI | CLI | 8 병렬 서브에이전트(Git worktree 격리), plan-review-approve 워크플로, 70.8% SWE-bench |
 | [Hermes Agent](https://hermes-agent.nousresearch.com/) | Nous Research | CLI + Desktop (오픈소스) | 자기학습(스킬 자동 생성), NVIDIA RTX 로컬 |
@@ -146,8 +146,9 @@ graph LR
 ### 트렌드
 
 - **CLI → Desktop** — GUI 기반 멀티세션 관리, 원격 제어(Computer Use)
-- **비동기 실행** — 백그라운드 장시간 작업 후 PR로 결과 전달
+- **비동기 실행** — 백그라운드 장시간 작업 후 PR로 결과 전달. OpenAI의 Ona 인수로 Codex가 시간/일 단위 장기 에이전트로 확장
 - **코드 → 운영** — CI/CD, 인프라 프로비저닝, 모니터링까지 확장
+- **Web/브라우저** — Kiro Web(GitHub/GitLab), GitHub Copilot Cloud Sessions 등 브라우저 기반 에이전트 접근
 
 ### 개발 방법론 — Spec-driven vs Agent-first
 
@@ -155,7 +156,7 @@ graph LR
 
 | 방법론 | 대표 도구 | 사람의 역할 | 에이전트의 역할 |
 | --- | --- | --- | --- |
-| **Spec-driven** | Kiro | 요구사항·설계를 구조화된 스펙으로 작성 | 스펙에 따라 구현·테스트·검증 |
+| **Spec-driven** | Kiro (IDE/Web) | 요구사항·설계를 구조화된 스펙으로 작성 | 스펙에 따라 구현·테스트·검증 |
 | **Plan-review-approve** | Grok Build | 목표 전달 후 계획 승인 | 계획 수립 → 사람 승인 → 실행 |
 | **Conversational** | Claude Code, Copilot | 자연어로 지시·피드백 | 대화 흐름 안에서 코드 생성·수정 |
 | **Autonomous** | Codex, Devin | 이슈/티켓 할당 | 독립 브랜치에서 자율 완수 후 PR |

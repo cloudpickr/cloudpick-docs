@@ -137,9 +137,9 @@ graph LR
 | [GitHub Copilot](https://github.com/features/copilot) | Microsoft | IDE + CLI + Desktop App | Agent Mode, Agent Merge(PR 자동 병합), Cloud Sessions, 캔버스, Voice |
 | [Kiro](https://kiro.dev/) | AWS | IDE + Web | Spec-driven 개발, Hooks 자동화, Kiro Web(GitHub/GitLab), Kiro Powers |
 | [Codex](https://openai.com/codex/) | OpenAI | Desktop + Bedrock + OCI | GPT-5.5 기반 멀티에이전트 병렬, Computer Use, Ona 인수로 장기 실행 에이전트 확장. Amazon Bedrock/OCI에서도 제공 |
-| [Claude Code](https://github.com/anthropics/claude-code) | Anthropic | CLI + Desktop | Fable 5 기반(80.3% SWE-bench Pro), Agent Teams(병렬 서브에이전트), 29 hook events, 플러그인 마켓플레이스 |
+| [Claude Code](https://github.com/anthropics/claude-code) | Anthropic | CLI + Desktop | Fable 5/Opus 4.8 지원(SWE-bench Pro 80.3%, Anthropic 발표 기준), Agent Teams(병렬 서브에이전트), 29 hook events, 플러그인 마켓플레이스 |
 | [Antigravity](https://antigravity.google/) | Google | IDE | Agent-first, Managed Agents via Gemini API, 병렬 에이전트, 멀티모델 |
-| [Grok Build](https://x.ai/news/grok-build-cli) | xAI | CLI | 8 병렬 서브에이전트(Git worktree 격리), plan-review-approve 워크플로, 70.8% SWE-bench |
+| [Grok Build](https://x.ai/news/grok-build-cli) | xAI | CLI | 8 병렬 서브에이전트(Git worktree 격리), plan-review-approve 워크플로, 70.8% SWE-bench(xAI 발표 기준) |
 | [Hermes Agent](https://hermes-agent.nousresearch.com/) | Nous Research | CLI + Desktop (오픈소스) | 자기학습(스킬 자동 생성), NVIDIA RTX 로컬 |
 | [OpenCode](https://opencode.ai/) | Anomaly | CLI + Desktop (오픈소스) | 모델 비종속, 터미널/데스크톱/IDE 모두 지원 |
 

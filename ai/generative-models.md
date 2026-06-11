@@ -21,6 +21,7 @@ description: 생성형 AI 모델을 유형별(텍스트, 이미지, 음성, 비�
 | **음성 합성 (TTS)** | 텍스트 → 음성 | Amazon Polly, **MAI-Voice-1** (Foundry), Azure Speech, Google Cloud TTS, **xAI Voice** (OCI), OCI Speech | ARS, 오디오북, 접근성 |
 | **음성 인식 (STT)** | 음성 → 텍스트 | Amazon Transcribe, **MAI-Transcribe-1** (Foundry), Azure Speech, Google Cloud STT, OCI Speech | 회의록, 자막, 음성 검색 |
 | **비디오 생성** | 텍스트/이미지 → 비디오 | Amazon Nova Reel, Vertex AI(Veo 3.1, **Gemini Omni Flash**) | 광고, 숏폼 콘텐츠 |
+| **실시간 음성 대화/번역** | 음성 ↔ 음성 | **Gemini 3.5 Audio (Live Translate)**, GPT-5.5 Voice, Gemini 3.1 Flash Live | 실시간 통역, 음성 에이전트, 다국어 회의 |
 | **멀티모달** | 텍스트+이미지+음성 → 텍스트 | GPT-5.5, Gemini 3.5 Pro, Claude Fable 5(비전), **Gemini Omni**(any-to-any) | 문서 이해, 이미지 분석, 비디오 요약 |
 | **임베딩** | 텍스트/이미지 → 벡터 | Titan Embeddings, Microsoft Foundry Embeddings, **Gemini Embedding 2** (Vertex AI), **Cohere Embed 4**(멀티모달, OCI) | RAG, 유사도 검색 |
 
@@ -41,7 +42,7 @@ description: 생성형 AI 모델을 유형별(텍스트, 이미지, 음성, 비�
 | 벤더 | 서비스 | 특징 |
 | --- | --- | --- |
 | AWS | [Bedrock Model Catalog](https://docs.aws.amazon.com/bedrock/latest/userguide/models-supported.html) | Anthropic, Meta, Mistral 등 다수 3rd party 모델 호스팅 |
-| Azure | [Azure AI Model Catalog](https://learn.microsoft.com/azure/ai-studio/how-to/model-catalog-overview) | OpenAI 독점 + 오픈소스 모델 카탈로그 |
+| Azure | [Azure AI Model Catalog](https://learn.microsoft.com/azure/ai-studio/how-to/model-catalog-overview) | OpenAI 전략적 파트너 + 오픈소스 모델 카탈로그 |
 | Google Cloud | [Vertex AI Model Garden](https://cloud.google.com/model-garden) | Google + 오픈소스 모델 |
 | 공통 | Custom Model Import | 자체 모델 배포(BYOM)도 가능 |
 

@@ -43,7 +43,7 @@ description: 벤더별 AI 플랫폼, 모델 카탈로그, GPU/AI 칩, Applied AI
 | --- | --- | --- | --- |
 | AWS | [Amazon Bedrock](https://aws.amazon.com/bedrock/) | **Amazon Nova** (Nova Premier/Pro/Lite/Micro/Sonic), Anthropic Claude (**Fable 5**/Opus/Sonnet/Haiku), OpenAI GPT-5.5/5.4/GPT-OSS, Meta Llama, Mistral, NVIDIA Nemotron, DeepSeek, MiniMax, GLM ([지원 모델 목록](https://docs.aws.amazon.com/bedrock/latest/userguide/model-ids.html)) | 단일 API로 멀티 모델 선택. OpenAI Codex(GPT-5.5 기반)도 Bedrock에서 제공 |
 | Azure | [Microsoft Foundry(구 Azure OpenAI)](https://azure.microsoft.com/products/ai-services/openai-service) | OpenAI (GPT-5.5/5.4/5.4 mini/5.4 nano 시리즈, o-시리즈), Anthropic Claude, Meta Llama, Mistral, **MAI** (Image/Voice/Transcribe), DeepSeek V4 Pro, Kimi 2.6 ([Foundry 모델 카탈로그](https://ai.azure.com/catalog)) | OpenAI 주력 + 자체 MAI 모델군, Fireworks AI 통합, Foundry Local(로컬/단절망 실행) |
-| Google Cloud | [Vertex AI Model Garden](https://cloud.google.com/vertex-ai/generative-ai/docs/learn/models) | Google **Gemini 3.x/2.5** 시리즈 (3.5 Flash/3.5 Pro/3.1 Pro/2.5 Pro/2.5 Flash), **Gemini Omni** (비디오 생성), Anthropic Claude, xAI Grok, Meta Llama, Mistral, DeepSeek, OpenAI GPT-OSS ([Model Garden](https://cloud.google.com/vertex-ai/generative-ai/docs/learn/models)) | Gemini 3.5 Pro가 최신 플래그십(2M 토큰, Deep Think). 네이티브 멀티모달, Model Garden에 200+ 모델 |
+| Google Cloud | [Vertex AI Model Garden](https://cloud.google.com/vertex-ai/generative-ai/docs/learn/models) | Google **Gemini 3.x/2.5** 시리즈 (3.5 Flash/3.5 Pro/3.1 Pro/2.5 Pro/2.5 Flash), **Gemini Omni** (비디오 생성), Anthropic Claude, xAI Grok, Meta Llama, Mistral, DeepSeek, OpenAI GPT-OSS ([Model Garden](https://cloud.google.com/vertex-ai/generative-ai/docs/learn/models)) | Gemini 3.5 Flash GA, 3.5 Pro는 차기 주력(6월 GA 예정, 2M 토큰, Deep Think). 네이티브 멀티모달, Model Garden에 200+ 모델 |
 | OCI | [OCI Enterprise AI(구 OCI Generative AI)](https://docs.oracle.com/iaas/Content/generative-ai/home.htm) | Cohere Command, Meta Llama, xAI Grok 4.3, Google Gemini, OpenAI GPT-5.5/5.4/Codex(OCI Marketplace 예정), DeepSeek 등 ([지원 모델 목록](https://docs.oracle.com/en-us/iaas/Content/generative-ai/pretrained-models.htm)) | Oracle DB 네이티브 통합, **Dedicated AI Cluster** (전용 RDMA GPU, 타 테넌트 비공유), AI Guardrails(콘텐츠/PII/프롬프트 인젝션), 이그레스 10TB 무료 |
 | xAI | [xAI API](https://x.ai/api) | **Grok 4.3**, Grok 4.1 Fast, Imagine (이미지/비디오 생성) | 100만 토큰 컨텍스트 윈도우, 경쟁력 있는 가격, 추론·코딩 특화. OCI에서도 호스팅 제공 |
 
@@ -51,7 +51,7 @@ description: 벤더별 AI 플랫폼, 모델 카탈로그, GPU/AI 칩, Applied AI
 **모델 생태계는 빠르게 변합니다.** 최근에는 벤더 간 파트너십이 강화되어 "한 벤더 플랫폼에서 여러 제공사 모델 접근"이 일반화되었습니다:
 
 - **Amazon Bedrock** — Anthropic(전략적 투자 파트너, Claude Fable 5/Opus/Sonnet/Haiku 전 계열), OpenAI GPT-5.5/5.4 + Codex, Meta, Mistral, DeepSeek, NVIDIA 등 다수 제공사 호스팅
-- **Microsoft Foundry** — OpenAI 독점 파트너십 외에 Anthropic, Meta, Mistral, 자체 MAI 모델군(이미지/음성), Fireworks AI(DeepSeek V4 Pro, Kimi 2.6) 확장
+- **Microsoft Foundry** — OpenAI 전략적 파트너십 외에 Anthropic, Meta, Mistral, 자체 MAI 모델군(이미지/음성), Fireworks AI(DeepSeek V4 Pro, Kimi 2.6) 확장
 - **Gemini Enterprise Agent Platform** — Google 자체 Gemini 3.x/2.5(3.5 Pro/3.5 Flash/3.1 Pro) + Gemini Omni + Anthropic Claude + xAI Grok + 타사 모델 카탈로그
 - **OCI Enterprise AI** — Cohere, Meta Llama, xAI Grok 4.3, Google Gemini + OpenAI(GPT-5.5/5.4, Codex) OCI Marketplace 통해 제공 예정
 
@@ -106,7 +106,7 @@ description: 벤더별 AI 플랫폼, 모델 카탈로그, GPU/AI 칩, Applied AI
 
 **Microsoft Foundry** — 구 Azure AI Foundry가 브랜드를 통합한 상위 플랫폼입니다. OpenAI GPT-5.5/5.4 시리즈를 엔터프라이즈 환경에서 쓸 수 있는 주요 경로이며, Anthropic, Meta 등 타사 모델도 폭넓게 제공합니다. 자체 **MAI 모델군**(Image-2.5, Voice-1, Transcribe-1)과 **Foundry Local**(로컬/단절망 실행)이 추가되었습니다. Microsoft 365, GitHub, Power Platform 등 기존 Microsoft 생태계와의 깊은 통합이 최대 강점입니다.
 
-**Gemini Enterprise Agent Platform** — 구 Vertex AI가 에이전트 중심으로 전면 개편된 플랫폼입니다. Google 자체 **Gemini 3.x/2.5** 시리즈(3.5 Pro/3.5 Flash/3.1 Pro)의 네이티브 멀티모달 능력과 TPU 인프라가 강점입니다. Gemini 3.5 Pro는 2M 토큰 컨텍스트 윈도우와 Deep Think 추론을 지원하며, **Gemini Omni**(any-to-any 멀티모달 비디오 생성)와 Agent Studio를 통한 로우코드 에이전트 개발, Google Search/BigQuery와의 결합이 차별점입니다.
+**Gemini Enterprise Agent Platform** — 구 Vertex AI가 에이전트 중심으로 전면 개편된 플랫폼입니다. Google 자체 **Gemini 3.x/2.5** 시리즈(3.5 Pro/3.5 Flash/3.1 Pro)의 네이티브 멀티모달 능력과 TPU 인프라가 강점입니다. Gemini 3.5 Pro(6월 GA 예정)는 2M 토큰 컨텍스트 윈도우와 Deep Think 추론을 지원하며, **Gemini Omni**(any-to-any 멀티모달 비디오 생성)와 Agent Studio를 통한 로우코드 에이전트 개발, Google Search/BigQuery와의 결합이 차별점입니다.
 
 **OCI Enterprise AI** — 구 OCI Generative AI가 확장된 플랫폼입니다. Cohere, Meta Llama, xAI Grok 4.3, Google Gemini 등의 모델을 OCI 인프라에서 호스팅하며, 전용 AI 클러스터(Dedicated AI Cluster)와 RDMA 기반 Bare Metal GPU로 고성능 워크로드를 지원합니다. **AI Guardrails**(콘텐츠 모더레이션, PII 탐지, 프롬프트 인젝션 방어)와 **Enterprise AI Agents**(GA)가 추가되었습니다. OpenAI와의 파트너십으로 GPT-5.5/5.4 및 Codex를 OCI Marketplace에서 Oracle Universal Credits로 이용할 수 있게 될 예정이며, Oracle Database/애플리케이션과의 네이티브 통합이 강점입니다.
 
@@ -177,7 +177,7 @@ graph LR
 
 **운영 관점 핵심 사항:**
 
-- **모델 버전 수명 관리** — 벤더가 모델을 은퇴(deprecate)시키면 마이그레이션이 필요합니다. GPT-4o 은퇴(2026.02), Gemini 3 Pro Preview 중단(2026.03) 등 실제로 자주 발생합니다. 모델 ID를 코드에 고정하고 교체 시 반드시 평가를 거치세요.
+- **모델 버전 수명 관리** — 벤더가 모델을 은퇴(deprecate)시키면 마이그레이션이 필요합니다. GPT-4o 은퇴(2026.02), Gemini 3 Pro Preview 중단(2026.03), Claude Sonnet 4/Opus 4 단종(2026.06.15) 등 실제로 자주 발생합니다. 모델 ID를 코드에 고정하고 교체 시 반드시 평가를 거치세요.
 - **비용 거버넌스** — AI 비용은 사용량에 비례하여 예측이 어렵습니다. 일/월 예산 상한, 태스크별 토큰 한도, 비용 초과 알림을 반드시 설정하세요.
 - **데이터 드리프트** — RAG용 문서가 오래되면 답변 품질이 서서히 저하됩니다. 정기적인 데이터 갱신 파이프라인을 구성하세요.
 - **규정 준수** — 입출력 로그의 PII 마스킹, 데이터 보존 정책, 모델의 학습 데이터 사용 여부를 지속적으로 관리해야 합니다.

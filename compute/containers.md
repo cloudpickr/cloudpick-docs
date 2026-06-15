@@ -150,17 +150,9 @@ Day-2 운영 상세는 [Kubernetes 운영](../devops/kubernetes-operations.md)�
 
 ## 관련 문서
 
-{% content-ref url="../devops/cicd.md" %}
-[CI/CD](../devops/cicd.md)
-{% endcontent-ref %}
-
-{% content-ref url="../devops/iac.md" %}
-[IaC](../devops/iac.md)
-{% endcontent-ref %}
-
-{% content-ref url="serverless.md" %}
-[서버리스](serverless.md)
-{% endcontent-ref %}
+- [CI/CD](../devops/cicd.md)
+- [IaC](../devops/iac.md)
+- [서버리스](serverless.md)
 
 ## 참고하기
 

@@ -47,16 +47,8 @@ description: DevOps의 정의, GitOps, 플랫폼 엔지니어링, SLI/SLO/에러
 - 감사 = Git 로그가 곧 변경 이력
 - 드리프트 감지 = 클러스터 상태가 Git과 다르면 자동 복구
 
-| 도구 | 비고 |
-| --- | --- |
-| ArgoCD | Kubernetes GitOps. 가장 널리 사용 |
-| Flux | CNCF 프로젝트. 경량 GitOps |
-| AWS CodePipeline + GitSync | AWS 네이티브 |
-| Azure GitOps (Flux 기반) | AKS에 내장 |
-| Google Cloud Config Sync | GKE에 내장 |
-
 {% hint style="info" %}
-Kubernetes 환경에서의 GitOps 프로모션 전략, 클러스터 업그레이드, Day-2 운영 상세는 [Kubernetes 운영](kubernetes-operations.md)을 참고하세요.
+GitOps 도구 비교(ArgoCD, Flux, 벤더 네이티브), 프로모션 전략, 클러스터 업그레이드, Day-2 운영 상세는 [Kubernetes 운영](kubernetes-operations.md)을 참고하세요.
 {% endhint %}
 
 ## 플랫폼 엔지니어링

@@ -72,14 +72,11 @@ description: 메트릭/로그/트레이스, APM, SLO 모니터링, 알림 운영
 
 ## SLO 모니터링
 
-SLI/SLO/SLA 개념과 에러 버짓에 대해서는 [SLI/SLO와 에러 버짓](slo.md)에서 다룹니다. 아래는 SLO를 측정하기 위한 주요 CSP 도구입니다.
+SLO 모니터링은 서비스 신뢰도를 정량적으로 추적하는 핵심 활동입니다. 각 벤더는 SLO 정의, 에러 버짓 추적, 번다운 차트를 제공하는 전용 도구를 갖추고 있습니다.
 
-| 벤더 | 도구 | 기능 |
-| --- | --- | --- |
-| AWS | CloudWatch Application Signals | SLO 정의, 에러 버짓 추적, 서비스 맵 연동 |
-| Azure | Azure Monitor SLO (Preview) | SLI 기반 SLO 설정, 번다운 차트 |
-| Google Cloud | Cloud Monitoring SLO | SLO 정의, 에러 버짓 알림, 서비스 대시보드 |
-| OCI | OCI Monitoring + Alarms | 커스텀 메트릭 기반 SLO 구성 |
+{% hint style="info" %}
+SLI/SLO/SLA 개념, 에러 버짓 운영, 벤더별 SLO 도구 비교는 [SLI/SLO와 에러 버짓](slo.md)을 참고하세요.
+{% endhint %}
 
 ## 제품 비교
 

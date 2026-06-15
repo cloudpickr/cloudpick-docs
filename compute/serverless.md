@@ -70,7 +70,7 @@ VM과 컨테이너는 서버 생성과 배포를 자동화했지만, 여전히 "
 
 ## 핵심 차이점
 
-- **AWS Lambda** — 이벤트 소스 연동이 가장 풍부합니다. AWS 생태계 안에서 서버리스 아키텍처를 가장 완성도 높게 구성할 수 있습니다.
+- **AWS Lambda** — AWS 서비스와의 이벤트 소스 연동이 풍부합니다. API Gateway, S3, DynamoDB Streams 등 다양한 트리거를 네이티브로 지원합니다.
 - **Google Cloud Cloud Run** — 기존 컨테이너 이미지를 수정 없이 그대로 배포할 수 있어 마이그레이션 경로가 단순합니다.
 - **Azure Functions** — Durable Functions로 장시간 상태 유지 워크플로우까지 서버리스로 처리할 수 있습니다.
 - **OCI Functions** — Fn Project(오픈소스) 기반으로 Docker 컨테이너를 그대로 함수로 실행할 수 있어, 벤더 종속이 낮습니다.

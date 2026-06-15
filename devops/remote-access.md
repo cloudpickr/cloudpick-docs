@@ -180,3 +180,4 @@ CloudTrail은 세션 접근의 "관리 행위"를 자동으로 기록합니다:
 ### OCI
 
 - [OCI Bastion 문서](https://docs.oracle.com/en-us/iaas/Content/Bastion/home.htm)
+- [OCI IAM 동적 그룹과 정책](https://docs.oracle.com/en-us/iaas/Content/Identity/Tasks/managingdynamicgroups.htm)

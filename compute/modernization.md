@@ -8,11 +8,11 @@ description: 레거시 애플리케이션을 클라우드 네이티브로 전환
 
 ## 모더나이제이션이란
 
-**모더나이제이션** (Modernization)은 기존 애플리케이션을 클라우드 환경에 맞게 재구성하여 확장성, 배포 속도, 운영 효율을 개선하는 작업입니다.
+**모더나이제이션** (Modernization)은 기존 애플리케이션을 클라우드 환경에 맞게 재구성하여 확장성, 배포 속도, 운영 효율을 개선하는 작업입니다. 새로운 기능을 추가하는 것이 아니라, 기존 워크로드를 클라우드 모범 사례에 맞게 정렬하는 것이 핵심입니다.
 
-Microsoft 공식 정의:
-
-*"클라우드 모더나이제이션은 기존 클라우드 워크로드를 비즈니스 요구에 더 잘 맞도록 개선하는 실무로, 새 기능을 추가하지 않고 클라우드 모범 사례에 맞게 정렬하는 것입니다."* — [Microsoft Azure CAF](https://learn.microsoft.com/azure/cloud-adoption-framework/modernize/prepare-organization-cloud-modernization)
+{% hint style="info" %}
+각 벤더는 모더나이제이션 프레임워크를 제공합니다: [AWS Migration Hub](https://docs.aws.amazon.com/migrationhub/), [Azure CAF Modernize](https://learn.microsoft.com/azure/cloud-adoption-framework/modernize/), [Google Cloud Application Modernization](https://cloud.google.com/solutions/application-modernization).
+{% endhint %}
 
 ### 마이그레이션과의 차이
 

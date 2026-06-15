@@ -29,21 +29,15 @@ description: 전송 중/저장 시 암호화, WAF, 네트워크 보안을 벤더
 
 ## 저장 시 보안 (Encryption at Rest)
 
-저장된 데이터가 물리적으로 탈취되어도 읽을 수 없도록 암호화합니다.
-
-| 항목 | AWS | Azure | Google Cloud | OCI |
-| --- | --- | --- | --- | --- |
-| **기본 암호화** | 대부분 서비스 기본 활성화 (S3, EBS 등) | 모든 서비스 기본 활성화 | 모든 데이터 기본 암호화 | 모든 데이터 기본 암호화 |
-| **키 관리** | KMS (벤더 관리 키 / 고객 관리 키) | Key Vault | Cloud KMS | OCI Vault |
-| **고객 키** (CMK/CMEK) | KMS Customer Managed Key | Key Vault Customer Key | Cloud KMS CMEK | Vault Customer Managed Key |
-| **자체 키** (BYOK) | KMS External Key Store | Key Vault BYOK | Cloud External Key Manager (EKM) | Vault BYOK |
-| **HSM** | CloudHSM | Managed HSM | Cloud HSM | Vault HSM 키 |
-
-키 관리 수준에 따라 보안과 운영 복잡도가 달라집니다:
+저장된 데이터가 물리적으로 탈취되어도 읽을 수 없도록 암호화합니다. 모든 주요 CSP는 기본 암호화를 제공하며, 키 관리 수준에 따라 보안과 운영 복잡도가 달라집니다:
 
 - **벤더 관리 키** — 가장 간단. 벤더가 키 생성/교체/관리. 대부분의 워크로드에 적합.
 - **고객 관리 키** (CMK) — 키 교체 주기, 접근 정책을 직접 제어. 규제 요건 충족.
-- **자체 키** (BYOK/EKM) — 키를 온프레미스 HSM에서 관리. 가장 엄격한 규제 대응.
+- **자체 키** (BYOK/EKM/HYOK) — 키를 온프레미스 HSM에서 관리. 가장 엄격한 규제 대응.
+
+{% hint style="info" %}
+벤더별 KMS 서비스 비교, CMK/BYOK/EKM 상세, HSM 옵션은 [시크릿 관리 — 암호화 키 관리 모델](secrets.md)을 참고하세요.
+{% endhint %}
 
 ## 워크로드 보안
 
@@ -51,12 +45,11 @@ description: 전송 중/저장 시 암호화, WAF, 네트워크 보안을 벤더
 
 ### 네트워크 보안
 
-| 벤더 | 제품 | 비고 |
-| --- | --- | --- |
-| AWS | Security Groups, Network ACL, Network Firewall | SG: 인스턴스 단위. Network Firewall: VPC 단위 IDS/IPS |
-| Azure | NSG, Azure Firewall | Azure Firewall: L7 필터링 + 위협 인텔리전스 |
-| Google Cloud | Firewall Rules, Cloud Armor | Cloud Armor: DDoS 방어 + WAF |
-| OCI | Security Lists, NSG, OCI Network Firewall | Network Firewall: L7 IDS/IPS |
+전송 중인 데이터를 보호하려면 네트워크 수준의 접근 제어가 필수적입니다.
+
+{% hint style="info" %}
+Security Groups/NSG/Firewall Rules 등 네트워크 방화벽의 벤더별 비교는 [VPC와 서브넷](../networking/vpc-subnet.md)을, 네트워크 격리 아키텍처 패턴(Air-gap, 예방적 가드레일)은 [망분리와 네트워크 격리](network-isolation.md)를 참고하세요.
+{% endhint %}
 
 ### 웹 애플리케이션 방화벽 (WAF)
 

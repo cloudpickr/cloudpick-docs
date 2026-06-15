@@ -20,7 +20,7 @@ description: 범용, Arm, GPU 가상머신 제품과 이미지(OS 템플릿)를 
 
 | 벤더 | 제품 | 비고 |
 | --- | --- | --- |
-| AWS | EC2 (Elastic Compute Cloud) | 가장 다양한 인스턴스 유형 (400+) |
+| AWS | EC2 (Elastic Compute Cloud) | 400+ 인스턴스 유형. 범용·컴퓨팅·메모리·GPU 등 세분화 |
 | Azure | Virtual Machines | Windows 워크로드에 강점 (Hybrid Benefit) |
 | Google Cloud | Compute Engine | Custom Machine Type으로 CPU/메모리 자유 조합 |
 | OCI | OCI Compute | Flexible Shape으로 CPU/메모리 자유 조합. Ampere A1 무료 티어 |

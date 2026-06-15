@@ -10,21 +10,6 @@ description: 트랜짓 아키텍처 패턴, 이그레스 비용 상세 비교, D
 연결 방식 개요와 CIDR 설계는 [멀티클라우드 네트워킹 개요](../networking/multicloud-networking.md)를 참고하세요.
 {% endhint %}
 
-## AWS Interconnect — 멀티클라우드 프라이빗 연결
-
-2026년 4월 GA된 [AWS Interconnect – multicloud](https://aws.amazon.com/about-aws/whats-new/2026/04/aws-announces-ga-AWS-interconnect-multicloud/)는 AWS에서 다른 CSP로 **전용 프라이빗 고속 연결**을 제공하는 서비스입니다. 기존에는 VPN 또는 3rd party SD-WAN을 통해 클라우드 간을 연결해야 했으나, Interconnect는 벤더가 직접 제공하는 네이티브 연결로 설정이 간소화되고 지연/대역폭이 개선됩니다.
-
-| 항목 | 내용 |
-| --- | --- |
-| **GA 파트너** | Google Cloud (2026.04 GA) |
-| **예정 파트너** | Microsoft Azure, OCI (2026년 내) |
-| **특징** | 고복원력(Resilient), BGP 기반 라우팅, AWS 콘솔에서 단일 설정 |
-| **기존 방식 대비** | VPN 대비 낮은 지연·높은 대역폭, Direct Connect/Interconnect 별도 계약 불필요 |
-
-{% hint style="info" %}
-AWS Interconnect는 멀티클라우드 아키텍처의 네트워크 계층을 근본적으로 단순화합니다. 다만 현재 GA 파트너가 Google Cloud만이므로, Azure/OCI 연결이 필요한 경우 기존 VPN/전용선 방식을 병행해야 합니다. 최신 파트너 확장 현황은 [AWS Interconnect 공식 페이지](https://aws.amazon.com/interconnect/)를 확인하세요.
-{% endhint %}
-
 ## 트랜짓 아키텍처 패턴
 
 ### Hub-and-Spoke
@@ -43,14 +28,52 @@ graph TD
 - **장점:** 보안 정책을 허브에서 중앙 관리, 라우팅 단순화
 - **단점:** 허브가 병목/단일 장애점이 될 수 있음
 
-### AWS Transit Gateway + 타 벤더 연결
+### 클라우드 간 연결 방식별 서비스 매핑
 
-| 구간 | 연결 방식 | 비고 |
+| 벤더 | 내부 트랜짓 | 클라우드 간 직접 연결 |
 | --- | --- | --- |
-| AWS 내부 VPC 간 | Transit Gateway Attachment | 리전 내 ~$0.02/GB |
-| AWS ↔ Google Cloud | AWS Interconnect – multicloud | GA (2026.04). 프라이빗 고속 연결, BGP 지원 |
-| AWS ↔ Azure | AWS Interconnect – multicloud | 2026년 내 출시 예정 |
-| AWS ↔ OCI | AWS Interconnect – multicloud | 2026년 내 출시 예정 |
+| AWS | Transit Gateway | AWS Interconnect – multicloud |
+| Azure | Virtual WAN / VNet Peering | (파트너 연동: Google Cross-Cloud, Oracle Interconnect) |
+| Google Cloud | Cloud Router / NCC | Google Cross-Cloud Interconnect |
+| OCI | DRG (Dynamic Routing Gateway) | Oracle Interconnect (Azure, Google Cloud, AWS) |
+
+## 벤더 간 직접 연결 (Cross-Cloud Interconnect)
+
+주요 CSP는 경쟁 관계이면서도, 고객의 멀티클라우드 수요에 대응하여 벤더 간 전용 네트워크를 제공합니다. 인터넷을 거치지 않고 프라이빗하게 클라우드를 연결할 수 있습니다.
+
+2025년 12월 AWS re:Invent에서 AWS와 Google Cloud가 **오픈 상호운용 스펙** 기반의 공동 멀티클라우드 인터커넥트를 발표했습니다. Microsoft Azure도 이 스펙에 참여를 확인했으며, Oracle도 연동을 발표(2026.04)했습니다. 이 흐름은 단일 벤더의 이니셔티브가 아니라, 업계 전반의 멀티클라우드 상호운용 표준화 움직임입니다.
+
+| 서비스 | 연결 구간 | 상태 (2026년 6월 기준) |
+| --- | --- | --- |
+| [**AWS Interconnect – multicloud**](https://aws.amazon.com/interconnect/multicloud/) | AWS ↔ Google Cloud | GA (2026.04). Azure, OCI는 2026년 내 추가 예정 |
+| [**Google Cross-Cloud Interconnect**](https://cloud.google.com/network-connectivity/docs/interconnect/concepts/cross-cloud-overview) | Google Cloud ↔ AWS/Azure/OCI | GA. 오픈 상호운용 스펙 기반 |
+| [**Oracle Interconnect for Azure**](https://docs.oracle.com/iaas/Content/multicloud/interconnect-azure.htm) | OCI ↔ Azure | GA. 크로스 클라우드 데이터 전송 무료 |
+| [**Oracle Interconnect for AWS**](https://docs.oracle.com/iaas/Content/multicloud/interconnect-aws.htm) | OCI ↔ AWS | 2026년 내 출시 예정 (AWS Interconnect–multicloud 연동) |
+| [**Oracle Interconnect for Google Cloud**](https://docs.oracle.com/iaas/Content/Network/Concepts/access-to-google-cloud-platform.htm) | OCI ↔ Google Cloud | GA. 크로스 클라우드 데이터 전송 무료 |
+
+### 가용 구간 매트릭스
+
+| | AWS | Azure | Google Cloud | OCI |
+| --- | --- | --- | --- | --- |
+| **AWS** | — | 예정 (2026) | ✅ GA | 예정 (2026) |
+| **Azure** | 예정 (2026) | — | ✅ GA | ✅ GA |
+| **Google Cloud** | ✅ GA | ✅ GA | — | ✅ GA |
+| **OCI** | 예정 (2026) | ✅ GA | ✅ GA | — |
+
+### Cross-Cloud Interconnect vs 전용 연결 + IX
+
+| 비교 항목 | Cross-Cloud Interconnect | 전용 연결 + IX (Direct Connect + ExpressRoute 등) |
+| --- | --- | --- |
+| **경유 지점** | 벤더 간 직접 연결 (단일 홉) | IX 또는 코로케이션 시설 경유 (2~3홉) |
+| **설정 복잡도** | 콘솔에서 상대 벤더 선택 후 프로비저닝 | 양쪽 전용 연결 + IX 포트 + BGP 설정 |
+| **레이턴시** | 최소 (같은 메트로 내 직접 연결) | IX 경유로 약간 높음 |
+| **비용 구조** | 포트 비용 + 데이터 전송 (OCI는 전송 무료) | 양쪽 전용 연결 비용 + IX 포트 비용 |
+| **가용 구간** | 벤더가 지원하는 구간만 | IX가 있는 모든 구간 |
+
+**선택 기준:**
+
+- 벤더 간 직접 연결이 지원되는 구간이면 Cross-Cloud Interconnect가 단순하고 레이턴시도 낮음
+- 아직 지원되지 않는 구간(예: AWS ↔ Azure)이거나 온프레미스도 함께 연결해야 하면 IX 경유 방식 사용
 
 ## 이그레스 비용 비교
 
@@ -110,37 +133,6 @@ graph TD
 **팁:** Route 53 Resolver의 아웃바운드 엔드포인트를 허브로 사용하면, AWS에서 Azure/Google Cloud의 프라이빗 레코드를 조회할 수 있습니다.
 {% endhint %}
 
-## 벤더 간 직접 연결 (Cross-Cloud Interconnect)
-
-주요 CSP는 경쟁 관계이면서도, 고객의 멀티클라우드 수요에 대응하여 벤더 간 전용 네트워크를 제공합니다. 인터넷을 거치지 않고 프라이빗하게 클라우드를 연결할 수 있습니다.
-
-| 서비스 | 연결 구간 | 상태 (2026년 4월 기준) |
-| --- | --- | --- |
-| **[AWS Interconnect – multicloud](https://aws.amazon.com/interconnect/multicloud/)** | AWS ↔ Google Cloud | GA (2026.04). Azure, OCI는 2026년 내 추가 예정 |
-| **[Google Cross-Cloud Interconnect](https://cloud.google.com/network-connectivity/docs/interconnect/concepts/cross-cloud-overview)** | Google Cloud ↔ AWS/Azure/OCI | GA. AWS와 공동 개발한 오픈 상호운용 스펙 기반 |
-| **[Oracle Interconnect for Azure](https://docs.oracle.com/iaas/Content/multicloud/interconnect-azure.htm)** | OCI ↔ Azure | GA. 크로스 클라우드 데이터 전송 무료 |
-| **[Oracle Interconnect for Google Cloud](https://docs.oracle.com/iaas/Content/Network/Concepts/access-to-google-cloud-platform.htm)** | OCI ↔ Google Cloud | GA. 크로스 클라우드 데이터 전송 무료 |
-| **Oracle Interconnect for AWS** | OCI ↔ AWS | 2026년 내 출시 예정 (AWS Interconnect–multicloud 연동) |
-
-{% hint style="info" %}
-2025년 12월 AWS re:Invent에서 AWS와 Google Cloud가 오픈 상호운용 스펙 기반의 공동 멀티클라우드 인터커넥트를 발표했습니다. Microsoft Azure도 이 스펙에 참여를 확인했으며, Oracle도 AWS Interconnect–multicloud와의 연동을 발표(2026.04)했습니다.
-{% endhint %}
-
-### Cross-Cloud Interconnect vs 전용 연결 + IX
-
-| 비교 항목 | Cross-Cloud Interconnect | 전용 연결 + IX (Direct Connect + ExpressRoute 등) |
-| --- | --- | --- |
-| **경유 지점** | 벤더 간 직접 연결 (단일 홉) | IX 또는 코로케이션 시설 경유 (2~3홉) |
-| **설정 복잡도** | 콘솔에서 상대 벤더 선택 후 프로비저닝 | 양쪽 전용 연결 + IX 포트 + BGP 설정 |
-| **레이턴시** | 최소 (같은 메트로 내 직접 연결) | IX 경유로 약간 높음 |
-| **비용 구조** | 포트 비용 + 데이터 전송 (OCI는 전송 무료) | 양쪽 전용 연결 비용 + IX 포트 비용 |
-| **가용 구간** | 벤더가 지원하는 구간만 | IX가 있는 모든 구간 |
-
-**선택 기준:**
-
-- 벤더 간 직접 연결이 지원되는 구간이면 Cross-Cloud Interconnect가 단순하고 레이턴시도 낮음
-- 아직 지원되지 않는 구간(예: AWS ↔ Azure)이거나 온프레미스도 함께 연결해야 하면 IX 경유 방식 사용
-
 ## 자주 하는 실수
 
 - **이그레스 비용을 사전에 추정하지 않음** — 클라우드 간 데이터 이동이 월 수천 달러에 달할 수 있습니다. 아키텍처 설계 시 데이터 흐름과 비용을 함께 계산하세요.
@@ -159,6 +151,7 @@ graph TD
 
 - [AWS — Hybrid Connectivity](https://docs.aws.amazon.com/whitepapers/latest/hybrid-connectivity/hybrid-connectivity.html)
 - [AWS Direct Connect](https://aws.amazon.com/ko/directconnect/)
+- [AWS Interconnect](https://aws.amazon.com/interconnect/)
 
 ### Azure
 
@@ -173,6 +166,7 @@ graph TD
 ### OCI
 
 - [OCI FastConnect](https://docs.oracle.com/en-us/iaas/Content/Network/Concepts/fastconnect.htm)
+- [Oracle Interconnect for Azure](https://docs.oracle.com/iaas/Content/multicloud/interconnect-azure.htm)
 
 ### 표준 및 커뮤니티
 

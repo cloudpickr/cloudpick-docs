@@ -62,11 +62,7 @@ description: 키-값, 문서, 와이드 컬럼, 그래프 등 NoSQL 유형별 �
 
 ### 검색 / 로그 분석 엔진
 
-| 벤더 | 제품 | 비고 |
-| --- | --- | --- |
-| AWS | OpenSearch Service | Elasticsearch/OpenSearch 관리형. 검색 + 로그 분석 + 대시보드 |
-| Azure | Azure AI Search (구 Cognitive Search) | 검색 + AI 보강(벡터, 시맨틱) |
-| OCI | OCI Search with OpenSearch | OpenSearch 관리형. 검색 + 로그 분석 |
+검색 엔진(Elasticsearch/OpenSearch 계열)은 NoSQL 인접 영역으로, 전문 검색과 로그 분석에 특화되어 있습니다. 벤더별 서비스 비교는 [검색 엔진](search.md)을 참고하세요.
 
 ### 그래프 DB
 
@@ -81,7 +77,7 @@ description: 키-값, 문서, 와이드 컬럼, 그래프 등 NoSQL 유형별 �
 
 ## 핵심 차이점
 
-**AWS DynamoDB** — 완전 서버리스로 용량 관리가 불필요합니다. 단일 자릿수 밀리초 지연을 보장하며, DAX(인메모리 캐시)를 추가하면 마이크로초 지연도 가능합니다.
+**AWS DynamoDB** — 완전 서버리스로 용량 관리가 불필요합니다. 단일 자릿수 밀리초 지연을 제공하며, DAX(인메모리 캐시)를 추가하면 마이크로초 수준 응답도 가능합니다.
 
 **Azure Cosmos DB** — 하나의 서비스로 문서, 키-값, 그래프, 와이드 컬럼을 모두 지원합니다. 글로벌 분산(멀티 리전 쓰기)이 기본 기능으로 내장되어 있습니다.
 

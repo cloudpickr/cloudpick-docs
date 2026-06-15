@@ -37,9 +37,9 @@ description: 데이터 웨어하우스, 데이터 레이크하우스, 분석 플
 
 ### 핵심 차이점
 
-**BigQuery (Google Cloud)** — 완전 서버리스로 클러스터 관리가 불필요합니다. 쿼리가 스캔한 데이터량으로 과금되어, 사용하지 않으면 비용이 0입니다. BigQuery ML로 SQL만으로 ML 모델을 학습할 수 있습니다.
+**BigQuery (Google Cloud)** — 완전 서버리스로 클러스터 관리가 불필요합니다. 쿼리 스캔 데이터량 기반 과금이며, BigQuery ML로 SQL 기반 ML 학습을 지원합니다.
 
-**Redshift (AWS)** — 전통적 클러스터 기반이지만 Serverless 옵션도 제공합니다. S3의 데이터를 Redshift Spectrum으로 직접 쿼리할 수 있어 데이터 레이크와 통합이 용이합니다.
+**Redshift (AWS)** — 클러스터 기반과 Serverless 옵션을 모두 제공합니다. S3의 데이터를 Redshift Spectrum으로 직접 쿼리할 수 있어 데이터 레이크와 통합이 용이합니다.
 
 **Synapse (Azure)** — SQL 분석, Apache Spark, Data Explorer를 하나의 플랫폼에서 제공합니다. 서버리스 SQL 풀로 데이터 레이크를 직접 쿼리할 수 있으며, Power BI와 네이티브 통합됩니다.
 

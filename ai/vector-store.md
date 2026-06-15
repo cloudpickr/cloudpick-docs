@@ -126,26 +126,19 @@ graph LR
 
 임베딩 모델이 생성하는 벡터의 크기(차원)가 저장 공간과 검색 속도를 결정합니다.
 
-| 모델 | 차원 | 비고 |
-| --- | --- | --- |
-| OpenAI text-embedding-3-small | 1536 | 가장 널리 사용 |
-| OpenAI text-embedding-3-large | 3072 | 고품질, 더 많은 공간 |
-| Amazon Titan Embeddings | 384~1536 | 조정 가능 |
-| Cohere Embed | 1024 | 다국어 강점 |
-| Google Gemini Embedding 2 | 768~3072 | Vertex AI 최신 |
-
 간단한 계산: 1,000,000개 × 1536차원 × 4바이트 = **약 6GB**
+
+{% hint style="info" %}
+임베딩 모델별 차원, 성능 비교, 선택 기준은 [임베딩 모델 비교](embedding-models.md)를 참고하세요.
+{% endhint %}
 
 ### 하이브리드 검색
 
-벡터 검색은 의미에 강하지만, 제품 코드(`SKU-12345`) 같은 **정확한 문자열** 에는 약합니다. **하이브리드 검색**은 벡터 검색 + 전통적인 키워드 검색(BM25)을 조합합니다.
+벡터 검색은 의미에 강하지만, 제품 코드(`SKU-12345`) 같은 **정확한 문자열** 에는 약합니다. **하이브리드 검색**은 벡터 검색 + 전통적인 키워드 검색(BM25)을 조합하여 정밀도를 높입니다.
 
-| 벤더 | 하이브리드 지원 방식 |
-| --- | --- |
-| AWS OpenSearch | Vector + BM25 결합 (RRF 알고리즘) |
-| Azure AI Search | 벡터 + 키워드 + 시맨틱 랭킹 자동 결합 |
-| Google Cloud Vertex AI Vector Search | Filter로 키워드 조건 추가 |
-| OCI AI Vector Search | SQL로 벡터 + 관계형 조건 조합 |
+{% hint style="info" %}
+하이브리드 검색의 벤더별 지원 방식, 구현 패턴, RRF 알고리즘 등 상세는 [RAG 고급 패턴](rag-patterns.md)을 참고하세요.
+{% endhint %}
 
 ## 자주 하는 실수
 

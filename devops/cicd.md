@@ -158,16 +158,6 @@ flowchart LR
 - [ ] 롤백 전략(이전 버전 재배포 또는 롤포워드)을 수립했는가
 - [ ] 파이프라인 실행 시간을 모니터링하고 병목을 관리하고 있는가
 
-## 관련 문서
-
-{% content-ref url="iac.md" %}
-[코드로 관리하는 인프라 (IaC)](iac.md)
-{% endcontent-ref %}
-
-{% content-ref url="slo.md" %}
-[SLI/SLO와 에러 버짓](slo.md)
-{% endcontent-ref %}
-
 ## 지속적으로 해야 할 것
 
 파이프라인은 한 번 구축하면 끝이 아닙니다. 파이프라인 자체도 유지보수 대상입니다.
@@ -210,6 +200,11 @@ on:
 {% hint style="warning" %}
 **보안 주의:** AI 에이전트가 CI/CD에서 비신뢰 입력(이슈 본문, PR 설명)을 처리하면 **간접 프롬프트 인젝션**으로 시크릿이 유출될 수 있습니다. 에이전트에 최소 권한만 부여하고, 비신뢰 입력을 정화(Sanitize)하세요. 상세는 [AI 보안 — CI/CD 에이전트 보안](../security/ai-security.md)을 참고하세요.
 {% endhint %}
+
+## 관련 문서
+
+- [코드로 관리하는 인프라 (IaC)](iac.md)
+- [SLI/SLO와 에러 버짓](slo.md)
 
 ## 참고하기
 

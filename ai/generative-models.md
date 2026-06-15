@@ -71,7 +71,18 @@ description: 생성형 AI 모델을 유형별(텍스트, 이미지, 음성, 비�
 
 ## 참고하기
 
+### AWS
+
 - [AWS Bedrock 지원 모델](https://docs.aws.amazon.com/bedrock/latest/userguide/models-supported.html)
+
+### Azure
+
 - [Microsoft Foundry 모델 목록](https://learn.microsoft.com/azure/ai-services/openai/concepts/models)
+
+### Google Cloud
+
 - [Vertex AI Model Garden](https://cloud.google.com/model-garden)
+
+### OCI
+
 - [OCI Enterprise AI(구 OCI Generative AI)](https://docs.oracle.com/iaas/Content/generative-ai/home.htm)

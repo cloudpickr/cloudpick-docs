@@ -14,23 +14,14 @@ description: 플랫폼 엔지니어링과 IDP(Internal Developer Platform)의 �
 
 ## IDP (Internal Developer Platform)
 
-| 구성 요소 | 역할 | 도구 예시 |
-| --- | --- | --- |
-| **개발자 포털** | 서비스 카탈로그, 문서, API 목록 | [Backstage](https://backstage.io/), [Port](https://www.getport.io/), [Humanitec](https://humanitec.com/) |
-| **셀프서비스 인프라** | 개발자가 직접 환경 생성/삭제 | Terraform 모듈 + GitOps, Crossplane |
-| **Golden Path** | 권장 아키텍처 템플릿 | Backstage Software Templates, Cookiecutter |
-| **가드레일** | 보안/비용/규정 준수 자동 강제 | OPA, Azure Policy, AWS SCP |
-| **관측가능성** | 서비스 상태 대시보드 | Grafana, Backstage TechDocs |
-
-### 플랫폼 팀이 주로 만드는 컴포넌트
-
-| 컴포넌트 | 역할 | 자주 쓰는 오픈소스/도구 |
+| 컴포넌트 | 역할 | 주요 도구 |
 | --- | --- | --- |
 | **개발자 포털** | 서비스 카탈로그, 소유자 추적, 온보딩 | Backstage (CNCF Incubating), Port, Cortex |
 | **인프라 셀프서비스** | PR로 환경 요청 → 자동 프로비저닝 | Crossplane, Terraform + Atlantis, Pulumi Operator |
+| **Golden Path** | 권장 아키텍처 템플릿으로 빠른 시작 | Backstage Software Templates, Cookiecutter |
 | **CI/CD 파이프라인 (공통)** | 표준화된 빌드/배포 파이프라인 템플릿 | Argo CD, Flux, Tekton, GitHub Actions reusable workflows |
 | **시크릿 관리** | 벤더 시크릿을 K8s/앱에 주입 | External Secrets Operator, HashiCorp Vault |
-| **관측가능성 스택** | 메트릭, 로그, 트레이스 통합 수집 | OpenTelemetry, Prometheus, Grafana, Loki, Tempo |
+| **관측가능성 스택** | 메트릭, 로그, 트레이스 통합 수집 | OpenTelemetry, Prometheus, Grafana, Loki |
 | **정책 엔진 (가드레일)** | 보안/비용/규정 준수 자동 강제 | OPA/Gatekeeper, Kyverno, Checkov, tfsec |
 | **비용 가시성** | 팀/서비스별 비용 할당, 알림 | OpenCost, Kubecost, Infracost |
 | **환경 관리** | 임시 환경(Preview Env) 생성/삭제 | Argo CD ApplicationSet, vCluster |

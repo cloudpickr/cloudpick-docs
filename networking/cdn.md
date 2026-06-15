@@ -122,12 +122,14 @@ CDN을 통해 배포하면서도 접근을 제한해야 하는 경우 (유료 �
 | AWS | CloudFront | 400+ 엣지 로케이션. Origin Shield(오리진 보호 캐시 계층) |
 | Azure | Azure CDN / Front Door | Front Door에 CDN + WAF + 글로벌 LB 통합 |
 | Google Cloud | Cloud CDN | Cloud Load Balancing과 통합. 캐시 무효화 빠름 |
+| OCI | OCI CDN (Akamai/Fastly 파트너십) | 글로벌 CDN은 파트너 연동. Edge Services로 WAF/DDoS 통합 |
 
 ### 핵심 차이점
 
-- **AWS CloudFront** — 엣지 로케이션 수가 가장 많고, Lambda@Edge/CloudFront Functions로 엣지에서 코드를 실행할 수 있습니다. Origin Shield로 오리진 부하를 추가로 줄일 수 있습니다.
+- **AWS CloudFront** — 엣지 로케이션 수가 많고, Lambda@Edge/CloudFront Functions로 엣지에서 코드를 실행할 수 있습니다. Origin Shield로 오리진 부하를 추가로 줄일 수 있습니다.
 - **Azure Front Door** — CDN, 글로벌 로드밸런서, WAF를 하나의 서비스로 통합합니다. 별도 CDN 설정 없이 Front Door 하나로 전체 트래픽을 관리할 수 있습니다.
-- **Google Cloud Cloud CDN** — Cloud Load Balancing에 체크박스 하나로 활성화할 수 있어 설정이 가장 간단합니다. 캐시 무효화가 수 초 내에 전파됩니다.
+- **Google Cloud Cloud CDN** — Cloud Load Balancing에 체크박스 하나로 활성화할 수 있어 설정이 간단합니다. 캐시 무효화가 수 초 내에 전파됩니다.
+- **OCI** — 자체 CDN 서비스 대신 Akamai, Fastly 등 전문 CDN과의 파트너십을 통해 글로벌 배포를 지원합니다. Edge Services에서 WAF와 DDoS 보호를 제공합니다.
 
 ## 글로벌 네트워크 가속기
 

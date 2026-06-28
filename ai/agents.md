@@ -55,7 +55,7 @@ flowchart LR
 
 | 벤더 | 플랫폼 | 특징 |
 | --- | --- | --- |
-| AWS | [Amazon Bedrock AgentCore](https://aws.amazon.com/bedrock/agentcore/) | 프레임워크 비종속 인프라 플랫폼. Runtime, Gateway, Memory, Identity, Policy, Observability. Claude Fable 5(Mythos급) 지원. 간단한 에이전트는 [Bedrock Agents](https://aws.amazon.com/bedrock/agents/)로도 가능 |
+| AWS | [Amazon Bedrock AgentCore](https://aws.amazon.com/bedrock/agentcore/) | 프레임워크 비종속 인프라 플랫폼. Runtime, Gateway, Memory, Identity, Policy, Observability. Claude Fable 5(Mythos급) 지원. **Harness GA (2026.06):** CreateHarness + InvokeHarness 두 API로 프로덕션 에이전트 배포. 격리된 실행 환경, 세션 메모리, MCP 도구 지원, CloudWatch 자동 추적. 간단한 에이전트는 [Bedrock Agents](https://aws.amazon.com/bedrock/agents/)로도 가능 |
 | Azure | [Microsoft Foundry Agents](https://learn.microsoft.com/azure/ai-foundry/agents/) | Foundry Agent Service(GA). Responses API 기반 에이전트 런타임, MCP 인증 확장, Voice Live(Preview). 포털에서 빌드·배포·모니터링 통합 |
 | Google Cloud | [Gemini Enterprise Agent Platform](https://cloud.google.com/products/agent-builder) | Agent Builder + ADK(오픈소스), A2A 프로토콜 네이티브 지원 |
 | OCI | [OCI Enterprise AI Agents](https://docs.oracle.com/iaas/Content/generative-ai/agents.htm) | RAG 에이전트 기본 제공, Oracle DB 네이티브 연동, AI Guardrails(콘텐츠/PII/프롬프트 인젝션) 내장. 2026.03 GA |

@@ -4,7 +4,7 @@ description: 관리형 RDB와 클라우드 네이티브 DB의 차이, HA 구성,
 
 # 관리형 RDB
 
-> 문서 기준: 2026년 5월
+> 문서 기준: 2026년 6월
 
 ## 개요
 
@@ -105,7 +105,7 @@ Oracle은 자사 데이터베이스를 경쟁사 데이터센터 안에 직접 �
 | 서비스 | 배치 위치 | 특징 |
 | --- | --- | --- |
 | [Oracle Database@Azure](https://www.oracle.com/cloud/azure/) | Azure DC | Azure Portal에서 네이티브 프로비저닝 |
-| [Oracle Database@AWS](https://www.oracle.com/cloud/aws/) | AWS DC | AWS 콘솔에서 직접 사용 |
+| [Oracle Database@AWS](https://www.oracle.com/cloud/aws/) | AWS DC | AWS 콘솔에서 직접 프로비저닝. Oracle Autonomous AI Database Serverless GA (2026.06). DB@AWS 전체 20개 리전 |
 | [Oracle Database@Google Cloud](https://www.oracle.com/cloud/google/) | Google Cloud DC | Google Cloud 콘솔에서 직접 사용 |
 
 앱과 DB가 같은 데이터센터에 있어 레이턴시 최소화, 이그레스 비용 없음, 데이터 주권 충족이 가능합니다.

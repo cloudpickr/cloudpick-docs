@@ -4,7 +4,7 @@ description: 한국 ISMS-P, CSAP와 글로벌 ISO 27001, SOC 2 등 클라우드 
 
 # 규정 준수 (Compliance)
 
-> 문서 기준: 2026년 5월
+> 문서 기준: 2026년 6월
 
 ## 개요
 
@@ -93,6 +93,13 @@ CSAP 제도는 N2SF(국가망보안체계) 1.0 공개(2025.9)에 따라 등급�
 - [Azure ISO 27001](https://learn.microsoft.com/azure/compliance/offerings/offering-iso-27001)
 - [Google Cloud ISO 27001](https://cloud.google.com/security/compliance/iso-27001)
 - [Oracle ISO 27001](https://www.oracle.com/corporate/cloud-compliance/)
+
+### ISO/IEC 42001 — AI 관리 체계
+
+AI 시스템의 개발·운영에 대한 국제 표준 관리 체계 인증입니다. 책임 있는 AI 거버넌스를 위한 프레임워크를 제공합니다.
+
+- OCI AI 서비스(Enterprise AI, AI Services)가 2026년 6월 ISO/IEC 42001 인증을 취득
+- [Oracle Cloud Compliance](https://www.oracle.com/corporate/cloud-compliance/)
 
 ### SOC 1 / SOC 2 / SOC 3
 
@@ -237,5 +244,6 @@ AICPA(미국 공인회계사 협회) 기반 감사 보고서. 엔터프라이즈
 ### 국제 표준
 
 - [ISO/IEC 27001](https://www.iso.org/standard/27001)
+- [ISO/IEC 42001](https://www.iso.org/standard/81230.html) — AI 관리 체계
 - [NIST SP 800-53](https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final)
 - [CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks)

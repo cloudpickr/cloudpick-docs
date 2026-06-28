@@ -1,13 +1,13 @@
 ---
-description: 트랜짓 아키텍처 패턴, 이그레스 비용 상세 비교, DNS 통합 전략 등 멀티클라우드 네트워크 심화 내용입니다.
+description: Hub-and-Spoke 등 트랜짓 아키텍처, Cross-Cloud Interconnect, 이그레스 비용 최적화, 멀티클라우드 DNS 통합 전략을 설명합니다.
 ---
 
-# 멀티클라우드 커넥티비티 (심화)
+# 멀티클라우드 네트워크 아키텍처
 
 > 문서 기준: 2026년 6월
 
 {% hint style="info" %}
-연결 방식 개요와 CIDR 설계는 [멀티클라우드 네트워킹 개요](../networking/multicloud-networking.md)를 참고하세요.
+연결 방식 개요와 CIDR 설계는 [멀티클라우드 네트워크 설계 기초](multicloud-networking.md)를 참고하세요.
 {% endhint %}
 
 ## 트랜짓 아키텍처 패턴

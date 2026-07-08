@@ -4,7 +4,7 @@ description: 관리형 Kubernetes, 서버리스 컨테이너, 컨테이너 레�
 
 # 컨테이너 서비스
 
-> 문서 기준: 2026년 6월
+> 문서 기준: 2026년 7월
 
 ## 개요
 
@@ -51,7 +51,7 @@ EKS를 아시는 분을 위해: Azure는 AKS, Google Cloud는 GKE, OCI는 OKE입
 
 ## 핵심 차이점
 
-- **AWS** — ECS(자체 오케스트레이터)와 EKS(Kubernetes) 두 가지 선택지를 제공합니다.
+- **AWS** — ECS(자체 오케스트레이터)와 EKS(Kubernetes) 두 가지 선택지를 제공합니다. ECS service auto scaling은 고해상도(20초) 메트릭을 지원하여 기존 대비 스케일아웃 트리거가 약 4배 빨라졌습니다(363초→86초).
 - **Azure** — Container Apps로 K8s를 몰라도 컨테이너를 운영할 수 있습니다.
 - **Google Cloud** — Cloud Run으로 가장 간단하게 컨테이너를 서버리스 환경에서 실행할 수 있습니다.
 - **OCI** — OKE 컨트롤 플레인이 무료이며, Virtual Nodes로 서버리스 Kubernetes 운영이 가능합니다.

@@ -4,7 +4,7 @@ description: 범용, Arm, GPU 가상머신 제품과 이미지(OS 템플릿)를 
 
 # 가상머신
 
-> 문서 기준: 2026년 5월
+> 문서 기준: 2026년 7월
 
 ## 개요
 
@@ -38,9 +38,9 @@ description: 범용, Arm, GPU 가상머신 제품과 이미지(OS 템플릿)를 
 
 | 벤더 | 제품 | 비고 |
 | --- | --- | --- |
-| AWS | P5, G5, Inf2, Trn1 | NVIDIA + 자체 칩(Inferentia, Trainium) |
+| AWS | P5, **G7**, G5, Inf2, Trn1/Trn2 | NVIDIA (H100, **RTX PRO 4500 Blackwell**) + 자체 칩(Inferentia, Trainium). G7은 최초 주요 클라우드 RTX PRO Blackwell 제공 |
 | Azure | NC, ND, NV 시리즈 | NVIDIA A100, H100 |
-| Google Cloud | A2, G2 시리즈 + TPU | NVIDIA + 자체 TPU |
+| Google Cloud | A3, A2, G2 시리즈 + TPU v8 | NVIDIA H100 + 자체 TPU (v8세대 최신) |
 | OCI | GPU Instances (A10, A100, H100) | NVIDIA GPU. Bare Metal 옵션 제공 |
 
 ### 이미지 (OS 템플릿)

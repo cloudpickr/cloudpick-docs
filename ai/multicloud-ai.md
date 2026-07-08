@@ -4,7 +4,7 @@ description: 멀티클라우드 AI 아키텍처 패턴, RAG 파이프라인, GPU
 
 # 멀티클라우드 AI 아키텍처
 
-> 문서 기준: 2026년 6월 | 이 문서는 변동이 빠른 영역으로 분기별 리뷰 대상입니다.
+> 문서 기준: 2026년 7월 | 이 문서는 변동이 빠른 영역으로 분기별 리뷰 대상입니다.
 
 {% hint style="info" %}
 이 문서는 심화 내용입니다. AI 서비스 비교가 처음이라면 [AI 시작하기](getting-started.md)와 [AI 플랫폼과 모델 비교](ai-ml.md)를 먼저 읽는 것을 권장합니다.
@@ -58,7 +58,8 @@ AI 학습 및 추론에 필수적인 GPU 인스턴스를 주요 CSP별로 비교
 | **GB200 (NVLink)** | [P6e-GB200 UltraServer](https://aws.amazon.com/ec2/instance-types/p6/) (최대 72 GPU) | ND GB200-v6 (NVLink 도메인) | [A4X](https://cloud.google.com/blog/products/compute/new-a4x-vms-powered-by-nvidia-gb200-gpus) (GB200 NVL72) | — |
 | H100 인스턴스 | [p5.48xlarge](https://aws.amazon.com/ec2/instance-types/p5/) (8×H100 80GB) | [ND H100 v5](https://learn.microsoft.com/en-us/azure/virtual-machines/nd-h100-v5-series) (8×H100 80GB) | [a3-highgpu-8g](https://cloud.google.com/compute/docs/gpus#h100-gpus) (8×H100 80GB) | [BM.GPU.H100.8](https://docs.oracle.com/en-us/iaas/Content/Compute/References/computeshapes.htm) (8×H100 80GB) |
 | A100 인스턴스 | [p4d.24xlarge](https://aws.amazon.com/ec2/instance-types/p4/) (8×A100 40/80GB) | [ND A100 v4](https://learn.microsoft.com/en-us/azure/virtual-machines/nda100-v4-series) (8×A100 80GB) | [a2-highgpu-8g](https://cloud.google.com/compute/docs/gpus#a100-gpus) (8×A100 80GB) | [BM.GPU.A100-v2.8](https://docs.oracle.com/en-us/iaas/Content/Compute/References/computeshapes.htm) (8×A100 80GB) |
-| 자체 AI 칩 | Trainium 2 (학습), Inferentia 2 (추론) | — | TPU v5p, TPU v6e | — |
+| RTX PRO / 추론 특화 | [G7](https://aws.amazon.com/ec2/instance-types/g7/) (NVIDIA RTX PRO 4500 Blackwell) | — | — | — |
+| 자체 AI 칩 | Trainium2 (Trn2), Inferentia2 (Inf2) | Maia 100 | **TPU v8** (8세대) | — |
 | 예약 옵션 | Reserved Instances, Savings Plans | Reserved VM Instances | CUD (Committed Use Discount) | Capacity Reservation |
 | 스팟/선점형 | Spot Instances | Spot VMs | Spot VMs (Preemptible) | Preemptible Instances |
 

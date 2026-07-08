@@ -4,7 +4,7 @@ description: AI 에이전트의 개념, 기존 LLM 프롬프팅과의 차이, �
 
 # AI 에이전트 (Agentic AI)
 
-> 문서 기준: 2026년 6월
+> 문서 기준: 2026년 7월
 
 ## 프롬프팅에서 에이전트로
 
@@ -55,9 +55,9 @@ flowchart LR
 
 | 벤더 | 플랫폼 | 특징 |
 | --- | --- | --- |
-| AWS | [Amazon Bedrock AgentCore](https://aws.amazon.com/bedrock/agentcore/) | 프레임워크 비종속 인프라 플랫폼. Runtime, Gateway, Memory, Identity, Policy, Observability. Claude Fable 5(Mythos급) 지원. **Harness GA (2026.06):** CreateHarness + InvokeHarness 두 API로 프로덕션 에이전트 배포. 격리된 실행 환경, 세션 메모리, MCP 도구 지원, CloudWatch 자동 추적. 간단한 에이전트는 [Bedrock Agents](https://aws.amazon.com/bedrock/agents/)로도 가능 |
+| AWS | [Amazon Bedrock AgentCore](https://aws.amazon.com/bedrock/agentcore/) | 프레임워크 비종속 인프라 플랫폼. **Harness**(GA, CreateHarness/InvokeHarness API로 코드 없이 프로덕션 에이전트 배포, 격리 실행 환경, 세션 메모리, MCP 도구, CloudWatch 자동 추적), Runtime, Gateway, Memory, Identity, Policy, Observability. **Managed Knowledge Base**(엔터프라이즈 RAG 파이프라인), **Web Search**(관리형 웹 검색 도구), [AWS Context](https://aws.amazon.com/context/)(데이터 관계 지식 그래프, coming soon). 간단한 에이전트는 [Bedrock Agents](https://aws.amazon.com/bedrock/agents/)로도 가능 |
 | Azure | [Microsoft Foundry Agents](https://learn.microsoft.com/azure/ai-foundry/agents/) | Foundry Agent Service(GA). Responses API 기반 에이전트 런타임, MCP 인증 확장, Voice Live(Preview). 포털에서 빌드·배포·모니터링 통합 |
-| Google Cloud | [Gemini Enterprise Agent Platform](https://cloud.google.com/products/agent-builder) | Agent Builder + ADK(오픈소스), A2A 프로토콜 네이티브 지원 |
+| Google Cloud | [Gemini Enterprise Agent Platform](https://cloud.google.com/products/agent-builder) | Agent Builder + ADK(오픈소스, 그래프 기반 멀티에이전트), A2A 프로토콜 네이티브 지원. Agent Runtime(서버리스 에이전트 실행), Sandbox(코드 실행 격리), Memory Bank(장기 메모리), Sessions(대화 이력), Identity(암호학적 검증 가능 에이전트 신원), Registry(도구 중앙 관리), Gateway(통합 제어), Anomaly Detection(이상 행동 탐지), Security Dashboard(취약점 스캔), Simulation(합성 사용자 테스트) |
 | OCI | [OCI Enterprise AI Agents](https://docs.oracle.com/iaas/Content/generative-ai/agents.htm) | RAG 에이전트 기본 제공, Oracle DB 네이티브 연동, AI Guardrails(콘텐츠/PII/프롬프트 인젝션) 내장. 2026.03 GA |
 
 ### 오픈소스 프레임워크
@@ -66,7 +66,7 @@ flowchart LR
 | --- | --- |
 | [LangGraph](https://github.com/langchain-ai/langgraph) | 상태 머신 기반 멀티에이전트 오케스트레이션 |
 | [CrewAI](https://github.com/crewAIInc/crewAI) | 역할 기반 멀티에이전트 협업 |
-| [Strands Agents](https://strandsagents.com/) | AWS 오픈소스, 모델 비종속 에이전트 SDK |
+| [Strands Agents](https://strandsagents.com/) | AWS 오픈소스, 모델 비종속 에이전트 SDK. **Harness SDK**(컨텍스트 관리 강화), **Strands Shell**(격리 실행 환경), **Strands Evals**(카오스 테스트·레드팀) |
 | [AutoGen](https://github.com/microsoft/autogen) | Microsoft 오픈소스, 대화형 멀티에이전트 |
 | [Hermes Agent](https://hermes-agent.nousresearch.com/) | Nous Research 오픈소스, 자기학습(스킬 자동 생성), NVIDIA RTX 로컬 실행 |
 

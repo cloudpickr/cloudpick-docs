@@ -4,7 +4,7 @@ description: 기본 RAG의 한계와 청킹, 리랭킹, 쿼리 확장 같은 고
 
 # RAG 고급 패턴
 
-> 문서 기준: 2026년 6월 | 이 문서는 변동이 빠른 영역으로 분기별 리뷰 대상입니다.
+> 문서 기준: 2026년 7월 | 이 문서는 변동이 빠른 영역으로 분기별 리뷰 대상입니다.
 
 {% hint style="info" %}
 RAG 기초는 [AI 시작하기](getting-started.md)의 RAG 섹션과 [벡터 스토어와 AI 데이터](vector-store.md)를 먼저 읽어보세요.
@@ -58,6 +58,20 @@ Azure 공식 가이드는 `Fixed-size` → `Recursive` → `Document-structure` 
 | AWS Bedrock Knowledge Bases | 기본, 고정 크기, 계층적(Hierarchical), 시맨틱(Semantic) 청킹 | [Knowledge Bases 청킹 옵션](https://docs.aws.amazon.com/bedrock/latest/userguide/kb-chunking-parsing.html) |
 | Azure AI Search | 통합 벡터화 시 자동 청킹, 사용자 정의 가능 | [Azure AI Search 청킹](https://learn.microsoft.com/azure/search/vector-search-how-to-chunk-documents) |
 | Vertex AI RAG Engine | 청크 크기/중첩 설정 | [RAG Engine 문서](https://cloud.google.com/vertex-ai/generative-ai/docs/rag-overview) |
+
+### 관리형 RAG 파이프라인
+
+청킹, 임베딩, 검색, 리랭킹을 직접 구축하는 대신 **관리형 서비스**로 파이프라인 전체를 위임할 수 있습니다.
+
+| 벤더 | 서비스 | 특징 |
+| --- | --- | --- |
+| AWS | [Amazon Bedrock Managed Knowledge Base](https://aws.amazon.com/bedrock/knowledge-bases/) | 네이티브 데이터 커넥터, **Smart Parsing**(멀티포맷 자동 파싱), **Agentic Retriever**(복잡한 멀티스텝 쿼리를 에이전트가 분해·검색). AgentCore Gateway 통합 |
+| Azure | [Azure AI Search + Foundry](https://learn.microsoft.com/azure/search/) | 통합 벡터화, 시맨틱 랭커 내장, 커스텀 스킬 파이프라인 |
+| Google Cloud | [Vertex AI RAG Engine](https://cloud.google.com/vertex-ai/generative-ai/docs/rag-overview) | 소스 연결 → 임베딩 → 검색을 통합 관리 |
+
+{% hint style="info" %}
+관리형 RAG는 빠른 프로토타이핑에 적합하지만, 청킹 로직이나 검색 알고리즘을 세밀하게 조정해야 하는 경우에는 직접 구축이 더 유리할 수 있습니다.
+{% endhint %}
 
 ## Re-ranking
 

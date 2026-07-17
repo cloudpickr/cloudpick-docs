@@ -108,5 +108,7 @@
 - [멀티클라우드 AI 아키텍처](ai/multicloud-ai.md)
 - [LLMOps (AI 운영과 평가)](ai/llmops.md)
 - [LLM 채널 선택: 1P vs 3P](ai/1p-vs-3p.md)
-- [AI Desktop Agent와 Frontier Agent](ai/desktop-agents.md)
+- [LLM 라이선스와 비용 관리](ai/licensing.md)
+- [AI 활용 패턴](ai/ai-use-cases.md)
+- [Desktop Agent와 자율 운영 에이전트](ai/desktop-agents.md)
 - [에이전트 도입 가이드](ai/agent-adoption.md)

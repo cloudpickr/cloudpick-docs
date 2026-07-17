@@ -118,7 +118,7 @@ Gartner가 제시하고 AWS가 확장한 **7R 프레임워크** 는 워크로드
 ## 마이그레이션 도구
 
 {% hint style="info" %}
-**AI 지원 마이그레이션:** 각 CSP는 AI를 활용하여 마이그레이션 평가·코드 변환·테스트를 자동화하는 서비스를 제공하고 있습니다. [AWS Transform](https://aws.amazon.com/transform/)(Q Developer 기반 코드 변환), [Azure Migrate with Copilot](https://learn.microsoft.com/azure/migrate/)(평가 자동화), [Google Cloud Dual Run](https://cloud.google.com/blog/products/databases/dual-run-for-mainframe-modernization)(메인프레임 병렬 검증) 등이 대표적입니다. 대규모 레거시 전환 시 수작업 분석 시간을 크게 줄일 수 있으나, AI 결과물에 대한 검증은 여전히 필요합니다.
+**AI 지원 마이그레이션:** 각 CSP는 AI를 활용하여 마이그레이션 평가·코드 변환·테스트를 자동화하는 서비스를 제공하고 있습니다. [AWS Transform](https://aws.amazon.com/transform/)(AI 기반 코드 변환), [Azure Migrate with Copilot](https://learn.microsoft.com/azure/migrate/)(평가 자동화), [Google Cloud Dual Run](https://cloud.google.com/blog/products/databases/dual-run-for-mainframe-modernization)(메인프레임 병렬 검증) 등이 대표적입니다. 대규모 레거시 전환 시 수작업 분석 시간을 크게 줄일 수 있으나, AI 결과물에 대한 검증은 여전히 필요합니다.
 {% endhint %}
 
 ### 평가 및 발견

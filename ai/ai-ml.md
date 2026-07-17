@@ -202,7 +202,7 @@ AI/ML을 직접 구축하지 않고, 특정 업무에 바로 적용할 수 있�
 | --- | --- | --- |
 | 컨택센터 (AICC) | 음성 봇, 실시간 상담 지원 | Amazon Connect, Azure AI Contact Center, Google Cloud CCAI |
 | 문서 처리 | OCR, 문서 분류, 데이터 추출 | Textract, Document Intelligence, Document AI |
-| 코드 생성 | 코드 자동완성, 리뷰 | Amazon Q Developer, GitHub Copilot, Gemini Code Assist |
+| 코드 생성 | 코드 자동완성, 리뷰 | Kiro (구 Amazon Q Developer), GitHub Copilot, Gemini Code Assist |
 | BI 자연어 질의 | 자연어로 데이터 분석 | Amazon Quick, Copilot in Power BI, Gemini in Looker |
 
 #### 2025-2026 Applied AI 주요 변화

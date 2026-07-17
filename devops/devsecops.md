@@ -137,7 +137,7 @@ graph LR
 | [GitHub Secret Scanning](https://docs.github.com/en/code-security/secret-scanning) | Push 시 자동 탐지. 파트너 프로그램으로 벤더에 자동 알림 |
 | [GitLeaks](https://gitleaks.io/) | 오픈소스. Pre-commit hook + CI 통합 |
 | [TruffleHog](https://trufflesecurity.com/trufflehog) | Git 히스토리 전체 스캔. 600+ 시크릿 패턴 |
-| [Amazon Q Developer (코드 스캔)](https://aws.amazon.com/q/developer/) | 코드 내 시크릿·취약점 탐지 (구 CodeGuru Security). IDE 플러그인은 [Kiro](https://kiro.dev/)로 전환 중 |
+| [Amazon Q Developer (코드 스캔)](https://aws.amazon.com/q/developer/) | 코드 내 시크릿·취약점 탐지 (구 CodeGuru Security). IDE 플러그인은 [Kiro](https://kiro.dev/)로 전환 완료. Q Developer IDE 플러그인은 유지보수 모드 (EOS 2027.04) |
 
 {% hint style="warning" %}
 **Pre-commit hook으로 시크릿 커밋을 원천 차단하세요.** 한번 Git 히스토리에 들어간 시크릿은 force push로 제거해도 캐시에 남을 수 있습니다. 예방이 최선입니다.

@@ -71,6 +71,7 @@ CloudPick은 **멀티클라우드 환경에서 올바른 의사결정을 내리�
 7. [멀티클라우드 AI](ai/multicloud-ai.md) — 비용, GPU, 벤더 조합
 8. [LLMOps](ai/llmops.md) — 평가, 운영, 비용 추적
 9. [AI 보안](security/ai-security.md) — 가드레일, 프롬프트 인젝션 방어
+10. [Desktop Agent와 Frontier Agent](ai/desktop-agents.md) — 업무 에이전트, 자율 운영, AX 전략
 {% endtab %}
 
 {% tab title="🚀 현장 배포" %}

@@ -68,10 +68,14 @@ CloudPick은 **멀티클라우드 환경에서 올바른 의사결정을 내리�
 4. [RAG 고급 패턴](ai/rag-patterns.md)
 5. [벡터 스토어](ai/vector-store.md)
 6. [AI 에이전트](ai/agents.md) — 에이전틱 AI, 코딩 에이전트, 프로토콜
-7. [멀티클라우드 AI](ai/multicloud-ai.md) — 비용, GPU, 벤더 조합
-8. [LLMOps](ai/llmops.md) — 평가, 운영, 비용 추적
-9. [AI 보안](security/ai-security.md) — 가드레일, 프롬프트 인젝션 방어
-10. [Desktop Agent와 Frontier Agent](ai/desktop-agents.md) — 업무 에이전트, 자율 운영, AX 전략
+7. [AI 활용 패턴](ai/ai-use-cases.md) — Applied AI, Physical AI
+8. [멀티클라우드 AI](ai/multicloud-ai.md) — 비용, GPU, 벤더 조합
+9. [LLM 채널 선택: 1P vs 3P](ai/1p-vs-3p.md) — 채널 패턴, Seat vs API
+10. [LLM 라이선스와 비용 관리](ai/licensing.md) — 티어, 쿼터, 비용 관리
+11. [LLMOps](ai/llmops.md) — 평가, 운영, 비용 추적
+12. [Desktop Agent와 자율 운영 에이전트](ai/desktop-agents.md) — 업무 에이전트, 자율 운영
+13. [에이전트 도입 가이드](ai/agent-adoption.md) — AX 전략, 롤아웃, 거버넌스
+14. [AI 보안](security/ai-security.md) — 가드레일, 프롬프트 인젝션 방어
 {% endtab %}
 
 {% tab title="🚀 현장 배포" %}

@@ -72,6 +72,19 @@ CloudPick은 **멀티클라우드 환경에서 올바른 의사결정을 내리�
 8. [LLMOps](ai/llmops.md) — 평가, 운영, 비용 추적
 9. [AI 보안](security/ai-security.md) — 가드레일, 프롬프트 인젝션 방어
 {% endtab %}
+
+{% tab title="🚀 현장 배포" %}
+1. [현장 배포 개요](about-cloud/field-deployment.md) — FDE 역할, SA와의 차이
+2. [계정과 조직 구조](about-cloud/accounts-and-organizations.md) — 고객 환경 진입
+3. [IAM 개요](about-cloud/iam-overview.md) → [IAM 심화](security/iam.md) — 협상된 접근 권한
+4. [망분리와 네트워크 격리](security/network-isolation.md) — 에어갭, 프록시 환경
+5. [원격 접근 관리](devops/remote-access.md) — 고객 VPN, 배스천
+6. [공동 책임 모델](about-cloud/shared-responsibility.md) — 고객 환경의 책임 경계
+7. [모니터링](devops/monitoring.md) → [관찰가능성](devops/observability.md) — 현장 디버깅
+8. [AI 에이전트](ai/agents.md) → [LLMOps](ai/llmops.md) — 에이전틱 딜리버리
+9. [규정 준수](governance/compliance.md) — 산업별 규제 대응
+10. [벤더 종속성과 출구 전략](governance/exit-strategy.md) — 고객의 락인 우려 대응
+{% endtab %}
 {% endtabs %}
 
 ## 대상 클라우드 벤더

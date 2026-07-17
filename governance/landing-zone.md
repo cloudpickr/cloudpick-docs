@@ -4,7 +4,7 @@ description: 멀티 계정 클라우드 기반 설정인 랜딩존의 구성 요
 
 # 랜딩존
 
-> 문서 기준: 2026년 5월
+> 문서 기준: 2026년 7월
 
 ## 랜딩존이란
 
@@ -143,6 +143,43 @@ graph TB
 {% content-ref url="finops.md" %}
 [FinOps](finops.md)
 {% endcontent-ref %}
+
+## 2025-2026 랜딩존 진화
+
+### 모듈화: 컨트롤 전용 모델
+
+**AWS Control Tower Landing Zone 4.0** (2025.11)은 "하나의 강제된 청사진" 접근에서 벗어나, **컨트롤만 적용하고 나머지는 선택**할 수 있는 모듈형으로 전환했습니다.
+
+| 이전 | LZ 4.0 이후 |
+| --- | --- |
+| Control Tower 설정 시 고정된 OU/계정 구조 생성 | 기존 조직 구조를 유지하면서 컨트롤만 적용 가능 |
+| 모든 서비스 통합이 패키지로 제공 | 서비스 통합(Config, CloudTrail 등)을 선택적으로 활성화 |
+| 대규모 조직에서 커스터마이징 어려움 | 기존 IaC 파이프라인과 병행 가능 |
+
+Azure의 Cloud Adoption Framework(CAF)도 모듈식 랜딩존 아키텍처를 지속 확장하고 있으며, Google Cloud Foundation Toolkit은 Terraform 모듈 기반으로 유사한 선택적 적용을 지원합니다.
+
+### 소버린 랜딩존 (Sovereign Landing Zone)
+
+데이터 주권(Data Sovereignty) 요구가 강화되면서, 데이터 저장뿐 아니라 **처리까지 관할권 내에서 수행**하는 랜딩존이 등장했습니다.
+
+| 벤더 | 솔루션 | 주요 기능 | 시기 |
+| --- | --- | --- | --- |
+| Microsoft | [Cloud for Sovereignty — SLZ + Sovereign Public Cloud](https://learn.microsoft.com/en-us/industry/sovereignty/slz-overview) | 데이터 레지던시 가드레일, 기밀 컴퓨팅, EU Data Boundary, Data Guardian, IaC 정책 | 2025-2026 |
+| Google Cloud | [Sovereign Cloud Controls](https://cloud.google.com/blog/products/identity-security/delivering-a-secure-open-sovereign-digital-world) | 관할권 내 처리, 키 관리, 접근 투명성 | 2025-2026 |
+| AWS | [Sovereign Controls (Control Tower + Nitro)](https://aws.amazon.com/compliance/digital-sovereignty/) | 리전 제한 가드레일, Nitro 기밀 컴퓨팅, 데이터 레지던시 정책 | 기존 (지속 강화) |
+| OCI | EU Sovereign Cloud | 물리적으로 분리된 EU 전용 인프라 | 기존 |
+
+{% hint style="info" %}
+소버린 랜딩존은 단순히 "EU 리전에 배포"하는 것이 아닙니다. 데이터 처리(compute), 키 관리, 관리 접근(personnel access)까지 관할권 내로 제한하는 것입니다. 2025년 11월 ESAs(EBA·EIOPA·ESMA)가 AWS, Azure, GCP를 **Critical ICT Third-Party Provider**로 지정하면서, 금융·공공 분야에서 소버린 요건이 더욱 강화될 것으로 예상됩니다.
+{% endhint %}
+
+### EU 규제 연계
+
+| 규제 | 랜딩존 영향 |
+| --- | --- |
+| **DORA** (2025.01.17 적용) | 금융기관의 ICT 서드파티 리스크 관리 의무 → 클라우드 벤더를 중요 ICT 공급자로 관리, 출구 전략 필수 |
+| **NIS2** | 핵심 인프라 운영자의 보안 의무 강화 → 랜딩존 수준의 거버넌스 증적 필요 |
+| **EU AI Act** (2026.08 일반 적용) | 고위험 AI 시스템의 데이터 거버넌스 → 랜딩존에 AI 워크로드별 데이터 분류/접근 제어 포함 |
 
 ## 참고하기
 

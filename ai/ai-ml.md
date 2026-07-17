@@ -41,8 +41,8 @@ description: 벤더별 AI 플랫폼, 모델 카탈로그, GPU/AI 칩, Applied AI
 
 | 벤더 | 플랫폼 | 주요 제공 모델군 | 비고 |
 | --- | --- | --- | --- |
-| AWS | [Amazon Bedrock](https://aws.amazon.com/bedrock/) | **Amazon Nova** (Nova Premier/Pro/Lite/Micro/Sonic), Anthropic Claude (**Fable 5**/Opus/Sonnet/Haiku), OpenAI GPT-5.5/5.4/GPT-OSS, Meta Llama, Mistral, NVIDIA Nemotron, DeepSeek, MiniMax, GLM ([지원 모델 목록](https://docs.aws.amazon.com/bedrock/latest/userguide/model-ids.html)) | 단일 API로 멀티 모델 선택. OpenAI Codex(GPT-5.5 기반)도 Bedrock에서 제공 |
-| Azure | [Microsoft Foundry(구 Azure OpenAI)](https://azure.microsoft.com/products/ai-services/openai-service) | OpenAI (GPT-5.5/5.4/5.4 mini/5.4 nano 시리즈, o-시리즈), Anthropic Claude, Meta Llama, Mistral, **MAI** (Image/Voice/Transcribe), DeepSeek V4 Pro, Kimi 2.6 ([Foundry 모델 카탈로그](https://ai.azure.com/catalog)) | OpenAI 주력 + 자체 MAI 모델군, Fireworks AI 통합, Foundry Local(로컬/단절망 실행) |
+| AWS | [Amazon Bedrock](https://aws.amazon.com/bedrock/) | **Amazon Nova** (Nova Premier/Pro/Lite/Micro/Sonic), Anthropic Claude (**Fable 5**/Opus/Sonnet/Haiku), OpenAI **GPT-5.6** (Sol/Terra/Luna)/GPT-5.5/GPT-OSS, Meta Llama, Mistral, NVIDIA Nemotron, DeepSeek, MiniMax, GLM ([지원 모델 목록](https://docs.aws.amazon.com/bedrock/latest/userguide/model-ids.html)) | 단일 API로 멀티 모델 선택. OpenAI Codex(GPT-5.5 기반)도 Bedrock에서 제공 |
+| Azure | [Microsoft Foundry(구 Azure OpenAI)](https://azure.microsoft.com/products/ai-services/openai-service) | OpenAI (**GPT-5.6** Sol/Terra/Luna, GPT-5.5/5.4 시리즈, o-시리즈), Anthropic Claude, Meta Llama, Mistral, **MAI** (Image/Voice/Transcribe), DeepSeek V4 Pro, Kimi 2.6 ([Foundry 모델 카탈로그](https://ai.azure.com/catalog)) | OpenAI 주력 + 자체 MAI 모델군, Fireworks AI 통합, Foundry Local(로컬/단절망 실행) |
 | Google Cloud | [Vertex AI Model Garden](https://cloud.google.com/vertex-ai/generative-ai/docs/learn/models) | Google **Gemini 3.x/2.5** 시리즈 (3.5 Flash/3.5 Pro/3.1 Pro/2.5 Pro/2.5 Flash), **Gemini Omni** (비디오 생성), Anthropic Claude, xAI Grok, Meta Llama, Mistral, DeepSeek, OpenAI GPT-OSS ([Model Garden](https://cloud.google.com/vertex-ai/generative-ai/docs/learn/models)) | Gemini 3.5 Flash GA, 3.5 Pro GA (2026.06, 2M 토큰, Deep Think). 네이티브 멀티모달, Model Garden에 200+ 모델 |
 | OCI | [OCI Enterprise AI(구 OCI Generative AI)](https://docs.oracle.com/iaas/Content/generative-ai/home.htm) | Cohere Command, Meta Llama, xAI Grok 4.3, Google Gemini, OpenAI GPT-5.5/5.4/Codex(OCI Marketplace 예정), DeepSeek 등 ([지원 모델 목록](https://docs.oracle.com/en-us/iaas/Content/generative-ai/pretrained-models.htm)) | Oracle DB 네이티브 통합, **Dedicated AI Cluster** (전용 RDMA GPU, 타 테넌트 비공유), AI Guardrails(콘텐츠/PII/프롬프트 인젝션), 이그레스 10TB 무료 |
 | xAI | [xAI API](https://x.ai/api) | **Grok 4.3**, Grok 4.1 Fast, Imagine (이미지/비디오 생성) | 100만 토큰 컨텍스트 윈도우, 경쟁력 있는 가격, 추론·코딩 특화. OCI에서도 호스팅 제공 |
@@ -50,7 +50,7 @@ description: 벤더별 AI 플랫폼, 모델 카탈로그, GPU/AI 칩, Applied AI
 {% hint style="info" %}
 **모델 생태계는 빠르게 변합니다.** 최근에는 벤더 간 파트너십이 강화되어 "한 벤더 플랫폼에서 여러 제공사 모델 접근"이 일반화되었습니다:
 
-- **Amazon Bedrock** — Anthropic(전략적 투자 파트너, Claude Fable 5/Opus/Sonnet/Haiku 전 계열), OpenAI GPT-5.5/5.4 + Codex, Meta, Mistral, DeepSeek, NVIDIA 등 다수 제공사 호스팅
+- **Amazon Bedrock** — Anthropic(전략적 투자 파트너, Claude Fable 5/Opus/Sonnet/Haiku 전 계열), OpenAI GPT-5.6(Sol/Terra/Luna)/GPT-5.5 + Codex, Meta, Mistral, DeepSeek, NVIDIA 등 다수 제공사 호스팅
 - **Microsoft Foundry** — OpenAI 전략적 파트너십 외에 Anthropic, Meta, Mistral, 자체 MAI 모델군(이미지/음성), Fireworks AI(DeepSeek V4 Pro, Kimi 2.6) 확장
 - **Gemini Enterprise Agent Platform** — Google 자체 Gemini 3.x/2.5(3.5 Pro GA/3.5 Flash/3.1 Pro) + Gemini Omni + Anthropic Claude + xAI Grok + 타사 모델 카탈로그. Agent Studio + ADK 기반 에이전트 빌드·디플로이 통합
 - **OCI Enterprise AI** — Cohere, Meta Llama, xAI Grok 4.3, Google Gemini + OpenAI(GPT-5.5/5.4, Codex) OCI Marketplace 통해 제공 예정
@@ -205,15 +205,47 @@ AI/ML을 직접 구축하지 않고, 특정 업무에 바로 적용할 수 있�
 | 코드 생성 | 코드 자동완성, 리뷰 | Amazon Q Developer, GitHub Copilot, Gemini Code Assist |
 | BI 자연어 질의 | 자연어로 데이터 분석 | Amazon Q in QuickSight, Copilot in Power BI, Gemini in Looker |
 
+#### 2025-2026 Applied AI 주요 변화
+
+**공통 트렌드:** 코파일럿(Copilot)에서 **에이전틱 AI**로 전환 — 사람이 지시하면 돕는 방식에서, 에이전트가 자율적으로 워크플로우를 완수하는 방식으로 이동.
+
+| 영역 | 변화 | 시기 |
+| --- | --- | --- |
+| **컨택센터** | Amazon Connect에 자율 AI 에이전트 도입 (음성/채팅/이메일/SMS), Nova Sonic 음성(30+ 언어), MCP 기반 도구 접근 | 2025.12 (re:Invent) |
+| **산업별 AI** | Amazon Connect가 4개 스위트로 확장: Customer(컨택센터), Decisions(공급망), Talent(채용), Health(헬스케어) | 2026.04 |
+| **컨택센터** | Dynamics 365 Contact Center 에이전틱 AI + 옴니채널 강화 | 2025.10~2026.03 |
+| **컨택센터** | Google CCaaS 4.0~4.45, Agent Assist Hub로 Knowledge Assist 교체 | 2026.02~07 |
+| **문서 처리** | Azure Content Understanding GA — Doc Intelligence + LLM/멀티모달 추론 결합 | 2025.11 |
+| **문서 처리** | Google Document AI Gemini Layout Parser — 레이아웃 인식 Markdown 출력 | 2025-2026 |
+| **BI** | Amazon QuickSight → **Quick Suite** 리브랜딩 (AI 에이전트 Q&A/리서치/자동화) | 2025.10 |
+| **BI** | Gemini in Looker — 대화형 분석, 대시보드 에이전트, 에이전틱 워크플로우 | 2025.04~2026 |
+| **BI** | Copilot in Power BI — 에이전틱 분석, 웹 모델링 지원 | 2025.07~2026.06 |
+| **헬스케어** | Amazon Connect Health (HIPAA) — 환자 검증/스케줄링/임상 노트/의료 코딩 에이전트 | 2026.03 |
+
 ### Physical AI (물리 세계 AI)
 
 IoT, 로보틱스, 디지털 트윈 등 물리 세계와 연결되는 AI입니다.
 
 | 영역 | 클라우드 연관 서비스 |
 | --- | --- |
-| IoT + 엣지 추론 | AWS IoT Greengrass, Azure IoT Edge, Google Cloud Edge TPU |
-| 디지털 트윈 | AWS IoT TwinMaker, Azure Digital Twins |
-| 로보틱스 시뮬레이션 | AWS RoboMaker, NVIDIA Isaac (클라우드 GPU) |
+| IoT + 엣지 추론 | AWS IoT Greengrass, Azure IoT Operations, Google Cloud Edge TPU |
+| 디지털 트윈 | AWS IoT TwinMaker, Azure Digital Twins, NVIDIA Omniverse |
+| 로보틱스 시뮬레이션 | NVIDIA Isaac / Omniverse (클라우드 GPU), Nebius Physical AI Cloud |
+| 안전 시스템 | NVIDIA Halos for Robotics |
+
+#### 2025-2026 Physical AI 주요 변화
+
+| 영역 | 변화 | 벤더 |
+| --- | --- | --- |
+| **로보틱스 시뮬레이션** | 오픈 모델(Cosmos, GR00T) 공개, 데이터 팩토리 참조 아키텍처 제공 | NVIDIA (Azure/Nebius에서 호스팅) |
+| **엣지 디바이스** | Greengrass C/C++/Rust SDK (<0.5MB), 비루트 설치 — 리소스 제약 디바이스 대응 | AWS (2026.04) |
+| **엣지 운영** | IoT Operations 2603 — 클라우드→엣지 관리, 노코드 데이터플로우, 엣지 ML 추론 | Azure (2026.04) |
+| **안전** | 로보틱스용 풀스택 안전 시스템(Halos) 출시 | NVIDIA (2026.06) |
+| **제조 디지털 트윈** | 주요 OEM(FANUC, ABB, KUKA 등)이 시뮬레이션 기반 가상 커미셔닝 도입 | 멀티 벤더 |
+
+{% hint style="info" %}
+Physical AI는 클라우드 서비스만으로 완성되지 않습니다. 시뮬레이션 플랫폼(NVIDIA Omniverse/Isaac 등), 클라우드 GPU 인프라, 엣지 배포 런타임, 디지털 트윈 서비스가 결합됩니다. 각 서비스의 최신 현황은 공식 문서를 확인하세요.
+{% endhint %}
 
 ### Agentic Apps (AI 에이전트)
 
@@ -227,6 +259,39 @@ IoT, 로보틱스, 디지털 트윈 등 물리 세계와 연결되는 AI입니�
 
 {% hint style="info" %}
 벤더별 에이전트 플랫폼, 오케스트레이션 패턴, 코딩 에이전트, 프로토콜(MCP/A2A/ACP)에 대한 상세 비교는 [AI 에이전트](agents.md)를 참고하세요.
+{% endhint %}
+
+## 멀티클라우드 모델 접근의 변화 (2025-2026)
+
+2025~2026년 사이, 모델 제공사와 클라우드 벤더 간 관계가 변화하고 있습니다. 가장 큰 변화는 OpenAI-Microsoft 독점의 종료이며, 그 외 제공사들도 채널을 확대하고 있습니다.
+
+| 시기 | 이벤트 | 영향 |
+| --- | --- | --- |
+| 2026.04 | **OpenAI-Microsoft 독점 종료** | OpenAI 모델을 Azure 외 플랫폼에서도 제공 가능 |
+| 2026.04 | **OpenAI 모델 → Bedrock 제공 시작** | 독점 종료 직후 GPT-5.x가 Bedrock에 등장 |
+| 2025-2026 | **xAI Grok 멀티클라우드 확산** | Azure AI Foundry(2025.09), Vertex AI, OCI, Bedrock(2026.06 Grok 4.3 GA) |
+| 2025-2026 | **Anthropic Claude 채널 강화** | 기존 Bedrock/Vertex에 더해 OCI 등 추가 채널 |
+
+**운영 시사점:**
+
+- 하나의 클라우드 벤더에 종속되지 않고 여러 경로로 동일 모델에 접근할 수 있게 되었습니다
+- 모델 선택 시 "어떤 모델"뿐 아니라 "어떤 플랫폼에서 접근할 때 비용/SLA/리전이 유리한가"가 의사결정 기준이 됩니다
+- [멀티클라우드 AI](multicloud-ai.md)에서 벤더 조합 전략을 상세히 다룹니다
+
+## 추론 비용 최적화
+
+생성형 AI의 주요 비용은 **추론(inference)**에서 발생합니다. 2025-2026년 벤더들이 도입한 비용 절감 옵션입니다.
+
+| 전략 | 설명 | 벤더 지원 |
+| --- | --- | --- |
+| **Flex/배치 추론** | 지연 시간에 민감하지 않은 워크로드를 저우선순위로 처리하여 비용 절감 | Bedrock Flex Inference, Azure Batch API, Vertex Batch Predictions |
+| **모델 라우팅** | 간단한 질의는 경량 모델(Flash/Haiku/mini), 복잡한 질의만 고성능 모델로 분기 | Bedrock IntelligentPromptRouter, 자체 구축 |
+| **프롬프트 캐싱** | 동일한 시스템 프롬프트/컨텍스트를 캐싱하여 반복 토큰 비용 절감 | Anthropic Prompt Caching, OpenAI Cached Tokens, Gemini Context Caching |
+| **장기 컨텍스트 vs RAG** | 모델 컨텍스트 윈도우 확장(1~2M+ 토큰)으로 RAG 없이도 충분한 경우 발생 | Gemini 3.5 Pro, Claude Opus 계열 |
+| **GPU 가격 경쟁** | 하이퍼스케일러 간 GPU 인스턴스 가격 인하 추세 | AWS, Azure, GCP 경쟁적 인하 |
+
+{% hint style="info" %}
+추론 비용은 모델별, 벤더별로 수시로 변경됩니다. 정확한 현재 가격은 각 벤더의 공식 가격 페이지를 확인하세요. 비용 추적과 예산 관리는 [LLMOps](llmops.md)에서 상세히 다룹니다.
 {% endhint %}
 
 ## 자주 하는 실수

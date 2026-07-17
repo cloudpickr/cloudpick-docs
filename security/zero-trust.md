@@ -4,7 +4,7 @@ description: Zero Trust 보안 모델의 원칙과 벤더별 구현 서비스를
 
 # 제로 트러스트 (Zero Trust)
 
-> 문서 기준: 2026년 5월
+> 문서 기준: 2026년 7월
 
 ## 개요
 
@@ -103,18 +103,57 @@ graph LR
 
 ## Zero Trust 도입 체크리스트
 
-- [ ] 모든 사용자 계정에 MFA 적용
+- [ ] 모든 사용자 계정에 MFA 적용 (피싱 방지 MFA 우선)
 - [ ] 서비스 계정/워크로드 아이덴티티 인벤토리 작성
+- [ ] 비인간 ID(서비스 계정, AI 에이전트, CI/CD 봇)에 단기 자격 증명 적용
 - [ ] 네트워크 위치 기반 신뢰 제거 (VPN만으로 신뢰 부여 금지)
 - [ ] 조건부 접근 정책 적용 (기기 상태, 위치, 시간 기반)
+- [ ] 워크로드 간 통신에 워크로드 ID(SPIFFE/OIDC/Instance Principal) 적용
 - [ ] 동-서 트래픽(내부 통신) 가시성 확보
-- [ ] 접근 로그 중앙 집중화 및 이상 탐지 설정
+- [ ] 접근 로그 중앙 집중화 및 이상 탐지 설정 (ITDR 포함)
 
 ## 자주 하는 실수
 
 - **"VPN이 있으면 Zero Trust다"** — VPN은 네트워크 경계만 만들며 Zero Trust와 다른 개념입니다. VPN 안에서도 모든 요청을 검증해야 합니다.
 - **"내부망은 안전하다"** — 내부 공격자, 계정 탈취 시나리오를 고려하지 않는 전통적 접근입니다.
 - **"한 번에 전사 적용"** — 단계적 접근 없이 전면 도입 시도 시 운영 장애 위험이 큽니다. 중요 시스템부터 점진적으로 적용하세요.
+
+## 2025-2026 트렌드: Identity-first Zero Trust
+
+제로 트러스트의 중심이 네트워크 기반 제어에서 **ID 기반 제어**로 이동하고 있습니다 (NIST SP 800-207, CISA ZTMM).
+
+### 비인간 ID (Non-Human Identity)
+
+AI 에이전트, 서비스 계정, CI/CD 파이프라인 봇 등 비인간 ID의 관리가 새로운 과제입니다.
+
+| 과제 | 대응 |
+| --- | --- |
+| 장기 자격 증명 방치 | 단기 토큰(STS), OIDC 페더레이션, 인스턴스 메타데이터 기반 인증으로 전환 |
+| 과도한 권한의 서비스 계정 | 미사용 권한 탐지(IAM Access Analyzer, Entra Access Reviews), JIT 접근 |
+| AI 에이전트의 신원 검증 | 워크로드 ID + 조건부 접근 + 도구별 최소 권한 |
+| 비인간 ID 이상 행동 탐지 | ITDR(Identity Threat Detection & Response) |
+
+### 워크로드 ID 강화
+
+| 벤더 | 변화 |
+| --- | --- |
+| **Microsoft** | Entra Workload ID에 Conditional Access + 지속적 접근 평가(CAE) 적용 |
+| **AWS** | 멤버 계정 루트 사용자 MFA 필수화, IAM 역할/OIDC 공급자 쿼터 증가 |
+| **Google Cloud** | Workforce Identity Federation 확장 — 동기화 없는 속성 기반 SSO, 컨텍스트 인식 IAM |
+
+멀티클라우드/하이브리드 환경에서는 **SPIFFE/SPIRE** (CNCF Graduated)로 워크로드 간 상호 인증을 표준화할 수 있습니다. 단기 자격 증명(X.509 SVID, JWT)을 자동 발급/회전하여 장기 시크릿을 제거합니다.
+
+### 보안 도구 통합 추세
+
+개별 도구로 분산 운영하던 클라우드 보안이 **CNAPP**(Cloud-Native Application Protection Platform)으로 통합되고 있습니다. Zero Trust의 "항상 검증" 원칙을 자동화하는 기반입니다.
+
+| 구성 요소 | 역할 | Zero Trust 연관 |
+| --- | --- | --- |
+| **CSPM** | 클라우드 구성 오류 탐지 | 잘못 열린 접근 경로 사전 차단 |
+| **CIEM** | 클라우드 ID/권한 관리 | 과도한 권한 탐지, 비인간 ID 포함 |
+| **CWPP** | 워크로드 런타임 보호 | 침해 가정 하의 실행 시점 방어 |
+
+이 세 요소를 ID 중심으로 통합 관리하는 것이 현재 방향이며, 구성 오류(misconfiguration)와 권한 확산(privilege sprawl)이 클라우드 침해의 주요 경로로 지목되고 있습니다.
 
 ## IAM과의 관계
 

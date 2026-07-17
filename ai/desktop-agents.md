@@ -1,8 +1,8 @@
 ---
-description: AI Desktop Agent와 Frontier Agent의 시장 현황, 개발자/비개발자 도구 구분, 기업 AX 전략을 정리합니다.
+description: AI Desktop Agent와 자율 운영 에이전트의 시장 현황, 제품 비교, 개발자/비개발자 도구 구분을 정리합니다.
 ---
 
-# AI Desktop Agent와 Frontier Agent
+# Desktop Agent와 자율 운영 에이전트
 
 > 문서 기준: 2026년 7월
 
@@ -16,7 +16,36 @@ AI 에이전트가 채팅 인터페이스를 넘어 **데스크톱 운영체제,
 | **자율 운영 에이전트** | 수 시간–수 일간 자율적으로 목표를 추구하는 전문 에이전트. 사람의 상시 감독 없이 동작 | DevOps, 보안, FinOps 등 도메인 전문가 |
 
 {% hint style="info" %}
-Desktop Agent는 **사람이 직접 사용하는 업무 동반자**이고, Frontier Agent는 **IT 시스템을 자율적으로 운영하는 전문가**입니다. 둘 다 [AI 에이전트](agents.md)의 확장이지만 배포·거버넌스·비용 모델이 다릅니다.
+Desktop Agent는 **사람이 직접 사용하는 업무 동반자**이고, 자율 운영 에이전트는 **IT 시스템을 자율적으로 운영하는 전문가**입니다. 둘 다 [AI 에이전트](agents.md)의 확장이지만 배포·거버넌스·비용 모델이 다릅니다.
+{% endhint %}
+
+---
+
+## 왜 Desktop Agent가 등장했는가
+
+LLM 채팅(ChatGPT, Claude)은 **브라우저 탭 안**에 갇혀 있었습니다. 사용자가 파일을 복사해 넣고, 결과를 다시 복사해 나가야 했습니다. Desktop Agent는 이 한계를 넘어:
+
+- **로컬 파일·앱에 직접 접근** — 드래그 앤 드롭 없이 문서를 읽고 수정
+- **화면과 시스템을 직접 조작** (Computer Use) — 클릭, 입력, 앱 전환
+- **외부 도구 연결** (MCP, 커넥터) — 이메일, 캘린더, CRM, 코드 저장소와 통합
+- **장시간 작업 수행** — 리서치, 보고서 작성, 데이터 정리를 자율 수행
+
+### 개인용 에이전트 vs 엔터프라이즈 Desktop Agent
+
+개인이 먼저 쓰기 시작한 오픈소스/커뮤니티 에이전트들이 있습니다. 엔터프라이즈 Desktop Agent는 이들과 **목적은 유사하나 거버넌스·지원·통합이 다릅니다.**
+
+| 구분 | 개인용 에이전트 | 엔터프라이즈 Desktop Agent |
+| --- | --- | --- |
+| **예시** | OpenClaw, Hermes Agent, NanoClaw, Sai | Claude Cowork, Amazon Quick, M365 Copilot, ChatGPT Work |
+| **설치·운영** | 사용자가 직접 설치/설정 | 기업 IT가 MDM/SSO로 배포·관리 |
+| **모델** | 로컬 실행 또는 개인 API 키 | 벤더 호스팅 (프론티어 모델) |
+| **데이터 통제** | 사용자 개인 책임 | DLP, 커넥터 허용 목록, 감사 로그 |
+| **비용** | 무료/개인 구독 | 기업 Seat 과금, 중앙 관리 |
+| **장점** | 로컬 프라이버시, 커스터마이징, 비용 | 거버넌스, 컴플라이언스, 프론티어 모델, 기업 도구 통합 |
+| **리스크** | 섀도 AI화, 보안 통제 불가 | 벤더 종속, 비용 |
+
+{% hint style="info" %}
+기업 IT는 개인용 에이전트를 금지하기보다, 동등하거나 나은 경험을 공식 Desktop Agent로 제공하여 섀도 AI를 줄이는 전략이 권장됩니다.
 {% endhint %}
 
 ---
@@ -88,39 +117,11 @@ Google은 [Gemini Enterprise Agent Platform](https://cloud.google.com/products/a
 
 ---
 
-## 기업 AX (AI Transformation) 전략
+---
 
-### 롤아웃 단계
+## 도입 전략
 
-| 단계 | 기간 | 활동 |
-| --- | --- | --- |
-| **1. 기반 구축** | 4–8주 | SSO, DLP, 허용 커넥터, 데이터 분류, 비용 예산, 감사 로깅 설정 |
-| **2. 파일럿** | 6–12주 (1–2개 팀) | 고빈도/저규제 워크플로(운영, 마케팅, 지원) 적용. 시간 절감·오류율·섀도 AI 감소 측정 |
-| **3. 부서 확장** | 분기 단위 | 역할별 플레이북 + 챔피언 선정. 리스크 등급별 커넥터 확장 |
-| **4. 전사 배포** | 지속 | Desktop Agent(전 직원) + Coding Agent(엔지니어링) + Frontier Agent(IT 운영) 병행 |
-
-{% hint style="warning" %}
-**거버넌스를 파일럿 단계부터 내장하는 것이 권장됩니다.** 사후에 거버넌스를 추가하면 이미 확산된 섀도 AI를 통제하기 어려워집니다.
-{% endhint %}
-
-### 도구 선택 기준
-
-| 기존 생태계 | 권장 Desktop Agent | 권장 Coding Agent | 권장 Frontier Agent |
-| --- | --- | --- | --- |
-| Microsoft 365 중심 | Microsoft 365 Copilot | GitHub Copilot | Security Copilot, Azure Copilot |
-| AWS 중심 | Amazon Quick Desktop | Kiro | DevOps Agent, Security Agent, FinOps Agent |
-| 멀티클라우드/중립 | Claude Desktop 또는 ChatGPT Desktop | Claude Code, Kiro, Codex | 벤더 조합 |
-| Google Workspace 중심 | Gemini Desktop | Gemini Code Assist / Antigravity | Security Operations Agents |
-
-### 거버넌스 프레임워크
-
-| 영역 | 제어 방법 |
-| --- | --- |
-| **접근** | Enterprise SKU만 허용 (개인 Pro 차단), SSO + SCIM, CASB/MDM |
-| **데이터** | 커넥터 허용 목록, 학습 비활성화, 민감 폴더 접근 전 분류, DLP |
-| **행동 경계** | 읽기 = 자유, 쓰기/발송/결제 = 승인 필요. 감사 로그 (프롬프트, 도구 호출, 출력) |
-| **비용** | Seat + 에이전트 사용 시간 과금 모니터링. 역할별 모델 티어 제한 |
-| **에이전트 ID** | 에이전트를 비인간 ID로 관리 — 최소 권한, PBAC. 하드코딩된 앱 ACL은 에이전트 규모에서 깨짐 |
+에이전트의 기업 도입 전략(롤아웃 단계, 도구 선택 기준, 거버넌스 프레임워크)은 [에이전트 도입 가이드](agent-adoption.md)를 참고하세요.
 
 ---
 

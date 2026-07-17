@@ -109,3 +109,4 @@
 - [LLMOps (AI 운영과 평가)](ai/llmops.md)
 - [LLM 채널 선택: 1P vs 3P](ai/1p-vs-3p.md)
 - [AI Desktop Agent와 Frontier Agent](ai/desktop-agents.md)
+- [에이전트 도입 가이드](ai/agent-adoption.md)

@@ -13,7 +13,7 @@ AI 에이전트가 채팅 인터페이스를 넘어 **데스크톱 운영체제,
 | 카테고리 | 정의 | 대상 |
 | --- | --- | --- |
 | **Desktop Agent** | 로컬 파일, 앱, 브라우저, 이메일 등에 접근하여 업무를 수행하는 에이전트 | 전 직원 (개발자 포함) |
-| **Frontier Agent** | 수 시간~수 일간 자율적으로 목표를 추구하는 전문 에이전트. 사람의 상시 감독 없이 동작 | DevOps, 보안, FinOps 등 도메인 전문가 |
+| **Frontier Agent** | 수 시간–수 일간 자율적으로 목표를 추구하는 전문 에이전트. 사람의 상시 감독 없이 동작 | DevOps, 보안, FinOps 등 도메인 전문가 |
 
 {% hint style="info" %}
 Desktop Agent는 **사람이 직접 사용하는 업무 동반자**이고, Frontier Agent는 **IT 시스템을 자율적으로 운영하는 전문가**입니다. 둘 다 [AI 에이전트](agents.md)의 확장이지만 배포·거버넌스·비용 모델이 다릅니다.
@@ -54,41 +54,36 @@ Desktop Agent는 **사람이 직접 사용하는 업무 동반자**이고, Front
 
 ## Frontier Agent — 자율 운영 에이전트
 
-### AWS Frontier Agents
+Frontier Agent는 수 시간–수 일간 자율적으로 목표를 추구하는 도메인 특화 에이전트입니다. 주요 클라우드 벤더가 경쟁적으로 출시하고 있습니다.
 
-AWS는 re:Invent 2025(2025.12.02)에서 "Frontier Agent" 카테고리를 정의했습니다: 수 시간~수 일간 자율적으로 작업하는 도메인 특화 에이전트.
+### 벤더별 Frontier Agent
 
-| 에이전트 | 역할 | 상태 | 비고 |
+| 도메인 | AWS | Microsoft | Google Cloud |
 | --- | --- | --- | --- |
-| [AWS DevOps Agent](https://aws.amazon.com/devops-agent/) | 인시던트 조사/분류, 근본 원인 분석, 안정성 개선 권장. 멀티클라우드/온프레미스 지원 | GA (2026.03.31) | 릴리스 준비 검토·자율 릴리스 테스트는 프리뷰 |
-| [AWS Security Agent](https://aws.amazon.com/security-agent/) | 침투 테스트, 코드 스캐닝, 위협 모델링 | GA (2026.03.31) | AWS Continuum 보안 플랫폼에 통합 (2026.06) |
-| [Kiro](https://kiro.dev/) | 소프트웨어 개발 (프로토타입→프로덕션) | GA (IDE/CLI), 프리뷰 (Web 자율 모드) | 구 Q Developer CLI → Kiro CLI. 자율 에이전트는 Kiro Web에서 동작 |
-| [AWS FinOps Agent](https://aws.amazon.com/finops-agent/) | 비용 질문 응답, 이상 조사, 리포트 생성, 최적화 권장 | 프리뷰 (2026.06.09) | Jira/Slack 라우팅 지원 |
+| **보안** | [Security Agent](https://aws.amazon.com/security-agent/) (GA 2026.03, Continuum 통합) | [Security Copilot Agents](https://learn.microsoft.com/en-us/copilot/security/agents-overview) (GA, Defender/Entra/Intune/Purview/Sentinel) | [Security Operations Agents](https://cloud.google.com/security/ai-threat-defense) (프리뷰, 위협 분류/헌팅/탐지) |
+| **DevOps/SRE** | [DevOps Agent](https://aws.amazon.com/devops-agent/) (GA 2026.03, 멀티클라우드) | [Azure Copilot](https://azure.microsoft.com/en-us/products/copilot) (인프라 운영/마이그레이션) | Agentic SOC (프리뷰) |
+| **FinOps/비용** | [FinOps Agent](https://aws.amazon.com/finops-agent/) (프리뷰 2026.06) | Azure Copilot 비용 최적화 | — (별도 브랜드 없음) |
+| **코딩** | [Kiro](https://kiro.dev/) (IDE/CLI GA, Web 프리뷰) | [GitHub Copilot](https://github.com/features/copilot) (Agent Mode, Agent Merge) | [Antigravity](https://antigravity.google/) (Agent-first IDE) |
 
-### Kiro 제품군 현황
+### Kiro 제품군 (AWS)
 
 | 제품 | 설명 |
 | --- | --- |
-| **Kiro IDE** | VS Code 기반 에이전틱 IDE. Spec-driven 개발, Hooks, Steering |
-| **Kiro CLI** | 터미널 코딩 에이전트. 구 Amazon Q Developer CLI 후속 |
-| **Kiro Web** | 브라우저 기반. 협업 모드 + 자율(Autonomous) 모드. GitHub/GitLab 연동 |
+| **Kiro IDE** | VS Code 기반 에이전틱 IDE. Spec-driven 개발, Hooks |
+| **Kiro CLI** | 터미널 코딩 에이전트 (구 Amazon Q Developer CLI) |
+| **Kiro Web** | 브라우저 기반. 협업 + 자율(Autonomous) 모드 |
 
 ### Amazon Q Developer 상태
 
-| 구성 요소 | 상태 |
-| --- | --- |
-| IDE 플러그인 + 유료 구독 | **유지보수 모드** — 신규 가입 중단(2026.05.15), EOS 2027.04.30 |
-| CLI | Kiro CLI로 대체. 레거시 `q` 명령은 동작하나 신규 기능 없음 |
-| AWS 콘솔/모바일/Chat Apps 내 Q | **활성** — 이 부분은 별도 유지 |
+Q Developer IDE 플러그인/유료 구독은 유지보수 모드 (신규 가입 중단 2026.05, EOS 2027.04). CLI는 Kiro CLI로 대체. AWS 콘솔/모바일/Chat Apps 내 Q는 계속 활성.
 
-### 타사 Frontier Agent
+### Microsoft Agent 거버넌스
 
-| 벤더 | 제품 | 역할 | 상태 |
-| --- | --- | --- | --- |
-| **Microsoft** | [Security Copilot Agents](https://learn.microsoft.com/en-us/copilot/security/agents-overview) | 피싱 분류, 조건부 접근 최적화, 취약점 교정, 위협 인텔리전스 | GA (Defender/Entra/Intune/Purview/Sentinel 내장) |
-| **Microsoft** | [Azure Copilot](https://azure.microsoft.com/en-us/products/copilot) | 인프라 운영, 비용 최적화, 마이그레이션 지원 | GA |
-| **Google Cloud** | [Security Operations Agents](https://cloud.google.com/security/ai-threat-defense) | 위협 분류/조사, 위협 헌팅, 탐지 엔지니어링 | 프리뷰 (Next '26, 2026.04) |
-| **Google Cloud** | Agentic SOC | Gemini 기반 보안 운영 센터 자동화 | 프리뷰 |
+Microsoft는 [Agent 365](https://learn.microsoft.com/en-us/microsoft-365-copilot/agents/) (GA 2026.05)로 조직 내 에이전트를 중앙 관리합니다. Copilot Studio에서 커스텀 에이전트를 빌드하고, Agent Store에서 배포하며, Entra + Purview로 권한/감사를 통합합니다.
+
+### Google Cloud 에이전트 생태계
+
+Google은 [Gemini Enterprise Agent Platform](https://cloud.google.com/products/agent-builder)에서 Agent Builder + ADK(오픈소스)로 커스텀 에이전트를 구축하고, 보안 운영에는 Mandiant + Wiz 통합 기반의 Security Operations Agents를 제공합니다.
 
 ---
 
@@ -98,8 +93,8 @@ AWS는 re:Invent 2025(2025.12.02)에서 "Frontier Agent" 카테고리를 정의�
 
 | 단계 | 기간 | 활동 |
 | --- | --- | --- |
-| **1. 기반 구축** | 4~8주 | SSO, DLP, 허용 커넥터, 데이터 분류, 비용 예산, 감사 로깅 설정 |
-| **2. 파일럿** | 6~12주 (1~2개 팀) | 고빈도/저규제 워크플로(운영, 마케팅, 지원) 적용. 시간 절감·오류율·섀도 AI 감소 측정 |
+| **1. 기반 구축** | 4–8주 | SSO, DLP, 허용 커넥터, 데이터 분류, 비용 예산, 감사 로깅 설정 |
+| **2. 파일럿** | 6–12주 (1–2개 팀) | 고빈도/저규제 워크플로(운영, 마케팅, 지원) 적용. 시간 절감·오류율·섀도 AI 감소 측정 |
 | **3. 부서 확장** | 분기 단위 | 역할별 플레이북 + 챔피언 선정. 리스크 등급별 커넥터 확장 |
 | **4. 전사 배포** | 지속 | Desktop Agent(전 직원) + Coding Agent(엔지니어링) + Frontier Agent(IT 운영) 병행 |
 

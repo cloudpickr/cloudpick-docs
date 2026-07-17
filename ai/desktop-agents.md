@@ -88,8 +88,13 @@ Desktop Agent는 **배포 방식**에 따라 두 갈래로 나뉩니다.
 | **ChatGPT Desktop** | OpenAI | Computer Use, 에이전트, 로컬 파일/앱 접근, Deep Research, Codex 모드(코딩) | GA |
 | **Microsoft 365 Copilot** | Microsoft | M365 깊은 통합 (Word/Excel/PPT/Outlook/Teams), Agent Store, Copilot Studio | GA |
 | **Gemini Enterprise** | Google | Workspace 통합, 로컬 파일 작업, 멀티스텝 에이전트 | GA |
-| **Salesforce Agentforce** | Salesforce | CRM/서비스/마케팅 워크플로 자동화, 고객 대면 에이전트 | GA |
-| **ServiceNow AI Agents** | ServiceNow | IT 서비스 관리, HR, 워크플로 자동화 | GA |
+
+**SaaS 내장 에이전트** (Desktop Agent와 별개 카테고리):
+
+| 제품 | 제공사 | 비고 |
+| --- | --- | --- |
+| Salesforce Agentforce | Salesforce | CRM/서비스 워크플로 내 에이전트 |
+| ServiceNow AI Agents | ServiceNow | ITSM/HR 워크플로 내 에이전트 |
 
 ### 개발자 도구 vs 업무 도구
 
@@ -99,7 +104,7 @@ Desktop Agent는 **배포 방식**에 따라 두 갈래로 나뉩니다.
 | --- | --- | --- |
 | **사용 환경** | 데스크톱 앱, 오피스, 이메일, 파일 | 터미널, IDE, 코드 저장소, CI/CD |
 | **작용 대상** | 문서, 프레젠테이션, 캘린더, CRM, 로컬 파일 | 코드베이스, 테스트, PR, 인프라 |
-| **대표 제품** | Claude Cowork, Quick Desktop, ChatGPT Work, Copilot | Claude Code, Kiro, Codex, Cursor, Copilot Coding |
+| **대표 제품** | Claude Cowork, Quick Desktop, ChatGPT Work, Copilot | Claude Code, Kiro, Codex, Grok Build, Cursor, Copilot, OpenCode, Pi |
 | **리스크** | 고객 데이터, 규제 콘텐츠, 외부 발송 | 소스 IP, 시크릿, 프로덕션 변경 |
 | **권한 모델** | 커넥터 허용 목록, 읽기 자유/쓰기·발송은 승인 | 파일시스템/네트워크 샌드박스, git 권한 |
 
@@ -195,5 +200,9 @@ Desktop Agent는 기존 채팅형 AI와 달리 **여러 앱에 동시 접근하�
 ### 코딩 에이전트
 
 - [Kiro](https://kiro.dev/)
+- [Claude Code](https://github.com/anthropics/claude-code)
+- [Codex](https://openai.com/codex/)
+- [Grok Build](https://x.ai/news/grok-build-cli)
 - [GitHub Copilot](https://github.com/features/copilot)
 - [Antigravity](https://antigravity.google/)
+- [OpenCode](https://opencode.ai/)

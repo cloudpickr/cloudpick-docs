@@ -17,6 +17,7 @@
 - [멀티클라우드 이해하기](about-cloud/why-multicloud.md)
 - [Well-Architected Framework](about-cloud/well-architected.md)
 - [기술 지원과 어드바이저](about-cloud/support-plans.md)
+- [현장 배포 (Field Deployment)](about-cloud/field-deployment.md)
 
 ## 컴퓨팅 <a id="compute"></a>
 
@@ -106,3 +107,4 @@
 - [AI 에이전트 (Agentic AI)](ai/agents.md)
 - [멀티클라우드 AI 아키텍처](ai/multicloud-ai.md)
 - [LLMOps (AI 운영과 평가)](ai/llmops.md)
+- [LLM 채널 선택: 1P vs 3P](ai/1p-vs-3p.md)

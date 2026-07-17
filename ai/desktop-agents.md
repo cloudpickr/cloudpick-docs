@@ -13,7 +13,7 @@ AI 에이전트가 채팅 인터페이스를 넘어 **데스크톱 운영체제,
 | 카테고리 | 정의 | 대상 |
 | --- | --- | --- |
 | **Desktop Agent** | 로컬 파일, 앱, 브라우저, 이메일 등에 접근하여 업무를 수행하는 에이전트 | 전 직원 (개발자 포함) |
-| **Frontier Agent** | 수 시간–수 일간 자율적으로 목표를 추구하는 전문 에이전트. 사람의 상시 감독 없이 동작 | DevOps, 보안, FinOps 등 도메인 전문가 |
+| **자율 운영 에이전트** | 수 시간–수 일간 자율적으로 목표를 추구하는 전문 에이전트. 사람의 상시 감독 없이 동작 | DevOps, 보안, FinOps 등 도메인 전문가 |
 
 {% hint style="info" %}
 Desktop Agent는 **사람이 직접 사용하는 업무 동반자**이고, Frontier Agent는 **IT 시스템을 자율적으로 운영하는 전문가**입니다. 둘 다 [AI 에이전트](agents.md)의 확장이지만 배포·거버넌스·비용 모델이 다릅니다.
@@ -29,10 +29,11 @@ Desktop Agent는 **사람이 직접 사용하는 업무 동반자**이고, Front
 | --- | --- | --- | --- |
 | **Claude Desktop / Cowork** | Anthropic | MCP 확장, Desktop Extensions, Computer Use, 에이전틱 업무 수행 | GA |
 | **Amazon Quick Desktop** | AWS | 로컬 파일 인덱싱, 커넥터(M365/Slack/Salesforce), 리서치, 자동화, Python 샌드박스 | 프리뷰 (2026.04) |
-| **ChatGPT Desktop + Work** | OpenAI | Computer Use, 에이전트, 로컬 파일/앱 접근, Deep Research | GA |
-| **Codex Desktop** | OpenAI | 개발자 특화. 병렬 에이전트, Git worktree, 스킬/플러그인, MCP | GA |
+| **ChatGPT Desktop** | OpenAI | Computer Use, 에이전트, 로컬 파일/앱 접근, Deep Research, Codex 모드(코딩) | GA |
 | **Microsoft 365 Copilot** | Microsoft | M365 깊은 통합 (Word/Excel/PPT/Outlook/Teams), Agent Store, Copilot Studio | GA |
-| **Gemini Desktop / Spark** | Google | Workspace 통합, 로컬 파일 작업, 멀티스텝 에이전트 | GA (일부 프리뷰) |
+| **Gemini Enterprise** | Google | Workspace 통합, 로컬 파일 작업, 멀티스텝 에이전트 | GA |
+| **Salesforce Agentforce** | Salesforce | CRM/서비스/마케팅 워크플로 자동화, 고객 대면 에이전트 | GA |
+| **ServiceNow AI Agents** | ServiceNow | IT 서비스 관리, HR, 워크플로 자동화 | GA |
 
 ### 개발자 도구 vs 업무 도구
 
@@ -52,16 +53,16 @@ Desktop Agent는 **사람이 직접 사용하는 업무 동반자**이고, Front
 
 ---
 
-## Frontier Agent — 자율 운영 에이전트
+## 자율 운영 에이전트 (Autonomous Operations Agent)
 
-Frontier Agent는 수 시간–수 일간 자율적으로 목표를 추구하는 도메인 특화 에이전트입니다. 주요 클라우드 벤더가 경쟁적으로 출시하고 있습니다.
+각 클라우드 벤더가 수 시간–수 일간 자율적으로 작업하는 도메인 특화 에이전트를 출시하고 있습니다. AWS는 이를 "Frontier Agent"로, Microsoft는 "Copilot Agents"로, Google은 "AI Agents"로 브랜딩합니다.
 
-### 벤더별 Frontier Agent
+### 벤더별 자율 운영 에이전트
 
 | 도메인 | AWS | Microsoft | Google Cloud |
 | --- | --- | --- | --- |
-| **보안** | [Security Agent](https://aws.amazon.com/security-agent/) (GA 2026.03, Continuum 통합) | [Security Copilot Agents](https://learn.microsoft.com/en-us/copilot/security/agents-overview) (GA, Defender/Entra/Intune/Purview/Sentinel) | [Security Operations Agents](https://cloud.google.com/security/ai-threat-defense) (프리뷰, 위협 분류/헌팅/탐지) |
-| **DevOps/SRE** | [DevOps Agent](https://aws.amazon.com/devops-agent/) (GA 2026.03, 멀티클라우드) | [Azure Copilot](https://azure.microsoft.com/en-us/products/copilot) (인프라 운영/마이그레이션) | Agentic SOC (프리뷰) |
+| **보안** | [Security Agent](https://aws.amazon.com/security-agent/) (GA 2026.03, Continuum 통합) | [Security Copilot Agents](https://learn.microsoft.com/en-us/copilot/security/agents-overview) (GA, Defender/Entra/Intune/Purview/Sentinel) | [Security Operations Agents](https://cloud.google.com/security/ai-threat-defense) + Agentic SOC (프리뷰) |
+| **DevOps/SRE** | [DevOps Agent](https://aws.amazon.com/devops-agent/) (GA 2026.03, 멀티클라우드) | [Azure Copilot](https://azure.microsoft.com/en-us/products/copilot) (인프라 운영/마이그레이션) | — |
 | **FinOps/비용** | [FinOps Agent](https://aws.amazon.com/finops-agent/) (프리뷰 2026.06) | Azure Copilot 비용 최적화 | — (별도 브랜드 없음) |
 | **코딩** | [Kiro](https://kiro.dev/) (IDE/CLI GA, Web 프리뷰) | [GitHub Copilot](https://github.com/features/copilot) (Agent Mode, Agent Merge) | [Antigravity](https://antigravity.google/) (Agent-first IDE) |
 
@@ -99,7 +100,7 @@ Google은 [Gemini Enterprise Agent Platform](https://cloud.google.com/products/a
 | **4. 전사 배포** | 지속 | Desktop Agent(전 직원) + Coding Agent(엔지니어링) + Frontier Agent(IT 운영) 병행 |
 
 {% hint style="warning" %}
-**거버넌스를 파일럿 단계부터 내장하세요.** "나중에 붙이겠다"는 접근이 2026년 에이전트 도입 실패의 가장 흔한 패턴입니다.
+**거버넌스를 파일럿 단계부터 내장하는 것이 권장됩니다.** 사후에 거버넌스를 추가하면 이미 확산된 섀도 AI를 통제하기 어려워집니다.
 {% endhint %}
 
 ### 도구 선택 기준
@@ -148,11 +149,20 @@ Google은 [Gemini Enterprise Agent Platform](https://cloud.google.com/products/a
 
 ## 참고하기
 
-- [AWS Frontier Agents](https://aws.amazon.com/ai/frontier-agents/)
-- [AWS DevOps Agent](https://aws.amazon.com/devops-agent/)
-- [AWS Security Agent](https://aws.amazon.com/security-agent/)
-- [AWS FinOps Agent](https://aws.amazon.com/finops-agent/)
-- [Kiro](https://kiro.dev/)
+### Desktop Agent
+- [Claude Desktop](https://claude.ai/download)
 - [Amazon Quick Desktop](https://aws.amazon.com/quick/download/)
-- [Microsoft Security Copilot Agents](https://learn.microsoft.com/en-us/copilot/security/agents-overview)
-- [Google Cloud Security Operations — AI Agents](https://cloud.google.com/security/ai-threat-defense)
+- [ChatGPT Desktop](https://openai.com/chatgpt/download/)
+- [Microsoft 365 Copilot](https://www.microsoft.com/microsoft-365/copilot)
+- [Gemini Apps](https://gemini.google.com/app)
+
+### Frontier Agent
+- [AWS Frontier Agents](https://aws.amazon.com/ai/frontier-agents/)
+- [Microsoft Security Copilot](https://learn.microsoft.com/en-us/copilot/security/agents-overview)
+- [Microsoft Agent 365](https://learn.microsoft.com/en-us/microsoft-365-copilot/agents/)
+- [Google Cloud AI Threat Defense](https://cloud.google.com/security/ai-threat-defense)
+
+### 코딩 에이전트
+- [Kiro](https://kiro.dev/)
+- [GitHub Copilot](https://github.com/features/copilot)
+- [Antigravity](https://antigravity.google/)

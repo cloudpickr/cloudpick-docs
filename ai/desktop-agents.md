@@ -178,6 +178,7 @@ Desktop Agent는 기존 채팅형 AI와 달리 **여러 앱에 동시 접근하�
 ## 참고하기
 
 ### Desktop Agent
+
 - [Claude Desktop](https://claude.ai/download)
 - [Amazon Quick Desktop](https://aws.amazon.com/quick/download/)
 - [ChatGPT Desktop](https://openai.com/chatgpt/download/)
@@ -185,12 +186,14 @@ Desktop Agent는 기존 채팅형 AI와 달리 **여러 앱에 동시 접근하�
 - [Gemini Apps](https://gemini.google.com/app)
 
 ### Frontier Agent
+
 - [AWS Frontier Agents](https://aws.amazon.com/ai/frontier-agents/)
 - [Microsoft Security Copilot](https://learn.microsoft.com/en-us/copilot/security/agents-overview)
 - [Microsoft Agent 365](https://learn.microsoft.com/en-us/microsoft-365-copilot/agents/)
 - [Google Cloud AI Threat Defense](https://cloud.google.com/security/ai-threat-defense)
 
 ### 코딩 에이전트
+
 - [Kiro](https://kiro.dev/)
 - [GitHub Copilot](https://github.com/features/copilot)
 - [Antigravity](https://antigravity.google/)

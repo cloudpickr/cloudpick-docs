@@ -203,7 +203,7 @@ AI/ML을 직접 구축하지 않고, 특정 업무에 바로 적용할 수 있�
 | 컨택센터 (AICC) | 음성 봇, 실시간 상담 지원 | Amazon Connect, Azure AI Contact Center, Google Cloud CCAI |
 | 문서 처리 | OCR, 문서 분류, 데이터 추출 | Textract, Document Intelligence, Document AI |
 | 코드 생성 | 코드 자동완성, 리뷰 | Amazon Q Developer, GitHub Copilot, Gemini Code Assist |
-| BI 자연어 질의 | 자연어로 데이터 분석 | Amazon Q in QuickSight, Copilot in Power BI, Gemini in Looker |
+| BI 자연어 질의 | 자연어로 데이터 분석 | Amazon Quick, Copilot in Power BI, Gemini in Looker |
 
 #### 2025-2026 Applied AI 주요 변화
 
@@ -217,7 +217,7 @@ AI/ML을 직접 구축하지 않고, 특정 업무에 바로 적용할 수 있�
 | **컨택센터** | Google CCaaS 4.0~4.45, Agent Assist Hub로 Knowledge Assist 교체 | 2026.02~07 |
 | **문서 처리** | Azure Content Understanding GA — Doc Intelligence + LLM/멀티모달 추론 결합 | 2025.11 |
 | **문서 처리** | Google Document AI Gemini Layout Parser — 레이아웃 인식 Markdown 출력 | 2025-2026 |
-| **BI** | Amazon QuickSight → **Quick Suite** 리브랜딩 (AI 에이전트 Q&A/리서치/자동화) | 2025.10 |
+| **BI** | Amazon QuickSight → **Amazon Quick** 으로 진화 (Quick Sight은 Quick 산하 BI 기능으로 존속) | 2025.10~ |
 | **BI** | Gemini in Looker — 대화형 분석, 대시보드 에이전트, 에이전틱 워크플로우 | 2025.04~2026 |
 | **BI** | Copilot in Power BI — 에이전틱 분석, 웹 모델링 지원 | 2025.07~2026.06 |
 | **헬스케어** | Amazon Connect Health (HIPAA) — 환자 검증/스케줄링/임상 노트/의료 코딩 에이전트 | 2026.03 |

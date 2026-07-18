@@ -111,13 +111,16 @@ AI 에이전트는 단일 LLM 호출과 달리 **멀티스텝 트라젝토리**(
 
 | 도구 | 에이전트 특화 기능 |
 | --- | --- |
-| **LangSmith** | LangGraph 트라젝토리 리플레이, 도구 선택 분석, 온라인 평가 |
-| **Datadog LLM Observability** | 에이전트 결정 그래프, 루프 탐지, APM/인프라와 상관 분석 |
-| **Braintrust** | 트레이스→평가 데이터셋→CI 게이트 자동화, Topics 클러스터링 |
-| **Arize AX** | 지속적 평가, 트라젝토리 정확도, 드리프트 탐지 |
-| **Galileo** | Luna 평가기(저비용/저지연), 도구 선택 품질, 실패 클러스터링 |
-| **AgentCore Observability** (AWS) | CloudWatch + OTEL 자동 계측, 세션/도구/메모리 메트릭 |
-| **Azure Foundry Monitoring** | OTEL 기반 멀티에이전트 트레이싱, 지속적 평가, Azure Monitor 연동 |
+| [LangSmith](https://www.langchain.com/langsmith) | LangGraph 트라젝토리 리플레이, 도구 선택 분석, 온라인 평가 |
+| [Datadog LLM Observability](https://docs.datadoghq.com/llm_observability/) | 에이전트 결정 그래프, 루프 탐지, APM/인프라와 상관 분석 |
+| [Braintrust](https://www.braintrust.dev/) | 트레이스→평가 데이터셋→CI 게이트 자동화, Topics 클러스터링 |
+| [Arize AX](https://arize.com/) | 지속적 평가, 트라젝토리 정확도, 드리프트 탐지 |
+| [Galileo](https://www.galileo.ai/) | Luna 평가기(저비용/저지연), 도구 선택 품질, 실패 클러스터링 |
+| [AgentCore Observability](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/observability-get-started.html) (AWS) | CloudWatch + OTEL 자동 계측, 세션/도구/메모리 메트릭 |
+| [Azure Foundry Monitoring](https://learn.microsoft.com/en-us/azure/foundry/concepts/monitoring) (Azure) | OTEL 기반 멀티에이전트 트레이싱, 지속적 평가, Azure Monitor 연동 |
+| [Vertex AI Tracing](https://cloud.google.com/vertex-ai/generative-ai/docs/observability) (Google) | Cloud Trace 연동, ADK 트레이싱, 모델+도구 타임라인 |
+| [Langfuse](https://langfuse.com/) (오픈소스) | 셀프호스팅, 프레임워크 비종속 트레이싱, 비용 추적, 프롬프트 관리 |
+| [Phoenix](https://github.com/Arize-ai/phoenix) (오픈소스) | OpenInference 기반, 셀프호스팅, 트레이스+평가+드리프트 |
 
 {% hint style="info" %}
 **OTEL(OpenTelemetry) GenAI 시맨틱 컨벤션**이 에이전트 관측의 표준 계층으로 자리 잡고 있습니다. 프레임워크·벤더와 무관하게 트레이스를 내보내려면 OTEL 기반 계측(OpenLLMetry 등)을 선택하세요.

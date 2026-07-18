@@ -33,6 +33,17 @@ description: 벤더별 AI 플랫폼, 모델 카탈로그, GPU/AI 칩, Applied AI
 
 온프레미스에서 AI/ML을 하려면 GPU 서버 구매, 프레임워크 설치, 학습 인프라 구성을 직접 해야 합니다. 클라우드에서는 GPU를 시간 단위로 빌리고, 관리형 플랫폼에서 모델을 학습·배포할 수 있습니다.
 
+## 생성형 AI 모델 유형
+
+| 유형 | 입력 → 출력 | 대표 서비스 | 사용 사례 |
+| --- | --- | --- | --- |
+| **텍스트 (LLM)** | 텍스트 → 텍스트 | GPT-5.6, Claude Fable 5, Gemini 3.5 | 챗봇, 요약, 코드 생성 |
+| **이미지 생성** | 텍스트 → 이미지 | DALL-E, MAI-Image, Imagen, Titan Image | 마케팅, 디자인 |
+| **음성 (TTS/STT)** | 텍스트 ↔ 음성 | Polly, MAI-Voice, Azure Speech, Cloud TTS | 회의록, ARS, 접근성 |
+| **비디오 생성** | 텍스트 → 비디오 | Nova Reel, Veo 3.1, Gemini Omni | 광고, 숏폼 |
+| **멀티모달** | 텍스트+이미지+음성 → 텍스트 | GPT-5.6, Gemini 3.5 Pro, Claude Fable 5 | 문서 이해, 이미지 분석 |
+| **임베딩** | 텍스트/이미지 → 벡터 | Titan Embeddings, Gemini Embedding, Cohere Embed | RAG, 유사도 검색 |
+
 ## 생성형 AI 서비스
 
 ### 파운데이션 모델 API

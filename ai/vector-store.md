@@ -128,9 +128,15 @@ graph LR
 
 간단한 계산: 1,000,000개 × 1536차원 × 4바이트 = **약 6GB**
 
-{% hint style="info" %}
-임베딩 모델별 차원, 성능 비교, 선택 기준은 [임베딩 모델 비교](embedding-models.md)를 참고하세요.
-{% endhint %}
+| 벤더 | 모델 | 차원 | 특징 |
+| --- | --- | --- | --- |
+| AWS | Titan Embeddings V2 | 256–1024 | 가변 차원, Bedrock 네이티브 |
+| Azure | text-embedding-3-large | 256–3072 | OpenAI, 가변 차원 |
+| Google | Gemini Embedding 2 | 768 | Vertex AI 네이티브 |
+| Cohere | Embed 4 | 1024 | 멀티모달, 다국어, OCI/Bedrock |
+| 오픈소스 | BGE-M3, E5 등 | 768–1024 | 셀프호스팅 가능 |
+
+**선택 기준:** 한국어 성능이 중요하면 다국어 모델(Cohere, BGE-M3), 비용 우선이면 저차원, 정확도 우선이면 고차원. 모델 변경 시 전체 벡터 재인덱싱이 필요합니다.
 
 ### 하이브리드 검색
 

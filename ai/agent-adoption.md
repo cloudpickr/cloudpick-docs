@@ -11,7 +11,7 @@ description: Desktop/Coding/자율 운영 에이전트의 기업 도입 전략, 
 AI 에이전트를 기업에 도입할 때, "어떤 도구를 쓸지"보다 "어떻게 안전하게 확산시킬지"가 더 어려운 문제입니다. 이 문서는 에이전트 도입의 단계별 접근, 역할별 도구 선택, 거버넌스 프레임워크를 정리합니다.
 
 {% hint style="info" %}
-에이전트의 기술적 아키텍처와 프로토콜은 [AI 에이전트](agents.md)를, 제품별 비교는 [Desktop Agent와 자율 운영 에이전트](desktop-agents.md)를 참고하세요.
+에이전트의 기술적 아키텍처와 프로토콜은 [AI 에이전트](agents.md)를 참고하세요.
 {% endhint %}
 
 ---
@@ -117,7 +117,7 @@ AI 에이전트를 기업에 도입할 때, "어떤 도구를 쓸지"보다 "어
 
 ## 관련 문서
 
-- [Desktop Agent와 자율 운영 에이전트](desktop-agents.md) — 제품 비교, 시장 현황
+- [AI 에이전트](agents.md) — 에이전트 아키텍처, 코딩/Desktop/자율 운영, 제품 비교
 - [AI 에이전트](agents.md) — 에이전트 아키텍처, 프로토콜, 코딩 에이전트
 - [LLM 채널 선택: 1P vs 3P](1p-vs-3p.md) — Seat vs API, 채널 패턴
 - [AI 보안](../security/ai-security.md) — 가드레일, 프롬프트 인젝션

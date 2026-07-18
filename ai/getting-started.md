@@ -29,7 +29,7 @@ description: AI의 전체 영역(전통 ML, 딥러닝, 생성형 AI, 에이전�
 | 이미지/영상 분류, 객체 탐지 | 딥러닝 (Computer Vision) | [AI 플랫폼 — ML 플랫폼](ai-ml.md#ml-플랫폼) |
 | 자연어 대화, 문서 요약, 코드 생성 | 생성형 AI (FM API) | 이 문서 아래 참고 |
 | 멀티스텝 자동화, 도구 호출, 자율 작업 | 에이전트 | [AI 에이전트](agents.md) |
-| 업무 보조 (전 직원 AI 도구) | Desktop Agent | [Desktop Agent](desktop-agents.md) |
+| 업무 보조 (전 직원 AI 도구) | Desktop Agent | [AI 에이전트](agents.md) |
 
 ---
 

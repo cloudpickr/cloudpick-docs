@@ -69,7 +69,7 @@ CloudPick은 **멀티클라우드 환경에서 올바른 의사결정을 내리�
 5. [벡터 스토어와 임베딩](ai/vector-store.md)
 6. [AI 에이전트](ai/agents.md) — 코딩/Desktop/자율 운영 에이전트
 7. [에이전트 도입 가이드](ai/agent-adoption.md) — AX 전략, 롤아웃, 거버넌스
-8. [LLM 채널 선택: 1P vs 3P](ai/1p-vs-3p.md) — 채널 패턴, Seat vs API
+8. [LLM 채널 선택 가이드](ai/1p-vs-3p.md) — 직접 이용 vs 클라우드 제공, Seat vs API
 9. [LLM 라이선스와 비용 관리](ai/licensing.md) — 티어, 쿼터, 비용 관리
 10. [LLMOps](ai/llmops.md) — 평가, 에이전트 관측, 운영
 11. [멀티클라우드 AI](ai/multicloud-ai.md) — 비용, GPU, 벤더 조합

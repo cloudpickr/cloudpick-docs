@@ -90,7 +90,6 @@ description: 벤더별 AI 플랫폼, 모델 카탈로그, GPU/AI 칩, Applied AI
 ### 코드 어시스턴트 / AI 에이전트
 
 코딩 에이전트(Kiro, Claude Code, Codex, Copilot 등)와 에이전트 플랫폼(AgentCore, Foundry Agents 등)은 [AI 에이전트](agents.md)에서 다룹니다.
-{% endhint %}
 
 ## ML 플랫폼
 

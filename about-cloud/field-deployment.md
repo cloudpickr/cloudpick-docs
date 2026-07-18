@@ -136,7 +136,7 @@ FDE가 프로덕션 코드를 소유한다면, 운영도 함께 알아야 합니
 - [AI 시작하기](../ai/getting-started.md) — AI 제품 이해
 - [RAG 고급 패턴](../ai/rag-patterns.md) — 고객 데이터 기반 RAG 구축
 - [AI 에이전트](../ai/agents.md) — 에이전틱 워크플로우 배포
-- [LLMOps](../ai/llmops.md) — 평가, 비용, 운영
+- [LLMOps](../ai/llmops.md) — 평가, 비용, 운영, **에이전트 관측**
 - [AI 보안](../security/ai-security.md) — 가드레일, 프롬프트 인젝션 방어
 
 ---

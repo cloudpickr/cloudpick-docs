@@ -39,24 +39,33 @@ description: 벤더별 AI 플랫폼, 모델 카탈로그, GPU/AI 칩, Applied AI
 
 직접 모델을 학습하지 않고, 벤더가 호스팅하는 대규모 언어 모델(LLM)을 API로 호출합니다. 각 벤더는 자체 개발 모델과 파트너 모델을 함께 제공하며, 생태계가 빠르게 확장되고 있습니다.
 
-| 벤더 | 플랫폼 | 주요 제공 모델군 | 비고 |
+| 모델 제공사 | 주요 모델 | 1P (직접) | 3P (클라우드 제공) |
 | --- | --- | --- | --- |
-| AWS | [Amazon Bedrock](https://aws.amazon.com/bedrock/) | **Amazon Nova** (Nova Premier/Pro/Lite/Micro/Sonic), Anthropic Claude (**Fable 5**/Opus/Sonnet/Haiku), OpenAI **GPT-5.6** (Sol/Terra/Luna)/GPT-5.5/GPT-OSS, Meta Llama, Mistral, NVIDIA Nemotron, DeepSeek, MiniMax, GLM ([지원 모델 목록](https://docs.aws.amazon.com/bedrock/latest/userguide/model-ids.html)) | 단일 API로 멀티 모델 선택. OpenAI Codex(GPT-5.5 기반)도 Bedrock에서 제공 |
-| Azure | [Microsoft Foundry(구 Azure OpenAI)](https://azure.microsoft.com/products/ai-services/openai-service) | OpenAI (**GPT-5.6** Sol/Terra/Luna, GPT-5.5/5.4 시리즈, o-시리즈), Anthropic Claude, Meta Llama, Mistral, **MAI** (Image/Voice/Transcribe), DeepSeek V4 Pro, Kimi 2.6 ([Foundry 모델 카탈로그](https://ai.azure.com/catalog)) | OpenAI 주력 + 자체 MAI 모델군, Fireworks AI 통합, Foundry Local(로컬/단절망 실행) |
-| Google Cloud | [Vertex AI Model Garden](https://cloud.google.com/vertex-ai/generative-ai/docs/learn/models) | Google **Gemini 3.x/2.5** 시리즈 (3.5 Flash/3.5 Pro/3.1 Pro/2.5 Pro/2.5 Flash), **Gemini Omni** (비디오 생성), Anthropic Claude, xAI Grok, Meta Llama, Mistral, DeepSeek, OpenAI GPT-OSS ([Model Garden](https://cloud.google.com/vertex-ai/generative-ai/docs/learn/models)) | Gemini 3.5 Flash GA, 3.5 Pro GA (2026.06, 2M 토큰, Deep Think). 네이티브 멀티모달, Model Garden에 200+ 모델 |
-| OCI | [OCI Enterprise AI(구 OCI Generative AI)](https://docs.oracle.com/iaas/Content/generative-ai/home.htm) | Cohere Command, Meta Llama, xAI Grok 4.3, Google Gemini, OpenAI GPT-5.5/5.4/Codex(OCI Marketplace 예정), DeepSeek 등 ([지원 모델 목록](https://docs.oracle.com/en-us/iaas/Content/generative-ai/pretrained-models.htm)) | Oracle DB 네이티브 통합, **Dedicated AI Cluster** (전용 RDMA GPU, 타 테넌트 비공유), AI Guardrails(콘텐츠/PII/프롬프트 인젝션), 이그레스 10TB 무료 |
-| xAI | [xAI API](https://x.ai/api) | **Grok 4.3**, Grok 4.1 Fast, Imagine (이미지/비디오 생성) | 100만 토큰 컨텍스트 윈도우, 경쟁력 있는 가격, 추론·코딩 특화. OCI에서도 호스팅 제공 |
+| **OpenAI** | GPT-5.6 (Sol/Terra/Luna), GPT-5.5, o-시리즈 | [api.openai.com](https://platform.openai.com/) | Azure Foundry, Bedrock |
+| **Anthropic** | Claude Fable 5, Opus 4.8, Sonnet 5, Haiku | [api.anthropic.com](https://platform.claude.com/) | Bedrock, Vertex AI |
+| **Google** | Gemini 3.5 Pro/Flash, 3.1 Pro, Gemini Omni | [Gemini API](https://ai.google.dev/) | Vertex AI (네이티브) |
+| **xAI** | Grok 4.3, Grok 4.1 Fast, Imagine | [x.ai/api](https://x.ai/api) | OCI, Vertex AI, Bedrock, Azure |
+| **Meta** | Llama 4 (오픈웨이트) | [llama.meta.com](https://llama.meta.com/) | Bedrock, Vertex, Azure, OCI (호스팅) |
+| **Amazon** | Nova Premier/Pro/Lite/Micro/Sonic | — (Bedrock 전용) | Bedrock |
+| **Microsoft** | MAI (Image/Voice/Transcribe) | — (Foundry 전용) | Azure Foundry |
+| **Mistral** | Large, Small, Codestral | [api.mistral.ai](https://api.mistral.ai/) | Bedrock, Azure, Vertex |
+| **Upstage** | Solar Pro 3/2/Mini | [console.upstage.ai](https://console.upstage.ai/) | AWS/Azure Marketplace |
+| **LG AI Research** | EXAONE 4.x | 직접 계약 | Marketplace, 셀프호스팅 |
 
 {% hint style="info" %}
-**모델 생태계는 빠르게 변합니다.** 최근에는 벤더 간 파트너십이 강화되어 "한 벤더 플랫폼에서 여러 제공사 모델 접근"이 일반화되었습니다:
-
-- **Amazon Bedrock** — Anthropic(전략적 투자 파트너, Claude Fable 5/Opus/Sonnet/Haiku 전 계열), OpenAI GPT-5.6(Sol/Terra/Luna)/GPT-5.5 + Codex, Meta, Mistral, DeepSeek, NVIDIA 등 다수 제공사 호스팅
-- **Microsoft Foundry** — OpenAI 전략적 파트너십 외에 Anthropic, Meta, Mistral, 자체 MAI 모델군(이미지/음성), Fireworks AI(DeepSeek V4 Pro, Kimi 2.6) 확장
-- **Gemini Enterprise Agent Platform** — Google 자체 Gemini 3.x/2.5(3.5 Pro GA/3.5 Flash/3.1 Pro) + Gemini Omni + Anthropic Claude + xAI Grok + 타사 모델 카탈로그. Agent Studio + ADK 기반 에이전트 빌드·디플로이 통합
-- **OCI Enterprise AI** — Cohere, Meta Llama, xAI Grok 4.3, Google Gemini + OpenAI(GPT-5.5/5.4, Codex) OCI Marketplace 통해 제공 예정
-
-정확한 현재 모델 목록은 각 벤더의 공식 모델 페이지에서 확인하세요. 모델명/버전은 수개월마다 변경될 수 있습니다.
+**1P(직접)와 3P(클라우드 제공)의 차이** — 같은 모델이라도 채널에 따라 기능 범위, 쿼터, 빌링이 다릅니다. 채널 선택 기준은 [LLM 채널 선택: 1P vs 3P](1p-vs-3p.md)를 참고하세요.
 {% endhint %}
+
+### 클라우드 플랫폼별 특징
+
+위 모델들을 호스팅하는 클라우드 플랫폼은 각각 고유한 부가 가치를 제공합니다:
+
+| 플랫폼 | 강점 |
+| --- | --- |
+| [Amazon Bedrock](https://aws.amazon.com/bedrock/) | 멀티모델 단일 API, AgentCore, AWS IAM/VPC 통합, EDP 소진 |
+| [Microsoft Foundry](https://azure.microsoft.com/products/ai-services/openai-service) | OpenAI 주력 채널, M365/GitHub 통합, Foundry Local(단절망), PTU |
+| [Vertex AI / Gemini Platform](https://cloud.google.com/vertex-ai) | Gemini 네이티브, 2M 토큰, Model Garden 200+ 모델, ADK |
+| [OCI Enterprise AI](https://docs.oracle.com/iaas/Content/generative-ai/home.htm) | Oracle DB 통합, 전용 GPU 클러스터(RDMA), 이그레스 10TB 무료 |
 
 ### AI 에이전트 / RAG
 

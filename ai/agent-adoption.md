@@ -119,7 +119,7 @@ AI 에이전트를 기업에 도입할 때, "어떤 도구를 쓸지"보다 "어
 
 - [AI 에이전트](agents.md) — 에이전트 아키텍처, 코딩/Desktop/자율 운영, 제품 비교
 - [AI 에이전트](agents.md) — 에이전트 아키텍처, 프로토콜, 코딩 에이전트
-- [LLM 채널 선택: 1P vs 3P](1p-vs-3p.md) — Seat vs API, 채널 패턴
+- [LLM 채널 선택 가이드](1p-vs-3p.md) — Seat vs API, 채널 패턴
 - [AI 보안](../security/ai-security.md) — 가드레일, 프롬프트 인젝션
 - [제로 트러스트](../security/zero-trust.md) — 비인간 ID, 워크로드 ID
 - [FinOps](../governance/finops.md) — 비용 거버넌스

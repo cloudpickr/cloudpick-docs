@@ -138,9 +138,86 @@ def check_volatile_keywords(files: list[Path]) -> list[str]:
     return warnings
 
 
+# ---------------------------------------------------------------------------
+# GitBook block syntax validation
+# ---------------------------------------------------------------------------
+
+# Patterns to detect GitBook block open/close tags.
+# We skip lines inside fenced code blocks (``` ... ```) to avoid false positives.
+GITBOOK_BLOCKS = [
+    ("hint", re.compile(r"^\{%\s*hint\b"), re.compile(r"^\{%\s*endhint\s*%\}")),
+    ("tabs", re.compile(r"^\{%\s*tabs\s*%\}"), re.compile(r"^\{%\s*endtabs\s*%\}")),
+    ("tab", re.compile(r"^\{%\s*tab\b"), re.compile(r"^\{%\s*endtab\s*%\}")),
+    (
+        "content-ref",
+        re.compile(r"^\{%\s*content-ref\b"),
+        re.compile(r"^\{%\s*endcontent-ref\s*%\}"),
+    ),
+]
+
+HINT_STYLE_RE = re.compile(r'{%\s*hint\s+style="([^"]+)"\s*%}')
+VALID_HINT_STYLES = {"info", "warning", "danger", "success"}
+
+
+def check_gitbook_blocks(files: list[Path]) -> list[str]:
+    """Validate GitBook block syntax: matching open/close pairs and valid hint styles."""
+    errors: list[str] = []
+
+    for path in files:
+        lines = path.read_text(encoding="utf-8").splitlines()
+        rel = str(path.relative_to(ROOT))
+
+        # Track whether we are inside a fenced code block
+        in_code_fence = False
+
+        # Counters per block type: list of (line_number, "open"/"close")
+        counts: dict[str, list[tuple[int, str]]] = {
+            name: [] for name, _, _ in GITBOOK_BLOCKS
+        }
+
+        for i, line in enumerate(lines, 1):
+            stripped = line.strip()
+
+            # Toggle code fence state
+            if stripped.startswith("```"):
+                in_code_fence = not in_code_fence
+                continue
+
+            if in_code_fence:
+                continue
+
+            # Check each block type
+            for name, open_re, close_re in GITBOOK_BLOCKS:
+                if open_re.match(stripped):
+                    counts[name].append((i, "open"))
+                elif close_re.match(stripped):
+                    counts[name].append((i, "close"))
+
+            # Validate hint style value
+            m = HINT_STYLE_RE.search(stripped)
+            if m and m.group(1) not in VALID_HINT_STYLES:
+                errors.append(
+                    f"{rel}:{i}: invalid hint style '{m.group(1)}' "
+                    f"(valid: {', '.join(sorted(VALID_HINT_STYLES))})"
+                )
+
+        # Check open/close balance
+        for name, _, _ in GITBOOK_BLOCKS:
+            opens = [ln for ln, kind in counts[name] if kind == "open"]
+            closes = [ln for ln, kind in counts[name] if kind == "close"]
+            if len(opens) != len(closes):
+                errors.append(
+                    f"{rel}: mismatched {{% {name} %}} blocks "
+                    f"(open={len(opens)}, close={len(closes)})"
+                )
+
+    return errors
+
+
 def main() -> int:
     files = iter_markdown_files()
     errors = check_links(files) + check_summary_coverage(files)
+    errors += check_gitbook_blocks(files)
 
     # Quality warnings (non-blocking)
     warnings: list[str] = []

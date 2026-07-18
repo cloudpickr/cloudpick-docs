@@ -116,7 +116,7 @@ API는 누적 지출액에 따라 자동 승급됩니다. ([공식 Rate Limits �
 
 ## 관련 문서
 
-- [LLM 채널 선택: 1P vs 3P](1p-vs-3p.md) — 채널 패턴, Seat vs API 선택
+- [LLM 채널 선택 가이드](1p-vs-3p.md) — 채널 패턴, Seat vs API 선택
 - [AI 플랫폼과 모델 비교](ai-ml.md) — 모델 카탈로그, 추론 비용 최적화
 - [FinOps](../governance/finops.md) — 클라우드 비용 거버넌스 전반
 - [에이전트 도입 가이드](agent-adoption.md) — 에이전트 비용 관리

@@ -149,7 +149,7 @@ LLM 채팅은 브라우저 안에 갇혀 있었습니다. Desktop Agent는 로�
 - [AI 플랫폼과 모델 비교](ai-ml.md) — 모델 카탈로그
 - [LLMOps](llmops.md) — 에이전트 관측, 평가, 비용
 - [AI 보안](../security/ai-security.md) — 가드레일, 프롬프트 인젝션
-- [LLM 채널 선택: 1P vs 3P](1p-vs-3p.md) — Seat vs API, 채널 패턴
+- [LLM 채널 선택 가이드](1p-vs-3p.md) — Seat vs API, 채널 패턴
 
 ## 참고하기
 

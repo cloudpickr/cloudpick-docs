@@ -7,7 +7,7 @@ description: 기본 RAG의 한계와 청킹, 리랭킹, 쿼리 확장 같은 고
 > 문서 기준: 2026년 7월 | 이 문서는 변동이 빠른 영역으로 분기별 리뷰 대상입니다.
 
 {% hint style="info" %}
-RAG 기초는 [AI 시작하기](getting-started.md)의 RAG 섹션과 [벡터 스토어와 AI 데이터](vector-store.md)를 먼저 읽어보세요.
+RAG 기초는 [AI 시작하기](getting-started.md)의 RAG 섹션과 [벡터 스토어와 임베딩](vector-store.md)를 먼저 읽어보세요.
 {% endhint %}
 
 ## 기본 RAG의 한계

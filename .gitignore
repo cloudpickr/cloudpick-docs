@@ -10,3 +10,4 @@ memory/
 scripts/standardize_naming.py
 .!*
 
+starlight/node_modules/

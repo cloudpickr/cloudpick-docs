@@ -63,18 +63,17 @@ CloudPick은 **멀티클라우드 환경에서 올바른 의사결정을 내리�
 
 {% tab title="🤖 AI 도입" %}
 1. [AI 시작하기](ai/getting-started.md)
-2. [AI 플랫폼과 모델 비교](ai/ai-ml.md) — 모델 카탈로그, ML 플랫폼
+2. [AI 플랫폼과 모델 비교](ai/ai-ml.md) — 모델 카탈로그, Applied/Physical AI, 추론 비용
 3. [프롬프트 엔지니어링](ai/prompt-engineering.md)
 4. [RAG 고급 패턴](ai/rag-patterns.md)
 5. [벡터 스토어와 임베딩](ai/vector-store.md)
-6. [AI 활용 패턴](ai/ai-use-cases.md) — Applied AI, Physical AI
-7. [AI 에이전트](ai/agents.md) — 코딩/Desktop/자율 운영 에이전트
-8. [에이전트 도입 가이드](ai/agent-adoption.md) — AX 전략, 롤아웃, 거버넌스
-9. [LLM 채널 선택: 1P vs 3P](ai/1p-vs-3p.md) — 채널 패턴, Seat vs API
-10. [LLM 라이선스와 비용 관리](ai/licensing.md) — 티어, 쿼터, 비용 관리
-11. [LLMOps](ai/llmops.md) — 평가, 운영, 에이전트 관측
-12. [멀티클라우드 AI](ai/multicloud-ai.md) — 비용, GPU, 벤더 조합
-13. [AI 보안](security/ai-security.md) — 가드레일, 프롬프트 인젝션 방어
+6. [AI 에이전트](ai/agents.md) — 코딩/Desktop/자율 운영 에이전트
+7. [에이전트 도입 가이드](ai/agent-adoption.md) — AX 전략, 롤아웃, 거버넌스
+8. [LLM 채널 선택: 1P vs 3P](ai/1p-vs-3p.md) — 채널 패턴, Seat vs API
+9. [LLM 라이선스와 비용 관리](ai/licensing.md) — 티어, 쿼터, 비용 관리
+10. [LLMOps](ai/llmops.md) — 평가, 에이전트 관측, 운영
+11. [멀티클라우드 AI](ai/multicloud-ai.md) — 비용, GPU, 벤더 조합
+12. [AI 보안](security/ai-security.md) — 가드레일, 프롬프트 인젝션 방어
 {% endtab %}
 
 {% tab title="🚀 현장 배포" %}

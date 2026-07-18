@@ -102,7 +102,6 @@
 - [프롬프트 엔지니어링](ai/prompt-engineering.md)
 - [RAG 고급 패턴](ai/rag-patterns.md)
 - [벡터 스토어와 임베딩](ai/vector-store.md)
-- [AI 활용 패턴](ai/ai-use-cases.md)
 - [AI 에이전트](ai/agents.md)
 - [LLM 채널 선택: 1P vs 3P](ai/1p-vs-3p.md)
 - [LLM 라이선스와 비용 관리](ai/licensing.md)

@@ -179,7 +179,22 @@ AI 서비스는 다른 클라우드 서비스보다 **변경 빈도가 매우 �
 
 ## AI 활용의 확장 방향
 
-산업별 완성형 서비스(Applied AI), 물리 세계 연결(Physical AI), 에이전트의 상세는 [AI 활용 패턴](ai-use-cases.md)을 참고하세요.
+### Applied AI (산업별 완성형 서비스)
+
+| 영역 | 벤더 서비스 | 트렌드 (2025-2026) |
+| --- | --- | --- |
+| 컨택센터 | Amazon Connect, Azure Contact Center, Google CCAI | 코파일럿 → 자율 에이전트 전환 |
+| 문서 처리 | Textract, Document Intelligence, Document AI | LLM/멀티모달 추론 결합 |
+| BI | Amazon Quick, Copilot in Power BI, Gemini in Looker | 에이전틱 분석, 대시보드 에이전트 |
+| 헬스케어 | Amazon Connect Health, Azure Health Bot | HIPAA 에이전트 |
+
+### Physical AI (물리 세계 연결)
+
+| 영역 | 클라우드 서비스 |
+| --- | --- |
+| IoT + 엣지 추론 | AWS IoT Greengrass, Azure IoT Operations, Google Edge TPU |
+| 디지털 트윈 | AWS IoT TwinMaker, Azure Digital Twins, NVIDIA Omniverse |
+| 로보틱스 | NVIDIA Isaac, Halos for Robotics |
 
 ## 멀티클라우드 모델 접근의 변화 (2025-2026)
 

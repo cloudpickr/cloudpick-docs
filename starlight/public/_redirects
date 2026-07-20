@@ -1,0 +1,75 @@
+# GitBook → Starlight redirects
+# 기존 docs.cloudpick.kr 경로를 새 구조로 301 리다이렉트
+
+# AI 섹션
+/ai/getting-started /en/ai/getting-started 301
+/ai/ai-ml /en/ai/ai-ml 301
+/ai/agents /en/ai/agents 301
+/ai/prompt-engineering /en/ai/prompt-engineering 301
+/ai/rag-patterns /en/ai/rag-patterns 301
+/ai/vector-store /en/ai/vector-store 301
+/ai/1p-vs-3p /en/ai/1p-vs-3p 301
+/ai/licensing /en/ai/licensing 301
+/ai/llmops /en/ai/llmops 301
+/ai/multicloud-ai /en/ai/multicloud-ai 301
+/ai/agent-adoption /en/ai/agent-adoption 301
+
+# 삭제된 문서 → 통합된 문서로
+/ai/desktop-agents /en/ai/agents 301
+/ai/ai-use-cases /en/ai/ai-ml 301
+/ai/generative-models /en/ai/ai-ml 301
+/ai/embedding-models /en/ai/vector-store 301
+
+# About Cloud
+/about-cloud/getting-started /en/about-cloud/getting-started 301
+/about-cloud/compare-clouds /en/about-cloud/compare-clouds 301
+/about-cloud/decision-framework /en/about-cloud/decision-framework 301
+/about-cloud/regions-and-zones /en/about-cloud/regions-and-zones 301
+/about-cloud/shared-responsibility /en/about-cloud/shared-responsibility 301
+/about-cloud/accounts-and-organizations /en/about-cloud/accounts-and-organizations 301
+/about-cloud/iam-overview /en/about-cloud/iam-overview 301
+/about-cloud/pricing-model /en/about-cloud/pricing-model 301
+/about-cloud/why-multicloud /en/about-cloud/why-multicloud 301
+/about-cloud/well-architected /en/about-cloud/well-architected 301
+/about-cloud/field-deployment /en/about-cloud/field-deployment 301
+
+# Security
+/security/getting-started /en/security/getting-started 301
+/security/iam /en/security/iam 301
+/security/secrets /en/security/secrets 301
+/security/data-protection /en/security/data-protection 301
+/security/network-isolation /en/security/network-isolation 301
+/security/zero-trust /en/security/zero-trust 301
+/security/ai-security /en/security/ai-security 301
+/security/incident-response /en/security/incident-response 301
+
+# Governance
+/governance/landing-zone /en/governance/landing-zone 301
+/governance/finops /en/governance/finops 301
+/governance/dr /en/governance/dr 301
+/governance/compliance /en/governance/compliance 301
+/governance/exit-strategy /en/governance/exit-strategy 301
+
+# DevOps
+/devops/getting-started /en/devops/getting-started 301
+/devops/cicd /en/devops/cicd 301
+/devops/monitoring /en/devops/monitoring 301
+/devops/observability /en/devops/observability 301
+/devops/slo /en/devops/slo 301
+/devops/remote-access /en/devops/remote-access 301
+/devops/devsecops /en/devops/devsecops 301
+
+# Compute
+/compute/migration /en/compute/migration 301
+/compute/modernization /en/compute/modernization 301
+
+# Database
+/database/operations /en/database/operations 301
+/database/migration /en/database/migration 301
+/database/analytics /en/database/analytics 301
+
+# Storage
+/storage/migration /en/storage/migration 301
+
+# Root → English home
+/ /en/ 301

@@ -135,7 +135,7 @@ AI 에이전트, 서비스 계정, CI/CD 파이프라인 봇 등 비인간 ID의
 
 #### Microsoft Entra Agent ID
 
-Microsoft는 AI 에이전트를 디렉터리의 **1급 신원(first-class identity)**으로 관리하는 [Entra Agent ID](https://learn.microsoft.com/entra/workload-id/)를 도입했습니다 (Build 2025). 에이전트에 조건부 액세스, 수명주기 관리, 감사 로그가 사람 ID와 동일하게 적용됩니다. 에이전트 도입 거버넌스 상세는 [AI 에이전트 도입 가이드](../ai/agent-adoption.md)를 참고하세요.
+Microsoft는 AI 에이전트를 디렉터리의 1급 신원(first-class identity)으로 관리하는 [Entra Agent ID](https://learn.microsoft.com/entra/workload-id/)를 도입했습니다 (Build 2025). 에이전트에 조건부 액세스, 수명주기 관리, 감사 로그가 사람 ID와 동일하게 적용됩니다. 에이전트 도입 거버넌스 상세는 [AI 에이전트 도입 가이드](../ai/agent-adoption.md)를 참고하세요.
 
 ### 워크로드 ID 강화
 

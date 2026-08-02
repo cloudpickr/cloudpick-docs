@@ -126,7 +126,7 @@ Kubernetes 1.24에서 Dockershim이 제거된 이후 **containerd**가 사실상
 
 | 변경 | 영향 | 대응 |
 | --- | --- | --- |
-| Docker Image Manifest Schema 1 지원 제거 | 매우 오래된 이미지(2017년 이전 빌드)가 Pull 실패 | `docker manifest inspect`로 Schema 버전 확인. Schema 2 또는 OCI 이미지로 재빌드 |
+| Docker Image Manifest Schema 1 기본 비활성화 (2.0), 완전 제거 (2.1) | 매우 오래된 이미지(2017년 이전 빌드)가 Pull 실패. 관리형 K8s(EKS/AKS/GKE/OKE)는 재활성화를 차단하므로 실질적 Pull 불가 | `docker manifest inspect`로 Schema 버전 확인. Schema 2 또는 OCI 이미지로 재빌드 |
 | CRI 플러그인 설정 구조 변경 | 기존 `containerd config.toml` 호환 불가 가능 | 노드 업그레이드 전 설정 마이그레이션 검증 |
 | 새 샌드박스(sandbox) API | 향상된 Pod 격리 | 관리형 K8s 사용 시 벤더가 처리 |
 

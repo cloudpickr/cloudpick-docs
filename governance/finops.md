@@ -173,14 +173,14 @@ Showback/Chargeback을 하려면 비용을 정확히 귀속시킬 수 있어야 
 
 [FOCUS(FinOps Open Cost and Usage Specification)](https://focus.finops.org/)는 FinOps Foundation에서 주도하는 멀티클라우드 비용 데이터 표준화 스펙입니다. 벤더별로 다른 비용 데이터 형식을 하나의 스키마로 통합하여 멀티클라우드 환경에서 일관된 비용 분석을 가능하게 합니다.
 
-**FOCUS v1.2** (2025.6)에서 AI 워크로드를 위한 컬럼이 추가되었습니다:
-- `ChargeSubcategory` — 토큰 입력/출력, 파인튜닝, 추론 시간 구분
-- `CommitmentDiscountQuantity` — GPU 약정 할인 반영
-- AI 모델 호출 단위 과금을 표준 스키마로 표현 가능
+**FOCUS v1.2** (2025.6)에서 AI/ML 워크로드 비용 가시성이 강화되었습니다:
+- `ServiceCategory` / `ServiceName` 체계에서 AI 서비스 구분 표준화
+- `PricingUnit`에 토큰(input/output), GPU-hour, 추론 요청 등 AI 과금 단위 반영
+- `CommitmentDiscountStatus` 등 약정 관련 컬럼으로 GPU 예약 할인 추적 가능
 
 | 벤더 | FOCUS 지원 현황 |
 | --- | --- |
-| AWS | [CUR 2.0 (FOCUS v1.2 호환)](https://docs.aws.amazon.com/cur/latest/userguide/table-columns-cur2.html) |
+| AWS | [Data Exports — FOCUS 1.2 with AWS columns](https://docs.aws.amazon.com/cur/latest/userguide/table-columns-cur2.html) (CUR 2.0과는 별도 내보내기) |
 | Azure | [Cost Management FOCUS export](https://learn.microsoft.com/en-us/azure/cost-management-billing/) |
 | Google Cloud | [BigQuery 비용 내보내기 (FOCUS 호환)](https://cloud.google.com/billing/docs/how-to/export-data-bigquery-tables) |
 | OCI | [Cost Report (FOCUS 지원 진행 중)](https://docs.oracle.com/en-us/iaas/Content/Billing/Concepts/costanalysisoverview.htm) |

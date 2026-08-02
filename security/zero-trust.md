@@ -135,7 +135,7 @@ AI 에이전트, 서비스 계정, CI/CD 파이프라인 봇 등 비인간 ID의
 
 #### Microsoft Entra Agent ID
 
-Microsoft는 AI 에이전트를 디렉터리의 1급 신원(first-class identity)으로 관리하는 [Entra Agent ID](https://learn.microsoft.com/entra/workload-id/)를 도입했습니다 (Build 2025). 에이전트에 조건부 액세스, 수명주기 관리, 감사 로그가 사람 ID와 동일하게 적용됩니다. 에이전트 도입 거버넌스 상세는 [AI 에이전트 도입 가이드](../ai/agent-adoption.md)를 참고하세요.
+Microsoft는 AI 에이전트를 디렉터리에서 독립 관리되는 1급 ID(first-class identity)로 다루는 [Entra Agent ID](https://learn.microsoft.com/entra/identity-platform/agent-id/)를 도입했습니다 (Build 2025). 에이전트에 조건부 액세스, 수명주기 관리, 감사 로그가 사람 ID와 동일하게 적용됩니다. 에이전트 도입 거버넌스 상세는 [AI 에이전트 도입 가이드](../ai/agent-adoption.md)를 참고하세요.
 
 ### 워크로드 ID 강화
 
@@ -154,7 +154,7 @@ Microsoft는 AI 에이전트를 디렉터리의 1급 신원(first-class identity
 | 구성 요소 | 역할 | Zero Trust 연관 |
 | --- | --- | --- |
 | **CSPM** | 클라우드 구성 오류 탐지 | 잘못 열린 접근 경로 사전 차단 |
-| **CIEM** | 클라우드 ID/권한 관리 | 과도한 권한 탐지, 비인간 ID 포함. Azure: Entra Permissions Management 단종 → Defender for Cloud 권한 기능으로 통합 |
+| **CIEM** | 클라우드 ID/권한 관리 | 과도한 권한 탐지, 비인간 ID 포함. Azure: Entra Permissions Management 신규 판매 중단 → 핵심 CIEM 기능은 Defender for Cloud에 유지 |
 | **CWPP** | 워크로드 런타임 보호 | 침해 가정 하의 실행 시점 방어 |
 
 이 세 요소를 ID 중심으로 통합 관리하는 것이 현재 방향이며, 구성 오류(misconfiguration)와 권한 확산(privilege sprawl)이 클라우드 침해의 주요 경로로 지목되고 있습니다.

@@ -144,6 +144,7 @@ IaC 외부에서 리소스가 수동으로 변경되면 코드와 실제 상태�
 - **콘솔 직접 수정 후 drift 방치** — 콘솔에서 리소스를 수동 변경하면 코드와 실제 상태가 불일치(drift)합니다. 이를 방치하면 다음 `apply` 시 예상치 못한 변경이 발생합니다.
 - **상태 파일 로컬 저장** — `terraform.tfstate`를 로컬에 저장하면 팀 협업이 불가능하고, 파일 유실 시 인프라 관리가 불가능해집니다.
 - **모듈화 없이 복사-붙여넣기** — 동일한 코드를 여러 환경에 복사하면 변경 시 모든 곳을 수동으로 수정해야 하며, 불일치가 발생합니다.
+- **Azure에서 사용자 계정으로 IaC 실행** — 2025.10부터 Azure CLI/PowerShell/ARM API에 MFA가 강제됩니다. CI/CD 파이프라인이 `az login --identity`(Managed Identity) 또는 서비스 프린시펄 + Federated Credential을 사용하지 않으면 중단됩니다. 상세는 [IAM — Azure MFA 의무화](../security/iam.md)를 참고하세요.
 
 ## 체크리스트
 

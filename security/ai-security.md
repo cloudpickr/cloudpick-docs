@@ -159,6 +159,7 @@ AI 코딩 에이전트(Claude Code, Copilot, Codex)가 CI/CD 파이프라인에 
 | --- | --- |
 | **ISO/IEC 42001** | AI 관리 시스템 인증 — AI 거버넌스 전체 프레임워크 |
 | **NIST AI RMF** | AI 위험 관리 프레임워크. 2026.04에 핵심 인프라 프로파일 초안 발표 |
+| **NIST AI 100-2** | [적대적 머신러닝 분류체계](https://csrc.nist.gov/pubs/ai/100/2/e2025/final) (2025.3 최종). GenAI 공격 클래스(프롬프트 인젝션, 학습 데이터 오염, 모델 추출) 포함 |
 | **SOC 2 + AI 매핑** | AI 특화 SOC 2 컨트롤 매핑 (벤더별 BAA 포함) |
 
 ## 관련 문서

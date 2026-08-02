@@ -4,7 +4,7 @@ description: 전송 중/저장 시 암호화, WAF, 네트워크 보안을 벤더
 
 # 데이터 보호와 워크로드 보안
 
-> 문서 기준: 2026년 5월
+> 문서 기준: 2026년 8월
 
 ## 개요
 
@@ -37,6 +37,59 @@ description: 전송 중/저장 시 암호화, WAF, 네트워크 보안을 벤더
 
 {% hint style="info" %}
 벤더별 KMS 서비스 비교, CMK/BYOK/EKM 상세, HSM 옵션은 [시크릿 관리 — 암호화 키 관리 모델](secrets.md)을 참고하세요.
+{% endhint %}
+
+## 양자내성 암호화 (Post-Quantum Cryptography)
+
+현재 널리 사용되는 RSA, ECDH 등 비대칭 암호화 알고리즘은 대규모 양자 컴퓨터가 등장하면 깨질 수 있습니다. "지금 수집하고, 나중에 복호화"(Harvest Now, Decrypt Later) 공격에 대비하여 **양자내성 암호화(PQC)** 전환이 시작되었습니다.
+
+### NIST PQC 표준
+
+| 표준 | 용도 | 알고리즘 | 상태 |
+| --- | --- | --- | --- |
+| **FIPS 203** (ML-KEM) | 키 교환 | Kyber 기반 격자 암호 | 2024.8 최종 확정 |
+| **FIPS 204** (ML-DSA) | 디지털 서명 | Dilithium 기반 격자 암호 | 2024.8 최종 확정 |
+| **FIPS 205** (SLH-DSA) | 디지털 서명 (상태 비저장) | SPHINCS+ 기반 해시 서명 | 2024.8 최종 확정 |
+| **HQC** | 백업 KEM | 코드 기반 암호 | 2025.3 선정 |
+
+### 벤더별 PQC 전환 현황
+
+| 벤더 | 현황 | 참고 |
+| --- | --- | --- |
+| AWS | KMS에서 ML-KEM 하이브리드 TLS 지원. S3, ACM 등 서비스 간 통신에 PQ 하이브리드 키 교환 적용 중 | [AWS Post-Quantum Cryptography](https://aws.amazon.com/security/post-quantum-cryptography/) |
+| Azure | Microsoft Quantum Safe Program. SymCrypt 라이브러리에 ML-KEM/ML-DSA 구현. TLS 1.3 하이브리드 키 교환 지원 | [Microsoft Quantum Safe](https://www.microsoft.com/en-us/security/blog/topic/quantum-safe/) |
+| Google Cloud | Cloud KMS에서 PQC 디지털 서명(ML-DSA) 프리뷰. Chrome/BoringSSL에 ML-KEM 하이브리드 배포 완료 | [Google Cloud PQC](https://cloud.google.com/blog/products/identity-security/quantum-safe-digital-signatures-in-cloud-kms) |
+| OCI | OCI Vault에서 PQC 알고리즘 로드맵 발표. Oracle Database TLS에 하이브리드 모드 추가 예정 | [Oracle Security](https://www.oracle.com/security/) |
+
+### PQC 전환 전략
+
+1. **인벤토리** — 사용 중인 암호화 알고리즘, 인증서, 키 크기를 식별합니다 (Crypto Agility Inventory)
+2. **하이브리드 모드** — 기존 알고리즘 + PQC 알고리즘을 동시에 사용하여 호환성을 유지하면서 전환합니다
+3. **우선순위** — 장기 보관 데이터(10년+ 수명)와 서명 인프라부터 전환합니다
+4. **테스트** — PQC 알고리즘은 키/서명 크기가 크므로 네트워크 오버헤드와 핸드셰이크 지연을 측정합니다
+
+{% hint style="warning" %}
+PQC 전환은 수년이 걸리는 프로젝트입니다. 지금 당장 모든 시스템을 바꿀 필요는 없지만, **암호 민첩성(Crypto Agility)**을 확보하여 알고리즘을 교체할 수 있는 아키텍처를 미리 갖추는 것이 핵심입니다.
+{% endhint %}
+
+## 기밀 컴퓨팅 (Confidential Computing)
+
+기존 암호화가 "저장 시"와 "전송 중"을 보호한다면, 기밀 컴퓨팅은 **"사용 중(In Use)"** 데이터를 보호합니다. 하드웨어 기반의 신뢰 실행 환경(TEE)에서 데이터를 처리하여, 클라우드 벤더의 관리자조차 처리 중인 데이터에 접근할 수 없습니다.
+
+| 벤더 | 제품 | GPU 기밀 컴퓨팅 | 참고 |
+| --- | --- | --- | --- |
+| AWS | [Nitro Enclaves](https://aws.amazon.com/ec2/nitro/nitro-enclaves/) | — (Nitro 아키텍처 자체가 하이퍼바이저 격리) | [AWS Nitro](https://aws.amazon.com/ec2/nitro/) |
+| Azure | [Confidential VMs (AMD SEV-SNP, Intel TDX)](https://learn.microsoft.com/azure/confidential-computing/) | **NCC H100 v5** — NVIDIA H100 기밀 GPU | [Azure Confidential Computing](https://azure.microsoft.com/solutions/confidential-compute/) |
+| Google Cloud | [Confidential VMs (AMD SEV, Intel TDX)](https://cloud.google.com/confidential-computing) | **A3 Confidential VM** — H100 기밀 GPU | [GCP Confidential Computing](https://cloud.google.com/confidential-computing/docs) |
+| OCI | [Confidential Computing (AMD SEV)](https://docs.oracle.com/en-us/iaas/Content/Compute/References/confidential-compute.htm) | — | [OCI Compute](https://docs.oracle.com/en-us/iaas/Content/Compute/home.htm) |
+
+**주요 활용 사례:**
+- AI/ML 추론에서 모델 IP와 입력 데이터 동시 보호 (기밀 GPU)
+- 멀티파티 데이터 분석 — 원본 데이터를 공개하지 않고 공동 연산
+- 데이터 주권이 엄격한 워크로드 (소버린 클라우드 + 기밀 컴퓨팅 조합)
+
+{% hint style="info" %}
+기밀 컴퓨팅을 활용한 AI 워크로드 보호는 [AI 보안 — 기밀 AI 추론](ai-security.md)을, 데이터 주권 관련 소버린 클라우드는 [랜딩존 — 소버린 랜딩존](../governance/landing-zone.md#소버린-랜딩존-sovereign-landing-zone)을 참고하세요.
 {% endhint %}
 
 ## 워크로드 보안
@@ -97,12 +150,15 @@ Security Groups/NSG/Firewall Rules 등 네트워크 방화벽의 벤더별 비�
 - **WAF를 Block 모드로 바로 적용** — 오탐(False Positive)을 확인하지 않고 차단 모드로 전환하여 정상 트래픽이 차단됨. Count 모드로 먼저 검증해야 함
 - **벤더 관리 키로 충분한데 BYOK를 도입** — 규제 요건 없이 자체 키 관리를 선택하여 운영 복잡도와 장애 위험만 증가
 - **VPC Endpoint 없이 관리형 서비스 접근** — S3, KMS 등을 NAT Gateway 경유로 접근하여 불필요한 인터넷 노출과 비용 발생
+- **PQC 전환을 "양자 컴퓨터 등장 후"로 미루기** — Harvest Now, Decrypt Later 공격에 이미 노출 중. 장기 보관 데이터는 지금부터 하이브리드 모드 적용 필요
 
 ## 체크리스트
 
 - [ ] 저장 시 암호화가 모든 스토리지/DB에 활성화되어 있는가 (기본 암호화 확인)
 - [ ] WAF 관리형 규칙을 Count 모드로 먼저 적용하고 오탐을 확인한 후 Block으로 전환했는가
 - [ ] 관리형 서비스(S3, KMS 등) 접근에 VPC Endpoint / Private Link를 사용하는가
+- [ ] 사용 중인 암호화 알고리즘을 인벤토리하고 PQC 전환 로드맵을 수립했는가
+- [ ] 민감 AI 추론 워크로드에 기밀 컴퓨팅 적용을 검토했는가
 
 ## 관련 문서
 
@@ -146,3 +202,11 @@ Security Groups/NSG/Firewall Rules 등 네트워크 방화벽의 벤더별 비�
 
 - [OCI Vault 문서](https://docs.oracle.com/en-us/iaas/Content/KeyManagement/home.htm)
 - [OCI WAF 문서](https://docs.oracle.com/en-us/iaas/Content/WAF/home.htm)
+
+### 양자내성 암호화 / 기밀 컴퓨팅
+
+- [NIST FIPS 203 — ML-KEM](https://csrc.nist.gov/pubs/fips/203/final)
+- [NIST FIPS 204 — ML-DSA](https://csrc.nist.gov/pubs/fips/204/final)
+- [AWS Post-Quantum Cryptography](https://aws.amazon.com/security/post-quantum-cryptography/)
+- [Azure Confidential Computing](https://learn.microsoft.com/azure/confidential-computing/)
+- [Google Cloud Confidential Computing](https://cloud.google.com/confidential-computing)

@@ -4,7 +4,7 @@ description: 관리형 Kubernetes, 서버리스 컨테이너, 컨테이너 레�
 
 # 컨테이너 서비스
 
-> 문서 기준: 2026년 7월
+> 문서 기준: 2026년 8월
 
 ## 개요
 
@@ -118,6 +118,31 @@ flowchart TD
 - **Spot/Preemptible 노드 풀** — 배치 작업, CI
 - **ARM 노드 풀** — 비용 최적화 (Graviton, Cobalt, Ampere, Axion)
 
+## 컨테이너 런타임 전환
+
+Kubernetes 1.24에서 Dockershim이 제거된 이후 **containerd**가 사실상 표준 런타임입니다. 2025년 8월 containerd 1.6 EOL을 기점으로 **containerd 2.x** 전환이 본격화되었습니다.
+
+### containerd 2.x 주요 변경
+
+| 변경 | 영향 | 대응 |
+| --- | --- | --- |
+| Docker Image Manifest Schema 1 지원 제거 | 매우 오래된 이미지(2017년 이전 빌드)가 Pull 실패 | `docker manifest inspect`로 Schema 버전 확인. Schema 2 또는 OCI 이미지로 재빌드 |
+| CRI 플러그인 설정 구조 변경 | 기존 `containerd config.toml` 호환 불가 가능 | 노드 업그레이드 전 설정 마이그레이션 검증 |
+| 새 샌드박스(sandbox) API | 향상된 Pod 격리 | 관리형 K8s 사용 시 벤더가 처리 |
+
+### 벤더별 런타임 현황
+
+| 벤더 | 기본 런타임 | 비고 |
+| --- | --- | --- |
+| AWS EKS | containerd | AMI 자동 업데이트로 containerd 2.x 전환 |
+| Azure AKS | containerd (Azure Linux 3.0) | AKS 1.32+부터 Azure Linux 3.0 기본. Azure Linux 2.0은 2025.11 EOL |
+| Google Cloud GKE | containerd | COS(Container-Optimized OS) 자동 관리 |
+| OCI OKE | containerd (Oracle Linux 8/9) | 노드 풀 OS 이미지 업그레이드로 전환 |
+
+{% hint style="warning" %}
+**Docker Schema 1 이미지를 사용 중이라면** containerd 2.x에서 Pull이 실패합니다. 레지스트리에서 `mediaType: "application/vnd.docker.distribution.manifest.v1+json"` 이미지를 검색하고 재빌드하세요.
+{% endhint %}
+
 ## Kubernetes 프로덕션 준비 체크리스트
 
 - [ ] 노드를 멀티 AZ에 분산 배치했는가
@@ -130,6 +155,7 @@ flowchart TD
 - [ ] 로그/메트릭/트레이스 수집을 구성했는가
 - [ ] etcd/PV 백업 전략을 수립했는가 (Velero 등)
 - [ ] 클러스터 업그레이드 전략을 결정했는가
+- [ ] containerd 2.x 호환 여부를 확인했는가 (Docker Schema 1 이미지 미지원)
 
 {% hint style="info" %}
 Day-2 운영 상세는 [Kubernetes 운영](../devops/kubernetes-operations.md)을 참고하세요.

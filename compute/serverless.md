@@ -4,7 +4,7 @@ description: FaaS, 서버리스 컨테이너, 워크플로우 오케스트레이
 
 # 서버리스
 
-> 문서 기준: 2026년 6월
+> 문서 기준: 2026년 8월
 
 ## 개요
 
@@ -47,7 +47,7 @@ VM과 컨테이너는 서버 생성과 배포를 자동화했지만, 여전히 "
 | AWS | Lambda | 최대 15분. 200+ AWS 서비스 이벤트 연동. **Lambda durable functions**(GA): 체크포인트, 자동 복구, 대기 중 비용 없음 |
 | Azure | Azure Functions | Premium: 무제한 실행. Durable Functions/Durable Tasks(상태 유지 워크플로우). **서버리스 에이전트**, MCP 커넥터, Go 언어 지원 추가 (Build 2026) |
 | Google Cloud | Cloud Functions | 2세대: 최대 60분. Eventarc 연동 |
-| OCI | OCI Functions | Fn Project 기반. Docker 컨테이너로 실행 |
+| OCI | OCI Functions | Fn Project 기반. Docker 컨테이너로 실행. 동기 5분, **비동기(Detached) 최대 60분** |
 
 ### 서버리스 컨테이너
 

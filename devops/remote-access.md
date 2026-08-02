@@ -45,6 +45,10 @@ description: SSH/RDP 없이 안전하게 인스턴스에 접근하는 관리형 
 
 **OCI Bastion** — 관리형 Bastion 서비스로, 세션 생성 시 TTL(최대 3시간)을 지정합니다. 세션 만료 후 자동 정리되어 장기 접근 경로가 남지 않습니다.
 
+{% hint style="info" %}
+**VPN 없는 원격 접근:** AWS Verified Access가 HTTP(S) 외에 TCP/SSH/RDP/DB 프로토콜을 지원하면서, 전통적 VPN을 제로 트러스트 기반으로 완전 대체할 수 있습니다. 상세는 [제로 트러스트](../security/zero-trust.md)를 참고하세요.
+{% endhint %}
+
 ## 실무 권장 사항
 
 ### 접근 빈도와 운영 성숙도

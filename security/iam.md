@@ -74,7 +74,7 @@ EC2, Lambda, 컨테이너, CI/CD 파이프라인 등 **사람이 아닌 워크�
 - CI/CD 파이프라인은 OIDC Federation으로 임시 자격 증명 발급 (GitHub Actions → AWS Role 등)
 
 {% hint style="danger" %}
-**Azure MFA 의무화 2단계 (2025.10~):** Microsoft는 Azure CLI, Azure PowerShell, IaC 도구(Terraform azurerm 등), ARM API 호출 경로에도 MFA를 강제합니다. 기존에 사용자 계정으로 `az login`하여 Terraform을 실행하던 파이프라인은 **서비스 프린시펄(Service Principal) + Federated Credential** 또는 **Managed Identity**로 전환해야 합니다. 전환하지 않으면 CI/CD 파이프라인이 중단됩니다. 상세 내용은 [Microsoft 공식 안내](https://learn.microsoft.com/entra/identity/authentication/concept-mandatory-multifactor-authentication)를 참고하세요.
+**Azure MFA 의무화 2단계 (2025.10 시행 완료, 현재 적용 중):** Microsoft는 Azure CLI, Azure PowerShell, IaC 도구(Terraform azurerm 등), ARM API 호출 경로에도 MFA를 강제합니다. 사용자 계정으로 `az login` 후 Terraform을 실행하던 파이프라인은 **서비스 프린시펄(Service Principal) + Federated Credential** 또는 **Managed Identity**로 전환해야 합니다. 미전환 파이프라인은 인증 실패로 중단됩니다. 상세 내용은 [Microsoft 공식 안내](https://learn.microsoft.com/entra/identity/authentication/concept-mandatory-multifactor-authentication)를 참고하세요.
 {% endhint %}
 
 ### 서드파티 (외부 파트너/SaaS/벤더)

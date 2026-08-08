@@ -4,7 +4,7 @@ description: FinOps 라이프사이클, 비용 관리 도구, 실무 적용 순�
 
 # FinOps
 
-> 문서 기준: 2026년 6월
+> 문서 기준: 2026년 8월
 
 ## FinOps란
 
@@ -173,10 +173,12 @@ Showback/Chargeback을 하려면 비용을 정확히 귀속시킬 수 있어야 
 
 [FOCUS(FinOps Open Cost and Usage Specification)](https://focus.finops.org/)는 FinOps Foundation에서 주도하는 멀티클라우드 비용 데이터 표준화 스펙입니다. 벤더별로 다른 비용 데이터 형식을 하나의 스키마로 통합하여 멀티클라우드 환경에서 일관된 비용 분석을 가능하게 합니다.
 
-**FOCUS v1.2** (2025.6)에서 AI/ML 워크로드 비용 가시성이 강화되었습니다:
-- `ServiceCategory` / `ServiceName` 체계에서 AI 서비스 구분 표준화
-- `PricingUnit`에 토큰(input/output), GPU-hour, 추론 요청 등 AI 과금 단위 반영
-- `CommitmentDiscountStatus` 등 약정 관련 컬럼으로 GPU 예약 할인 추적 가능
+**FOCUS v1.2** ([2025.5.29 비준](https://focus.finops.org/focus-specification/))에서 SaaS/PaaS·가상 통화(토큰 등)·멀티 통화 정규화 지원이 강화되었습니다. AI/ML 비용 분석에 특히 관련 있는 변화는 다음과 같습니다.
+- 토큰 등 **가상 통화(virtual currency)** 수명주기·단가 비교 유스케이스 (input/output 토큰 과금 패턴 추적)
+- `PricingCurrency` 계열 컬럼으로 국가 통화와 토큰 등 과금 단위를 정규화
+- 약정·할인 관련 컬럼으로 GPU 예약 등 커밋 할인 추적 가능
+
+컬럼 정의와 벤더별 export 지원 범위는 [FOCUS 스펙](https://focus.finops.org/focus-specification/)과 각 CSP 내보내기 문서를 기준으로 확인하세요.
 
 | 벤더 | FOCUS 지원 현황 |
 | --- | --- |

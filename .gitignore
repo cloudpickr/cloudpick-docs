@@ -7,6 +7,7 @@ node_modules/
 .idea/
 *.log
 memory/
+.reviews/
 scripts/standardize_naming.py
 .!*
 

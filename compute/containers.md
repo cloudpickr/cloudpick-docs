@@ -95,8 +95,8 @@ flowchart TD
 | --- | --- | --- |
 | AWS EKS | 유료 (클러스터당 시간 과금) | [EKS 요금](https://aws.amazon.com/eks/pricing/) |
 | Azure AKS | 무료 | Uptime SLA 활성화 시 유료 |
-| Google Cloud GKE Standard | 유료 (클러스터당 시간 과금) | 월당 한 개 존 무료. [GKE 요금](https://cloud.google.com/kubernetes-engine/pricing) |
-| Google Cloud GKE Autopilot | 무료 (Pod 단위 과금) | 노드 없음 |
+| Google Cloud GKE Standard | 유료 (클러스터당 관리 요금) | 모든 모드에 클러스터 관리 요금. 월 크레딧으로 zonal/Autopilot 1개 상당 상쇄 가능. [GKE 요금](https://cloud.google.com/kubernetes-engine/pricing) |
+| Google Cloud GKE Autopilot | 유료 (클러스터 관리 요금 + Pod 요청 자원 과금) | 노드 없음. 무료 티어 크레딧으로 관리 요금 일부를 상쇄 가능. [GKE 요금](https://cloud.google.com/kubernetes-engine/pricing) |
 | OCI OKE | 무료 | Enhanced 클러스터 시 유료 |
 
 ## 노드 관리 전략
@@ -126,7 +126,7 @@ Kubernetes 1.24에서 Dockershim이 제거된 이후 **containerd**가 사실상
 
 | 변경 | 영향 | 대응 |
 | --- | --- | --- |
-| Docker Image Manifest Schema 1 기본 비활성화 (2.0), 완전 제거 (2.1) | 매우 오래된 이미지(2017년 이전 빌드)가 Pull 실패. 관리형 K8s(EKS/AKS/GKE/OKE)는 재활성화를 차단하므로 실질적 Pull 불가 | `docker manifest inspect`로 Schema 버전 확인. Schema 2 또는 OCI 이미지로 재빌드 |
+| Docker Image Manifest Schema 1 기본 비활성화 (2.0), 완전 제거 (2.1) | 매우 오래된 이미지(2017년 이전 빌드)가 Pull 실패. containerd 2.0은 환경 변수로 재활성화할 수 있으나 2.1에서 제거. 관리형 K8s 노드 이미지는 벤더·버전에 따라 재활성화가 제한될 수 있음 | `docker manifest inspect`로 Schema 버전 확인. Schema 2 또는 OCI 이미지로 재빌드. 벤더 노드 OS/런타임 릴리스 노트 확인 |
 | CRI 플러그인 설정 구조 변경 | 기존 `containerd config.toml` 호환 불가 가능 | 노드 업그레이드 전 설정 마이그레이션 검증 |
 | 새 샌드박스(sandbox) API | 향상된 Pod 격리 | 관리형 K8s 사용 시 벤더가 처리 |
 

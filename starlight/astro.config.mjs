@@ -2,6 +2,7 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import starlightLlmsTxt from 'starlight-llms-txt';
+import mermaid from 'astro-mermaid';
 
 // https://astro.build/config
 // 정적 사이트이므로 어댑터 불필요 — Cloudflare Pages에는 dist/를 wrangler pages deploy로 올린다.
@@ -9,6 +10,10 @@ export default defineConfig({
 	site: 'https://docs.cloudpick.kr',
 	output: 'static',
 	integrations: [
+		mermaid({
+			// Starlight 다크모드 연동: html[data-theme] 감지
+			autoTheme: true,
+		}),
 		starlight({
 			title: 'CloudPick',
 			description: '멀티클라우드 환경에서 올바른 의사결정을 내리기 위한 벤더 중립 가이드',
@@ -26,6 +31,11 @@ export default defineConfig({
 					tag: 'link',
 					attrs: { rel: 'stylesheet', href: '/fonts/pretendard/pretendardvariable-dynamic-subset.css' },
 				},
+				{
+					// Pretendard JP Variable — 일본어 자형 + 라틴 (CDN dynamic subset)
+					tag: 'link',
+					attrs: { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-jp-dynamic-subset.css' },
+				},
 			],
 			social: [
 				{ icon: 'github', label: 'GitHub', href: 'https://github.com/cloudpickr/cloudpick-docs' },
@@ -35,6 +45,11 @@ export default defineConfig({
 					label: '소개',
 					translations: { en: 'Introduction', ja: 'CloudPickについて' },
 					link: 'introduction',
+				},
+				{
+					label: '용어집',
+					translations: { en: 'Glossary', ja: '用語集' },
+					link: 'glossary',
 				},
 				{
 					label: 'Getting Started',
@@ -230,13 +245,6 @@ export default defineConfig({
 					],
 				},
 				{
-					label: '용어집',
-					translations: { en: 'Glossary', ja: '用語集' },
-					link: 'glossary',
-				},
-				// 국가별 가이드: GitBook SUMMARY의 「국가 인덱스 + 들여쓰기 하위」에 대응.
-				// Starlight 그룹은 페이지 링크가 될 수 없으므로, 그룹명=국가명 / 첫 항목=인덱스(소개).
-				{
 					label: '국가별 가이드',
 					translations: { en: 'Country Guides', ja: '国別ガイド' },
 					items: [
@@ -245,7 +253,7 @@ export default defineConfig({
 							translations: { en: 'Korea', ja: '韓国' },
 							collapsed: true,
 							items: [
-								{ slug: 'korea', label: '소개', translations: { en: 'Overview', ja: '概要' } },
+								{ slug: 'korea', label: '한국 개요', translations: { en: 'Korea Overview', ja: '韓国 概要' } },
 								{ slug: 'korea/governance/compliance' },
 								{ slug: 'korea/security/csap' },
 								{ slug: 'korea/security/network-isolation' },
@@ -258,7 +266,7 @@ export default defineConfig({
 							translations: { en: 'United States', ja: '米国' },
 							collapsed: true,
 							items: [
-								{ slug: 'us', label: '소개', translations: { en: 'Overview', ja: '概要' } },
+								{ slug: 'us', label: '미국 개요', translations: { en: 'US Overview', ja: '米国 概要' } },
 								{ slug: 'us/fedramp' },
 								{ slug: 'us/hipaa' },
 								{ slug: 'us/itar' },
@@ -270,7 +278,7 @@ export default defineConfig({
 							label: 'EU',
 							collapsed: true,
 							items: [
-								{ slug: 'eu', label: '소개', translations: { en: 'Overview', ja: '概要' } },
+								{ slug: 'eu', label: 'EU 개요', translations: { en: 'EU Overview', ja: 'EU 概要' } },
 								{ slug: 'eu/gdpr-sovereignty' },
 								{ slug: 'eu/dora' },
 								{ slug: 'eu/nis2-ai-act' },
@@ -283,7 +291,7 @@ export default defineConfig({
 							translations: { en: 'Japan', ja: '日本' },
 							collapsed: true,
 							items: [
-								{ slug: 'japan', label: '소개', translations: { en: 'Overview', ja: '概要' } },
+								{ slug: 'japan', label: '일본 개요', translations: { en: 'Japan Overview', ja: '日本 概要' } },
 								{ slug: 'japan/ismap' },
 								{ slug: 'japan/appi' },
 								{ slug: 'japan/government-cloud' },
@@ -295,7 +303,7 @@ export default defineConfig({
 							translations: { en: 'Singapore', ja: 'シンガポール' },
 							collapsed: true,
 							items: [
-								{ slug: 'singapore', label: '소개', translations: { en: 'Overview', ja: '概要' } },
+								{ slug: 'singapore', label: '싱가포르 개요', translations: { en: 'Singapore Overview', ja: 'シンガポール 概要' } },
 								{ slug: 'singapore/mtcs' },
 								{ slug: 'singapore/pdpa' },
 								{ slug: 'singapore/government-cloud' },

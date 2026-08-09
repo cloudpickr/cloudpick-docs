@@ -9,7 +9,7 @@ from pathlib import Path
 from urllib.parse import unquote, urlparse
 
 ROOT = Path(__file__).resolve().parents[1]
-SKIP_DIRS = {".git", "_book", "node_modules", "memory"}
+SKIP_DIRS = {".git", "_book", "node_modules", "memory", ".reviews"}
 META_FILES = {"README.md", "SUMMARY.md", "GLOSSARY.md", "CONTRIBUTING.md"}
 
 MD_LINK_RE = re.compile(r"(?<!!)\[[^\]]+\]\(([^)]+)\)")

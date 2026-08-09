@@ -4,7 +4,7 @@ description: 클라우드 지속 가능성(GreenOps) — 탄소 배출 추적, �
 
 # 지속 가능성과 GreenOps
 
-> 문서 기준: 2026년 5월
+> 문서 기준: 2026년 8월
 
 ## 개요
 
@@ -25,10 +25,10 @@ description: 클라우드 지속 가능성(GreenOps) — 탄소 배출 추적, �
 
 각 리전의 전력 믹스(재생 에너지 비율)가 다릅니다. 레이턴시 요건이 유연한 워크로드는 탄소 강도가 낮은 리전을 선택할 수 있습니다.
 
-- **AWS** — 2025년까지 100% 재생 에너지 목표, Customer Carbon Footprint Tool로 계정별 배출량 확인
-- **Azure** — 2025년까지 100% 재생 에너지 목표, Sustainability Calculator로 배출량 추적
+- **AWS** — 운영 전력 100% 재생 에너지 매칭 목표를 2023년에 달성 보고(이후 연도에도 유지 보고). [Customer Carbon Footprint Tool](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/what-is-ccft.html)로 계정별 배출량 확인
+- **Azure** — 재생 에너지·탄소 목표 진행 상황은 Microsoft 지속가능성 공개 자료를 확인. 배출량 추적은 [Emissions Impact Dashboard](https://learn.microsoft.com/azure/carbon-optimization/view-emissions) 사용
 - **Google Cloud** — 리전별 CFE(Carbon-Free Energy) 비율을 공개, 2030년 24/7 탄소 무배출 목표
-- **OCI** — 2025년까지 EU 리전 100% 재생 에너지, Cloud Advisor로 지속가능성 권장사항 제공
+- **OCI** — EU 등 리전별 재생 에너지 목표·현황은 Oracle 공개 자료 확인. Cloud Advisor로 지속가능성 권장사항 제공
 
 ### 리소스 효율화
 

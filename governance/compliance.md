@@ -4,7 +4,7 @@ description: 한국 ISMS-P, CSAP와 글로벌 ISO 27001, SOC 2 등 클라우드 
 
 # 규정 준수 (Compliance)
 
-> 문서 기준: 2026년 6월
+> 문서 기준: 2026년 8월
 
 ## 개요
 
@@ -85,9 +85,11 @@ CSAP 제도는 N2SF(국가망보안체계) 1.0 공개(2025.9)에 따라 등급�
 
 ## 국제 주요 인증
 
-### ISO/IEC 27001 — 정보보호 관리체계
+### ISO/IEC 27001:2022 — 정보보호 관리체계
 
-국제 표준의 정보보안 관리 체계. 대부분의 글로벌 CSP가 기본으로 보유합니다.
+국제 표준의 정보보안 관리 체계. 대부분의 글로벌 CSP가 기본으로 보유합니다. **2022 개정판**이 현행 표준이며, 이전 2013 버전 인증서는 2025년 10월 31일부로 만료되었습니다. 아직 2022 버전으로 전환하지 않은 조직은 신규 인증(또는 전환 재인증)을 받아야 합니다.
+
+주요 변경: 통제 항목이 114개에서 93개로 재구조화되고, "위협 인텔리전스", "클라우드 서비스 보안", "데이터 마스킹" 등 11개 신규 통제가 추가되었습니다.
 
 - [AWS ISO 27001](https://aws.amazon.com/compliance/iso-27001-faqs/)
 - [Azure ISO 27001](https://learn.microsoft.com/azure/compliance/offerings/offering-iso-27001)
@@ -113,13 +115,15 @@ AICPA(미국 공인회계사 협회) 기반 감사 보고서. 엔터프라이즈
 
 ### 산업별 규제
 
-| 산업 | 주요 규제 | 적용 지역 |
-| --- | --- | --- |
-| **의료** | HIPAA, HITRUST | 미국 |
-| **카드결제** | PCI DSS | 글로벌 |
-| **공공 (미국)** | FedRAMP | 미국 연방 |
-| **공공 (EU)** | C5 (독일), ENS (스페인) 등 | EU |
-| **개인정보 (EU)** | GDPR | EU |
+| 산업 | 주요 규제 | 적용 지역 | 비고 |
+| --- | --- | --- | --- |
+| **의료** | HIPAA, HITRUST | 미국 | |
+| **카드결제** | PCI DSS v4.0.1 | 글로벌 | v4.0(2024.3.31, 기존 v3.2.1 폐기) → v4.0.1(2024.6 정오표). 2025.3.31부터 v4.0의 "미래 날짜" ~50개 항목 의무화 완료 |
+| **공공 (미국)** | FedRAMP / FedRAMP 20x | 미국 연방 | 20x: 수개월 단위 수동 인가를 OSCAL 기반 기계판독 증거·자동 검증 중심으로 단축하는 자동화 우선 프로세스 ([fedramp.gov/20x](https://www.fedramp.gov/20x/)) |
+| **공공 (EU)** | C5 (독일), ENS (스페인) 등 | EU | |
+| **개인정보 (EU)** | GDPR | EU | |
+| **AI (EU)** | EU AI Act | EU | GPAI 의무 2025.8.2 시행 완료. 고위험 AI 2026.8.2 적용. [EU AI Act 전문](https://artificialintelligenceact.eu/) |
+| **금융 (EU)** | DORA | EU | 2025.1.17 적용 개시. CTPP(Critical Third-Party Provider) 지정 절차 진행 중. [상세](../governance/landing-zone.md) |
 
 각 벤더의 해당 인증 현황은 **AWS Compliance Programs**, **Azure Trust Center**, **Google Cloud Compliance**, **Oracle Cloud Compliance** 페이지에서 확인합니다.
 
@@ -243,7 +247,11 @@ AICPA(미국 공인회계사 협회) 기반 감사 보고서. 엔터프라이즈
 
 ### 국제 표준
 
-- [ISO/IEC 27001](https://www.iso.org/standard/27001)
+- [ISO/IEC 27001:2022](https://www.iso.org/standard/27001)
 - [ISO/IEC 42001](https://www.iso.org/standard/81230.html) — AI 관리 체계
 - [NIST SP 800-53](https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final)
 - [CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks)
+- [EU AI Act 전문](https://artificialintelligenceact.eu/)
+- [EU DORA](https://www.eiopa.europa.eu/digital-operational-resilience-act-dora_en)
+- [PCI DSS v4.0.1](https://www.pcisecuritystandards.org/)
+- [FedRAMP 20x](https://www.fedramp.gov/20x/)

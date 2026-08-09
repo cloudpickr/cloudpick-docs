@@ -63,7 +63,7 @@ graph TB
 | 계층 구조 | Region → Availability Zone (AZ) |
 | VPC 범위 | 리전 단위 |
 | Local Zone | 특정 도시에 초저지연 인프라 배치 (서울 외 부산 등) |
-| Sovereign Cloud | 유럽 데이터 주권 전용 리전 (EU 운영 인력, EU 내 데이터 보관) |
+| Sovereign Cloud | 유럽 데이터 주권 전용 리전 (EU 운영 인력, EU 내 데이터 보관). [AWS European Sovereign Cloud](https://aws.amazon.com/sovereign-cloud/) (Brandenburg, €7.8B 투자) |
 
 #### Azure
 
@@ -142,6 +142,21 @@ Azure(서울-부산)와 OCI(서울-춘천)는 국내 2개 리전을 보유하여
 - **Azure** — Azure Policy로 허용 리전 제한
 - **Google Cloud** — Organization Policy로 리소스 생성 가능 리전 제한
 - **OCI** — Compartment Policy로 리전 제한
+
+### 주권 클라우드 (Sovereign Cloud)
+
+데이터 주권 요건이 강화되면서, 퍼블릭 클라우드와 물리·논리적으로 분리된 **소버린 리전**이 확대되고 있습니다.
+
+| 벤더 | 소버린 옵션 | 핵심 특징 |
+| --- | --- | --- |
+| AWS | [European Sovereign Cloud](https://aws.amazon.com/sovereign-cloud/) | EU 전용 인프라·인력·거버넌스. Brandenburg 개소 (€7.8B 투자) |
+| Azure | [Cloud for Sovereignty](https://learn.microsoft.com/industry/sovereignty/) / Data Guardian | 소버린 랜딩존(SLZ), EU Data Boundary, 기밀 컴퓨팅 |
+| Google Cloud | [Sovereign Controls](https://cloud.google.com/blog/products/identity-security/delivering-a-secure-open-sovereign-digital-world) + 파트너(S3NS, T-Systems) | 관할권 내 키 관리, 접근 투명성, GDC(분산 클라우드) |
+| OCI | [EU Sovereign Cloud](https://www.oracle.com/cloud/eu-sovereign-cloud/) | EU Realm 독립 운영. EU 법인·인력만 접근 |
+
+{% hint style="info" %}
+소버린 랜딩존의 가드레일 설계와 벤더별 구현 상세는 [랜딩존 — 소버린 랜딩존](../governance/landing-zone.md#소버린-랜딩존-sovereign-landing-zone)을 참고하세요.
+{% endhint %}
 
 ## 자주 하는 실수
 

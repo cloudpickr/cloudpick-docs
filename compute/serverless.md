@@ -4,7 +4,7 @@ description: FaaS, 서버리스 컨테이너, 워크플로우 오케스트레이
 
 # 서버리스
 
-> 문서 기준: 2026년 6월
+> 문서 기준: 2026년 8월
 
 ## 개요
 
@@ -33,8 +33,8 @@ VM과 컨테이너는 서버 생성과 배포를 자동화했지만, 여전히 "
 - **Cold Start** — 일정 시간 호출이 없으면 인스턴스가 해제되어, 다시 호출 시 수백ms~수초 지연이 발생합니다. (이 문서에서 Cold Start는 함수 초기화 지연을 의미합니다. VM 기동 지연은 [오토스케일링](auto-scaling.md)을 참고하세요.)
 - **실행 시간 제한** — 장시간 실행되는 작업에는 제한이 있습니다.
 - **상시 부하** — 24시간 일정한 트래픽이면 VM이 더 경제적일 수 있습니다.
-- **재시도와 멱등성** — 비동기 호출은 at-least-once 전달이 기본입니다. 함수가 멱등하지 않으면 중복 처리가 발생합니다. DLQ(Dead Letter Queue) 설정이 필수입니다.
-- **VPC 연결 시 Cold Start 증가** — 함수를 VPC에 배치하면 ENI 생성으로 Cold Start가 추가로 길어집니다.
+- **재시도와 멱등성** — 비동기·이벤트 트리거는 벤더·서비스에 따라 전달 보장이 다릅니다. 재시도가 있는 경로에서는 함수를 멱등하게 설계하세요. 실패 목적지는 DLQ, on-failure destination, 구독 dead-letter 등 서비스별 옵션을 확인하세요.
+- **VPC 연결 시 지연 영향** — VPC 연동은 벤더마다 구현이 다릅니다. AWS Lambda는 Hyperplane ENI를 함수 생성/갱신 시점에 준비하는 모델로, “호출마다 ENI 생성” 설명은 구식입니다. 초기 구성·장기 유휴 후 첫 호출, 서브넷/보안 그룹 제약 등 환경별 지연은 별도로 측정하세요.
 
 이러한 제약은 점차 완화되고 있으며 (Provisioned Concurrency, 실행 시간 연장 등), 서버리스 적용 범위는 계속 넓어지고 있습니다.
 
@@ -47,7 +47,7 @@ VM과 컨테이너는 서버 생성과 배포를 자동화했지만, 여전히 "
 | AWS | Lambda | 최대 15분. 200+ AWS 서비스 이벤트 연동. **Lambda durable functions**(GA): 체크포인트, 자동 복구, 대기 중 비용 없음 |
 | Azure | Azure Functions | Premium: 무제한 실행. Durable Functions/Durable Tasks(상태 유지 워크플로우). **서버리스 에이전트**, MCP 커넥터, Go 언어 지원 추가 (Build 2026) |
 | Google Cloud | Cloud Functions | 2세대: 최대 60분. Eventarc 연동 |
-| OCI | OCI Functions | Fn Project 기반. Docker 컨테이너로 실행 |
+| OCI | OCI Functions | Fn Project 기반. Docker 컨테이너로 실행. 동기 5분, **비동기(Detached) 최대 60분** |
 
 ### 서버리스 컨테이너
 
@@ -125,7 +125,7 @@ Cold Start는 서버리스의 가장 큰 단점입니다. 벤더별 완화 방�
 | --- | --- | --- |
 | AWS Lambda | 계정당 1,000 동시 실행 (리전별) | 지원 요청으로 증가 가능 |
 | Azure Functions | Consumption Plan: 제한 있음. Premium: 더 높음 | Elastic Premium Plan |
-| Google Cloud Cloud Functions (2세대) | 함수당 최대 1,000 동시 실행 | 조정 가능 |
+| Google Cloud Cloud Functions (2세대) | 인스턴스당 concurrent request 한도와 함수/프로젝트 확장 한도가 별도 ([공식 quotas](https://cloud.google.com/functions/quotas) 확인) | 조정 가능 |
 | OCI Functions | 테넌시별 제한 | 지원 요청으로 증가 |
 
 ### 동시성 제한 전략
@@ -151,9 +151,9 @@ Cold Start는 서버리스의 가장 큰 단점입니다. 벤더별 완화 방�
 서버리스는 인프라 관리가 줄어들지만, 운영이 사라지는 것은 아닙니다.
 
 - **IAM 최소 권한** — 함수에 필요한 최소 권한만 부여. 하나의 역할을 여러 함수가 공유하지 마세요.
-- **VPC 연결** — DB 접근 등을 위해 VPC에 배치하면 Cold Start가 증가합니다. 필요한 함수에만 적용하세요.
+- **VPC 연결** — DB 접근 등이 필요할 때만 VPC를 연결하고, 벤더별 네트워킹 지연·제약(서브넷, NAT, 보안 그룹)을 측정하세요.
 - **분산 추적** — 서버리스는 호출 체인이 복잡해지기 쉽습니다. X-Ray, Cloud Trace 등으로 추적을 설정하세요.
-- **멱등성 설계** — 비동기 호출은 재시도가 발생합니다. 동일 이벤트를 여러 번 처리해도 결과가 같도록 설계하세요.
+- **멱등성 설계** — 재시도·중복 전달이 있는 경로에서는 동일 이벤트를 여러 번 처리해도 결과가 같도록 설계하세요.
 - **비용 모니터링** — 예상치 못한 호출 폭증이 비용 폭증으로 이어질 수 있습니다. 예산 알림을 설정하세요.
 
 ## 자주 하는 실수

@@ -4,7 +4,7 @@ description: 프롬프트 엔지니어링의 핵심 패턴(Few-shot, Chain-of-Th
 
 # 프롬프트 엔지니어링
 
-> 문서 기준: 2026년 6월
+> 문서 기준: 2026년 8월
 
 {% hint style="info" %}
 LLM/프롬프트가 처음이라면 [AI 시작하기](getting-started.md)를 먼저 읽어보세요.
@@ -78,7 +78,7 @@ Microsoft, Google, Anthropic 공식 가이드가 공통으로 강조하는 원�
 1.
 ```
 
-최신 모델(Claude Fable 5, GPT-5.5, Gemini 3.5 Pro)은 내부적으로 CoT를 자동 수행하기도 하지만, "**단계별로 설명하세요(Think step by step)**" 같은 명시적 지시가 여전히 효과가 있습니다.
+최신 프론티어 모델(Claude·GPT·Gemini 계열 등)은 내부적으로 CoT를 자동 수행하기도 하지만, "**단계별로 설명하세요(Think step by step)**" 같은 명시적 지시가 여전히 효과가 있습니다.
 
 **출처:**
 - [Microsoft — Chain of thought prompting](https://learn.microsoft.com/en-us/dotnet/ai/conceptual/chain-of-thought-prompting)

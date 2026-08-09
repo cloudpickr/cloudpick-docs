@@ -4,7 +4,7 @@ description: Zero Trust 보안 모델의 원칙과 벤더별 구현 서비스를
 
 # 제로 트러스트 (Zero Trust)
 
-> 문서 기준: 2026년 7월
+> 문서 기준: 2026년 8월
 
 ## 개요
 
@@ -40,7 +40,7 @@ graph LR
 
 | 영역 | AWS | Azure | Google Cloud | OCI |
 | --- | --- | --- | --- | --- |
-| **네트워크 접근 (ZTNA)** | [Verified Access](https://docs.aws.amazon.com/verified-access/latest/ug/what-is-verified-access.html) | [Entra Private Access](https://learn.microsoft.com/entra/global-secure-access/concept-private-access) | [BeyondCorp Enterprise](https://cloud.google.com/beyondcorp-enterprise/docs) | [Zero Trust Packet Routing](https://docs.oracle.com/en-us/iaas/Content/zero-trust-packet-routing/home.htm) |
+| **네트워크 접근 (ZTNA)** | [Verified Access](https://docs.aws.amazon.com/verified-access/latest/ug/what-is-verified-access.html) — HTTP(S) + **TCP/SSH/RDP/DB** (TCP 프로토콜 지원 2024.12 GA)로 VPN 대체 가능 | [Entra Private Access](https://learn.microsoft.com/entra/global-secure-access/concept-private-access) | [BeyondCorp Enterprise](https://cloud.google.com/beyondcorp-enterprise/docs) | [Zero Trust Packet Routing](https://docs.oracle.com/en-us/iaas/Content/zero-trust-packet-routing/home.htm) |
 | **ID 기반 접근** | IAM + Identity Center | Entra ID + Conditional Access | IAM + Workload Identity Federation | Identity Domains + 동적 그룹 |
 | **마이크로세그멘테이션** | Security Groups + PrivateLink | NSG + Private Endpoints | VPC Service Controls + Firewall Rules | NSG + Network Path Analyzer |
 | **디바이스 신뢰** | Verified Access 디바이스 정책 | Intune + Conditional Access | BeyondCorp 디바이스 인증서 | — (서드파티 연동) |
@@ -133,6 +133,10 @@ AI 에이전트, 서비스 계정, CI/CD 파이프라인 봇 등 비인간 ID의
 | AI 에이전트의 신원 검증 | 워크로드 ID + 조건부 접근 + 도구별 최소 권한 |
 | 비인간 ID 이상 행동 탐지 | ITDR(Identity Threat Detection & Response) |
 
+#### Microsoft Entra Agent ID
+
+Microsoft는 AI 에이전트를 디렉터리에서 독립 관리되는 1급 ID(first-class identity)로 다루는 [Entra Agent ID](https://learn.microsoft.com/entra/identity-platform/agent-id/)를 도입했습니다 (Build 2025). 에이전트에 조건부 액세스, 수명주기 관리, 감사 로그가 사람 ID와 동일하게 적용됩니다. 에이전트 도입 거버넌스 상세는 [AI 에이전트 도입 가이드](../ai/agent-adoption.md)를 참고하세요.
+
 ### 워크로드 ID 강화
 
 | 벤더 | 변화 |
@@ -150,7 +154,7 @@ AI 에이전트, 서비스 계정, CI/CD 파이프라인 봇 등 비인간 ID의
 | 구성 요소 | 역할 | Zero Trust 연관 |
 | --- | --- | --- |
 | **CSPM** | 클라우드 구성 오류 탐지 | 잘못 열린 접근 경로 사전 차단 |
-| **CIEM** | 클라우드 ID/권한 관리 | 과도한 권한 탐지, 비인간 ID 포함 |
+| **CIEM** | 클라우드 ID/권한 관리 | 과도한 권한 탐지, 비인간 ID 포함. Azure: Entra Permissions Management는 2025.04부터 **독립 SKU 신규 판매를 중단**하고 핵심 CIEM 기능을 Defender for Cloud CSPM에 통합. 기존 고객은 기존 라이선스 조건에 따라 계속 사용 가능 |
 | **CWPP** | 워크로드 런타임 보호 | 침해 가정 하의 실행 시점 방어 |
 
 이 세 요소를 ID 중심으로 통합 관리하는 것이 현재 방향이며, 구성 오류(misconfiguration)와 권한 확산(privilege sprawl)이 클라우드 침해의 주요 경로로 지목되고 있습니다.

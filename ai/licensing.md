@@ -4,7 +4,7 @@ description: FM 제공사별 라이선스 티어(Seat/API), 3P 예약 용량, �
 
 # LLM 라이선스와 비용 관리
 
-> 문서 기준: 2026년 7월
+> 문서 기준: 2026년 8월
 
 ## Seat 플랜 vs API 티어
 
@@ -43,9 +43,9 @@ API는 누적 지출액에 따라 자동 승급됩니다. ([공식 Rate Limits �
 
 | 플랜 | 가격 | 대상 | Team과의 차이 |
 | --- | --- | --- | --- |
-| **Team Standard** | ~$25/석/월 | 소규모 팀 (5석+) | — |
-| **Team Premium** | ~$125/석/월 | 고사용량 팀 | 더 높은 사용량 허용 |
-| **Enterprise** | 협상 (석 + API 사용량 별도) | 대규모 조직 | SCIM, 감사 로그, Compliance API, CMEK, HIPAA/BAA, 조직별 지출 한도 |
+| **Team Standard** | ~$25/석/월 ([공식 가격](https://claude.com/pricing)) | 소규모 팀 (최소 좌석·상한은 공식 페이지 확인) | — |
+| **Team Premium** | ~$125/석/월 ([공식 가격](https://claude.com/pricing)) | 고사용량 팀 | 더 높은 사용량 허용 |
+| **Enterprise** | 좌석 + API 사용량 등 계약형 ([공식 안내](https://claude.com/pricing)) | 대규모 조직 | SCIM, 감사 로그, Compliance API, CMEK, HIPAA/BAA, 조직별 지출 한도 |
 
 **Team → Enterprise 업그레이드 시점:**
 - HIPAA/BAA 필요
@@ -102,21 +102,28 @@ API는 누적 지출액에 따라 자동 승급됩니다. ([공식 Rate Limits �
 
 ---
 
-## 공식 가격 페이지
-
-| 제공사 | URL |
-| --- | --- |
-| OpenAI Business/Enterprise | [openai.com/business/pricing](https://openai.com/business/pricing/) |
-| OpenAI API 가격 | [openai.com/api/pricing](https://openai.com/api/pricing/) |
-| Anthropic 플랜 | [claude.com/pricing](https://claude.com/pricing) |
-| Anthropic API 가격 | [platform.claude.com/docs/en/about-claude/pricing](https://platform.claude.com/docs/en/about-claude/pricing) |
-| Azure OpenAI 가격 | [azure.microsoft.com/pricing/details/azure-openai](https://azure.microsoft.com/en-us/pricing/details/azure-openai/) |
-| Bedrock 가격 | [aws.amazon.com/bedrock/pricing](https://aws.amazon.com/bedrock/pricing/) |
-| Upstage 가격 | [console.upstage.ai](https://console.upstage.ai/) |
-
 ## 관련 문서
 
 - [LLM 채널 선택 가이드](1p-vs-3p.md) — 채널 패턴, Seat vs API 선택
 - [AI 플랫폼과 모델 비교](ai-ml.md) — 모델 카탈로그, 추론 비용 최적화
 - [FinOps](../governance/finops.md) — 클라우드 비용 거버넌스 전반
 - [에이전트 도입 가이드](agent-adoption.md) — 에이전트 비용 관리
+
+## 참고하기
+
+Seat/API 가격·최소 좌석·티어 한도는 수시로 바뀝니다. 아래 공식 페이지를 기준으로 확인하세요.
+
+### 모델 제공사
+
+- [OpenAI Business/Enterprise 가격](https://openai.com/business/pricing/)
+- [OpenAI API 가격](https://openai.com/api/pricing/)
+- [Anthropic (Claude) 플랜](https://claude.com/pricing)
+- [Anthropic API 가격](https://platform.claude.com/docs/en/about-claude/pricing)
+- [Upstage Console](https://console.upstage.ai/)
+
+### 클라우드 채널
+
+- [Amazon Bedrock 가격](https://aws.amazon.com/bedrock/pricing/)
+- [Azure OpenAI 가격](https://azure.microsoft.com/en-us/pricing/details/azure-openai/)
+- [Google Cloud Vertex AI 가격](https://cloud.google.com/vertex-ai/pricing)
+- [OCI Generative AI 가격](https://www.oracle.com/artificial-intelligence/generative-ai/generative-ai-service/pricing/)

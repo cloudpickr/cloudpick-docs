@@ -4,7 +4,7 @@ description: Desktop/Coding/자율 운영 에이전트의 기업 도입 전략, 
 
 # 에이전트 도입 가이드
 
-> 문서 기준: 2026년 7월
+> 문서 기준: 2026년 8월
 
 ## 개요
 
@@ -73,15 +73,16 @@ AI 에이전트를 기업에 도입할 때, "어떤 도구를 쓸지"보다 "어
 | **데이터 보호** | 커넥터 허용 목록, 모델 학습 비활성화, 민감 데이터 분류 후 접근 제어, DLP 연동 |
 | **행동 경계** | 접근 수준별 승인 정책 (읽기도 민감도에 따라 제한 가능, 쓰기/발송/결제는 승인 필요). 모든 프롬프트·도구 호출 감사 로그 (보존 정책과 PII 2차 저장 리스크를 함께 검토) |
 | **비용 관리** | Seat + 사용량 과금 모니터링, 역할별 모델 티어 제한, 팀별 예산 상한 |
-| **에이전트 ID** | 에이전트를 비인간 ID로 관리 — 최소 권한 원칙, 행동 기반 접근 제어(Policy-Based Access Control) |
+| **에이전트 ID** | 에이전트를 비인간 ID로 관리 — 최소 권한 원칙, 행동 기반 접근 제어(Policy-Based Access Control). Azure에서는 [Entra Agent ID](https://learn.microsoft.com/entra/identity-platform/agent-id/)로 에이전트에 디렉터리 1급 ID를 부여하고, 조건부 액세스·수명주기 관리를 사람 ID와 동일하게 적용 |
 
 ### 거버넌스 도구 매핑
 
 | 벤더 | 에이전트 거버넌스 도구 |
 | --- | --- |
-| **Microsoft** | Agent 365 (중앙 에이전트 관리), Copilot Studio, Entra + Purview |
 | **AWS** | Bedrock AgentCore (정책/관측), IAM, CloudTrail, Quick 어드민 |
-| **Google** | Gemini Enterprise Agent Platform (Registry, Gateway, Security Dashboard) |
+| **Azure** | Agent 365 (중앙 에이전트 관리), Copilot Studio, Entra + Purview |
+| **Google Cloud** | Gemini Enterprise Agent Platform (Registry, Gateway, Security Dashboard) |
+| **OCI** | — (IAM, Logging, Cloud Guard 조합으로 대응. 전용 에이전트 거버넌스 제품은 공식 문서 확인) |
 
 ---
 
@@ -118,8 +119,30 @@ AI 에이전트를 기업에 도입할 때, "어떤 도구를 쓸지"보다 "어
 ## 관련 문서
 
 - [AI 에이전트](agents.md) — 에이전트 아키텍처, 코딩/Desktop/자율 운영, 제품 비교
-- [AI 에이전트](agents.md) — 에이전트 아키텍처, 프로토콜, 코딩 에이전트
 - [LLM 채널 선택 가이드](1p-vs-3p.md) — Seat vs API, 채널 패턴
 - [AI 보안](../security/ai-security.md) — 가드레일, 프롬프트 인젝션
 - [제로 트러스트](../security/zero-trust.md) — 비인간 ID, 워크로드 ID
 - [FinOps](../governance/finops.md) — 비용 거버넌스
+
+## 참고하기
+
+### AWS
+
+- [Amazon Bedrock AgentCore](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-how.html)
+- [AWS IAM Identity Center](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html)
+
+### Azure
+
+- [Microsoft Entra Agent ID](https://learn.microsoft.com/entra/identity-platform/agent-id/)
+- [Microsoft Copilot Studio](https://learn.microsoft.com/microsoft-copilot-studio/)
+- [Microsoft Purview](https://learn.microsoft.com/purview/)
+
+### Google Cloud
+
+- [Vertex AI / Gemini Enterprise Agent Platform](https://cloud.google.com/vertex-ai/docs)
+- [Google Cloud IAM](https://cloud.google.com/iam/docs)
+
+### OCI
+
+- [Oracle Cloud Infrastructure IAM](https://docs.oracle.com/en-us/iaas/Content/Identity/home.htm)
+- [Oracle Cloud Guard](https://docs.oracle.com/en-us/iaas/cloud-guard/home.htm)

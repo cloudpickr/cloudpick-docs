@@ -4,7 +4,7 @@ description: 벤더별 AI 플랫폼, 모델 카탈로그, GPU/AI 칩, Applied AI
 
 # AI 플랫폼과 모델 비교
 
-> 문서 기준: 2026년 7월 | 이 문서는 변동이 빠른 영역으로 분기별 리뷰 대상입니다.
+> 문서 기준: 2026년 8월 | 이 문서는 변동이 빠른 영역으로 분기별 리뷰 대상입니다.
 
 ## 개요
 
@@ -53,11 +53,11 @@ description: 벤더별 AI 플랫폼, 모델 카탈로그, GPU/AI 칩, Applied AI
 | 모델 제공사 | 주요 모델 | 1P (직접) | 3P (클라우드 제공) |
 | --- | --- | --- | --- |
 | **OpenAI** | GPT-5.6 (Sol/Terra/Luna), GPT-5.5, o-시리즈 | [api.openai.com](https://platform.openai.com/) | Azure Foundry, Bedrock |
-| **Anthropic** | Claude Fable 5, Opus 4.8, Sonnet 5, Haiku | [api.anthropic.com](https://platform.claude.com/) | Bedrock, Vertex AI |
-| **Google** | Gemini 3.5 Pro/Flash, 3.1 Pro, Gemini Omni | [Gemini API](https://ai.google.dev/) | Vertex AI (네이티브) |
+| **Anthropic** | Claude Fable 5, Opus 5, Opus 4.8, Sonnet 5, Haiku | [api.anthropic.com](https://platform.claude.com/) | Bedrock, Vertex AI |
+| **Google** | Gemini 3.5 Pro/Flash, 3.1 Pro, Gemini Omni (Preview/GA는 [공식 문서](https://ai.google.dev/) 확인) | [Gemini API](https://ai.google.dev/) | Vertex AI (네이티브) |
 | **xAI** | Grok 4.3, Grok 4.1 Fast, Imagine | [x.ai/api](https://x.ai/api) | OCI, Vertex AI, Bedrock, Azure |
 | **Meta** | Llama 4 (오픈웨이트) | [llama.meta.com](https://llama.meta.com/) | Bedrock, Vertex, Azure, OCI (호스팅) |
-| **Amazon** | Nova Premier/Pro/Lite/Micro/Sonic | — (Bedrock 전용) | Bedrock |
+| **Amazon** | Nova 1(Premier/Pro/Lite/Micro/Sonic 등) + **Nova 2**(Lite, Pro 등 — 세대 구분) | — (Bedrock 전용) | Bedrock |
 | **Microsoft** | MAI (Image/Voice/Transcribe) | — (Foundry 전용) | Azure Foundry |
 | **Mistral** | Large, Small, Codestral | [api.mistral.ai](https://api.mistral.ai/) | Bedrock, Azure, Vertex |
 | **Upstage** | Solar Pro 3/2/Mini | [console.upstage.ai](https://console.upstage.ai/) | AWS/Azure Marketplace |
@@ -113,11 +113,11 @@ description: 벤더별 AI 플랫폼, 모델 카탈로그, GPU/AI 칩, Applied AI
 
 ## 핵심 차이점
 
-**Amazon Bedrock** — 자체 개발 **Amazon Nova 2** 모델군(Premier/Pro/Lite/Micro/Sonic/Omni)과 Anthropic Claude, OpenAI GPT 시리즈 등 다양한 제공사의 모델을 하나의 API로 접근할 수 있습니다. 모델 선택 폭이 가장 넓으며, AI 에이전트 구축을 위한 AgentCore 등 운영 체계가 강점입니다.
+**Amazon Bedrock** — 자체 개발 **Amazon Nova** 모델(1세대 Premier/Pro/Lite/Micro/Sonic 등과 **Nova 2** Lite/Pro 등 — [공식 모델 목록](https://aws.amazon.com/nova/models/)에서 세대·가용 상태 확인)과 Anthropic Claude, OpenAI GPT 시리즈 등 다양한 제공사 모델을 하나의 API로 접근할 수 있습니다. 모델 선택 폭이 넓으며, AI 에이전트 구축을 위한 AgentCore 등 운영 체계가 강점입니다.
 
 **Microsoft Foundry** — 구 Azure AI Foundry가 브랜드를 통합한 상위 플랫폼입니다. OpenAI GPT-5.5/5.4 시리즈를 엔터프라이즈 환경에서 쓸 수 있는 주요 경로이며, Anthropic, Meta 등 타사 모델도 폭넓게 제공합니다. 자체 **MAI 모델군**(Image-2.5, Voice-1, Transcribe-1)과 **Foundry Local**(로컬/단절망 실행)이 추가되었습니다. Microsoft 365, GitHub, Power Platform 등 기존 Microsoft 생태계와의 깊은 통합이 최대 강점입니다.
 
-**Gemini Enterprise Agent Platform** — 구 Vertex AI가 에이전트 중심으로 전면 개편된 플랫폼입니다. Google 자체 **Gemini 3.x/2.5** 시리즈(3.5 Pro/3.5 Flash/3.1 Pro)의 네이티브 멀티모달 능력과 TPU 인프라가 강점입니다. Gemini 3.5 Pro GA (2026.06)는 2M 토큰 컨텍스트 윈도우와 Deep Think 추론을 지원하며, **Gemini Omni**(any-to-any 멀티모달 비디오 생성)와 Agent Studio를 통한 로우코드 에이전트 개발, Google Search/BigQuery와의 결합이 차별점입니다.
+**Gemini Enterprise Agent Platform** — 구 Vertex AI가 에이전트 중심으로 전면 개편된 플랫폼입니다. Google 자체 **Gemini 3.x/2.5** 시리즈(3.5 Pro/3.5 Flash/3.1 Pro 등 — 각 변형의 Preview/GA·한도는 [공식 문서](https://cloud.google.com/vertex-ai/generative-ai/docs) 확인)의 네이티브 멀티모달 능력과 TPU 인프라가 강점입니다. 장문 컨텍스트·추론 모드·**Gemini Omni**(멀티모달)와 Agent Studio를 통한 로우코드 에이전트 개발, Google Search/BigQuery와의 결합이 차별점입니다.
 
 **OCI Enterprise AI** — 구 OCI Generative AI가 확장된 플랫폼입니다. Cohere, Meta Llama, xAI Grok 4.3, Google Gemini 등의 모델을 OCI 인프라에서 호스팅하며, 전용 AI 클러스터(Dedicated AI Cluster)와 RDMA 기반 Bare Metal GPU로 고성능 워크로드를 지원합니다. **AI Guardrails**(콘텐츠 모더레이션, PII 탐지, 프롬프트 인젝션 방어)와 **Enterprise AI Agents**(GA)가 추가되었습니다. OpenAI와의 파트너십으로 GPT-5.5/5.4 및 Codex를 OCI Marketplace에서 Oracle Universal Credits로 이용할 수 있게 될 예정이며, Oracle Database/애플리케이션과의 네이티브 통합이 강점입니다.
 

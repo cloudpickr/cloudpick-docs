@@ -4,7 +4,7 @@ description: IAM 실무 설계, 인증 방식, 권한 모델, 최소 권한 도�
 
 # IAM 실무 설계와 보안 운영
 
-> 문서 기준: 2026년 5월
+> 문서 기준: 2026년 8월
 
 ## 개요
 
@@ -72,6 +72,10 @@ EC2, Lambda, 컨테이너, CI/CD 파이프라인 등 **사람이 아닌 워크�
 **해야 할 것:**
 - 워크로드별 별도 역할/ID 생성 (최소 권한 적용 가능)
 - CI/CD 파이프라인은 OIDC Federation으로 임시 자격 증명 발급 (GitHub Actions → AWS Role 등)
+
+{% hint style="danger" %}
+**Azure MFA 의무화 2단계 (2025.10 시행 완료, 현재 적용 중):** Microsoft는 Azure CLI, Azure PowerShell, IaC 도구(Terraform azurerm 등), ARM API 호출 경로에도 MFA를 강제합니다. 사용자 계정으로 `az login` 후 Terraform을 실행하던 파이프라인은 **서비스 프린시펄(Service Principal) + Federated Credential** 또는 **Managed Identity**로 전환해야 합니다. 미전환 파이프라인은 인증 실패로 중단됩니다. 상세 내용은 [Microsoft 공식 안내](https://learn.microsoft.com/entra/identity/authentication/concept-mandatory-multifactor-authentication)를 참고하세요.
+{% endhint %}
 
 ### 서드파티 (외부 파트너/SaaS/벤더)
 

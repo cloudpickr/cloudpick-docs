@@ -114,7 +114,7 @@ Microsoft、Google、Anthropicの公式ガイドが共通して強調する原�
 レビュー: 「このイヤホン本当にいいです!音質が優れていてバッテリーも長持ちします。星5つです。」
 ```
 
-一部のベンダーは**構造化された出力(Structured Output)**をネイティブでサポートしています。
+一部のベンダーは**構造化された出力(Structured Output)** をネイティブでサポートしています。
 - [Microsoft Foundry Structured Outputs](https://learn.microsoft.com/azure/ai-services/openai/how-to/structured-outputs)
 - [Vertex AI Controlled Generation](https://cloud.google.com/vertex-ai/generative-ai/docs/multimodal/control-generated-output)
 
@@ -169,7 +169,7 @@ graph LR
     E -->|はい| G[デプロイ]
 ```
 
-「良いプロンプト」は一度で完成しません。代表的な質問20~50個で**評価セット(eval set)**を作り、プロンプト変更時に評価スコアで比較するのが実務標準です。
+「良いプロンプト」は一度で完成しません。代表的な質問20~50個で**評価セット(eval set)** を作り、プロンプト変更時に評価スコアで比較するのが実務標準です。
 
 ## よくある間違い
 

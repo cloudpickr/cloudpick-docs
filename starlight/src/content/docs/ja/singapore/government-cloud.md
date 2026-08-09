@@ -7,9 +7,9 @@ description: "シンガポール政府クラウド体系 — GCC(Government Comm
 
 ## 概要
 
-シンガポール政府は自前のデータセンターを構築する代わりに、商用ハイパースケーラーの上に標準化されたセキュリティ・ガバナンス層を重ねる方式で政府クラウドを運用しています。この体系の中心には**GCC(Government Commercial Cloud、正式名称はGovernment on Commercial Cloud)**があり、政府技術庁(Government Technology Agency of Singapore、GovTech)が主管しています。
+シンガポール政府は自前のデータセンターを構築する代わりに、商用ハイパースケーラーの上に標準化されたセキュリティ・ガバナンス層を重ねる方式で政府クラウドを運用しています。この体系の中心には**GCC(Government Commercial Cloud、正式名称はGovernment on Commercial Cloud)** があり、政府技術庁(Government Technology Agency of Singapore、GovTech)が主管しています。
 
-GCCは**CODEX(Core Operations, Development Environment, and eXchange)**という上位戦略プロジェクトの一つの軸です。CODEXはスマートネーション(Smart Nation)戦略傘下の中核国家プロジェクトに指定されており、GCC(インフラ層)のほかにSG Tech Stack(SGTS、開発層)と政府データアーキテクチャ(Government Data Architecture、データ層)を含みます。
+GCCは**CODEX(Core Operations, Development Environment, and eXchange)** という上位戦略プロジェクトの一つの軸です。CODEXはスマートネーション(Smart Nation)戦略傘下の中核国家プロジェクトに指定されており、GCC(インフラ層)のほかにSG Tech Stack(SGTS、開発層)と政府データアーキテクチャ(Government Data Architecture、データ層)を含みます。
 
 :::note
 GCCは、韓国の国家情報資源管理院(NIRS)やクラウド基盤の公共機関情報資源統合事業のように、**政府機関が直接利用する内部向けプラットフォーム**です。民間ベンダーが「GCCに出店する」構造ではなく、政府機関がAWS・Azure・GCPの上にGovTechが提供するセキュリティ・ガバナンスラッパー(wrapper)をかぶせてシステムを運用する方式です。民間企業がシンガポール政府向け事業に参加するには、GeBIZ調達ポータル登録やMTCS認証取得など別途のトラックを経る必要があります。
@@ -41,7 +41,7 @@ GCC 2.0の核心的な特徴は以下のとおりです。
 - **簡素化されたオンボーディング** — TechPassのみでオンボーディング可能、サービス要求(service request)なしに自動化されたワークフローでアカウント発行
 - **SEED(Secure Engineering Environment Device Platform)** — 従来の境界ベースセキュリティから**ゼロトラスト**モデルへの転換。非準拠端末のアクセスを自動遮断
 - **Policy-as-Code** — ポリシーをコードとして定義・適用し、プロビジョニングされるすべてのリソースにデフォルトでコンプライアンスチェックを適用、リアルタイムでセキュリティ脆弱性を点検
-- **IaC(Infrastructure as Code)**基盤のコアクラウドプラットフォーム構成
+- **IaC(Infrastructure as Code)** 基盤のコアクラウドプラットフォーム構成
 
 ### GCC+ — Confidential等級ワークロードへの拡張
 
@@ -55,7 +55,7 @@ GovTechが2025年3月7日時点で公開した数値によると、GCCには**3,
 
 **IM8**は「Instruction Manual on ICT&SS(Infocomm Technology & Smart Systems) Management」の略称で、GovTechが管轄する政府機関ICTセキュリティ政策・標準全体を指します。データセキュリティ分類、クラウドセキュリティ、アプリケーション・ネットワーク・エンドポイントセキュリティ、セキュリティ運用などを包括し、政府機関がシステムを導入・運用する際に遵守すべき内部規範集の役割を果たします。
 
-従来のIM8体系では、政府システムは原則としてGCC上でホスティングされる必要があり、SaaSアプリケーションはGCC外でホスティングできませんでした。この硬直性がSaaS導入速度を遅らせているという問題意識から、GovTechは**ICT&SS政策改革(ICT&SS Policy Reform、通称IM8 Reform)**を推進しています。
+従来のIM8体系では、政府システムは原則としてGCC上でホスティングされる必要があり、SaaSアプリケーションはGCC外でホスティングできませんでした。この硬直性がSaaS導入速度を遅らせているという問題意識から、GovTechは**ICT&SS政策改革(ICT&SS Policy Reform、通称IM8 Reform)** を推進しています。
 
 改革の目標は公式に「機関が適正水準のリスク統制(right-fit risk controls)により、迅速かつ費用対効果が高く革新的なシステムを構築できるようICT&SS政策を単純化すること」として提示されています。核心的な変化は以下のとおりです。
 
@@ -71,7 +71,7 @@ IM8改革は2026年8月時点で**進行中の政策転換**です。低リス�
 
 ## SGTS(Singapore Government Tech Stack)
 
-SGTSはGCC(インフラ層)と対をなす**開発層**資産で、GovTechが提供する再利用可能なプラットフォーム・API・共通サービス群です。政府機関がインフラを一から構築しなくても、本人認証、決済、データ交換など共通機能を再利用してデジタルサービスを素早く作れるよう支援します。GovTechは**人(People)・プラットフォーム(Platform)・実践(Practice)**の3つの軸でSGTS普及戦略を説明しています。
+SGTSはGCC(インフラ層)と対をなす**開発層**資産で、GovTechが提供する再利用可能なプラットフォーム・API・共通サービス群です。政府機関がインフラを一から構築しなくても、本人認証、決済、データ交換など共通機能を再利用してデジタルサービスを素早く作れるよう支援します。GovTechは**人(People)・プラットフォーム(Platform)・実践(Practice)** の3つの軸でSGTS普及戦略を説明しています。
 
 40以上の政府機関がSGTSを使用中で、200以上のクラウド基盤システムがこれを通じて構築されました。代表例として、国民デジタルID確認サービス**MyInfo**はSGTSを活用し、通常1年かかる開発期間を4カ月に短縮しました。SGTS傘下には、政府開発者向けのマルチテナントSaaS型CI/CDツールである**SHIP-HATS**(Secure Hybrid Integration Pipeline – Hive Agile Testing Solutions)も含まれます。
 

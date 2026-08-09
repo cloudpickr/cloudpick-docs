@@ -15,7 +15,7 @@ EUレベルで統一されたクラウドセキュリティ認証スキーム(EU
 
 ## ドイツ — BSI C5
 
-**C5(Cloud Computing Compliance Criteria Catalogue)**は、ドイツ連邦情報セキュリティ庁(BSI, Bundesamt für Sicherheit in der Informationstechnik)が運用するクラウドセキュリティ準拠基準カタログです。
+**C5(Cloud Computing Compliance Criteria Catalogue)** は、ドイツ連邦情報セキュリティ庁(BSI, Bundesamt für Sicherheit in der Informationstechnik)が運用するクラウドセキュリティ準拠基準カタログです。
 
 - **C5:2020**: 121の基準で構成され、2020年以降事実上ドイツの標準クラウドセキュリティ監査基準として定着しました。ENISAがEUCS Substantial等級の要件を設計する際、C5:2020を基礎資料としました。
 - **C5:2026**: 2026年4月初旬(一部報道では3月末とも)に最終版が公開された改訂版で、C5:2020の基準を継承しつつ168の基準(17領域)へと細分化・拡張しました。**新基準は2027年6月1日から始まる評価期間から拘束力を持ち**、それ以前の早期適用も認められます。
@@ -49,7 +49,7 @@ SecNumCloud 3.2が他の国別スキームと最も大きく異なる点は、**
 
 ## スペイン — ENS
 
-**ENS(Esquema Nacional de Seguridad、国家セキュリティ体系)**は、王令(Royal Decree)311/2022に基づきスペイン公共部門の情報システムに要求されるセキュリティフレームワークで、**基本(Basic)・中間(Medium)・上位(High)**の3段階で構成されます。
+**ENS(Esquema Nacional de Seguridad、国家セキュリティ体系)** は、王令(Royal Decree)311/2022に基づきスペイン公共部門の情報システムに要求されるセキュリティフレームワークで、**基本(Basic)・中間(Medium)・上位(High)** の3段階で構成されます。
 
 - スペイン公共機関と契約しようとするクラウドベンダーは、取り扱う情報の機微度に応じて該当等級のENS認証を求められます。
 - **ハイパースケーラーの対応**: AWS(174サービス、31リージョン対象のENS High更新認証)、Microsoft Azure(BDO監査によるENS High準拠確認)、Google Cloud(Google Cloud・Google WorkspaceのENS High認証)がいずれも**最高等級であるENS High認証を保有**しています。これは資本主権要件を課すSecNumCloudとは異なり、ENSが技術・運用セキュリティ統制中心のスキームであるためです。
@@ -67,10 +67,10 @@ SecNumCloud 3.2が他の国別スキームと最も大きく異なる点は、**
 
 ## EUCSとの関係 — 統合議論は進行中
 
-上記4つの国別スキームはそれぞれ独自に運用されていますが、EUレベルの**EUCS(European Cybersecurity Certification Scheme for Cloud Services)**が完成すれば、相互承認の基礎になると見込まれています。
+上記4つの国別スキームはそれぞれ独自に運用されていますが、EUレベルの**EUCS(European Cybersecurity Certification Scheme for Cloud Services)** が完成すれば、相互承認の基礎になると見込まれています。
 
 - C5:2020は、EUCS Substantial等級要件の設計基礎資料として既に反映されています。
-- EUCSの作業は、最高等級(High+)の「主権性要件」を含めるかどうかをめぐる加盟国間の意見対立で数年間停滞していましたが、2026年1月20日に発表された**Cybersecurity Act 2(CSA2)**改正の流れの中で再開されつつあります。
+- EUCSの作業は、最高等級(High+)の「主権性要件」を含めるかどうかをめぐる加盟国間の意見対立で数年間停滞していましたが、2026年1月20日に発表された**Cybersecurity Act 2(CSA2)** 改正の流れの中で再開されつつあります。
 - **2026年8月現在、EUCSは依然として確定しておらず、主権性要件を含めるかどうかは議論が続いています。**(詳しい経緯は[GDPRとデータ主権 — EUCS認証スキームの流動性](../gdpr-sovereignty/#eucs認証スキームの流動性)を参照)
 
 それまでの間、国別スキームは「暫定的だが市場で信頼される証跡」として機能しており、特にBSI C5とSecNumCloudはEUCS移行期の事実上の基準として参照されています。

@@ -24,13 +24,13 @@ description: "シンガポールAIガバナンス体系 — NAIS 2.0国家AI戦�
 - 資源効率的なAI開発とコンピューティングインフラアクセス性の拡大(ワンノース地区**Kampong AI**、国家スーパーコンピューティングセンター**ASPIRE 2B**など)
 - ガバナンス・社会的信頼を通じた安全なAI導入の促進とASEAN域内AIハブとしての地位強化(シンガポールは2027年ASEAN議長国)
 
-**2025~2030年の公共AI研究・人材開発に総額10億シンガポールドル(S$1B)以上**が投入され、**2026年2月**にはローレンス・ウォン(Lawrence Wong)首相が議長を務める**国家AI委員会(National AI Council、NAIC)**が新設され、国家AIアジェンダの戦略的方向性を統括します。
+**2025~2030年の公共AI研究・人材開発に総額10億シンガポールドル(S$1B)以上**が投入され、**2026年2月**にはローレンス・ウォン(Lawrence Wong)首相が議長を務める**国家AI委員会(National AI Council、NAIC)** が新設され、国家AIアジェンダの戦略的方向性を統括します。
 
 ## Model AI Governance Framework — 生成AI版(2024)
 
-IMDA・PDPCは2019年に**Model AI Governance Framework**(従来型AI対象、民間企業の責任あるAI展開のための自発的参考文書)を世界経済フォーラム(WEF)ダボス会議で初めて発表し、2020年に改訂しました。生成AI(Generative AI)の急速な普及に対応し、IMDAと**AI Verify Foundation**は**2024年1月16日に草案(提案版)**を公開し、業界の意見聴取を経て**2024年5月30日に最終版**である**Model AI Governance Framework for Generative AI**を発表しました。
+IMDA・PDPCは2019年に**Model AI Governance Framework**(従来型AI対象、民間企業の責任あるAI展開のための自発的参考文書)を世界経済フォーラム(WEF)ダボス会議で初めて発表し、2020年に改訂しました。生成AI(Generative AI)の急速な普及に対応し、IMDAと**AI Verify Foundation**は**2024年1月16日に草案(提案版)** を公開し、業界の意見聴取を経て**2024年5月30日に最終版**である**Model AI Governance Framework for Generative AI**を発表しました。
 
-このフレームワークは、生成AI特有のリスク(幻覚、著作権、ディープフェイクなど)に対応するための**9つの次元(dimension)**を提示します。
+このフレームワークは、生成AI特有のリスク(幻覚、著作権、ディープフェイクなど)に対応するための**9つの次元(dimension)** を提示します。
 
 | 次元 | 核心内容 |
 | --- | --- |
@@ -76,13 +76,13 @@ PDPCは**2024年3月1日**、「AI推薦・意思決定システムにおける�
 
 ## ASEAN AIガバナンスガイドとの連携
 
-シンガポールIMDAは、**ASEAN AIガバナンス作業部会(ASEAN Working Group on AI Governance、WG-AI)**を2024年から議長国として率いています。この作業部会の成果物が**「ASEAN Guide on AI Governance and Ethics」**で、ASEAN加盟国が従来型AI技術を設計・開発・展開する際に参考にできる域内整合(regional alignment)フレームワークです。2025年には生成AIを包含するよう**拡張版(Generative AI付属書)**が整備されました。
+シンガポールIMDAは、**ASEAN AIガバナンス作業部会(ASEAN Working Group on AI Governance、WG-AI)** を2024年から議長国として率いています。この作業部会の成果物が**「ASEAN Guide on AI Governance and Ethics」**で、ASEAN加盟国が従来型AI技術を設計・開発・展開する際に参考にできる域内整合(regional alignment)フレームワークです。2025年には生成AIを包含するよう**拡張版(Generative AI付属書)** が整備されました。
 
 シンガポールのModel AI Governance Frameworkが事実上ASEANガイドの原型(prototype)の役割を果たしており、IMDAが国家レベルのフレームワークを地域レベルへ拡散させる構造です。ASEAN域内の多国にサービスを提供する企業であれば、シンガポールのフレームワークを遵守することが他のASEAN加盟国の政策方向とも相当程度整合する可能性が高いといえます。
 
 ## 東南アジア地域モデル — SEA-LION
 
-国家AI戦略の研究・インフラ軸を代表する事例が**SEA-LION(Southeast Asian Languages In One Network)**です。国立研究財団(National Research Foundation)の支援を受け、シンガポール国立大学(NUS)が主管する国家プログラム**AI Singapore**が開発したオープンソース多言語・マルチモーダル言語モデル系列で、東南アジア11以上の言語の言語的・文化的ニュアンス(低資源言語を含む)を反映するよう設計されています。最新版である**SEA-LION v4.5**はエージェント的機能と推論効率を高めたカスタムスペキュレイティブデコーダーを搭載しており、東南アジアの文化的文脈に合わせた安全性フィルタリングモデル群**SEA-Guard**も併せて提供されます。
+国家AI戦略の研究・インフラ軸を代表する事例が**SEA-LION(Southeast Asian Languages In One Network)** です。国立研究財団(National Research Foundation)の支援を受け、シンガポール国立大学(NUS)が主管する国家プログラム**AI Singapore**が開発したオープンソース多言語・マルチモーダル言語モデル系列で、東南アジア11以上の言語の言語的・文化的ニュアンス(低資源言語を含む)を反映するよう設計されています。最新版である**SEA-LION v4.5**はエージェント的機能と推論効率を高めたカスタムスペキュレイティブデコーダーを搭載しており、東南アジアの文化的文脈に合わせた安全性フィルタリングモデル群**SEA-Guard**も併せて提供されます。
 
 SEA-LIONは、西側諸国で開発された汎用LLMに全面的に依存せず、東南アジアの言語・文化的文脈を反映した自国・域内モデル能力を確保しようとするシンガポールの国家戦略を象徴するプロジェクトとして評価されています。
 

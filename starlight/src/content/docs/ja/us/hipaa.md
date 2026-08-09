@@ -28,7 +28,7 @@ HIPAAは規制対象を2つのグループに分けます。
 - **Covered Entity(適用対象機関)**: 医療を提供する、または費用を支払う機関 — 医療提供者、健康保険会社、医療情報交換機関
 - **Business Associate(業務委託対象者)**: Covered Entityに代わってPHIを収集・保存・伝送する第三者 — クラウドベンダー、SaaSプロバイダー、データ処理業者の大半がこれに該当
 
-Covered EntityがPHI処理を外部に委託する場合は、**BAA(Business Associate Agreement)**という法的契約を必ず締結する必要があり、BAAはBusiness AssociateがPHIをどのような目的で扱えるか、どのようなセキュリティ・プライバシー要件を遵守すべきかを明記します。Business Associateがさらに下位ベンダー(Subcontractor)に委託する場合も、同様に下位BAAの締結が必要です。
+Covered EntityがPHI処理を外部に委託する場合は、**BAA(Business Associate Agreement)** という法的契約を必ず締結する必要があり、BAAはBusiness AssociateがPHIをどのような目的で扱えるか、どのようなセキュリティ・プライバシー要件を遵守すべきかを明記します。Business Associateがさらに下位ベンダー(Subcontractor)に委託する場合も、同様に下位BAAの締結が必要です。
 
 :::note
 クラウドサービスプロバイダーの大半はBusiness Associateの地位にあるとみなされます。つまり、クラウドベンダーとBAAを締結することが、PHIを当該クラウドに載せるための法的な前提条件です。

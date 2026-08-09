@@ -75,6 +75,13 @@ description: 메시지 큐와 이벤트 스트리밍의 개념, 벤더별 서비
 - [ ] Dead Letter Queue와 재시도 정책(최대 횟수, 백오프)을 설정했는가
 - [ ] 소비자 장애 시 메시지 유실이 없는지(at-least-once 보장) 확인했는가
 
+## 관련 문서
+
+- [서버리스](../compute/serverless.md) — 이벤트 트리거·비동기 호출과 큐 연동
+- [API Gateway](../networking/api-gateway.md) — 동기 API 앞단과 비동기 백엔드 분리
+- [데이터 파이프라인과 ETL](data-pipeline.md) — 스트리밍·배치 파이프라인
+- [통합 관찰가능성 아키텍처](../devops/observability.md) — 큐/스트림 지연·실패 관측
+
 ## 참고하기
 
 ### AWS

@@ -103,8 +103,53 @@
 - [RAG 고급 패턴](ai/rag-patterns.md)
 - [벡터 스토어와 임베딩](ai/vector-store.md)
 - [AI 에이전트](ai/agents.md)
+- [에이전트 도입 가이드](ai/agent-adoption.md)
 - [LLM 채널 선택 가이드](ai/1p-vs-3p.md)
 - [LLM 라이선스와 비용 관리](ai/licensing.md)
-- [멀티클라우드 AI](ai/multicloud-ai.md)
 - [LLMOps](ai/llmops.md)
-- [에이전트 도입 가이드](ai/agent-adoption.md)
+- [멀티클라우드 AI](ai/multicloud-ai.md)
+
+## 국가별 가이드 <a id="country-guides"></a>
+
+### 한국 개요
+
+- [한국 부록](korea/index.md)
+- [컴플라이언스 (한국)](korea/governance/compliance.md)
+- [CSAP (클라우드 보안 인증)](korea/security/csap.md)
+- [망분리와 네트워크 격리 (한국)](korea/security/network-isolation.md)
+- [소버린 FM 정책](korea/ai/sovereign-fm-policy.md)
+- [FM 제공사 비교](korea/ai/fm-providers.md)
+
+### 미국 개요
+
+- [미국](us/index.md)
+- [FedRAMP](us/fedramp.md)
+- [HIPAA/HITECH](us/hipaa.md)
+- [ITAR/EAR](us/itar.md)
+- [주(州) 프라이버시법 지형](us/state-privacy.md)
+- [AI 정책과 거버넌스](us/ai-policy.md)
+
+### EU 개요
+
+- [EU](eu/index.md)
+- [GDPR과 데이터 주권](eu/gdpr-sovereignty.md)
+- [DORA](eu/dora.md)
+- [NIS2 + EU AI Act](eu/nis2-ai-act.md)
+- [EU 회원국별 클라우드 보안 스킴](eu/national-schemes.md)
+- [유럽 소버린 AI·모델 지형](eu/sovereign-ai.md)
+
+### 일본 개요
+
+- [일본](japan/index.md)
+- [ISMAP](japan/ismap.md)
+- [APPI](japan/appi.md)
+- [일본 가버먼트 클라우드](japan/government-cloud.md)
+- [일본 AI 정책과 국산 모델 지형](japan/ai-landscape.md)
+
+### 싱가포르 개요
+
+- [싱가포르](singapore/index.md)
+- [MTCS](singapore/mtcs.md)
+- [PDPA](singapore/pdpa.md)
+- [정부 클라우드 (GCC·IM8·SGTS)](singapore/government-cloud.md)
+- [AI 거버넌스](singapore/ai-governance.md)

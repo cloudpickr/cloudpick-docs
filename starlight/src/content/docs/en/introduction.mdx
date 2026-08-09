@@ -1,0 +1,117 @@
+---
+title: "CloudPick Docs"
+description: "Welcome to CloudPick."
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+CloudPick is a **vendor-neutral guide for making the right decisions in multi-cloud environments**.
+
+We do not recommend multi-cloud as a default choice. Single-vendor, hybrid, and multi-cloud strategies each carry their own costs and responsibilities, and the right choice depends on your workloads and organizational context. We explain why on-premises and network-segregation-centered operations were once necessary, and how control mechanisms can be extended in modern environments.
+
+Each vendor's official documentation only covers its own services. CloudPick places the major global cloud vendors side by side under the same criteria, helping you decide "what should I choose in this situation?" All content is grounded in official vendor documentation and industry standards (NIST, CNCF, FinOps Foundation), with personal opinions and speculation excluded.
+
+Whether you are new to cloud or designing multi-cloud architectures, we provide reading paths tailored to your level and purpose.
+
+:::note
+All technical content is based on official vendor documentation or industry-standard sources. When adopting or operating in production, always cross-check the latest official documentation from each vendor.
+:::
+
+## Where should I start?
+
+<Tabs>
+<TabItem label="☁️ First Steps">
+1. [Getting Started with Cloud](../about-cloud/getting-started/)
+2. [Comparing Vendors](../about-cloud/compare-clouds/)
+3. [Regions and Availability Zones](../about-cloud/regions-and-zones/)
+4. [Shared Responsibility Model](../about-cloud/shared-responsibility/)
+5. [Understanding the Cost Structure](../about-cloud/pricing-model/)
+6. [Understanding Multicloud](../about-cloud/why-multicloud/)
+7. [Vendor Selection Decision Framework](../about-cloud/decision-framework/)
+</TabItem>
+
+<TabItem label="⚙️ Build & Operate">
+1. [Getting Started with DevOps](../devops/getting-started/)
+2. [Account and Organization Structure](../about-cloud/accounts-and-organizations/) → [Landing Zone](../governance/landing-zone/)
+3. [Cost Structure](../about-cloud/pricing-model/) → [FinOps](../governance/finops/)
+4. [Well-Architected Framework](../about-cloud/well-architected/)
+5. [Disaster Recovery](../governance/dr/)
+6. [Monitoring](../devops/monitoring/) → [SLI/SLO](../devops/slo/) → [Observability](../devops/observability/)
+7. [Remote Access Management](../devops/remote-access/)
+8. [Database Operations](../database/operations/)
+</TabItem>
+
+<TabItem label="🔒 Security & Compliance">
+1. [Getting Started with Cloud Security](../security/getting-started/)
+2. [Shared Responsibility Model](../about-cloud/shared-responsibility/)
+3. [IAM Overview](../about-cloud/iam-overview/) → [IAM In Depth](../security/iam/)
+4. [Secrets Management](../security/secrets/)
+5. [Data Protection](../security/data-protection/)
+6. [Network Segregation and Isolation](../security/network-isolation/)
+7. [Zero Trust](../security/zero-trust/)
+8. [Compliance](../governance/compliance/)
+9. [DevSecOps](../devops/devsecops/)
+10. [Security Incident Response](../security/incident-response/)
+</TabItem>
+
+<TabItem label="🚚 Migration">
+1. [Application Migration](../compute/migration/)
+2. [Database Migration](../database/migration/)
+3. [Storage Migration](../storage/migration/)
+4. [Modernization](../compute/modernization/)
+5. [Vendor Lock-in and Exit Strategy](../governance/exit-strategy/)
+</TabItem>
+
+<TabItem label="🤖 AI Adoption">
+1. [Getting Started with AI](../ai/getting-started/)
+2. [AI Platforms and Model Comparison](../ai/ai-ml/) — model catalog, Applied/Physical AI, inference costs
+3. [Prompt Engineering](../ai/prompt-engineering/)
+4. [Advanced RAG Patterns](../ai/rag-patterns/)
+5. [Vector Stores and Embeddings](../ai/vector-store/)
+6. [AI Agents](../ai/agents/) — coding, desktop, and autonomous operations agents
+7. [Agent Adoption Guide](../ai/agent-adoption/) — AX strategy, rollout, governance
+8. [LLM Channel Selection Guide](../ai/1p-vs-3p/) — direct use vs. cloud-provided, seat vs. API
+9. [LLM Licensing and Cost Management](../ai/licensing/) — tiers, quotas, cost management
+10. [LLMOps](../ai/llmops/) — evaluation, agent observability, operations
+11. [Multicloud AI](../ai/multicloud-ai/) — cost, GPUs, vendor combinations
+12. [AI Security](../security/ai-security/) — guardrails, prompt injection defense
+</TabItem>
+</Tabs>
+
+## Target Cloud Vendors
+
+| Vendor | Homepage | Console |
+| --- | --- | --- |
+| [AWS](https://aws.amazon.com/ko/) | Amazon Web Services | [Console](https://console.aws.amazon.com) |
+| [Azure](https://azure.microsoft.com/ko-kr/) | Microsoft Azure | [Portal](https://portal.azure.com) |
+| [Google Cloud](https://cloud.google.com/) | Google Cloud | [Console](https://console.cloud.google.com) |
+| [OCI](https://www.oracle.com/kr/cloud/) | Oracle Cloud Infrastructure | [Console](https://cloud.oracle.com) |
+
+If cloud terminology is unfamiliar, refer to the [glossary](../glossary/) alongside these docs.
+
+---
+
+## Where to go after this
+
+CloudPick is a comparison guide that helps you decide <strong>what to choose</strong>. For how-to usage, tutorials, and hands-on labs for each service, use the official vendor resources alongside CloudPick.
+
+| Vendor | Official Learning Platform | Certifications |
+| --- | --- | --- |
+| AWS | [AWS Skill Builder](https://skillbuilder.aws/) | Cloud Practitioner → SA Associate → Specialty |
+| Azure | [Microsoft Learn](https://learn.microsoft.com/training/) | AZ-900 → AZ-104/204 → Specialty |
+| Google Cloud | [Google Cloud Skills Boost](https://www.cloudskillsboost.google/) | Cloud Digital Leader → Associate → Professional |
+| OCI | [OCI Training](https://education.oracle.com/oracle-cloud-infrastructure) | Foundations → Architect Associate → Professional |
+
+The **References** link at the bottom of each document also leads directly to the relevant official documentation.
+
+---
+
+## Documentation Principles
+
+> This is CloudPick's first principle. All contributors follow it.
+
+- **Grounded in official documentation** — All technical content is based on official vendor documentation or industry-standard sources (NIST, CNCF, FinOps Foundation, etc.). Speculative content is excluded.
+- **Neutrality** — Vendor comparisons are expressed as neutrally as possible.
+- **Sourcing** — Links to official documentation are collected in the **References** section at the bottom of each document.
+- **Managing volatility** — Fast-changing information such as pricing, region counts, and GA/Preview status is pointed to via official links rather than stated as fixed figures. Each document notes `Last reviewed: Month YYYY` at the top.
+- **Terminology conventions** — These documents follow Korean-language source conventions for the original CloudPick content: Korean is used as the primary script, with English glossed alongside technical terms or abbreviations on first use (e.g., 가용영역(Availability Zone)). Standard transliteration rules are followed (e.g., '메시지 큐' is correct, '메세지 큐' is not). Vendor names use their current official names (e.g., Microsoft Entra ID). The authoritative terms follow the [glossary](../glossary/).

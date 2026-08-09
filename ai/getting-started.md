@@ -170,7 +170,7 @@ RAG는 [벡터 스토어](vector-store.md)와 함께 동작합니다. 구현 패
 ### OCI
 
 - [OCI Enterprise AI 개요](https://www.oracle.com/kr/artificial-intelligence/generative-ai/generative-ai-service/)
-- [OCI AI Database 26ai](https://www.oracle.com/kr/database/21c/ai-vector-search/)
+- [Oracle AI Database (벡터 검색)](https://www.oracle.com/database/ai-vector-search/)
 
 ### 입문 자료
 

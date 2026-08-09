@@ -1,0 +1,181 @@
+---
+title: "共同責任モデル"
+description: "クラウドの共同責任モデル、IaaS/PaaS/SaaS別の責任境界、ベンダー別モデルの違いについて説明します。"
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+> 文書基準: 2026年5月
+
+## なぜ共同責任なのか
+
+自社の電算センターを賃貸ビルで運用していると仮定してみましょう。建物の入退室管理、消防設備、電力供給はビル管理会社が責任を負います。しかし、サーバー室内部の機器管理、データバックアップ、アクセス権限設定は入居企業である私たちが責任を負わなければなりません。ビル管理会社がどれほどセキュリティをしっかり行っていても、サーバー室のパスワードを「1234」に設定すれば、セキュリティ事故は私たちの責任です。
+
+クラウドも同じ構造です。クラウドを利用したからといって、すべてのセキュリティと運用の責任がベンダーに移るわけではありません。ベンダーとユーザーがそれぞれ責任を負うべき領域が明確に分かれており、これを**共同責任モデル**(Shared Responsibility Model)と呼びます。
+
+:::caution
+このモデルは、国内ベンダー・海外ベンダーを問わず同様に適用されます。どのベンダーを選択しても、データ分類、アクセス制御、暗号化キー管理はユーザーの責任です。ベンダー選定だけではセキュリティは保証されません。
+:::
+
+## 核心概念
+
+### ベンダーの責任領域 —「クラウドのセキュリティ(Security of the Cloud)」
+
+クラウドベンダーは、クラウドインフラ自体のセキュリティに責任を負います。
+
+- **物理的セキュリティ** — データセンター建物、入退室管理、CCTV、生体認証
+- **ハードウェア** — サーバー、ストレージ、ネットワーク機器の管理および交換
+- **ハイパーバイザー** — 仮想化レイヤーのセキュリティおよび分離
+- **ネットワークインフラ** — グローバルバックボーンネットワーク、リージョン間接続
+
+### ユーザーの責任領域 —「クラウド内のセキュリティ(Security in the Cloud)」
+
+ユーザーは、クラウド上で運用するワークロードのセキュリティに責任を負います。
+
+- **データ** — 保存データの暗号化、分類、アクセス制御
+- **アプリケーション** — コードのセキュリティ脆弱性、[パッチ管理](../../devops/patch-and-vulnerability/)
+- **アクセス制御** — IAMポリシー、ユーザー権限、MFA設定
+- **オペレーティングシステム** — OSパッチ、セキュリティ設定(IaaSの場合)
+- **ネットワーク設定** — セキュリティグループ、ファイアウォールルール、VPC構成
+
+### サービスモデルによる責任境界の変化
+
+利用するサービスモデル(IaaS、PaaS、SaaS)によって、ユーザーの責任範囲が変わります。SaaSに近づくほどベンダーがより多くの領域を管理し、IaaSに近づくほどユーザーの管理領域が広がります。
+
+| 領域 | IaaS | PaaS | SaaS |
+| --- | --- | --- | --- |
+| **データ** | ユーザー | ユーザー | ユーザー |
+| **アプリケーション** | ユーザー | ユーザー | ベンダー |
+| **ランタイム** | ユーザー | ベンダー | ベンダー |
+| **ミドルウェア** | ユーザー | ベンダー | ベンダー |
+| **オペレーティングシステム** | ユーザー | ベンダー | ベンダー |
+| **仮想化** | ベンダー | ベンダー | ベンダー |
+| **サーバー/ストレージ/ネットワーク** | ベンダー | ベンダー | ベンダー |
+| **物理的セキュリティ** | ベンダー | ベンダー | ベンダー |
+
+例えば、EC2(IaaS)を利用する場合はOSパッチからユーザーの責任ですが、RDS(PaaS)を利用する場合はOSパッチをAWSが担当します。Google Workspace(SaaS)を利用する場合はアプリケーション管理までGoogleが担当し、ユーザーはデータとアクセス権限のみを管理すればよいことになります。
+
+## ベンダー別比較
+
+| 項目 | AWS | Azure | Google Cloud | OCI |
+| --- | --- | --- | --- | --- |
+| **モデル名** | Shared Responsibility Model | Shared Responsibility | Shared Fate | Shared Security Model |
+| **基本構造** | 伝統的な共同責任 | AWSと類似 | 共同運命モデル | 伝統的+自動化重視 |
+| **ベンダーの追加サポート** | Well-Architected Tool, Trusted Advisor | Defender for Cloud, Secure Score | Security Command Center, Assured Workloads | Cloud Guard, Security Zones |
+| **セキュリティのデフォルト値** | ユーザーが明示的に設定 | ユーザーが明示的に設定 | セキュリティのデフォルト値がより厳格 | Security Zonesで自動的に強制 |
+| **公式ドキュメント** | [AWS](https://aws.amazon.com/ko/compliance/shared-responsibility-model/) | [Azure](https://learn.microsoft.com/ko-kr/azure/security/fundamentals/shared-responsibility) | [Google Cloud](https://cloud.google.com/architecture/framework/security/shared-responsibility-shared-fate) | [OCI](https://docs.oracle.com/en-us/iaas/Content/Security/Concepts/security_guide.htm) |
+
+:::note
+各ベンダーのセキュリティ設計原則とフレームワークについては、[Well-Architected Framework](../../about-cloud/well-architected/)を参照してください。
+:::
+
+<Tabs>
+<TabItem label="AWS">
+AWSは最も伝統的な共同責任モデルを提示しています。「**クラウドのセキュリティ**」と「**クラウド内のセキュリティ**」を明確に区分しており、ユーザーは自身の責任領域を自ら管理する必要があります。
+
+AWSはこれを支援するためにさまざまなセキュリティサービス(GuardDuty、Security Hub、IAM Access Analyzerなど)を提供していますが、有効化と設定はユーザーの役割です。詳細は[セキュリティ体制管理](../../security/security-posture/)を参照してください。
+
+**モデル名:** Shared Responsibility Model
+</TabItem>
+
+<TabItem label="Azure">
+Azureの共同責任モデルは、AWSと構造的に類似しています。
+
+Microsoftのエンタープライズセキュリティエコシステム(Active Directory、Defender、Sentinelなど)と緊密に統合されているため、既存のMicrosoft環境を利用している組織ではセキュリティ管理が比較的容易な場合があります。
+
+**モデル名:** Shared Responsibility
+</TabItem>
+
+<TabItem label="Google Cloud">
+Google Cloudは、伝統的な共同責任モデルからさらに一歩進んだ**共同運命モデル**(Shared Fate)を提示しています。
+
+- **ベンダーの積極的な関与** — 顧客がセキュリティを適切に構成できるよう、より積極的にツールとガイドを提供します。
+- **セキュリティのデフォルト値強化** — Cloud Storageバケットはデフォルトで公開アクセスがブロックされています。
+- **Assured Workloads** — 規制要件に適合したワークロード環境を自動的に構成します。
+- **Security Command Center** — セキュリティの脆弱性を自動的に検出し、推奨される対策を提示します。
+
+AWS/Azureが「ここまでは私たちの責任、残りはあなたの責任」だとすれば、Google Cloudは「あなたのセキュリティの成功が、すなわち私たちの成功である」という立場です。
+
+**モデル名:** Shared Fate
+</TabItem>
+
+<TabItem label="OCI">
+OCIは伝統的な共同責任モデルを基盤としつつ、**自動化されたセキュリティ強制**に差別化のポイントがあります。
+
+- **Security Zones** — 特定のCompartmentに適用すると、セキュリティのベストプラクティスに違反するリソースの作成が自動的にブロックされます(例: 暗号化されていないストレージの作成不可)。
+- **Cloud Guard** — セキュリティの脅威と構成エラーを自動的に検出し、事前定義されたレシピで自動的に対応できます。
+- **Maximum Security Zones** — 最も厳格なセキュリティポリシーを強制する、事前構成済みのZoneを提供します。
+
+**モデル名:** Shared Security Model
+</TabItem>
+</Tabs>
+
+:::caution
+クラウドを利用したからといって、**セキュリティ責任が自動的にベンダーに移るわけではありません。** サービスモデル(IaaS→SaaS)が上がるほどベンダーがより多く管理しますが、データとアクセス制御は常にユーザーの責任です。
+:::
+
+## 実務でよく見落とされる部分
+
+共同責任モデルを理解していても、実務でよく発生するセキュリティの過ちがあります。
+
+- **ストレージの公開アクセス** — バケットを誤ってパブリックに設定し、データが流出。[データ保護](../../security/data-protection/)を参照
+- **IAMの過剰権限** — 管理者権限を付与したまま縮小しない。[IAMとアクセス制御](../../security/iam/)を参照
+- **暗号化キー管理** — ベンダー管理キー vs 顧客管理キー(CMK) vs BYOKの選択。[シークレット管理](../../security/secrets/)を参照
+
+## コンプライアンス
+
+各国/業界別の規制によって、セキュリティ認証が必要になる場合があります。各ベンダーは、認証レポートを直接ダウンロードできるサービスを提供しています。
+
+| ベンダー | 認証レポートサービス | 説明 |
+| --- | --- | --- |
+| AWS | [AWS Artifact](https://aws.amazon.com/artifact/) | SOC、ISO、PCIなどの監査レポートを直接ダウンロード |
+| Azure | [Service Trust Portal](https://servicetrust.microsoft.com/) | 監査レポート、コンプライアンスガイド |
+| Google Cloud | [Compliance Reports Manager](https://cloud.google.com/security/compliance/compliance-reports-manager) | ISO、SOCレポートのダウンロード |
+| OCI | [Oracle Cloud Compliance](https://www.oracle.com/corporate/cloud-compliance/) | 認証状況およびレポート |
+
+:::note
+詳細なコンプライアンスガイドについては、[コンプライアンス](../../governance/compliance/)を参照してください。
+:::
+
+## よくある間違い
+
+- **「クラウドを使えばセキュリティはベンダーの責任だ」** — ベンダーはインフラのセキュリティのみに責任を負います。データ暗号化、アクセス制御、ネットワーク設定は常にユーザーの責任です。
+- **「マネージドサービスならセキュリティ設定は不要だ」** — PaaS/SaaSであっても、アクセス権限、ネットワーク露出、暗号化設定はユーザー自身が構成する必要があります。
+- **「認証さえ取得すればセキュリティは保証される」** — ベンダーのSOC/ISO認証は、インフラレベルのセキュリティを証明するだけであり、ユーザーのワークロードのセキュリティまで保証するものではありません。
+
+## チェックリスト
+
+- [ ] 利用中のサービスモデル(IaaS/PaaS/SaaS)別に、ユーザーの責任領域を識別したか?
+- [ ] ストレージ(バケット/Blob)の公開アクセス設定を点検し、不要なパブリックアクセスを遮断したか?
+- [ ] ベンダーが提供するセキュリティ点検ツール(Trusted Advisor、Defender、Security Command Centerなど)を有効化したか?
+
+## 参考資料
+
+### 標準とフレームワーク
+
+- [Cloud Security Alliance — Security Guidance v4](https://cloudsecurityalliance.org/research/guidance) — クラウドセキュリティのベストプラクティス
+- [Cloud Security Alliance — Cloud Controls Matrix (CCM)](https://cloudsecurityalliance.org/research/cloud-controls-matrix) — クラウドセキュリティ統制フレームワーク
+- [NIST SP 800-144 — Guidelines on Security and Privacy in Public Cloud Computing](https://csrc.nist.gov/publications/detail/sp/800-144/final)
+
+### AWS
+
+- [共同責任モデル](https://aws.amazon.com/ko/compliance/shared-responsibility-model/)
+- [AWSセキュリティ](https://aws.amazon.com/ko/security/)
+- [AWS Artifact(コンプライアンスレポート)](https://aws.amazon.com/ko/artifact/)
+
+### Azure
+
+- [クラウドの共同責任](https://learn.microsoft.com/ko-kr/azure/security/fundamentals/shared-responsibility)
+- [Azureセキュリティ](https://azure.microsoft.com/ko-kr/explore/security)
+- [Azureコンプライアンス](https://learn.microsoft.com/ko-kr/azure/compliance/)
+
+### Google Cloud
+
+- [Shared Fate(共同運命モデル)](https://cloud.google.com/architecture/framework/security/shared-responsibility-shared-fate)
+- [Google Cloudセキュリティ](https://cloud.google.com/security)
+- [コンプライアンスリソースセンター](https://cloud.google.com/security/compliance)
+
+### OCI
+
+- [OCI Security Guide](https://docs.oracle.com/en-us/iaas/Content/Security/Concepts/security_guide.htm)
+- [OCI Compliance](https://www.oracle.com/corporate/cloud-compliance/)

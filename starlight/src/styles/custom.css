@@ -1,0 +1,66 @@
+/* CloudPick 커스텀 스타일 — 폰트 / 컬러 / 표 / 조판 */
+
+/* 코드 폰트: Jetendard (JetBrains Mono Nerd Font + Pretendard 한글) */
+@font-face {
+	font-family: 'Jetendard';
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: url('/fonts/jetendard/Jetendard-Regular.woff2') format('woff2');
+}
+@font-face {
+	font-family: 'Jetendard';
+	font-style: normal;
+	font-weight: 700;
+	font-display: swap;
+	src: url('/fonts/jetendard/Jetendard-Bold.woff2') format('woff2');
+}
+
+/* 폰트 토큰 — Pretendard Variable은 head의 dynamic-subset CSS에서 로드 */
+:root {
+	--sl-font: 'Pretendard Variable';
+	--sl-font-mono: 'Jetendard';
+	/* 비교표가 많은 사이트 특성상 본문 폭 확대 (기본 45rem) */
+	--sl-content-width: 54rem;
+}
+
+/* 일본어 로케일: Pretendard의 한자 자형이 한국 지역형이므로 시스템 일본어 폰트로 분기 */
+:root[lang='ja'] {
+	--sl-font: 'Hiragino Kaku Gothic ProN', 'Yu Gothic UI', 'Noto Sans JP';
+}
+
+/* Accent — 벤더 중립 slate-blue (기본 보라 대체) */
+/* 다크 (기본) */
+:root {
+	--sl-color-accent-low: #1b2a41;
+	--sl-color-accent: #3b6ea5;
+	--sl-color-accent-high: #bcd4ea;
+}
+/* 라이트 */
+:root[data-theme='light'] {
+	--sl-color-accent-low: #dbe9f5;
+	--sl-color-accent: #2f5f8f;
+	--sl-color-accent-high: #163049;
+}
+
+/* 한국어 조판: 행간·단어 단위 줄바꿈 */
+:root[lang='ko'] .sl-markdown-content {
+	line-height: 1.75;
+	word-break: keep-all;
+	letter-spacing: -0.01em;
+}
+
+/* 비교표 가독성: 헤더 배경 + 지브라 + 여백 */
+.sl-markdown-content table {
+	border-collapse: collapse;
+}
+.sl-markdown-content thead th {
+	background: var(--sl-color-gray-6);
+}
+.sl-markdown-content tbody tr:nth-child(even) {
+	background: color-mix(in srgb, var(--sl-color-gray-6) 55%, transparent);
+}
+.sl-markdown-content td,
+.sl-markdown-content th {
+	padding: 0.55rem 0.85rem;
+}

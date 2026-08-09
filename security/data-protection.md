@@ -65,7 +65,7 @@ description: 전송 중/저장 시 암호화, WAF, 네트워크 보안을 벤더
 | AWS | KMS에서 ML-KEM 하이브리드 TLS 지원. S3, ACM 등 서비스 간 통신에 PQ 하이브리드 키 교환 적용 중 | [AWS Post-Quantum Cryptography](https://aws.amazon.com/security/post-quantum-cryptography/) |
 | Azure | Microsoft Quantum Safe Program. SymCrypt 라이브러리에 ML-KEM/ML-DSA 구현. TLS 1.3 하이브리드 키 교환 지원 | [Microsoft Quantum Safe](https://www.microsoft.com/en-us/security/blog/topic/quantum-safe/) |
 | Google Cloud | Cloud KMS에서 PQC 디지털 서명(ML-DSA) 프리뷰. Chrome/BoringSSL에 ML-KEM 하이브리드 배포 완료 | [Google Cloud PQC](https://cloud.google.com/blog/products/identity-security/quantum-safe-digital-signatures-in-cloud-kms) |
-| OCI | OCI Vault에서 PQC 알고리즘 로드맵 발표. Oracle Database TLS에 하이브리드 모드 추가 예정 | [Oracle Security](https://www.oracle.com/security/) |
+| OCI | OCI Vault 등에서 PQC 알고리즘 로드맵을 발표. Oracle Database TLS 하이브리드 모드 등은 공식 로드맵·릴리스 노트 기준으로 확인 (구체 제품 문서가 공개되면 링크로 교체) | [Oracle Security](https://www.oracle.com/security/) (일반 허브; PQC 전용 페이지는 공식 문서 확인) |
 
 ### PQC 전환 전략
 
@@ -75,7 +75,7 @@ description: 전송 중/저장 시 암호화, WAF, 네트워크 보안을 벤더
 4. **테스트** — PQC 알고리즘은 키/서명 크기가 크므로 네트워크 오버헤드와 핸드셰이크 지연을 측정합니다
 
 {% hint style="warning" %}
-PQC 전환은 수년이 걸리는 프로젝트입니다. 지금 당장 모든 시스템을 바꿀 필요는 없지만, **암호 민첩성(Crypto Agility)**을 확보하여 알고리즘을 교체할 수 있는 아키텍처를 미리 갖추는 것이 핵심입니다.
+PQC 전환은 수년이 걸리는 프로젝트입니다. 지금 당장 모든 시스템을 바꿀 필요는 없지만, **암호 민첩성(Crypto Agility)** 을 확보하여 알고리즘을 교체할 수 있는 아키텍처를 미리 갖추는 것이 핵심입니다.
 {% endhint %}
 
 ## 기밀 컴퓨팅 (Confidential Computing)

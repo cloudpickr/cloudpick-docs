@@ -1,0 +1,29 @@
+# GitBook → Starlight redirects
+# 구 docs.cloudpick.kr 경로(무접두사, 한국어)를 새 /ko/ 경로로 301 리다이렉트
+# 순서 중요: 구체적 규칙(삭제·통합 문서) → 섹션 스플랫 → 루트
+
+# 삭제·통합된 문서 → 흡수한 문서로
+/ai/desktop-agents /ko/ai/agents 301
+/ai/ai-use-cases /ko/ai/ai-ml 301
+/ai/generative-models /ko/ai/ai-ml 301
+/ai/embedding-models /ko/ai/vector-store 301
+
+# 섹션별 스플랫 (구 GitBook 경로 = 신 /ko/ 경로와 1:1)
+/about-cloud/* /ko/about-cloud/:splat 301
+/ai/* /ko/ai/:splat 301
+/compute/* /ko/compute/:splat 301
+/database/* /ko/database/:splat 301
+/devops/* /ko/devops/:splat 301
+/governance/* /ko/governance/:splat 301
+/networking/* /ko/networking/:splat 301
+/security/* /ko/security/:splat 301
+/storage/* /ko/storage/:splat 301
+
+# 로케일 홈 → 소개 (구 GitBook 홈 README를 복원한 페이지 — 원본 사이트와 동일한 첫 화면)
+# 시작하기 직행으로 바꾸려면 목적지를 /xx/about-cloud/getting-started/ 로 교체
+/ko/ /ko/introduction/ 302
+/en/ /en/introduction/ 302
+/ja/ /ja/introduction/ 302
+
+# 루트 → 한국어 소개
+/ /ko/introduction/ 302

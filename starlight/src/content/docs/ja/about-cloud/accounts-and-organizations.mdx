@@ -1,0 +1,178 @@
+---
+title: "アカウントと組織構造"
+description: "クラウドアカウントと組織構造、マルチアカウント戦略、主要ベンダーの階層構造を比較します。"
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+> 文書基準: 2026年5月
+
+## なぜアカウント構造が重要なのか
+
+オンプレミスで部署ごとにサーバーを分離する理由を考えてみましょう。同じサーバーを共有すると、あるチームのミスが他のチームに影響を与え、コストも区別できず、権限も混在してしまいます。クラウドでも一つのアカウントにすべてのリソースを入れると、同じ問題が発生します。
+
+| 問題 | マルチアカウントで解決される理由 |
+| --- | --- |
+| **セキュリティ境界の欠如** | アカウントが分離単位 — あるアカウントの事故が他のアカウントに波及しない |
+| **コスト追跡の困難** | アカウント/プロジェクト単位でコストが自動的に分離される |
+| **権限管理の複雑さ** | アカウント別の独立したIAM + 組織ポリシーで最大範囲を制限 |
+| **サービスクォータの共有** | アカウント別クォータが独立 — 一つのチームが使い切っても他のチームには無関係 |
+
+これらの問題を解決するため、各ベンダーとも**マルチアカウント構造**を推奨しています。
+
+:::note
+マルチアカウント構造を**実際に構築する方法** — VPC分離、ガードレール、導入手順、チェックリスト — は[ランディングゾーン](../../governance/landing-zone/)を参照してください。この文書は「なぜ、どのような構造で」分けるべきかという概念を扱います。
+:::
+
+## ベンダー別階層構造
+
+| 概念 | AWS | Azure | Google Cloud | OCI |
+| --- | --- | --- | --- | --- |
+| **組織** | Organization | Tenant | Organization | Tenancy |
+| **中間グループ** | OU (Organizational Unit) | Management Group | Folder | Compartment（入れ子） |
+| **分離単位** | Account | Subscription | Project | Compartment |
+| **リソースグループ** | —（タグで代替） | Resource Group | —（ラベルで代替） | — |
+| **組織ポリシー** | SCP | Azure Policy | Organization Policy | Compartment Policy |
+
+<Tabs>
+<TabItem label="AWS">
+**Organization → OU → Account**
+
+- Account = 権限境界 = コスト境界（同一）
+- SCPでOU/Accountの最大許容範囲を制限（ガードレール）
+- Control Towerでベストプラクティスに基づく自動構成
+</TabItem>
+
+<TabItem label="Azure">
+**Tenant → Management Group → Subscription → Resource Group**
+
+- Subscription = 権限境界、Billing Account = コスト境界（分離）
+- Resource GroupでSubscription内のリソースをさらに分類
+- Azure PolicyでManagement Groupレベルにポリシーを継承
+</TabItem>
+
+<TabItem label="Google Cloud">
+**Organization → Folder → Project**
+
+- Project = 権限境界、Billing Account = コスト境界（分離、最も柔軟）
+- Projectを別のBilling Accountに自由に移動可能
+- Organization PolicyでFolder/Projectレベルの制約を設定
+</TabItem>
+
+<TabItem label="OCI">
+**Tenancy → Compartment（入れ子）**
+
+- Compartment = 権限境界、Tenancy = コスト境界（分離）
+- CompartmentがOU + Accountの役割を同時に果たす
+- IAM PolicyがCompartment単位で継承される
+</TabItem>
+</Tabs>
+
+## セキュリティ境界とIAM
+
+アカウント分離だけでは不十分です。3つの階層が連携して機能する必要があります。
+
+| 階層 | 役割 | 例 |
+| --- | --- | --- |
+| **アカウント分離** | 障害/事故のblast radiusを制限 | Account、Subscription、Project、Compartment |
+| **組織ポリシー（ガードレール）** | アカウントが実行できる最大範囲を制限 | SCP、Azure Policy、Organization Policy |
+| **IAM（権限付与）** | ユーザー/サービスに実際の権限を付与 | IAM Policy、RBAC、IAM Binding |
+
+例: SCPで「ソウルリージョンのみ許可」を設定すると、IAMでどれだけ広い権限を付与しても、他のリージョンにはアクセスできません。
+
+:::note
+IAM設計の詳細は[IAM概要](../../about-cloud/iam-overview/) → [IAM実務設計](../../security/iam/)を参照してください。
+:::
+
+## コスト構造
+
+### 権限境界とコスト境界
+
+| ベンダー | 権限境界 | コスト境界 | 関係 |
+| --- | --- | --- | --- |
+| **AWS** | Account | Account | **同一** — アカウントを分けるとコストも自動的に分離される |
+| **Azure** | Subscription | Billing Account / Profile | **分離** — 複数のSubscriptionを一つの請求にまとめることが可能 |
+| **Google Cloud** | Project | Billing Account | **分離** — Projectを別のBilling Accountに移動可能 |
+| **OCI** | Compartment | Tenancy | **分離** — Compartmentで分離し、コストはTenancyで統合 |
+
+### 組織規模別の設計例
+
+| 規模 | AWS | Azure | Google Cloud | OCI |
+| --- | --- | --- | --- | --- |
+| **スタートアップ** | 3 Account（dev/stg/prod） | 1 Subscription + 3 Resource Group | 3 Project + 1 Billing Account | 3 Compartment |
+| **中堅企業** | チーム別Account + 共有サービスAccount | チーム別Subscription + Management Group | チーム別Folder + サービス別Project | チーム別Compartmentの入れ子 |
+| **大企業/公共機関** | 法人別Orgまたは Billing Transfer | 法人別Billing Profile + 中央MG | 法人別Billing Account + 中央Org | 法人別Tenancy |
+
+| 項目 | AWS | Azure | Google Cloud | OCI |
+| --- | --- | --- | --- | --- |
+| **コスト配分** | タグベース | Resource Group + タグ | ラベル + Project | Compartment + タグ |
+| **予算アラート** | AWS Budgets | Azure Budgets | Budget Alerts | OCI Budgets |
+| **請求移管** | Billing Transfer（2025） | Subscription Transfer | Billing Accountの変更 | Cross-Tenancy |
+
+:::note
+パートナー（MSP/リセラー）を通じて統合請求を利用している場合、請求移管時にパートナーとの事前協議が必要です。
+:::
+
+## サービスクォータ（割り当て量）
+
+アカウントごとにリソースの上限があります（リージョンごとのVPC数、インスタンス数、API呼び出し/秒など）。アカウントを分離すると、クォータも独立します。
+
+| ベンダー | クォータ確認 | 増加リクエスト |
+| --- | --- | --- |
+| AWS | [Service Quotas](https://docs.aws.amazon.com/servicequotas/) | コンソールまたはSupportチケット |
+| Azure | サブスクリプション → 使用状況+クォータ | Portalでリクエスト |
+| Google Cloud | IAM → クォータ | コンソールでリクエスト |
+| OCI | ガバナンス → サービス制限 | Supportリクエスト |
+
+:::caution
+本番稼働前にクォータを確認してください。開発環境では問題なくても、本番スケールで上限に達するケースがよくあります。GPU、大型インスタンスは承認に時間がかかるため、余裕を持ってリクエストしてください。
+:::
+
+## クロスアカウントリソース共有
+
+アカウントを分離すると分離は実現できますが、共有サブネット・中央イメージ・共通DNSなど、アカウント間の共有が必要になる場合があります。
+
+| ベンダー | サービス | 共有対象の例 |
+| --- | --- | --- |
+| AWS | [RAM (Resource Access Manager)](https://docs.aws.amazon.com/ram/) | サブネット、Transit Gateway、AMI |
+| Azure | VNet Peering + RBAC | VNet、DNS Zone、Image Gallery |
+| Google Cloud | [Shared VPC](https://cloud.google.com/vpc/docs/shared-vpc) | ホストプロジェクトのサブネット → サービスプロジェクト |
+| OCI | Cross-Tenancy Policy + DRG | VCN、Object Storageバケット |
+
+## よくある間違い
+
+- **「アカウント一つで十分だ」** — 小規模であってもdev/prodを分離しないと、開発中のミスが本番環境に影響を及ぼします。アカウント分離は規模に関係なく基本です。
+- **「タグさえ付ければコスト追跡ができる」** — タグは付け忘れが起きやすく、強制も困難です。アカウント/プロジェクト単位の分離が最も確実なコスト境界です。
+- **「後で構造を変えればよい」** — リソースが蓄積した後にアカウント構造を変更するのは、マイグレーションに相当する作業です。初期に設計する方がはるかに容易です。
+
+## チェックリスト
+
+- [ ] 最低限dev/staging/prod環境を別々のアカウント（またはプロジェクト/サブスクリプション）に分離したか？
+- [ ] 組織ポリシー（SCP、Azure Policyなど）で許可するリージョンとサービス範囲を制限したか？
+- [ ] 本番クォータ（サービス割り当て量）を事前に確認し、増加リクエストを完了したか？
+
+## 参考資料
+
+### AWS
+
+- [AWS Organizations](https://aws.amazon.com/ko/organizations/)
+- [AWS Control Tower](https://aws.amazon.com/ko/controltower/)
+- [AWS Organizationsと統合請求](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/consolidated-billing.html)
+
+### Azure
+
+- [Azure管理グループ](https://learn.microsoft.com/ko-kr/azure/governance/management-groups/overview)
+- [Azure Policy](https://learn.microsoft.com/ko-kr/azure/governance/policy/overview)
+- [請求アカウントについて理解する](https://learn.microsoft.com/azure/cost-management-billing/manage/view-all-accounts)
+
+### Google Cloud
+
+- [Resource Manager](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy)
+- [Organization Policy](https://cloud.google.com/resource-manager/docs/organization-policy/overview)
+- [Cloud Billingアカウントの概要](https://cloud.google.com/billing/docs/concepts)
+
+### OCI
+
+- [OCI Compartments](https://docs.oracle.com/en-us/iaas/Content/Identity/Tasks/managingcompartments.htm)
+- [OCI IAM](https://docs.oracle.com/en-us/iaas/Content/Identity/home.htm)
+- [組織管理と請求](https://docs.oracle.com/en-us/iaas/Content/GSG/Concepts/settinguptenancy.htm)

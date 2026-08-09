@@ -1,0 +1,117 @@
+---
+title: "CloudPick Docs"
+description: "CloudPickへようこそ。"
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+CloudPickは、**マルチクラウド環境で正しい意思決定を下すためのベンダーニュートラルガイド**です。
+
+マルチクラウドをデフォルトの推奨としているわけではありません。単一ベンダー、ハイブリッド、マルチクラウドにはそれぞれ固有のコストと責任があり、ワークロードや組織の状況に応じて選択すべきものです。オンプレミスと網分離中心の運用がなぜ必要だったのかを理解し、現代の環境で統制の方法をどのように拡張できるかを説明します。
+
+各ベンダーの公式ドキュメントは自社サービスのみを説明します。CloudPickは主要なグローバルクラウドベンダーを同じ基準で並べ、「この状況で何を選ぶべきか」の判断を助けます。すべての内容はベンダーの公式ドキュメントおよび業界標準（NIST、CNCF、FinOps Foundation）を根拠としており、個人の意見や推測は排除しています。
+
+クラウドを初めて扱う方からマルチクラウドアーキテクチャを設計する方まで、それぞれのレベルと目的に合った読み方の道筋を提供します。
+
+:::note
+すべての技術的な内容はベンダーの公式ドキュメントまたは業界標準の資料を根拠としています。実際の導入・運用の際は、各ベンダーの最新の公式ドキュメントも併せてご確認ください。
+:::
+
+## どこから読めばいい？
+
+<Tabs>
+<TabItem label="☁️ はじめての方">
+1. [クラウド入門](../about-cloud/getting-started/)
+2. [ベンダー比較](../about-cloud/compare-clouds/)
+3. [リージョンと可用性ゾーン](../about-cloud/regions-and-zones/)
+4. [共同責任モデル](../about-cloud/shared-responsibility/)
+5. [コスト構造を理解する](../about-cloud/pricing-model/)
+6. [マルチクラウドを理解する](../about-cloud/why-multicloud/)
+7. [ベンダー選定意思決定フレームワーク](../about-cloud/decision-framework/)
+</TabItem>
+
+<TabItem label="⚙️ 構築・運用">
+1. [DevOpsを始める](../devops/getting-started/)
+2. [アカウントと組織構造](../about-cloud/accounts-and-organizations/) → [ランディングゾーン](../governance/landing-zone/)
+3. [コスト構造](../about-cloud/pricing-model/) → [FinOps](../governance/finops/)
+4. [Well-Architected Framework](../about-cloud/well-architected/)
+5. [災害復旧](../governance/dr/)
+6. [モニタリング](../devops/monitoring/) → [SLI/SLO](../devops/slo/) → [可観測性](../devops/observability/)
+7. [リモートアクセス管理](../devops/remote-access/)
+8. [データベース運用](../database/operations/)
+</TabItem>
+
+<TabItem label="🔒 セキュリティ・規制">
+1. [クラウドセキュリティを始める](../security/getting-started/)
+2. [共同責任モデル](../about-cloud/shared-responsibility/)
+3. [IAM概要](../about-cloud/iam-overview/) → [IAM実務設計](../security/iam/)
+4. [シークレット管理](../security/secrets/)
+5. [データ保護](../security/data-protection/)
+6. [網分離とネットワーク隔離](../security/network-isolation/)
+7. [ゼロトラスト](../security/zero-trust/)
+8. [コンプライアンス](../governance/compliance/)
+9. [DevSecOps](../devops/devsecops/)
+10. [セキュリティインシデント対応](../security/incident-response/)
+</TabItem>
+
+<TabItem label="🚚 マイグレーション">
+1. [アプリケーションマイグレーション](../compute/migration/)
+2. [データベースマイグレーション](../database/migration/)
+3. [ストレージ移行](../storage/migration/)
+4. [モダナイゼーション](../compute/modernization/)
+5. [ベンダー依存と出口戦略](../governance/exit-strategy/)
+</TabItem>
+
+<TabItem label="🤖 AI導入">
+1. [AI入門](../ai/getting-started/)
+2. [AIプラットフォームとモデル比較](../ai/ai-ml/) — モデルカタログ、Applied/Physical AI、推論コスト
+3. [プロンプトエンジニアリング](../ai/prompt-engineering/)
+4. [RAG高度パターン](../ai/rag-patterns/)
+5. [ベクトルストアとエンベディング](../ai/vector-store/)
+6. [AIエージェント](../ai/agents/) — コーディング/デスクトップ/自律運用エージェント
+7. [エージェント導入ガイド](../ai/agent-adoption/) — AX戦略、ロールアウト、ガバナンス
+8. [LLMチャネル選択ガイド](../ai/1p-vs-3p/) — 直接利用 vs クラウド提供、Seat vs API
+9. [LLMライセンスとコスト管理](../ai/licensing/) — ティア、クォータ、コスト管理
+10. [LLMOps](../ai/llmops/) — 評価、エージェント観測、運用
+11. [マルチクラウドAI](../ai/multicloud-ai/) — コスト、GPU、ベンダーの組み合わせ
+12. [AIセキュリティ](../security/ai-security/) — ガードレール、プロンプトインジェクション対策
+</TabItem>
+</Tabs>
+
+## 対象クラウドベンダー
+
+| ベンダー | ホームページ | コンソール |
+| --- | --- | --- |
+| [AWS](https://aws.amazon.com/ko/) | Amazon Web Services | [Console](https://console.aws.amazon.com) |
+| [Azure](https://azure.microsoft.com/ko-kr/) | Microsoft Azure | [Portal](https://portal.azure.com) |
+| [Google Cloud](https://cloud.google.com/) | Google Cloud | [Console](https://console.cloud.google.com) |
+| [OCI](https://www.oracle.com/kr/cloud/) | Oracle Cloud Infrastructure | [Console](https://cloud.oracle.com) |
+
+クラウド用語に馴染みがない場合は、[用語集](../glossary/)も併せてご参照ください。
+
+---
+
+## このドキュメントの次に
+
+CloudPickは<strong>何を選ぶべきか</strong>を助ける比較ガイドです。各サービスの使い方、チュートリアル、ハンズオンはベンダーの公式資料を併用してください。
+
+| ベンダー | 公式学習プラットフォーム | 認定資格 |
+| --- | --- | --- |
+| AWS | [AWS Skill Builder](https://skillbuilder.aws/) | Cloud Practitioner → SA Associate → Specialty |
+| Azure | [Microsoft Learn](https://learn.microsoft.com/training/) | AZ-900 → AZ-104/204 → Specialty |
+| Google Cloud | [Google Cloud Skills Boost](https://www.cloudskillsboost.google/) | Cloud Digital Leader → Associate → Professional |
+| OCI | [OCI Training](https://education.oracle.com/oracle-cloud-infrastructure) | Foundations → Architect Associate → Professional |
+
+各ドキュメント下部の**参考リンク**からも、該当トピックの公式ドキュメントに直接アクセスできます。
+
+---
+
+## ドキュメント作成原則
+
+> これはCloudPickの第一原則であり、すべての貢献者がこの原則に従います。
+
+- **公式ドキュメントに基づく** — すべての技術的な内容はベンダーの公式ドキュメントまたは業界標準の資料（NIST、CNCF、FinOps Foundationなど）を根拠とします。推測に基づく内容は排除します。
+- **中立性** — ベンダーを比較する内容は可能な限り中立的に表現します。
+- **出典の明示** — 各ドキュメント下部の**参考リンク**セクションに公式ドキュメントへのリンクを整理します。
+- **変動性の管理** — 価格、リージョン数、GA/Preview状態など速く変化する情報は、具体的な数値ではなく公式リンクで案内します。各ドキュメント冒頭に`文書基準: YYYY年M月`を表記します。
+- **用語表記** — これは原文であるCloudPickの韓国語版が採用している表記方針です。韓国語版ではハングルを主表記としつつ、専門用語や略語は初出時に英語を併記します（例: 가용영역(Availability Zone)）。外来語表記法を遵守します（例: '메시지 큐'は正、'메세지 큐'は誤）。ベンダー名は公式の最新名称を使用します（例: Microsoft Entra ID）。正式な表記は[用語集](../glossary/)に従います。

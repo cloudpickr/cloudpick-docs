@@ -1,0 +1,30 @@
+---
+title: CloudPick Docs
+description: マルチクラウド環境で正しい意思決定を下すためのベンダーニュートラルガイド
+template: splash
+hero:
+  tagline: マルチクラウド環境で正しい意思決定を下すためのベンダーニュートラルガイド
+  actions:
+    - text: はじめに
+      link: /ja/about-cloud/getting-started/
+      icon: right-arrow
+      variant: primary
+    - text: ベンダー比較
+      link: /ja/about-cloud/compare-clouds/
+      variant: minimal
+---
+
+import { CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+<CardGrid>
+	<LinkCard title="クラウドの基本" description="リージョン、料金、共同責任、ベンダー比較" href="/ja/about-cloud/getting-started/" />
+	<LinkCard title="コンピューティング" description="VM、コンテナ、サーバーレス、移行" href="/ja/compute/virtual-machines/" />
+	<LinkCard title="ネットワーキング" description="VPC、ロードバランサー、CDN、マルチクラウド接続" href="/ja/networking/vpc-subnet/" />
+	<LinkCard title="ストレージ・データベース" description="オブジェクトストレージ、マネージドDB、分析" href="/ja/database/managed-rdb/" />
+	<LinkCard title="DevOps" description="CI/CD、IaC、可観測性、プラットフォームエンジニアリング" href="/ja/devops/getting-started/" />
+	<LinkCard title="セキュリティ" description="IAM、ゼロトラスト、ネットワーク分離、データ保護" href="/ja/security/getting-started/" />
+	<LinkCard title="ガバナンス" description="ランディングゾーン、FinOps、コンプライアンス" href="/ja/governance/getting-started/" />
+	<LinkCard title="AI" description="モデル比較、RAG、エージェント、LLMOps" href="/ja/ai/getting-started/" />
+	<LinkCard title="国別ガイド" description="韓国・米国・EU・日本・シンガポールの規制" href="/ja/korea/" />
+	<LinkCard title="用語集" description="クラウド用語をベンダーニュートラルに整理" href="/ja/glossary/" />
+</CardGrid>

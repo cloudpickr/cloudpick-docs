@@ -1,0 +1,178 @@
+---
+title: "Account and Organization Structure"
+description: "Compares cloud account and organization structures, multi-account strategies, and the hierarchies of major vendors."
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+> Last reviewed: May 2026
+
+## Why Account Structure Matters
+
+Consider why on-premises environments separate servers by department. Sharing the same server means one team's mistake affects another team, costs become impossible to separate, and permissions get tangled. Putting all resources into a single cloud account causes the same problems.
+
+| Problem | Why Multi-Account Solves It |
+| --- | --- |
+| **No security boundary** | The account is the isolation unit — an incident in one account doesn't propagate to another |
+| **Difficult cost tracking** | Costs are automatically separated per account/project |
+| **Complex permission management** | Independent IAM per account + organization policies cap the maximum scope |
+| **Shared service quotas** | Quotas are independent per account — one team exhausting its quota doesn't affect another |
+
+To solve these problems, every vendor recommends a **multi-account structure**.
+
+:::note
+For **how to actually build** a multi-account structure — VPC separation, guardrails, rollout order, checklists — see [Landing Zone](../../governance/landing-zone/). This document covers the concepts of why and how to divide accounts.
+:::
+
+## Vendor Hierarchies
+
+| Concept | AWS | Azure | Google Cloud | OCI |
+| --- | --- | --- | --- | --- |
+| **Organization** | Organization | Tenant | Organization | Tenancy |
+| **Intermediate group** | OU (Organizational Unit) | Management Group | Folder | Compartment (nested) |
+| **Isolation unit** | Account | Subscription | Project | Compartment |
+| **Resource group** | — (replaced by tags) | Resource Group | — (replaced by labels) | — |
+| **Organization policy** | SCP | Azure Policy | Organization Policy | Compartment Policy |
+
+<Tabs>
+<TabItem label="AWS">
+**Organization → OU → Account**
+
+- Account = permission boundary = cost boundary (identical)
+- SCPs limit the maximum allowed scope for an OU/Account (guardrails)
+- Control Tower provides automated setup based on best practices
+</TabItem>
+
+<TabItem label="Azure">
+**Tenant → Management Group → Subscription → Resource Group**
+
+- Subscription = permission boundary, Billing Account = cost boundary (separate)
+- Resource Groups further classify resources within a Subscription
+- Azure Policy inherits policy at the Management Group level
+</TabItem>
+
+<TabItem label="Google Cloud">
+**Organization → Folder → Project**
+
+- Project = permission boundary, Billing Account = cost boundary (separate, most flexible)
+- A Project can be freely moved to a different Billing Account
+- Organization Policy constrains at the Folder/Project level
+</TabItem>
+
+<TabItem label="OCI">
+**Tenancy → Compartment (nested)**
+
+- Compartment = permission boundary, Tenancy = cost boundary (separate)
+- Compartment plays the role of both OU and Account simultaneously
+- IAM Policy inherits at the Compartment level
+</TabItem>
+</Tabs>
+
+## Security Boundaries and IAM
+
+Account separation alone isn't enough. Three layers must work together.
+
+| Layer | Role | Example |
+| --- | --- | --- |
+| **Account isolation** | Limits the blast radius of failures/incidents | Account, Subscription, Project, Compartment |
+| **Organization policy (guardrails)** | Limits the maximum scope an account can act within | SCP, Azure Policy, Organization Policy |
+| **IAM (permission granting)** | Grants actual permissions to users/services | IAM Policy, RBAC, IAM Binding |
+
+Example: if an SCP allows only the Seoul region, then no matter how broad the permissions granted via IAM, access to other regions remains impossible.
+
+:::note
+For IAM design details, see [IAM Overview](../../about-cloud/iam-overview/) → [IAM Design in Practice](../../security/iam/).
+:::
+
+## Cost Structure
+
+### Permission Boundary vs. Cost Boundary
+
+| Vendor | Permission Boundary | Cost Boundary | Relationship |
+| --- | --- | --- | --- |
+| **AWS** | Account | Account | **Same** — splitting accounts automatically separates costs |
+| **Azure** | Subscription | Billing Account / Profile | **Separate** — multiple Subscriptions can be grouped under one billing entity |
+| **Google Cloud** | Project | Billing Account | **Separate** — a Project can be moved to a different Billing Account |
+| **OCI** | Compartment | Tenancy | **Separate** — isolated by Compartment, costs consolidated at the Tenancy level |
+
+### Design Examples by Organization Size
+
+| Size | AWS | Azure | Google Cloud | OCI |
+| --- | --- | --- | --- | --- |
+| **Startup** | 3 Accounts (dev/stg/prod) | 1 Subscription + 3 Resource Groups | 3 Projects + 1 Billing Account | 3 Compartments |
+| **Mid-size company** | Per-team Account + shared-services Account | Per-team Subscription + Management Group | Per-team Folder + per-service Project | Nested per-team Compartments |
+| **Large enterprise/public sector** | Per-entity Org or Billing Transfer | Per-entity Billing Profile + central MG | Per-entity Billing Account + central Org | Per-entity Tenancy |
+
+| Item | AWS | Azure | Google Cloud | OCI |
+| --- | --- | --- | --- | --- |
+| **Cost allocation** | Tag-based | Resource Group + tags | Labels + Project | Compartment + tags |
+| **Budget alerts** | AWS Budgets | Azure Budgets | Budget Alerts | OCI Budgets |
+| **Billing transfer** | Billing Transfer (2025) | Subscription Transfer | Billing Account change | Cross-Tenancy |
+
+:::note
+If you use consolidated billing through a partner (MSP/reseller), coordinate with the partner in advance before any billing transfer.
+:::
+
+## Service Quotas
+
+Each account has resource caps (VPCs per region, instance counts, API calls per second, etc.). Splitting accounts also splits the quotas.
+
+| Vendor | Check quota | Request increase |
+| --- | --- | --- |
+| AWS | [Service Quotas](https://docs.aws.amazon.com/servicequotas/) | Console or Support ticket |
+| Azure | Subscription → Usage + quotas | Request via Portal |
+| Google Cloud | IAM → Quotas | Request via Console |
+| OCI | Governance → Service Limits | Support request |
+
+:::caution
+Check your quotas before going to production. It's common for a workload to be fine in development but hit a limit at production scale. GPUs and large instances can take time to approve, so request them with plenty of lead time.
+:::
+
+## Cross-Account Resource Sharing
+
+Separating accounts provides isolation, but there are cases where sharing across accounts is needed — shared subnets, a central image, common DNS, and so on.
+
+| Vendor | Service | Example shared resources |
+| --- | --- | --- |
+| AWS | [RAM (Resource Access Manager)](https://docs.aws.amazon.com/ram/) | Subnets, Transit Gateway, AMIs |
+| Azure | VNet Peering + RBAC | VNet, DNS Zone, Image Gallery |
+| Google Cloud | [Shared VPC](https://cloud.google.com/vpc/docs/shared-vpc) | Host project subnet → service projects |
+| OCI | Cross-Tenancy Policy + DRG | VCN, Object Storage buckets |
+
+## Common Mistakes
+
+- **"One account is enough"** — Even at small scale, failing to separate dev/prod means mistakes made during development can affect production. Account separation is a baseline practice regardless of scale.
+- **"Tags alone give us cost tracking"** — Tags are easy to omit and hard to enforce. Separation at the account/project level is the most reliable cost boundary.
+- **"We can restructure later"** — Changing account structure after resources have accumulated is migration-level work. Designing it upfront is far easier.
+
+## Checklist
+
+- [ ] Have you separated at minimum the dev/staging/prod environments into distinct accounts (or projects/subscriptions)?
+- [ ] Have organization policies (SCP, Azure Policy, etc.) restricted the allowed regions and service scope?
+- [ ] Have you checked production quotas (service limits) in advance and completed any increase requests?
+
+## References
+
+### AWS
+
+- [AWS Organizations](https://aws.amazon.com/organizations/)
+- [AWS Control Tower](https://aws.amazon.com/controltower/)
+- [AWS Organizations and Consolidated Billing](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/consolidated-billing.html)
+
+### Azure
+
+- [Azure Management Groups](https://learn.microsoft.com/azure/governance/management-groups/overview)
+- [Azure Policy](https://learn.microsoft.com/azure/governance/policy/overview)
+- [Understanding Billing Accounts](https://learn.microsoft.com/azure/cost-management-billing/manage/view-all-accounts)
+
+### Google Cloud
+
+- [Resource Manager](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy)
+- [Organization Policy](https://cloud.google.com/resource-manager/docs/organization-policy/overview)
+- [Cloud Billing Account Overview](https://cloud.google.com/billing/docs/concepts)
+
+### OCI
+
+- [OCI Compartments](https://docs.oracle.com/en-us/iaas/Content/Identity/Tasks/managingcompartments.htm)
+- [OCI IAM](https://docs.oracle.com/en-us/iaas/Content/Identity/home.htm)
+- [Organization Management and Billing](https://docs.oracle.com/en-us/iaas/Content/GSG/Concepts/settinguptenancy.htm)

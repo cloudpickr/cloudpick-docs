@@ -1,0 +1,176 @@
+---
+title: "Well-Architected Framework"
+description: "Compares the Pillar structures and review tools of the major vendors' Well-Architected Frameworks."
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+> Last reviewed: May 2026
+
+## What is Well-Architected?
+
+Just as buildings have architectural standards such as seismic design, fire compartmentalization, and energy efficiency, cloud workloads also have best practices to follow when designing them. The **Well-Architected Framework** is a systematic compilation of these practices.
+
+In on-premises environments, purchasing and installing servers takes a long time, which tends to encourage careful design. In the cloud, however, resources can be created in minutes, making a "build first, fix later" approach easy to fall into. But workloads built this way end up with problems such as security vulnerabilities, wasted cost, and fragility to failure.
+
+The Well-Architected Framework provides design principles and checklists to prevent these problems in advance. It can be used not only when designing new workloads, but also when reviewing and improving existing ones.
+
+## Core Pillar comparison
+
+Every vendor offers a Well-Architected Framework, but the composition and emphasis of the core Pillars differ.
+
+| Pillar area | AWS | Azure | Google Cloud | OCI |
+| --- | --- | --- | --- | --- |
+| **Operational excellence** | Operational Excellence | Operational Excellence | Operational Excellence | — |
+| **Security** | Security | Security | Security, Privacy, Compliance | Security |
+| **Reliability** | Reliability | Reliability | Reliability | Reliability |
+| **Performance efficiency** | Performance Efficiency | Performance Efficiency | Performance Optimization | Performance |
+| **Cost optimization** | Cost Optimization | Cost Optimization | Cost Optimization | Cost Optimization |
+| **Sustainability** | Sustainability | — | — | — |
+| **Framework name** | Well-Architected | Well-Architected | Architecture Framework | Best Practices Framework |
+| **Number of Pillars** | **6** | **5** | **5** | **4** |
+
+<Tabs>
+<TabItem label="AWS — 6 Pillars">
+AWS was the first to publish a Well-Architected Framework, in 2012, and it now consists of 6 Pillars.
+
+1. **Operational Excellence** — Operate and continuously improve workloads effectively
+2. **Security** — Protect data, systems, and assets
+3. **Reliability** — Recover from failures and maintain availability. Directly tied to [disaster recovery](../../governance/dr/) strategy.
+4. **Performance Efficiency** — Use resources efficiently
+5. **Cost Optimization** — Eliminate unnecessary cost
+6. **Sustainability** — Minimize environmental impact
+
+AWS's unique feature is the **Sustainability Pillar**. Added in 2021, it covers principles for choosing energy-efficient resources and optimizing usage.
+
+**Framework name:** Well-Architected Framework
+</TabItem>
+
+<TabItem label="Azure — 5 Pillars">
+Azure's Well-Architected Framework consists of 5 Pillars.
+
+1. **Reliability** — Failure recovery, availability, resilience
+2. **Security** — Threat protection, data security, identity management
+3. **Cost Optimization** — Cost management, resource optimization
+4. **Operational Excellence** — Operational processes, monitoring, deployment
+5. **Performance Efficiency** — Scalability, performance optimization
+
+It reflects Microsoft's enterprise experience, including guidance that considers hybrid environments and integration with Microsoft 365 and Active Directory.
+
+**Framework name:** Well-Architected Framework
+</TabItem>
+
+<TabItem label="Google Cloud — 5 Pillars">
+Google Cloud offers its framework under the name **Architecture Framework**, and a distinctive feature is that it addresses **system design principles** separately, in addition to the 5 Pillars.
+
+1. **Operational Excellence** — Efficient operations, automation, monitoring
+2. **Security, Privacy, and Compliance** — Combines security and regulatory compliance into a single Pillar
+3. **Reliability** — Availability, resilience, disaster recovery
+4. **Cost Optimization** — Cost management, resource optimization
+5. **Performance Optimization** — Scalability, latency optimization
+
+A distinctive feature is combining security and compliance into a single Pillar, aligned with Google Cloud's Shared Fate model.
+
+**Framework name:** Architecture Framework
+</TabItem>
+
+<TabItem label="OCI — 4 Pillars">
+OCI provides its architecture guidance under the name **Best Practices Framework**.
+
+1. **Security** — Automated security using Cloud Guard and Security Zones
+2. **Reliability** — Availability design based on Fault Domains and ADs
+3. **Performance** — High-performance computing with bare metal, RDMA networking, etc.
+4. **Cost Optimization** — Leveraging Universal Credits and free egress policies
+
+A distinctive feature is the ability to enforce security policy through **Security Zones**. In a compartment where a Security Zone is applied, creation of resources that violate security best practices is automatically blocked.
+
+**Framework name:** Best Practices Framework
+</TabItem>
+</Tabs>
+
+## Review tools
+
+Each vendor provides a workload review tool based on its Well-Architected Framework.
+
+| Item | AWS | Azure | Google Cloud | OCI |
+| --- | --- | --- | --- | --- |
+| **Tool name** | Well-Architected Tool | Well-Architected Review (Assessment) | Architecture Framework checklist | Cloud Advisor |
+| **Location** | Built into AWS Console | Azure Advisor + separate Assessment | Document-based checklist | Built into OCI Console |
+| **Automated analysis** | Partially automated (integrates with Trusted Advisor) | Azure Advisor recommends automatically | Recommender recommends automatically | Cloud Advisor recommends automatically |
+| **Report** | PDF/JSON export | Assessment report | — | — |
+| **Cost** | Free | Free | Free | Free |
+
+### AWS Well-Architected Tool
+
+A tool built into the AWS Console. You define a workload and answer questions for each Pillar, and it presents improvement suggestions. **Well-Architected Labs** also provides hands-on exercises.
+
+### Azure Well-Architected Review
+
+Azure Advisor automatically analyzes resources and presents recommendations, and a separate Assessment tool enables a systematic review.
+
+### Google Cloud Architecture Framework
+
+Provides a document-based checklist and guidance, with Recommender and Active Assist automatically presenting optimization recommendations.
+
+## Cloud Adoption Framework (CAF)
+
+While the Well-Architected Framework covers design best practices for individual workloads, the **Cloud Adoption Framework** (CAF) addresses an organization's overall cloud adoption strategy. It is a higher-level framework spanning not just technology but organizational structure, processes, governance, and workforce training.
+
+| Item | AWS | Azure | Google Cloud | OCI |
+| --- | --- | --- | --- | --- |
+| **Name** | AWS Cloud Adoption Framework | Azure Cloud Adoption Framework | Google Cloud Architecture Framework | OCI Landing Zone |
+| **Structure** | 6 perspectives (business, people, governance, platform, security, operations) | 9-stage methodology (strategy, plan, ready, adopt, govern, manage, etc.) | Adoption guidance included within the Architecture Framework | CIS Benchmark-based Landing Zone |
+| **Characteristics** | Stakeholder-centric, organized by perspective | Step-by-step execution guidance, includes Landing Zone | Integrated with the Architecture Framework | Terraform-based automated deployment |
+
+AWS and Azure offer independent CAFs, while Google Cloud takes the form of including adoption guidance within its Architecture Framework. Azure's CAF is particularly well referenced by large organizations for cloud adoption, thanks to its detailed step-by-step guidance and Landing Zone configuration methods.
+
+## Common mistakes
+
+- **"Well-Architected only applies to new projects"** — It can be used equally to review and improve existing workloads. Regular reviews are recommended.
+- **"All Pillars must be perfectly satisfied simultaneously"** — There are trade-offs between Pillars (e.g., stronger security vs. increased cost). Balance them according to your workload's priorities.
+- **"Running the review tool improves things automatically"** — The tool only identifies issues; the team must actually review and apply the recommendations for real improvement.
+
+## Checklist
+
+- [ ] Have you performed a Well-Architected review on your production workload at least once?
+- [ ] Has your organization defined priorities among the most important Pillars (security, cost, reliability, etc.)?
+- [ ] Are improvement items identified during the review logged in a backlog and tracked?
+
+## Related documents
+
+> 📄 [Shared Responsibility Model](../../about-cloud/shared-responsibility/)
+
+> 📄 [Landing Zone](../../governance/landing-zone/)
+
+## References
+
+### Standards and frameworks
+
+- [CNCF Cloud Native Trail Map](https://landscape.cncf.io/) — Cloud-native technology adoption guide
+- [The Twelve-Factor App](https://12factor.net/) — Cloud-native application design principles
+- [ISO/IEC 25010 — Systems and software quality models](https://www.iso.org/standard/35733.html) — Software quality model
+
+### AWS
+
+- [Well-Architected Framework](https://aws.amazon.com/ko/architecture/well-architected/)
+- [Well-Architected Tool](https://aws.amazon.com/ko/well-architected-tool/)
+- [Well-Architected Labs](https://www.wellarchitectedlabs.com/)
+- [Cloud Adoption Framework](https://aws.amazon.com/ko/cloud-adoption-framework/)
+
+### Azure
+
+- [Well-Architected Framework](https://learn.microsoft.com/ko-kr/azure/well-architected/)
+- [Well-Architected Review](https://learn.microsoft.com/ko-kr/assessments/azure-architecture-review/)
+- [Cloud Adoption Framework](https://learn.microsoft.com/ko-kr/azure/cloud-adoption-framework/)
+
+### Google Cloud
+
+- [Architecture Framework](https://cloud.google.com/architecture/framework)
+- [Architecture Center](https://cloud.google.com/architecture)
+- [Cloud setup checklist](https://cloud.google.com/docs/enterprise/setup-checklist)
+
+### OCI
+
+- [OCI Best Practices Framework](https://docs.oracle.com/en/solutions/oci-best-practices/)
+- [OCI Cloud Advisor](https://docs.oracle.com/en-us/iaas/Content/CloudAdvisor/Concepts/cloudadvisoroverview.htm)
+- [OCI Landing Zone](https://docs.oracle.com/en/solutions/cis-oci-benchmark/)

@@ -9,8 +9,28 @@ from pathlib import Path
 from urllib.parse import unquote, urlparse
 
 ROOT = Path(__file__).resolve().parents[1]
-SKIP_DIRS = {".git", "_book", "node_modules", "memory"}
-META_FILES = {"README.md", "SUMMARY.md", "GLOSSARY.md", "CONTRIBUTING.md"}
+# starlight/mcp 는 파생물·앱 코드 — SUMMARY 커버리지 대상이 아님(루트 GitBook md가 SOT)
+SKIP_DIRS = {
+    ".git",
+    "_book",
+    "node_modules",
+    "memory",
+    ".reviews",
+    "starlight",
+    "mcp",
+    "dist",
+    ".astro",
+    ".wrangler",
+}
+META_FILES = {
+    "README.md",
+    "SUMMARY.md",
+    "GLOSSARY.md",
+    "CONTRIBUTING.md",
+    "HANDOVER.md",
+    "AGENTS.md",
+    "CLAUDE.md",
+}
 
 MD_LINK_RE = re.compile(r"(?<!!)\[[^\]]+\]\(([^)]+)\)")
 CONTENT_REF_RE = re.compile(r'{%\s*content-ref\s+url="([^"]+)"\s*%}')

@@ -7,6 +7,10 @@ node_modules/
 .idea/
 *.log
 memory/
+.reviews/
 scripts/standardize_naming.py
 .!*
 
+starlight/node_modules/
+starlight/.astro/
+starlight/.wrangler/

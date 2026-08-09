@@ -1,5 +1,5 @@
 ---
-description: 한국 ISMS-P, CSAP와 글로벌 ISO 27001, SOC 2 등 클라우드 규정 준수 인증을 벤더별로 안내합니다.
+description: ISO 27001, SOC 2 등 글로벌 클라우드 규정 준수 인증과 컴플라이언스 운영 방법을 벤더별로 안내합니다.
 ---
 
 # 규정 준수 (Compliance)
@@ -15,79 +15,24 @@ description: 한국 ISMS-P, CSAP와 글로벌 ISO 27001, SOC 2 등 클라우드 
 {% endhint %}
 
 {% hint style="warning" %}
-**인증은 전제조건일 뿐 보증이 아닙니다.** 벤더가 ISMS-P나 CSAP 인증을 가지고 있어도, 사용자가 구성한 VPC, IAM, 암호화 설정이 규제 요건을 충족하지 않으면 감사에서 문제가 됩니다. 또한 기술적 보안뿐 아니라 조직의 업무 프로세스(수집·이용·파기 절차, 변경 관리, 접근 권한 관리 등)도 심사 대상입니다.
+**인증은 전제조건일 뿐 보증이 아닙니다.** 벤더가 국가·국제 인증을 가지고 있어도, 사용자가 구성한 VPC, IAM, 암호화 설정이 규제 요건을 충족하지 않으면 감사에서 문제가 됩니다. 또한 기술적 보안뿐 아니라 조직의 업무 프로세스(수집·이용·파기 절차, 변경 관리, 접근 권한 관리 등)도 심사 대상입니다.
 {% endhint %}
 
-### ISMS-P vs ISO 27001 핵심 차이
+## 국가별 컴플라이언스
 
-| 구분 | ISMS-P | ISO 27001 |
-| --- | --- | --- |
-| **적용 범위** | 80+22개 기준 전체 충족 필수 | 적용 범위를 조직이 선택 가능 (SoA로 "해당 없음" 가능) |
-| **개인정보보호** | 포함 (개인정보 처리 단계별 요구사항) | 미포함 (별도 ISO 27701 필요) |
-| **성격** | 한국법 의무 대상 있음 (정보통신서비스 제공자 등) | 국제 자율 인증 |
-| **공통점** | 기술뿐 아니라 업무 프로세스(정책, 인력, 변경 관리)를 심사 | ← 동일 |
+국가·지역마다 공공 조달 인증, 개인정보 보호법, 산업별 규제가 다르며, 리전 선택·데이터 레지던시·격리 수준 같은 아키텍처 결정에 직접 영향을 줍니다. 국가별 상세는 해당 국가 문서에서 다룹니다.
 
-## 한국 주요 인증
-
-### ISMS-P (정보보호 및 개인정보보호 관리체계 인증)
-
-- **근거 법률**: 정보통신망법, 개인정보 보호법
-- **운영**: [KISA (한국인터넷진흥원)](https://isms.kisa.or.kr/)
-- **대상**: 매출액 1,500억 원 이상 또는 일평균 이용자 100만 명 이상 등 일정 규모 이상의 정보통신 서비스 제공자
-- **유효 기간**: 3년, 연 1회 사후 심사
-- **클라우드 영향**: 클라우드에 민감 정보를 저장·처리하는 경우, 벤더의 ISMS-P 인증 범위 내 리전을 사용해야 함
-
-공식 벤더별 페이지:
-
-- [AWS K-ISMS](https://aws.amazon.com/compliance/k-isms/)
-- [Azure K-ISMS](https://learn.microsoft.com/azure/compliance/offerings/offering-korea-k-isms)
-- [Google Cloud K-ISMS](https://cloud.google.com/security/compliance/k-isms)
-- OCI: 공식 컴플라이언스 페이지에서 인증 현황 확인
-
-### CSAP (클라우드 보안 인증제)
-
-- **근거 법률**: 클라우드 컴퓨팅 발전법 제23조의2
-- **운영**: [KISA](https://isms.kisa.or.kr/main/csap/intro/)
-- **대상**: 공공기관에 클라우드 서비스를 제공하려는 모든 CSP
-- **등급 체계** (2024년 상·중·하 등급제 전면 시행):
-
-| 등급 | 대상 시스템 | 요구 수준 |
-| --- | --- | --- |
-| **상** | 민감 정보 처리 (주민등록번호 등 고유식별정보 포함) | 물리적 망 분리, 국내 리전, 국내 인력 운영 등 엄격 |
-| **중** | 일반 행정 업무 시스템 | 상 등급 대비 완화 |
-| **하** | 중요도 낮은 시스템 (글로벌 CSP 진입 가능) | 최소 보안 요건 |
-
-**글로벌 CSP의 CSAP 인증 현황 (2025년 기준):**
-
-| 벤더 | 등급 | 리전 | 참고 |
-| --- | --- | --- | --- |
-| AWS | 하 (Low-tier) | 서울 `ap-northeast-2` | [AWS CSAP 공지](https://aws.amazon.com/blogs/security/aws-achieves-cloud-security-assurance-program-csap-low-tier-certification-in-aws-seoul-region/) |
-| Azure | 하 (Low-tier) | Korea Central / South | [Azure CSAP](https://learn.microsoft.com/azure/compliance/offerings/offering-korea-csap) |
-| Google Cloud | 하 (Low-tier) | Seoul `asia-northeast3` | [Google Cloud CSAP](https://cloud.google.com/security/compliance/csap) |
-| OCI | — (공식 페이지 확인) | Seoul, Chuncheon | [Oracle 컴플라이언스](https://www.oracle.com/corporate/cloud-compliance/) |
-
-{% hint style="info" %}
-CSAP 제도는 N2SF(국가망보안체계) 1.0 공개(2025.9)에 따라 등급별 차등 보안 체계와의 연계가 진행 중입니다. 도입 전 [KISA 공식 사이트](https://isms.kisa.or.kr/main/csap/intro/)와 [NCSC](https://www.ncsc.go.kr)에서 최신 현황을 확인하세요.
-{% endhint %}
-
-### 금융권 관련 규제
-
-금융 분야는 추가 규제가 적용됩니다.
-
-- **전자금융거래법 / 전자금융감독규정** — 금융회사의 클라우드 이용 시 안전성 확보 요건
-- **금융보안원 (FSI)** — 금융권 클라우드 이용 가이드 발간, 보안 컨설팅 제공
-- **망분리 규제** — 개인신용정보 처리 시스템은 일반 업무망과 분리 운영 필요. N2SF 1.0에 따라 등급별 차등 적용으로 전환 중 ([망분리와 네트워크 격리](../security/network-isolation.md) 참고)
-
-공식 자료:
-
-- [금융보안원 클라우드 이용 가이드](https://www.fsec.or.kr/) (통합 인덱스 활용)
-- [금융위원회](https://www.fsc.go.kr/)
+- **한국** — ISMS-P, CSAP, 금융·망분리, 소버린 FM: [한국 부록](../korea/index.md) · [컴플라이언스 (한국)](../korea/governance/compliance.md)
+- **미국** — FedRAMP, HIPAA, ITAR/EAR, 주 프라이버시법, AI 정책: [미국 개요](../us/index.md)
+- **EU** — GDPR·데이터 주권, DORA, NIS2·AI Act, 회원국 스킴, 소버린 AI: [EU 개요](../eu/index.md)
+- **일본** — ISMAP, APPI, 가버먼트 클라우드, AI 지형: [일본 개요](../japan/index.md)
+- **싱가포르** — MTCS, PDPA, GCC·IM8, AI 거버넌스: [싱가포르 개요](../singapore/index.md)
 
 ## 국제 주요 인증
 
 ### ISO/IEC 27001:2022 — 정보보호 관리체계
 
-국제 표준의 정보보안 관리 체계. 대부분의 글로벌 CSP가 기본으로 보유합니다. **2022 개정판**이 현행 표준이며, 이전 2013 버전 인증서는 2025년 10월 31일부로 만료되었습니다.
+국제 표준의 정보보안 관리 체계. 대부분의 글로벌 CSP가 기본으로 보유합니다. **2022 개정판**이 현행 표준이며, 이전 2013 버전 인증서는 2025년 10월 31일부로 만료되었습니다. 아직 2022 버전으로 전환하지 않은 조직은 신규 인증(또는 전환 재인증)을 받아야 합니다.
 
 주요 변경: 통제 항목이 114개에서 93개로 재구조화되고, "위협 인텔리전스", "클라우드 서비스 보안", "데이터 마스킹" 등 11개 신규 통제가 추가되었습니다.
 
@@ -118,8 +63,8 @@ AICPA(미국 공인회계사 협회) 기반 감사 보고서. 엔터프라이즈
 | 산업 | 주요 규제 | 적용 지역 | 비고 |
 | --- | --- | --- | --- |
 | **의료** | HIPAA, HITRUST | 미국 | |
-| **카드결제** | PCI DSS v4.0.1 | 글로벌 | 2025.3.31부터 "미래 요구사항" ~50개 항목 의무화 완료 |
-| **공공 (미국)** | FedRAMP / FedRAMP 20x | 미국 연방 | 20x: 자동화 우선·기계판독 증거 기반 인가 프로세스 ([fedramp.gov/20x](https://www.fedramp.gov/20x/)) |
+| **카드결제** | PCI DSS v4.0.1 | 글로벌 | v4.0(2024.3.31, 기존 v3.2.1 폐기) → v4.0.1(2024.6 정오표). 2025.3.31부터 v4.0의 "미래 날짜" ~50개 항목 의무화 완료 |
+| **공공 (미국)** | FedRAMP / FedRAMP 20x | 미국 연방 | 20x: 수개월 단위 수동 인가를 OSCAL 기반 기계판독 증거·자동 검증 중심으로 단축하는 자동화 우선 프로세스 ([fedramp.gov/20x](https://www.fedramp.gov/20x/)) |
 | **공공 (EU)** | C5 (독일), ENS (스페인) 등 | EU | |
 | **개인정보 (EU)** | GDPR | EU | |
 | **AI (EU)** | EU AI Act | EU | GPAI 의무 2025.8.2 시행 완료. 고위험 AI 2026.8.2 적용. [EU AI Act 전문](https://artificialintelligenceact.eu/) |

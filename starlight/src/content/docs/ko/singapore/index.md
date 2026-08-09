@@ -15,6 +15,8 @@ description: "싱가포르 시장 특화 가이드 — MTCS 클라우드 보안 
 
 - **[MTCS (멀티티어 클라우드 보안 표준)](../../singapore/mtcs/)** — SS 584 표준의 Level 1~3 등급 체계, IMDA 운영 체계, 하이퍼스케일러 인증 현황, 금융권 추가 요건(MAS TRM, OSPAR)을 정리합니다. 공공·금융 부문 진출 시 사실상의 게이트 역할을 합니다.
 - **[PDPA (개인정보보호법)](../../singapore/pdpa/)** — 국경 간 이전 제한(Transfer Limitation Obligation)과 2026년 4월 가이드 개정(CBPR/PRP 인증 편입), 한국 기업의 아세안 리전 설계 시사점, DNC(Do Not Call) 등 실무 유의점을 다룹니다.
+- **[정부 클라우드 (GCC·IM8·SGTS)](../../singapore/government-cloud/)** — GovTech가 주관하는 GCC(Government Commercial Cloud)의 구조와 GCC+, IM8 보안 정책의 2024~2026년 개혁, SG Tech Stack, 정부 조달 참여 요건을 정리합니다.
+- **[AI 거버넌스](../../singapore/ai-governance/)** — NAIS 2.0 국가 AI 전략, Model AI Governance Framework(생성형 AI판), AI Verify 테스팅 프레임워크, PDPA와의 관계, 아세안·동남아 지역 연계(SEA-LION 등)를 다룹니다.
 
 :::note
 이 섹션의 내용은 규제·인증 현황을 다룹니다. 각 문서 하단 "참고하기" 섹션의 출처를 통해 최신 공식 발표를 직접 확인하는 것을 권장합니다.

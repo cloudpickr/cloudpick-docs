@@ -7,7 +7,7 @@ description: "Covers the GDPR cross-border transfer framework, the EU Data Bound
 
 ## Overview
 
-The GDPR (General Data Protection Regulation) has kept evolving even since it took effect in 2018. In recent years, the changes have been less about the text of the law itself and more about intensifying requirements on **where, and by whom, personal data is physically processed**. This document summarizes the cross-border transfer framework that Korean companies encounter when expanding cloud workloads into the EU or processing EU customer data, along with the "sovereign cloud" options that have emerged against that backdrop.
+The GDPR (General Data Protection Regulation) has kept evolving even since it took effect in 2018. In recent years, the changes have been less about the text of the law itself and more about intensifying requirements on **where, and by whom, personal data is physically processed**. This document summarizes the cross-border transfer framework that non-EU companies encounter when expanding cloud workloads into the EU or processing EU customer data, along with the "sovereign cloud" options that have emerged against that backdrop.
 
 ## The GDPR Cross-Border Transfer Framework
 
@@ -27,7 +27,7 @@ Korea received an **adequacy decision** from the European Commission on December
 **Korea's adequacy decision applies only in the EU → Korea direction.** In other words, personal data can be transferred from the EU to Korea without additional safeguards such as SCCs, but in the reverse direction (where a Korean company directly collects or processes the personal data of EU residents — i.e., is subject to the GDPR's extraterritorial application), the GDPR's own compliance obligations apply separately. The adequacy decision does not exempt a company from GDPR compliance obligations themselves.
 :::
 
-When a Korean company uses cloud services in an EU region to process EU customer data, it must, regardless of the direction of transfer, confirm that the vendor contract (the DPA, or Data Processing Addendum) includes SCCs, and that the region and governance options the vendor offers satisfy its own data classification requirements.
+When a non-EU company uses cloud services in an EU region to process EU customer data, it must, regardless of the direction of transfer, confirm that the vendor contract (the DPA, or Data Processing Addendum) includes SCCs, and that the region and governance options the vendor offers satisfy its own data classification requirements.
 
 ## EU Data Boundary
 

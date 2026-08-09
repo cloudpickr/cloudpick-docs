@@ -14,6 +14,8 @@ This section is a regulatory appendix for Korean enterprise architects who are d
 - **[GDPR and Data Sovereignty](../eu/gdpr-sovereignty/)** — Covers the GDPR cross-border transfer framework (SCCs, adequacy decisions), the EU Data Boundary, a comparison of sovereign cloud options (AWS European Sovereign Cloud, Microsoft Bleu/Delos, OCI EU Sovereign Cloud, Google's sovereignty partnerships), and the state of the EUCS certification scheme.
 - **[DORA (Digital Operational Resilience Act)](../eu/dora/)** — Covers the scope of DORA, which has applied since January 2025, the status of CTPP (Critical ICT Third-Party Provider) designations, and ICT risk management and exit strategy requirements.
 - **[NIS2 + EU AI Act](../eu/nis2-ai-act/)** — Covers NIS2's cybersecurity and incident-reporting obligations and the EU AI Act's implementation timeline (including the 2026 Digital Omnibus deferral of high-risk AI obligations).
+- **[EU Member-State Cloud Security Schemes](../eu/national-schemes/)** — Covers country-specific certification and procurement schemes such as Germany's BSI C5, France's ANSSI SecNumCloud, Spain's ENS, and Italy's ACN, their relationship with EUCS, and hyperscaler compliance status.
+- **[Europe's Sovereign AI and Model Landscape](../eu/sovereign-ai/)** — Covers the EU AI Continent Action Plan and AI Factories, European FM providers such as Mistral AI and Aleph Alpha, and the scope of AI services offered by hyperscaler sovereign clouds.
 
 ## Why EU Regulation Has Surged Now
 

@@ -15,6 +15,8 @@ description: "シンガポール市場特化ガイド — MTCSクラウドセキ
 
 - **[MTCS（マルチティア・クラウドセキュリティ標準）](../singapore/mtcs/)** — SS 584標準のLevel 1〜3の等級体系、IMDA運営体制、ハイパースケーラーの認証状況、金融業界の追加要件（MAS TRM、OSPAR）を整理します。公共・金融分野への進出時に事実上のゲートとして機能します。
 - **[PDPA（個人データ保護法）](../singapore/pdpa/)** — 国境間移転制限（Transfer Limitation Obligation）と2026年4月のガイド改正（CBPR/PRP認証の編入）、韓国企業のASEANリージョン設計への示唆、DNC（Do Not Call）などの実務上の留意点を扱います。
+- **[政府クラウド（GCC・IM8・SGTS）](../singapore/government-cloud/)** — GovTechが主管するGCC（Government Commercial Cloud）の構造とGCC+、IM8セキュリティポリシーの2024〜2026年改革、SG Tech Stack、政府調達参加要件を整理します。
+- **[AIガバナンス](../singapore/ai-governance/)** — NAIS 2.0国家AI戦略、Model AI Governance Framework（生成AI版）、AI Verifyテスティングフレームワーク、PDPAとの関係、ASEAN・東南アジア地域連携（SEA-LIONなど）を扱います。
 
 :::note
 本セクションの内容は規制・認証の現況を扱っています。各文書末尾の「参考資料」セクションの出典を通じて、最新の公式発表を直接ご確認いただくことを推奨します。

@@ -41,12 +41,12 @@ On **April 14, 2026**, the PDPC issued a revised guide on cross-border data tran
 CBPR and PRP are certification schemes recognized only among APEC member economies. Where the destination country or company does not participate in the APEC CBPR/PRP certification system, existing mechanisms such as contractual clauses or BCRs still need to be used. Korea participates in the APEC CBPR system, so it is worth evaluating the practical benefit of this certification route when designing data transfers with a Korea region or Korea-based affiliates.
 :::
 
-## Implications for Korean Companies Designing ASEAN Regions
+## Practical Implications for ASEAN Region Design
 
 - **Singapore takes an open transfer policy.** Unlike neighboring countries such as Indonesia and Vietnam, which are strengthening data localization (mandatory domestic storage), Singapore maintains a principles-based approach of "transfers are permitted once comparable protection is confirmed." It is therefore worth using Singapore as an ASEAN data hub while separately verifying the localization rules of each individual market you enter.
-- **Determine the transfer mechanism up front when designing region architecture.** If you operate a multi-region structure where data moves between a Korea headquarters, a Singapore region, and third-country affiliates, deciding in advance — at the data-flow-diagram stage — which mechanism (contractual clauses, CBPR/PRP certification, or consent) applies to each leg makes audit response far easier.
+- **Determine the transfer mechanism up front when designing region architecture.** If you operate a multi-region structure where data moves between a headquarters, a Singapore region, and third-country affiliates, deciding in advance — at the data-flow-diagram stage — which mechanism (contractual clauses, CBPR/PRP certification, or consent) applies to each leg makes audit response far easier.
 - **Review a certification roadmap early.** CBPR/PRP are not self-certifications; they require assessment by an APEC-accredited Accountability Agent, so obtaining them takes considerable lead time. If you plan to expand into multiple ASEAN markets, it is advantageous to pursue certification early alongside a contract-based approach.
-- **The PDPA has extraterritorial reach.** A Korean company that is not based in Singapore but collects or processes the personal data of individuals in Singapore (for example, a SaaS offering targeted at Singapore customers) can still be subject to the PDPA, so it should not be assumed that simply "not placing a region in Singapore" removes you from its scope.
+- **The PDPA has extraterritorial reach.** A foreign company that is not based in Singapore but collects or processes the personal data of individuals in Singapore (for example, a SaaS offering targeted at Singapore customers) can still be subject to the PDPA, so it should not be assumed that simply "not placing a region in Singapore" removes you from its scope.
 
 ## Practical Considerations: DNC (Do Not Call) and More
 
@@ -59,7 +59,7 @@ Separate from its personal-data-processing obligations, the PDPA includes **DNC 
 Before sending marketing voice calls, text messages, or faxes to a Singapore telephone number (mobile, fixed-line, residential, or business), an organization must check the DNC registers to confirm whether the recipient is registered — **unless it has obtained explicit consent or an exemption/exclusion under the PDPA applies**. Contacting a registered number can be treated as a violation and reported to the PDPC.
 
 :::note
-The DNC check obligation is a practical item frequently overlooked by Korean companies (especially in e-commerce, fintech, and SaaS) that run marketing channels targeting Singapore customers — B2C marketing campaigns, outbound call centers, and SMS-based promotions in particular. It is advisable to integrate a DNC check step into CRM and marketing automation pipelines.
+The DNC check obligation is a practical item frequently overlooked by foreign companies (especially in e-commerce, fintech, and SaaS) that run marketing channels targeting Singapore customers — B2C marketing campaigns, outbound call centers, and SMS-based promotions in particular. It is advisable to integrate a DNC check step into CRM and marketing automation pipelines.
 :::
 
 ## Demonstrating Accountability — DPTM (Data Protection Trustmark) Certification
@@ -67,7 +67,7 @@ The DNC check obligation is a practical item frequently overlooked by Korean com
 **DPTM (Data Protection Trustmark)**, jointly developed by the PDPC and IMDA, is a voluntary certification scheme under which a third party verifies an organization's level of PDPA compliance and the maturity of its personal data governance. In 2025 it was incorporated into Singapore Standard **SS 714:2025**, reinforcing its standing as a national standard.
 
 - Although not a statutory requirement, certification allows an organization to demonstrate its governance, accountability, and customer-response framework externally, and it often serves as **a credit factor in B2B contracting or government-procurement vendor due diligence**.
-- A Korean company with a local subsidiary in Singapore that operates consumer-facing services may consider obtaining DPTM as one way of fulfilling the PDPA's Accountability obligation.
+- A foreign company with a local subsidiary in Singapore that operates consumer-facing services may consider obtaining DPTM as one way of fulfilling the PDPA's Accountability obligation.
 - Certification is performed by certifying bodies accredited by the PDPC and IMDA, and organizations may choose to scope it enterprise-wide or to a specific business unit.
 
 ## References

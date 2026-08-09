@@ -260,6 +260,8 @@ export default defineConfig({
 								{ slug: 'us/fedramp' },
 								{ slug: 'us/hipaa' },
 								{ slug: 'us/itar' },
+								{ slug: 'us/state-privacy' },
+								{ slug: 'us/ai-policy' },
 							],
 						},
 						{
@@ -270,6 +272,8 @@ export default defineConfig({
 								{ slug: 'eu/gdpr-sovereignty' },
 								{ slug: 'eu/dora' },
 								{ slug: 'eu/nis2-ai-act' },
+								{ slug: 'eu/national-schemes' },
+								{ slug: 'eu/sovereign-ai' },
 							],
 						},
 						{
@@ -280,6 +284,8 @@ export default defineConfig({
 								{ slug: 'japan', label: '일본 개요', translations: { en: 'Japan Overview', ja: '日本 概要' } },
 								{ slug: 'japan/ismap' },
 								{ slug: 'japan/appi' },
+								{ slug: 'japan/government-cloud' },
+								{ slug: 'japan/ai-landscape' },
 							],
 						},
 						{
@@ -290,6 +296,8 @@ export default defineConfig({
 								{ slug: 'singapore', label: '싱가포르 개요', translations: { en: 'Singapore Overview', ja: 'シンガポール 概要' } },
 								{ slug: 'singapore/mtcs' },
 								{ slug: 'singapore/pdpa' },
+								{ slug: 'singapore/government-cloud' },
+								{ slug: 'singapore/ai-governance' },
 							],
 						},
 					],

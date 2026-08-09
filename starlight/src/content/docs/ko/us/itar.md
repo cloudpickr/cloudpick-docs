@@ -51,9 +51,9 @@ ITAR와 FedRAMP는 성격이 다른 별개의 요건입니다.
 | **Google Cloud Assured Workloads (ITAR 제어 패키지)** | 미국 리전으로 데이터 상주 제한, 고객 관리 암호화 키(CMEK) 필수, ITAR 관련 기술 지원은 미국 내 US Person으로 라우팅. Premium 등급에서 제공 |
 | **OCI Government Cloud** | Oracle 정부 전용 리전에서 유사한 미국 인력·데이터 상주 통제 제공 |
 
-## 방산·항공우주 협력 한국 기업의 유의점
+## 방산·항공우주 협력 시 실무 유의점
 
-- 한국 기업이 미국 방산·항공우주 프라임 업체와 기술 데이터를 주고받는 경우, 한국 국적 임직원은 원칙적으로 Foreign Person에 해당하여 ITAR 기술 데이터에 직접 접근할 수 없습니다. TAA(Technical Assistance Agreement), MLA(Manufacturing License Agreement) 등 DDTC 허가를 사전에 확보하거나, 미국 내 US Person으로 구성된 별도 조직·자회사를 통해서만 데이터를 취급하는 구조가 필요합니다.
+- 해외 기업이 미국 방산·항공우주 프라임 업체와 기술 데이터를 주고받는 경우, 미국 국적이 아닌 임직원은 원칙적으로 Foreign Person에 해당하여 ITAR 기술 데이터에 직접 접근할 수 없습니다(예: 한국 국적 임직원). TAA(Technical Assistance Agreement), MLA(Manufacturing License Agreement) 등 DDTC 허가를 사전에 확보하거나, 미국 내 US Person으로 구성된 별도 조직·자회사를 통해서만 데이터를 취급하는 구조가 필요합니다.
 - 클라우드에 업로드·다운로드하는 행위 자체가 "수출"로 간주될 수 있으므로, 협업 툴·파일 공유 서비스 선택 시 ITAR 대응 여부(GCC High 등)를 먼저 확인해야 합니다. 표준 상용 클라우드(GCC, 일반 Microsoft 365, 일반 Google Workspace 등)는 ITAR 기술 데이터 저장에 적합하지 않습니다.
 - 종단간 암호화 예외 규정을 활용하면 반드시 미국 인프라를 쓰지 않고도 준수할 여지가 있지만, 키 관리를 벤더가 아닌 자사(또는 신뢰할 수 있는 US Person)가 전적으로 통제해야 하므로 구현 난도가 높습니다. 도입 전 수출통제 전문 법률 자문을 받는 것이 안전합니다.
 - 동일한 CUI(통제 미분류 정보)를 다루는 계약은 ITAR와 별개로 CMMC/NIST SP 800-171 요건이 함께 부과되는 경우가 많습니다. 자세한 내용은 [FedRAMP](../../us/fedramp/) 문서의 CMMC 2.0 섹션을 참고하세요.

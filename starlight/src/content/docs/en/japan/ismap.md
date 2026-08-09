@@ -62,13 +62,13 @@ The table above is a summary as of the time it was verified via web search. The 
 
 ISMAP functions less like a certification and more like a **list of procurement-eligible services**. Government agencies are, in principle, required to procure from among the services listed on the ISMAP Cloud Service List or the ISMAP-LIU list, so services not on the list are effectively excluded from government procurement without a separate individual review. ISMAP registration is also a condition of participation in the Government Cloud, so as local government systems increasingly migrate to the Government Cloud, ISMAP's reach is trending to extend beyond the central government to local governments and public bodies as a whole.
 
-## Implications for Korean Companies Entering Japan's Public-Sector SaaS Market
+## Practical Implications for Entering Japan's Public-Sector SaaS Market
 
 - **Both an entry barrier and a trust signal**: ISMAP is a prerequisite for entering Japan's public sector, but registration itself is also used as a signal that demonstrates security maturity to large private-sector and regulated-industry customers. It is worth considering even for companies that are not targeting public procurement.
 - **Audit and review cost and duration**: selecting an external auditing body, addressing the management standards, IPA's technical review, and the Steering Committee's decision can together take anywhere from several months to nearly a year, so this should be factored into a Japan market-entry roadmap early on.
-- **Room to leverage ISMAP-LIU**: Korean companies starting with a specific-purpose SaaS rather than a government-wide system may find the ISMAP-LIU route relatively less burdensome. However, since the abolition of pre-application in April 2025 has brought the procedure closer to standard ISMAP, the latest requirements should be checked.
+- **Room to leverage ISMAP-LIU**: companies starting with a specific-purpose SaaS rather than a government-wide system may find the ISMAP-LIU route relatively less burdensome. However, since the abolition of pre-application in April 2025 has brought the procedure closer to standard ISMAP, the latest requirements should be checked.
 - **Local entity and local audit response required**: Japanese-language documentation and collaboration with Japan-based auditing bodies are effectively essential during the audit and review process.
-- **Cases of Korean companies registering**: as of the time this document was written, no publicly available cases of Korea-affiliated companies registered on the ISMAP Cloud Service List could be confirmed (verification needed — checking the latest registration status directly on the ISMAP Portal is recommended).
+- **Example: Korean Company Registration Cases**: as of the time this document was written, no publicly available cases of Korea-affiliated companies registered on the ISMAP Cloud Service List could be confirmed (verification needed — checking the latest registration status directly on the ISMAP Portal is recommended).
 
 ## References
 

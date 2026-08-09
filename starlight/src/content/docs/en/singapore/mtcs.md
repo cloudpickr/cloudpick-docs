@@ -59,7 +59,7 @@ Major hyperscalers publish OSPAR audit reports annually for use by their Singapo
 
 - **Public procurement**: within IMDA's government cloud procurement framework, MTCS Level 3 certification functions as a de facto condition of participation. Vendors or services without certification may be barred from bidding altogether.
 - **Financial sector**: MTCS certification is only the starting point — actual adoption decisions are often determined by compliance with the MAS TRM Guidelines and possession of an OSPAR audit report. It is advisable to request a vendor's latest OSPAR report early in the adoption process to review its audit scope and any exceptions.
-- **Implications for Korean companies**: architects already familiar with Korea's ISMS-P and CSAP certification frameworks should note that Singapore operates a separate certification scheme (MTCS) and a separate financial-sector audit framework (OSPAR). The two frameworks are not mutually recognized, so a separate certification and audit roadmap must be planned when entering the Singapore market.
+- **Practical implications**: architects already familiar with a separate cloud security certification framework in their home market (e.g., Korea's CSAP/ISMS-P) should note that Singapore operates a separate certification scheme (MTCS) and a separate financial-sector audit framework (OSPAR). The two frameworks are not mutually recognized, so a separate certification and audit roadmap must be planned when entering the Singapore market.
 
 ## Pre-Adoption Checklist
 

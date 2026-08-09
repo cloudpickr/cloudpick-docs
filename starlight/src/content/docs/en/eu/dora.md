@@ -7,7 +7,7 @@ description: "Covers DORA's scope of application, the status of CTPP designation
 
 ## Overview
 
-**DORA (Digital Operational Resilience Act)** is a regulation that standardizes ICT risk management across the EU financial sector. Korean financial institutions' EU subsidiaries and branches, vendors that provide cloud/ICT services to EU financial institutions, and domestic IT suppliers that contract with them can all fall within DORA's reach. Because DORA is a Regulation, it applies directly across the EU without requiring separate implementing legislation in each member state.
+**DORA (Digital Operational Resilience Act)** is a regulation that standardizes ICT risk management across the EU financial sector. Non-EU financial institutions' EU subsidiaries and branches, vendors that provide cloud/ICT services to EU financial institutions, and domestic IT suppliers that contract with them can all fall within DORA's reach. Because DORA is a Regulation, it applies directly across the EU without requiring separate implementing legislation in each member state.
 
 ## Applicability and Scope
 
@@ -17,7 +17,7 @@ DORA entered into force on January 16, 2023, and **has applied since January 17,
 - **Covered ICT third-party providers**: ICT service providers (cloud, data center, software vendors, etc.) that support "critical or important functions" for the above financial entities are also indirectly subject to DORA requirements. This is because financial entities must reflect DORA-mandated clauses (access rights, audit rights, termination clauses, etc.) in their contracts with these providers.
 
 :::note
-Regardless of a vendor's headquarters location, DORA effectively applies to **any ICT third-party provider that has a contractual relationship with an EU financial entity**. Even a SaaS or cloud service based in Korea can become a counterparty subject to DORA's contractual requirements if it has EU financial-entity customers.
+Regardless of a vendor's headquarters location, DORA effectively applies to **any ICT third-party provider that has a contractual relationship with an EU financial entity**. Even a SaaS or cloud service based outside the EU can become a counterparty subject to DORA's contractual requirements if it has EU financial-entity customers.
 :::
 
 ## Status of CTPP Designations

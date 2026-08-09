@@ -15,6 +15,8 @@ The Japanese cloud market is notable for hyperscalers (AWS, Azure, Google Cloud,
 
 - **[ISMAP (Japan Government Cloud Procurement Certification)](../japan/ismap/)** — covers the program overview, registration process, the distinction between ISMAP and ISMAP-LIU, registration status of hyperscalers and major providers, its gate-like nature that excludes unregistered services from public procurement, and implications for Korean companies entering the market.
 - **[APPI (Japan's Act on the Protection of Personal Information)](../japan/appi/)** — covers the three routes for cross-border transfer requirements, whether Korea and Japan mutually recognize each other's adequacy, the impact on cloud region selection, handling of sensitive information such as My Number, and the 2025–2026 triennial review trends.
+- **[Government Cloud (ガバメントクラウド)](../japan/government-cloud/)** — covers the Digital Agency-led shared cloud infrastructure for national and local government, the status of registered CSPs (AWS/Azure/Google Cloud/OCI/Sakura Internet), the dual-gate structure with ISMAP, and the progress of local government system standardization.
+- **[Japan's AI Policy and Domestic Model Landscape](../japan/ai-landscape/)** — covers the AI Act and AI Basic Plan, METI's GENIAC program, the domestic LLM landscape (NTT tsuzumi, NEC cotomi, PFN PLaMo, and others), the government procurement channel Gennai (源内), and a comparison with Korea's sovereign FM policy.
 
 :::note
 This section covers fast-moving announcements from Japanese government and regulatory bodies. It is recommended that you verify the latest status directly through the official sources listed in the "References" section at the bottom of each document.

@@ -15,6 +15,8 @@ Despite its small domestic market as a city-state, Singapore is a hub where majo
 
 - **[MTCS (Multi-Tier Cloud Security Standard)](../singapore/mtcs/)** — Covers the SS 584 standard's Level 1–3 tier system, the IMDA operating framework, hyperscaler certification status, and additional financial-sector requirements (MAS TRM, OSPAR). It functions as a de facto gate for entry into the public and financial sectors.
 - **[PDPA (Personal Data Protection Act)](../singapore/pdpa/)** — Covers the Transfer Limitation Obligation and the April 2026 guide revision (incorporating CBPR/PRP certification), implications for Korean companies' ASEAN region design, and practical considerations such as the DNC (Do Not Call) provisions.
+- **[Government Cloud (GCC, IM8, SGTS)](../singapore/government-cloud/)** — Covers the structure of GovTech's Government Commercial Cloud (GCC) and GCC+, the 2024–2026 reform of the IM8 security policy, SG Tech Stack, and requirements for participating in government procurement.
+- **[AI Governance](../singapore/ai-governance/)** — Covers the NAIS 2.0 national AI strategy, the Model AI Governance Framework (generative AI edition), the AI Verify testing framework, the relationship with the PDPA, and ASEAN/Southeast Asia connections (SEA-LION and others).
 
 :::note
 This section covers regulatory and certification status. We recommend checking the latest official announcements directly through the sources listed in the "References" section at the bottom of each document.

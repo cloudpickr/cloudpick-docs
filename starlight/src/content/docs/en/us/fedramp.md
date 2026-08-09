@@ -73,7 +73,7 @@ The CMMC final rule (32 CFR Part 170) took effect in 2024, and the amended DFARS
 
 IL1 and IL3 do not exist as separate levels (IL1 is unnecessary; IL3 has been merged into IL4), and FedRAMP Moderate authorization roughly corresponds to the minimum requirements of IL2.
 
-## Implications for Korean Companies
+## Practical Implications
 
 - FedRAMP authorization is a de facto essential condition for entering the US federal SaaS market, and obtaining it requires significant time and cost. FedRAMP 20x is an attempt to automate and shorten this process, but as of August 2026 it remains in a transitional period, so companies entering the market should decide which framework (Rev5 vs. 20x) to pursue authorization under based on the latest guidance on fedramp.gov.
 - Organizational barriers to entry — securing a Sponsoring Agency, establishing a US legal entity and operational organization, staffing predominantly with US personnel — are often as significant as the technical controls themselves.

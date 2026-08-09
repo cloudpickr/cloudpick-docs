@@ -14,6 +14,8 @@ description: "EU市場への進出・運用を検討するエンタープライ�
 - **[GDPRとデータ主権](../eu/gdpr-sovereignty/)** — GDPRの域外移転体系（SCC、十分性認定）、EU Data Boundary、ソブリンクラウドの選択肢（AWS European Sovereign Cloud、Microsoft Bleu/Delos、OCI EU Sovereign Cloud、Googleのソブリンパートナーシップ）の比較と、EUCS認証スキームの動向を整理します。
 - **[DORA（金融デジタル運用レジリエンス法）](../eu/dora/)** — 2025年1月に適用が開始されたDORAの対象範囲、CTPP（重要ICTサードパーティ提供者）の指定状況、ICTリスク管理・出口戦略要件を扱います。
 - **[NIS2 + EU AI法](../eu/nis2-ai-act/)** — NIS2のサイバーセキュリティ・インシデント報告義務と、EU AI法の施行タイムライン（2026年のDigital Omnibusによる高リスクAI義務の延期を含む）を整理します。
+- **[EU加盟国別クラウドセキュリティスキーム](../eu/national-schemes/)** — ドイツBSI C5、フランスANSSI SecNumCloud、スペインENS、イタリアACNなど国別の認証・調達スキームとEUCSとの関係、ハイパースケーラーの対応状況を整理します。
+- **[欧州のソブリンAI・モデルの地形](../eu/sovereign-ai/)** — EU AI Continent Action Plan・AI Factories、Mistral AI・Aleph Alphaなど欧州のFM提供事業者、ハイパースケーラーのソブリンクラウドが提供するAIサービスの範囲を整理します。
 
 ## なぜ今EU規制が急増しているのか
 

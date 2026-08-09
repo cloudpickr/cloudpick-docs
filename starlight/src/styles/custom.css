@@ -18,15 +18,23 @@
 
 /* 폰트 토큰 — Pretendard Variable은 head의 dynamic-subset CSS에서 로드 */
 :root {
-	--sl-font: 'Pretendard Variable';
+	--sl-font: 'Pretendard Variable', 'Inter', system-ui, sans-serif;
 	--sl-font-mono: 'Jetendard';
 	/* 비교표가 많은 사이트 특성상 본문 폭 확대 (기본 45rem) */
 	--sl-content-width: 54rem;
 }
 
-/* 일본어 로케일: Pretendard의 한자 자형이 한국 지역형이므로 시스템 일본어 폰트로 분기 */
+/*
+ * 일본어 로케일: Pretendard JP Variable (일본어 자형 + Inter 라틴)
+ * CDN dynamic subset으로 필요한 글리프만 로드
+ */
 :root[lang='ja'] {
-	--sl-font: 'Hiragino Kaku Gothic ProN', 'Yu Gothic UI', 'Noto Sans JP';
+	--sl-font: 'Pretendard JP Variable', 'Inter', system-ui, sans-serif;
+}
+
+/* 영문 로케일: Inter + Pretendard 라틴(fallback) */
+:root[lang='en'] {
+	--sl-font: 'Pretendard Variable', 'Inter', system-ui, sans-serif;
 }
 
 /* Accent — 벤더 중립 slate-blue (기본 보라 대체) */

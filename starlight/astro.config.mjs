@@ -2,6 +2,7 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import starlightLlmsTxt from 'starlight-llms-txt';
+import mermaid from 'astro-mermaid';
 
 // https://astro.build/config
 // 정적 사이트이므로 어댑터 불필요 — Cloudflare Pages에는 dist/를 wrangler pages deploy로 올린다.
@@ -9,6 +10,10 @@ export default defineConfig({
 	site: 'https://docs.cloudpick.kr',
 	output: 'static',
 	integrations: [
+		mermaid({
+			// Starlight 다크모드 연동: html[data-theme] 감지
+			autoTheme: true,
+		}),
 		starlight({
 			title: 'CloudPick',
 			description: '멀티클라우드 환경에서 올바른 의사결정을 내리기 위한 벤더 중립 가이드',
@@ -26,6 +31,11 @@ export default defineConfig({
 					tag: 'link',
 					attrs: { rel: 'stylesheet', href: '/fonts/pretendard/pretendardvariable-dynamic-subset.css' },
 				},
+				{
+					// Pretendard JP Variable — 일본어 자형 + 라틴 (CDN dynamic subset)
+					tag: 'link',
+					attrs: { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-jp-dynamic-subset.css' },
+				},
 			],
 			social: [
 				{ icon: 'github', label: 'GitHub', href: 'https://github.com/cloudpickr/cloudpick-docs' },
@@ -35,6 +45,11 @@ export default defineConfig({
 					label: '소개',
 					translations: { en: 'Introduction', ja: 'CloudPickについて' },
 					link: 'introduction',
+				},
+				{
+					label: '용어집',
+					translations: { en: 'Glossary', ja: '用語集' },
+					link: 'glossary',
 				},
 				{
 					label: 'Getting Started',
@@ -228,11 +243,6 @@ export default defineConfig({
 							],
 						},
 					],
-				},
-				{
-					label: '용어집',
-					translations: { en: 'Glossary', ja: '用語集' },
-					link: 'glossary',
 				},
 				{
 					label: '국가별 가이드',

@@ -66,7 +66,7 @@ In response to demand to keep not just data storage location but also **operatin
 - The final EUCS text remains unsettled, and whether it will include sovereignty requirements is still a matter of disagreement among EU member states. **The latest confirmed status must be verified separately through official ENISA and European Commission announcements.**
 :::
 
-EUCS remains a voluntary certification for now, but NIS2 and the (still proposed) Data Act give member states and regulators the authority to mandate the use of EUCS-certified vendors for public bodies and essential/important entities, which could affect future procurement requirements.
+EUCS remains a voluntary certification for now, but NIS2 and the Data Act (in force since January 2024, with core provisions applicable since September 2025) give member states and regulators the authority to mandate the use of EUCS-certified vendors for public bodies and essential/important entities, which could affect future procurement requirements.
 
 ## Architectural Implications
 

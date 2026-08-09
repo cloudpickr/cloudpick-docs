@@ -12,7 +12,7 @@ ITAR(International Traffic in Arms Regulations)とEAR(Export Administration Regu
 - **ITAR**: 国務省(State Department)傘下のDDTC(Directorate of Defense Trade Controls)が所管し、USML(United States Munitions List)に掲載された防衛物資・サービス・技術データを規律します。
 - **EAR**: 商務省(Commerce Department)傘下のBIS(Bureau of Industry and Security)が所管し、商用・デュアルユース品目・技術(先端半導体、暗号化ソフトウェアなど)をECCN(Export Control Classification Number)体系で分類・管理します。
 
-一つの品目・技術はITARまたはEARのいずれか一方にのみ分類され、一般にITARはEARよりもはるかに厳格です。ITAR違反は1件あたり最大100万ドルの罰金および最大20年の懲役に処される可能性がある一方、EAR違反は1件あたり最大30万ドル(または取引額の2倍)程度です。
+一つの品目・技術はITARまたはEARのいずれか一方にのみ分類され、一般にITARはEARよりもはるかに厳格です。ITAR違反は刑事罰として1件あたり最大100万ドルの罰金および最大20年の懲役に処される可能性があります。EARの刑事罰も同水準（1件あたり最大100万ドル・最大20年の懲役）であり、行政（民事）制裁は1件あたり最大約30万ドル（または取引額の2倍）です。
 
 | 区分 | ITAR | EAR |
 | --- | --- | --- |

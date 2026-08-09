@@ -12,7 +12,7 @@ ITAR (International Traffic in Arms Regulations) and EAR (Export Administration 
 - **ITAR**: Administered by the Directorate of Defense Trade Controls (DDTC) under the State Department, governing defense articles, services, and technical data listed on the United States Munitions List (USML).
 - **EAR**: Administered by the Bureau of Industry and Security (BIS) under the Commerce Department, classifying and controlling commercial and dual-use items and technology (advanced semiconductors, encryption software, etc.) through the Export Control Classification Number (ECCN) system.
 
-A given item or technology is classified under either ITAR or EAR, but not both, and ITAR is generally far stricter than EAR. ITAR violations can carry fines of up to $1 million and up to 20 years of imprisonment per violation, whereas EAR violations carry fines of up to $300,000 per violation (or twice the value of the transaction).
+A given item or technology is classified under either ITAR or EAR, but not both, and ITAR is generally far stricter than EAR. ITAR violations can carry criminal fines of up to $1 million and up to 20 years of imprisonment per violation. EAR criminal penalties are at the same level — up to $1 million and up to 20 years of imprisonment per violation — while administrative (civil) penalties run up to roughly $300,000 per violation (or twice the value of the transaction).
 
 | Category | ITAR | EAR |
 | --- | --- | --- |

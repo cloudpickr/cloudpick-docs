@@ -7,7 +7,7 @@
 - **사이트**: https://cloudpick-docs.pages.dev (Cloudflare Pages, 프로젝트 `cloudpick-docs`, **프로덕션 브랜치는 `main`** — `wrangler pages deploy dist --project-name=cloudpick-docs --branch=main`으로 배포)
 - **MCP 서버**: https://cloudpick-docs-mcp.froguin.workers.dev/mcp (`mcp/` 디렉터리, list_docs/search_docs/get_doc)
 - **브랜치**: `feat/starlight-migration` (origin에 푸시됨). master 머지/PR은 미실행 — 사용자 결정 대기
-- 304페이지: ko 전체(9섹션 + 국가 5개국 + 용어집), en 전체 번역, ja는 국가 가이드+랜딩만(나머지 한국어 폴백)
+- 304페이지: **ko/en/ja 3개 로케일 완역**(로케일당 101개 파일, 폴백 0)
 
 ## 아키텍처 핵심 (회귀 주의)
 
@@ -23,12 +23,8 @@
 
 사용자가 결정한 사항. 다음 세션은 이 순서대로 실행하면 됨.
 
-1. **랜딩 → 시작하기 리디렉션** (결정: 리디렉션 채택)
-   - `starlight/public/_redirects`에 로케일별 3줄 추가: `/ko/ /ko/about-cloud/getting-started/ 302` (en/ja 동일 패턴)
-   - 루트 `/ → /ko/` 301은 유지. index.mdx(CardGrid 랜딩)는 삭제하지 말 것 — 리디렉션만으로 전환하고, 되돌리기 쉽게 유지
-2. **ja 전체 번역** (결정: 모든 문서 ko/en/ja 완역)
-   - 대상: ja에 없는 일반 섹션 전체(약 69개 = 9개 섹션 68 + glossary). 기존 en 번역 때 쓴 방식 재사용: 섹션별 4~5분할 sonnet-worker, 규칙은 ja korea 번역 프롬프트(이 저장소 히스토리의 커밋 메시지와 기존 ja/korea 파일 문체) 참조
-   - 완료 후 en/ja 스텁 금지 원칙 유지(미번역 파일은 만들지 않기)
+1. ~~랜딩 → 시작하기 리디렉션~~ ✅ 완료 (2026-08-09, `/`·로케일 홈 → 각 시작하기 302, CardGrid 랜딩 파일은 보존)
+2. ~~ja 전체 번역~~ ✅ 완료 (2026-08-09, 80개 문서 — 3개 로케일 101파일 대칭, 헤딩 구조 전수 일치 검증, ソブリンランディングゾーン 앵커 연동 수정 포함)
 3. **운영 원칙**: 루트 GitBook 문서 업데이트 시 반드시 `python3 scripts/gitbook_to_starlight.py` 재실행으로 Starlight 동기화 후 빌드·배포 (이중 관리 아님 — 루트가 원본, starlight/ko는 파생)
 4. **main 머지 시 repo 재구성** (컷오버와 함께, 시점은 사용자가 결정)
    - Starlight + Workers MCP 중심으로 저장소 재편: GitBook 유산(SUMMARY.md, index.html, _book/, .github의 GitBook 워크플로 등) 정리

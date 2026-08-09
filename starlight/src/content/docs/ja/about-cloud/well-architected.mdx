@@ -1,0 +1,176 @@
+---
+title: "Well-Architected Framework"
+description: "主要ベンダーのWell-Architected FrameworkのPillar構成とレビューツールを比較します。"
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+> 文書基準: 2026年5月
+
+## Well-Architectedとは？
+
+建物を設計する際に耐震設計、防火区画、エネルギー効率といった建築基準があるように、クラウドワークロードを設計する際にも従うべきベストプラクティスがあります。これを体系的にまとめたものが**Well-Architected Framework**です。
+
+オンプレミス環境ではサーバーの購入・設置に時間がかかるため、設計を慎重に行う傾向があります。一方クラウドでは数分でリソースを作成できるため、「とりあえず作って後で直そう」というアプローチが取りやすくなります。しかし、こうして作られたワークロードはセキュリティの脆弱性、コストの無駄、障害への弱さといった問題を抱えることになります。
+
+Well-Architected Frameworkは、こうした問題を未然に防ぐための設計原則とチェックリストを提供します。新しいワークロードを設計する際だけでなく、既存のワークロードを点検・改善する際にも活用できます。
+
+## コア原則（Pillar）比較
+
+各ベンダーともWell-Architected Frameworkを提供していますが、コア原則（Pillar）の構成と重点には違いがあります。
+
+| 原則領域 | AWS | Azure | Google Cloud | OCI |
+| --- | --- | --- | --- | --- |
+| **運用の優秀性** | Operational Excellence | Operational Excellence | Operational Excellence | — |
+| **セキュリティ** | Security | Security | Security, Privacy, Compliance | Security |
+| **信頼性** | Reliability | Reliability | Reliability | Reliability |
+| **パフォーマンス効率** | Performance Efficiency | Performance Efficiency | Performance Optimization | Performance |
+| **コスト最適化** | Cost Optimization | Cost Optimization | Cost Optimization | Cost Optimization |
+| **持続可能性** | Sustainability | — | — | — |
+| **フレームワーク名** | Well-Architected | Well-Architected | Architecture Framework | Best Practices Framework |
+| **Pillar数** | **6個** | **5個** | **5個** | **4個** |
+
+<Tabs>
+<TabItem label="AWS — 6つのPillar">
+AWSは2012年に最も早くWell-Architected Frameworkを発表し、現在は6つのPillarで構成されています。
+
+1. **運用の優秀性（Operational Excellence）** — ワークロードを効果的に運用し、継続的に改善する
+2. **セキュリティ（Security）** — データ、システム、資産を保護する
+3. **信頼性（Reliability）** — 障害から復旧し、可用性を維持する。[災害復旧](../../governance/dr/)戦略と直結します。
+4. **パフォーマンス効率（Performance Efficiency）** — リソースを効率的に使用する
+5. **コスト最適化（Cost Optimization）** — 不要なコストを削減する
+6. **持続可能性（Sustainability）** — 環境への影響を最小化する
+
+AWSならではの特徴は**持続可能性Pillar**です。2021年に追加されたもので、エネルギー効率の高いリソース選択と使用量最適化の原則を扱います。
+
+**フレームワーク名:** Well-Architected Framework
+</TabItem>
+
+<TabItem label="Azure — 5つのPillar">
+AzureのWell-Architected Frameworkは5つのPillarで構成されます。
+
+1. **信頼性（Reliability）** — 障害復旧、可用性、回復力
+2. **セキュリティ（Security）** — 脅威保護、データセキュリティ、ID管理
+3. **コスト最適化（Cost Optimization）** — コスト管理、リソース最適化
+4. **運用の優秀性（Operational Excellence）** — 運用プロセス、モニタリング、デプロイ
+5. **パフォーマンス効率（Performance Efficiency）** — 拡張性、パフォーマンス最適化
+
+Microsoftのエンタープライズ経験が反映されており、ハイブリッド環境やMicrosoft 365、Active Directoryとの統合を考慮したガイドが含まれています。
+
+**フレームワーク名:** Well-Architected Framework
+</TabItem>
+
+<TabItem label="Google Cloud — 5つのPillar">
+Google Cloudは**Architecture Framework**という名称で提供しており、5つのPillarに加えて**システム設計原則**を別途扱っているのが特徴です。
+
+1. **運用の優秀性（Operational Excellence）** — 効率的な運用、自動化、モニタリング
+2. **セキュリティ、プライバシー、コンプライアンス** — セキュリティと規制遵守を1つのPillarに統合
+3. **信頼性（Reliability）** — 可用性、回復力、災害復旧
+4. **コスト最適化（Cost Optimization）** — コスト管理、リソース最適化
+5. **パフォーマンス最適化（Performance Optimization）** — 拡張性、レイテンシ最適化
+
+セキュリティと規制遵守を1つのPillarに統合しているのが特徴です。Google CloudのShared Fateモデルと同じ方向性です。
+
+**フレームワーク名:** Architecture Framework
+</TabItem>
+
+<TabItem label="OCI — 4つのPillar">
+OCIは**Best Practices Framework**という名称でアーキテクチャガイドを提供しています。
+
+1. **セキュリティ（Security）** — Cloud Guard、Security Zonesを活用した自動化されたセキュリティ
+2. **信頼性（Reliability）** — Fault Domain、AD（アベイラビリティドメイン）ベースの可用性設計
+3. **パフォーマンス（Performance）** — ベアメタル、RDMAネットワークなど高性能コンピューティング
+4. **コスト最適化（Cost Optimization）** — Universal Credits、無料アウトバウンド（イグレス）ポリシーの活用
+
+**Security Zones**でセキュリティポリシーを強制できるのが特徴です。Security Zoneが適用されたCompartmentでは、セキュリティベストプラクティスに違反するリソースの作成が自動的にブロックされます。
+
+**フレームワーク名:** Best Practices Framework
+</TabItem>
+</Tabs>
+
+## レビューツール
+
+各ベンダーは、Well-Architected Frameworkに基づいたワークロードレビューツールを提供しています。
+
+| 項目 | AWS | Azure | Google Cloud | OCI |
+| --- | --- | --- | --- | --- |
+| **ツール名** | Well-Architected Tool | Well-Architected Review (Assessment) | Architecture Framework チェックリスト | Cloud Advisor |
+| **場所** | AWSコンソール内蔵 | Azure Advisor + 別途Assessment | ドキュメントベースのチェックリスト | OCIコンソール内蔵 |
+| **自動分析** | 一部自動（Trusted Advisor連携） | Azure Advisorが自動推奨 | Recommenderが自動推奨 | Cloud Advisorが自動推奨 |
+| **レポート** | PDF/JSONエクスポート | Assessmentレポート | — | — |
+| **費用** | 無料 | 無料 | 無料 | 無料 |
+
+### AWS Well-Architected Tool
+
+AWSコンソールに組み込まれたツールで、ワークロードを定義し各Pillarごとの質問に答えると改善事項を提示します。**Well-Architected Labs**では実習資料も提供されています。
+
+### Azure Well-Architected Review
+
+Azure Advisorが自動的にリソースを分析して推奨事項を提示し、別途のAssessmentツールを通じて体系的なレビューを行うことができます。
+
+### Google Cloud Architecture Framework
+
+ドキュメントベースのチェックリストとガイドを提供しており、RecommenderとActive Assistが自動的に最適化の推奨事項を提示します。
+
+## Cloud Adoption Framework (CAF)
+
+Well-Architected Frameworkが個々のワークロードの設計ベストプラクティスであるのに対し、**Cloud Adoption Framework**（CAF）は組織全体のクラウド移行戦略を扱います。技術だけでなく、組織構造、プロセス、ガバナンス、人材育成までを包括する上位レベルのフレームワークです。
+
+| 項目 | AWS | Azure | Google Cloud | OCI |
+| --- | --- | --- | --- | --- |
+| **名称** | AWS Cloud Adoption Framework | Azure Cloud Adoption Framework | Google Cloud Architecture Framework | OCI Landing Zone |
+| **構成** | 6つの観点（ビジネス、人材、ガバナンス、プラットフォーム、セキュリティ、運用） | 9段階の方法論（戦略、計画、準備、採用、ガバナンス、管理など） | Architecture Framework内に導入ガイドを含む | CIS BenchmarkベースのLanding Zone |
+| **特徴** | 観点（Perspective）別のステークホルダー中心 | 段階別の実行ガイド、Landing Zoneを含む | Architecture Frameworkと統合 | Terraformベースの自動デプロイ |
+
+AWSとAzureは独立したCAFを提供しており、Google CloudはArchitecture Frameworkの中に導入ガイドを含む形になっています。AzureのCAFは特に詳細な段階別ガイドとLanding Zoneの構成方法を提供しているため、大規模組織のクラウド移行で多く参照されています。
+
+## よくある間違い
+
+- **「Well-Architectedは新規プロジェクトにのみ適用される」** — 既存のワークロードを点検・改善する際にも同様に活用できます。定期的なレビューを推奨します。
+- **「すべてのPillarを同時に完璧に満たさなければならない」** — Pillar間にはトレードオフがあります（例: セキュリティ強化 vs コスト増加）。ワークロードの優先順位に合わせてバランスを取りましょう。
+- **「レビューツールを実行すれば自動的に改善される」** — ツールは問題を識別するだけであり、実際の改善はチームが推奨事項を検討し適用する必要があります。
+
+## チェックリスト
+
+- [ ] 本番ワークロードに対してWell-Architectedレビューを最低1回実施したか？
+- [ ] 組織にとって最も重要なPillar（セキュリティ、コスト、信頼性など）の優先順位を定義したか？
+- [ ] レビューから導き出された改善事項をバックログに登録し、追跡しているか？
+
+## 関連ドキュメント
+
+> 📄 [共同責任モデル](../../about-cloud/shared-responsibility/)
+
+> 📄 [ランディングゾーン](../../governance/landing-zone/)
+
+## 参考資料
+
+### 標準とフレームワーク
+
+- [CNCF Cloud Native Trail Map](https://landscape.cncf.io/) — クラウドネイティブ技術採用ガイド
+- [The Twelve-Factor App](https://12factor.net/) — クラウドネイティブアプリケーション設計原則
+- [ISO/IEC 25010 — Systems and software quality models](https://www.iso.org/standard/35733.html) — ソフトウェア品質モデル
+
+### AWS
+
+- [Well-Architected Framework](https://aws.amazon.com/ko/architecture/well-architected/)
+- [Well-Architected Tool](https://aws.amazon.com/ko/well-architected-tool/)
+- [Well-Architected Labs](https://www.wellarchitectedlabs.com/)
+- [Cloud Adoption Framework](https://aws.amazon.com/ko/cloud-adoption-framework/)
+
+### Azure
+
+- [Well-Architected Framework](https://learn.microsoft.com/ko-kr/azure/well-architected/)
+- [Well-Architected Review](https://learn.microsoft.com/ko-kr/assessments/azure-architecture-review/)
+- [Cloud Adoption Framework](https://learn.microsoft.com/ko-kr/azure/cloud-adoption-framework/)
+
+### Google Cloud
+
+- [Architecture Framework](https://cloud.google.com/architecture/framework)
+- [Architecture Center](https://cloud.google.com/architecture)
+- [Cloud設定チェックリスト](https://cloud.google.com/docs/enterprise/setup-checklist)
+
+### OCI
+
+- [OCI Best Practices Framework](https://docs.oracle.com/en/solutions/oci-best-practices/)
+- [OCI Cloud Advisor](https://docs.oracle.com/en-us/iaas/Content/CloudAdvisor/Concepts/cloudadvisoroverview.htm)
+- [OCI Landing Zone](https://docs.oracle.com/en/solutions/cis-oci-benchmark/)

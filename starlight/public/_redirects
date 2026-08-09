@@ -19,5 +19,10 @@
 /security/* /ko/security/:splat 301
 /storage/* /ko/storage/:splat 301
 
-# 루트 → 한국어 홈
-/ /ko/ 301
+# 로케일 홈 → 시작하기 (랜딩 대신 문서 직행 — 사용자 결정 2026-08-09)
+/ko/ /ko/about-cloud/getting-started/ 302
+/en/ /en/about-cloud/getting-started/ 302
+/ja/ /ja/about-cloud/getting-started/ 302
+
+# 루트 → 한국어 시작하기
+/ /ko/about-cloud/getting-started/ 302

@@ -234,6 +234,8 @@ export default defineConfig({
 					translations: { en: 'Glossary', ja: '用語集' },
 					link: 'glossary',
 				},
+				// 국가별 가이드: GitBook SUMMARY의 「국가 인덱스 + 들여쓰기 하위」에 대응.
+				// Starlight 그룹은 페이지 링크가 될 수 없으므로, 그룹명=국가명 / 첫 항목=인덱스(소개).
 				{
 					label: '국가별 가이드',
 					translations: { en: 'Country Guides', ja: '国別ガイド' },
@@ -243,7 +245,7 @@ export default defineConfig({
 							translations: { en: 'Korea', ja: '韓国' },
 							collapsed: true,
 							items: [
-								{ slug: 'korea', label: '한국 개요', translations: { en: 'Korea Overview', ja: '韓国 概要' } },
+								{ slug: 'korea', label: '소개', translations: { en: 'Overview', ja: '概要' } },
 								{ slug: 'korea/governance/compliance' },
 								{ slug: 'korea/security/csap' },
 								{ slug: 'korea/security/network-isolation' },
@@ -256,7 +258,7 @@ export default defineConfig({
 							translations: { en: 'United States', ja: '米国' },
 							collapsed: true,
 							items: [
-								{ slug: 'us', label: '미국 개요', translations: { en: 'US Overview', ja: '米国 概要' } },
+								{ slug: 'us', label: '소개', translations: { en: 'Overview', ja: '概要' } },
 								{ slug: 'us/fedramp' },
 								{ slug: 'us/hipaa' },
 								{ slug: 'us/itar' },
@@ -268,7 +270,7 @@ export default defineConfig({
 							label: 'EU',
 							collapsed: true,
 							items: [
-								{ slug: 'eu', label: 'EU 개요', translations: { en: 'EU Overview', ja: 'EU 概要' } },
+								{ slug: 'eu', label: '소개', translations: { en: 'Overview', ja: '概要' } },
 								{ slug: 'eu/gdpr-sovereignty' },
 								{ slug: 'eu/dora' },
 								{ slug: 'eu/nis2-ai-act' },
@@ -281,7 +283,7 @@ export default defineConfig({
 							translations: { en: 'Japan', ja: '日本' },
 							collapsed: true,
 							items: [
-								{ slug: 'japan', label: '일본 개요', translations: { en: 'Japan Overview', ja: '日本 概要' } },
+								{ slug: 'japan', label: '소개', translations: { en: 'Overview', ja: '概要' } },
 								{ slug: 'japan/ismap' },
 								{ slug: 'japan/appi' },
 								{ slug: 'japan/government-cloud' },
@@ -293,7 +295,7 @@ export default defineConfig({
 							translations: { en: 'Singapore', ja: 'シンガポール' },
 							collapsed: true,
 							items: [
-								{ slug: 'singapore', label: '싱가포르 개요', translations: { en: 'Singapore Overview', ja: 'シンガポール 概要' } },
+								{ slug: 'singapore', label: '소개', translations: { en: 'Overview', ja: '概要' } },
 								{ slug: 'singapore/mtcs' },
 								{ slug: 'singapore/pdpa' },
 								{ slug: 'singapore/government-cloud' },

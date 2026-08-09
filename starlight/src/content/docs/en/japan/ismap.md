@@ -47,7 +47,7 @@ As of April 1, 2025, the ISMAP-LIU pre-application (事前申請) procedure was 
 
 | Provider | Registration status | Notes |
 | --- | --- | --- |
-| AWS | Registered (includes Tokyo and Osaka regions, numerous services) | Has maintained registration since the early days of ISMAP, with annual renewal |
+| AWS | Registered (includes Tokyo and Osaka regions, numerous services) | Has maintained registration since the early days of the ISMAP program, with renewal repeated before each expiry |
 | Microsoft Azure | Registered (includes Japan East/Japan West and contractually available overseas regions) | Related services such as Microsoft 365 are also registered |
 | Google Cloud | Registered (individual services such as Looker are also registered progressively) | Registration timing can differ by service, so check the latest list |
 | Oracle Cloud Infrastructure (OCI) | Registered (initially registered June 2021, subsequently expanded to PaaS, Exadata Cloud@Customer, etc.) | |

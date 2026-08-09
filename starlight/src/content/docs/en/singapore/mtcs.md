@@ -14,7 +14,7 @@ First enacted in 2013, it went through SS 584:2015, and the current version is *
 Certification is assessed by MTCS Certifying Bodies (CBs) accredited by the Singapore Accreditation Council (SAC). Certificates are valid for three years and must undergo an annual surveillance audit to remain in effect.
 
 :::note
-Unlike Korea's CSAP, which is a legally mandated entry regulation, MTCS is better understood as an industry standard that functions as a **de facto mandatory requirement in public procurement and financial-sector vendor due diligence**. In government cloud procurement issued by IMDA (such as the Government Commercial Cloud), MTCS certification is commonly specified as a requirement.
+Unlike Korea's CSAP, which is a legally mandated entry regulation, MTCS is better understood as an industry standard that functions as **a widely required standard in public procurement and financial-sector vendor due diligence**. In government cloud procurement issued by IMDA (such as the Government Commercial Cloud), MTCS certification is commonly specified as a requirement.
 :::
 
 ## Tier Structure (Level 1–3)
@@ -23,7 +23,7 @@ Unlike Korea's CSAP, which is a legally mandated entry regulation, MTCS is bette
 | --- | --- | --- |
 | **Level 1** | Non-critical operations such as website hosting, test/development environments, and simulations | A low-cost tier requiring only minimal baseline security controls |
 | **Level 2** | General business systems at most organizations, including mission-critical applications | An enhanced control set addressing data security threats. The tier most commercial cloud users target |
-| **Level 3** | Regulated industries, systems subject to government procurement, and systems processing sensitive or high-impact data | Requires strict additional controls on top of Level 1/2 controls. **Level 3 certification is effectively mandatory for CSPs seeking to participate in government procurement** |
+| **Level 3** | Regulated industries, systems subject to government procurement, and systems processing sensitive or high-impact data | Requires strict additional controls on top of Level 1/2 controls. **Level 3 is often required for government procurement involving high-risk or sensitive systems (not uniformly applied to all government procurement)** |
 
 All three levels can have separate certification scopes by service type (IaaS/PaaS/SaaS), so it is common for a vendor to have only some of its services certified at a given level. When evaluating adoption, be sure to check not just the level but also the **certification scope (which services and regions are included)**.
 

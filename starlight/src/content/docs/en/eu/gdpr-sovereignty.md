@@ -34,7 +34,7 @@ When a Korean company uses cloud services in an EU region to process EU customer
 The **EU Data Boundary** is a data-residency initiative that Microsoft has pursued, aimed at storing and processing the data of EU/EFTA customers only within the EU/EFTA.
 
 - **January 2023**: Phase 1 — customer data and pseudonymized personal data for core cloud services such as Microsoft 365, Dynamics 365, and Power Platform stored within the EU
-- **February 26, 2025**: Completion (Phase 3) — extended to **Professional Services Data**, including support logs and case notes, storing them within the EU/EFTA as well; Microsoft announced the completion of enhanced data residency and transparency
+- **February 26, 2025**: Completion (Phase 3) — extended to **Professional Services Data**, including support logs and case notes, storing them within the EU/EFTA as well; Microsoft announced the completion of enhanced data residency and transparency (though some limited operational exceptions for cross-border access/transfer remain under documented conditions)
 
 Other vendors are expanding similar in-region data-processing guarantees, but the "EU Data Boundary" name and its scope (which includes Professional Services Data) are specific to Microsoft's initiative. The scope of EU-region data-residency guarantees for other vendors must be verified individually in each vendor's contractual documentation (the DPA).
 

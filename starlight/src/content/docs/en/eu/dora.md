@@ -13,7 +13,7 @@ description: "Covers DORA's scope of application, the status of CTPP designation
 
 DORA entered into force on January 16, 2023, and **has applied since January 17, 2025**.
 
-- **Covered financial entities**: about 22,000 EU-regulated financial entities across 21 categories, including banks, insurers, investment firms, payment institutions, and crypto-asset service providers. Supervision is divided by category among the EBA (European Banking Authority), EIOPA (European Insurance and Occupational Pensions Authority), and ESMA (European Securities and Markets Authority) — collectively, the **ESAs (European Supervisory Authorities)**.
+- **Covered financial entities**: EU-regulated financial entities across 20 categories (per the EU Commission's 2026 review document), estimated at around 20,000, including banks, insurers, investment firms, payment institutions, and crypto-asset service providers. Supervision is divided by category among the EBA (European Banking Authority), EIOPA (European Insurance and Occupational Pensions Authority), and ESMA (European Securities and Markets Authority) — collectively, the **ESAs (European Supervisory Authorities)**.
 - **Covered ICT third-party providers**: ICT service providers (cloud, data center, software vendors, etc.) that support "critical or important functions" for the above financial entities are also indirectly subject to DORA requirements. This is because financial entities must reflect DORA-mandated clauses (access rights, audit rights, termination clauses, etc.) in their contracts with these providers.
 
 :::note
@@ -35,7 +35,7 @@ The designation criteria are assessed comprehensively across:
 
 **New obligations for designated CTPPs**:
 
-- Designate a legal entity (preferably an EU subsidiary) to serve as an EU coordination point
+- A CTPP headquartered outside the EU must establish an EU subsidiary within 12 months of designation (serving as the EU coordination point)
 - Pay an annual oversight fee to the ESAs
 - Become subject to regulatory oversight at a level comparable to financial entities, including risk assessments and incident reporting
 - Exposure to potential sanctions for non-compliance (previously only financial entities were directly regulated, but under DORA vendors are now also subject to direct oversight)

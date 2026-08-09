@@ -7,7 +7,7 @@ description: "싱가포르 PDPA의 개요, 국경 간 이전 제한과 2026년 4
 
 ## 개요
 
-PDPA(Personal Data Protection Act, 개인정보보호법)는 2012년 제정된 싱가포르의 개인정보 보호 일반법입니다. 개인정보보호위원회(Personal Data Protection Commission, PDPC)가 집행 기관 역할을 수행하며, 정보통신미디어개발청(IMDA) 산하 법정기구로 운영됩니다.
+PDPA(Personal Data Protection Act, 개인정보보호법)는 2012년 제정된 싱가포르의 개인정보 보호 일반법입니다. 개인정보보호위원회(Personal Data Protection Commission, PDPC)가 집행 기관 역할을 수행하며, 법률상으로는 정보통신미디어개발청(IMDA)이 PDPC로 지정되어 개인정보 보호 기능을 수행하는 구조입니다.
 
 PDPA는 동의(Consent), 목적 제한(Purpose Limitation), 고지(Notification), 열람·정정(Access & Correction), 정확성(Accuracy), 보호(Protection), 보유기간 제한(Retention Limitation), **이전 제한(Transfer Limitation)**, 책임성(Accountability), 유출 통지(Breach Notification) 등의 의무를 규정합니다. 2020년 개정법으로 도입된 **데이터 이동성 의무(Data Portability Obligation, Part 6B)**는 아직 시행령이 마련되지 않아 발효되지 않은 상태이므로, 현재는 준수 의무 대상이 아닙니다.
 
@@ -29,13 +29,13 @@ PDPA Part 4에 규정된 이전 제한 의무는, 조직이 개인정보를 싱�
 - 개인과의 계약 이행에 필요한 이전 등 법정 예외 사유
 - 장관이 PDPA에 준하는 보호 수준을 갖췄다고 고시한 국가·지역으로의 이전
 
-### 2026년 4월 가이드 개정 — CBPR·PRP 인증 편입
+### 2026년 4월 가이드 개정 — CBPR·PRP 인증 경로 정비
 
-PDPC는 **2026년 4월 14일**, 국경 간 데이터 이전 가이드를 개정해 발표했습니다. 이는 같은 시기 시행된 PDPA 개정 시행규칙(PDPA Amendment Regulations 2026)에 맞춰 규제 당국의 기대 수준을 정리한 것으로, 핵심은 인정되는 이전 메커니즘에 **인증 기반 제도를 공식 편입**한 것입니다.
+PDPC는 **2026년 4월 14일**, 국경 간 데이터 이전 가이드를 개정해 발표했습니다. 이는 같은 시기 시행된 PDPA 개정 시행규칙(PDPA Amendment Regulations 2026)에 맞춰 규제 당국의 기대 수준을 정리한 것으로, 핵심은 인정되는 이전 메커니즘 전반을 최신 규정에 맞춰 재정리한 것입니다. CBPR·PRP 인증 경로 자체는 **2020년 6월 인정 발표, 2021년 2월 시행규칙 반영으로 이미 존재해 왔으며**, 이번 개정은 이를 포함한 전체 체계를 정비한 것입니다.
 
 - **APEC CBPR(Cross-Border Privacy Rules, 국경 간 프라이버시 규칙) 인증**을 보유한 수령 조직(개인정보처리자, controller 성격)은 이전 제한 의무의 요건을 충족한 것으로 간주됩니다.
 - **APEC PRP(Privacy Recognition for Processors, 처리자 프라이버시 인증) 인증**을 보유한 수탁 조직(데이터 중개자, data intermediary 성격)도 마찬가지로 요건 충족으로 인정됩니다. 데이터 중개자는 CBPR 또는 PRP 중 하나 혹은 둘 다를 보유하면 됩니다.
-- 이로써 개별 계약서(SCC 유사 조항)를 매 거래마다 체결·검토하는 대신, **인증 취득만으로 국경 간 이전의 법적 근거를 확보**하는 경로가 공식화되었습니다.
+- 개별 계약서(SCC 유사 조항)를 매 거래마다 체결·검토하는 대신, **인증 취득만으로 국경 간 이전의 법적 근거를 확보**하는 경로가 명확히 정리되어 있습니다.
 
 :::caution
 CBPR·PRP는 APEC 회원국 간에만 통용되는 인증 체계입니다. 이전 대상 국가·기업이 APEC CBPR/PRP 인증 시스템에 참여하지 않는 경우에는 여전히 계약상 장치나 BCR 등 기존 메커니즘을 활용해야 합니다. 한국은 APEC CBPR 시스템 참여국이므로, 한국 리전·한국 소재 계열사와의 데이터 이전 설계 시 이 인증 경로의 실익을 검토할 가치가 있습니다.

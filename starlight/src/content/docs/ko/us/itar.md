@@ -12,7 +12,7 @@ ITAR(International Traffic in Arms Regulations)와 EAR(Export Administration Reg
 - **ITAR**: 국무부(State Department) 산하 DDTC(Directorate of Defense Trade Controls)가 관장하며, USML(United States Munitions List)에 등재된 방산 물자·서비스·기술 데이터를 규율합니다.
 - **EAR**: 상무부(Commerce Department) 산하 BIS(Bureau of Industry and Security)가 관장하며, 상용·이중용도 품목·기술(첨단 반도체, 암호화 소프트웨어 등)을 ECCN(Export Control Classification Number) 체계로 분류·통제합니다.
 
-하나의 품목·기술은 ITAR 또는 EAR 둘 중 하나로만 분류되며, 일반적으로 ITAR가 EAR보다 훨씬 엄격합니다. ITAR는 위반 시 형사상 건당 최대 100만 달러 벌금 및 최대 20년 징역에 처할 수 있습니다. EAR도 형사 처벌은 건당 최대 100만 달러·최대 20년 징역으로 동일한 수준이며, 행정(민사) 제재는 건당 최대 약 30만 달러(또는 거래액의 2배)입니다.
+하나의 품목·기술은 ITAR 또는 EAR 둘 중 하나로만 분류되며, 일반적으로 ITAR가 EAR보다 훨씬 엄격합니다. ITAR는 위반 시 형사상 건당 최대 100만 달러 벌금 및 최대 20년 징역에 처할 수 있습니다. EAR도 형사 처벌은 건당 최대 100만 달러·최대 20년 징역으로 동일한 수준이며, 행정(민사) 제재는 건당 최대 약 37만 달러(물가연동 조정, 2025년 기준 $374,474) 또는 거래액의 2배 중 큰 금액입니다.
 
 | 구분 | ITAR | EAR |
 | --- | --- | --- |
@@ -29,7 +29,7 @@ ITAR(International Traffic in Arms Regulations)와 EAR(Export Administration Reg
 
 ITAR로 통제되는 기술 데이터(technical data)는 원칙적으로 **US Person**(미국 시민권자, 영주권자, 특정 보호 대상자, 미국 내에 설립된 법인 등)만 접근할 수 있으며, 외국인(Foreign Person)이 접근하려면 DDTC의 별도 허가(라이선스, TAA 등)가 필요합니다. 이를 클라우드 환경에 적용하면 다음을 의미합니다.
 
-- 기술 데이터가 저장되는 서버는 물리적으로 미국 내(CONUS)에 위치해야 하고, 운영·유지보수 인력도 US Person으로 제한되어야 합니다.
+- 별도 예외가 없는 한, 기술 데이터가 저장되는 서버는 미국 내(CONUS)에 두고 운영·유지보수 인력도 US Person으로 제한하는 것이 기본 전제입니다. 다만 §120.54의 종단간 암호화 요건을 충족한 데이터의 국외 전송·저장은 "수출"로 간주되지 않는 예외가 있어, 법률상 일률적인 미국 내 저장 의무는 아닙니다(아래 종단간 암호화 예외 참조).
 - 클라우드 콘솔 로그인, 파일 업로드, 화면 공유 등으로 외국인이 미허가 상태에서 데이터를 열람하는 것도 "수출"(deemed export)로 간주될 수 있습니다.
 - 따라서 IAM 정책만으로 국적 기반 접근 통제를 완벽히 구현하기는 어렵고, 조직 구조(별도 US Person 전담팀·자회사 구성)와 클라우드 환경 선택을 함께 설계해야 실효성 있는 통제가 가능합니다.
 - **2020년 암호화 예외 규정(End-to-End Encryption Carve-out)**: 2020년 3월 25일 발효된 개정 규칙에 따라, ITAR 기술 데이터가 FIPS 140-2 수준의 종단간(end-to-end) 암호화로 보호되고 복호화 수단(키)이 클라우드 벤더를 포함한 제3자에게 제공되지 않는 경우, 해당 데이터가 국외 서버를 경유·저장되더라도 "수출"로 간주하지 않습니다. 단, 벤더가 키를 보유하는 서버 측 암호화(server-side encryption)는 이 예외에 해당하지 않으며, 비인가 외국인이 평문 상태로 데이터에 접근하면 암호화 여부와 무관하게 수출로 간주됩니다. 중국, 러시아, 이란, 북한 등 무기 금수국은 이 예외에서도 제외됩니다.

@@ -47,7 +47,7 @@ ISMAP 등록은 대략 아래 순서로 진행됩니다.
 
 | 사업자 | 등록 현황 | 비고 |
 | --- | --- | --- |
-| AWS | 등록됨 (도쿄·오사카 리전 포함, 다수 서비스) | ISMAP 제도 초기부터 등록을 유지하며 매년 갱신 |
+| AWS | 등록됨 (도쿄·오사카 리전 포함, 다수 서비스) | ISMAP 제도 초기부터 등록 유지 (유효기간 만료 전 갱신 반복) |
 | Microsoft Azure | 등록됨 (Japan East/Japan West 및 계약상 이용 가능한 해외 리전 포함) | Microsoft 365 등 관련 서비스도 함께 등록 |
 | Google Cloud | 등록됨 (Looker 등 개별 서비스 단위로도 순차 등록) | 서비스별로 등록 시점이 다를 수 있어 최신 목록 확인 필요 |
 | Oracle Cloud Infrastructure (OCI) | 등록됨 (2021년 6월 최초 등록, 이후 PaaS·Exadata Cloud@Customer 등 확대) | |

@@ -54,7 +54,7 @@ HITRUST CSF is a security framework operated not by a government body but by a p
 
 ## Encryption and Audit Log Requirements
 
-The current HIPAA Security Rule has historically divided safeguards into "Required" and "Addressable" (allowing alternative measures). However, in January 2025, HHS published a proposed rule (NPRM) that would eliminate this distinction and make most safeguards mandatory.
+The current HIPAA Security Rule has historically divided safeguards into "Required" and "Addressable" (allowing alternative measures). However, HHS announced a proposed rule (NPRM) in December 2024 (published in the Federal Register in January 2025) that would eliminate this distinction and make most safeguards mandatory.
 
 :::caution
 This proposed rule is **not finalized** as of August 2026. After the public comment period closed in March 2025, the target date for the final rule has been pushed back to July 2027, per the OMB Unified Agenda. The items below remain at the proposal stage; whether and when they will actually take effect must be reconfirmed through official HHS announcements.
@@ -65,7 +65,7 @@ Key proposed changes:
 - Encryption of ePHI at rest and in transit would generally become mandatory (with only limited exceptions)
 - Multi-factor authentication (MFA) for access to PHI systems would become mandatory
 - Near-real-time automated audit log monitoring, with strengthened log protection controls
-- Logs retained for a minimum of six years (matching HIPAA's documentation retention requirement)
+- Stronger long-term log retention — the existing six-year retention requirement applies to documentation such as policies and procedures, and the proposal would extend it to cover logs as well
 - Vulnerability scans at least every six months, and penetration testing at least annually
 
 Regardless of whether the proposed rule is finalized, encryption at rest and in transit and access logging have already become established industry-standard practices, so it is prudent to build them into new architectures proactively.

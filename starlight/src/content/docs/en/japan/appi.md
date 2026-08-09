@@ -13,7 +13,7 @@ Japan has no separate law mandating data localization, but in practice the cross
 
 ## Cross-Border Transfer Requirements
 
-Article 28 of APPI requires one of the following three routes when providing personal data to a third party located in a foreign country.
+Article 28 of APPI requires one of the following three routes when providing personal data to a third party located in a foreign country. Separately, where a statutory exception applies (per the items of Article 27, Paragraph 1 of APPI, applied mutatis mutandis), transfers may in some cases be possible without meeting these requirements.
 
 ### 1. Individual Consent
 
@@ -37,7 +37,7 @@ As of August 2026, **no mutual adequacy (equivalence) recognition based on the d
 
 - **Japan → Korea direction**: as explained above, Korea is not on the list of countries designated under Article 28 of APPI, so either individual consent or a compliant framework must be established individually.
 - **Korea → Japan direction**: Article 28-8 of Korea's Personal Information Protection Act provides a procedure allowing overseas transfer where the Personal Information Protection Commission recognizes that the level of protection in the recipient country is substantially equivalent to that of Korea, but as of August 2026 there is no confirmed case of Japan having been designated as such an "equivalence-recognized" country. Korea's Personal Information Protection Commission has, in its 2025–2026 policy plans, stated that it is at the stage of reviewing the United States, the United Kingdom, and Japan as candidates for expanded mutual data-transfer cooperation (verification needed — since designation status is fluid, checking the latest official notices is recommended).
-- For reference, Korea and the EU have an adequacy decision dating from 2021, renewed in September 2025, and Japan also received an adequacy decision from the EU in 2019. However, these are each separate bilateral relationships with the EU and are distinct from any direct mutual recognition between Korea and Japan.
+- For reference, the EU issued an adequacy decision for Korea in 2021, and in September 2025 Korea's own recognition of the EU took effect, making the arrangement mutual (the EU announced completion of its first periodic review in July 2026). Japan also received an adequacy decision from the EU in 2019. However, these are each separate bilateral relationships with the EU and are distinct from any direct mutual recognition between Korea and Japan.
 
 As long as this situation persists, Korean companies moving Japanese user data to a Korea region, or conversely sending data from a Japanese cloud to Korea, need to design individual mechanisms — such as an SCC-style contract or a consent procedure — at the contract and terms-of-service level.
 

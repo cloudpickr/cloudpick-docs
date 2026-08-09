@@ -7,7 +7,7 @@ description: "Covers the overview of Singapore's PDPA, the Transfer Limitation O
 
 ## Overview
 
-The PDPA (Personal Data Protection Act) is Singapore's general personal data protection law, enacted in 2012. The Personal Data Protection Commission (PDPC) serves as the enforcement authority and operates as a statutory body under the Infocomm Media Development Authority (IMDA).
+The PDPA (Personal Data Protection Act) is Singapore's general personal data protection law, enacted in 2012. The Personal Data Protection Commission (PDPC) serves as the enforcement authority; under the law, the Infocomm Media Development Authority (IMDA) is designated as the PDPC and performs the personal data protection function.
 
 The PDPA sets out obligations including Consent, Purpose Limitation, Notification, Access & Correction, Accuracy, Protection, Retention Limitation, the **Transfer Limitation Obligation**, Accountability, and Breach Notification. The **Data Portability Obligation (Part 6B)**, introduced by a 2020 amendment, has not yet taken effect because its implementing regulations have not been issued, so it is not currently a compliance obligation.
 
@@ -29,13 +29,13 @@ The transfer mechanisms traditionally recognized include:
 - Statutory exceptions, such as transfers necessary to perform a contract with the individual
 - Transfer to a country or territory that the Minister has prescribed as providing a standard of protection comparable to the PDPA
 
-### April 2026 Guide Revision — Incorporating CBPR and PRP Certification
+### April 2026 Guide Revision — Streamlining the CBPR/PRP Certification Pathway
 
-On **April 14, 2026**, the PDPC issued a revised guide on cross-border data transfers. This reflects the regulator's expectations in line with the concurrently effective PDPA Amendment Regulations 2026, and its key feature is the **formal incorporation of certification-based schemes** into the recognized transfer mechanisms.
+On **April 14, 2026**, the PDPC issued a revised guide on cross-border data transfers. This reflects the regulator's expectations in line with the concurrently effective PDPA Amendment Regulations 2026, and its key feature is a **reorganization of the full set of recognized transfer mechanisms** to align with the latest regulations. The CBPR/PRP certification pathway itself **has already existed since it was first recognized in June 2020 and reflected in regulations in February 2021**, and this revision reorganizes the overall framework, including that pathway.
 
 - A recipient organization (acting as a controller) holding **APEC CBPR (Cross-Border Privacy Rules) certification** is deemed to satisfy the Transfer Limitation Obligation.
 - A recipient organization (acting as a data intermediary) holding **APEC PRP (Privacy Recognition for Processors) certification** is likewise deemed to satisfy the requirement. A data intermediary need hold either CBPR or PRP, or both.
-- This formalizes a route where **certification alone establishes the legal basis for a cross-border transfer**, instead of negotiating and reviewing individual contracts (similar to SCC-style clauses) for every transaction.
+- Instead of negotiating and reviewing individual contracts (similar to SCC-style clauses) for every transaction, a route where **certification alone establishes the legal basis for a cross-border transfer** is clearly laid out.
 
 :::caution
 CBPR and PRP are certification schemes recognized only among APEC member economies. Where the destination country or company does not participate in the APEC CBPR/PRP certification system, existing mechanisms such as contractual clauses or BCRs still need to be used. Korea participates in the APEC CBPR system, so it is worth evaluating the practical benefit of this certification route when designing data transfers with a Korea region or Korea-based affiliates.

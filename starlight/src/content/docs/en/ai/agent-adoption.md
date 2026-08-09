@@ -3,9 +3,15 @@ title: Agent Adoption Guide
 description: Enterprise adoption strategy, rollout stages, tool selection, and governance for Desktop/Coding/Autonomous agents.
 ---
 
+## Overview
+
+When adopting AI agents in the enterprise, the harder problem is not "which tool to use" but "how to scale adoption safely." This document covers a phased approach to agent adoption, tool selection by role, and governance frameworks.
+
 :::note
-For technical architecture and protocols, see [AI Agents](agents.md).
+For technical architecture and protocols, see [AI Agents](../../ai/agents/).
 :::
+
+---
 
 ## Agent Types by Role
 
@@ -64,15 +70,16 @@ Don't try to cover all roles with one tool. Work agents and coding agents differ
 | **Data Protection** | Connector allowlists, model training disabled, sensitive data classification + access control, DLP integration |
 | **Behavioral Boundaries** | Approval policies by access level (read may require approval for sensitive data; write/send/pay requires approval). All prompt/tool-call audit logs |
 | **Cost Management** | Seat + usage billing monitoring, model tier limits by role, per-team budget caps |
-| **Agent Identity** | Manage agents as non-human identities — least privilege, Policy-Based Access Control |
+| **Agent Identity** | Manage agents as non-human identities — least privilege, Policy-Based Access Control. On Azure, [Entra Agent ID](https://learn.microsoft.com/entra/identity-platform/agent-id/) grants agents first-class directory identities, applying conditional access and lifecycle management the same as human identities |
 
 ### Governance Tool Mapping
 
 | Vendor | Agent Governance Tools |
 | --- | --- |
-| **Microsoft** | Agent 365 (central agent management), Copilot Studio, Entra + Purview |
 | **AWS** | Bedrock AgentCore (policy/observability), IAM, CloudTrail, Quick Admin |
-| **Google** | Gemini Enterprise Agent Platform (Registry, Gateway, Security Dashboard) |
+| **Azure** | Agent 365 (central agent management), Copilot Studio, Entra + Purview |
+| **Google Cloud** | Gemini Enterprise Agent Platform (Registry, Gateway, Security Dashboard) |
+| **OCI** | — (addressed via a combination of IAM, Logging, Cloud Guard. Check official docs for dedicated agent governance products) |
 
 ---
 
@@ -108,7 +115,30 @@ Don't try to cover all roles with one tool. Work agents and coding agents differ
 
 ## Related Documents
 
-- [AI Agents](agents.md) — Architecture, protocols, coding agents
-- [LLM Channel Selection Guide](1p-vs-3p.md) — Seat vs API, channel patterns
-- [AI Security](../security/ai-security.md) — Guardrails, prompt injection
-- [FinOps](../governance/finops.md) — Cost governance
+- [AI Agents](../../ai/agents/) — Architecture, protocols, coding agents
+- [LLM Channel Selection Guide](../../ai/1p-vs-3p/) — Seat vs API, channel patterns
+- [AI Security](../../security/ai-security/) — Guardrails, prompt injection
+- [FinOps](../../governance/finops/) — Cost governance
+
+## References
+
+### AWS
+
+- [Amazon Bedrock AgentCore](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-how.html)
+- [AWS IAM Identity Center](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html)
+
+### Azure
+
+- [Microsoft Entra Agent ID](https://learn.microsoft.com/entra/identity-platform/agent-id/)
+- [Microsoft Copilot Studio](https://learn.microsoft.com/microsoft-copilot-studio/)
+- [Microsoft Purview](https://learn.microsoft.com/purview/)
+
+### Google Cloud
+
+- [Vertex AI / Gemini Enterprise Agent Platform](https://cloud.google.com/vertex-ai/docs)
+- [Google Cloud IAM](https://cloud.google.com/iam/docs)
+
+### OCI
+
+- [Oracle Cloud Infrastructure IAM](https://docs.oracle.com/en-us/iaas/Content/Identity/home.htm)
+- [Oracle Cloud Guard](https://docs.oracle.com/en-us/iaas/cloud-guard/home.htm)

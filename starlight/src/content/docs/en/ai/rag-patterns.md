@@ -3,8 +3,10 @@ title: Advanced RAG Patterns
 description: Limitations of basic RAG and advanced patterns including chunking, re-ranking, and query expansion based on vendor guides.
 ---
 
+> Document baseline: July 2026 | This is a fast-changing area subject to quarterly review.
+
 :::note
-For RAG basics, read the RAG section in [Getting Started](getting-started.md) and [Vector Stores and Embeddings](vector-store.md) first.
+For RAG basics, read the RAG section in [Getting Started](../../ai/getting-started/) and [Vector Stores and Embeddings](../../ai/vector-store/) first.
 :::
 
 ## Limitations of Basic RAG
@@ -15,7 +17,13 @@ Simply "document → embedding → retrieve → pass to LLM" is insufficient for
 - **Without re-ranking**, the LLM references irrelevant context from retrieved results.
 - **Ambiguous user queries** (pronouns, abbreviations) defeat vector search alone.
 
+Sources:
+- [Azure — Develop a RAG Solution: Chunking Phase](https://learn.microsoft.com/azure/architecture/ai-ml/guide/rag/rag-chunking-phase)
+- [AWS — Writing best practices to optimize RAG applications](https://docs.aws.amazon.com/prescriptive-guidance/latest/writing-best-practices-rag/introduction.html)
+
 ## Chunking Strategies
+
+How much and how documents are split determines retrieval quality.
 
 ### Chunking Methods
 
@@ -27,7 +35,7 @@ Simply "document → embedding → retrieve → pass to LLM" is insufficient for
 | **Semantic** | Group semantically similar sentences | Long explanatory text |
 | **Document-structure** | Split by headings/sections | Manuals, wikis, technical docs |
 
-Azure recommends trying `Fixed-size` → `Recursive` → `Document-structure` in order of increasing sophistication.
+Azure recommends trying `Fixed-size` → `Recursive` → `Document-structure` in order of increasing sophistication (see the [Chunking Phase guide](https://learn.microsoft.com/azure/architecture/ai-ml/guide/rag/rag-chunking-phase)).
 
 ### Chunk Size Guide
 
@@ -56,8 +64,8 @@ Instead of building chunking, embedding, retrieval, and re-ranking yourself, **m
 
 | Vendor | Service | Strengths |
 | --- | --- | --- |
-| AWS | [Bedrock Managed Knowledge Base](https://aws.amazon.com/bedrock/knowledge-bases/) | Native data connectors, Smart Parsing, Agentic Retriever |
-| Azure | [Azure AI Search + Foundry](https://learn.microsoft.com/azure/search/) | Integrated vectorization, built-in semantic ranker |
+| AWS | [Bedrock Managed Knowledge Base](https://aws.amazon.com/bedrock/knowledge-bases/) | Native data connectors, Smart Parsing (automatic multi-format parsing), Agentic Retriever (agent decomposes and searches complex multi-step queries). AgentCore Gateway integration |
+| Azure | [Azure AI Search + Foundry](https://learn.microsoft.com/azure/search/) | Integrated vectorization, built-in semantic ranker, custom skill pipeline |
 | Google Cloud | [Vertex AI RAG Engine](https://cloud.google.com/vertex-ai/generative-ai/docs/rag-overview) | Source → embedding → retrieval unified |
 
 :::note
@@ -100,9 +108,13 @@ Vector search is weak at exact string matching (product codes like `SKU-12345`, 
 
 When user queries are short or ambiguous, use an LLM to rewrite or expand the query.
 
-- **Query Rewriting** — Resolve pronouns/abbreviations explicitly.
+- **Query Rewriting** — Resolve pronouns/abbreviations explicitly (e.g., "that" → "policy X discussed in the last meeting").
 - **Multi-Query** — Generate multiple query versions and search each.
 - **HyDE (Hypothetical Document Embeddings)** — LLM generates a hypothetical answer, then embeds that answer for retrieval.
+
+Official guides:
+- [Azure — Enrichment Phase of RAG](https://learn.microsoft.com/azure/architecture/ai-ml/guide/rag/rag-enrichment-phase)
+- [AWS — RAG Optimization Guide](https://docs.aws.amazon.com/prescriptive-guidance/latest/writing-best-practices-rag/introduction.html)
 
 ## Evaluation
 
@@ -149,17 +161,21 @@ RAG systems require measuring **retrieval quality** and **response quality** sep
 
 ### AWS
 - [RAG Options and Architectures](https://docs.aws.amazon.com/prescriptive-guidance/latest/retrieval-augmented-generation-options/introduction.html)
+- [Writing Best Practices to Optimize RAG Applications](https://docs.aws.amazon.com/prescriptive-guidance/latest/writing-best-practices-rag/introduction.html)
 - [Bedrock Knowledge Bases Chunking](https://docs.aws.amazon.com/bedrock/latest/userguide/kb-chunking-parsing.html)
 - [Bedrock Knowledge Bases Reranker](https://docs.aws.amazon.com/bedrock/latest/userguide/kb-reranker.html)
 
 ### Azure
 - [Design and Develop a RAG Solution](https://learn.microsoft.com/azure/architecture/ai-ml/guide/rag/rag-solution-design-and-evaluation-guide)
+- [RAG Chunking Phase](https://learn.microsoft.com/azure/architecture/ai-ml/guide/rag/rag-chunking-phase)
 - [Azure AI Search Hybrid Search](https://learn.microsoft.com/azure/search/hybrid-search-overview)
 - [Azure AI Search Semantic Ranker](https://learn.microsoft.com/azure/search/semantic-search-overview)
 
 ### Google Cloud
 - [Vertex AI RAG Engine](https://cloud.google.com/vertex-ai/generative-ai/docs/rag-overview)
 - [Vertex AI Ranking API](https://cloud.google.com/generative-ai-app-builder/docs/ranking)
+- [Vertex AI Evaluation Service](https://cloud.google.com/vertex-ai/generative-ai/docs/models/evaluation-overview)
 
 ### OCI
 - [OCI AI Vector Search](https://docs.oracle.com/en-us/iaas/autonomous-database-serverless/doc/oracle-ai-vector-search-autonomous-database.html)
+- [OCI Enterprise AI Models](https://docs.oracle.com/en-us/iaas/Content/generative-ai/pretrained-models.htm)

@@ -94,20 +94,64 @@ Common enterprise pattern: **Production on 3P** (governance, commit consumption,
 | Commit consumption | No | Yes | Yes | No (infra costs only) |
 | Operational burden | None | None | Low | High (GPU, model serving, updates) |
 
----
+:::note
+For details on **Pattern D (self-hosting/open-weight)** — representative models, reasons to choose it, and license caveats — see [AI Platforms and Model Comparison](../../ai/ai-ml/).
+:::
 
-## Scale-Based Selection Guide
+### Real-World Example: "We Want to Use Claude Code"
 
-| Scale | Recommended | Rationale |
-| --- | --- | --- |
-| **< $1K/mo** (experiment/PoC) | 1P Direct | Fastest start, latest features, no complex contracts |
-| **$1K–$10K/mo** (small production) | 1P or single 3P | 3P if existing cloud contract; otherwise 1P |
-| **$10K–$100K/mo** (mid-scale) | 3P primary + 1P secondary | Cloud commit consumption + VPC/compliance. 1P for beta/latest access |
-| **> $100K/mo** (large enterprise) | Hybrid (3P production + 1P innovation) | Production: 3P (commits, reserved capacity, governance). Innovation: 1P (latest features, fast experimentation) |
+| Requirement | Suitable Pattern |
+| --- | --- |
+| Latest Claude Code + fast updates | **A. Direct** |
+| Claude Code + consuming AWS EDP + AWS invoice | **B. Provider service + Cloud billing** (Claude Platform on AWS) |
+| Claude API only + VPC isolation + existing AWS governance | **C. Cloud-hosted** (Bedrock Claude) |
 
 :::caution
-At $100K+/mo scale, **procurement structure** (commit consumption, reserved capacity, private offers) matters more than per-token pricing. Organizations with large cloud commits may find 3P effectively cheaper.
+**Pattern B is not offered by every provider.** Anthropic's "Claude Platform on AWS" is the representative example; OpenAI currently has no equivalent separate offering. Check the provider-channel mapping table above for what each provider offers.
 :::
+
+---
+
+## Channel Availability by Major FMs
+
+For the list of models and available channels by provider, see [AI Platforms and Model Comparison](../../ai/ai-ml/); for Korean FMs (Upstage, EXAONE, etc.), see the model catalog in the same document. For the pattern comparison table, use the **Pattern Comparison** section above.
+
+---
+
+## Selection Guide (Evaluation Criteria)
+
+Don't fix your 1P/3P choice based on monthly spend alone. Work through the criteria below first, then choose a channel.
+
+| Criteria | 1P (Direct) favored when | 3P (Cloud-hosted) favored when |
+| --- | --- | --- |
+| **Features & release speed** | Latest models/agent features are needed immediately | Platform API scope is sufficient; a days-to-weeks delay is acceptable |
+| **Network & compliance** | Enterprise-grade isolation is sufficient | VPC/regional governance or inheriting existing certifications is required |
+| **Procurement & commits** | Little to no existing cloud commit | Significant EDP/EA/CUD commit consumption |
+| **Operations** | Comfortable operating the provider's own console | Needs integration with existing cloud IAM, observability, and budget systems |
+| **Scale & quota** | PoC/small scale, quota headroom | Production traffic, reserved capacity, private offer negotiation |
+
+:::caution
+At large scale (roughly tens of thousands of dollars per month or more), **procurement structure** (commit consumption, reserved capacity, private offers) is often a bigger cost factor than per-token pricing. Dollar thresholds vary by organization, so confirm with official quotes and contract terms.
+:::
+
+---
+
+## Considerations for Korean Enterprises
+
+| Requirement | Recommended Channel |
+| --- | --- |
+| Korean-language specialization + multi-cloud | Upstage Solar, LG EXAONE (1P or AWS/Azure Marketplace) |
+| Data sovereignty / network segregation | On-premises (Upstage, EXAONE, Llama) or a domestic-region 3P |
+| Consuming existing AWS/Azure commits | 3P (Bedrock / Azure Foundry / Marketplace) |
+| Immediate access to the latest global FMs | 1P (OpenAI, Anthropic direct) |
+| Financial/public-sector compliance | 3P (inheriting cloud certifications) + on-premises hybrid |
+| Responding to sovereign foundation model policy | Confirm which models participate in the policy before choosing a channel (for public-sector/financial procurement) |
+
+---
+
+## Pricing Plans and Cost Management
+
+Each provider's license tiers (Seat plans, API tiers), 3P reserved capacity (PTU, Provisioned Throughput), and cost management tools and patterns are covered in [LLM Licensing and Cost Management](../../ai/licensing/).
 
 ---
 
@@ -126,9 +170,27 @@ At $100K+/mo scale, **procurement structure** (commit consumption, reserved capa
 - [ ] Verified quota/rate limits can handle production traffic
 - [ ] Model version sync strategy for hybrid (1P+3P) operations
 
+## Related Documents
+
+- [AI Platforms and Model Comparison](../../ai/ai-ml/) — vendor FM catalog, GPU/accelerators
+- [Multi-cloud AI](../../ai/multicloud-ai/) — vendor combination strategy
+- [LLMOps](../../ai/llmops/) — cost tracking, evaluation, operations
+- [FinOps](../../governance/finops/) — cloud cost governance
+
 ## References
 
-- [Azure OpenAI vs OpenAI: Enterprise Decision Guide](https://amitkoth.com/azure-openai-vs-openai/)
-- [Anthropic API vs AWS Bedrock Claude](https://www.respan.ai/articles/claude-vs-bedrock-claude)
-- [Azure Foundry Quotas and Limits](https://learn.microsoft.com/en-us/azure/foundry/openai/quotas-limits)
+### Model Providers
+
 - [OpenAI API Rate Limits](https://platform.openai.com/docs/guides/rate-limits)
+- [OpenAI API Pricing](https://openai.com/api/pricing/)
+- [Anthropic Claude Plans & Pricing](https://claude.com/pricing)
+- [Anthropic API Documentation](https://docs.anthropic.com/)
+- [Upstage Console](https://console.upstage.ai/)
+
+### Cloud Channels
+
+- [Amazon Bedrock](https://docs.aws.amazon.com/bedrock/)
+- [Amazon Bedrock Pricing](https://aws.amazon.com/bedrock/pricing/)
+- [Azure AI Foundry Quotas and Limits](https://learn.microsoft.com/en-us/azure/foundry/openai/quotas-limits)
+- [Azure OpenAI Pricing](https://azure.microsoft.com/en-us/pricing/details/azure-openai/)
+- [Vertex AI Generative AI](https://cloud.google.com/vertex-ai/generative-ai/docs)

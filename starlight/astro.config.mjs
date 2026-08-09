@@ -158,6 +158,11 @@ export default defineConfig({
 					],
 				},
 				{
+					label: '용어집',
+					translations: { en: 'Glossary', ja: '用語集' },
+					link: 'glossary',
+				},
+				{
 					label: '한국 특화',
 					translations: { en: 'Korea-Specific', ja: '韓国特化' },
 					items: [

@@ -3,6 +3,8 @@ title: LLM Licensing and Cost Management
 description: FM provider license tiers (Seat/API), 3P reserved capacity, and cost management tools and patterns.
 ---
 
+> Document baseline: August 2026
+
 ## Seat Plans vs API Tiers
 
 Seat (per-user) and API (per-token) are separate billing models. Most enterprises use both.
@@ -32,13 +34,17 @@ API tiers auto-upgrade based on cumulative spend. ([Official Rate Limits](https:
 | Tier 4 | $250 spent | $5,000/mo | High+ |
 | Tier 5 | $1,000 spent | $200,000/mo | Maximum |
 
+:::note
+For exact per-model RPM/TPM limits, see the [Organization Limits page](https://platform.openai.com/settings/organization/limits).
+:::
+
 ### Anthropic — Seat Plans
 
 | Plan | Price | Audience | Difference from Team |
 | --- | --- | --- | --- |
-| **Team Standard** | ~$25/seat/mo | Small teams (5+) | — |
-| **Team Premium** | ~$125/seat/mo | High-usage teams | Higher usage allowance |
-| **Enterprise** | Negotiated (seat + API usage separate) | Large orgs | SCIM, audit logs, Compliance API, CMEK, HIPAA/BAA, org-level spend caps |
+| **Team Standard** | ~$25/seat/mo ([official pricing](https://claude.com/pricing)) | Small teams (minimum seats/caps per official page) | — |
+| **Team Premium** | ~$125/seat/mo ([official pricing](https://claude.com/pricing)) | High-usage teams | Higher usage allowance |
+| **Enterprise** | Contract-based — seats + API usage, etc. ([official info](https://claude.com/pricing)) | Large orgs | SCIM, audit logs, Compliance API, CMEK, HIPAA/BAA, org-level spend caps |
 
 ### Anthropic — API Tiers
 
@@ -89,20 +95,28 @@ Reserved capacity (PTU, Provisioned) incurs cost even when idle. Check vendor pr
 
 ---
 
-## Official Pricing Pages
-
-| Provider | URL |
-| --- | --- |
-| OpenAI Business/Enterprise | [openai.com/business/pricing](https://openai.com/business/pricing/) |
-| OpenAI API | [openai.com/api/pricing](https://openai.com/api/pricing/) |
-| Anthropic Plans | [claude.com/pricing](https://claude.com/pricing) |
-| Anthropic API | [platform.claude.com/docs/en/about-claude/pricing](https://platform.claude.com/docs/en/about-claude/pricing) |
-| Azure OpenAI | [azure.microsoft.com/pricing/details/azure-openai](https://azure.microsoft.com/en-us/pricing/details/azure-openai/) |
-| Bedrock | [aws.amazon.com/bedrock/pricing](https://aws.amazon.com/bedrock/pricing/) |
-
 ## Related Documents
 
-- [LLM Channel Selection Guide](1p-vs-3p.md) — Channel patterns, Seat vs API
-- [AI Platforms and Model Comparison](ai-ml.md) — Model catalog, inference cost optimization
-- [FinOps](../governance/finops.md) — Cloud cost governance
-- [Agent Adoption Guide](agent-adoption.md) — Agent cost management
+- [LLM Channel Selection Guide](../../ai/1p-vs-3p/) — Channel patterns, Seat vs API
+- [AI Platforms and Model Comparison](../../ai/ai-ml/) — Model catalog, inference cost optimization
+- [FinOps](../../governance/finops/) — Cloud cost governance
+- [Agent Adoption Guide](../../ai/agent-adoption/) — Agent cost management
+
+## References
+
+Seat/API pricing, minimum seats, and tier limits change frequently. Verify against the official pages below.
+
+### Model Providers
+
+- [OpenAI Business/Enterprise Pricing](https://openai.com/business/pricing/)
+- [OpenAI API Pricing](https://openai.com/api/pricing/)
+- [Anthropic (Claude) Plans](https://claude.com/pricing)
+- [Anthropic API Pricing](https://platform.claude.com/docs/en/about-claude/pricing)
+- [Upstage Console](https://console.upstage.ai/)
+
+### Cloud Channels
+
+- [Amazon Bedrock Pricing](https://aws.amazon.com/bedrock/pricing/)
+- [Azure OpenAI Pricing](https://azure.microsoft.com/en-us/pricing/details/azure-openai/)
+- [Google Cloud Vertex AI Pricing](https://cloud.google.com/vertex-ai/pricing)
+- [OCI Generative AI Pricing](https://www.oracle.com/artificial-intelligence/generative-ai/generative-ai-service/pricing/)

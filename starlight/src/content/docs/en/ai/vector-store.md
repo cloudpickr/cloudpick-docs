@@ -3,11 +3,13 @@ title: Vector Stores and Embeddings
 description: Vector store concepts, vendor comparison, and embedding model selection.
 ---
 
+## Overview
+
 :::note
-**New to vectors/embeddings?** Read the RAG section in [Getting Started](getting-started.md) first.
+**New to vectors/embeddings?** Read the RAG section in [Getting Started](../../ai/getting-started/) first.
 :::
 
-## Use Cases
+### Use Cases
 
 - **Internal document chatbot** — Answer employee questions by searching company docs
 - **Product FAQ automation** — Handle customer inquiries based on product manuals
@@ -15,6 +17,12 @@ description: Vector store concepts, vendor comparison, and embedding model selec
 - **Recommendation systems** — Automatically recommend similar products/content/users
 
 ## What Is a Vector Store
+
+### An easy way to understand it
+
+Think of a librarian. Ask "Do you have any books on machine learning?" and even if a book's title doesn't contain "machine learning," the librarian will point you to books on related topics — "artificial intelligence," "deep learning," "AI fundamentals."
+
+**A vector store is a database that plays this librarian's role.** It remembers the "meaning" of documents and quickly finds documents with similar meaning.
 
 ### Keyword Search vs Vector Search
 
@@ -121,6 +129,14 @@ Simple calculation: 1,000,000 × 1536 dimensions × 4 bytes = **~6GB**
 | Open-source | BGE-M3, E5, etc. | 768–1024 | Self-hostable |
 
 **Selection criteria:** Multilingual performance needed → Cohere, BGE-M3. Cost priority → lower dimensions. Accuracy priority → higher dimensions. Changing models requires full vector re-indexing.
+
+### Hybrid Search
+
+Vector search excels at semantics but is weak on **exact strings** such as product codes (`SKU-12345`). **Hybrid search** combines vector search with traditional keyword search (BM25) to improve precision.
+
+:::note
+For details on vendor-specific support, implementation patterns, and the RRF algorithm for hybrid search, see [Advanced RAG Patterns](../../ai/rag-patterns/).
+:::
 
 ## Common Mistakes
 

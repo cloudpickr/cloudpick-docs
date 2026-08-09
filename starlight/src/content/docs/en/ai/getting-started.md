@@ -22,11 +22,11 @@ description: Overview of AI domains (traditional ML, deep learning, generative A
 
 | Problem to Solve | Approach | Document |
 | --- | --- | --- |
-| Structured data prediction (revenue, churn, anomaly) | Traditional ML | [AI Platforms — ML Platforms](ai-ml.md) |
-| Image/video classification, object detection | Deep Learning (Computer Vision) | [AI Platforms — ML Platforms](ai-ml.md) |
+| Structured data prediction (revenue, churn, anomaly) | Traditional ML | [AI Platforms — ML Platforms](../../ai/ai-ml/) |
+| Image/video classification, object detection | Deep Learning (Computer Vision) | [AI Platforms — ML Platforms](../../ai/ai-ml/) |
 | Natural language conversation, summarization, code generation | Generative AI (FM API) | See below |
-| Multi-step automation, tool calling, autonomous tasks | Agents | [AI Agents](agents.md) |
-| Productivity assist (AI tools for all employees) | Desktop Agent | [AI Agents](agents.md) |
+| Multi-step automation, tool calling, autonomous tasks | Agents | [AI Agents](../../ai/agents/) |
+| Productivity assist (AI tools for all employees) | Desktop Agent | [AI Agents](../../ai/agents/) |
 
 ---
 
@@ -53,7 +53,7 @@ The unit a model uses to process text. Roughly one word ≈ 1–2 tokens. Most A
 
 ## Generative AI Adoption Stages
 
-Below covers the most common path — adopting generative AI via FM APIs. For traditional ML pipelines (train → deploy → monitor), see [AI Platforms — ML Pipeline](ai-ml.md).
+Below covers the most common path — adopting generative AI via FM APIs. For traditional ML pipelines (train → deploy → monitor), see [AI Platforms — ML Pipeline](../../ai/ai-ml/).
 
 Complexity and cost increase as you move down.
 
@@ -67,13 +67,13 @@ graph TD
 
 ### Stage 1: API Call
 
-The simplest starting point. Send a question to Amazon Bedrock, Microsoft Foundry, Gemini Enterprise, or OCI Enterprise AI and receive an answer. See [AI Platforms and Model Comparison](ai-ml.md) for vendor comparisons.
+The simplest starting point. Send a question to Amazon Bedrock, Microsoft Foundry, Gemini Enterprise, or OCI Enterprise AI and receive an answer. See [AI Platforms and Model Comparison](../../ai/ai-ml/) for vendor comparisons.
 
 **Use cases:** chatbots, document summarization, translation.
 
 ### Stage 2: Prompt Engineering
 
-Same API, dramatically different results depending on how you ask. Adding role, constraints, and examples improves quality without writing code. See [Prompt Engineering](prompt-engineering.md).
+Same API, dramatically different results depending on how you ask. Adding role, constraints, and examples improves quality without writing code. See [Prompt Engineering](../../ai/prompt-engineering/).
 
 ### Stage 3: RAG (Retrieval-Augmented Generation)
 
@@ -83,7 +83,7 @@ Analogy: "Letting the model take an open-book exam."
 
 **Use cases:** internal document chatbots, product FAQ, legal/medical document lookup.
 
-RAG works with [Vector Stores](vector-store.md). See [Advanced RAG Patterns](rag-patterns.md) for implementation details.
+RAG works with [Vector Stores](../../ai/vector-store/). See [Advanced RAG Patterns](../../ai/rag-patterns/) for implementation details.
 
 ### Stage 4: Fine-tuning
 
@@ -95,7 +95,7 @@ Adjust the model with your data. Enables domain specialization but significantly
 
 Unnecessary for most organizations. This is what Google, OpenAI, and Anthropic do.
 
-For model operations, evaluation, and cost tracking see [LLMOps](llmops.md). For AI security and guardrails see [AI Security](../security/ai-security.md).
+For model operations, evaluation, and cost tracking see [LLMOps](../../ai/llmops/). For AI security and guardrails see [AI Security](../../security/ai-security/).
 
 ## When to Use Which Method
 
@@ -156,3 +156,7 @@ For model operations, evaluation, and cost tracking see [LLMOps](llmops.md). For
 - [Microsoft — What is Generative AI?](https://azure.microsoft.com/en-us/solutions/ai/generative-ai)
 - [Google Cloud — Gen AI Overview](https://cloud.google.com/ai/generative-ai)
 - [Oracle — What Is Generative AI?](https://www.oracle.com/artificial-intelligence/generative-ai/what-is-generative-ai/)
+
+### Glossary
+
+- [CloudPick Glossary](../../glossary/) — includes AI/ML-related terms

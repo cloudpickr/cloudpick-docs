@@ -37,7 +37,7 @@ LLM chat was confined to the browser. Desktop Agents break this limit with local
 | Advantage | Privacy, customization | Governance, frontier models, enterprise tool integration |
 
 :::note
-Enterprise Desktop Agent satisfaction depends more on **IT's data source connectivity scope** than model performance. Systematically setting this up org-wide is AX — see [Agent Adoption Guide](agent-adoption.md).
+Enterprise Desktop Agent satisfaction depends more on **IT's data source connectivity scope** than model performance. Systematically setting this up org-wide is AX — see [Agent Adoption Guide](../../ai/agent-adoption/).
 :::
 
 ### Autonomous Operations Agents
@@ -114,8 +114,8 @@ All three protocols are under [AAIF (Linux Foundation)](https://www.linuxfoundat
 | --- | --- |
 | **Cost** | Loop execution consumes 10–100× tokens. Per-task budgets, loop limits, model tiering required |
 | **Evaluation** | Task success rate, tool selection accuracy, hallucination rate |
-| **Observability** | OpenTelemetry-based tracing. Agent-specific metrics in [LLMOps](llmops.md) |
-| **Security** | Prompt injection, privilege escalation, data exfiltration, infinite loops. Details in [AI Security](../security/ai-security.md) |
+| **Observability** | OpenTelemetry-based tracing. Agent-specific metrics in [LLMOps](../../ai/llmops/) |
+| **Security** | Prompt injection, privilege escalation, data exfiltration, infinite loops. Details in [AI Security](../../security/ai-security/) |
 
 ### Desktop Agent Risks
 
@@ -136,7 +136,15 @@ All three protocols are under [AAIF (Linux Foundation)](https://www.linuxfoundat
 - [ ] Human-in-the-Loop policy defined
 - [ ] Tracing & monitoring (OpenTelemetry)
 - [ ] Cost budgets and circuit breakers
-- [ ] Adoption strategy per [Agent Adoption Guide](agent-adoption.md)
+- [ ] Adoption strategy per [Agent Adoption Guide](../../ai/agent-adoption/)
+
+## Related Documents
+
+- [Agent Adoption Guide](../../ai/agent-adoption/) — AX strategy, rollout, governance
+- [AI Platform and Model Comparison](../../ai/ai-ml/) — model catalog
+- [LLMOps](../../ai/llmops/) — agent observability, evaluation, cost
+- [AI Security](../../security/ai-security/) — guardrails, prompt injection
+- [LLM Channel Selection Guide](../../ai/1p-vs-3p/) — seat vs. API, channel patterns
 
 ## References
 

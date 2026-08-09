@@ -1,0 +1,181 @@
+---
+title: "Shared Responsibility Model"
+description: "Explains the cloud shared responsibility model, the responsibility boundaries for IaaS/PaaS/SaaS, and how the model differs across vendors."
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+> Last reviewed: May 2026
+
+## Why shared responsibility
+
+Imagine operating your own data center in a leased building. The building's access control, fire suppression systems, and power supply are the responsibility of the building management company. But the equipment inside the server room, data backups, and access permission settings are your responsibility as the tenant. No matter how good the building management company's security is, if the server room password is set to "1234," the security incident is your responsibility.
+
+Cloud works the same way. Using the cloud doesn't mean all security and operational responsibility transfers to the vendor. The areas of responsibility are clearly divided between vendor and user, and this is called the **Shared Responsibility Model**.
+
+:::caution
+This model applies equally regardless of whether the vendor is domestic or foreign. Whichever vendor you choose, data classification, access control, and encryption key management remain the user's responsibility. Choosing a vendor alone does not guarantee security.
+:::
+
+## Core concepts
+
+### The vendor's area of responsibility — "Security of the Cloud"
+
+The cloud vendor is responsible for the security of the cloud infrastructure itself.
+
+- **Physical security** — data center buildings, access control, CCTV, biometric authentication
+- **Hardware** — management and replacement of servers, storage, and network equipment
+- **Hypervisor** — security and isolation of the virtualization layer
+- **Network infrastructure** — global backbone network, inter-region connectivity
+
+### The user's area of responsibility — "Security in the Cloud"
+
+The user is responsible for the security of the workloads running on the cloud.
+
+- **Data** — encryption, classification, and access control of stored data
+- **Applications** — security vulnerabilities in code, [patch management](../../devops/patch-and-vulnerability/)
+- **Access control** — IAM policies, user permissions, MFA configuration
+- **Operating system** — OS patching, security configuration (for IaaS)
+- **Network configuration** — security groups, firewall rules, VPC configuration
+
+### How the responsibility boundary shifts by service model
+
+The scope of user responsibility varies depending on the service model used (IaaS, PaaS, SaaS). The more you move toward SaaS, the more areas the vendor manages; the more you move toward IaaS, the wider the user's management scope becomes.
+
+| Area | IaaS | PaaS | SaaS |
+| --- | --- | --- | --- |
+| **Data** | User | User | User |
+| **Application** | User | User | Vendor |
+| **Runtime** | User | Vendor | Vendor |
+| **Middleware** | User | Vendor | Vendor |
+| **Operating system** | User | Vendor | Vendor |
+| **Virtualization** | Vendor | Vendor | Vendor |
+| **Server/storage/network** | Vendor | Vendor | Vendor |
+| **Physical security** | Vendor | Vendor | Vendor |
+
+For example, if you use EC2 (IaaS), OS patching is the user's responsibility, but if you use RDS (PaaS), AWS handles OS patching. If you use Google Workspace (SaaS), Google handles application management as well, and the user only needs to manage data and access permissions.
+
+## Vendor comparison
+
+| Item | AWS | Azure | Google Cloud | OCI |
+| --- | --- | --- | --- | --- |
+| **Model name** | Shared Responsibility Model | Shared Responsibility | Shared Fate | Shared Security Model |
+| **Basic structure** | Traditional shared responsibility | Similar to AWS | Shared fate model | Traditional + emphasis on automation |
+| **Vendor's additional support** | Well-Architected Tool, Trusted Advisor | Defender for Cloud, Secure Score | Security Command Center, Assured Workloads | Cloud Guard, Security Zones |
+| **Security defaults** | User must configure explicitly | User must configure explicitly | Stricter security defaults | Automatically enforced via Security Zones |
+| **Official documentation** | [AWS](https://aws.amazon.com/ko/compliance/shared-responsibility-model/) | [Azure](https://learn.microsoft.com/ko-kr/azure/security/fundamentals/shared-responsibility) | [Google Cloud](https://cloud.google.com/architecture/framework/security/shared-responsibility-shared-fate) | [OCI](https://docs.oracle.com/en-us/iaas/Content/Security/Concepts/security_guide.htm) |
+
+:::note
+For each vendor's security design principles and frameworks, see [Well-Architected Framework](../../about-cloud/well-architected/).
+:::
+
+<Tabs>
+<TabItem label="AWS">
+AWS presents the most traditional shared responsibility model. It clearly distinguishes between "**security of the cloud**" and "**security in the cloud**," and requires users to directly manage their own areas of responsibility.
+
+AWS provides various security services (GuardDuty, Security Hub, IAM Access Analyzer, etc.) to support this, but activation and configuration are up to the user. See [Security Posture Management](../../security/security-posture/) for details.
+
+**Model name:** Shared Responsibility Model
+</TabItem>
+
+<TabItem label="Azure">
+Azure's shared responsibility model is structurally similar to AWS's.
+
+It is tightly integrated with Microsoft's enterprise security ecosystem (Active Directory, Defender, Sentinel, etc.), so organizations already using a Microsoft environment may find security management relatively easier.
+
+**Model name:** Shared Responsibility
+</TabItem>
+
+<TabItem label="Google Cloud">
+Google Cloud goes a step further than the traditional shared responsibility model and presents the **Shared Fate** model.
+
+- **Proactive vendor involvement** — Provides more tools and guidance so that customers can configure security properly.
+- **Stronger security defaults** — Cloud Storage buckets block public access by default.
+- **Assured Workloads** — Automatically configures a workload environment that meets regulatory requirements.
+- **Security Command Center** — Automatically detects security vulnerabilities and suggests recommended actions.
+
+Where AWS/Azure say "this much is our responsibility, the rest is yours," Google Cloud's position is "your security success is our success."
+
+**Model name:** Shared Fate
+</TabItem>
+
+<TabItem label="OCI">
+OCI is based on the traditional shared responsibility model, but differentiates itself through **automated security enforcement**.
+
+- **Security Zones** — When applied to a specific compartment, resource creation that violates security best practices is automatically blocked (e.g., creating unencrypted storage is not allowed).
+- **Cloud Guard** — Automatically detects security threats and misconfigurations, and can automatically respond using predefined recipes.
+- **Maximum Security Zones** — Provides preconfigured zones that enforce the strictest security policies.
+
+**Model name:** Shared Security Model
+</TabItem>
+</Tabs>
+
+:::caution
+Using the cloud does **not automatically transfer security responsibility to the vendor.** As the service model moves up (IaaS→SaaS), the vendor manages more, but data and access control always remain the user's responsibility.
+:::
+
+## Common gaps in practice
+
+Even when the shared responsibility model is well understood, common security mistakes still occur in practice.
+
+- **Public storage access** — Data leaks caused by accidentally setting a bucket to public. See [Data Protection](../../security/data-protection/)
+- **Excessive IAM permissions** — Granting administrator privileges and never scaling them back. See [IAM and Access Control](../../security/iam/)
+- **Encryption key management** — Choosing between vendor-managed keys vs. customer-managed keys (CMK) vs. BYOK. See [Secrets Management](../../security/secrets/)
+
+## Compliance
+
+Depending on national and industry-specific regulations, security certifications may be required. Each vendor provides a service for directly downloading certification reports.
+
+| Vendor | Certification report service | Description |
+| --- | --- | --- |
+| AWS | [AWS Artifact](https://aws.amazon.com/artifact/) | Direct download of SOC, ISO, PCI, and other audit reports |
+| Azure | [Service Trust Portal](https://servicetrust.microsoft.com/) | Audit reports, compliance guides |
+| Google Cloud | [Compliance Reports Manager](https://cloud.google.com/security/compliance/compliance-reports-manager) | Download ISO, SOC reports |
+| OCI | [Oracle Cloud Compliance](https://www.oracle.com/corporate/cloud-compliance/) | Certification status and reports |
+
+:::note
+For a detailed compliance guide, see [Compliance](../../governance/compliance/).
+:::
+
+## Common mistakes
+
+- **"Using the cloud means security is the vendor's responsibility"** — The vendor is only responsible for infrastructure security. Data encryption, access control, and network configuration always remain the user's responsibility.
+- **"Managed services don't need security configuration"** — Even with PaaS/SaaS, access permissions, network exposure, and encryption settings must be configured directly by the user.
+- **"Certification alone guarantees security"** — A vendor's SOC/ISO certification only proves infrastructure-level security; it does not guarantee the security of the user's workloads.
+
+## Checklist
+
+- [ ] Have you identified the user's area of responsibility for each service model (IaaS/PaaS/SaaS) in use?
+- [ ] Have you reviewed public access settings for storage (buckets/blobs) and blocked unnecessary public access?
+- [ ] Have you enabled the vendor's security review tools (Trusted Advisor, Defender, Security Command Center, etc.)?
+
+## References
+
+### Standards and frameworks
+
+- [Cloud Security Alliance — Security Guidance v4](https://cloudsecurityalliance.org/research/guidance) — Cloud security best practices
+- [Cloud Security Alliance — Cloud Controls Matrix (CCM)](https://cloudsecurityalliance.org/research/cloud-controls-matrix) — Cloud security controls framework
+- [NIST SP 800-144 — Guidelines on Security and Privacy in Public Cloud Computing](https://csrc.nist.gov/publications/detail/sp/800-144/final)
+
+### AWS
+
+- [Shared Responsibility Model](https://aws.amazon.com/ko/compliance/shared-responsibility-model/)
+- [AWS Security](https://aws.amazon.com/ko/security/)
+- [AWS Artifact (compliance reports)](https://aws.amazon.com/ko/artifact/)
+
+### Azure
+
+- [Shared Responsibility in the Cloud](https://learn.microsoft.com/ko-kr/azure/security/fundamentals/shared-responsibility)
+- [Azure Security](https://azure.microsoft.com/ko-kr/explore/security)
+- [Azure Compliance](https://learn.microsoft.com/ko-kr/azure/compliance/)
+
+### Google Cloud
+
+- [Shared Fate](https://cloud.google.com/architecture/framework/security/shared-responsibility-shared-fate)
+- [Google Cloud Security](https://cloud.google.com/security)
+- [Compliance Resource Center](https://cloud.google.com/security/compliance)
+
+### OCI
+
+- [OCI Security Guide](https://docs.oracle.com/en-us/iaas/Content/Security/Concepts/security_guide.htm)
+- [OCI Compliance](https://www.oracle.com/corporate/cloud-compliance/)

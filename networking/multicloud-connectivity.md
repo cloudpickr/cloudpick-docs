@@ -4,7 +4,7 @@ description: Hub-and-Spoke 등 트랜짓 아키텍처, Cross-Cloud Interconnect,
 
 # 멀티클라우드 네트워크 아키텍처
 
-> 문서 기준: 2026년 6월
+> 문서 기준: 2026년 8월
 
 {% hint style="info" %}
 연결 방식 개요와 CIDR 설계는 [멀티클라우드 네트워크 설계 기초](multicloud-networking.md)를 참고하세요.
@@ -84,7 +84,7 @@ graph TD
 | 구간 | 단가 (서울 리전 기준) | 비고 |
 | --- | --- | --- |
 | AWS → 인터넷 | $0.126/GB (처음 10TB) | 이후 체감 |
-| Azure → 인터넷 | $0.12/GB | 처음 5GB/월 무료 |
+| Azure → 인터넷 | $0.12/GB | 처음 100GB/월 무료 ([Bandwidth 가격](https://azure.microsoft.com/pricing/details/bandwidth/)) |
 | Google Cloud → 인터넷 | $0.12/GB | 처음 200GB/월 무료 |
 | OCI → 인터넷 | 10TB/월 무료, 이후 ~$0.0085/GB | 타사 대비 매우 저렴 |
 | AWS → Direct Connect | ~$0.04/GB | 회선비 별도 |

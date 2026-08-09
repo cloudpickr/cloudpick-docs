@@ -1,5 +1,5 @@
 [build]
-  command = "npm run build"
+  command = "npm run build && node -e \"const fs=require('fs'); const tpl=(u)=>'<!DOCTYPE html><html><head><meta http-equiv=refresh content=\\\"0;url='+u+'\\\"></head></html>'; fs.writeFileSync('dist/index.html',tpl('/ko/introduction/')); for(const l of['ko','en','ja']){fs.writeFileSync('dist/'+l+'/index.html',tpl('introduction/'));}\" "
   publish = "dist"
   functions = "netlify/functions"
 
@@ -114,22 +114,26 @@
   from = "/ko/"
   to = "/ko/introduction/"
   status = 302
+  force = true
 
 [[redirects]]
   from = "/en/"
   to = "/en/introduction/"
   status = 302
+  force = true
 
 [[redirects]]
   from = "/ja/"
   to = "/ja/introduction/"
   status = 302
+  force = true
 
 # ─── 루트 → 한국어 소개 ───
 [[redirects]]
   from = "/"
   to = "/ko/introduction/"
   status = 302
+  force = true
 
 # ─── Headers ───
 [[headers]]

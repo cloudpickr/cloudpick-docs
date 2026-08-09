@@ -384,7 +384,13 @@ python3 scripts/check-internal-links.py
 
 - **루트 GitBook 마크다운이 원본**입니다. 일반 도메인(`about-cloud/` … `storage/`)과 국가 가이드(`korea/`, `us/`, `eu/`, `japan/`, `singapore/`) 모두 루트에 둡니다.
 - Starlight 사이트 트리는 파생물입니다. `scripts/gitbook_to_starlight.py`로 `starlight/src/content/docs/ko/`를 재생성합니다. **`starlight/.../ko/` 직접 수정 금지.**
-- 국가 인덱스 제목/사이드바 라벨은 그룹명과 겹치지 않게 **「한국 개요」「미국 개요」**처럼 명시합니다 (`SUMMARY.md` 소제목·Starlight sidebar label).
+- **국가별 가이드 네비 (GitBook + Starlight 정합)**
+  - GitBook `SUMMARY.md`: `## 국가별 가이드` 아래에 **국가 인덱스 페이지 + 들여쓰기 하위 문서**로 둡니다.  
+    예: 상위 `- [한국](korea/index.md)`, 하위(2칸 들여쓰기) `- [CSAP](korea/security/csap.md)`.  
+    `### 한국 개요` 같은 **h3 그룹 헤딩은 쓰지 않습니다**(GitBook SUMMARY 문법 밖이라 사이드바에서 누락·평탄화될 수 있음).
+  - Starlight `astro.config.mjs`: 그룹은 페이지 링크가 될 수 없으므로 **그룹 label = 국가명**, **첫 항목 = 국가 인덱스**이고 사이드바 라벨은 **「소개」**(en: Overview, ja: 概要)로 둡니다.  
+    「한국 > 한국」「한국 개요」처럼 그룹명과 겹치거나 어색한 라벨을 피합니다.
+  - 페이지 H1(본문 제목)과 사이드바 라벨은 달라도 됩니다. GitBook은 SUMMARY 링크 텍스트, Starlight는 `label`/`translations`가 사이드바에 쓰입니다.
 
 ### 번역 티어 (권장)
 

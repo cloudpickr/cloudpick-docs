@@ -144,17 +144,21 @@ def source_files(sections):
 def run_convert(sections):
     count = mdx_count = 0
     files = list(source_files(sections))
-    # 전체 코어 변환 시 용어집 포함
-    if set(sections) >= set(SECTIONS) and Path("GLOSSARY.md") not in files:
-        files.append(Path("GLOSSARY.md"))
+    # 전체 코어 변환 시 용어집·소개(GitBook 홈 README) 포함
+    if set(sections) >= set(SECTIONS):
+        for extra in (Path("GLOSSARY.md"), Path("README.md")):
+            if extra not in files:
+                files.append(extra)
+    SPECIAL = {"GLOSSARY.md": Path("glossary.md"), "README.md": Path("introduction.md")}
     for rel in files:
         text = (ROOT / rel).read_text(encoding="utf-8")
         converted, is_mdx = convert(text, str(rel))
-        out_path = OUT_BASE / ("glossary.md" if rel.name == "GLOSSARY.md" else rel)
+        out_rel = SPECIAL.get(rel.name, rel)
+        out_path = OUT_BASE / out_rel
         if is_mdx:
             out_path = out_path.with_suffix(".mdx")
             # 동일 slug의 기존 .md 플레이스홀더 제거
-            leftover = OUT_BASE / rel
+            leftover = OUT_BASE / out_rel
             if leftover.exists():
                 leftover.unlink()
             mdx_count += 1

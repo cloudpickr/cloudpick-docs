@@ -32,6 +32,11 @@ export default defineConfig({
 			],
 			sidebar: [
 				{
+					label: '소개',
+					translations: { en: 'Introduction', ja: 'CloudPickについて' },
+					link: 'introduction',
+				},
+				{
 					label: 'Getting Started',
 					translations: { ko: '시작하기', ja: 'はじめに' },
 					items: [

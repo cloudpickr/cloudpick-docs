@@ -35,10 +35,10 @@ The tendency for compute to follow wherever large volumes of data already reside
 
 ### 3. Regulatory and Compliance Requirements
 
-- Public sector: CSAP certification required
-- Financial services: Electronic Financial Supervision Regulations, ISMS-P
-- For EU-facing services: GDPR
-- See [Compliance](../../governance/compliance/) for details
+- Public sector procurement: check country-specific cloud security certification requirements (e.g., Korea CSAP, US FedRAMP, Japan ISMAP)
+- Financial services: check local financial supervisory regulations and industry standards
+- Data privacy: GDPR (EU), APPI (Japan), PDPA (Singapore) — verify data residency requirements
+- See [Compliance](../../governance/compliance/) and country guides for details
 
 ### 4. Team Capability and Ecosystem
 

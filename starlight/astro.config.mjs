@@ -1,23 +1,25 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
-import cloudflare from '@astrojs/cloudflare';
+import starlightLlmsTxt from 'starlight-llms-txt';
 
 // https://astro.build/config
+// 정적 사이트이므로 어댑터 불필요 — Cloudflare Pages에는 dist/를 wrangler pages deploy로 올린다.
 export default defineConfig({
 	site: 'https://docs.cloudpick.kr',
 	output: 'static',
-	adapter: cloudflare(),
 	integrations: [
 		starlight({
 			title: 'CloudPick',
 			description: '멀티클라우드 환경에서 올바른 의사결정을 내리기 위한 벤더 중립 가이드',
-			defaultLocale: 'en',
+			defaultLocale: 'ko',
 			locales: {
-				en: { label: 'English', lang: 'en' },
 				ko: { label: '한국어', lang: 'ko' },
+				en: { label: 'English', lang: 'en' },
 				ja: { label: '日本語', lang: 'ja' },
 			},
+			plugins: [starlightLlmsTxt()],
+			routeMiddleware: './src/routeData.ts',
 			social: [
 				{ icon: 'github', label: 'GitHub', href: 'https://github.com/cloudpick-docs/cloudpick-docs' },
 			],
@@ -148,11 +150,22 @@ export default defineConfig({
 						{ slug: 'ai/rag-patterns' },
 						{ slug: 'ai/vector-store' },
 						{ slug: 'ai/agents' },
+						{ slug: 'ai/agent-adoption' },
 						{ slug: 'ai/1p-vs-3p' },
 						{ slug: 'ai/licensing' },
-						{ slug: 'ai/multicloud-ai' },
 						{ slug: 'ai/llmops' },
-						{ slug: 'ai/agent-adoption' },
+						{ slug: 'ai/multicloud-ai' },
+					],
+				},
+				{
+					label: '한국 특화',
+					translations: { en: 'Korea-Specific', ja: '韓国特化' },
+					items: [
+						{ slug: 'korea' },
+						{ slug: 'korea/security/csap' },
+						{ slug: 'korea/security/network-isolation' },
+						{ slug: 'korea/ai/sovereign-fm-policy' },
+						{ slug: 'korea/ai/fm-providers' },
 					],
 				},
 			],

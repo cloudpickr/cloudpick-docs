@@ -3,13 +3,11 @@ title: "LLMOps"
 description: "LLM 프로덕션 운영 — 평가, 관측, 프롬프트 버전 관리, 비용 추적을 벤더별로 비교합니다."
 ---
 
-# LLMOps
-
-> 문서 기준: 2026년 6월 | 이 문서는 변동이 빠른 영역으로 분기별 리뷰 대상입니다.
+> 문서 기준: 2026년 8월 | 이 문서는 변동이 빠른 영역으로 분기별 리뷰 대상입니다.
 
 ## 개요
 
-[AI 플랫폼과 모델 비교](ai-ml.md)에서 모델을 선택하고, [RAG 고급 패턴](rag-patterns.md)으로 파이프라인을 구축한 뒤에는 **프로덕션에서 지속적으로 품질을 유지하고 개선**해야 합니다. 이를 LLMOps라 합니다.
+[AI 플랫폼과 모델 비교](../../ai/ai-ml/)에서 모델을 선택하고, [RAG 고급 패턴](../../ai/rag-patterns/)으로 파이프라인을 구축한 뒤에는 **프로덕션에서 지속적으로 품질을 유지하고 개선**해야 합니다. 이를 LLMOps라 합니다.
 
 ```mermaid
 graph LR
@@ -18,7 +16,7 @@ graph LR
 ```
 
 :::note
-모델 선택은 [AI 플랫폼과 모델 비교](ai-ml.md)를, RAG 파이프라인 구축은 [RAG 고급 패턴](rag-patterns.md)을, AI 보안은 [AI 보안](../security/ai-security.md)을 참고하세요.
+모델 선택은 [AI 플랫폼과 모델 비교](../../ai/ai-ml/)를, RAG 파이프라인 구축은 [RAG 고급 패턴](../../ai/rag-patterns/)을, AI 보안은 [AI 보안](../../security/ai-security/)을 참고하세요.
 :::
 
 ## 평가 (Evaluation)
@@ -131,7 +129,7 @@ AI 에이전트는 단일 LLM 호출과 달리 **멀티스텝 트라젝토리**(
 
 | 패턴 | 설명 |
 | --- | --- |
-| **모델 Fallback** | 주 모델 장애/지연 시 대체 모델로 자동 전환 (예: Claude Fable 5 → GPT-5.5 → Gemini 3.5 Pro) |
+| **모델 Fallback** | 주 모델 장애/지연 시 대체 모델로 자동 전환 (예: 주력 Claude 계열 → GPT 계열 → Gemini 계열) |
 | **Rate Limit 대응** | 벤더 Rate Limit 도달 시 큐잉 또는 대체 프로바이더로 라우팅 |
 | **Budget Guardrail** | 일/월 비용 상한 설정. 초과 시 요청 거부 또는 저렴한 모델로 전환 |
 | **PII 마스킹** | 프롬프트/응답 로그에서 개인정보 자동 마스킹 후 저장 |

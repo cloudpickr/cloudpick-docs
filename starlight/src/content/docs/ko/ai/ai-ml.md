@@ -3,14 +3,12 @@ title: "AI 플랫폼과 모델 비교"
 description: "벤더별 AI 플랫폼, 모델 카탈로그, GPU/AI 칩, Applied AI 서비스를 비교합니다."
 ---
 
-# AI 플랫폼과 모델 비교
-
-> 문서 기준: 2026년 7월 | 이 문서는 변동이 빠른 영역으로 분기별 리뷰 대상입니다.
+> 문서 기준: 2026년 8월 | 이 문서는 변동이 빠른 영역으로 분기별 리뷰 대상입니다.
 
 ## 개요
 
 :::note
-**AI가 처음이라면** [AI 시작하기](getting-started.md)를 먼저 읽어보시는 것을 권장합니다. 이 문서는 AI 서비스 비교에 초점을 둡니다.
+**AI가 처음이라면** [AI 시작하기](../../ai/getting-started/)를 먼저 읽어보시는 것을 권장합니다. 이 문서는 AI 서비스 비교에 초점을 둡니다.
 :::
 
 ### 전통 ML에서 생성형 AI까지
@@ -20,7 +18,7 @@ description: "벤더별 AI 플랫폼, 모델 카탈로그, GPU/AI 칩, Applied A
 | **전통 ML** | 회귀, 분류, 클러스터링 | 정형 데이터 기반, 피처 엔지니어링 필요 | SageMaker, Azure ML, Vertex AI |
 | **딥러닝** | CNN, RNN, Transformer | 비정형 데이터(이미지, 텍스트, 음성) 처리. GPU 필수 | GPU 인스턴스, 관리형 학습 플랫폼 |
 | **생성형 AI** | 파운데이션 모델 (LLM, 멀티모달) | 텍스트/이미지/코드 생성. API 호출로 사용 | Bedrock, Microsoft Foundry, Gemini |
-| **에이전틱 AI** | LLM + 도구 호출 + 자율 실행 | 목표 부여 시 스스로 계획·실행·검증 | AgentCore, Foundry Agents, [상세→](agents.md) |
+| **에이전틱 AI** | LLM + 도구 호출 + 자율 실행 | 목표 부여 시 스스로 계획·실행·검증 | AgentCore, Foundry Agents, [상세→](../../ai/agents/) |
 
 **패러다임 전환:** 전통 ML은 "데이터를 모아 모델을 직접 학습"하는 방식이었습니다. 2017년 Google이 발표한 **Transformer 아키텍처** ("Attention Is All You Need")가 전환점이 되었습니다. 대규모 텍스트를 병렬로 학습할 수 있게 되면서 GPT, BERT 등 파운데이션 모델이 탄생했고, 이후 "이미 학습된 모델을 API로 호출"하는 생성형 AI 시대가 열렸습니다. 에이전틱 AI에서는 이 모델이 도구를 사용해 "스스로 작업을 완수"하는 단계로 진화하고 있습니다.
 
@@ -54,18 +52,18 @@ description: "벤더별 AI 플랫폼, 모델 카탈로그, GPU/AI 칩, Applied A
 | 모델 제공사 | 주요 모델 | 1P (직접) | 3P (클라우드 제공) |
 | --- | --- | --- | --- |
 | **OpenAI** | GPT-5.6 (Sol/Terra/Luna), GPT-5.5, o-시리즈 | [api.openai.com](https://platform.openai.com/) | Azure Foundry, Bedrock |
-| **Anthropic** | Claude Fable 5, Opus 4.8, Sonnet 5, Haiku | [api.anthropic.com](https://platform.claude.com/) | Bedrock, Vertex AI |
-| **Google** | Gemini 3.5 Pro/Flash, 3.1 Pro, Gemini Omni | [Gemini API](https://ai.google.dev/) | Vertex AI (네이티브) |
+| **Anthropic** | Claude Fable 5, Opus 5, Opus 4.8, Sonnet 5, Haiku | [api.anthropic.com](https://platform.claude.com/) | Bedrock, Vertex AI |
+| **Google** | Gemini 3.5 Pro/Flash, 3.1 Pro, Gemini Omni (Preview/GA는 [공식 문서](https://ai.google.dev/) 확인) | [Gemini API](https://ai.google.dev/) | Vertex AI (네이티브) |
 | **xAI** | Grok 4.3, Grok 4.1 Fast, Imagine | [x.ai/api](https://x.ai/api) | OCI, Vertex AI, Bedrock, Azure |
 | **Meta** | Llama 4 (오픈웨이트) | [llama.meta.com](https://llama.meta.com/) | Bedrock, Vertex, Azure, OCI (호스팅) |
-| **Amazon** | Nova Premier/Pro/Lite/Micro/Sonic | — (Bedrock 전용) | Bedrock |
+| **Amazon** | Nova 1(Premier/Pro/Lite/Micro/Sonic 등) + **Nova 2**(Lite, Pro 등 — 세대 구분) | — (Bedrock 전용) | Bedrock |
 | **Microsoft** | MAI (Image/Voice/Transcribe) | — (Foundry 전용) | Azure Foundry |
 | **Mistral** | Large, Small, Codestral | [api.mistral.ai](https://api.mistral.ai/) | Bedrock, Azure, Vertex |
 | **Upstage** | Solar Pro 3/2/Mini | [console.upstage.ai](https://console.upstage.ai/) | AWS/Azure Marketplace |
 | **LG AI Research** | EXAONE 4.x | 직접 계약 | Marketplace, 셀프호스팅 |
 
 :::note
-**1P(직접)와 3P(클라우드 제공)의 차이** — 같은 모델이라도 채널에 따라 기능 범위, 쿼터, 빌링이 다릅니다. 채널 선택 기준은 [LLM 채널 선택 가이드](1p-vs-3p.md)를 참고하세요.
+**1P(직접)와 3P(클라우드 제공)의 차이** — 같은 모델이라도 채널에 따라 기능 범위, 쿼터, 빌링이 다릅니다. 채널 선택 기준은 [LLM 채널 선택 가이드](../../ai/1p-vs-3p/)를 참고하세요.
 :::
 
 ### 클라우드 플랫폼별 특징
@@ -90,7 +88,7 @@ description: "벤더별 AI 플랫폼, 모델 카탈로그, GPU/AI 칩, Applied A
 
 ### 코드 어시스턴트 / AI 에이전트
 
-코딩 에이전트(Kiro, Claude Code, Codex, Copilot 등)와 에이전트 플랫폼(AgentCore, Foundry Agents 등)은 [AI 에이전트](agents.md)에서 다룹니다.
+코딩 에이전트(Kiro, Claude Code, Codex, Copilot 등)와 에이전트 플랫폼(AgentCore, Foundry Agents 등)은 [AI 에이전트](../../ai/agents/)에서 다룹니다.
 
 ## ML 플랫폼
 
@@ -114,11 +112,11 @@ description: "벤더별 AI 플랫폼, 모델 카탈로그, GPU/AI 칩, Applied A
 
 ## 핵심 차이점
 
-**Amazon Bedrock** — 자체 개발 **Amazon Nova 2** 모델군(Premier/Pro/Lite/Micro/Sonic/Omni)과 Anthropic Claude, OpenAI GPT 시리즈 등 다양한 제공사의 모델을 하나의 API로 접근할 수 있습니다. 모델 선택 폭이 가장 넓으며, AI 에이전트 구축을 위한 AgentCore 등 운영 체계가 강점입니다.
+**Amazon Bedrock** — 자체 개발 **Amazon Nova** 모델(1세대 Premier/Pro/Lite/Micro/Sonic 등과 **Nova 2** Lite/Pro 등 — [공식 모델 목록](https://aws.amazon.com/nova/models/)에서 세대·가용 상태 확인)과 Anthropic Claude, OpenAI GPT 시리즈 등 다양한 제공사 모델을 하나의 API로 접근할 수 있습니다. 모델 선택 폭이 넓으며, AI 에이전트 구축을 위한 AgentCore 등 운영 체계가 강점입니다.
 
 **Microsoft Foundry** — 구 Azure AI Foundry가 브랜드를 통합한 상위 플랫폼입니다. OpenAI GPT-5.5/5.4 시리즈를 엔터프라이즈 환경에서 쓸 수 있는 주요 경로이며, Anthropic, Meta 등 타사 모델도 폭넓게 제공합니다. 자체 **MAI 모델군**(Image-2.5, Voice-1, Transcribe-1)과 **Foundry Local**(로컬/단절망 실행)이 추가되었습니다. Microsoft 365, GitHub, Power Platform 등 기존 Microsoft 생태계와의 깊은 통합이 최대 강점입니다.
 
-**Gemini Enterprise Agent Platform** — 구 Vertex AI가 에이전트 중심으로 전면 개편된 플랫폼입니다. Google 자체 **Gemini 3.x/2.5** 시리즈(3.5 Pro/3.5 Flash/3.1 Pro)의 네이티브 멀티모달 능력과 TPU 인프라가 강점입니다. Gemini 3.5 Pro GA (2026.06)는 2M 토큰 컨텍스트 윈도우와 Deep Think 추론을 지원하며, **Gemini Omni**(any-to-any 멀티모달 비디오 생성)와 Agent Studio를 통한 로우코드 에이전트 개발, Google Search/BigQuery와의 결합이 차별점입니다.
+**Gemini Enterprise Agent Platform** — 구 Vertex AI가 에이전트 중심으로 전면 개편된 플랫폼입니다. Google 자체 **Gemini 3.x/2.5** 시리즈(3.5 Pro/3.5 Flash/3.1 Pro 등 — 각 변형의 Preview/GA·한도는 [공식 문서](https://cloud.google.com/vertex-ai/generative-ai/docs) 확인)의 네이티브 멀티모달 능력과 TPU 인프라가 강점입니다. 장문 컨텍스트·추론 모드·**Gemini Omni**(멀티모달)와 Agent Studio를 통한 로우코드 에이전트 개발, Google Search/BigQuery와의 결합이 차별점입니다.
 
 **OCI Enterprise AI** — 구 OCI Generative AI가 확장된 플랫폼입니다. Cohere, Meta Llama, xAI Grok 4.3, Google Gemini 등의 모델을 OCI 인프라에서 호스팅하며, 전용 AI 클러스터(Dedicated AI Cluster)와 RDMA 기반 Bare Metal GPU로 고성능 워크로드를 지원합니다. **AI Guardrails**(콘텐츠 모더레이션, PII 탐지, 프롬프트 인젝션 방어)와 **Enterprise AI Agents**(GA)가 추가되었습니다. OpenAI와의 파트너십으로 GPT-5.5/5.4 및 Codex를 OCI Marketplace에서 Oracle Universal Credits로 이용할 수 있게 될 예정이며, Oracle Database/애플리케이션과의 네이티브 통합이 강점입니다.
 
@@ -164,7 +162,7 @@ graph LR
 
 ### AI 개발 수명주기 (AI-DLC)
 
-AI 프로젝트의 전체 수명주기(문제 정의→데이터→모델→평가→배포→모니터링→개선)와 운영 상세는 [LLMOps](llmops.md)를 참고하세요.
+AI 프로젝트의 전체 수명주기(문제 정의→데이터→모델→평가→배포→모니터링→개선)와 운영 상세는 [LLMOps](../../ai/llmops/)를 참고하세요.
 - **비용 거버넌스** — AI 비용은 사용량에 비례하여 예측이 어렵습니다. 일/월 예산 상한, 태스크별 토큰 한도, 비용 초과 알림을 반드시 설정하세요.
 - **데이터 드리프트** — RAG용 문서가 오래되면 답변 품질이 서서히 저하됩니다. 정기적인 데이터 갱신 파이프라인을 구성하세요.
 - **규정 준수** — 입출력 로그의 PII 마스킹, 데이터 보존 정책, 모델의 학습 데이터 사용 여부를 지속적으로 관리해야 합니다.
@@ -211,7 +209,7 @@ AI 서비스는 다른 클라우드 서비스보다 **변경 빈도가 매우 �
 
 - 하나의 클라우드 벤더에 종속되지 않고 여러 경로로 동일 모델에 접근할 수 있게 되었습니다
 - 모델 선택 시 "어떤 모델"뿐 아니라 "어떤 플랫폼에서 접근할 때 비용/SLA/리전이 유리한가"가 의사결정 기준이 됩니다
-- [멀티클라우드 AI](multicloud-ai.md)에서 벤더 조합 전략을 상세히 다룹니다
+- [멀티클라우드 AI](../../ai/multicloud-ai/)에서 벤더 조합 전략을 상세히 다룹니다
 
 ## 추론 비용 최적화
 
@@ -226,7 +224,7 @@ AI 서비스는 다른 클라우드 서비스보다 **변경 빈도가 매우 �
 | **GPU 가격 경쟁** | 하이퍼스케일러 간 GPU 인스턴스 가격 인하 추세 | AWS, Azure, GCP 경쟁적 인하 |
 
 :::note
-추론 비용은 모델별, 벤더별로 수시로 변경됩니다. 정확한 현재 가격은 각 벤더의 공식 가격 페이지를 확인하세요. 비용 추적과 예산 관리는 [LLMOps](llmops.md)에서 상세히 다룹니다.
+추론 비용은 모델별, 벤더별로 수시로 변경됩니다. 정확한 현재 가격은 각 벤더의 공식 가격 페이지를 확인하세요. 비용 추적과 예산 관리는 [LLMOps](../../ai/llmops/)에서 상세히 다룹니다.
 :::
 
 ## 자주 하는 실수

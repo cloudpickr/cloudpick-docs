@@ -1,7 +1,256 @@
 ---
-title: placeholder
-description: 기존 콘텐츠 마이그레이션 대기
+title: "규정 준수 (Compliance)"
+description: "한국 ISMS-P, CSAP와 글로벌 ISO 27001, SOC 2 등 클라우드 규정 준수 인증을 벤더별로 안내합니다."
 ---
 
-<!-- TODO: Migrate from ../../governance/compliance.md -->
-기존 콘텐츠 마이그레이션 예정
+> 문서 기준: 2026년 8월
+
+## 개요
+
+클라우드에서 규정 준수는 **공동 책임 모델** 에 따라 벤더와 사용자가 책임을 나눕니다. 벤더는 인프라 계층의 보안 통제를 인증받고, 사용자는 자신의 워크로드 구성이 규제 요건을 충족하도록 관리합니다.
+
+:::note
+공동 책임 모델의 개념적 배경은 [공동 책임 모델](../../about-cloud/shared-responsibility/)을 참고하세요.
+:::
+
+:::caution
+**인증은 전제조건일 뿐 보증이 아닙니다.** 벤더가 ISMS-P나 CSAP 인증을 가지고 있어도, 사용자가 구성한 VPC, IAM, 암호화 설정이 규제 요건을 충족하지 않으면 감사에서 문제가 됩니다. 또한 기술적 보안뿐 아니라 조직의 업무 프로세스(수집·이용·파기 절차, 변경 관리, 접근 권한 관리 등)도 심사 대상입니다.
+:::
+
+### ISMS-P vs ISO 27001 핵심 차이
+
+| 구분 | ISMS-P | ISO 27001 |
+| --- | --- | --- |
+| **적용 범위** | 80+22개 기준 전체 충족 필수 | 적용 범위를 조직이 선택 가능 (SoA로 "해당 없음" 가능) |
+| **개인정보보호** | 포함 (개인정보 처리 단계별 요구사항) | 미포함 (별도 ISO 27701 필요) |
+| **성격** | 한국법 의무 대상 있음 (정보통신서비스 제공자 등) | 국제 자율 인증 |
+| **공통점** | 기술뿐 아니라 업무 프로세스(정책, 인력, 변경 관리)를 심사 | ← 동일 |
+
+## 한국 주요 인증
+
+### ISMS-P (정보보호 및 개인정보보호 관리체계 인증)
+
+- **근거 법률**: 정보통신망법, 개인정보 보호법
+- **운영**: [KISA (한국인터넷진흥원)](https://isms.kisa.or.kr/)
+- **대상**: 매출액 1,500억 원 이상 또는 일평균 이용자 100만 명 이상 등 일정 규모 이상의 정보통신 서비스 제공자
+- **유효 기간**: 3년, 연 1회 사후 심사
+- **클라우드 영향**: 클라우드에 민감 정보를 저장·처리하는 경우, 벤더의 ISMS-P 인증 범위 내 리전을 사용해야 함
+
+공식 벤더별 페이지:
+
+- [AWS K-ISMS](https://aws.amazon.com/compliance/k-isms/)
+- [Azure K-ISMS](https://learn.microsoft.com/azure/compliance/offerings/offering-korea-k-isms)
+- [Google Cloud K-ISMS](https://cloud.google.com/security/compliance/k-isms)
+- OCI: 공식 컴플라이언스 페이지에서 인증 현황 확인
+
+### CSAP (클라우드 보안 인증제)
+
+- **근거 법률**: 클라우드 컴퓨팅 발전법 제23조의2
+- **운영**: [KISA](https://isms.kisa.or.kr/main/csap/intro/)
+- **대상**: 공공기관에 클라우드 서비스를 제공하려는 모든 CSP
+- **등급 체계** (2024년 상·중·하 등급제 전면 시행):
+
+| 등급 | 대상 시스템 | 요구 수준 |
+| --- | --- | --- |
+| **상** | 민감 정보 처리 (주민등록번호 등 고유식별정보 포함) | 물리적 망 분리, 국내 리전, 국내 인력 운영 등 엄격 |
+| **중** | 일반 행정 업무 시스템 | 상 등급 대비 완화 |
+| **하** | 중요도 낮은 시스템 (글로벌 CSP 진입 가능) | 최소 보안 요건 |
+
+**글로벌 CSP의 CSAP 인증 현황 (2025년 기준):**
+
+| 벤더 | 등급 | 리전 | 참고 |
+| --- | --- | --- | --- |
+| AWS | 하 (Low-tier) | 서울 `ap-northeast-2` | [AWS CSAP 공지](https://aws.amazon.com/blogs/security/aws-achieves-cloud-security-assurance-program-csap-low-tier-certification-in-aws-seoul-region/) |
+| Azure | 하 (Low-tier) | Korea Central / South | [Azure CSAP](https://learn.microsoft.com/azure/compliance/offerings/offering-korea-csap) |
+| Google Cloud | 하 (Low-tier) | Seoul `asia-northeast3` | [Google Cloud CSAP](https://cloud.google.com/security/compliance/csap) |
+| OCI | — (공식 페이지 확인) | Seoul, Chuncheon | [Oracle 컴플라이언스](https://www.oracle.com/corporate/cloud-compliance/) |
+
+:::note
+CSAP 제도는 N2SF(국가망보안체계) 1.0 공개(2025.9)에 따라 등급별 차등 보안 체계와의 연계가 진행 중입니다. 도입 전 [KISA 공식 사이트](https://isms.kisa.or.kr/main/csap/intro/)와 [NCSC](https://www.ncsc.go.kr)에서 최신 현황을 확인하세요.
+:::
+
+### 금융권 관련 규제
+
+금융 분야는 추가 규제가 적용됩니다.
+
+- **전자금융거래법 / 전자금융감독규정** — 금융회사의 클라우드 이용 시 안전성 확보 요건
+- **금융보안원 (FSI)** — 금융권 클라우드 이용 가이드 발간, 보안 컨설팅 제공
+- **망분리 규제** — 개인신용정보 처리 시스템은 일반 업무망과 분리 운영 필요. N2SF 1.0에 따라 등급별 차등 적용으로 전환 중 ([망분리와 네트워크 격리](../../security/network-isolation/) 참고)
+
+공식 자료:
+
+- [금융보안원 클라우드 이용 가이드](https://www.fsec.or.kr/) (통합 인덱스 활용)
+- [금융위원회](https://www.fsc.go.kr/)
+
+## 국제 주요 인증
+
+### ISO/IEC 27001:2022 — 정보보호 관리체계
+
+국제 표준의 정보보안 관리 체계. 대부분의 글로벌 CSP가 기본으로 보유합니다. **2022 개정판**이 현행 표준이며, 이전 2013 버전 인증서는 2025년 10월 31일부로 만료되었습니다. 아직 2022 버전으로 전환하지 않은 조직은 신규 인증(또는 전환 재인증)을 받아야 합니다.
+
+주요 변경: 통제 항목이 114개에서 93개로 재구조화되고, "위협 인텔리전스", "클라우드 서비스 보안", "데이터 마스킹" 등 11개 신규 통제가 추가되었습니다.
+
+- [AWS ISO 27001](https://aws.amazon.com/compliance/iso-27001-faqs/)
+- [Azure ISO 27001](https://learn.microsoft.com/azure/compliance/offerings/offering-iso-27001)
+- [Google Cloud ISO 27001](https://cloud.google.com/security/compliance/iso-27001)
+- [Oracle ISO 27001](https://www.oracle.com/corporate/cloud-compliance/)
+
+### ISO/IEC 42001 — AI 관리 체계
+
+AI 시스템의 개발·운영에 대한 국제 표준 관리 체계 인증입니다. 책임 있는 AI 거버넌스를 위한 프레임워크를 제공합니다.
+
+- OCI AI 서비스(Enterprise AI, AI Services)가 2026년 6월 ISO/IEC 42001 인증을 취득
+- [Oracle Cloud Compliance](https://www.oracle.com/corporate/cloud-compliance/)
+
+### SOC 1 / SOC 2 / SOC 3
+
+AICPA(미국 공인회계사 협회) 기반 감사 보고서. 엔터프라이즈 고객이 자주 요구합니다.
+
+- **SOC 1** — 재무 보고 통제
+- **SOC 2** — 보안, 가용성, 처리 무결성, 기밀성, 개인정보 보호
+- **SOC 3** — SOC 2 요약 공개 보고서
+
+각 벤더의 SOC 보고서는 **기밀 자료** 이므로 고객 계약 후 AWS Artifact, Azure Service Trust Portal 등을 통해 다운로드합니다.
+
+### 산업별 규제
+
+| 산업 | 주요 규제 | 적용 지역 | 비고 |
+| --- | --- | --- | --- |
+| **의료** | HIPAA, HITRUST | 미국 | |
+| **카드결제** | PCI DSS v4.0.1 | 글로벌 | v4.0(2024.3.31, 기존 v3.2.1 폐기) → v4.0.1(2024.6 정오표). 2025.3.31부터 v4.0의 "미래 날짜" ~50개 항목 의무화 완료 |
+| **공공 (미국)** | FedRAMP / FedRAMP 20x | 미국 연방 | 20x: 수개월 단위 수동 인가를 OSCAL 기반 기계판독 증거·자동 검증 중심으로 단축하는 자동화 우선 프로세스 ([fedramp.gov/20x](https://www.fedramp.gov/20x/)) |
+| **공공 (EU)** | C5 (독일), ENS (스페인) 등 | EU | |
+| **개인정보 (EU)** | GDPR | EU | |
+| **AI (EU)** | EU AI Act | EU | GPAI 의무 2025.8.2 시행 완료. 고위험 AI 2026.8.2 적용. [EU AI Act 전문](https://artificialintelligenceact.eu/) |
+| **금융 (EU)** | DORA | EU | 2025.1.17 적용 개시. CTPP(Critical Third-Party Provider) 지정 절차 진행 중. [상세](../../governance/landing-zone/) |
+
+각 벤더의 해당 인증 현황은 **AWS Compliance Programs**, **Azure Trust Center**, **Google Cloud Compliance**, **Oracle Cloud Compliance** 페이지에서 확인합니다.
+
+## 벤더별 컴플라이언스 허브
+
+인증 현황 전체 목록과 보고서 접근 방법은 각 벤더 공식 허브에서 관리됩니다.
+
+| 벤더 | 허브 |
+| --- | --- |
+| AWS | [AWS Compliance Programs](https://aws.amazon.com/compliance/programs/), [AWS Artifact (보고서)](https://aws.amazon.com/artifact/) |
+| Azure | [Microsoft Trust Center](https://www.microsoft.com/trust-center), [Service Trust Portal](https://servicetrust.microsoft.com/) |
+| Google Cloud | [Google Cloud Compliance Resource Center](https://cloud.google.com/security/compliance), [Google Compliance Reports Manager](https://cloud.google.com/security/compliance/compliance-reports-manager) |
+| OCI | [Oracle Cloud Compliance](https://www.oracle.com/corporate/cloud-compliance/) |
+
+## 클라우드에서 규정 준수를 어떻게 운영하는가
+
+인증 자체보다 **일상 운영에서 통제를 어떻게 유지하는가**가 감사의 핵심입니다.
+
+### 1. 가드레일 자동화
+
+수동 관리는 누락이 발생하므로 정책을 IaC로 코드화합니다.
+
+| 벤더 | 도구 |
+| --- | --- |
+| AWS | [AWS Config](https://aws.amazon.com/config/), [AWS Security Hub](https://aws.amazon.com/security-hub/), SCP (Service Control Policy) |
+| Azure | [Azure Policy](https://learn.microsoft.com/azure/governance/policy/overview), [Microsoft Defender for Cloud](https://azure.microsoft.com/products/defender-for-cloud) |
+| Google Cloud | [Organization Policy](https://cloud.google.com/resource-manager/docs/organization-policy/overview), [Security Command Center](https://cloud.google.com/security-command-center) |
+| OCI | [OCI Security Zones](https://docs.oracle.com/en-us/iaas/Content/security-zone/home.htm), [OCI Cloud Guard](https://docs.oracle.com/en-us/iaas/cloud-guard/home.htm) |
+
+### 2. 감사 추적
+
+모든 변경은 감사 로그로 남기고 중앙 저장소에 장기 보관합니다.
+
+| 벤더 | 감사 로그 |
+| --- | --- |
+| AWS | [AWS CloudTrail](https://aws.amazon.com/cloudtrail/) |
+| Azure | [Azure Monitor Activity Log](https://learn.microsoft.com/azure/azure-monitor/essentials/activity-log) |
+| Google Cloud | [Cloud Audit Logs](https://cloud.google.com/logging/docs/audit) |
+| OCI | [OCI Audit](https://docs.oracle.com/en-us/iaas/Content/Audit/Concepts/auditoverview.htm) |
+
+### 3. 접근 통제와 최소 권한
+
+최소 권한 원칙, MFA, 키 순환은 [IAM과 접근 제어](../../security/iam/)에서 다룹니다.
+
+### 4. 데이터 보호
+
+:::note
+저장/전송 암호화, 키 관리, 데이터 주권은 [데이터 보호와 워크로드 보안](../../security/data-protection/)을 참고하세요.
+:::
+
+### 5. 지속 모니터링
+
+감사 시점에만 통제를 맞추는 것이 아니라 상시 감지 체계를 운영합니다. 주요 벤더 모두 **컴플라이언스 대시보드** 를 제공합니다.
+
+- AWS Security Hub — CIS Benchmark, NIST, PCI DSS 자동 검사. [보안 태세 관리](../../security/security-posture/)에서 상세히 다룹니다
+- Azure Defender for Cloud — Secure Score + 컴플라이언스 표준 자동 평가
+- Google Cloud Security Command Center — 컴플라이언스 프레임워크 매핑
+- OCI Cloud Guard — 구성 오류 자동 감지
+
+## 독자를 위한 체크리스트
+
+멀티클라우드 환경에서 규정 준수를 고려할 때 확인할 사항:
+
+- [ ] 처리/저장하는 데이터의 **민감도 분류** 는 끝났는가? (개인정보, 금융정보, 기밀정보 등)
+- [ ] 해당 데이터에 적용되는 **법적 요건** 을 파악했는가? (국내법 + 해외법)
+- [ ] 사용하려는 벤더가 필요한 **인증을 해당 리전에서 보유** 하는가?
+- [ ] 공동 책임 모델에서 **사용자 책임 영역** 을 명확히 정의했는가?
+- [ ] 감사 로그, 접근 통제, 암호화 등 **일상 운영 통제** 를 자동화했는가?
+- [ ] 멀티클라우드 환경에서 **통합 감사** 가 가능한가? (개별 벤더 대시보드 분산 주의)
+
+## 지속적으로 해야 할 것
+
+- **인증 갱신 주기 관리** — ISMS-P는 3년 유효/연 1회 사후심사, ISO 27001은 3년 주기/연 1회 감시심사입니다. 갱신 일정을 캘린더에 등록하세요.
+- **지속적 감사(Continuous Compliance)** — 수동 점검 대신 AWS Config, Azure Policy, Google Cloud Organization Policy로 정책 위반을 실시간 탐지합니다.
+- **정책 드리프트 탐지** — IaC와 실제 환경의 차이를 정기적으로 확인하여 규정 준수 상태를 유지합니다.
+
+## 자주 하는 실수
+
+- **벤더 인증만 믿고 사용자 책임 영역을 방치** — 벤더가 ISMS-P를 가지고 있어도 VPC, IAM, 암호화 설정은 사용자 책임이므로 감사에서 지적됨
+- **감사 시점에만 통제를 맞추고 평소에는 드리프트 방치** — 연 1회 심사 직전에만 정리하면 일상 운영에서 규정 위반이 누적됨
+- **데이터 분류를 하지 않고 모든 데이터에 동일 보안 수준 적용** — 과보호로 비용이 폭증하거나, 과소보호로 규제 위반 발생
+
+## 체크리스트
+
+- [ ] 처리/저장하는 데이터의 민감도 분류(개인정보, 금융정보, 기밀정보)를 완료했는가
+- [ ] AWS Config, Azure Policy 등으로 정책 위반을 실시간 탐지하는 지속적 감사 체계를 운영하는가
+- [ ] 인증 갱신 일정(ISMS-P 사후심사, ISO 27001 감시심사)을 캘린더에 등록하고 관리하는가
+
+## 참고하기
+
+### 한국 기관
+
+- [KISA 인증 · 인정](https://isms.kisa.or.kr/)
+- [개인정보보호위원회](https://www.pipc.go.kr/)
+- [금융보안원](https://www.fsec.or.kr/)
+
+### AWS
+
+- [AWS Compliance Programs](https://aws.amazon.com/compliance/programs/)
+- [AWS K-ISMS](https://aws.amazon.com/compliance/k-isms/)
+- [AWS CSAP](https://aws.amazon.com/compliance/csap/)
+- [AWS Artifact](https://aws.amazon.com/artifact/)
+
+### Azure
+
+- [Microsoft Trust Center](https://www.microsoft.com/trust-center)
+- [Azure K-ISMS](https://learn.microsoft.com/azure/compliance/offerings/offering-korea-k-isms)
+- [Azure CSAP](https://learn.microsoft.com/azure/compliance/offerings/offering-korea-csap)
+- [Azure Compliance Offerings](https://learn.microsoft.com/azure/compliance/)
+
+### Google Cloud
+
+- [Google Cloud Compliance Resource Center](https://cloud.google.com/security/compliance)
+- [Google Cloud K-ISMS](https://cloud.google.com/security/compliance/k-isms)
+- [Google Compliance Reports Manager](https://cloud.google.com/security/compliance/compliance-reports-manager)
+
+### OCI
+
+- [Oracle Cloud Compliance](https://www.oracle.com/corporate/cloud-compliance/)
+- [OCI Security Guide](https://docs.oracle.com/en-us/iaas/Content/Security/Concepts/security_guide.htm)
+
+### 국제 표준
+
+- [ISO/IEC 27001:2022](https://www.iso.org/standard/27001)
+- [ISO/IEC 42001](https://www.iso.org/standard/81230.html) — AI 관리 체계
+- [NIST SP 800-53](https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final)
+- [CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks)
+- [EU AI Act 전문](https://artificialintelligenceact.eu/)
+- [EU DORA](https://www.eiopa.europa.eu/digital-operational-resilience-act-dora_en)
+- [PCI DSS v4.0.1](https://www.pcisecuritystandards.org/)
+- [FedRAMP 20x](https://www.fedramp.gov/20x/)

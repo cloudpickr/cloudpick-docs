@@ -3,8 +3,6 @@ title: "AI 시작하기"
 description: "AI의 전체 영역(전통 ML, 딥러닝, 생성형 AI, 에이전트)을 개괄하고, 클라우드에서 시작하는 방법을 안내합니다."
 ---
 
-# AI 시작하기
-
 > 문서 기준: 2026년 7월
 
 ## AI의 전체 그림
@@ -26,11 +24,11 @@ description: "AI의 전체 영역(전통 ML, 딥러닝, 생성형 AI, 에이전�
 
 | 해결하려는 문제 | 적합한 접근 | 문서 |
 | --- | --- | --- |
-| 정형 데이터 예측 (매출, 이탈, 이상 탐지) | 전통 ML | [AI 플랫폼 — ML 플랫폼](ai-ml.md#ml-플랫폼) |
-| 이미지/영상 분류, 객체 탐지 | 딥러닝 (Computer Vision) | [AI 플랫폼 — ML 플랫폼](ai-ml.md#ml-플랫폼) |
+| 정형 데이터 예측 (매출, 이탈, 이상 탐지) | 전통 ML | [AI 플랫폼 — ML 플랫폼](../../ai/ai-ml/#ml-플랫폼) |
+| 이미지/영상 분류, 객체 탐지 | 딥러닝 (Computer Vision) | [AI 플랫폼 — ML 플랫폼](../../ai/ai-ml/#ml-플랫폼) |
 | 자연어 대화, 문서 요약, 코드 생성 | 생성형 AI (FM API) | 이 문서 아래 참고 |
-| 멀티스텝 자동화, 도구 호출, 자율 작업 | 에이전트 | [AI 에이전트](agents.md) |
-| 업무 보조 (전 직원 AI 도구) | Desktop Agent | [AI 에이전트](agents.md) |
+| 멀티스텝 자동화, 도구 호출, 자율 작업 | 에이전트 | [AI 에이전트](../../ai/agents/) |
+| 업무 보조 (전 직원 AI 도구) | Desktop Agent | [AI 에이전트](../../ai/agents/) |
 
 ---
 
@@ -59,7 +57,7 @@ AI 모델을 직접 만들려면 수백억 원의 GPU, 수천만 건의 학습 �
 
 ## 생성형 AI 활용 단계
 
-이 아래부터는 가장 많이 선택되는 **생성형 AI(FM API)** 도입 순서를 다룹니다. 전통 ML 파이프라인(학습→배포→모니터링)은 [AI 플랫폼과 모델 비교 — ML 파이프라인](ai-ml.md#ml-파이프라인과-mlops)을 참고하세요.
+이 아래부터는 가장 많이 선택되는 **생성형 AI(FM API)** 도입 순서를 다룹니다. 전통 ML 파이프라인(학습→배포→모니터링)은 [AI 플랫폼과 모델 비교 — ML 파이프라인](../../ai/ai-ml/#ml-파이프라인과-mlops)을 참고하세요.
 
 생성형 AI를 도입할 때 보통 이 순서로 접근합니다. 아래로 갈수록 비용과 복잡도가 증가합니다.
 
@@ -73,7 +71,7 @@ graph TD
 
 ### 단계 1: API 호출
 
-가장 간단한 시작점입니다. Amazon Bedrock, Microsoft Foundry, Gemini Enterprise, OCI Enterprise AI 중 하나의 API로 질문을 보내고 답을 받습니다. 벤더별 서비스 비교는 [AI 플랫폼과 모델 비교](ai-ml.md)를 참고하세요.
+가장 간단한 시작점입니다. Amazon Bedrock, Microsoft Foundry, Gemini Enterprise, OCI Enterprise AI 중 하나의 API로 질문을 보내고 답을 받습니다. 벤더별 서비스 비교는 [AI 플랫폼과 모델 비교](../../ai/ai-ml/)를 참고하세요.
 
 **사용 예시:**
 - 사용자 질문에 답하는 챗봇
@@ -82,7 +80,7 @@ graph TD
 
 ### 단계 2: 프롬프트 엔지니어링
 
-같은 API라도 어떻게 묻느냐에 따라 답이 크게 달라집니다. 예를 들어 "당신은 법률 전문가입니다. 아래 계약서에서 위험 요소를 5가지 찾아주세요"처럼 역할과 지시를 명확히 주면 품질이 올라갑니다. 설계 기법 상세는 [프롬프트 엔지니어링](prompt-engineering.md)을 참고하세요.
+같은 API라도 어떻게 묻느냐에 따라 답이 크게 달라집니다. 예를 들어 "당신은 법률 전문가입니다. 아래 계약서에서 위험 요소를 5가지 찾아주세요"처럼 역할과 지시를 명확히 주면 품질이 올라갑니다. 설계 기법 상세는 [프롬프트 엔지니어링](../../ai/prompt-engineering/)을 참고하세요.
 
 **코드 작성 없이 가능한 개선 방법입니다.**
 
@@ -97,7 +95,7 @@ graph TD
 - 제품 FAQ 자동 응답
 - 법률/의료 문서 조회
 
-RAG는 [벡터 스토어](vector-store.md)와 함께 동작합니다. 구현 패턴 상세는 [RAG 고급 패턴](rag-patterns.md)을 참고하세요.
+RAG는 [벡터 스토어](../../ai/vector-store/)와 함께 동작합니다. 구현 패턴 상세는 [RAG 고급 패턴](../../ai/rag-patterns/)을 참고하세요.
 
 ### 단계 4: Fine-tuning
 
@@ -112,7 +110,7 @@ RAG는 [벡터 스토어](vector-store.md)와 함께 동작합니다. 구현 패
 
 대부분의 조직에는 필요하지 않습니다. 구글, OpenAI, Anthropic 같은 회사들이 하는 일입니다.
 
-모델 운영·평가·비용 추적은 [LLMOps](llmops.md)를, AI 보안과 가드레일은 [AI 보안](../security/ai-security.md)을 참고하세요.
+모델 운영·평가·비용 추적은 [LLMOps](../../ai/llmops/)를, AI 보안과 가드레일은 [AI 보안](../../security/ai-security/)을 참고하세요.
 
 ## 언제 어떤 방법을 쓸까
 
@@ -171,7 +169,7 @@ RAG는 [벡터 스토어](vector-store.md)와 함께 동작합니다. 구현 패
 ### OCI
 
 - [OCI Enterprise AI 개요](https://www.oracle.com/kr/artificial-intelligence/generative-ai/generative-ai-service/)
-- [OCI AI Database 26ai](https://www.oracle.com/kr/database/21c/ai-vector-search/)
+- [Oracle AI Database (벡터 검색)](https://www.oracle.com/database/ai-vector-search/)
 
 ### 입문 자료
 
@@ -182,4 +180,4 @@ RAG는 [벡터 스토어](vector-store.md)와 함께 동작합니다. 구현 패
 
 ### 용어집
 
-- [CloudPick 용어집](../GLOSSARY.md) — AI/ML 관련 용어 포함
+- [CloudPick 용어집](../../glossary/) — AI/ML 관련 용어 포함

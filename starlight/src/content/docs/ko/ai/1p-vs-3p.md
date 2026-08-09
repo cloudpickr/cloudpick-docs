@@ -3,9 +3,7 @@ title: "LLM 채널 선택 가이드"
 description: "동일한 FM을 1P(모델 제공사 직접)와 3P(클라우드 플랫폼 경유)로 소비할 때의 차이를 비교합니다."
 ---
 
-# LLM 채널 선택 가이드
-
-> 문서 기준: 2026년 7월
+> 문서 기준: 2026년 8월
 
 ## 개요
 
@@ -79,7 +77,7 @@ FM을 도입할 때 **두 가지 독립적인 선택**이 있습니다. 이 둘�
 ## ② 채널: 어디서 구매·운영하나
 
 :::note
-"같은 모델인데 왜 채널에 따라 경험이 다른가?"를 이해하는 것이 이 섹션의 목적입니다. 모델 자체의 성능 비교는 [AI 플랫폼과 모델 비교](ai-ml.md)를 참고하세요.
+"같은 모델인데 왜 채널에 따라 경험이 다른가?"를 이해하는 것이 이 섹션의 목적입니다. 모델 자체의 성능 비교는 [AI 플랫폼과 모델 비교](../../ai/ai-ml/)를 참고하세요.
 :::
 
 ### 채널 아키텍처 패턴
@@ -118,7 +116,7 @@ FM 제공사가 고객에게 모델을 전달하는 경로는 크게 **4가지 �
 | 운영 부담 | 없음 | 없음 | 낮음 | 높음 (GPU, 모델 서빙, 업데이트) |
 
 :::note
-**패턴 D(셀프호스팅/오픈웨이트)**의 상세 — 대표 모델, 선택 이유, 라이선스 주의사항은 [AI 플랫폼과 모델 비교](ai-ml.md)를 참고하세요.
+**패턴 D(셀프호스팅/오픈웨이트)**의 상세 — 대표 모델, 선택 이유, 라이선스 주의사항은 [AI 플랫폼과 모델 비교](../../ai/ai-ml/)를 참고하세요.
 :::
 
 ### 실제 예시: "Claude Code를 쓰고 싶은데"
@@ -137,36 +135,24 @@ FM 제공사가 고객에게 모델을 전달하는 경로는 크게 **4가지 �
 
 ## 주요 FM별 채널 현황
 
-:::note
-제공사별 모델 목록과 접근 가능 채널은 [AI 플랫폼과 모델 비교](ai-ml.md)를, 한국 FM(Upstage, EXAONE 등)은 같은 문서의 모델 카탈로그를 참고하세요.
-:::
+제공사별 모델 목록과 접근 가능 채널은 [AI 플랫폼과 모델 비교](../../ai/ai-ml/)를, 한국 FM(Upstage, EXAONE 등)은 같은 문서의 모델 카탈로그를 참고하세요. 패턴별 특성 비교 표는 위 **패턴별 특성 비교** 절을 사용합니다.
 
 ---
 
-## 채널별 핵심 차이
+## 선택 가이드 (평가 축)
 
-| 비교 항목 | A. 직접 이용 (1P) | B. 모델사+클라우드 결제 | C. 클라우드 제공 (3P) | D. 셀프호스팅 |
-| --- | --- | --- | --- | --- |
-| 신규 모델 | 최초 | 거의 동시 | 수일–수주 지연 | 오픈웨이트 공개 시 |
-| 기능 범위 | 전체 | 전체 | 클라우드 API 내 | 직접 구축 |
-| 네트워크 격리 | Enterprise 전용 | 마켓플레이스 내 | 기본 지원 (리전별 확인) | 완전 격리 |
-| 컴플라이언스 | 제공사 인증 | 제공사+클라우드 | 클라우드 인증 활용 | 자체 책임 |
-| 커밋 소진 | 불가 | 가능 | 가능 | 불가 |
-| 운영 부담 | 없음 | 없음 | 낮음 | 높음 |
+월 지출액만으로 1P/3P를 고정하지 마세요. 아래 축을 먼저 정리한 뒤 채널을 고릅니다.
 
----
-
-## 규모별 선택 가이드
-
-| 규모 | 권장 | 이유 |
+| 평가 축 | 1P(직접)가 유리한 때 | 3P(클라우드 제공)가 유리한 때 |
 | --- | --- | --- |
-| **월 $1K 미만** (실험/PoC) | 1P 직접 | 가장 빠른 시작, 최신 기능 즉시 접근, 복잡한 계약 불필요 |
-| **월 $1K~$10K** (소규모 프로덕션) | 1P 또는 3P 단일 | 기존 클라우드 계약이 있으면 3P, 없으면 1P. 쿼터 이슈 적음 |
-| **월 $10K~$100K** (중규모) | 3P 주력 + 1P 보조 | 클라우드 커밋 소진 효과 + VPC/컴플라이언스. 1P는 베타/최신 모델 접근용 |
-| **월 $100K 이상** (대규모 엔터프라이즈) | 하이브리드 (3P 프로덕션 + 1P 혁신) | 프로덕션은 3P(커밋 소진, 예약 용량, 거버넌스). 혁신 팀은 1P(최신 기능, 빠른 실험). 양쪽 모두 협상 |
+| **기능·출시 속도** | 최신 모델·에이전트 기능이 즉시 필요 | 플랫폼 API 범위로 충분, 수일~수주 지연 허용 |
+| **네트워크·컴플라이언스** | Enterprise급 격리만으로 충분 | VPC/리전 거버넌스·기존 인증 상속이 필요 |
+| **조달·커밋** | 클라우드 커밋이 거의 없음 | EDP/EA/CUD 등 커밋 소진이 큼 |
+| **운영** | 모델사 콘솔 운영을 수용 | 기존 클라우드 IAM·관측·예산 체계에 통합 |
+| **규모·쿼터** | PoC·소규모, 쿼터 여유 | 프로덕션 트래픽·예약 용량·프라이빗 오퍼 협상 |
 
 :::caution
-$100K+/월 규모에서는 **토큰 단가보다 조달 구조**(커밋 소진, 예약 용량, 프라이빗 오퍼)가 더 큰 비용 변수입니다. 클라우드 커밋이 큰 조직은 3P가 실질 비용에서 유리할 수 있습니다.
+대규모(대략 월 수만 달러 이상)에서는 **토큰 단가보다 조달 구조**(커밋 소진, 예약 용량, 프라이빗 오퍼)가 더 큰 비용 변수인 경우가 많습니다. 금액 임계값은 조직마다 다르므로 공식 견적·계약 조건을 확인하세요.
 :::
 
 ---
@@ -186,7 +172,7 @@ $100K+/월 규모에서는 **토큰 단가보다 조달 구조**(커밋 소진, 
 
 ## 요금제와 비용 관리
 
-각 제공사의 라이선스 티어(Seat 플랜, API 티어), 3P 예약 용량(PTU, Provisioned Throughput), 비용 관리 도구와 패턴은 [LLM 라이선스와 비용 관리](licensing.md)에서 다룹니다.
+각 제공사의 라이선스 티어(Seat 플랜, API 티어), 3P 예약 용량(PTU, Provisioned Throughput), 비용 관리 도구와 패턴은 [LLM 라이선스와 비용 관리](../../ai/licensing/)에서 다룹니다.
 
 ---
 
@@ -207,16 +193,25 @@ $100K+/월 규모에서는 **토큰 단가보다 조달 구조**(커밋 소진, 
 
 ## 관련 문서
 
-- [AI 플랫폼과 모델 비교](ai-ml.md) — 벤더별 FM 카탈로그, GPU/가속기
-- [멀티클라우드 AI](multicloud-ai.md) — 벤더 조합 전략
-- [LLMOps](llmops.md) — 비용 추적, 평가, 운영
-- [FinOps](../governance/finops.md) — 클라우드 비용 거버넌스
+- [AI 플랫폼과 모델 비교](../../ai/ai-ml/) — 벤더별 FM 카탈로그, GPU/가속기
+- [멀티클라우드 AI](../../ai/multicloud-ai/) — 벤더 조합 전략
+- [LLMOps](../../ai/llmops/) — 비용 추적, 평가, 운영
+- [FinOps](../../governance/finops/) — 클라우드 비용 거버넌스
 
 ## 참고하기
 
-- [Azure OpenAI vs OpenAI: Enterprise Decision Guide](https://amitkoth.com/azure-openai-vs-openai/)
-- [Anthropic API vs AWS Bedrock Claude](https://www.respan.ai/articles/claude-vs-bedrock-claude)
-- [Claude Platform on AWS vs Bedrock](https://isimplifyme.com/blog/claude-platform-on-aws-vs-bedrock)
-- [Azure Foundry Quotas and Limits](https://learn.microsoft.com/en-us/azure/foundry/openai/quotas-limits)
+### 모델 제공사
+
 - [OpenAI API Rate Limits](https://platform.openai.com/docs/guides/rate-limits)
+- [OpenAI API 가격](https://openai.com/api/pricing/)
+- [Anthropic Claude 플랜·가격](https://claude.com/pricing)
+- [Anthropic API 문서](https://docs.anthropic.com/)
 - [Upstage Console](https://console.upstage.ai/)
+
+### 클라우드 채널
+
+- [Amazon Bedrock](https://docs.aws.amazon.com/bedrock/)
+- [Amazon Bedrock 가격](https://aws.amazon.com/bedrock/pricing/)
+- [Azure AI Foundry Quotas and Limits](https://learn.microsoft.com/en-us/azure/foundry/openai/quotas-limits)
+- [Azure OpenAI 가격](https://azure.microsoft.com/en-us/pricing/details/azure-openai/)
+- [Vertex AI Generative AI](https://cloud.google.com/vertex-ai/generative-ai/docs)

@@ -1,6 +1,6 @@
 ---
 title: "Compliance"
-description: "A vendor-by-vendor guide to cloud compliance certifications, covering Korea's ISMS-P and CSAP alongside global standards like ISO 27001 and SOC 2."
+description: "A vendor-by-vendor guide to global cloud compliance certifications such as ISO 27001 and SOC 2, and how to operate compliance in practice."
 ---
 
 > Last reviewed: August 2026
@@ -14,73 +14,18 @@ For background on the shared responsibility model, see [Shared Responsibility Mo
 :::
 
 :::caution
-**Certification is a prerequisite, not a guarantee.** Even if a vendor holds ISMS-P or CSAP certification, an audit will flag issues if the user's VPC, IAM, and encryption configurations don't meet regulatory requirements. Audits also cover organizational business processes (collection/use/destruction procedures, change management, access rights management) in addition to technical security.
+**Certification is a prerequisite, not a guarantee.** Even if a vendor holds national or international certification, an audit will flag issues if the user's VPC, IAM, and encryption configurations don't meet regulatory requirements. Audits also cover organizational business processes (collection/use/destruction procedures, change management, access rights management) in addition to technical security.
 :::
 
-### Key differences: ISMS-P vs. ISO 27001
+## Compliance by Country
 
-| Category | ISMS-P | ISO 27001 |
-| --- | --- | --- |
-| **Scope** | Must fully satisfy all 80+22 criteria | Organizations can choose their scope (Statement of Applicability allows "not applicable") |
-| **Privacy** | Included (requirements at each stage of personal data processing) | Not included (requires separate ISO 27701) |
-| **Nature** | Legally mandatory in Korea for certain entities (information and communications service providers, etc.) | Voluntary international certification |
-| **Common ground** | Both audit business processes (policy, personnel, change management), not just technology | ← Same |
+Public procurement certifications, personal data protection laws, and industry-specific regulations vary by country and region, directly affecting architectural decisions such as region selection, data residency, and isolation level. Country-specific details are covered in the relevant country document.
 
-## Major Korean Certifications
-
-### ISMS-P (Personal Information & Information Security Management System)
-
-- **Legal basis**: Network Act, Personal Information Protection Act
-- **Operated by**: [KISA (Korea Internet & Security Agency)](https://isms.kisa.or.kr/)
-- **Scope**: Information and communications service providers above certain size thresholds — annual revenue of KRW 150 billion or more, or an average of 1 million or more daily users, among other criteria
-- **Validity**: 3 years, with annual follow-up audits
-- **Cloud impact**: When storing or processing sensitive information in the cloud, organizations must use regions within the vendor's ISMS-P certification scope
-
-Official vendor pages:
-
-- [AWS K-ISMS](https://aws.amazon.com/compliance/k-isms/)
-- [Azure K-ISMS](https://learn.microsoft.com/azure/compliance/offerings/offering-korea-k-isms)
-- [Google Cloud K-ISMS](https://cloud.google.com/security/compliance/k-isms)
-- OCI: check certification status on the official compliance page
-
-### CSAP (Korea's Cloud Security Assurance Program)
-
-- **Legal basis**: Article 23-2 of the Cloud Computing Act
-- **Operated by**: [KISA](https://isms.kisa.or.kr/main/csap/intro/)
-- **Scope**: Any CSP seeking to provide cloud services to Korean public sector agencies
-- **Tier system** (three-tier High/Medium/Low system fully in effect since 2024):
-
-| Tier | Target systems | Requirements |
-| --- | --- | --- |
-| **High** | Sensitive information processing (including unique identifiers such as resident registration numbers) | Strict — physical network segregation, domestic region, domestic personnel operation |
-| **Medium** | General administrative systems | Relaxed compared to High tier |
-| **Low** | Lower-criticality systems (accessible to global CSPs) | Minimum security requirements |
-
-**Global CSP CSAP certification status (as of 2025):**
-
-| Vendor | Tier | Region | Reference |
-| --- | --- | --- | --- |
-| AWS | Low-tier | Seoul `ap-northeast-2` | [AWS CSAP announcement](https://aws.amazon.com/blogs/security/aws-achieves-cloud-security-assurance-program-csap-low-tier-certification-in-aws-seoul-region/) |
-| Azure | Low-tier | Korea Central / South | [Azure CSAP](https://learn.microsoft.com/azure/compliance/offerings/offering-korea-csap) |
-| Google Cloud | Low-tier | Seoul `asia-northeast3` | [Google Cloud CSAP](https://cloud.google.com/security/compliance/csap) |
-| OCI | — (check official page) | Seoul, Chuncheon | [Oracle Compliance](https://www.oracle.com/corporate/cloud-compliance/) |
-
-:::note
-Following the release of N2SF (National Network Security Framework) 1.0 in September 2025, CSAP is being integrated with the tiered security system it introduces. Check the [KISA official site](https://isms.kisa.or.kr/main/csap/intro/) and [NCSC](https://www.ncsc.go.kr) for the latest status before adoption.
-:::
-
-### Financial sector regulations
-
-The financial sector is subject to additional regulations.
-
-- **Electronic Financial Transactions Act / Electronic Financial Supervision Regulation** — safety requirements for financial institutions using cloud services
-- **Financial Security Institute (FSI)** — publishes cloud usage guidelines for the financial sector and provides security consulting
-- **Network segregation regulation** — systems processing personal credit information must be operated separately from general business networks. This is transitioning to tiered application under N2SF 1.0 (see [Network Segregation and Isolation](../../security/network-isolation/))
-
-Official resources:
-
-- [FSI Cloud Usage Guide](https://www.fsec.or.kr/) (use the consolidated index)
-- [Financial Services Commission](https://www.fsc.go.kr/)
+- **Korea** — ISMS-P, CSAP, financial sector regulations (Electronic Financial Supervisory Regulation, network segregation): [Compliance (Korea)](../../korea/governance/compliance/)
+- **United States** — FedRAMP, HIPAA, ITAR/EAR: [US Guide](../../us/index/)
+- **EU** — GDPR and data sovereignty, DORA, NIS2 and the EU AI Act: [EU Guide](../../eu/index/)
+- **Japan** — ISMAP, APPI: [Japan Guide](../../japan/index/)
+- **Singapore** — MTCS, PDPA: [Singapore Guide](../../singapore/index/)
 
 ## Major International Certifications
 
@@ -195,13 +140,13 @@ Things to verify when considering compliance in a multi-cloud environment:
 
 ## Ongoing Practices
 
-- **Manage certification renewal cycles** — ISMS-P is valid for 3 years with an annual follow-up audit; ISO 27001 runs on a 3-year cycle with an annual surveillance audit. Add renewal dates to your calendar.
+- **Manage certification renewal cycles** — most certifications run on a 3-year validity period with an annual follow-up or surveillance audit (e.g., ISO 27001, Korea's ISMS-P). Add renewal dates to your calendar.
 - **Continuous compliance** — instead of manual checks, use AWS Config, Azure Policy, or Google Cloud Organization Policy to detect policy violations in real time.
 - **Policy drift detection** — regularly check for differences between IaC and the actual environment to maintain compliance status.
 
 ## Common Mistakes
 
-- **Relying solely on vendor certification while neglecting user responsibilities** — even if the vendor holds ISMS-P, VPC, IAM, and encryption configuration remain the user's responsibility and will be flagged in an audit
+- **Relying solely on vendor certification while neglecting user responsibilities** — even if the vendor holds certification, VPC, IAM, and encryption configuration remain the user's responsibility and will be flagged in an audit
 - **Aligning controls only at audit time and letting drift accumulate otherwise** — cleaning up only right before the annual review lets compliance violations accumulate in daily operations
 - **Applying uniform security levels to all data without classification** — over-protection drives costs up, while under-protection creates regulatory violations
 
@@ -209,34 +154,23 @@ Things to verify when considering compliance in a multi-cloud environment:
 
 - [ ] Have you completed sensitivity classification (personal information, financial information, confidential information) of the data you process/store?
 - [ ] Are you running continuous compliance with real-time policy violation detection via AWS Config, Azure Policy, or similar tools?
-- [ ] Are certification renewal schedules (ISMS-P follow-up audits, ISO 27001 surveillance audits) registered and managed on a calendar?
+- [ ] Are certification renewal schedules (surveillance/follow-up audits) registered and managed on a calendar?
 
 ## References
-
-### Korean institutions
-
-- [KISA Certification & Accreditation](https://isms.kisa.or.kr/)
-- [Personal Information Protection Commission](https://www.pipc.go.kr/)
-- [Financial Security Institute](https://www.fsec.or.kr/)
 
 ### AWS
 
 - [AWS Compliance Programs](https://aws.amazon.com/compliance/programs/)
-- [AWS K-ISMS](https://aws.amazon.com/compliance/k-isms/)
-- [AWS CSAP](https://aws.amazon.com/compliance/csap/)
 - [AWS Artifact](https://aws.amazon.com/artifact/)
 
 ### Azure
 
 - [Microsoft Trust Center](https://www.microsoft.com/trust-center)
-- [Azure K-ISMS](https://learn.microsoft.com/azure/compliance/offerings/offering-korea-k-isms)
-- [Azure CSAP](https://learn.microsoft.com/azure/compliance/offerings/offering-korea-csap)
 - [Azure Compliance Offerings](https://learn.microsoft.com/azure/compliance/)
 
 ### Google Cloud
 
 - [Google Cloud Compliance Resource Center](https://cloud.google.com/security/compliance)
-- [Google Cloud K-ISMS](https://cloud.google.com/security/compliance/k-isms)
 - [Google Compliance Reports Manager](https://cloud.google.com/security/compliance/compliance-reports-manager)
 
 ### OCI

@@ -13,3 +13,18 @@ hero:
       link: /ko/about-cloud/compare-clouds/
       variant: minimal
 ---
+
+import { CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+<CardGrid>
+	<LinkCard title="클라우드 기본" description="리전, 요금, 공동 책임, 벤더 비교 프레임워크" href="/ko/about-cloud/getting-started/" />
+	<LinkCard title="컴퓨팅" description="VM, 컨테이너, 서버리스, 마이그레이션" href="/ko/compute/virtual-machines/" />
+	<LinkCard title="네트워킹" description="VPC, 로드밸런서, CDN, 멀티클라우드 연결" href="/ko/networking/vpc-subnet/" />
+	<LinkCard title="스토리지 · 데이터베이스" description="객체 스토리지, 관리형 DB, 분석 플랫폼" href="/ko/database/managed-rdb/" />
+	<LinkCard title="DevOps" description="CI/CD, IaC, 관찰가능성, 플랫폼 엔지니어링" href="/ko/devops/getting-started/" />
+	<LinkCard title="보안" description="IAM, 제로 트러스트, 망분리, 데이터 보호" href="/ko/security/getting-started/" />
+	<LinkCard title="거버넌스" description="랜딩존, FinOps, 컴플라이언스, 출구 전략" href="/ko/governance/getting-started/" />
+	<LinkCard title="AI" description="모델 비교, RAG, 에이전트, LLMOps" href="/ko/ai/getting-started/" />
+	<LinkCard title="국가별 가이드" description="한국 · 미국 · EU · 일본 · 싱가포르 규제와 인증" href="/ko/korea/" />
+	<LinkCard title="용어집" description="클라우드 용어를 벤더 중립적으로 정리" href="/ko/glossary/" />
+</CardGrid>

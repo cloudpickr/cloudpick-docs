@@ -20,8 +20,15 @@ export default defineConfig({
 			},
 			plugins: [starlightLlmsTxt()],
 			routeMiddleware: './src/routeData.ts',
+			customCss: ['./src/styles/custom.css'],
+			head: [
+				{
+					tag: 'link',
+					attrs: { rel: 'stylesheet', href: '/fonts/pretendard/pretendardvariable-dynamic-subset.css' },
+				},
+			],
 			social: [
-				{ icon: 'github', label: 'GitHub', href: 'https://github.com/cloudpick-docs/cloudpick-docs' },
+				{ icon: 'github', label: 'GitHub', href: 'https://github.com/cloudpickr/cloudpick-docs' },
 			],
 			sidebar: [
 				{
@@ -163,14 +170,63 @@ export default defineConfig({
 					link: 'glossary',
 				},
 				{
-					label: '한국 특화',
-					translations: { en: 'Korea-Specific', ja: '韓国特化' },
+					label: '국가별 가이드',
+					translations: { en: 'Country Guides', ja: '国別ガイド' },
 					items: [
-						{ slug: 'korea' },
-						{ slug: 'korea/security/csap' },
-						{ slug: 'korea/security/network-isolation' },
-						{ slug: 'korea/ai/sovereign-fm-policy' },
-						{ slug: 'korea/ai/fm-providers' },
+						{
+							label: '한국',
+							translations: { en: 'Korea', ja: '韓国' },
+							collapsed: true,
+							items: [
+								{ slug: 'korea' },
+								{ slug: 'korea/governance/compliance' },
+								{ slug: 'korea/security/csap' },
+								{ slug: 'korea/security/network-isolation' },
+								{ slug: 'korea/ai/sovereign-fm-policy' },
+								{ slug: 'korea/ai/fm-providers' },
+							],
+						},
+						{
+							label: '미국',
+							translations: { en: 'United States', ja: '米国' },
+							collapsed: true,
+							items: [
+								{ slug: 'us' },
+								{ slug: 'us/fedramp' },
+								{ slug: 'us/hipaa' },
+								{ slug: 'us/itar' },
+							],
+						},
+						{
+							label: 'EU',
+							collapsed: true,
+							items: [
+								{ slug: 'eu' },
+								{ slug: 'eu/gdpr-sovereignty' },
+								{ slug: 'eu/dora' },
+								{ slug: 'eu/nis2-ai-act' },
+							],
+						},
+						{
+							label: '일본',
+							translations: { en: 'Japan', ja: '日本' },
+							collapsed: true,
+							items: [
+								{ slug: 'japan' },
+								{ slug: 'japan/ismap' },
+								{ slug: 'japan/appi' },
+							],
+						},
+						{
+							label: '싱가포르',
+							translations: { en: 'Singapore', ja: 'シンガポール' },
+							collapsed: true,
+							items: [
+								{ slug: 'singapore' },
+								{ slug: 'singapore/mtcs' },
+								{ slug: 'singapore/pdpa' },
+							],
+						},
 					],
 				},
 			],

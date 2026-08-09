@@ -13,3 +13,18 @@ hero:
       link: /en/about-cloud/compare-clouds/
       variant: minimal
 ---
+
+import { CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+<CardGrid>
+	<LinkCard title="Cloud Basics" description="Regions, pricing, shared responsibility, vendor comparison" href="/en/about-cloud/getting-started/" />
+	<LinkCard title="Compute" description="VMs, containers, serverless, migration" href="/en/compute/virtual-machines/" />
+	<LinkCard title="Networking" description="VPC, load balancers, CDN, multicloud connectivity" href="/en/networking/vpc-subnet/" />
+	<LinkCard title="Storage & Database" description="Object storage, managed databases, analytics" href="/en/database/managed-rdb/" />
+	<LinkCard title="DevOps" description="CI/CD, IaC, observability, platform engineering" href="/en/devops/getting-started/" />
+	<LinkCard title="Security" description="IAM, zero trust, network isolation, data protection" href="/en/security/getting-started/" />
+	<LinkCard title="Governance" description="Landing zones, FinOps, compliance, exit strategy" href="/en/governance/getting-started/" />
+	<LinkCard title="AI" description="Model comparison, RAG, agents, LLMOps" href="/en/ai/getting-started/" />
+	<LinkCard title="Country Guides" description="Korea · US · EU · Japan · Singapore regulations" href="/en/korea/" />
+	<LinkCard title="Glossary" description="Vendor-neutral cloud terminology" href="/en/glossary/" />
+</CardGrid>

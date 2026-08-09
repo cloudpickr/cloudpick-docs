@@ -7,9 +7,9 @@ description: "Explains physical/logical network segregation concepts, cloud netw
 
 ## Overview
 
-**Network Segregation** has long been a foundational security control in Korea's public and financial sectors. It separates the business network from the internet network so that external threats cannot reach internal systems. Blocking malware infiltration, remote intrusion, and data exfiltration at the network boundary has long been a reasonable choice for this purpose.
+**Network Segregation** is a control that separates the business network from the internet network so that external threats cannot reach internal systems. Because it blocks malware infiltration, remote intrusion, and data exfiltration at the network boundary, regulated markets in many countries — finance, public sector, healthcare — have long adopted it as a core security requirement. Korea, in particular, stands out for having built its public and financial sector security policy around network segregation for decades — for details on Korea's regulations (Electronic Financial Supervisory Regulation, CSAP, N2SF) and recent easing trends, see [Network Segregation and Isolation (Korea)](../../korea/security/network-isolation/).
 
-It is applied as a core security requirement in regulated markets such as the financial sector (Electronic Financial Supervisory Regulation), public institutions (National Information Security Basic Guidelines), and healthcare (Personal Information Protection Act) — all specific to Korea. However, in a modern environment where connections between systems have become unavoidable — API integration, SaaS usage, remote work — the meaning of "segregation" and how it is implemented are evolving together.
+In a modern environment where connections between systems have become unavoidable — API integration, SaaS usage, remote work — the meaning of "segregation" and how it is implemented are evolving together.
 
 On-premises, this was implemented by physically separating network equipment. In the cloud, the same security goal can be achieved through **logical isolation**, though some regulatory requirements still mandate physical separation.
 
@@ -58,7 +58,7 @@ The key question is not the "separation vs. connection" dichotomy, but rather: *
 | **Cost** | High, due to redundant equipment and circuits | Relatively low |
 | **Flexibility** | Weeks to months to change | Adjustable within minutes via policy changes |
 | **Patching/updates** | Requires manual transfer within the closed network → delays | Can be automated through a controlled path |
-| **Regulatory application** | CSAP "High" tier, some critical financial systems | CSAP "Medium"/"Low" tier, most cloud workloads |
+| **Regulatory application** | Systems in the highest sensitivity tiers (e.g., Korea's CSAP High tier, some critical financial systems) | Most cloud workloads (e.g., Korea's CSAP Medium/Low tier) |
 
 ### Side-by-Side Operational Comparison
 
@@ -98,7 +98,7 @@ Because the cloud is built on software-defined networking (SDN), strong isolatio
 
 ### Air-Gapped/Dedicated Environments by Vendor
 
-For cases requiring a cloud environment completely isolated from the internet, each vendor offers the following options. Note that CSAP certification status for Korea's public sector must be verified separately.
+For cases requiring a cloud environment completely isolated from the internet, each vendor offers the following options. Note, however, that certification status in each country's regulated market (e.g., Korea's CSAP) must be verified separately.
 
 | Vendor | Service | Description |
 | --- | --- | --- |
@@ -152,41 +152,19 @@ flowchart TB
 
 ## Mapping Regulatory Requirements
 
-Korea's network segregation policy is evolving from a one-size-fits-all approach — "segregate all systems to the same level" — toward **tiered security based on data classification**. CSAP requires different isolation levels according to system sensitivity, using a three-tier (High/Medium/Low) rating system.
-
-**N2SF (National Network Security Framework) 1.0** was formally published by NCSC (Korea's National Cyber Security Center) in September 2025, and is a framework that shifts the previous segregation-centric policy toward tiered security based on classification level.
-
-- **Classification tiers**: Class C (confidential — national security, defense, diplomacy), Class S (sensitive — personal data, internal review materials), Class O (open)
-- **Security controls**: 6 major domains (authorization / authentication / separation-isolation / control / data / information assets), covering roughly 280 items
-- **Application process**: preparation → C/S/O classification → threat identification → establishing security measures → adequacy assessment and adjustment (5 stages)
-- **Information service models**: provides security design frameworks for 11 scenario types, including generative AI use, cloud collaboration, wireless work environments, and mobile connectivity
-
-This represents a shift in the underlying policy question — from the binary "segregated or not" to "what level of control is required."
+Network segregation and isolation policy in regulated markets worldwide is evolving from a one-size-fits-all approach — "segregate all systems to the same level" — toward **tiered security based on data classification**. The underlying policy question is shifting from the binary "segregated or not" to "what level of control is required."
 
 | Regulation/standard | Requirement | Cloud approach |
 | --- | --- | --- |
-| **Electronic Financial Supervisory Regulation** (finance, Korea) | Data center network segregation, separation of internal network/DMZ/external network | VPC separation + Private Subnet + dedicated line |
-| **CSAP High tier** (public sector, Korea) | Physical network segregation | Use dedicated public-sector infrastructure |
-| **CSAP Medium tier** (public sector, Korea) | Logical network segregation + enhanced access control | Domestic CSP, or a global CSP that has obtained Medium-tier certification |
-| **ISMS-P** (all industries, Korea) | Network segregation, access control, encryption | Security Group + NACL + VPC Endpoint + TLS |
-| **N2SF 1.0 (National Network Security Framework, Korea)** | Tiered security by C/S/O classification, roughly 280 security control items | Tiered VPC separation + controlled inter-tier communication + mapping to the 6 major domains |
-| **PCI DSS** (card payments) | Network isolation of the CDE (Cardholder Data Environment) | Dedicated VPC + firewall + logging |
+| **PCI DSS** (card payments, global) | Network isolation of the CDE (Cardholder Data Environment) | Dedicated VPC + firewall + logging |
+| **Country-specific public sector/financial regulations** | Physical/logical segregation requirements and tier systems vary by country | Detailed mapping provided in the relevant country document |
 
-### Where Should Your Organization Start
+Country-specific regulatory details are covered in the relevant country document.
 
-The right starting point depends on your regulatory requirements.
-
-| Your situation | First step | Target architecture |
-| --- | --- | --- |
-| **CSAP High tier (physical segregation mandatory)** | Use dedicated public-sector infrastructure | Global CSPs currently lack High-tier certification |
-| **CSAP Medium tier (logical segregation)** | Domestic CSP, or a global CSP that has obtained Medium-tier certification | VPC isolation + Private Link + dedicated line |
-| **CSAP Low tier / ISMS-P** | Global CSP public cloud | Apply standard cloud security best practices |
-| **N2SF Class C (confidential)** | Dedicated public-sector infrastructure or an air-gapped environment | Complete internet blocking, domestic personnel operation |
-| **N2SF Class S (sensitive)** | VPC isolation + dedicated line + enhanced access control | A level similar to CSAP Medium tier |
-| **N2SF Class O (open)** | Public cloud with baseline security | Meets minimum security requirements |
+- **Korea** — Electronic Financial Supervisory Regulation, CSAP High/Medium/Low tiers, ISMS-P, N2SF (National Network Security Framework) C/S/O classification: [Network Segregation and Isolation (Korea)](../../korea/security/network-isolation/)
 
 :::note
-Most organizations don't have all systems at the same classification level. The core of N2SF is classifying systems by tier and applying a proportional isolation level to each. Rather than "everything at the highest tier" or "everything public," a mixed configuration is the realistic outcome.
+Regardless of the regulatory framework, most organizations don't have all systems at the same tier. The key is classifying systems by tier and applying a proportional isolation level to each. Rather than "everything at the highest tier" or "everything public," a mixed configuration is the realistic outcome.
 :::
 
 ## Anti-Patterns
@@ -241,11 +219,8 @@ However, guardrails **only work once configured.** Most are disabled by default,
 
 ### Regulations/Standards
 
-- [Electronic Financial Supervisory Regulation (Financial Services Commission, Korea)](https://www.law.go.kr/행정규칙/전자금융감독규정)
-- [CSAP Cloud Security Assurance Program (KISA, Korea's Cloud Security Assurance Program)](https://isms.kisa.or.kr/main/csap/intro/)
-- [N2SF National Network Security Framework 1.0 Security Guidelines (National Cyber Security Center, Korea resource library)](https://www.ncsc.go.kr)
-- [NIS publishes the official N2SF security guidelines (Sept 30, 2025)](https://www.digitaltoday.co.kr/news/articleView.html?idxno=537182)
 - [PCI DSS v4.0 (PCI SSC)](https://www.pcisecuritystandards.org/)
+- For links to Korea's regulations (Electronic Financial Supervisory Regulation, CSAP, N2SF), see [Network Segregation and Isolation (Korea)](../../korea/security/network-isolation/)
 
 ### AWS
 

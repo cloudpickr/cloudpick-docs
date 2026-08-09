@@ -28,6 +28,8 @@ SECTIONS = [
     "about-cloud", "ai", "compute", "database", "devops",
     "governance", "networking", "security", "storage",
 ]
+# 국가별 가이드 — 루트 원본(SOT)에서 재귀 수집. Starlight 전용 수정을 두지 말 것.
+COUNTRY_SECTIONS = ["korea", "us", "eu", "japan", "singapore"]
 HINT_MAP = {"info": "note", "warning": "caution", "danger": "danger", "success": "tip"}
 
 HINT_RE = re.compile(r'\{%\s*hint\s+style="(\w+)"\s*%\}')
@@ -126,14 +128,24 @@ def convert(text: str, rel_path: str):
 
 def source_files(sections):
     for sec in sections:
-        for p in sorted((ROOT / sec).glob("*.md")):
+        base = ROOT / sec
+        if not base.exists():
+            continue
+        # 국가 가이드는 중첩 경로(korea/security/csap.md 등)
+        paths = (
+            sorted(base.rglob("*.md"))
+            if sec in COUNTRY_SECTIONS
+            else sorted(base.glob("*.md"))
+        )
+        for p in paths:
             yield p.relative_to(ROOT)
 
 
 def run_convert(sections):
     count = mdx_count = 0
     files = list(source_files(sections))
-    if set(sections) == set(SECTIONS):
+    # 전체 코어 변환 시 용어집 포함
+    if set(sections) >= set(SECTIONS) and Path("GLOSSARY.md") not in files:
         files.append(Path("GLOSSARY.md"))
     for rel in files:
         text = (ROOT / rel).read_text(encoding="utf-8")
@@ -188,4 +200,6 @@ if __name__ == "__main__":
     if args and args[0] == "--validate":
         run_validate(args[1] if len(args) > 1 else "HEAD")
     else:
-        run_convert(args or SECTIONS)
+        # 인자 없으면 코어 + 국가 가이드 전부 변환
+        default = SECTIONS + COUNTRY_SECTIONS
+        run_convert(args or default)

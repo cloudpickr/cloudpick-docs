@@ -1,7 +1,8 @@
 ---
-title: "ITAR/EAR"
-description: "방산·항공우주 기술 데이터 수출통제 규정 ITAR/EAR가 클라우드 아키텍처에 갖는 의미와 FedRAMP와의 차이를 정리합니다."
+description: 방산·항공우주 기술 데이터 수출통제 규정 ITAR/EAR가 클라우드 아키텍처에 갖는 의미와 FedRAMP와의 차이를 정리합니다.
 ---
+
+# ITAR/EAR
 
 > 문서 기준: 2026년 8월
 
@@ -21,9 +22,9 @@ ITAR(International Traffic in Arms Regulations)와 EAR(Export Administration Reg
 | **등록 의무** | 제조·수출업체 사전 등록 필수 | 별도 사전 등록 요건 없음 |
 | **라이선스 예외** | 매우 제한적 | 상대적으로 다양한 예외 존재 |
 
-:::note
+{% hint style="info" %}
 품목·기술이 ITAR와 EAR 중 어디에 해당하는지 판단하는 것(Jurisdiction/Classification)은 그 자체로 전문적인 법률 판단 영역입니다. 자체 판단이 어려운 경우 DDTC의 CJ(Commodity Jurisdiction) 절차나 수출통제 전문 변호사의 자문을 거치는 것이 안전합니다.
-:::
+{% endhint %}
 
 ## US Persons 접근 제한이 클라우드에 갖는 의미
 
@@ -56,19 +57,19 @@ ITAR와 FedRAMP는 성격이 다른 별개의 요건입니다.
 - 한국 기업이 미국 방산·항공우주 프라임 업체와 기술 데이터를 주고받는 경우, 한국 국적 임직원은 원칙적으로 Foreign Person에 해당하여 ITAR 기술 데이터에 직접 접근할 수 없습니다. TAA(Technical Assistance Agreement), MLA(Manufacturing License Agreement) 등 DDTC 허가를 사전에 확보하거나, 미국 내 US Person으로 구성된 별도 조직·자회사를 통해서만 데이터를 취급하는 구조가 필요합니다.
 - 클라우드에 업로드·다운로드하는 행위 자체가 "수출"로 간주될 수 있으므로, 협업 툴·파일 공유 서비스 선택 시 ITAR 대응 여부(GCC High 등)를 먼저 확인해야 합니다. 표준 상용 클라우드(GCC, 일반 Microsoft 365, 일반 Google Workspace 등)는 ITAR 기술 데이터 저장에 적합하지 않습니다.
 - 종단간 암호화 예외 규정을 활용하면 반드시 미국 인프라를 쓰지 않고도 준수할 여지가 있지만, 키 관리를 벤더가 아닌 자사(또는 신뢰할 수 있는 US Person)가 전적으로 통제해야 하므로 구현 난도가 높습니다. 도입 전 수출통제 전문 법률 자문을 받는 것이 안전합니다.
-- 동일한 CUI(통제 미분류 정보)를 다루는 계약은 ITAR와 별개로 CMMC/NIST SP 800-171 요건이 함께 부과되는 경우가 많습니다. 자세한 내용은 [FedRAMP](../../us/fedramp/) 문서의 CMMC 2.0 섹션을 참고하세요.
+- 동일한 CUI(통제 미분류 정보)를 다루는 계약은 ITAR와 별개로 CMMC/NIST SP 800-171 요건이 함께 부과되는 경우가 많습니다. 자세한 내용은 [FedRAMP](fedramp.md) 문서의 CMMC 2.0 섹션을 참고하세요.
 - EAR 대상 이중용도 기술(예: 첨단 반도체 설계 데이터, 특정 암호화 기술)은 ITAR보다 상대적으로 유연하지만 여전히 라이선스가 필요할 수 있으므로, 데이터가 ITAR·EAR 중 어느 쪽으로 분류되는지부터 사전에 확인해야 합니다.
 - FedRAMP 인가 획득 자체를 목표로 하는 경우와 달리, ITAR/EAR 대응은 별도의 "인가 취득" 프로젝트가 아니라 조직의 데이터 취급 프로세스 전반(계약, 인사, 접근 통제, 클라우드 아키텍처)에 걸친 지속적 준수 체계로 접근해야 합니다.
 
-:::caution
+{% hint style="warning" %}
 ITAR/EAR 위반은 형사 처벌까지 이어질 수 있는 중대한 법적 리스크입니다. 이 문서는 아키텍처 관점의 일반적인 개요이며, 실제 계약·프로젝트 진행 전에는 반드시 수출통제 전문 법률 자문을 받아야 합니다.
-:::
+{% endhint %}
 
 ## 관련 문서
 
-> 📄 [규정 준수 (Compliance)](../../governance/compliance/)
+> 📄 [규정 준수 (Compliance)](../governance/compliance.md)
 
-> 📄 [망분리와 네트워크 격리](../../security/network-isolation/)
+> 📄 [망분리와 네트워크 격리](../security/network-isolation.md)
 
 ## 참고하기
 

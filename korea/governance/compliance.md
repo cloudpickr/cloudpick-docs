@@ -1,13 +1,14 @@
 ---
-title: "컴플라이언스 (한국)"
-description: "ISMS-P, CSAP, 금융권 규제 등 한국의 클라우드 규정 준수 인증과 요건을 정리합니다."
+description: ISMS-P, CSAP, 금융권 규제 등 한국의 클라우드 규정 준수 인증과 요건을 정리합니다.
 ---
+
+# 컴플라이언스 (한국)
 
 > 문서 기준: 2026년 8월
 
 ## 개요
 
-한국에서 클라우드를 도입할 때는 국제 인증(ISO 27001, SOC 2 등) 외에 한국 고유의 인증·규제를 충족해야 합니다. 공동 책임 모델, 컴플라이언스 운영 자동화 등 **규정 준수의 일반 원칙**은 [규정 준수 (Compliance)](../../../governance/compliance/)에서 다루며, 이 문서는 그 위에 얹히는 **한국 규제 레이어**입니다.
+한국에서 클라우드를 도입할 때는 국제 인증(ISO 27001, SOC 2 등) 외에 한국 고유의 인증·규제를 충족해야 합니다. 공동 책임 모델, 컴플라이언스 운영 자동화 등 **규정 준수의 일반 원칙**은 [규정 준수 (Compliance)](../../governance/compliance.md)에서 다루며, 이 문서는 그 위에 얹히는 **한국 규제 레이어**입니다.
 
 ## ISMS-P (정보보호 및 개인정보보호 관리체계 인증)
 
@@ -55,13 +56,13 @@ description: "ISMS-P, CSAP, 금융권 규제 등 한국의 클라우드 규정 �
 | Google Cloud | 하 (Low-tier) | Seoul `asia-northeast3` | [Google Cloud CSAP](https://cloud.google.com/security/compliance/csap) |
 | OCI | — (공식 페이지 확인) | Seoul, Chuncheon | [Oracle 컴플라이언스](https://www.oracle.com/corporate/cloud-compliance/) |
 
-:::note
+{% hint style="info" %}
 CSAP 제도는 N2SF(국가망보안체계) 1.0 공개(2025.9)에 따라 등급별 차등 보안 체계와의 연계가 진행 중입니다. 도입 전 [KISA 공식 사이트](https://isms.kisa.or.kr/main/csap/intro/)와 [NCSC](https://www.ncsc.go.kr)에서 최신 현황을 확인하세요.
-:::
+{% endhint %}
 
-:::note
-CSAP 등급별 상세 요건, 하이퍼스케일러·국내 CSP 인증 현황, 2027년 국정원 단일 검증체계 개편 동향은 [CSAP (클라우드 보안 인증)](../../../korea/security/csap/)에서 깊이 있게 다룹니다.
-:::
+{% hint style="info" %}
+CSAP 등급별 상세 요건, 하이퍼스케일러·국내 CSP 인증 현황, 2027년 국정원 단일 검증체계 개편 동향은 [CSAP (클라우드 보안 인증)](../security/csap.md)에서 깊이 있게 다룹니다.
+{% endhint %}
 
 ## 금융권 관련 규제
 
@@ -69,7 +70,7 @@ CSAP 등급별 상세 요건, 하이퍼스케일러·국내 CSP 인증 현황, 2
 
 - **전자금융거래법 / 전자금융감독규정** — 금융회사의 클라우드 이용 시 안전성 확보 요건
 - **금융보안원 (FSI)** — 금융권 클라우드 이용 가이드 발간, 보안 컨설팅 제공
-- **망분리 규제** — 개인신용정보 처리 시스템은 일반 업무망과 분리 운영 필요. N2SF 1.0에 따라 등급별 차등 적용으로 전환 중 ([망분리와 네트워크 격리](../../../security/network-isolation/) 참고)
+- **망분리 규제** — 개인신용정보 처리 시스템은 일반 업무망과 분리 운영 필요. N2SF 1.0에 따라 등급별 차등 적용으로 전환 중 ([망분리와 네트워크 격리](../../security/network-isolation.md) 참고)
 
 공식 자료:
 

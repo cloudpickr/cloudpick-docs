@@ -1,7 +1,8 @@
 ---
-title: "싱가포르 부록"
-description: "싱가포르 시장 특화 가이드 — MTCS 클라우드 보안 표준, PDPA 개인정보보호법"
+description: 싱가포르 시장 특화 가이드 — MTCS 클라우드 보안 표준, PDPA 개인정보보호법
 ---
+
+# 싱가포르 부록
 
 > 문서 기준: 2026년 8월
 
@@ -13,15 +14,15 @@ description: "싱가포르 시장 특화 가이드 — MTCS 클라우드 보안 
 
 ## 다루는 주제
 
-- **[MTCS (멀티티어 클라우드 보안 표준)](../../singapore/mtcs/)** — SS 584 표준의 Level 1~3 등급 체계, IMDA 운영 체계, 하이퍼스케일러 인증 현황, 금융권 추가 요건(MAS TRM, OSPAR)을 정리합니다. 공공·금융 부문 진출 시 사실상의 게이트 역할을 합니다.
-- **[PDPA (개인정보보호법)](../../singapore/pdpa/)** — 국경 간 이전 제한(Transfer Limitation Obligation)과 2026년 4월 가이드 개정(CBPR/PRP 인증 편입), 한국 기업의 아세안 리전 설계 시사점, DNC(Do Not Call) 등 실무 유의점을 다룹니다.
+- **[MTCS (멀티티어 클라우드 보안 표준)](mtcs.md)** — SS 584 표준의 Level 1~3 등급 체계, IMDA 운영 체계, 하이퍼스케일러 인증 현황, 금융권 추가 요건(MAS TRM, OSPAR)을 정리합니다. 공공·금융 부문 진출 시 사실상의 게이트 역할을 합니다.
+- **[PDPA (개인정보보호법)](pdpa.md)** — 국경 간 이전 제한(Transfer Limitation Obligation)과 2026년 4월 가이드 개정(CBPR/PRP 인증 편입), 한국 기업의 아세안 리전 설계 시사점, DNC(Do Not Call) 등 실무 유의점을 다룹니다.
 
-:::note
+{% hint style="info" %}
 이 섹션의 내용은 규제·인증 현황을 다룹니다. 각 문서 하단 "참고하기" 섹션의 출처를 통해 최신 공식 발표를 직접 확인하는 것을 권장합니다.
-:::
+{% endhint %}
 
 ## 관련 문서
 
-> 📄 [컴플라이언스](../../governance/compliance/)
+> 📄 [컴플라이언스](../governance/compliance.md)
 
-> 📄 [데이터 보호와 워크로드 보안](../../security/data-protection/)
+> 📄 [데이터 보호와 워크로드 보안](../security/data-protection.md)

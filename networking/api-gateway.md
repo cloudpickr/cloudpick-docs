@@ -125,6 +125,14 @@ API Gateway 자체의 Canary 기능은 "게이트웨이 설정 변경"에 대한
 - [ ] 속도 제한(Throttling)이 설정되어 백엔드 과부하를 방지하고 있는가?
 - [ ] OpenAPI 스펙이 IaC와 동기화되어 API 구성이 코드로 관리되고 있는가?
 
+## 관련 문서
+
+- [로드밸런서](load-balancer.md) — L4/L7 트래픽 분배와 API 진입점 역할 분담
+- [서버리스](../compute/serverless.md) — API 백엔드로 함수·컨테이너 연결
+- [메시지 큐와 이벤트 스트리밍](../database/messaging.md) — 비동기 처리로의 오프로드
+- [제로 트러스트](../security/zero-trust.md) — API 접근 통제와 ID 기반 검증
+- [시크릿 관리](../security/secrets.md) — API 키·토큰 수명주기
+
 ## 참고하기
 
 ### AWS

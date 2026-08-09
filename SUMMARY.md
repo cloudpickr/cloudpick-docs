@@ -108,3 +108,40 @@
 - [LLM 라이선스와 비용 관리](ai/licensing.md)
 - [LLMOps](ai/llmops.md)
 - [멀티클라우드 AI](ai/multicloud-ai.md)
+
+## 국가별 가이드 <a id="country-guides"></a>
+
+### 한국 개요
+
+- [한국 부록](korea/index.md)
+- [컴플라이언스 (한국)](korea/governance/compliance.md)
+- [CSAP (클라우드 보안 인증)](korea/security/csap.md)
+- [망분리와 네트워크 격리 (한국)](korea/security/network-isolation.md)
+- [소버린 FM 정책](korea/ai/sovereign-fm-policy.md)
+- [FM 제공사 비교](korea/ai/fm-providers.md)
+
+### 미국 개요
+
+- [미국](us/index.md)
+- [FedRAMP](us/fedramp.md)
+- [HIPAA/HITECH](us/hipaa.md)
+- [ITAR/EAR](us/itar.md)
+
+### EU 개요
+
+- [EU](eu/index.md)
+- [GDPR과 데이터 주권](eu/gdpr-sovereignty.md)
+- [DORA](eu/dora.md)
+- [NIS2 + EU AI Act](eu/nis2-ai-act.md)
+
+### 일본 개요
+
+- [일본](japan/index.md)
+- [ISMAP](japan/ismap.md)
+- [APPI](japan/appi.md)
+
+### 싱가포르 개요
+
+- [싱가포르](singapore/index.md)
+- [MTCS](singapore/mtcs.md)
+- [PDPA](singapore/pdpa.md)

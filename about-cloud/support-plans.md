@@ -137,6 +137,13 @@ MSP는 일반적으로 **클라우드 사용료에 대한 추가 마진을 받�
 - [ ] 어드바이저 서비스(Trusted Advisor, Azure Advisor 등)의 권장 사항을 정기적으로 확인하는 프로세스가 있는가?
 - [ ] MSP 필요 여부(운영 대행, 멀티클라우드 통합 관리, 원화 결제 등)를 검토했는가?
 
+## 관련 문서
+
+- [Well-Architected Framework](well-architected.md) — 운영 우수성·신뢰성 기둥과 지원 체계
+- [클라우드 시작하기](getting-started.md) — 도입 초기에 확인할 운영 준비
+- [FinOps](../governance/finops.md) — 지원 플랜·MSP 비용을 비용 거버넌스에 포함
+- [모니터링](../devops/monitoring.md) — 장애 대응과 지원 에스컬레이션 연계
+
 ## 참고하기
 
 ### AWS

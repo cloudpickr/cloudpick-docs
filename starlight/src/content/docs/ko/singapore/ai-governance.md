@@ -24,13 +24,13 @@ description: "싱가포르 AI 거버넌스 체계 — NAIS 2.0 국가 AI 전략,
 - 자원 효율적 AI 개발과 컴퓨팅 인프라 접근성 확대(원노스 지역 **Kampong AI**, 국가 슈퍼컴퓨팅센터 **ASPIRE 2B** 등)
 - 거버넌스·사회적 신뢰를 통한 안전한 AI 도입 촉진과 아세안 역내 AI 허브로서의 입지 강화(싱가포르는 2027년 아세안 의장국)
 
-**2025~2030년 공공 AI 연구·인재 개발에 총 10억 싱가포르달러(S$1B) 이상**이 투입되며, **2026년 2월** 총리 로런스 웡(Lawrence Wong)이 의장을 맡는 **국가 AI 위원회(National AI Council, NAIC)**가 신설되어 국가 AI 어젠다의 전략적 방향을 총괄합니다.
+**2025~2030년 공공 AI 연구·인재 개발에 총 10억 싱가포르달러(S$1B) 이상**이 투입되며, **2026년 2월** 총리 로런스 웡(Lawrence Wong)이 의장을 맡는 **국가 AI 위원회(National AI Council, NAIC)** 가 신설되어 국가 AI 어젠다의 전략적 방향을 총괄합니다.
 
 ## Model AI Governance Framework — 생성형 AI판(2024)
 
-IMDA·PDPC는 2019년 **Model AI Governance Framework**(전통적 AI 대상, 민간 기업의 책임 있는 AI 배포를 위한 자발적 참고 문서)를 세계경제포럼(WEF) 다보스에서 최초 발표하고 2020년 개정했습니다. 생성형 AI(Generative AI)의 급속한 확산에 대응해, IMDA와 **AI Verify Foundation**은 **2024년 1월 16일 초안(제안본)**을 공개하고 업계 의견수렴을 거쳐 **2024년 5월 30일 최종본**인 **Model AI Governance Framework for Generative AI**를 발표했습니다.
+IMDA·PDPC는 2019년 **Model AI Governance Framework**(전통적 AI 대상, 민간 기업의 책임 있는 AI 배포를 위한 자발적 참고 문서)를 세계경제포럼(WEF) 다보스에서 최초 발표하고 2020년 개정했습니다. 생성형 AI(Generative AI)의 급속한 확산에 대응해, IMDA와 **AI Verify Foundation**은 **2024년 1월 16일 초안(제안본)** 을 공개하고 업계 의견수렴을 거쳐 **2024년 5월 30일 최종본**인 **Model AI Governance Framework for Generative AI**를 발표했습니다.
 
-이 프레임워크는 생성형 AI 특유의 위험(환각, 저작권, 딥페이크 등)에 대응하기 위한 **9대 차원(dimension)**을 제시합니다.
+이 프레임워크는 생성형 AI 특유의 위험(환각, 저작권, 딥페이크 등)에 대응하기 위한 **9대 차원(dimension)** 을 제시합니다.
 
 | 차원 | 핵심 내용 |
 | --- | --- |
@@ -76,13 +76,13 @@ PDPC는 **2024년 3월 1일**, 「AI 추천·의사결정 시스템에서의 개
 
 ## 아세안 AI 거버넌스 가이드와의 연결
 
-싱가포르 IMDA는 **아세안 AI 거버넌스 실무그룹(ASEAN Working Group on AI Governance, WG-AI)**을 2024년부터 의장국으로서 이끌고 있습니다. 이 실무그룹의 성과물이 **「ASEAN Guide on AI Governance and Ethics」**로, 아세안 회원국이 전통적 AI 기술을 설계·개발·배포할 때 참고할 수 있는 역내 정렬(regional alignment) 프레임워크입니다. 2025년에는 생성형 AI를 포괄하도록 **확장판(Generative AI 부속서)**이 마련되었습니다.
+싱가포르 IMDA는 **아세안 AI 거버넌스 실무그룹(ASEAN Working Group on AI Governance, WG-AI)** 을 2024년부터 의장국으로서 이끌고 있습니다. 이 실무그룹의 성과물이 **「ASEAN Guide on AI Governance and Ethics」**로, 아세안 회원국이 전통적 AI 기술을 설계·개발·배포할 때 참고할 수 있는 역내 정렬(regional alignment) 프레임워크입니다. 2025년에는 생성형 AI를 포괄하도록 **확장판(Generative AI 부속서)** 이 마련되었습니다.
 
 싱가포르의 Model AI Governance Framework가 사실상 아세안 가이드의 원형(prototype) 역할을 했으며, IMDA가 국가 차원 프레임워크를 지역 차원으로 확산시키는 구조입니다. 아세안 역내 다국가에 서비스를 제공하는 기업이라면, 싱가포르 프레임워크를 준수하는 것이 다른 아세안 회원국의 정책 방향과도 상당 부분 정합적일 가능성이 높습니다.
 
 ## 동남아 지역 모델 — SEA-LION
 
-국가 AI 전략의 연구·인프라 축을 대표하는 사례가 **SEA-LION(Southeast Asian Languages In One Network)**입니다. 국립연구재단(National Research Foundation)의 지원을 받고 싱가포르국립대학교(NUS)가 주관하는 국가 프로그램 **AI Singapore**가 개발한 오픈소스 다국어·멀티모달 언어모델 계열로, 동남아 11개 이상 언어의 언어적·문화적 뉘앙스(저자원 언어 포함)를 반영하도록 설계되었습니다. 최신 버전인 **SEA-LION v4.5**는 에이전틱 기능과 추론 효율을 높인 커스텀 스펙큘레이티브 디코더를 탑재했으며, 동남아 문화적 맥락에 맞춘 안전성 필터링 모델군 **SEA-Guard**도 함께 제공됩니다.
+국가 AI 전략의 연구·인프라 축을 대표하는 사례가 **SEA-LION(Southeast Asian Languages In One Network)** 입니다. 국립연구재단(National Research Foundation)의 지원을 받고 싱가포르국립대학교(NUS)가 주관하는 국가 프로그램 **AI Singapore**가 개발한 오픈소스 다국어·멀티모달 언어모델 계열로, 동남아 11개 이상 언어의 언어적·문화적 뉘앙스(저자원 언어 포함)를 반영하도록 설계되었습니다. 최신 버전인 **SEA-LION v4.5**는 에이전틱 기능과 추론 효율을 높인 커스텀 스펙큘레이티브 디코더를 탑재했으며, 동남아 문화적 맥락에 맞춘 안전성 필터링 모델군 **SEA-Guard**도 함께 제공됩니다.
 
 SEA-LION은 서구권에서 개발된 범용 LLM에 전적으로 의존하지 않고, 동남아 언어·문화 맥락을 반영한 자국·역내 모델 역량을 확보하려는 싱가포르의 국가 전략을 상징하는 프로젝트로 평가받습니다.
 

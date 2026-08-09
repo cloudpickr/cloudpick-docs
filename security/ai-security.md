@@ -151,7 +151,7 @@ AI 코딩 에이전트(Claude Code, Copilot, Codex)가 CI/CD 파이프라인에 
 
 **클라우드 운영 시 영향:**
 
-- GPAI 모델을 사용하는 경우, 벤더가 제공하는 **모델 카드(Model Card)**와 투명성 문서를 확인해야 합니다
+- GPAI 모델을 사용하는 경우, 벤더가 제공하는 **모델 카드(Model Card)** 와 투명성 문서를 확인해야 합니다
 - 고위험으로 분류된 AI 시스템은 로깅, 인간 감독, 위험 평가가 법적 의무가 됩니다
 - Bedrock, Azure AI, Vertex AI 모두 EU AI Act 준수를 위한 거버넌스 기능을 확장 중입니다
 

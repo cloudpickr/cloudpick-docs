@@ -7,9 +7,9 @@ description: "싱가포르 정부 클라우드 체계 — GCC(Government Commerc
 
 ## 개요
 
-싱가포르 정부는 자체 데이터센터를 구축하는 대신, 상용 하이퍼스케일러 위에 표준화된 보안·거버넌스 계층을 얹는 방식으로 정부 클라우드를 운영합니다. 이 체계의 중심에는 **GCC(Government Commercial Cloud, 정식 명칭은 Government on Commercial Cloud)**가 있으며, 정부기술청(Government Technology Agency of Singapore, GovTech)이 주관합니다.
+싱가포르 정부는 자체 데이터센터를 구축하는 대신, 상용 하이퍼스케일러 위에 표준화된 보안·거버넌스 계층을 얹는 방식으로 정부 클라우드를 운영합니다. 이 체계의 중심에는 **GCC(Government Commercial Cloud, 정식 명칭은 Government on Commercial Cloud)** 가 있으며, 정부기술청(Government Technology Agency of Singapore, GovTech)이 주관합니다.
 
-GCC는 **CODEX(Core Operations, Development Environment, and eXchange)**라는 상위 전략 프로젝트의 한 축입니다. CODEX는 스마트네이션(Smart Nation) 전략 산하 핵심 국가 프로젝트로 지정되어 있으며, GCC(인프라 계층) 외에도 SG Tech Stack(SGTS, 개발 계층)과 정부 데이터 아키텍처(Government Data Architecture, 데이터 계층)를 포함합니다.
+GCC는 **CODEX(Core Operations, Development Environment, and eXchange)** 라는 상위 전략 프로젝트의 한 축입니다. CODEX는 스마트네이션(Smart Nation) 전략 산하 핵심 국가 프로젝트로 지정되어 있으며, GCC(인프라 계층) 외에도 SG Tech Stack(SGTS, 개발 계층)과 정부 데이터 아키텍처(Government Data Architecture, 데이터 계층)를 포함합니다.
 
 :::note
 GCC는 한국의 국가정보자원관리원(NIRS)이나 클라우드 기반 공공기관 정보자원 통합 사업처럼 **정부기관이 직접 사용하는 내부용 플랫폼**입니다. 민간 벤더가 "GCC에 입점"하는 구조가 아니라, 정부기관이 AWS·Azure·GCP 위에 GovTech가 제공하는 보안·거버넌스 래퍼(wrapper)를 씌워 시스템을 운영하는 방식입니다. 민간 기업이 싱가포르 정부 대상 사업에 참여하려면 GeBIZ 조달 포털 등록과 MTCS 인증 등 별도 트랙을 거쳐야 합니다.
@@ -55,7 +55,7 @@ GovTech가 2025년 3월 7일 기준으로 공개한 수치에 따르면, GCC에�
 
 **IM8**은 「Instruction Manual on ICT&SS(Infocomm Technology & Smart Systems) Management」의 약칭으로, GovTech가 관장하는 정부기관 ICT 보안 정책·표준 전체를 가리킵니다. 데이터 보안 분류, 클라우드 보안, 애플리케이션·네트워크·엔드포인트 보안, 보안 운영 등을 포괄하며, 정부기관이 시스템을 도입·운영할 때 준수해야 하는 내부 규범집 역할을 합니다.
 
-기존 IM8 체계에서는 정부 시스템이 원칙적으로 GCC 위에서 호스팅되어야 했고, SaaS 애플리케이션은 GCC 밖에서 호스팅될 수 없었습니다. 이 경직성이 SaaS 도입 속도를 늦춘다는 문제의식에서, GovTech는 **ICT&SS 정책 개혁(ICT&SS Policy Reform, 통칭 IM8 Reform)**을 추진하고 있습니다.
+기존 IM8 체계에서는 정부 시스템이 원칙적으로 GCC 위에서 호스팅되어야 했고, SaaS 애플리케이션은 GCC 밖에서 호스팅될 수 없었습니다. 이 경직성이 SaaS 도입 속도를 늦춘다는 문제의식에서, GovTech는 **ICT&SS 정책 개혁(ICT&SS Policy Reform, 통칭 IM8 Reform)** 을 추진하고 있습니다.
 
 개혁의 목표는 공식적으로 "기관이 적정 수준의 위험 통제(right-fit risk controls)로 신속하고 비용 효율적이며 혁신적인 시스템을 구축할 수 있도록 ICT&SS 정책을 단순화하는 것"으로 제시됩니다. 핵심 변화는 다음과 같습니다.
 

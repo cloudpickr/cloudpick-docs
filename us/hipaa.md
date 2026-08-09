@@ -29,7 +29,7 @@ HIPAA는 규제 대상을 두 그룹으로 나눕니다.
 - **Covered Entity(적용 대상 기관)**: 의료를 제공하거나 비용을 지불하는 기관 — 의료 제공자, 건강보험사, 의료 정보 교환기관
 - **Business Associate(업무 위탁 대상자)**: Covered Entity를 대신해 PHI를 수집·저장·전송하는 제3자 — 클라우드 벤더, SaaS 제공사, 데이터 처리 업체가 대부분 여기 해당
 
-Covered Entity가 PHI 처리를 외부에 위탁할 때는 **BAA(Business Associate Agreement)**라는 법적 계약을 반드시 체결해야 하며, BAA는 Business Associate가 PHI를 어떤 목적으로 다룰 수 있는지, 어떤 보안·프라이버시 요건을 준수해야 하는지를 명시합니다. Business Associate가 다시 하위 벤더(Subcontractor)에 위탁하는 경우에도 동일하게 하위 BAA 체결이 필요합니다.
+Covered Entity가 PHI 처리를 외부에 위탁할 때는 **BAA(Business Associate Agreement)** 라는 법적 계약을 반드시 체결해야 하며, BAA는 Business Associate가 PHI를 어떤 목적으로 다룰 수 있는지, 어떤 보안·프라이버시 요건을 준수해야 하는지를 명시합니다. Business Associate가 다시 하위 벤더(Subcontractor)에 위탁하는 경우에도 동일하게 하위 BAA 체결이 필요합니다.
 
 {% hint style="info" %}
 클라우드 서비스 제공자는 대부분 Business Associate 지위로 간주됩니다. 즉 클라우드 벤더와 BAA를 체결하는 것이 PHI를 해당 클라우드에 올리기 위한 법적 전제 조건입니다.

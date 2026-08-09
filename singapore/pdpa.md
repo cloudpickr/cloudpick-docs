@@ -10,7 +10,7 @@ description: 싱가포르 PDPA의 개요, 국경 간 이전 제한과 2026년 4�
 
 PDPA(Personal Data Protection Act, 개인정보보호법)는 2012년 제정된 싱가포르의 개인정보 보호 일반법입니다. 개인정보보호위원회(Personal Data Protection Commission, PDPC)가 집행 기관 역할을 수행하며, 법률상으로는 정보통신미디어개발청(IMDA)이 PDPC로 지정되어 개인정보 보호 기능을 수행하는 구조입니다.
 
-PDPA는 동의(Consent), 목적 제한(Purpose Limitation), 고지(Notification), 열람·정정(Access & Correction), 정확성(Accuracy), 보호(Protection), 보유기간 제한(Retention Limitation), **이전 제한(Transfer Limitation)**, 책임성(Accountability), 유출 통지(Breach Notification) 등의 의무를 규정합니다. 2020년 개정법으로 도입된 **데이터 이동성 의무(Data Portability Obligation, Part 6B)**는 아직 시행령이 마련되지 않아 발효되지 않은 상태이므로, 현재는 준수 의무 대상이 아닙니다.
+PDPA는 동의(Consent), 목적 제한(Purpose Limitation), 고지(Notification), 열람·정정(Access & Correction), 정확성(Accuracy), 보호(Protection), 보유기간 제한(Retention Limitation), **이전 제한(Transfer Limitation)**, 책임성(Accountability), 유출 통지(Breach Notification) 등의 의무를 규정합니다. 2020년 개정법으로 도입된 **데이터 이동성 의무(Data Portability Obligation, Part 6B)** 는 아직 시행령이 마련되지 않아 발효되지 않은 상태이므로, 현재는 준수 의무 대상이 아닙니다.
 
 {% hint style="info" %}
 유출 통지 의무의 신고 기준은 (1) 개인에게 중대한 피해(재산상 손실, 신원 도용, 신체적 피해, 명예훼손 등)를 초래하거나 초래할 우려가 있는 경우, (2) 영향받는 개인이 500명 이상인 경우 중 하나만 충족해도 적용됩니다. PDPC는 평가 완료 시점부터 늦어도 3일(영업일 기준이 아닌 역일) 이내 신고를 기대한다고 안내하고 있습니다.
@@ -65,7 +65,7 @@ DNC 조회 의무는 B2C 마케팅 캠페인, 콜센터 아웃바운드, 문자 
 
 ## 책임성 증빙 — DPTM(Data Protection Trustmark) 인증
 
-PDPC와 IMDA가 공동 개발한 **DPTM(Data Protection Trustmark)**은 조직의 PDPA 준수 수준과 개인정보 거버넌스 성숙도를 제3자가 검증하는 자발적 인증 제도입니다. 2025년에는 싱가포르 표준 **SS 714:2025**로 편입되어 국가 표준으로서의 위상이 강화되었습니다.
+PDPC와 IMDA가 공동 개발한 **DPTM(Data Protection Trustmark)** 은 조직의 PDPA 준수 수준과 개인정보 거버넌스 성숙도를 제3자가 검증하는 자발적 인증 제도입니다. 2025년에는 싱가포르 표준 **SS 714:2025**로 편입되어 국가 표준으로서의 위상이 강화되었습니다.
 
 - 법정 의무 사항은 아니지만, 인증을 통해 거버넌스·책임성·고객 대응 체계를 대외적으로 입증할 수 있어 **B2B 계약이나 정부 조달의 벤더 실사 단계에서 가점 요소**로 작용하는 경우가 많습니다.
 - 싱가포르에 현지 법인·자회사를 두고 소비자 대상 서비스를 운영하는 한국 기업이라면, PDPA의 책임성(Accountability) 의무를 이행하는 절차 중 하나로 DPTM 취득을 검토할 수 있습니다.

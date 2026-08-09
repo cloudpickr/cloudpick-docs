@@ -1,7 +1,8 @@
 ---
-title: "정부 클라우드 (GCC·IM8·SGTS)"
-description: "싱가포르 정부 클라우드 체계 — GCC(Government Commercial Cloud)의 구조와 GCC+, IM8 보안 정책 개혁, SG Tech Stack, 정부 조달 참여 요건을 정리합니다."
+description: 싱가포르 정부 클라우드 체계 — GCC(Government Commercial Cloud)의 구조와 GCC+, IM8 보안 정책 개혁, SG Tech Stack, 정부 조달 참여 요건을 정리합니다.
 ---
+
+# 정부 클라우드 (GCC·IM8·SGTS)
 
 > 문서 기준: 2026년 8월
 
@@ -11,9 +12,9 @@ description: "싱가포르 정부 클라우드 체계 — GCC(Government Commerc
 
 GCC는 **CODEX(Core Operations, Development Environment, and eXchange)** 라는 상위 전략 프로젝트의 한 축입니다. CODEX는 스마트네이션(Smart Nation) 전략 산하 핵심 국가 프로젝트로 지정되어 있으며, GCC(인프라 계층) 외에도 SG Tech Stack(SGTS, 개발 계층)과 정부 데이터 아키텍처(Government Data Architecture, 데이터 계층)를 포함합니다.
 
-:::note
+{% hint style="info" %}
 GCC는 한국의 국가정보자원관리원(NIRS)이나 클라우드 기반 공공기관 정보자원 통합 사업처럼 **정부기관이 직접 사용하는 내부용 플랫폼**입니다. 민간 벤더가 "GCC에 입점"하는 구조가 아니라, 정부기관이 AWS·Azure·GCP 위에 GovTech가 제공하는 보안·거버넌스 래퍼(wrapper)를 씌워 시스템을 운영하는 방식입니다. 민간 기업이 싱가포르 정부 대상 사업에 참여하려면 GeBIZ 조달 포털 등록과 MTCS 인증 등 별도 트랙을 거쳐야 합니다.
-:::
+{% endhint %}
 
 ## GCC(Government Commercial Cloud)의 구조
 
@@ -65,9 +66,9 @@ GovTech가 2025년 3월 7일 기준으로 공개한 수치에 따르면, GCC에�
 - **저위험 SaaS의 GCC 외부 호스팅 허용** — 저위험 용도에 한해 GCC 밖에서 호스팅되는 SaaS 애플리케이션 도입을 허용하는 방향으로 정책이 개편되는 중
 - 시스템 소유 기관(digital system owner)에게 자사의 업무·기술 맥락에 맞춰 보안 계획을 스스로 조정할 수 있는 **재량권 확대**
 
-:::caution
+{% hint style="warning" %}
 IM8 개혁은 2026년 8월 시점 **진행형 정책 전환**입니다. 저위험 SaaS의 GCC 외부 호스팅 허용 범위, 통제 카탈로그의 최종 확정 시점 등 세부 사항은 GovTech의 공식 정책 포털(info.standards.tech.gov.sg)에서 계속 갱신되고 있으므로, 실제 조달·컴플라이언스 대응 시에는 최신 공고를 직접 확인해야 합니다.
-:::
+{% endhint %}
 
 ## SGTS(Singapore Government Tech Stack)
 
@@ -80,7 +81,7 @@ SGTS는 GCC(인프라 계층)와 짝을 이루는 **개발 계층** 자산으로
 GCC·IM8·SGTS는 정부기관 내부용 체계이지만, 이를 뒷받침하는 상용 클라우드·SaaS를 공급하는 민간 벤더에게는 별도의 진입 요건이 적용됩니다.
 
 - 정부기관은 클라우드·ICT 조달을 **GeBIZ**(Government Electronic Business System, 정부 통합 전자조달 포털)를 통해 진행해야 합니다. 이는 정부조달법(Government Procurement Act)과 각종 Instruction Manual에 근거한 의무 채널입니다.
-- 정부 클라우드 조달에서 벤더의 클라우드 서비스에 **MTCS Level 3 인증**을 요구하는 경우가 많지만, 정확한 인증·자격 요건은 개별 입찰 공고·취급 데이터 등급·서비스 유형에 따라 달라지므로 사업별로 확인해야 합니다. MTCS 인증 체계와 등급 구조는 [MTCS (멀티티어 클라우드 보안 표준)](../../singapore/mtcs/) 문서에서 자세히 다룹니다.
+- 정부 클라우드 조달에서 벤더의 클라우드 서비스에 **MTCS Level 3 인증**을 요구하는 경우가 많지만, 정확한 인증·자격 요건은 개별 입찰 공고·취급 데이터 등급·서비스 유형에 따라 달라지므로 사업별로 확인해야 합니다. MTCS 인증 체계와 등급 구조는 [MTCS (멀티티어 클라우드 보안 표준)](mtcs.md) 문서에서 자세히 다룹니다.
 - GCC는 공통 플랫폼 차원에서 PDPA·IM8·MTCS Level 3에 부합하는 보안·거버넌스 가드레일을 제공하지만, 공식 자료는 개별 워크로드가 별도 절차 없이 인증을 완전히 자동 상속한다고 보장하지는 않습니다. 공동책임모델에 따라 서비스별 추가 설정·심사가 필요할 수 있습니다. 정부기관에 SaaS·플랫폼을 공급하려는 민간 벤더는 스스로 MTCS 인증 등 요건을 갖춰야 조달 대상에 오를 수 있습니다.
 
 ## 실무 시사점
@@ -100,4 +101,4 @@ GCC·IM8·SGTS는 정부기관 내부용 체계이지만, 이를 뒷받침하는
 - [Singapore Government ICT&SS Policy Reform Portal — GovTech Singapore](https://info.standards.tech.gov.sg/)
 - [GeBIZ — Singapore Government e-Procurement Portal](https://www.gebiz.gov.sg/)
 - [Tech Stacks Driving Singapore's Smart Nation Journey — GovTech (정부 거래 온라인 완료율 99% 출처)](https://www.tech.gov.sg/technews/tech-stacks-driving-singapore-smart-nation/)
-- 금융권·공공 조달의 MTCS 요건은 [MTCS (멀티티어 클라우드 보안 표준)](../../singapore/mtcs/)를, 개인정보 관련 규제는 [PDPA (개인정보보호법)](../../singapore/pdpa/)를 참고하세요.
+- 금융권·공공 조달의 MTCS 요건은 [MTCS (멀티티어 클라우드 보안 표준)](mtcs.md)를, 개인정보 관련 규제는 [PDPA (개인정보보호법)](pdpa.md)를 참고하세요.

@@ -1,7 +1,8 @@
 ---
-title: "AI 거버넌스"
-description: "싱가포르 AI 거버넌스 체계 — NAIS 2.0 국가 AI 전략, Model AI Governance Framework, AI Verify, IMDA의 도구 중심 접근, PDPA와의 관계, 아세안·동남아 연계를 정리합니다."
+description: 싱가포르 AI 거버넌스 체계 — NAIS 2.0 국가 AI 전략, Model AI Governance Framework, AI Verify, IMDA의 도구 중심 접근, PDPA와의 관계, 아세안·동남아 연계를 정리합니다.
 ---
+
+# AI 거버넌스
 
 > 문서 기준: 2026년 8월
 
@@ -9,9 +10,9 @@ description: "싱가포르 AI 거버넌스 체계 — NAIS 2.0 국가 AI 전략,
 
 싱가포르의 AI 거버넌스는 **하나의 포괄적 AI 법률을 제정하는 대신, 기존 법제(PDPA 등) 위에 자율 준수형 프레임워크와 실무 도구를 얹는 방식**으로 설계되어 있습니다. 정보통신미디어개발청(Infocomm Media Development Authority, IMDA)과 개인정보보호위원회(PDPC)가 공동으로 정책을 주도하며, 국가 전략(NAIS)·거버넌스 프레임워크(Model AI Governance Framework)·테스팅 도구(AI Verify) 3단계가 상호 보완적으로 작동합니다.
 
-:::note
+{% hint style="info" %}
 싱가포르는 EU AI Act처럼 위험 등급별 법적 의무를 부과하는 방식이 아니라, "규제보다 도구(tools over regulation)"를 표방합니다. AI 자체를 규율하는 단일 법률은 2026년 8월 기준 존재하지 않으며, 기존 PDPA·부문별 법률(금융 규제 등)이 AI 활용에도 적용되는 구조입니다.
-:::
+{% endhint %}
 
 ## NAIS·NAIS 2.0 — 국가 AI 전략
 
@@ -64,9 +65,9 @@ AI Verify 테스팅 프레임워크는 다음 **11대 AI 거버넌스 원칙**�
 
 싱가포르 AI 거버넌스의 특징은 **강제적 단일 입법 대신 자율 프레임워크와 실무 도구를 축적하는 방식**입니다. IMDA는 AI를 규율하는 별도의 포괄적 법률을 제정하지 않고, 기존 법(PDPA, 부문별 규제)에 더해 Model AI Governance Framework(자발적 참고 문서)와 AI Verify(자발적 테스트 도구)를 통해 기업이 스스로 신뢰할 수 있는 AI를 구축하도록 유도합니다.
 
-:::caution
+{% hint style="warning" %}
 "규제가 없다"는 것과 "법적 의무가 없다"는 것은 다릅니다. AI 시스템이 개인정보를 처리한다면 PDPA상 의무(동의·목적 제한·이전 제한 등)는 그대로 적용되며, 금융권 등 규제 산업에서는 MAS(통화청)의 기존 기술 리스크 관리 규제가 AI 활용에도 적용됩니다. "AI 전용 법률이 없다"를 "AI에 규제가 적용되지 않는다"로 오해해서는 안 됩니다.
-:::
+{% endhint %}
 
 ## PDPA와 AI의 관계
 
@@ -105,4 +106,4 @@ SEA-LION은 서구권에서 개발된 범용 LLM에 전적으로 의존하지 �
 - [ASEAN Working Group on AI Governance — IMDA](https://www.imda.gov.sg/about-imda/international-relations/asean-working-group-on-ai-governance)
 - [ASEAN Guide on AI Governance and Ethics — ASEAN](https://asean.org/book/asean-guide-on-ai-governance-and-ethics/)
 - [SEA-LION — AI Singapore](https://sea-lion.ai/)
-- 개인정보보호 일반 의무는 [PDPA (개인정보보호법)](../../singapore/pdpa/)를, 정부 시스템의 AI 도입 맥락은 [정부 클라우드](../../singapore/government-cloud/)를 참고하세요.
+- 개인정보보호 일반 의무는 [PDPA (개인정보보호법)](pdpa.md)를, 정부 시스템의 AI 도입 맥락은 [정부 클라우드](government-cloud.md)를 참고하세요.

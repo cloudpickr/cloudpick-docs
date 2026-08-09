@@ -1,11 +1,10 @@
 ---
-title: "EU Appendix"
+title: "EU"
 description: "A regulatory guide to GDPR, DORA, NIS2, and the EU AI Act for enterprise architects evaluating market entry and operations in the EU."
 ---
 
 > Last reviewed: August 2026
 
-## Overview
 
 This section is a regulatory appendix for Korean enterprise architects who are deploying cloud workloads into the EU (European Union) market or dealing with EU customers and financial institutions. While the earlier vendor-neutral documents covered globally common architecture, this appendix focuses on the **EU's distinctive legal and regulatory environment** and its implications for landing zones, data placement, and vendor selection.
 

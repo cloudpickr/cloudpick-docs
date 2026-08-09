@@ -5,7 +5,6 @@ description: "A cloud regulatory guide for entering and operating in the Japanes
 
 > Last reviewed: August 2026
 
-## Overview
 
 This section is a regulatory guide for Korean enterprise architects who plan to supply cloud services to the Japanese market or operate services using Japanese regions. Japan maintains a de facto entry gate for public-sector cloud procurement in the form of **ISMAP** (Information system Security Management and Assessment Program), and **APPI** (Act on the Protection of Personal Information) applies broadly to the handling of personal data. Both systems serve purposes similar to Korea's CSAP and Personal Information Protection Act, but their requirements and procedures must be satisfied separately.
 

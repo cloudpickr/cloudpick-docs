@@ -16,16 +16,9 @@
 - 정적 출력이라 @astrojs/cloudflare 어댑터 금지(satteri wasm 빌드 오류 유발)
 - 폰트: `public/fonts/` (Pretendard 동적 서브셋 + Jetendard Regular/Bold), `src/styles/custom.css`, config `head:`에 pretendard css 링크
 
-## 방금 진행 중이던 작업 (이어서 할 것)
+## 미완 작업
 
-1. **en/ja 전파 에이전트** (sonnet-worker, codex 팩트체크 14건을 en/ja에 반영) — 세션 종료 시점에 실행 중이었음.
-   - 완료 여부 확인: ko와 en/ja의 아래 마커 대조
-     - `en/us/fedramp.md`·`ja/us/fedramp.md`에 "scope"/"범위" 기반 Class 설명이 반영됐는지 (ko는 "평가·인증의 범위" 표현)
-     - `en/singapore/pdpa.md`에 CBPR 2020년 인정 언급이 있는지
-   - 미반영이면: ko의 최신 문장(아래 14건 목록) 기준으로 en/ja 대응 문장 수정 후 빌드·배포
-2. **codex 14건 목록** (ko는 반영 완료, en/ja 전파 대상):
-   ismap 갱신주기 / appi 법정예외 추가 / appi 한-EU 적정성 표현 / fedramp Class=범위 분류(등급 대체 아님, fedramp.gov 원문 확인됨) / hipaa NPRM 2024.12 / hipaa 로그 6년 표현 / itar CONUS 일률의무 아님 / itar EAR 행정 $374,474 / EU Data Boundary 예외 존재 / DORA 20개 유형 / DORA CTPP 12개월 내 EU 자회사 의무 / MTCS Level3 일률 필수 아님 / PDPC 법적 구조 / PDPA CBPR 2020년부터 인정
-3. 전파 완료 후: `cd starlight && npm run build` → `npx wrangler pages deploy dist --project-name=cloudpick-docs --branch=main --commit-dirty=true` → 커밋·푸시
+**없음.** codex 팩트체크 14건의 en/ja 전파(18파일)까지 완료, 최종 빌드·프로덕션 배포·커밋·푸시 전부 반영됨. 남은 것은 아래 "사용자 결정 대기 사항"뿐.
 
 ## 크로스체크 검증 결과 (외부 에이전트 4종)
 

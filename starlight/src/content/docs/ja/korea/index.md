@@ -32,4 +32,4 @@ description: "韓国環境に特化したガイド — CSAP、網分離、ソブ
 
 > 📄 [データ保護とワークロードセキュリティ](../security/data-protection/)
 
-> 📄 [ソブリンランディングゾーン](../governance/landing-zone/#소버린-랜딩존-sovereign-landing-zone)
+> 📄 [ソブリンランディングゾーン](../governance/landing-zone/)

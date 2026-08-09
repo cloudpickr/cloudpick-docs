@@ -21,9 +21,8 @@ description: "FedRAMP, HIPAA, ITAR/EAR 등 미국 시장 진출·운영에 필�
 
 ## 관련 문서
 
-> 📄 [규정 준수 (Compliance)](../../governance/compliance/)
-
-> 📄 [데이터 보호와 워크로드 보안](../../security/data-protection/)
+- [규정 준수 (Compliance)](../../governance/compliance/)
+- [데이터 보호와 워크로드 보안](../../security/data-protection/)
 
 ## 참고하기
 

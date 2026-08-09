@@ -378,6 +378,35 @@ python3 scripts/check-internal-links.py
 2단계는 **그때그때 문서 상태**를 읽어서 판단합니다. 과거 리뷰 소견을 코드나 고정 규칙으로 재실행하지 않습니다.  
 다만 연속 리뷰에서는 최종 리포트에 **이전 Must-Fix 해소 여부**를 짧게 적는 것을 권장합니다.
 
+## 다국어·국가 가이드 (i18n)
+
+### 콘텐츠 원본(SOT)
+
+- **루트 GitBook 마크다운이 원본**입니다. 일반 도메인(`about-cloud/` … `storage/`)과 국가 가이드(`korea/`, `us/`, `eu/`, `japan/`, `singapore/`) 모두 루트에 둡니다.
+- Starlight 사이트 트리는 파생물입니다. `scripts/gitbook_to_starlight.py`로 `starlight/src/content/docs/ko/`를 재생성합니다. **`starlight/.../ko/` 직접 수정 금지.**
+- 국가 인덱스 제목/사이드바 라벨은 그룹명과 겹치지 않게 **「한국 개요」「미국 개요」**처럼 명시합니다 (`SUMMARY.md` 소제목·Starlight sidebar label).
+
+### 번역 티어 (권장)
+
+| 티어 | 범위 | 기대 |
+| --- | --- | --- |
+| **Tier 1 — Global Core** | 9개 도메인 + 용어집 | 우선 ko·en 대칭. 다른 locale는 점진 번역 |
+| **Tier 2 — Country Guides** | `korea/` `us/` `eu/` `japan/` `singapore/` | 관할 규제 레이어. 글로벌 본문 위에 얹는 문서 |
+| **Tier 3 — Localized deep-dive** | (예약) | 특정 locale 전용 심화. 고아 문서 금지, 본문에서 인링크 필수 |
+
+### Locale fallback 정책
+
+- 기본 locale은 **ko**입니다. 미번역 페이지는 사이트가 ko로 fallback할 수 있습니다(404가 아닌 경우).
+- 이는 **기능 결함이 아니라 제품 정책**입니다. 다만 silent fallback이면 독자 혼선이 생기므로, 가능하면 UI/배너로 “이 페이지는 아직 해당 언어 번역이 없습니다”를 안내하는 것을 권장합니다.
+- 미번역 파일을 **빈 스텁으로 만들지 마세요.** 파일이 없어야 fallback이 동작합니다.
+- 부분 번역 locale(예: ja가 국가 가이드만 있는 경우)에서 글로벌 문서로 가는 링크는, 대상 locale 파일이 없으면 fallback·앵커 불일치를 고려해 **문서 루트 링크**를 우선하고, 언어 종속 앵커 슬러그(`#한글-제목-...`)를 하드코딩하지 않습니다.
+
+### 글로벌 ↔ 국가 레이어
+
+- 글로벌 `governance/compliance.md`, `security/network-isolation.md` 등은 **개념·공통 패턴**.
+- 국가 문서는 **규제 레이어**. 첫 문단에서 글로벌 문서를 링크하고, 글로벌 문서의 「국가별 컴플라이언스」에서 국가 인덱스를 링크합니다.
+- 비교표의 로컬 FM 행(Upstage, EXAONE 등)을 국가 폴더로 들어내지 않습니다(벤더 중립 비교 유지).
+
 ## PR 체크리스트
 
 PR을 열기 전에 아래를 확인합니다.

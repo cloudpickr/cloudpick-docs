@@ -22,9 +22,8 @@ description: "일본 시장 진출·운영에 필요한 클라우드 규제 가�
 
 ## 관련 문서
 
-> 📄 [데이터 보호와 워크로드 보안](../../security/data-protection/)
-
-> 📄 [규정 준수 (Compliance)](../../governance/compliance/)
+- [데이터 보호와 워크로드 보안](../../security/data-protection/)
+- [규정 준수 (Compliance)](../../governance/compliance/)
 
 ## 참고하기
 

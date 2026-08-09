@@ -66,9 +66,8 @@ ITAR/EAR 위반은 형사 처벌까지 이어질 수 있는 중대한 법적 리
 
 ## 관련 문서
 
-> 📄 [규정 준수 (Compliance)](../../governance/compliance/)
-
-> 📄 [망분리와 네트워크 격리](../../security/network-isolation/)
+- [규정 준수 (Compliance)](../../governance/compliance/)
+- [망분리와 네트워크 격리](../../security/network-isolation/)
 
 ## 참고하기
 

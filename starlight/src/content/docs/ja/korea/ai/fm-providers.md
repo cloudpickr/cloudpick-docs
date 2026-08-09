@@ -61,7 +61,7 @@ description: "ネイバー、LG AI研究院、カカオ、KT、アップステ�
 
 > 📄 [網分離とネットワーク隔離 (韓国)](../../security/network-isolation/)
 
-> 📄 [ソブリンランディングゾーン](../../../governance/landing-zone/#소버린-랜딩존-sovereign-landing-zone)
+> 📄 [ソブリンランディングゾーン](../../../governance/landing-zone/)
 
 ## 参考資料
 

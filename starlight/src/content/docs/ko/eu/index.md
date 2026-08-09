@@ -25,8 +25,10 @@ description: "EU 시장 진출·운영을 검토하는 엔터프라이즈 아키
 
 ## 관련 문서
 
-> 📄 [규정 준수 (Compliance)](../../governance/compliance/)
+- [규정 준수 (Compliance)](../../governance/compliance/)
+- [벤더 종속성과 출구 전략](../../governance/exit-strategy/)
+- [랜딩존 — 소버린 랜딩존](../../governance/landing-zone/#소버린-랜딩존-sovereign-landing-zone)
 
-> 📄 [벤더 종속성과 출구 전략](../../governance/exit-strategy/)
+## 참고하기
 
-> 📄 [랜딩존 — 소버린 랜딩존](../../governance/landing-zone/#소버린-랜딩존-sovereign-landing-zone)
+- 국제 인증·벤더 허브는 [규정 준수 (Compliance)](../../governance/compliance/)를 참고하세요.

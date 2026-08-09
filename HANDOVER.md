@@ -14,6 +14,7 @@
 - 루트 GitBook 마크다운 = **전체 콘텐츠 SOT** (일반 9섹션 + `korea/`/`us/`/`eu/`/`japan/`/`singapore/` 국가 가이드 포함). `scripts/gitbook_to_starlight.py`로 `starlight/src/content/docs/ko/` 재생성 — **starlight/src/content/docs/ko/ 직접 수정 금지**. 국가 가이드도 루트에서 수정 후 변환 스크립트 실행.
 - 기본 변환: `python3 scripts/gitbook_to_starlight.py` (코어+국가 전부). 국가만: `python3 scripts/gitbook_to_starlight.py korea us eu japan singapore`
 - 사이드바 국가 index 라벨은 `astro.config.mjs`에서 "한국 개요" 등으로 그룹명과 구분 (P0-2)
+- Round2 크로스리뷰 반영 요약: about-cloud/DevOps/AI 사이드바 서브그룹, ja 소버린 앵커 언어 종속 슬러그 제거, CONTRIBUTING에 i18n 티어·fallback 정책 문서화, 국가 관련 문서 포맷 통일(불릿), 글로벌 망분리에 US/EU 역참조
 - en/ja 미번역 파일은 만들지 말 것 — 파일이 없어야 한국어 폴백 작동
 - 정적 출력이라 @astrojs/cloudflare 어댑터 금지(satteri wasm 빌드 오류 유발)
 - 폰트: `public/fonts/` (Pretendard 동적 서브셋 + Jetendard Regular/Bold), `src/styles/custom.css`, config `head:`에 pretendard css 링크

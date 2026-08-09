@@ -23,6 +23,9 @@ description: 싱가포르 시장 특화 가이드 — MTCS 클라우드 보안 �
 
 ## 관련 문서
 
-> 📄 [컴플라이언스](../governance/compliance.md)
+- [컴플라이언스](../governance/compliance.md)
+- [데이터 보호와 워크로드 보안](../security/data-protection.md)
 
-> 📄 [데이터 보호와 워크로드 보안](../security/data-protection.md)
+## 참고하기
+
+- 국제 인증·벤더 허브는 [규정 준수 (Compliance)](../governance/compliance.md)를 참고하세요.

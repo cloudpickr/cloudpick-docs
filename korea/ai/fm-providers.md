@@ -38,7 +38,7 @@ description: 네이버, LG AI연구원, 카카오, KT, 업스테이지, NC AI, S
 
 국내 FM과 GPT·Gemini·Claude 등 글로벌 모델 중 무엇을 선택할지는 벤더 우열이 아니라 **워크로드 요건**에 따라 판단해야 합니다.
 
-- **규제·주권 요건**: 망분리 규제([망분리와 네트워크 격리](../../security/network-isolation.md) 참고)나 공공 조달([CSAP](../security/csap.md) 참고) 대상 워크로드는 국내 리전에서 서비스되는 모델이 유리한 경우가 많습니다. 데이터가 해외로 이전되면 안 되는 워크로드는 국내 제공사의 국내 데이터센터 기반 API를 우선 검토하세요.
+- **규제·주권 요건**: 망분리 규제([망분리와 네트워크 격리](../security/network-isolation.md) 참고)나 공공 조달([CSAP](../security/csap.md) 참고) 대상 워크로드는 국내 리전에서 서비스되는 모델이 유리한 경우가 많습니다. 데이터가 해외로 이전되면 안 되는 워크로드는 국내 제공사의 국내 데이터센터 기반 API를 우선 검토하세요.
 - **한국어·도메인 특화 성능**: 일반 상식·추론은 글로벌 최상위 모델이 여전히 앞서는 경우가 많지만, 한국어 어휘·존댓말·업계 용어 처리에서는 국내 모델이 강점을 보이는 사례가 보고됩니다. 반드시 자체 벤치마크로 검증하세요.
 - **라이선스와 커스터마이징**: 카카오 Kanana, NC AI VARCO, SKT A.X는 상업적 이용이 가능한 오픈소스로 자체 인프라에 파인튜닝·배포가 가능합니다. 반면 EXAONE은 상업 이용 시 별도 계약이, Solar와 HyperCLOVA X 상위 모델은 API 이용이 기본 경로입니다. 온프레미스·VPC 폐쇄망 배포가 필요하면 라이선스 조건을 가장 먼저 확인해야 합니다.
 - **벤더 지속가능성**: 소버린 AI 프로젝트의 단계평가 결과에서 보듯 국내 FM 생태계는 아직 유동적입니다. 특정 벤더에 장기 종속되는 아키텍처보다 API 게이트웨이를 통해 모델을 교체 가능하게 구성하는 것이 리스크를 줄입니다.
@@ -56,13 +56,10 @@ description: 네이버, LG AI연구원, 카카오, KT, 업스테이지, NC AI, S
 
 ## 관련 문서
 
-> 📄 [소버린 AI·독자 파운데이션 모델 정책](sovereign-fm-policy.md)
-
-> 📄 [CSAP (클라우드 보안 인증)](../security/csap.md)
-
-> 📄 [망분리와 네트워크 격리 (한국)](../../security/network-isolation.md)
-
-> 📄 [소버린 랜딩존](../../governance/landing-zone.md#소버린-랜딩존-sovereign-landing-zone)
+- [소버린 AI·독자 파운데이션 모델 정책](sovereign-fm-policy.md)
+- [CSAP (클라우드 보안 인증)](../security/csap.md)
+- [망분리와 네트워크 격리 (한국)](../security/network-isolation.md)
+- [소버린 랜딩존](../../governance/landing-zone.md#소버린-랜딩존-sovereign-landing-zone)
 
 ## 참고하기
 

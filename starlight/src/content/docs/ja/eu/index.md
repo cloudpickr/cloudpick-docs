@@ -29,4 +29,4 @@ description: "EU市場への進出・運用を検討するエンタープライ�
 
 > 📄 [ベンダーロックインと出口戦略](../../governance/exit-strategy/)
 
-> 📄 [ランディングゾーン — ソブリンランディングゾーン](../../governance/landing-zone/#소버린-랜딩존-sovereign-landing-zone)
+> 📄 [ランディングゾーン — ソブリンランディングゾーン](../../governance/landing-zone/)

@@ -30,6 +30,9 @@ description: "한국 환경 특화 가이드 — CSAP, 망분리, 소버린 AI �
 
 ## 관련 문서
 
-> 📄 [데이터 보호와 워크로드 보안](../../security/data-protection/)
+- [데이터 보호와 워크로드 보안](../../security/data-protection/)
+- [소버린 랜딩존](../../governance/landing-zone/#소버린-랜딩존-sovereign-landing-zone)
 
-> 📄 [소버린 랜딩존](../../governance/landing-zone/#소버린-랜딩존-sovereign-landing-zone)
+## 참고하기
+
+- 국제 인증·벤더 허브는 [규정 준수 (Compliance)](../../governance/compliance/)를 참고하세요.

@@ -18,6 +18,11 @@
 /networking/* /ko/networking/:splat 301
 /security/* /ko/security/:splat 301
 /storage/* /ko/storage/:splat 301
+/korea/* /ko/korea/:splat 301
+/us/* /ko/us/:splat 301
+/eu/* /ko/eu/:splat 301
+/japan/* /ko/japan/:splat 301
+/singapore/* /ko/singapore/:splat 301
 
 # 로케일 홈 → 소개 (구 GitBook 홈 README를 복원한 페이지 — 원본 사이트와 동일한 첫 화면)
 # 시작하기 직행으로 바꾸려면 목적지를 /xx/about-cloud/getting-started/ 로 교체

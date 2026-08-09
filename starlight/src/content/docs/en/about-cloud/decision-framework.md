@@ -29,7 +29,7 @@ The tendency for compute to follow wherever large volumes of data already reside
 
 ### 2. Geographic Proximity to Users
 
-- For services aimed at Korean users, prioritize vendors with a Korea region
+- Prioritize vendors with a region in your target geography (minimize latency)
 - For global services, review edge network and region coverage
 - For DR, also consider nearby regions (see [Regions and Availability Zones](../../about-cloud/regions-and-zones/))
 
@@ -61,7 +61,7 @@ Each vendor has different strengths. See [Comparing Vendors](../../about-cloud/c
 
 - On-demand vs. committed pricing
 - Egress cost (especially important in multicloud environments)
-- Korea region pricing is typically 10–30% higher than US region pricing
+- Asia/Europe region pricing is typically 10–30% higher than US region pricing
 - Managed-service premiums
 - See [Understanding the Cost Structure](../../about-cloud/pricing-model/) for details
 

@@ -1,0 +1,41 @@
+<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#1b2a41"/>
+
+  <!-- Subtle grid pattern -->
+  <defs>
+    <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#243548" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#grid)" opacity="0.4"/>
+
+  <!-- Cloud convergence diagram: 3 clouds → central hub -->
+  <!-- Cloud 1 (top-left) -->
+  <ellipse cx="320" cy="240" rx="80" ry="45" fill="none" stroke="#3b6ea5" stroke-width="2" opacity="0.6"/>
+  <!-- Cloud 2 (top-right) -->
+  <ellipse cx="880" cy="240" rx="80" ry="45" fill="none" stroke="#3b6ea5" stroke-width="2" opacity="0.6"/>
+  <!-- Cloud 3 (bottom-center) -->
+  <ellipse cx="600" cy="480" rx="80" ry="45" fill="none" stroke="#3b6ea5" stroke-width="2" opacity="0.6"/>
+
+  <!-- Connection lines to hub -->
+  <line x1="380" y1="265" x2="560" y2="340" stroke="#3b6ea5" stroke-width="1.5" opacity="0.5" stroke-dasharray="6,4"/>
+  <line x1="820" y1="265" x2="640" y2="340" stroke="#3b6ea5" stroke-width="1.5" opacity="0.5" stroke-dasharray="6,4"/>
+  <line x1="600" y1="450" x2="600" y2="380" stroke="#3b6ea5" stroke-width="1.5" opacity="0.5" stroke-dasharray="6,4"/>
+
+  <!-- Central hub with checkmark -->
+  <circle cx="600" cy="355" r="30" fill="#3b6ea5" opacity="0.3"/>
+  <circle cx="600" cy="355" r="22" fill="none" stroke="#bcd4ea" stroke-width="2"/>
+  <polyline points="588,355 597,364 614,346" fill="none" stroke="#bcd4ea" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Wordmark: Cloud (white) + Pick (highlight) -->
+  <text x="600" y="180" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="100" font-weight="700" letter-spacing="-2">
+    <tspan fill="#ffffff">Cloud</tspan><tspan fill="#bcd4ea">Pick</tspan>
+  </text>
+
+  <!-- Tagline -->
+  <text x="600" y="560" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="26" fill="#8ab4d4">Vendor-neutral multicloud decision guide</text>
+
+  <!-- URL + Languages -->
+  <text x="600" y="600" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="18" fill="#5a8aaa">docs.cloudpick.kr  ·  KO · EN · JA</text>
+</svg>

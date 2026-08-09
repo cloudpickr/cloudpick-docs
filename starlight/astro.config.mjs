@@ -36,6 +36,56 @@ export default defineConfig({
 					tag: 'link',
 					attrs: { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-jp-dynamic-subset.css' },
 				},
+				// ─── OpenGraph 메타 태그 (소셜 공유용) ───
+				{
+					tag: 'meta',
+					attrs: { property: 'og:type', content: 'website' },
+				},
+				{
+					tag: 'meta',
+					attrs: { property: 'og:site_name', content: 'CloudPick' },
+				},
+				{
+					tag: 'meta',
+					attrs: { property: 'og:image', content: 'https://docs.cloudpick.kr/og-image.png' },
+				},
+				{
+					tag: 'meta',
+					attrs: { property: 'og:image:width', content: '1200' },
+				},
+				{
+					tag: 'meta',
+					attrs: { property: 'og:image:height', content: '630' },
+				},
+				{
+					tag: 'meta',
+					attrs: { property: 'og:image:alt', content: 'CloudPick — Vendor-neutral multi-cloud decision guide' },
+				},
+				{
+					tag: 'meta',
+					attrs: { property: 'og:locale', content: 'ko_KR' },
+				},
+				{
+					tag: 'meta',
+					attrs: { property: 'og:locale:alternate', content: 'en_US' },
+				},
+				{
+					tag: 'meta',
+					attrs: { property: 'og:locale:alternate', content: 'ja_JP' },
+				},
+				// ─── Twitter/X Card 메타 태그 ───
+				{
+					tag: 'meta',
+					attrs: { name: 'twitter:card', content: 'summary_large_image' },
+				},
+				{
+					tag: 'meta',
+					attrs: { name: 'twitter:image', content: 'https://docs.cloudpick.kr/og-image.png' },
+				},
+				{
+					tag: 'meta',
+					attrs: { name: 'twitter:image:alt', content: 'CloudPick — Vendor-neutral multi-cloud decision guide' },
+				},
 			],
 			social: [
 				{ icon: 'github', label: 'GitHub', href: 'https://github.com/cloudpickr/cloudpick-docs' },
@@ -50,6 +100,11 @@ export default defineConfig({
 					label: '용어집',
 					translations: { en: 'Glossary', ja: '用語集' },
 					link: 'glossary',
+				},
+				{
+					label: 'AI 에이전트 연동 (MCP)',
+					translations: { en: 'AI Agent Integration (MCP)', ja: 'AIエージェント連携 (MCP)' },
+					link: 'mcp',
 				},
 				{
 					label: 'Getting Started',

@@ -1,13 +1,14 @@
 {
-	"$schema": "node_modules/wrangler/config-schema.json",
 	"name": "cloudpick-docs-mcp",
 	"main": "src/index.ts",
 	"compatibility_date": "2026-08-01",
 	"compatibility_flags": ["nodejs_compat"],
 	"vars": {
-		// 문서 사이트의 llms-full.txt를 읽는다. 커스텀 도메인 컷오버 후 docs.cloudpick.kr로 변경.
-		"DOCS_BASE_URL": "https://cloudpick-docs.pages.dev"
+		"DOCS_BASE_URL": "https://docs.cloudpick.kr"
 	},
+	"routes": [
+		{ "pattern": "docs.cloudpick.kr/mcp*", "zone_name": "cloudpick.kr" }
+	],
 	"durable_objects": {
 		"bindings": [{ "name": "CloudPickDocsMCP", "class_name": "CloudPickDocsMCP" }]
 	},

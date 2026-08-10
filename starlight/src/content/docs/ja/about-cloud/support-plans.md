@@ -100,9 +100,9 @@ MSPは一般的に**クラウド使用料に対して追加マージンを取り
 ### MSPを通じて追加でできること
 
 - マルチクラウド統合管理(AWS + Azureなどを一つの窓口で)
-- 韓国の税金計算書(税務証憑)発行、ウォン建て決済
+- 現地通貨決済、現地の税務要件に沿ったインボイス発行
 - コストレポート、FinOpsコンサルティング
-- 規制対応(韓国のCSAP認証、ISMS-P認証など)への支援
+- 現地の規制・認証対応への支援(国別の認証体系は国別ガイドを参照)
 
 ## コミュニティサポート
 
@@ -117,11 +117,9 @@ MSPは一般的に**クラウド使用料に対して追加マージンを取り
 | Google Cloud | [Google Cloud Community](https://www.googlecloudcommunity.com/) | ディスカッションフォーラム |
 | Google Cloud | [Stack Overflow (google-cloudタグ)](https://stackoverflow.com/questions/tagged/google-cloud-platform) | 開発関連Q&A |
 | OCI | [Oracle Cloud Community](https://community.oracle.com/mosc/categories/oci) | Oracle公式フォーラム |
-| AWS | [AWSKRUG](https://www.awskr.org/) | 韓国のAWSユーザーコミュニティ |
-| Google Cloud | [GDG Cloud Korea](https://gdg.community.dev/gdg-cloud-korea/) | 韓国のGoogle Cloudユーザーコミュニティ |
 
 :::note
-上記のリストは代表的なコミュニティのみを選別したものです。この他にもベンダー別・トピック別・地域別のコミュニティが数多く存在します。
+上記のリストは代表的なグローバルコミュニティのみを選別したものです。この他にもベンダー別・トピック別・地域別のコミュニティが数多く存在し、国別のユーザーコミュニティは国別ガイドを参照してください — 例: [韓国](../../korea/index/)。
 :::
 
 ## よくある間違い
@@ -134,7 +132,7 @@ MSPは一般的に**クラウド使用料に対して追加マージンを取り
 
 - [ ] 本番ワークロードの障害深刻度別に目標応答時間を定義し、それに合ったサポートプランを選択したか
 - [ ] アドバイザーサービス(Trusted Advisor、Azure Advisorなど)の推奨事項を定期的に確認するプロセスがあるか
-- [ ] MSPの必要性(運用代行、マルチクラウド統合管理、ウォン建て決済など)を検討したか
+- [ ] MSPの必要性(運用代行、マルチクラウド統合管理、現地通貨決済など)を検討したか
 
 ## 関連ドキュメント
 

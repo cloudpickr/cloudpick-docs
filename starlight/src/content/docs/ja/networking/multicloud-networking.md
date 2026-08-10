@@ -70,7 +70,6 @@ RFC 1918のプライベートアドレス帯をベンダー別に分割します
 | --- | --- | --- | --- | --- |
 | **サービス名** | Direct Connect | ExpressRoute | Cloud Interconnect | FastConnect |
 | **最大帯域幅** | 100 Gbps | 100 Gbps | 200 Gbps | 100 Gbps |
-| **韓国PoP** | KINX、LG U+ | KINX、LG U+ | KINX | KINX |
 | **最小契約期間** | なし（ポート時間課金） | なし~1年 | なし | なし（ポート時間課金） |
 | **Egress割引** | 通常比 ~50%割引 | 無制限Egress込み | 通常比割引 | Egress 10TB/月無料 |
 
@@ -80,22 +79,22 @@ RFC 1918のプライベートアドレス帯をベンダー別に分割します
 **Azure ExpressRouteの特異点:** Egress料金が回線料金に含まれているため、大量のデータ移動時に最も経済的な場合があります。
 :::
 
-### Cloud Exchange（KINX、Megaport、Equinix Fabric）
+### Cloud Exchange（Megaport、Equinix Fabricなど）
 
 Cloud Exchangeは1本の物理接続で複数のクラウドに同時接続できるサービスです。マルチクラウド環境において最も効率的な接続方式です。
 
 ```mermaid
 graph LR
-    AWS[AWS DX] --> IX[KINX / Cloud Exchange]
+    AWS[AWS DX] --> IX[Cloud Exchange / IX]
     Azure[Azure ER] --> IX
     Google Cloud[Google Cloud CI] --> IX
     OCI[OCI FC] --> IX
 ```
 
-**韓国での選択肢:**
-- **KINX**: 韓国国内最大のIX（Internet Exchange）。AWS、Azure、Google Cloud、OCIすべてにPoPを保有
-- **Megaport**: グローバルCloud Exchange。ソウルにPoPあり
-- **Equinix Fabric**: グローバル最大手。ソウルにデータセンターを運営
+**代表的な選択肢:**
+- **Megaport**: グローバルCloud Exchange。主要都市にPoPを保有
+- **Equinix Fabric**: グローバル最大手。世界各地でデータセンターを運営
+- **各国のローカルIX**: 国ごとに主要CSPのPoPをすべて保有するローカルIXがある場合が多くあります（例: 韓国のKINX — [韓国ガイド](../../korea/index/)を参照）
 
 :::note
 **使用場面:** 3つ以上のクラウドを接続する場合、オンプレミスも併せて接続する場合
@@ -103,7 +102,7 @@ graph LR
 
 ### 接続方式の選定ガイド
 
-| 基準 | Site-to-Site VPN | 専用接続（DX/ER/CI/FC） | Cloud Exchange（KINX/Megaport） |
+| 基準 | Site-to-Site VPN | 専用接続（DX/ER/CI/FC） | Cloud Exchange（Megaportなど） |
 | --- | --- | --- | --- |
 | **帯域幅** | ~1 Gbps | 10~100 Gbps | 1~10 Gbps |
 | **レイテンシ** | インターネット経由（変動あり） | 専用回線（安定） | 専用回線（安定） |
@@ -141,4 +140,3 @@ graph LR
 - [Google Cloud Interconnect](https://cloud.google.com/network-connectivity/docs/interconnect/concepts/overview)
 - [OCI FastConnect](https://docs.oracle.com/en-us/iaas/Content/Network/Concepts/fastconnect.htm)
 - [RFC 1918 — Address Allocation for Private Internets](https://datatracker.ietf.org/doc/html/rfc1918)
-- [KINX Cloud Hub](https://www.kinx.net/service/cloud/)

@@ -25,7 +25,7 @@ description: "ハイブリッドクラウド、エッジコンピューティン
 | **データ主権** | データが特定の国/施設の外に出てはならない | Dedicated Region、Azure Stack、GDC Air-gapped |
 | **超低遅延** | 工場自動化、リアルタイムゲーム、AR/VR | Local Zones、Wavelength、Edge Zones |
 | **既存投資の保護** | オンプレミス機器の寿命が残っている+クラウドサービスを利用 | Arc、GKE Enterprise、EKS Anywhere |
-| **規制 (網分離)** | インターネット接続不可の環境 | GDC Air-gapped、Dedicated Region |
+| **規制 (閉域網)** | インターネット接続不可の環境 | GDC Air-gapped、Dedicated Region |
 
 ## マルチクラウドアーキテクチャパターン
 

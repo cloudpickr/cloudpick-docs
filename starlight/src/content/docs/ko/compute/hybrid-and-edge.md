@@ -25,7 +25,7 @@ description: "하이브리드 클라우드, 엣지 컴퓨팅, 멀티클라우드
 | **데이터 주권** | 데이터가 특정 국가/시설 밖으로 나가면 안 됨 | Dedicated Region, Azure Stack, GDC Air-gapped |
 | **초저지연** | 공장 자동화, 실시간 게임, AR/VR | Local Zones, Wavelength, Edge Zones |
 | **기존 투자 보호** | 온프레미스 장비 수명 남음 + 클라우드 서비스 사용 | Arc, GKE Enterprise, EKS Anywhere |
-| **규제 (망분리)** | 인터넷 연결 불가 환경 | GDC Air-gapped, Dedicated Region |
+| **규제 (폐쇄망)** | 인터넷 연결 불가 환경 | GDC Air-gapped, Dedicated Region |
 
 ## 멀티클라우드 아키텍처 패턴
 

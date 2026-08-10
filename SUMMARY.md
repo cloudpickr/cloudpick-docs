@@ -112,6 +112,7 @@
 ## 국가별 가이드 <a id="country-guides"></a>
 
 - [한국](korea/index.md)
+  - [한국 시장·인프라 현황](korea/market.md)
   - [컴플라이언스 (한국)](korea/governance/compliance.md)
   - [CSAP (클라우드 보안 인증)](korea/security/csap.md)
   - [망분리와 네트워크 격리 (한국)](korea/security/network-isolation.md)

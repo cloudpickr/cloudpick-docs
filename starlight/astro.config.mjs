@@ -254,6 +254,7 @@ export default defineConfig({
 							collapsed: true,
 							items: [
 								{ slug: 'korea', label: '한국 개요', translations: { en: 'Korea Overview', ja: '韓国 概要' } },
+								{ slug: 'korea/market' },
 								{ slug: 'korea/governance/compliance' },
 								{ slug: 'korea/security/csap' },
 								{ slug: 'korea/security/network-isolation' },

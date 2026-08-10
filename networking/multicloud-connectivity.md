@@ -172,7 +172,6 @@ graph TD
 
 ### 표준 및 커뮤니티
 
-- [KINX](https://www.kinx.net/) — 국내 최대 IX
 - [Megaport](https://www.megaport.com/) — 글로벌 Cloud Exchange
 - [NIST Multi-Cloud Security Public Working Group](https://www.nist.gov/publications/nist-cloud-computing-reference-architecture)
 - [RFC 1918 — Address Allocation for Private Internets](https://www.rfc-editor.org/rfc/rfc1918)

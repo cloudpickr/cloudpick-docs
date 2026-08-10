@@ -100,9 +100,9 @@ MSP는 일반적으로 **클라우드 사용료에 대한 추가 마진을 받�
 ### MSP를 통해 추가로 할 수 있는 것
 
 - 멀티클라우드 통합 관리 (AWS + Azure 등을 하나의 창구로)
-- 세금계산서 발행, 원화 결제
+- 현지 통화 결제, 현지 세무 요건에 맞는 인보이스 발행
 - 비용 리포트, FinOps 컨설팅
-- 규제 대응 (CSAP, ISMS-P 등) 지원
+- 현지 규제·인증 대응 지원 (국가별 인증 체계는 국가 가이드 참고)
 
 ## 커뮤니티 지원
 
@@ -117,11 +117,9 @@ MSP는 일반적으로 **클라우드 사용료에 대한 추가 마진을 받�
 | Google Cloud | [Google Cloud Community](https://www.googlecloudcommunity.com/) | 토론 포럼 |
 | Google Cloud | [Stack Overflow (google-cloud 태그)](https://stackoverflow.com/questions/tagged/google-cloud-platform) | 개발 관련 Q&A |
 | OCI | [Oracle Cloud Community](https://community.oracle.com/mosc/categories/oci) | Oracle 공식 포럼 |
-| AWS | [AWSKRUG](https://www.awskr.org/) | 한국 AWS 사용자 커뮤니티 |
-| Google Cloud | [GDG Cloud Korea](https://gdg.community.dev/gdg-cloud-korea/) | 한국 Google Cloud 사용자 커뮤니티 |
 
 :::note
-위 목록은 대표적인 커뮤니티만 선별한 것입니다. 이 외에도 벤더별·주제별·지역별 커뮤니티가 다수 존재합니다.
+위 목록은 대표적인 글로벌 커뮤니티만 선별한 것입니다. 이 외에도 벤더별·주제별·지역별 커뮤니티가 다수 존재하며, 국가별 사용자 커뮤니티는 국가 가이드를 참고하세요 — 예: [한국](../../korea/index/).
 :::
 
 ## 자주 하는 실수
@@ -134,7 +132,7 @@ MSP는 일반적으로 **클라우드 사용료에 대한 추가 마진을 받�
 
 - [ ] 프로덕션 워크로드의 장애 심각도별 목표 응답 시간을 정의하고, 이에 맞는 지원 플랜을 선택했는가?
 - [ ] 어드바이저 서비스(Trusted Advisor, Azure Advisor 등)의 권장 사항을 정기적으로 확인하는 프로세스가 있는가?
-- [ ] MSP 필요 여부(운영 대행, 멀티클라우드 통합 관리, 원화 결제 등)를 검토했는가?
+- [ ] MSP 필요 여부(운영 대행, 멀티클라우드 통합 관리, 현지 통화 결제 등)를 검토했는가?
 
 ## 관련 문서
 

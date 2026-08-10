@@ -70,7 +70,6 @@ RFC 1918 프라이빗 대역을 벤더별로 분할합니다.
 | --- | --- | --- | --- | --- |
 | **서비스명** | Direct Connect | ExpressRoute | Cloud Interconnect | FastConnect |
 | **최대 대역폭** | 100 Gbps | 100 Gbps | 200 Gbps | 100 Gbps |
-| **한국 PoP** | KINX, LG U+ | KINX, LG U+ | KINX | KINX |
 | **최소 약정** | 없음 (포트 시간당 과금) | 없음~1년 | 없음 | 없음 (포트 시간당 과금) |
 | **이그레스 할인** | 일반 대비 ~50% 할인 | 무제한 이그레스 포함 | 일반 대비 할인 | 이그레스 10TB/월 무료 |
 
@@ -80,22 +79,22 @@ RFC 1918 프라이빗 대역을 벤더별로 분할합니다.
 **Azure ExpressRoute의 특이점:** 이그레스 요금이 회선 요금에 포함되어 있어, 대량 데이터 이동 시 가장 경제적일 수 있습니다.
 :::
 
-### Cloud Exchange (KINX, Megaport, Equinix Fabric)
+### Cloud Exchange (Megaport, Equinix Fabric 등)
 
 Cloud Exchange는 하나의 물리적 연결로 여러 클라우드에 동시 접속할 수 있는 서비스입니다. 멀티클라우드 환경에서 가장 효율적인 연결 방식입니다.
 
 ```mermaid
 graph LR
-    AWS[AWS DX] --> IX[KINX / Cloud Exchange]
+    AWS[AWS DX] --> IX[Cloud Exchange / IX]
     Azure[Azure ER] --> IX
     Google Cloud[Google Cloud CI] --> IX
     OCI[OCI FC] --> IX
 ```
 
-**한국에서의 선택지:**
-- **KINX**: 국내 최대 IX(Internet Exchange). AWS, Azure, Google Cloud, OCI 모두 PoP 보유
-- **Megaport**: 글로벌 Cloud Exchange. 서울 PoP 있음
-- **Equinix Fabric**: 글로벌 최대. 서울 데이터센터 운영
+**대표적인 선택지:**
+- **Megaport**: 글로벌 Cloud Exchange. 주요 도시에 PoP 보유
+- **Equinix Fabric**: 글로벌 최대. 전 세계 데이터센터 운영
+- **각국 로컬 IX**: 국가별로 주요 CSP PoP를 모두 보유한 로컬 IX가 있는 경우가 많습니다 (예: 한국 KINX — [한국 가이드](../../korea/index/) 참고)
 
 :::note
 **언제 사용:** 3개 이상의 클라우드를 연결할 때, 온프레미스도 함께 연결할 때
@@ -103,7 +102,7 @@ graph LR
 
 ### 연결 방식 선택 가이드
 
-| 기준 | Site-to-Site VPN | 전용 연결 (DX/ER/CI/FC) | Cloud Exchange (KINX/Megaport) |
+| 기준 | Site-to-Site VPN | 전용 연결 (DX/ER/CI/FC) | Cloud Exchange (Megaport 등) |
 | --- | --- | --- | --- |
 | **대역폭** | ~1 Gbps | 10~100 Gbps | 1~10 Gbps |
 | **지연 시간** | 인터넷 경유 (변동) | 전용 회선 (안정) | 전용 회선 (안정) |

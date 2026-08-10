@@ -53,6 +53,13 @@
 - **기존 `npm run build`는 무변경** — 현행 Cloudflare Workers MCP(`mcp/`)는 공개 llms-full.txt fetch에 의존하므로, 컷오버 전 Cloudflare 배포는 계속 `npm run build` 사용
 - 컷오버 시: Netlify 사이트 생성(base=starlight) → 도메인 연결 → MCP 클라이언트 엔드포인트를 `https://<사이트>/mcp`로 변경 → `mcp/`(Workers)와 위 4번의 `DOCS_BASE_URL` 항목은 폐기 가능
 
+## 국가 중립화 리팩터링 (2026-08-10, 같은 브랜치)
+
+- 원칙(사용자 결정): **일반 9섹션은 국가 중립** — 국가 특화 절·표는 국가 가이드로 이동, 문장 단위는 다국 병렬 예시("예: 한국 CSAP, 미국 FedRAMP")로 중립화. **언어(한국어 검색·형태소·예시 프롬프트) 관련은 유지**.
+- 신규 문서: `korea/market.md`(한국 리전·국내 DR·KINX PoP·MSP·커뮤니티) — SUMMARY.md·사이드바(korea/market) 등록됨
+- 주요 이동: network-isolation의 CSAP/N²SF 표(korea와 중복이라 삭제), regions-and-zones·dr·1p-vs-3p·compare-clouds·multicloud-networking·support-plans·compliance의 한국 절
+- en/ja 동기화 필수 — 헤딩 구조 3로케일 대칭 유지. 이후 일반 문서에 국가 내용 추가 시 같은 원칙 적용할 것
+
 ## 남은 미결 사항
 
 - **Pagefind 한국어 검색 품질**: 알려진 CJK 약점 — 실사용 평가 후 필요 시 대안 검색 검토

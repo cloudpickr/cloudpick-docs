@@ -70,7 +70,6 @@ A connection over a dedicated physical circuit. Low latency and high bandwidth, 
 | --- | --- | --- | --- | --- |
 | **Service name** | Direct Connect | ExpressRoute | Cloud Interconnect | FastConnect |
 | **Max bandwidth** | 100 Gbps | 100 Gbps | 200 Gbps | 100 Gbps |
-| **Korea PoP** | KINX, LG U+ | KINX, LG U+ | KINX | KINX |
 | **Minimum commitment** | None (billed hourly per port) | None to 1 year | None | None (billed hourly per port) |
 | **Egress discount** | ~50% discount vs. standard | Unlimited egress included | Discount vs. standard | 10TB/month egress free |
 
@@ -80,22 +79,22 @@ A connection over a dedicated physical circuit. Low latency and high bandwidth, 
 **Azure ExpressRoute's distinctive point:** egress fees are included in the circuit fee, which can be the most economical option for large-volume data movement.
 :::
 
-### Cloud Exchange (KINX, Megaport, Equinix Fabric)
+### Cloud Exchange (Megaport, Equinix Fabric, etc.)
 
 A Cloud Exchange is a service that lets you connect to multiple clouds simultaneously through a single physical connection. It's the most efficient connection method in a multicloud environment.
 
 ```mermaid
 graph LR
-    AWS[AWS DX] --> IX[KINX / Cloud Exchange]
+    AWS[AWS DX] --> IX[Cloud Exchange / IX]
     Azure[Azure ER] --> IX
     Google Cloud[Google Cloud CI] --> IX
     OCI[OCI FC] --> IX
 ```
 
-**Options in Korea:**
-- **KINX**: the largest domestic IX (Internet Exchange). Has a PoP for AWS, Azure, Google Cloud, and OCI
-- **Megaport**: a global Cloud Exchange. Has a Seoul PoP
-- **Equinix Fabric**: the largest globally. Operates a Seoul data center
+**Common options:**
+- **Megaport**: a global Cloud Exchange. Has PoPs in major cities
+- **Equinix Fabric**: the largest globally. Operates data centers worldwide
+- **Local IXs by country**: many countries have a local IX that hosts PoPs for all the major CSPs (e.g., Korea's KINX — see the [Korea guide](../../korea/index/))
 
 :::note
 **When to use:** when connecting 3 or more clouds, or when on-premises must also be connected
@@ -103,7 +102,7 @@ graph LR
 
 ### Connection Method Selection Guide
 
-| Criterion | Site-to-Site VPN | Dedicated connection (DX/ER/CI/FC) | Cloud Exchange (KINX/Megaport) |
+| Criterion | Site-to-Site VPN | Dedicated connection (DX/ER/CI/FC) | Cloud Exchange (Megaport, etc.) |
 | --- | --- | --- | --- |
 | **Bandwidth** | ~1 Gbps | 10-100 Gbps | 1-10 Gbps |
 | **Latency** | Via internet (variable) | Dedicated circuit (stable) | Dedicated circuit (stable) |
@@ -141,4 +140,3 @@ Transit architecture patterns, a detailed egress cost comparison, and DNS integr
 - [Google Cloud Interconnect](https://cloud.google.com/network-connectivity/docs/interconnect/concepts/overview)
 - [OCI FastConnect](https://docs.oracle.com/en-us/iaas/Content/Network/Concepts/fastconnect.htm)
 - [RFC 1918 — Address Allocation for Private Internets](https://datatracker.ietf.org/doc/html/rfc1918)
-- [KINX Cloud Hub](https://www.kinx.net/service/cloud/)

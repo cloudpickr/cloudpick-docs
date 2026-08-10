@@ -114,7 +114,7 @@ For details on **Pattern D (self-hosting/open-weight)** — representative model
 
 ## Channel Availability by Major FMs
 
-For the list of models and available channels by provider, see [AI Platforms and Model Comparison](../../ai/ai-ml/); for Korean FMs (Upstage, EXAONE, etc.), see the model catalog in the same document. For the pattern comparison table, use the **Pattern Comparison** section above.
+For the list of models and available channels by provider, see [AI Platforms and Model Comparison](../../ai/ai-ml/); for Korean FM providers (Upstage, EXAONE, etc.), see [FM Provider Comparison (Korea)](../../korea/ai/fm-providers/). For the pattern comparison table, use the **Pattern Comparison** section above.
 
 ---
 
@@ -136,19 +136,6 @@ At large scale (roughly tens of thousands of dollars per month or more), **procu
 
 ---
 
-## Considerations for Korean Enterprises
-
-| Requirement | Recommended Channel |
-| --- | --- |
-| Korean-language specialization + multi-cloud | Upstage Solar, LG EXAONE (1P or AWS/Azure Marketplace) |
-| Data sovereignty / network segregation | On-premises (Upstage, EXAONE, Llama) or a domestic-region 3P |
-| Consuming existing AWS/Azure commits | 3P (Bedrock / Azure Foundry / Marketplace) |
-| Immediate access to the latest global FMs | 1P (OpenAI, Anthropic direct) |
-| Financial/public-sector compliance | 3P (inheriting cloud certifications) + on-premises hybrid |
-| Responding to sovereign foundation model policy | Confirm which models participate in the policy before choosing a channel (for public-sector/financial procurement) |
-
----
-
 ## Pricing Plans and Cost Management
 
 Each provider's license tiers (Seat plans, API tiers), 3P reserved capacity (PTU, Provisioned Throughput), and cost management tools and patterns are covered in [LLM Licensing and Cost Management](../../ai/licensing/).
@@ -165,7 +152,7 @@ Each provider's license tiers (Seat plans, API tiers), 3P reserved capacity (PTU
 
 - [ ] Estimated monthly token consumption
 - [ ] Checked for existing cloud commits (EDP/EA/CUD)
-- [ ] Identified data residency requirements
+- [ ] Identified data residency requirements (local region, network isolation)
 - [ ] Confirmed required features (fine-tuning, agents, real-time) are available on chosen channel
 - [ ] Verified quota/rate limits can handle production traffic
 - [ ] Model version sync strategy for hybrid (1P+3P) operations
@@ -173,6 +160,7 @@ Each provider's license tiers (Seat plans, API tiers), 3P reserved capacity (PTU
 ## Related Documents
 
 - [AI Platforms and Model Comparison](../../ai/ai-ml/) — vendor FM catalog, GPU/accelerators
+- [FM Provider Comparison (Korea)](../../korea/ai/fm-providers/) — channel selection guide by requirement for Korean enterprises
 - [Multi-cloud AI](../../ai/multicloud-ai/) — vendor combination strategy
 - [LLMOps](../../ai/llmops/) — cost tracking, evaluation, operations
 - [FinOps](../../governance/finops/) — cloud cost governance

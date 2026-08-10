@@ -1,6 +1,6 @@
 ---
 title: "Regions and Availability Zones"
-description: "Explains the concepts of regions, availability zones, and edge locations, and compares the state of Korea regions and adjacent DR regions across vendors."
+description: "Explains the concepts of regions, availability zones, and edge locations, and compares vendor region models and data sovereignty considerations."
 ---
 
 > Last reviewed: May 2026
@@ -71,7 +71,6 @@ An **edge location** is small-scale infrastructure placed closer to users than a
 | Hierarchy | Geography → Region → Availability Zone |
 | VNet scope | Region-level |
 | Region Pair | Two regions within the same geography are designated as a pair. Platform updates are not applied to both simultaneously |
-| Korea region pair | `koreacentral` (Seoul) ↔ `koreasouth` (Busan) — enables domestic DR |
 
 ### Google Cloud
 
@@ -93,7 +92,7 @@ An **edge location** is small-scale infrastructure placed closer to users than a
 
 ## Considerations When Choosing a Region
 
-- **Latency** — Choose a region close to your users. For Korean users, a Korea region is best.
+- **Latency** — Choose a region close to your users. If a region exists in the country where your primary user base is located, that region is usually best.
 - **Service availability** — Not every service is available in every region. AI/ML and newer services in particular are often available only in specific regions.
 - **Cost** — Pricing for the same service can vary by region. US regions are usually the cheapest.
 - **Compliance** — Regulations may require storing data in a specific country.
@@ -116,24 +115,9 @@ Once you understand regions and AZs, you need to decide what level of distributi
 Up through multi-AZ, this is approached as a **high availability (HA)** design; from multi-region onward, it's approached as a **disaster recovery (DR)** design. For DR strategy types (Backup & Restore through Active-Active), RPO/RTO definitions, and vendor-specific DR services, see [Disaster Recovery (DR)](../../governance/dr/).
 :::
 
-## Considerations in Korea
+## Data Sovereignty and Region Restrictions
 
-### Status of Korea Regions
-
-| Vendor | Region Code | Number of AZs/Zones | Launch Date |
-| --- | --- | --- | --- |
-| AWS | `ap-northeast-2` (Seoul) | 4 AZs | 2016 |
-| Azure | `koreacentral` (Seoul), `koreasouth` (Busan) | 3 AZs (Central) | 2017 |
-| Google Cloud | `asia-northeast3` (Seoul) | 3 Zones | 2020 |
-| OCI | `ap-seoul-1`, `ap-chuncheon-1` | 3 FDs | 2020 |
-
-:::note
-Azure (Seoul-Busan) and OCI (Seoul-Chuncheon) each have two domestic regions, enabling a DR configuration where data never leaves the country. For AWS/Google Cloud, Tokyo and Osaka are the closest DR candidates. For details on vendor-specific DR strategies, see [Disaster Recovery (DR)](../../governance/dr/).
-:::
-
-### Data Sovereignty
-
-Korea's **Personal Information Protection Act** requires either the data subject's consent or a legal basis when transferring personal information overseas. The **Credit Information Act** applies even stricter regulations to personal credit information in the financial sector. When choosing a cloud vendor, you must verify whether a Korea region exists and where data is stored.
+Many countries' personal data protection laws require the data subject's consent or a legal basis when transferring personal data overseas, and stricter regulations often apply in the financial sector. When choosing a cloud vendor, you must verify whether a region exists in your target market country and where data is stored. For region status and cross-border transfer requirements by country, see the country guides — [Korea](../../korea/index/) · [US](../../us/index/) · [EU](../../eu/index/) · [Japan](../../japan/index/) · [Singapore](../../singapore/index/).
 
 Each CSP can enforce regional restrictions as policy:
 
@@ -142,7 +126,7 @@ Each CSP can enforce regional restrictions as policy:
 - **Google Cloud** — Restricts regions where resources can be created via Organization Policy
 - **OCI** — Restricts regions via Compartment Policy
 
-### Sovereign Cloud
+## Sovereign Cloud
 
 As data sovereignty requirements grow stricter, **sovereign regions** that are physically and logically separated from the public cloud are expanding.
 

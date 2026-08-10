@@ -69,7 +69,7 @@ FDEs and SIs (System Integrators) both write code on-site at the customer, but t
 | **Product feedback** | Core role — reflects field problems into the product roadmap | Limited — separate organization from the vendor |
 
 :::note
-In the Korean market, SIs (Samsung SDS, LG CNS, SK C&C, etc.) dominate large public-sector and financial-services projects. FDEs often have a **collaborative rather than competitive** relationship with them — the SI builds the overall system while the FDE handles the integration portion for their company's own AI/SaaS product.
+In markets with a large public-sector and financial-services footprint, large SIs (e.g., Korea's Samsung SDS, LG CNS, SK C&C) dominate large-scale projects. FDEs often have a **collaborative rather than competitive** relationship with them — the SI builds the overall system while the FDE handles the integration portion for their company's own AI/SaaS product.
 :::
 
 :::caution

@@ -165,26 +165,19 @@ Beyond DR testing, Chaos Engineering is the practice of routinely injecting fail
 | Google Cloud | — (3rd party: Gremlin, LitmusChaos) |
 | OCI | — (3rd party: Gremlin, LitmusChaos) |
 
-## DR Configuration Based on Korean Regions
+## Choosing a DR Region and Data Sovereignty
 
-| Vendor | Primary (Korea) | Secondary Candidate | Latency | Notes |
-| --- | --- | --- | --- | --- |
-| AWS | `ap-northeast-2` (Seoul) | `ap-northeast-1` (Tokyo), `ap-northeast-3` (Osaka) | ~30-50ms | Cross-border transfer |
-| Azure | `koreacentral` (Seoul) | `koreasouth` (Busan) | ~5ms | **In-country DR possible** |
-| Azure | `koreacentral` (Seoul) | `japaneast` (Tokyo) | ~30ms | Cross-border transfer |
-| Google Cloud | `asia-northeast3` (Seoul) | `asia-northeast1` (Tokyo), `asia-northeast2` (Osaka) | ~30-50ms | Cross-border transfer |
-| OCI | `ap-seoul-1` (Seoul) | `ap-chuncheon-1` (Chuncheon) | ~5ms | **In-country DR possible** |
-| OCI | `ap-seoul-1` (Seoul) | `ap-tokyo-1` (Tokyo) | ~30ms | Cross-border transfer |
+When choosing a secondary region, check latency (replication lag) as well as **whether data crosses a border**. Vendors that offer a second region in the same country enable a DR configuration where data never leaves the country; otherwise, the nearest region in an adjacent country becomes the candidate.
 
 :::caution
-If you use an overseas region for DR, you must meet the cross-border data transfer requirements under Korea's Personal Information Protection Act and Credit Information Act. For workloads with strict data sovereignty requirements, prioritize reviewing vendors that offer in-country DR from the table above.
+If you use an overseas region for DR, you must meet the cross-border data transfer requirements set by that country's personal data protection laws. For workloads with strict data sovereignty requirements, prioritize vendor/region combinations that offer in-country DR. For region status and in-country DR combinations by country, see the country guides — [Korea](../../korea/index/) and others.
 :::
 
 ## Common Mistakes
 
 - **Building a DR plan and never testing it** — during an actual failure, outdated runbooks fail to work, and the target RTO cannot be achieved
 - **Applying the same DR strategy to every system** — designing everything as Active-Active without considering cost, or leaving everything at Backup & Restore
-- **Not reviewing data sovereignty when using an overseas DR region** — regulatory violations from failing to confirm cross-border transfer requirements under the Personal Information Protection Act/Credit Information Act
+- **Not reviewing data sovereignty when using an overseas DR region** — regulatory violations from failing to confirm the cross-border transfer requirements set by personal data protection laws
 
 ## Checklist
 

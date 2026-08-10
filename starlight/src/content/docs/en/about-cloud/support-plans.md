@@ -100,9 +100,9 @@ Cases where additional costs arise:
 ### What you can gain additionally through an MSP
 
 - Unified multicloud management (a single point of contact for AWS + Azure, etc.)
-- Local invoicing and local-currency payment
+- Local-currency payment, invoicing that matches local tax requirements
 - Cost reporting and FinOps consulting
-- Support for regulatory compliance (CSAP, ISMS-P, etc.)
+- Support for local regulatory/certification compliance (see the country guides for country-specific certification frameworks)
 
 ## Community support
 
@@ -117,11 +117,9 @@ Even without a paid plan, you can get answers to technical questions through the
 | Google Cloud | [Google Cloud Community](https://www.googlecloudcommunity.com/) | Discussion forum |
 | Google Cloud | [Stack Overflow (google-cloud tag)](https://stackoverflow.com/questions/tagged/google-cloud-platform) | Development-related Q&A |
 | OCI | [Oracle Cloud Community](https://community.oracle.com/mosc/categories/oci) | Official Oracle forum |
-| AWS | [AWSKRUG](https://www.awskr.org/) | Korean AWS user community |
-| Google Cloud | [GDG Cloud Korea](https://gdg.community.dev/gdg-cloud-korea/) | Korean Google Cloud user community |
 
 :::note
-The list above only highlights representative communities. Many other vendor-specific, topic-specific, and regional communities also exist.
+The list above only highlights representative global communities. Many other vendor-specific, topic-specific, and regional communities also exist — for country-specific user communities, see the country guides, e.g. [Korea](../../korea/index/).
 :::
 
 ## Common mistakes
@@ -135,6 +133,13 @@ The list above only highlights representative communities. Many other vendor-spe
 - [ ] Have you defined target response times by incident severity for production workloads, and selected a support plan that matches them?
 - [ ] Do you have a process to regularly review recommendations from advisor services (Trusted Advisor, Azure Advisor, etc.)?
 - [ ] Have you evaluated whether you need an MSP (operations on your behalf, unified multicloud management, local-currency payment, etc.)?
+
+## Related Documents
+
+- [Well-Architected Framework](../../about-cloud/well-architected/) — the operational excellence and reliability pillars, and support structure
+- [Getting Started with Cloud](../../about-cloud/getting-started/) — operational readiness to confirm early in adoption
+- [FinOps](../../governance/finops/) — including support plan/MSP costs in cost governance
+- [Monitoring](../../devops/monitoring/) — connecting incident response with support escalation
 
 ## References
 

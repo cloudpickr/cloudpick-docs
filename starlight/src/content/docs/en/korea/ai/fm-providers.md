@@ -44,6 +44,19 @@ Choosing between a domestic FM and a global model such as GPT, Gemini, or Claude
 - **Cost**: Upstage's Solar Pro 2 has been advertised at around $0.5 per million tokens, and domestic models sometimes lead with price competitiveness. However, throughput and context length vary, so don't compare providers on token price alone.
 - **Agentic and multimodal support**: Kakao Kanana-2, KT's Mi:dm K, and NC AI's VARCO-VISION are increasingly building out agentic AI and multimodal capabilities as separate product lines. For use cases beyond plain text generation, verify the maturity of the relevant lineup separately.
 
+## Channel Selection Guide by Requirement
+
+For the distinction between 1P (direct from the model provider) and 3P (via a cloud vendor) channels and the axes for evaluating them, see [1P vs 3P](../../ai/1p-vs-3p/). Below are typical recommended channels by requirement for Korean enterprises.
+
+| Requirement | Recommended channel |
+| --- | --- |
+| Korean-language specialization + multi-cloud | Upstage Solar, LG EXAONE (1P or AWS/Azure Marketplace) |
+| Data sovereignty / network separation | On-premises (Upstage, EXAONE, Llama) or a domestic-region 3P |
+| Consuming existing AWS/Azure commits | 3P (Bedrock / Azure Foundry / Marketplace) |
+| Immediate access to the latest global FMs | 1P (OpenAI, Anthropic direct) |
+| Financial/public-sector compliance | 3P (inheriting cloud certifications) + on-premises hybrid |
+| Responding to sovereign foundation model policy | Confirm which models participate in the policy before choosing a channel (for public-sector/financial procurement) |
+
 ## Adoption Checklist
 
 - [ ] Have you confirmed whether the workload is subject to network separation or CSAP requirements? (if so, prioritize domestic-region APIs)

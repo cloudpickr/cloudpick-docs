@@ -9,9 +9,13 @@ description: "Guides specific to the Korean market — CSAP, network separation,
 
 This section covers the regulations and ecosystem you encounter when adopting and operating cloud in the Korean market. Where the earlier vendor-neutral documents covered common global architecture, this appendix focuses on the laws, institutions, and supplier landscape unique to Korea.
 
-It is organized into four documents to help enterprise architects who are adopting cloud in the public or financial sector, or bringing generative AI into line with Korea's domestic regulatory environment.
+It is organized to help enterprise architects who are adopting cloud in the public or financial sector, or bringing generative AI into line with Korea's domestic regulatory environment.
 
 ## Topics Covered
+
+### Market and Infrastructure
+
+- **[Korea Market & Infrastructure](../korea/market/)** — a rundown of Korea region status by vendor, in-country DR configurations, data sovereignty (Personal Information Protection Act, Credit Information Act), dedicated-connectivity PoPs (KINX), and MSP/community resources.
 
 ### Security and Regulation
 
@@ -33,4 +37,8 @@ This section covers policy and regulatory developments that change quickly. We r
 > 📄 [Data Protection and Workload Security](../security/data-protection/)
 
 > 📄 [Sovereign Landing Zone](../governance/landing-zone/#sovereign-landing-zone)
+
+## References
+
+- For international certification/vendor hubs, see [Compliance](../governance/compliance/).
 

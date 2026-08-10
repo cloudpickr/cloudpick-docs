@@ -132,7 +132,7 @@ Rather than aligning controls only around audit time, run an ongoing detection s
 Things to verify when considering compliance in a multi-cloud environment:
 
 - [ ] Has **sensitivity classification** of the data you process/store been completed? (personal information, financial information, confidential information, etc.)
-- [ ] Have you identified the **legal requirements** that apply to that data? (domestic law + foreign law)
+- [ ] Have you identified the **legal requirements** that apply to that data? (home-country law + laws with extraterritorial application)
 - [ ] Does the vendor you intend to use **hold the necessary certifications in that region**?
 - [ ] Have you clearly defined **user responsibilities** under the shared responsibility model?
 - [ ] Have you automated **day-to-day operational controls** such as audit logging, access control, and encryption?
@@ -140,7 +140,7 @@ Things to verify when considering compliance in a multi-cloud environment:
 
 ## Ongoing Practices
 
-- **Manage certification renewal cycles** — most certifications run on a 3-year validity period with an annual follow-up or surveillance audit (e.g., ISO 27001, Korea's ISMS-P). Add renewal dates to your calendar.
+- **Manage certification renewal cycles** — ISO 27001 runs on a 3-year cycle with an annual surveillance audit, while Korea's ISMS-P has a 3-year validity period with an annual follow-up audit. Add renewal dates to your calendar.
 - **Continuous compliance** — instead of manual checks, use AWS Config, Azure Policy, or Google Cloud Organization Policy to detect policy violations in real time.
 - **Policy drift detection** — regularly check for differences between IaC and the actual environment to maintain compliance status.
 
@@ -154,9 +154,11 @@ Things to verify when considering compliance in a multi-cloud environment:
 
 - [ ] Have you completed sensitivity classification (personal information, financial information, confidential information) of the data you process/store?
 - [ ] Are you running continuous compliance with real-time policy violation detection via AWS Config, Azure Policy, or similar tools?
-- [ ] Are certification renewal schedules (surveillance/follow-up audits) registered and managed on a calendar?
+- [ ] Are certification renewal schedules (e.g., ISO 27001 surveillance audits) registered and managed on a calendar?
 
 ## References
+
+Country-specific regulatory bodies and vendor certification status (e.g., Korea's KISA/CSAP, the US's FedRAMP) are covered in each country guide's References section.
 
 ### AWS
 

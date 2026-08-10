@@ -25,7 +25,7 @@ Not every workload is suited to the public cloud. There is demand for **extendin
 | **Data sovereignty** | Data must not leave a specific country/facility | Dedicated Region, Azure Stack, GDC Air-gapped |
 | **Ultra-low latency** | Factory automation, real-time gaming, AR/VR | Local Zones, Wavelength, Edge Zones |
 | **Protecting existing investment** | On-premises equipment still has useful life + wants to use cloud services | Arc, GKE Enterprise, EKS Anywhere |
-| **Regulatory (network isolation)** | Environment with no internet connectivity | GDC Air-gapped, Dedicated Region |
+| **Regulation (closed network / air-gap)** | Environment with no internet connectivity | GDC Air-gapped, Dedicated Region |
 
 ## Multi-cloud architecture patterns
 

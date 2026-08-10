@@ -7,9 +7,9 @@ description: "Explains physical/logical network segregation concepts, cloud netw
 
 ## Overview
 
-**Network Segregation** is a control that separates the business network from the internet network so that external threats cannot reach internal systems. Because it blocks malware infiltration, remote intrusion, and data exfiltration at the network boundary, regulated markets in many countries — finance, public sector, healthcare — have long adopted it as a core security requirement. Korea, in particular, stands out for having built its public and financial sector security policy around network segregation for decades — for details on Korea's regulations (Electronic Financial Supervisory Regulation, CSAP, N2SF) and recent easing trends, see [Network Segregation and Isolation (Korea)](../../korea/security/network-isolation/).
+**Network Segregation** is a control that separates the business network from the internet network so that external threats cannot reach internal systems. Because it blocks malware infiltration, remote intrusion, and data exfiltration at the network boundary, many regulated markets have long built their security policy around it as a foundational control.
 
-In a modern environment where connections between systems have become unavoidable — API integration, SaaS usage, remote work — the meaning of "segregation" and how it is implemented are evolving together.
+It is applied as a core security requirement in regulated industries such as finance, public sector, and healthcare (for the underlying regulations and tiering systems in each country, see the relevant country guide). In a modern environment where connections between systems have become unavoidable — API integration, SaaS usage, remote work — the meaning of "segregation" and how it is implemented are evolving together.
 
 On-premises, this was implemented by physically separating network equipment. In the cloud, the same security goal can be achieved through **logical isolation**, though some regulatory requirements still mandate physical separation.
 
@@ -58,7 +58,7 @@ The key question is not the "separation vs. connection" dichotomy, but rather: *
 | **Cost** | High, due to redundant equipment and circuits | Relatively low |
 | **Flexibility** | Weeks to months to change | Adjustable within minutes via policy changes |
 | **Patching/updates** | Requires manual transfer within the closed network → delays | Can be automated through a controlled path |
-| **Regulatory application** | Systems in the highest sensitivity tiers (e.g., Korea's CSAP High tier, some critical financial systems) | Most cloud workloads (e.g., Korea's CSAP Medium/Low tier) |
+| **Regulatory application** | Systems in the highest sensitivity tiers (classified/mission-critical systems) | Most cloud workloads (see the relevant country guide for how each country maps certification tiers) |
 
 ### Side-by-Side Operational Comparison
 
@@ -98,7 +98,7 @@ Because the cloud is built on software-defined networking (SDN), strong isolatio
 
 ### Air-Gapped/Dedicated Environments by Vendor
 
-For cases requiring a cloud environment completely isolated from the internet, each vendor offers the following options. Note, however, that certification status in each country's regulated market (e.g., Korea's CSAP) must be verified separately.
+For cases requiring a cloud environment completely isolated from the internet, each vendor offers the following options. Note, however, that whether these options are recognized under each country's public-sector certification framework (e.g., Korea's CSAP, the US's FedRAMP) must be verified separately.
 
 | Vendor | Service | Description |
 | --- | --- | --- |
@@ -152,19 +152,17 @@ flowchart TB
 
 ## Mapping Regulatory Requirements
 
-Network segregation and isolation policy in regulated markets worldwide is evolving from a one-size-fits-all approach — "segregate all systems to the same level" — toward **tiered security based on data classification**. The underlying policy question is shifting from the binary "segregated or not" to "what level of control is required."
+Specific requirements vary by jurisdiction, but the direction is common across markets. Each country's network isolation policy is evolving from a one-size-fits-all approach — "segregate all systems to the same level" — toward **tiered security based on data classification**. The policy question is shifting from the binary "segregated or not" to "what level of control is required."
 
-| Regulation/standard | Requirement | Cloud approach |
+| Regulation type (examples) | Requirement | Cloud approach |
 | --- | --- | --- |
-| **PCI DSS** (card payments, global) | Network isolation of the CDE (Cardholder Data Environment) | Dedicated VPC + firewall + logging |
-| **Country-specific public sector/financial regulations** | Physical/logical segregation requirements and tier systems vary by country | Detailed mapping provided in the relevant country document |
-
-Country-specific regulatory details are covered in the relevant country document.
-
-- **Korea** — Electronic Financial Supervisory Regulation, CSAP High/Medium/Low tiers, ISMS-P, N2SF (National Network Security Framework) C/S/O classification: [Network Segregation and Isolation (Korea)](../../korea/security/network-isolation/)
+| **Card payments** (PCI DSS — global) | Network isolation of the CDE (Cardholder Data Environment) | Dedicated VPC + firewall + logging |
+| **Financial network segregation regulations** (country-specific) | Separation of internal network/DMZ/external network, computer-room segregation | VPC separation + Private Subnet + dedicated line |
+| **Public-sector cloud certification** (country-specific tier systems) | Physical/logical segregation based on tier | Tiered isolation level applied per tier |
+| **Information security management systems** (all industries) | Network segregation, access control, encryption | Security Group + NACL + VPC Endpoint + TLS |
 
 :::note
-Regardless of the regulatory framework, most organizations don't have all systems at the same tier. The key is classifying systems by tier and applying a proportional isolation level to each. Rather than "everything at the highest tier" or "everything public," a mixed configuration is the realistic outcome.
+Most organizations don't have all systems at the same tier. The key is classifying systems by tier and applying a proportional isolation level to each. Rather than "everything at the highest tier" or "everything public," a mixed configuration is the realistic outcome. For country-specific tier systems and architecture mapping (Korea's CSAP, N²SF, and Electronic Financial Supervisory Regulation; the US's FedRAMP and ITAR; the EU's DORA; and more), see the relevant country guide.
 :::
 
 ## Anti-Patterns
@@ -220,7 +218,7 @@ However, guardrails **only work once configured.** Most are disabled by default,
 ### Regulations/Standards
 
 - [PCI DSS v4.0 (PCI SSC)](https://www.pcisecuritystandards.org/)
-- For links to Korea's regulations (Electronic Financial Supervisory Regulation, CSAP, N2SF), see [Network Segregation and Isolation (Korea)](../../korea/security/network-isolation/)
+- For country-specific regulatory and certification sources, see the References section of the relevant country guide — [Korea](../../korea/security/network-isolation/) · [US](../../us/index/) · [EU](../../eu/index/)
 
 ### AWS
 

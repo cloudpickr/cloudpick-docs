@@ -29,22 +29,21 @@ The tendency for compute to follow wherever large volumes of data already reside
 
 ### 2. Geographic Proximity to Users
 
-- For services aimed at Korean users, prioritize vendors with a Korea region
+- Prioritize vendors that have a region in the country where your primary user base is located
 - For global services, review edge network and region coverage
 - For DR, also consider nearby regions (see [Regions and Availability Zones](../../about-cloud/regions-and-zones/))
 
 ### 3. Regulatory and Compliance Requirements
 
-- Public sector: CSAP certification required
-- Financial services: Electronic Financial Supervision Regulations, ISMS-P
-- For EU-facing services: GDPR
-- See [Compliance](../../governance/compliance/) for details
+- Public sector/financial services: each country's cloud certification and supervisory regulations (e.g., Korea's CSAP and Electronic Financial Supervision Regulations, the US's FedRAMP)
+- Personal data: the protection laws of your target market (e.g., EU GDPR)
+- See [Compliance](../../governance/compliance/) and the country guides for details
 
 ### 4. Team Capability and Ecosystem
 
 - If you already have a Microsoft stack (AD, Office 365), Azure is a natural fit
 - If your team is familiar with AWS, initial productivity is higher
-- Also consider official Korean-language documentation and community support for key services
+- Also consider official local-language documentation and community support for key services
 
 ### 5. Vendor Strength Areas
 
@@ -61,7 +60,7 @@ Each vendor has different strengths. See [Comparing Vendors](../../about-cloud/c
 
 - On-demand vs. committed pricing
 - Egress cost (especially important in multicloud environments)
-- Korea region pricing is typically 10–30% higher than US region pricing
+- Pricing varies by region — some regions, such as those in Asia, are typically 10–30% higher than US region pricing
 - Managed-service premiums
 - See [Understanding the Cost Structure](../../about-cloud/pricing-model/) for details
 
@@ -149,7 +148,7 @@ Flawed decision-making patterns that occur frequently in practice.
 
 ### 5. Looking Only at Strengths, Ignoring Weaknesses
 
-- Every vendor has weaknesses: lack of Korean documentation, unsupported services, support response speed, and so on.
+- Every vendor has weaknesses: lack of local-language documentation, unsupported services, support response speed, and so on.
 - Confirm before adoption whether a weakness would be critical for your organization.
 
 ## Validation Steps
@@ -159,7 +158,7 @@ Steps you can actually verify before making a decision:
 1. **PoC (Proof of Concept)** — Deploy one core workload in a real environment
 2. **Cost simulation** — Estimate expected costs with vendor pricing calculators (has limitations)
 3. **Benchmark** — Measure performance/response time for the same workload
-4. **Support quality evaluation** — Actual ticket response speed, Korean-language support level
+4. **Support quality evaluation** — Actual ticket response speed, local-language support level
 5. **Team survey** — Gather feedback from the engineers who will actually use it
 
 ## Common Mistakes

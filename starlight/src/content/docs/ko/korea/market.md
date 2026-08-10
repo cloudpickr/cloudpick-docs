@@ -83,6 +83,7 @@ MSP 비용 구조와 지원 플랜 일반은 [기술 지원과 지원 플랜](..
 ## 참고하기
 
 - [KINX](https://www.kinx.net/) — 국내 최대 IX
+- [KINX Cloud Hub](https://www.kinx.net/service/cloud/) — 멀티클라우드 전용 연결 서비스
 - [AWS 서울 리전](https://aws.amazon.com/ko/about-aws/global-infrastructure/regions_az/)
 - [Azure 한국 리전 (Korea Central/South)](https://azure.microsoft.com/explore/global-infrastructure/geographies)
 - [Google Cloud 서울 리전](https://cloud.google.com/about/locations)

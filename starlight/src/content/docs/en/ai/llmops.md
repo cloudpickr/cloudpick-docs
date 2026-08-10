@@ -137,7 +137,7 @@ AI agents have **multi-step trajectories** (plan → tool call → observe → r
 ## Common Mistakes
 
 - **Deploying prompt/model changes without evaluation** — No regression testing → sudden quality degradation in previously-working responses.
-- **Storing PII in prompt/response logs unmasked** — Privacy regulation violation and data breach risk.
+- **Storing PII in prompt/response logs unmasked** — Risk of violating personal data protection regulations (GDPR, PIPA, etc.) and of data breaches.
 - **Single model dependency without fallback** — Vendor rate limits or outages bring down entire service.
 
 ## Checklist

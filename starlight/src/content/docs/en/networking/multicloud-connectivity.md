@@ -171,7 +171,6 @@ Forward to each cloud's private DNS endpoint based on the domain suffix.
 
 ### Standards and Community
 
-- [KINX](https://www.kinx.net/) — the largest domestic IX
 - [Megaport](https://www.megaport.com/) — a global Cloud Exchange
 - [NIST Multi-Cloud Security Public Working Group](https://www.nist.gov/publications/nist-cloud-computing-reference-architecture)
 - [RFC 1918 — Address Allocation for Private Internets](https://www.rfc-editor.org/rfc/rfc1918)

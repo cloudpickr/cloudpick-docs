@@ -1,0 +1,15 @@
+# Netlify 배포 설정 — 사이트의 base directory를 `starlight`로 지정해야 이 파일이 적용된다.
+#
+# 정적 사이트(dist/) + 원격 MCP 서버(netlify/functions/mcp.mts, 경로 /mcp) 단일 배포.
+# llms*.txt는 빌드 후 scripts/extract-mcp-data.mjs가 dist/에서 제거하므로 공개되지 않고,
+# llms-full.txt만 included_files로 MCP 함수 번들에 들어간다(문서와 같은 배포에 원자적으로 묶임).
+
+[build]
+  command = "npm run build:netlify"
+  publish = "dist"
+
+[functions]
+  node_bundler = "esbuild"
+
+[functions."mcp"]
+  included_files = ["mcp-data/llms-full.txt"]

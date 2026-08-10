@@ -45,6 +45,14 @@
 - 외부 CLI 호출법: `grok --single "<프롬프트>" --always-approve` / `kiro-cli chat --no-interactive --trust-all-tools "<프롬프트>"` / `agy --dangerously-skip-permissions --print "<프롬프트>"` (**플래그 순서 중요** — --print 앞에) / `codex exec --sandbox read-only -c tools.web_search=true "<프롬프트>"` / gemini CLI는 지원 종료로 사용 불가
 - 검증 상세 로그: 세션 scratchpad `crosscheck-*.md` (임시 — 세션 만료 시 소실 가능)
 
+## Netlify 이전 준비 (2026-08-10, 브랜치 `claude/starlight-netlify-i18n-spxhio`)
+
+- 목적: 페이지는 퍼블릭 유지하되 **`llms*.txt` 합본은 공개 URL로 노출하지 않음** (사용자 결정)
+- `starlight/netlify.toml`(사이트 base=`starlight`) + `netlify/functions/mcp.mts`(Streamable HTTP stateless, `/mcp`) 추가
+- `npm run build:netlify` = astro build + `scripts/extract-mcp-data.mjs`(llms*.txt를 dist에서 제거, llms-full.txt만 `mcp-data/`로 추출 → 함수 번들 `included_files`)
+- **기존 `npm run build`는 무변경** — 현행 Cloudflare Workers MCP(`mcp/`)는 공개 llms-full.txt fetch에 의존하므로, 컷오버 전 Cloudflare 배포는 계속 `npm run build` 사용
+- 컷오버 시: Netlify 사이트 생성(base=starlight) → 도메인 연결 → MCP 클라이언트 엔드포인트를 `https://<사이트>/mcp`로 변경 → `mcp/`(Workers)와 위 4번의 `DOCS_BASE_URL` 항목은 폐기 가능
+
 ## 남은 미결 사항
 
 - **Pagefind 한국어 검색 품질**: 알려진 CJK 약점 — 실사용 평가 후 필요 시 대안 검색 검토

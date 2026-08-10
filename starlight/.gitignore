@@ -19,3 +19,8 @@ pnpm-debug.log*
 
 # macOS-specific files
 .DS_Store
+
+# MCP 함수 데이터 (빌드 산출물)
+mcp-data/
+# netlify 로컬 상태
+.netlify/

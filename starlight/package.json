@@ -6,6 +6,7 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
+    "build:netlify": "astro build && node scripts/extract-mcp-data.mjs",
     "preview": "astro preview",
     "astro": "astro"
   },

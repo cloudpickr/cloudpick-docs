@@ -102,7 +102,7 @@ Cases where additional costs arise:
 - Unified multicloud management (a single point of contact for AWS + Azure, etc.)
 - Local invoicing and local-currency payment
 - Cost reporting and FinOps consulting
-- Support for regulatory compliance (country-specific cloud security certifications, etc.)
+- Support for regulatory compliance (CSAP, ISMS-P, etc.)
 
 ## Community support
 

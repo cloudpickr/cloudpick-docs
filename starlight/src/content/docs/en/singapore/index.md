@@ -1,10 +1,11 @@
 ---
-title: "Singapore"
+title: "Singapore Appendix"
 description: "A Singapore market-specific guide covering the MTCS cloud security standard and the PDPA data protection law"
 ---
 
 > Last reviewed: August 2026
 
+## Overview
 
 This section covers the regulatory landscape encountered when adopting and operating cloud in the Singapore market. While the earlier vendor-neutral documents covered globally common architecture, this appendix focuses on Singapore's own certification schemes and laws.
 

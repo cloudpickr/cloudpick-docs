@@ -29,16 +29,16 @@ The tendency for compute to follow wherever large volumes of data already reside
 
 ### 2. Geographic Proximity to Users
 
-- Prioritize vendors with a region in your target geography (minimize latency)
+- For services aimed at Korean users, prioritize vendors with a Korea region
 - For global services, review edge network and region coverage
 - For DR, also consider nearby regions (see [Regions and Availability Zones](../../about-cloud/regions-and-zones/))
 
 ### 3. Regulatory and Compliance Requirements
 
-- Public sector procurement: check country-specific cloud security certification requirements (e.g., Korea CSAP, US FedRAMP, Japan ISMAP)
-- Financial services: check local financial supervisory regulations and industry standards
-- Data privacy: GDPR (EU), APPI (Japan), PDPA (Singapore) — verify data residency requirements
-- See [Compliance](../../governance/compliance/) and country guides for details
+- Public sector: CSAP certification required
+- Financial services: Electronic Financial Supervision Regulations, ISMS-P
+- For EU-facing services: GDPR
+- See [Compliance](../../governance/compliance/) for details
 
 ### 4. Team Capability and Ecosystem
 
@@ -61,7 +61,7 @@ Each vendor has different strengths. See [Comparing Vendors](../../about-cloud/c
 
 - On-demand vs. committed pricing
 - Egress cost (especially important in multicloud environments)
-- Asia/Europe region pricing is typically 10–30% higher than US region pricing
+- Korea region pricing is typically 10–30% higher than US region pricing
 - Managed-service premiums
 - See [Understanding the Cost Structure](../../about-cloud/pricing-model/) for details
 

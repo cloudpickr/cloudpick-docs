@@ -71,7 +71,7 @@ graph TB
 | 계층 구조 | Geography → Region → Availability Zone |
 | VNet 범위 | 리전 단위 |
 | 리전 쌍 (Region Pair) | 같은 Geography 내 두 리전이 쌍으로 지정. 플랫폼 업데이트가 동시에 적용되지 않음 |
-| 한국 리전 쌍 | `koreacentral`(서울) ↔ `koreasouth`(부산) — 동일국 DR 가능 |
+| 한국 리전 쌍 | `koreacentral`(서울) ↔ `koreasouth`(부산) — 국내 DR 가능 |
 
 ### Google Cloud
 
@@ -128,7 +128,7 @@ graph TB
 | OCI | `ap-seoul-1`, `ap-chuncheon-1` | 3 FD | 2020년 |
 
 :::note
-Azure(서울-부산)와 OCI(서울-춘천)는 한국 내 2개 리전을 보유하여 데이터가 국경을 넘지 않는 DR 구성이 가능합니다. AWS/Google Cloud는 도쿄·오사카가 가장 가까운 DR 후보입니다. 벤더별 DR 전략 상세는 [재해복구 (DR)](../../governance/dr/)를 참고하세요.
+Azure(서울-부산)와 OCI(서울-춘천)는 국내 2개 리전을 보유하여 데이터가 국외로 나가지 않는 DR 구성이 가능합니다. AWS/Google Cloud는 도쿄·오사카가 가장 가까운 DR 후보입니다. 벤더별 DR 전략 상세는 [재해복구 (DR)](../../governance/dr/)를 참고하세요.
 :::
 
 ### 데이터 주권

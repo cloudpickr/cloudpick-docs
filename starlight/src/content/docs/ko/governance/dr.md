@@ -169,15 +169,15 @@ DR 테스트를 넘어, 일상적으로 장애를 주입하여 시스템의 복�
 
 | 벤더 | 프라이머리 (한국) | 세컨더리 후보 | 지연 시간 | 비고 |
 | --- | --- | --- | --- | --- |
-| AWS | `ap-northeast-2` (서울) | `ap-northeast-1` (도쿄), `ap-northeast-3` (오사카) | 약 30~50ms | 국경 간 이전 |
-| Azure | `koreacentral` (서울) | `koreasouth` (부산) | 약 5ms | **동일국 DR 가능** |
-| Azure | `koreacentral` (서울) | `japaneast` (도쿄) | 약 30ms | 국경 간 이전 |
-| Google Cloud | `asia-northeast3` (서울) | `asia-northeast1` (도쿄), `asia-northeast2` (오사카) | 약 30~50ms | 국경 간 이전 |
-| OCI | `ap-seoul-1` (서울) | `ap-chuncheon-1` (춘천) | 약 5ms | **동일국 DR 가능** |
-| OCI | `ap-seoul-1` (서울) | `ap-tokyo-1` (도쿄) | 약 30ms | 국경 간 이전 |
+| AWS | `ap-northeast-2` (서울) | `ap-northeast-1` (도쿄), `ap-northeast-3` (오사카) | 약 30~50ms | 국외 이전 |
+| Azure | `koreacentral` (서울) | `koreasouth` (부산) | 약 5ms | **국내 DR 가능** |
+| Azure | `koreacentral` (서울) | `japaneast` (도쿄) | 약 30ms | 국외 이전 |
+| Google Cloud | `asia-northeast3` (서울) | `asia-northeast1` (도쿄), `asia-northeast2` (오사카) | 약 30~50ms | 국외 이전 |
+| OCI | `ap-seoul-1` (서울) | `ap-chuncheon-1` (춘천) | 약 5ms | **국내 DR 가능** |
+| OCI | `ap-seoul-1` (서울) | `ap-tokyo-1` (도쿄) | 약 30ms | 국외 이전 |
 
 :::caution
-다른 국가의 리전을 DR 대상으로 사용할 경우, 해당 국가의 데이터 보호법(예: 한국 개인정보보호법, EU GDPR, 일본 APPI)에 따른 국경 간 데이터 이전 요건을 충족해야 합니다. 데이터 주권이 엄격한 워크로드는 동일 국가 내 DR이 가능한 벤더를 우선 검토하세요.
+국외 리전을 DR 대상으로 사용할 경우, 개인정보보호법·신용정보법에 따른 데이터 국외 이전 요건을 충족해야 합니다. 데이터 주권이 엄격한 워크로드는 위 표에서 국내 DR이 가능한 벤더를 우선 검토하세요.
 :::
 
 ## 자주 하는 실수

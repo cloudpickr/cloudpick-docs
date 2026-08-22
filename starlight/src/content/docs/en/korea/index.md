@@ -1,10 +1,11 @@
 ---
-title: "Korea"
+title: "Korea Appendix"
 description: "Guides specific to the Korean market — CSAP, network separation, sovereign AI policy, and domestic FM providers"
 ---
 
 > Last reviewed: August 2026
 
+## Overview
 
 This section covers the regulations and ecosystem you encounter when adopting and operating cloud in the Korean market. Where the earlier vendor-neutral documents covered common global architecture, this appendix focuses on the laws, institutions, and supplier landscape unique to Korea.
 

@@ -5,6 +5,7 @@ description: "A guide to the regulatory landscape for entering and operating in 
 
 > Last reviewed: August 2026
 
+## Overview
 
 The United States operates a dual regulatory structure at the federal and state levels, layered further with industry-specific regulations (healthcare, defense/aerospace, finance, and so on). Delivering cloud services to federal agencies requires FedRAMP authorization, handling healthcare data requires the HIPAA/BAA framework, and handling defense/aerospace technical data requires ITAR/EAR export controls — each applies independently and none substitutes for another. This section covers the core regulations and policies architects encounter when working with the US market — federal procurement, industry regulations, state privacy laws, and AI policy.
 

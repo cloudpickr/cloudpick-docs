@@ -14,7 +14,7 @@ interface DocSection {
   content: string;
 }
 
-const DOCS_BASE_URL = process.env.DOCS_BASE_URL || "https://cloudpick-docs.netlify.app";
+const DOCS_BASE_URL = process.env.DOCS_BASE_URL || "https://docs.cloudpick.kr";
 const CACHE_TTL_MS = 5 * 60 * 1000;
 const FETCH_TIMEOUT_MS = 10_000;
 

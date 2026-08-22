@@ -10,12 +10,12 @@ The CloudPick documentation site provides a [Model Context Protocol (MCP)](https
 ## Endpoint
 
 ```
-https://cloudpick-docs.netlify.app/mcp
+https://docs.cloudpick.kr/mcp
 ```
 
 Protocol: **MCP Streamable HTTP** (POST)
 
-This is the same origin as the docs site. A Netlify Function is wired to `/mcp`.
+This is the same origin as the docs site. `/mcp` is the MCP server.
 
 ## Client Configuration
 
@@ -28,7 +28,7 @@ This is the same origin as the docs site. A Netlify Function is wired to `/mcp`.
   "mcpServers": {
     "cloudpick-docs": {
       "type": "streamable-http",
-      "url": "https://cloudpick-docs.netlify.app/mcp"
+      "url": "https://docs.cloudpick.kr/mcp"
     }
   }
 }
@@ -43,7 +43,7 @@ This is the same origin as the docs site. A Netlify Function is wired to `/mcp`.
   "mcpServers": {
     "cloudpick-docs": {
       "type": "streamable-http",
-      "url": "https://cloudpick-docs.netlify.app/mcp"
+      "url": "https://docs.cloudpick.kr/mcp"
     }
   }
 }
@@ -56,7 +56,7 @@ Settings → MCP Servers → Add:
 ```json
 {
   "cloudpick-docs": {
-    "url": "https://cloudpick-docs.netlify.app/mcp"
+    "url": "https://docs.cloudpick.kr/mcp"
   }
 }
 ```
@@ -70,7 +70,7 @@ Settings → MCP Servers → Add:
   "servers": {
     "cloudpick-docs": {
       "type": "http",
-      "url": "https://cloudpick-docs.netlify.app/mcp"
+      "url": "https://docs.cloudpick.kr/mcp"
     }
   }
 }

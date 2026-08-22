@@ -10,12 +10,12 @@ CloudPick 문서 사이트는 [Model Context Protocol (MCP)](https://modelcontex
 ## 엔드포인트
 
 ```
-https://cloudpick-docs.netlify.app/mcp
+https://docs.cloudpick.kr/mcp
 ```
 
 프로토콜: **MCP Streamable HTTP** (POST)
 
-문서 사이트와 같은 오리진입니다. Netlify Function이 `/mcp`로 연결됩니다.
+문서 사이트와 같은 오리진입니다. `/mcp`가 MCP 서버로 연결됩니다.
 
 ## 클라이언트별 설정
 
@@ -28,7 +28,7 @@ https://cloudpick-docs.netlify.app/mcp
   "mcpServers": {
     "cloudpick-docs": {
       "type": "streamable-http",
-      "url": "https://cloudpick-docs.netlify.app/mcp"
+      "url": "https://docs.cloudpick.kr/mcp"
     }
   }
 }
@@ -43,7 +43,7 @@ https://cloudpick-docs.netlify.app/mcp
   "mcpServers": {
     "cloudpick-docs": {
       "type": "streamable-http",
-      "url": "https://cloudpick-docs.netlify.app/mcp"
+      "url": "https://docs.cloudpick.kr/mcp"
     }
   }
 }
@@ -56,7 +56,7 @@ Settings → MCP Servers → Add:
 ```json
 {
   "cloudpick-docs": {
-    "url": "https://cloudpick-docs.netlify.app/mcp"
+    "url": "https://docs.cloudpick.kr/mcp"
   }
 }
 ```
@@ -70,7 +70,7 @@ Settings → MCP Servers → Add:
   "servers": {
     "cloudpick-docs": {
       "type": "http",
-      "url": "https://cloudpick-docs.netlify.app/mcp"
+      "url": "https://docs.cloudpick.kr/mcp"
     }
   }
 }

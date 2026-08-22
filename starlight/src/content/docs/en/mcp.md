@@ -9,19 +9,13 @@ The CloudPick documentation site provides a [Model Context Protocol (MCP)](https
 
 ## Endpoint
 
-Before domain cutover (currently live):
-
 ```
-https://cloudpick-docs-mcp.froguin.workers.dev/mcp
-```
-
-After the custom domain is connected:
-
-```
-https://docs.cloudpick.kr/mcp
+https://cloudpick-docs.netlify.app/mcp
 ```
 
 Protocol: **MCP Streamable HTTP** (POST)
+
+This is the same origin as the docs site. A Netlify Function is wired to `/mcp`.
 
 ## Client Configuration
 
@@ -34,7 +28,7 @@ Protocol: **MCP Streamable HTTP** (POST)
   "mcpServers": {
     "cloudpick-docs": {
       "type": "streamable-http",
-      "url": "https://cloudpick-docs-mcp.froguin.workers.dev/mcp"
+      "url": "https://cloudpick-docs.netlify.app/mcp"
     }
   }
 }
@@ -49,7 +43,7 @@ Protocol: **MCP Streamable HTTP** (POST)
   "mcpServers": {
     "cloudpick-docs": {
       "type": "streamable-http",
-      "url": "https://cloudpick-docs-mcp.froguin.workers.dev/mcp"
+      "url": "https://cloudpick-docs.netlify.app/mcp"
     }
   }
 }
@@ -62,7 +56,7 @@ Settings → MCP Servers → Add:
 ```json
 {
   "cloudpick-docs": {
-    "url": "https://cloudpick-docs-mcp.froguin.workers.dev/mcp"
+    "url": "https://cloudpick-docs.netlify.app/mcp"
   }
 }
 ```
@@ -76,7 +70,7 @@ Settings → MCP Servers → Add:
   "servers": {
     "cloudpick-docs": {
       "type": "http",
-      "url": "https://cloudpick-docs-mcp.froguin.workers.dev/mcp"
+      "url": "https://cloudpick-docs.netlify.app/mcp"
     }
   }
 }

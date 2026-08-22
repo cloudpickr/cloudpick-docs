@@ -9,19 +9,13 @@ CloudPickドキュメントサイトは[Model Context Protocol (MCP)](https://mo
 
 ## エンドポイント
 
-ドメイン切り替え前（現在稼働）:
-
 ```
-https://cloudpick-docs-mcp.froguin.workers.dev/mcp
-```
-
-カスタムドメイン接続後:
-
-```
-https://docs.cloudpick.kr/mcp
+https://cloudpick-docs.netlify.app/mcp
 ```
 
 プロトコル: **MCP Streamable HTTP** (POST)
+
+ドキュメントサイトと同じオリジンです。Netlify Function が `/mcp` に接続されます。
 
 ## クライアント別設定
 
@@ -34,7 +28,7 @@ https://docs.cloudpick.kr/mcp
   "mcpServers": {
     "cloudpick-docs": {
       "type": "streamable-http",
-      "url": "https://cloudpick-docs-mcp.froguin.workers.dev/mcp"
+      "url": "https://cloudpick-docs.netlify.app/mcp"
     }
   }
 }
@@ -49,7 +43,7 @@ https://docs.cloudpick.kr/mcp
   "mcpServers": {
     "cloudpick-docs": {
       "type": "streamable-http",
-      "url": "https://cloudpick-docs-mcp.froguin.workers.dev/mcp"
+      "url": "https://cloudpick-docs.netlify.app/mcp"
     }
   }
 }
@@ -62,7 +56,7 @@ Settings → MCP Servers → Add:
 ```json
 {
   "cloudpick-docs": {
-    "url": "https://cloudpick-docs-mcp.froguin.workers.dev/mcp"
+    "url": "https://cloudpick-docs.netlify.app/mcp"
   }
 }
 ```
@@ -76,7 +70,7 @@ Settings → MCP Servers → Add:
   "servers": {
     "cloudpick-docs": {
       "type": "http",
-      "url": "https://cloudpick-docs-mcp.froguin.workers.dev/mcp"
+      "url": "https://cloudpick-docs.netlify.app/mcp"
     }
   }
 }

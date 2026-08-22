@@ -14,8 +14,7 @@ interface DocSection {
   content: string;
 }
 
-// 컷오버 전 기본값은 Starlight 가 실제로 서빙하는 origin.
-const DOCS_BASE_URL = process.env.DOCS_BASE_URL || "https://cloudpick-docs.pages.dev";
+const DOCS_BASE_URL = process.env.DOCS_BASE_URL || "https://cloudpick-docs.netlify.app";
 const CACHE_TTL_MS = 5 * 60 * 1000;
 const FETCH_TIMEOUT_MS = 10_000;
 

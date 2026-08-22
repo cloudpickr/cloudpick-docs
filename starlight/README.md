@@ -38,4 +38,4 @@ Netlify는 `starlight/`를 베이스 디렉터리로 빌드합니다.
 ## AI 접근
 
 - 빌드 시 `starlight-llms-txt` 플러그인이 `/llms.txt`, `/llms-full.txt`, `/llms-small.txt` 생성
-- MCP 엔드포인트: `https://docs.cloudpick.kr/mcp` (Netlify Function 또는 `../mcp/` Workers)
+- MCP 엔드포인트: `https://cloudpick-docs.netlify.app/mcp` (Netlify Function, 문서 사이트와 동일 오리진)

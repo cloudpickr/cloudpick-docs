@@ -73,7 +73,7 @@ An **edge location** is small-scale infrastructure placed closer to users than a
 | Region Pair | Two regions within the same geography are designated as a pair. Platform updates are not applied to both simultaneously |
 | Region pair examples | Some pairs enable in-country DR (e.g. Australia East–Southeast). See country guides for local status |
 
-### Google Cloud
+#### Google Cloud
 
 | Item | Details |
 | --- | --- |

@@ -73,7 +73,7 @@ graph TB
 | リージョンペア (Region Pair) | 同じGeography内の2つのリージョンがペアとして指定される。プラットフォームの更新が同時には適用されない |
 | リージョンペアの例 | 同じ国内で in-country DR が可能なペアがある（例: Australia East–Southeast）。国別の現況は各国ガイドを参照 |
 
-### Google Cloud
+#### Google Cloud
 
 | 項目 | 内容 |
 | --- | --- |

@@ -73,7 +73,7 @@ graph TB
 | 리전 쌍 (Region Pair) | 같은 Geography 내 두 리전이 쌍으로 지정. 플랫폼 업데이트가 동시에 적용되지 않음 |
 | 리전 쌍 예시 | 같은 국가 안에서 in-country DR가 가능한 쌍이 있음 (예: Australia East–Southeast). 국가별 현황은 국가 가이드 참고 |
 
-### Google Cloud
+#### Google Cloud
 
 | 항목 | 내용 |
 | --- | --- |

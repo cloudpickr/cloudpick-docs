@@ -66,6 +66,5 @@ Azure（ソウル-釜山）とOCI（ソウル-春川）は国内に2つのリー
 
 ## 関連ドキュメント
 
-> 📄 [データ保護とワークロードセキュリティ](../security/data-protection/)
-
-> 📄 [ソブリンランディングゾーン](../governance/landing-zone/)
+- [データ保護とワークロードセキュリティ](../security/data-protection/)
+- [ソブリンランディングゾーン](../governance/landing-zone/)

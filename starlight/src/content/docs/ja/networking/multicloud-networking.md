@@ -131,7 +131,7 @@ graph LR
 
 トランジットアーキテクチャパターン、Egressコストの詳細比較、DNS統合戦略については以下の文書で扱います。
 
-> 📄 [マルチクラウドコネクティビティ（発展編）](../../networking/multicloud-connectivity/)
+- [マルチクラウドコネクティビティ（発展編）](../../networking/multicloud-connectivity/)
 
 ## 参考資料
 

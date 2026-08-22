@@ -24,6 +24,5 @@ This section covers regulatory and certification status. We recommend checking t
 
 ## Related Documents
 
-> 📄 [Compliance](../governance/compliance/)
-
-> 📄 [Data Protection and Workload Security](../security/data-protection/)
+- [Compliance](../governance/compliance/)
+- [Data Protection and Workload Security](../security/data-protection/)

@@ -66,7 +66,6 @@ This section covers policy and regulatory developments that change quickly. We r
 
 ## Related Documents
 
-> 📄 [Data Protection and Workload Security](../security/data-protection/)
-
-> 📄 [Sovereign Landing Zone](../governance/landing-zone/#sovereign-landing-zone)
+- [Data Protection and Workload Security](../security/data-protection/)
+- [Sovereign Landing Zone](../governance/landing-zone/#sovereign-landing-zone)
 

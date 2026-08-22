@@ -154,9 +154,8 @@ To fundamentally prevent drift, restrict manual changes from the console using *
 
 ## Related Documents
 
-> 📄 [CI/CD](../../devops/cicd/)
-
-> 📄 [Cloud Management Tools (Console, CLI, SDK)](../../about-cloud/console-cli-sdk/)
+- [CI/CD](../../devops/cicd/)
+- [Cloud Management Tools (Console, CLI, SDK)](../../about-cloud/console-cli-sdk/)
 
 ## References
 

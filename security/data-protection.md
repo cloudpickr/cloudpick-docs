@@ -168,21 +168,10 @@ Security Groups/NSG/Firewall Rules 등 네트워크 방화벽의 벤더별 비�
 
 ## 관련 문서
 
-{% content-ref url="security-posture.md" %}
-[보안 태세 관리](security-posture.md)
-{% endcontent-ref %}
-
-{% content-ref url="secrets.md" %}
-[시크릿 관리](secrets.md)
-{% endcontent-ref %}
-
-{% content-ref url="iam.md" %}
-[IAM 실무 설계와 보안 운영](iam.md)
-{% endcontent-ref %}
-
-{% content-ref url="../networking/vpc-subnet.md" %}
-[VPC와 서브넷](../networking/vpc-subnet.md)
-{% endcontent-ref %}
+- [보안 태세 관리](security-posture.md)
+- [시크릿 관리](secrets.md)
+- [IAM 실무 설계와 보안 운영](iam.md)
+- [VPC와 서브넷](../networking/vpc-subnet.md)
 
 ## 참고하기
 

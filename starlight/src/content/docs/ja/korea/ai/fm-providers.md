@@ -68,13 +68,10 @@ description: "ネイバー、LG AI研究院、カカオ、KT、アップステ�
 
 ## 関連ドキュメント
 
-> 📄 [ソブリンAI・独自AIファウンデーションモデル政策](../sovereign-fm-policy/)
-
-> 📄 [CSAP (クラウドセキュリティ認証)](../security/csap/)
-
-> 📄 [網分離とネットワーク隔離 (韓国)](../security/network-isolation/)
-
-> 📄 [ソブリンランディングゾーン](../../../governance/landing-zone/)
+- [ソブリンAI・独自AIファウンデーションモデル政策](../sovereign-fm-policy/)
+- [CSAP (クラウドセキュリティ認証)](../security/csap/)
+- [網分離とネットワーク隔離 (韓国)](../security/network-isolation/)
+- [ソブリンランディングゾーン](../../../governance/landing-zone/)
 
 ## 参考資料
 

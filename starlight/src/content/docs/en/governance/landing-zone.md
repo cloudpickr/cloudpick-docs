@@ -131,11 +131,9 @@ For detailed network design, see [VPC and Subnets](../../networking/vpc-subnet/)
 
 ## Related Documents
 
-> 📄 [IAM Practical Design and Security Operations](../../security/iam/)
-
-> 📄 [VPC and Subnets](../../networking/vpc-subnet/)
-
-> 📄 [FinOps](../../governance/finops/)
+- [IAM Practical Design and Security Operations](../../security/iam/)
+- [VPC and Subnets](../../networking/vpc-subnet/)
+- [FinOps](../../governance/finops/)
 
 ## 2025-2026 Landing Zone Evolution
 

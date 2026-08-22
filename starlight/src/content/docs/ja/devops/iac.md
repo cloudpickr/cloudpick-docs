@@ -154,9 +154,8 @@ IaCの外部でリソースが手動変更されると、コードと実際の�
 
 ## 関連ドキュメント
 
-> 📄 [CI/CD](../../devops/cicd/)
-
-> 📄 [クラウド管理ツール（コンソール、CLI、SDK）](../../about-cloud/console-cli-sdk/)
+- [CI/CD](../../devops/cicd/)
+- [クラウド管理ツール（コンソール、CLI、SDK）](../../about-cloud/console-cli-sdk/)
 
 ## 参考資料
 

@@ -24,9 +24,8 @@ description: "日本市場への進出・運用に必要なクラウド規制ガ
 
 ## 関連ドキュメント
 
-> 📄 [データ保護とワークロードセキュリティ](../security/data-protection/)
-
-> 📄 [コンプライアンス（Compliance）](../governance/compliance/)
+- [データ保護とワークロードセキュリティ](../security/data-protection/)
+- [コンプライアンス（Compliance）](../governance/compliance/)
 
 ## 参考資料
 

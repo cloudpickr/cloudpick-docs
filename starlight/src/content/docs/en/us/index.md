@@ -23,9 +23,8 @@ These three regulatory regimes are independent of one another. For example, a cl
 
 ## Related Documents
 
-> 📄 [Compliance](../../governance/compliance/)
-
-> 📄 [Data Protection and Workload Security](../../security/data-protection/)
+- [Compliance](../../governance/compliance/)
+- [Data Protection and Workload Security](../../security/data-protection/)
 
 ## References
 

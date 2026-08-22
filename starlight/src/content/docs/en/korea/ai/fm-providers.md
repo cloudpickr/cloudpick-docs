@@ -68,13 +68,10 @@ Choosing between a domestic FM and a global model such as GPT, Gemini, or Claude
 
 ## Related Documents
 
-> 📄 [Sovereign AI and Independent Foundation Model Policy](../sovereign-fm-policy/)
-
-> 📄 [CSAP (Cloud Security Assurance Program)](../security/csap/)
-
-> 📄 [Network Separation and Isolation (Korea)](../security/network-isolation/)
-
-> 📄 [Sovereign Landing Zone](../../../governance/landing-zone/#sovereign-landing-zone)
+- [Sovereign AI and Independent Foundation Model Policy](../sovereign-fm-policy/)
+- [CSAP (Cloud Security Assurance Program)](../security/csap/)
+- [Network Separation and Isolation (Korea)](../security/network-isolation/)
+- [Sovereign Landing Zone](../../../governance/landing-zone/#sovereign-landing-zone)
 
 ## References
 

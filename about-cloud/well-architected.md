@@ -137,13 +137,8 @@ AWS와 Azure는 독립적인 CAF를 제공하며, Google Cloud는 Architecture F
 
 ## 관련 문서
 
-{% content-ref url="shared-responsibility.md" %}
-[공동 책임 모델](shared-responsibility.md)
-{% endcontent-ref %}
-
-{% content-ref url="../governance/landing-zone.md" %}
-[랜딩존](../governance/landing-zone.md)
-{% endcontent-ref %}
+- [공동 책임 모델](shared-responsibility.md)
+- [랜딩존](../governance/landing-zone.md)
 
 ## 참고하기
 

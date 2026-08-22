@@ -223,17 +223,9 @@ flowchart TB
 
 ## 관련 문서
 
-{% content-ref url="zero-trust.md" %}
-[제로 트러스트](zero-trust.md)
-{% endcontent-ref %}
-
-{% content-ref url="../networking/vpc-subnet.md" %}
-[VPC와 서브넷](../networking/vpc-subnet.md)
-{% endcontent-ref %}
-
-{% content-ref url="../governance/compliance.md" %}
-[컴플라이언스](../governance/compliance.md)
-{% endcontent-ref %}
+- [제로 트러스트](zero-trust.md)
+- [VPC와 서브넷](../networking/vpc-subnet.md)
+- [컴플라이언스](../governance/compliance.md)
 
 ## 참고하기
 

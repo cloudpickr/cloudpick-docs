@@ -7,7 +7,7 @@ starlight/src/content/docs/ko/ 아래로 변환·복사한다.
 변환 규칙:
   1. frontmatter: 본문 첫 H1을 title로 승격(본문에서 제거), description은 따옴표 처리
   2. {% hint style="X" %} → :::note|caution|danger|tip / {% endhint %} → :::
-  3. {% content-ref url="..." %}[text](url){% endcontent-ref %} → > 📄 [text](url)
+  3. {% content-ref url="..." %}[text](url){% endcontent-ref %} → - [text](url)
   4. {% tabs %}/{% tab title="T" %} 사용 파일 → .mdx로 변환 + <Tabs><TabItem> 컴포넌트
   5. 그 외 본문은 그대로 유지
 
@@ -101,8 +101,8 @@ def convert(text: str, rel_path: str):
     body = HINT_RE.sub(lambda m: ":::" + HINT_MAP[m.group(1)], body)
     body = ENDHINT_RE.sub(":::", body)
 
-    # content-ref → 블록쿼트 링크
-    body = CONTENT_REF_RE.sub(lambda m: "> 📄 " + m.group(1).strip(), body)
+    # content-ref → 관련 문서 목록 (CONTRIBUTING: 내부 링크는 목록)
+    body = CONTENT_REF_RE.sub(lambda m: "- " + m.group(1).strip().lstrip("- ").strip(), body)
 
     # 상대 .md 링크 → URL 경로
     body = rewrite_links(body, rel_path)

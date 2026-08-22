@@ -23,9 +23,8 @@ description: "FedRAMP、HIPAA、ITAR/EARなど、米国市場への進出・運�
 
 ## 関連ドキュメント
 
-> 📄 [コンプライアンス（Compliance）](../../governance/compliance/)
-
-> 📄 [データ保護とワークロードセキュリティ](../../security/data-protection/)
+- [コンプライアンス（Compliance）](../../governance/compliance/)
+- [データ保護とワークロードセキュリティ](../../security/data-protection/)
 
 ## 参考資料
 

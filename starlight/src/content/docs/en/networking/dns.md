@@ -129,11 +129,9 @@ Routing policies for controlling traffic at the DNS level.
 
 ## Related Documents
 
-> 📄 [Load Balancer](../../networking/load-balancer/)
-
-> 📄 [CDN](../../networking/cdn/)
-
-> 📄 [Multicloud Connectivity](../../networking/multicloud-connectivity/)
+- [Load Balancer](../../networking/load-balancer/)
+- [CDN](../../networking/cdn/)
+- [Multicloud Connectivity](../../networking/multicloud-connectivity/)
 
 ## References
 

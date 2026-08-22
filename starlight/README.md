@@ -15,7 +15,7 @@ Astro [Starlight](https://starlight.astro.build) 기반 정적 사이트입니�
 - 콘텐츠 원본(한국어)은 **저장소 루트**의 GitBook 마크다운(`ai/`, `security/`, …)이며,
   `scripts/gitbook_to_starlight.py`가 `src/content/docs/ko/`로 변환·복사합니다.
   - 변환 내용: frontmatter title 승격, `{% hint %}`→`:::note` 계열, `{% tabs %}`→MDX Tabs,
-    content-ref→링크, 상대 `.md` 링크→URL 경로, `GLOSSARY.md`→`glossary`
+    content-ref→목록 링크, 상대 `.md` 링크→URL 경로, `GLOSSARY.md`→`glossary`
   - **`src/content/docs/ko/`의 일반 섹션 파일을 직접 수정하지 말 것** (재변환 시 덮어씀).
     루트 원본을 수정하고 스크립트를 재실행하세요.
 - `src/content/docs/{ko,en,ja}/` — 3개 로케일 대칭 번역 (로케일당 동일 페이지).

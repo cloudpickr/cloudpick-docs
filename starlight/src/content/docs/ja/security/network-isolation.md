@@ -222,11 +222,9 @@ flowchart TB
 
 ## 関連ドキュメント
 
-> 📄 [ゼロトラスト](../../security/zero-trust/)
-
-> 📄 [VPCとサブネット](../../networking/vpc-subnet/)
-
-> 📄 [コンプライアンス](../../governance/compliance/)
+- [ゼロトラスト](../../security/zero-trust/)
+- [VPCとサブネット](../../networking/vpc-subnet/)
+- [コンプライアンス](../../governance/compliance/)
 
 ## 参考資料
 

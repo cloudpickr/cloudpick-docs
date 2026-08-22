@@ -169,17 +169,9 @@ flowchart TD
 
 ## 관련 문서
 
-{% content-ref url="dns.md" %}
-[DNS](dns.md)
-{% endcontent-ref %}
-
-{% content-ref url="cdn.md" %}
-[CDN](cdn.md)
-{% endcontent-ref %}
-
-{% content-ref url="../compute/auto-scaling.md" %}
-[오토스케일링](../compute/auto-scaling.md)
-{% endcontent-ref %}
+- [DNS](dns.md)
+- [CDN](cdn.md)
+- [오토스케일링](../compute/auto-scaling.md)
 
 ## 참고하기
 

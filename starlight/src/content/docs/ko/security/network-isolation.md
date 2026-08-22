@@ -222,11 +222,9 @@ flowchart TB
 
 ## 관련 문서
 
-> 📄 [제로 트러스트](../../security/zero-trust/)
-
-> 📄 [VPC와 서브넷](../../networking/vpc-subnet/)
-
-> 📄 [컴플라이언스](../../governance/compliance/)
+- [제로 트러스트](../../security/zero-trust/)
+- [VPC와 서브넷](../../networking/vpc-subnet/)
+- [컴플라이언스](../../governance/compliance/)
 
 ## 참고하기
 

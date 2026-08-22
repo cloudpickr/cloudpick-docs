@@ -155,13 +155,8 @@ IaC 외부에서 리소스가 수동으로 변경되면 코드와 실제 상태�
 
 ## 관련 문서
 
-{% content-ref url="cicd.md" %}
-[CI/CD](cicd.md)
-{% endcontent-ref %}
-
-{% content-ref url="../about-cloud/console-cli-sdk.md" %}
-[클라우드 관리 도구 (콘솔, CLI, SDK)](../about-cloud/console-cli-sdk.md)
-{% endcontent-ref %}
+- [CI/CD](cicd.md)
+- [클라우드 관리 도구 (콘솔, CLI, SDK)](../about-cloud/console-cli-sdk.md)
 
 ## 참고하기
 

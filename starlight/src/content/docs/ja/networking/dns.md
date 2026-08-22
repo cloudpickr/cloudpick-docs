@@ -129,11 +129,9 @@ DNSレベルでトラフィックを制御できるルーティングポリシ�
 
 ## 関連ドキュメント
 
-> 📄 [ロードバランサー](../../networking/load-balancer/)
-
-> 📄 [CDN](../../networking/cdn/)
-
-> 📄 [マルチクラウドコネクティビティ](../../networking/multicloud-connectivity/)
+- [ロードバランサー](../../networking/load-balancer/)
+- [CDN](../../networking/cdn/)
+- [マルチクラウドコネクティビティ](../../networking/multicloud-connectivity/)
 
 ## 参考資料
 

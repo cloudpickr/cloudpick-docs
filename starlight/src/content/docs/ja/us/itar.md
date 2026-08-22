@@ -66,9 +66,8 @@ ITAR/EAR違反は刑事処罰にまで至りうる重大な法的リスクです
 
 ## 関連ドキュメント
 
-> 📄 [コンプライアンス（Compliance）](../../governance/compliance/)
-
-> 📄 [網分離とネットワーク隔離](../../security/network-isolation/)
+- [コンプライアンス（Compliance）](../../governance/compliance/)
+- [網分離とネットワーク隔離](../../security/network-isolation/)
 
 ## 参考資料
 

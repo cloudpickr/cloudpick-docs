@@ -66,9 +66,8 @@ ITAR/EAR violations are a serious legal risk that can lead to criminal penalties
 
 ## Related Documents
 
-> 📄 [Compliance](../../governance/compliance/)
-
-> 📄 [Network Segregation and Isolation](../../security/network-isolation/)
+- [Compliance](../../governance/compliance/)
+- [Network Segregation and Isolation](../../security/network-isolation/)
 
 ## References
 

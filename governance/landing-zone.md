@@ -132,17 +132,9 @@ graph TB
 
 ## 관련 문서
 
-{% content-ref url="../security/iam.md" %}
-[IAM 실무 설계와 보안 운영](../security/iam.md)
-{% endcontent-ref %}
-
-{% content-ref url="../networking/vpc-subnet.md" %}
-[VPC와 서브넷](../networking/vpc-subnet.md)
-{% endcontent-ref %}
-
-{% content-ref url="finops.md" %}
-[FinOps](finops.md)
-{% endcontent-ref %}
+- [IAM 실무 설계와 보안 운영](../security/iam.md)
+- [VPC와 서브넷](../networking/vpc-subnet.md)
+- [FinOps](finops.md)
 
 ## 2025-2026 랜딩존 진화
 

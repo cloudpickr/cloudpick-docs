@@ -131,7 +131,7 @@ graph LR
 
 Transit architecture patterns, a detailed egress cost comparison, and DNS integration strategy are covered in the following document.
 
-> 📄 [Multicloud Connectivity (advanced)](../../networking/multicloud-connectivity/)
+- [Multicloud Connectivity (advanced)](../../networking/multicloud-connectivity/)
 
 ## References
 

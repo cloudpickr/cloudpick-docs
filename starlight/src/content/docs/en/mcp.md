@@ -100,6 +100,5 @@ The MCP server uses this site's [`llms-full.txt`](/llms-full.txt) as its source.
 
 ## Related Documents
 
-> 📄 [Introduction](../introduction/)
-
-> 📄 [Glossary](../glossary/)
+- [Introduction](../introduction/)
+- [Glossary](../glossary/)

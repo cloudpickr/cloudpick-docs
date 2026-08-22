@@ -167,13 +167,10 @@ Security Groups/NSG/Firewall Rules 등 네트워크 방화벽의 벤더별 비�
 
 ## 관련 문서
 
-> 📄 [보안 태세 관리](../../security/security-posture/)
-
-> 📄 [시크릿 관리](../../security/secrets/)
-
-> 📄 [IAM 실무 설계와 보안 운영](../../security/iam/)
-
-> 📄 [VPC와 서브넷](../../networking/vpc-subnet/)
+- [보안 태세 관리](../../security/security-posture/)
+- [시크릿 관리](../../security/secrets/)
+- [IAM 실무 설계와 보안 운영](../../security/iam/)
+- [VPC와 서브넷](../../networking/vpc-subnet/)
 
 ## 참고하기
 

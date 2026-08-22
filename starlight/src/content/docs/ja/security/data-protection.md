@@ -167,13 +167,10 @@ Security Groups/NSG/Firewall Rulesなどネットワークファイアウォー�
 
 ## 関連ドキュメント
 
-> 📄 [セキュリティ態勢管理](../../security/security-posture/)
-
-> 📄 [シークレット管理](../../security/secrets/)
-
-> 📄 [IAM実務設計とセキュリティ運用](../../security/iam/)
-
-> 📄 [VPCとサブネット](../../networking/vpc-subnet/)
+- [セキュリティ態勢管理](../../security/security-posture/)
+- [シークレット管理](../../security/secrets/)
+- [IAM実務設計とセキュリティ運用](../../security/iam/)
+- [VPCとサブネット](../../networking/vpc-subnet/)
 
 ## 参考資料
 

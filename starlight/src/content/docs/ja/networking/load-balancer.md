@@ -168,11 +168,9 @@ flowchart TD
 
 ## 関連ドキュメント
 
-> 📄 [DNS](../../networking/dns/)
-
-> 📄 [CDN](../../networking/cdn/)
-
-> 📄 [オートスケーリング](../../compute/auto-scaling/)
+- [DNS](../../networking/dns/)
+- [CDN](../../networking/cdn/)
+- [オートスケーリング](../../compute/auto-scaling/)
 
 ## 参考資料
 

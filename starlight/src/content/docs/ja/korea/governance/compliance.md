@@ -89,7 +89,6 @@ CSAP等級別の詳細要件、ハイパースケーラー・国内CSPの認証�
 - [KISA認証・認定](https://isms.kisa.or.kr/)
 - [個人情報保護委員会](https://www.pipc.go.kr/)
 - [金融保安院](https://www.fsec.or.kr/)
-
 - [AWS K-ISMS](https://aws.amazon.com/compliance/k-isms/) / [AWS CSAP](https://aws.amazon.com/compliance/csap/)
 - [Azure K-ISMS](https://learn.microsoft.com/azure/compliance/offerings/offering-korea-k-isms) / [Azure CSAP](https://learn.microsoft.com/azure/compliance/offerings/offering-korea-csap)
 - [Google Cloud K-ISMS](https://cloud.google.com/security/compliance/k-isms)

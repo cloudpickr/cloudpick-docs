@@ -27,8 +27,6 @@ description: "EU市場への進出・運用を検討するエンタープライ�
 
 ## 関連ドキュメント
 
-> 📄 [規定準拠（Compliance）](../../governance/compliance/)
-
-> 📄 [ベンダーロックインと出口戦略](../../governance/exit-strategy/)
-
-> 📄 [ランディングゾーン — ソブリンランディングゾーン](../../governance/landing-zone/#ソブリンランディングゾーン-sovereign-landing-zone)
+- [規定準拠（Compliance）](../../governance/compliance/)
+- [ベンダーロックインと出口戦略](../../governance/exit-strategy/)
+- [ランディングゾーン — ソブリンランディングゾーン](../../governance/landing-zone/#ソブリンランディングゾーン-sovereign-landing-zone)

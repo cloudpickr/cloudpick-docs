@@ -81,7 +81,6 @@ Official resources:
 - [KISA Certification & Accreditation](https://isms.kisa.or.kr/)
 - [Personal Information Protection Commission](https://www.pipc.go.kr/)
 - [Financial Security Institute](https://www.fsec.or.kr/)
-
 - [AWS K-ISMS](https://aws.amazon.com/compliance/k-isms/) / [AWS CSAP](https://aws.amazon.com/compliance/csap/)
 - [Azure K-ISMS](https://learn.microsoft.com/azure/compliance/offerings/offering-korea-k-isms) / [Azure CSAP](https://learn.microsoft.com/azure/compliance/offerings/offering-korea-csap)
 - [Google Cloud K-ISMS](https://cloud.google.com/security/compliance/k-isms)

@@ -144,9 +144,8 @@ SLI/SLO/SLAの概念、エラーバジェット運用、ベンダー別SLOツー
 
 ## 関連ドキュメント
 
-> 📄 [SLI/SLOとエラーバジェット](../../devops/slo/)
-
-> 📄 [災害復旧](../../governance/dr/)
+- [SLI/SLOとエラーバジェット](../../devops/slo/)
+- [災害復旧](../../governance/dr/)
 
 ## 参考資料
 

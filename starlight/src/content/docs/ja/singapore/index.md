@@ -24,6 +24,5 @@ description: "シンガポール市場特化ガイド — MTCSクラウドセキ
 
 ## 関連文書
 
-> 📄 [コンプライアンス](../governance/compliance/)
-
-> 📄 [データ保護とワークロードセキュリティ](../security/data-protection/)
+- [コンプライアンス](../governance/compliance/)
+- [データ保護とワークロードセキュリティ](../security/data-protection/)

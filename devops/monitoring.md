@@ -145,13 +145,8 @@ SLI/SLO/SLA 개념, 에러 버짓 운영, 벤더별 SLO 도구 비교는 [SLI/SL
 
 ## 관련 문서
 
-{% content-ref url="slo.md" %}
-[SLI/SLO와 에러 버짓](slo.md)
-{% endcontent-ref %}
-
-{% content-ref url="../governance/dr.md" %}
-[재해복구](../governance/dr.md)
-{% endcontent-ref %}
+- [SLI/SLO와 에러 버짓](slo.md)
+- [재해복구](../governance/dr.md)
 
 ## 참고하기
 

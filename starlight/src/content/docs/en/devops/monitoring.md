@@ -144,9 +144,8 @@ Unified monitoring (Grafana, Datadog, OpenTelemetry, etc.) for environments usin
 
 ## Related Documents
 
-> 📄 [SLI/SLO and Error Budgets](../../devops/slo/)
-
-> 📄 [Disaster Recovery](../../governance/dr/)
+- [SLI/SLO and Error Budgets](../../devops/slo/)
+- [Disaster Recovery](../../governance/dr/)
 
 ## References
 

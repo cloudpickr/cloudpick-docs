@@ -193,11 +193,9 @@ When using a region outside the jurisdiction for DR, you must meet that country'
 
 ## Related Documents
 
-> 📄 [Regions and Availability Zones](../../about-cloud/regions-and-zones/)
-
-> 📄 [Backup and Recovery](../../storage/backup/)
-
-> 📄 [Well-Architected Framework](../../about-cloud/well-architected/)
+- [Regions and Availability Zones](../../about-cloud/regions-and-zones/)
+- [Backup and Recovery](../../storage/backup/)
+- [Well-Architected Framework](../../about-cloud/well-architected/)
 
 ## References
 

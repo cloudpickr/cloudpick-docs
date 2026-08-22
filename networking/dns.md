@@ -130,17 +130,9 @@ DNS 수준에서 트래픽을 제어할 수 있는 라우팅 정책입니다.
 
 ## 관련 문서
 
-{% content-ref url="load-balancer.md" %}
-[로드밸런서](load-balancer.md)
-{% endcontent-ref %}
-
-{% content-ref url="cdn.md" %}
-[CDN](cdn.md)
-{% endcontent-ref %}
-
-{% content-ref url="multicloud-connectivity.md" %}
-[멀티클라우드 커넥티비티](multicloud-connectivity.md)
-{% endcontent-ref %}
+- [로드밸런서](load-balancer.md)
+- [CDN](cdn.md)
+- [멀티클라우드 커넥티비티](multicloud-connectivity.md)
 
 ## 참고하기
 

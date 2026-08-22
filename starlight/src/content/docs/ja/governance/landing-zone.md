@@ -131,11 +131,9 @@ graph TB
 
 ## 関連ドキュメント
 
-> 📄 [IAM実務設計とセキュリティ運用](../../security/iam/)
-
-> 📄 [VPCとサブネット](../../networking/vpc-subnet/)
-
-> 📄 [FinOps](../../governance/finops/)
+- [IAM実務設計とセキュリティ運用](../../security/iam/)
+- [VPCとサブネット](../../networking/vpc-subnet/)
+- [FinOps](../../governance/finops/)
 
 ## 2025-2026年 ランディングゾーンの進化
 

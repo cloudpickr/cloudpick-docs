@@ -27,8 +27,6 @@ This section covers a fast-moving regulatory landscape. We recommend checking th
 
 ## Related Documents
 
-> 📄 [Compliance](../../governance/compliance/)
-
-> 📄 [Vendor Lock-in and Exit Strategy](../../governance/exit-strategy/)
-
-> 📄 [Landing Zone — Sovereign Landing Zone](../../governance/landing-zone/#sovereign-landing-zone)
+- [Compliance](../../governance/compliance/)
+- [Vendor Lock-in and Exit Strategy](../../governance/exit-strategy/)
+- [Landing Zone — Sovereign Landing Zone](../../governance/landing-zone/#sovereign-landing-zone)

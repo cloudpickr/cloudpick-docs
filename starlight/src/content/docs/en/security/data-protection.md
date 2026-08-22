@@ -167,13 +167,10 @@ Threat detection (GuardDuty, Defender, SCC, Cloud Guard) and container/runtime s
 
 ## Related Documents
 
-> 📄 [Security Posture Management](../../security/security-posture/)
-
-> 📄 [Secrets Management](../../security/secrets/)
-
-> 📄 [Practical IAM Design and Security Operations](../../security/iam/)
-
-> 📄 [VPC and Subnets](../../networking/vpc-subnet/)
+- [Security Posture Management](../../security/security-posture/)
+- [Secrets Management](../../security/secrets/)
+- [Practical IAM Design and Security Operations](../../security/iam/)
+- [VPC and Subnets](../../networking/vpc-subnet/)
 
 ## References
 

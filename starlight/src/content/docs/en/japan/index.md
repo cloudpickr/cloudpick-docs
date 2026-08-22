@@ -24,9 +24,8 @@ This section covers fast-moving announcements from Japanese government and regul
 
 ## Related Documents
 
-> 📄 [Data Protection and Workload Security](../security/data-protection/)
-
-> 📄 [Compliance](../governance/compliance/)
+- [Data Protection and Workload Security](../security/data-protection/)
+- [Compliance](../governance/compliance/)
 
 ## References
 

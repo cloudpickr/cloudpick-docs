@@ -222,11 +222,9 @@ However, guardrails **only work once configured.** Most are disabled by default,
 
 ## Related Documents
 
-> 📄 [Zero Trust](../../security/zero-trust/)
-
-> 📄 [VPC and Subnets](../../networking/vpc-subnet/)
-
-> 📄 [Compliance](../../governance/compliance/)
+- [Zero Trust](../../security/zero-trust/)
+- [VPC and Subnets](../../networking/vpc-subnet/)
+- [Compliance](../../governance/compliance/)
 
 ## References
 

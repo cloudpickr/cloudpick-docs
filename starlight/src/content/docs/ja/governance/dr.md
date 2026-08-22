@@ -193,11 +193,9 @@ DRテストを超えて、日常的に障害を注入してシステムの復元
 
 ## 既存ドキュメントとの連携
 
-> 📄 [リージョンとアベイラビリティゾーン](../../about-cloud/regions-and-zones/)
-
-> 📄 [バックアップと復旧](../../storage/backup/)
-
-> 📄 [Well-Architected Framework](../../about-cloud/well-architected/)
+- [リージョンとアベイラビリティゾーン](../../about-cloud/regions-and-zones/)
+- [バックアップと復旧](../../storage/backup/)
+- [Well-Architected Framework](../../about-cloud/well-architected/)
 
 ## 参考資料
 

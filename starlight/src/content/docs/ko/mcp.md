@@ -100,6 +100,5 @@ MCP 서버는 이 사이트의 [`llms-full.txt`](/llms-full.txt)를 소스로 �
 
 ## 관련 문서
 
-> 📄 [소개](../introduction/)
-
-> 📄 [용어집](../glossary/)
+- [소개](../introduction/)
+- [용어집](../glossary/)

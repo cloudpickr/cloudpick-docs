@@ -193,11 +193,9 @@ DR 테스트를 넘어, 일상적으로 장애를 주입하여 시스템의 복�
 
 ## 기존 문서와의 연계
 
-> 📄 [리전과 가용영역](../../about-cloud/regions-and-zones/)
-
-> 📄 [백업과 복구](../../storage/backup/)
-
-> 📄 [Well-Architected Framework](../../about-cloud/well-architected/)
+- [리전과 가용영역](../../about-cloud/regions-and-zones/)
+- [백업과 복구](../../storage/backup/)
+- [Well-Architected Framework](../../about-cloud/well-architected/)
 
 ## 참고하기
 

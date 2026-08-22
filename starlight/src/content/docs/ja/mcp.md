@@ -100,6 +100,5 @@ MCPサーバーは本サイトの[`llms-full.txt`](/llms-full.txt)をソース�
 
 ## 関連ドキュメント
 
-> 📄 [紹介](../introduction/)
-
-> 📄 [用語集](../glossary/)
+- [紹介](../introduction/)
+- [用語集](../glossary/)

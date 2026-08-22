@@ -129,11 +129,9 @@ DNS 수준에서 트래픽을 제어할 수 있는 라우팅 정책입니다.
 
 ## 관련 문서
 
-> 📄 [로드밸런서](../../networking/load-balancer/)
-
-> 📄 [CDN](../../networking/cdn/)
-
-> 📄 [멀티클라우드 커넥티비티](../../networking/multicloud-connectivity/)
+- [로드밸런서](../../networking/load-balancer/)
+- [CDN](../../networking/cdn/)
+- [멀티클라우드 커넥티비티](../../networking/multicloud-connectivity/)
 
 ## 참고하기
 

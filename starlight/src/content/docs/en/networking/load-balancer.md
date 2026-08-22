@@ -168,11 +168,9 @@ Global traffic distribution can be implemented not only through an LB but also v
 
 ## Related Documents
 
-> 📄 [DNS](../../networking/dns/)
-
-> 📄 [CDN](../../networking/cdn/)
-
-> 📄 [Auto Scaling](../../compute/auto-scaling/)
+- [DNS](../../networking/dns/)
+- [CDN](../../networking/cdn/)
+- [Auto Scaling](../../compute/auto-scaling/)
 
 ## References
 

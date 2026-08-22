@@ -94,10 +94,6 @@ You can ask your AI agent things like:
 
 The agent uses `search_docs` to find relevant documents, then `get_doc` to read the full content and incorporate it into its response.
 
-## Data Source
-
-The MCP server uses this site's [`llms-full.txt`](/llms-full.txt) as its source. When the site is updated, MCP search results reflect the changes within 5 minutes.
-
 ## Related Documents
 
 - [Introduction](../introduction/)

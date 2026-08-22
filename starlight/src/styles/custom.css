@@ -16,26 +16,38 @@
 	src: url('/fonts/jetendard/Jetendard-Bold.woff2') format('woff2');
 }
 
-/* 폰트 토큰 — Pretendard Variable은 head의 dynamic-subset CSS에서 로드 */
+/*
+ * 라틴: Space Grotesk Variable (기하학 산세리프).
+ * 한글: Pretendard Variable (글리프 폴백).
+ * 일본어: 시스템 고딕.
+ */
 :root {
-	--sl-font: 'Pretendard Variable', 'Inter', system-ui, sans-serif;
+	--sl-font: 'Space Grotesk Variable', 'Pretendard Variable', var(--sl-font-system);
 	--sl-font-mono: 'Jetendard';
-	/* 비교표가 많은 사이트 특성상 본문 폭 확대 (기본 45rem) */
 	--sl-content-width: 54rem;
 }
 
-/*
- * 일본어 로케일: 시스템 일본어 고딕.
- * 전역 jsDelivr Pretendard JP를 쓰지 않는다 — ko/en 모든 페이지에 3rd-party CSS가 실렸다.
- */
-:root[lang='ja'] {
-	--sl-font: 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', 'Yu Gothic', 'YuGothic',
-		sans-serif;
+:root[lang='en'] {
+	--sl-font: 'Space Grotesk Variable', var(--sl-font-system);
 }
 
-/* 영문 로케일: Inter + Pretendard 라틴(fallback) */
-:root[lang='en'] {
-	--sl-font: 'Pretendard Variable', 'Inter', system-ui, sans-serif;
+:root[lang='ja'] {
+	--sl-font: 'Space Grotesk Variable', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP',
+		'Yu Gothic', 'YuGothic', sans-serif;
+}
+
+.site-title {
+	font-weight: 600;
+	letter-spacing: -0.04em;
+}
+
+.sl-markdown-content :is(h1, h2, h3):not(:where(.not-content *)) {
+	letter-spacing: -0.03em;
+	font-weight: 600;
+}
+
+:root[lang='en'] .sl-markdown-content {
+	letter-spacing: -0.011em;
 }
 
 /* Accent — 벤더 중립 slate-blue (기본 보라 대체) */

@@ -26,7 +26,10 @@ export default defineConfig({
 			},
 			plugins: [starlightLlmsTxt()],
 			routeMiddleware: './src/routeData.ts',
-			customCss: ['./src/styles/custom.css'],
+			customCss: [
+				'@fontsource-variable/space-grotesk/wght.css',
+				'./src/styles/custom.css',
+			],
 			head: [
 				{
 					tag: 'link',

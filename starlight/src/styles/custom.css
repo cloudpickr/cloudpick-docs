@@ -53,6 +53,15 @@ h1[data-page-title] {
 	letter-spacing: -0.04em;
 }
 
+/* GitBook 헤더와 동일: 워드마크 왼쪽 구름. 탭 제목/OG에는 넣지 않음. */
+.site-title > span:not(.sr-only)::before {
+	content: '☁️';
+	display: inline-block;
+	margin-inline-end: 0.35em;
+	font-weight: 400;
+	letter-spacing: 0;
+}
+
 /* Accent — 벤더 중립 slate-blue (기본 보라 대체) */
 /* 다크 (기본) */
 :root {

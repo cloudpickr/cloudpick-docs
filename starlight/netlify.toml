@@ -14,6 +14,7 @@
   from = "/:section/:slug.md"
   to = "/ko/:section/:slug/"
   status = 301
+  force = true
 
 [[redirects]]
   from = "/mcp"

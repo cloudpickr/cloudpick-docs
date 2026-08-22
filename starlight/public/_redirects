@@ -1,14 +1,75 @@
 # GitBook → Starlight redirects
-# 구 docs.cloudpick.kr 경로(무접두사, 한국어)를 새 /ko/ 경로로 301 리다이렉트
-# 순서 중요: 구체적 규칙(삭제·통합 문서) → 섹션 스플랫 → 루트
+# 순서: 구체적 규칙 → 국가 GitBook 슬러그 → .md 확장자 제거 → 섹션 스플랫 → 로케일 홈
+# 목적지는 trailing slash (astro trailingSlash: 'always')
 
-# 삭제·통합된 문서 → 흡수한 문서로
-/ai/desktop-agents /ko/ai/agents 301
-/ai/ai-use-cases /ko/ai/ai-ml 301
-/ai/generative-models /ko/ai/ai-ml 301
-/ai/embedding-models /ko/ai/vector-store 301
+# ─── 삭제·통합된 문서 ───
+/ai/desktop-agents /ko/ai/agents/ 301
+/ai/desktop-agents.md /ko/ai/agents/ 301
+/ai/ai-use-cases /ko/ai/ai-ml/ 301
+/ai/ai-use-cases.md /ko/ai/ai-ml/ 301
+/ai/generative-models /ko/ai/ai-ml/ 301
+/ai/generative-models.md /ko/ai/ai-ml/ 301
+/ai/embedding-models /ko/ai/vector-store/ 301
+/ai/embedding-models.md /ko/ai/vector-store/ 301
 
-# 섹션별 스플랫 (구 GitBook 경로 = 신 /ko/ 경로와 1:1)
+# ─── 홈·용어집 (GitBook 루트) ───
+/readme.md /ko/introduction/ 301
+/README.md /ko/introduction/ 301
+/glossary /ko/glossary/ 301
+/glossary.md /ko/glossary/ 301
+/GLOSSARY.md /ko/glossary/ 301
+
+# ─── GitBook country-guides (live sitemap.md 기준) ───
+# 한국 (index) — 하위 경로는 Starlight 와 1:1 이 아님
+/country-guides/index /ko/korea/ 301
+/country-guides/index.md /ko/korea/ 301
+/country-guides/index/compliance /ko/korea/governance/compliance/ 301
+/country-guides/index/compliance.md /ko/korea/governance/compliance/ 301
+/country-guides/index/csap /ko/korea/security/csap/ 301
+/country-guides/index/csap.md /ko/korea/security/csap/ 301
+/country-guides/index/network-isolation /ko/korea/security/network-isolation/ 301
+/country-guides/index/network-isolation.md /ko/korea/security/network-isolation/ 301
+/country-guides/index/sovereign-fm-policy /ko/korea/ai/sovereign-fm-policy/ 301
+/country-guides/index/sovereign-fm-policy.md /ko/korea/ai/sovereign-fm-policy/ 301
+/country-guides/index/fm-providers /ko/korea/ai/fm-providers/ 301
+/country-guides/index/fm-providers.md /ko/korea/ai/fm-providers/ 301
+
+# 미국 (index-1)
+/country-guides/index-1 /ko/us/ 301
+/country-guides/index-1.md /ko/us/ 301
+/country-guides/index-1/:slug /ko/us/:slug/ 301
+/country-guides/index-1/:slug.md /ko/us/:slug/ 301
+
+# EU (index-2)
+/country-guides/index-2 /ko/eu/ 301
+/country-guides/index-2.md /ko/eu/ 301
+/country-guides/index-2/:slug /ko/eu/:slug/ 301
+/country-guides/index-2/:slug.md /ko/eu/:slug/ 301
+
+# 일본 (index-3)
+/country-guides/index-3 /ko/japan/ 301
+/country-guides/index-3.md /ko/japan/ 301
+/country-guides/index-3/:slug /ko/japan/:slug/ 301
+/country-guides/index-3/:slug.md /ko/japan/:slug/ 301
+
+# 싱가포르 (index-4)
+/country-guides/index-4 /ko/singapore/ 301
+/country-guides/index-4.md /ko/singapore/ 301
+/country-guides/index-4/:slug /ko/singapore/:slug/ 301
+/country-guides/index-4/:slug.md /ko/singapore/:slug/ 301
+
+# ─── GitBook .md URL → 확장자 제거 ───
+/about-cloud/:slug.md /ko/about-cloud/:slug/ 301
+/ai/:slug.md /ko/ai/:slug/ 301
+/compute/:slug.md /ko/compute/:slug/ 301
+/database/:slug.md /ko/database/:slug/ 301
+/devops/:slug.md /ko/devops/:slug/ 301
+/governance/:slug.md /ko/governance/:slug/ 301
+/networking/:slug.md /ko/networking/:slug/ 301
+/security/:slug.md /ko/security/:slug/ 301
+/storage/:slug.md /ko/storage/:slug/ 301
+
+# ─── 섹션별 스플랫 (구 GitBook 경로 = 신 /ko/ 경로) ───
 /about-cloud/* /ko/about-cloud/:splat 301
 /ai/* /ko/ai/:splat 301
 /compute/* /ko/compute/:splat 301
@@ -24,11 +85,10 @@
 /japan/* /ko/japan/:splat 301
 /singapore/* /ko/singapore/:splat 301
 
-# 로케일 홈 → 소개 (구 GitBook 홈 README를 복원한 페이지 — 원본 사이트와 동일한 첫 화면)
-# 시작하기 직행으로 바꾸려면 목적지를 /xx/about-cloud/getting-started/ 로 교체
-/ko/ /ko/introduction/ 302
-/en/ /en/introduction/ 302
-/ja/ /ja/introduction/ 302
-
-# 루트 → 한국어 소개
-/ /ko/introduction/ 302
+# ─── 로케일 홈 → 소개 ───
+# 302! : Netlify force. CF Pages 는 파일을 우선할 수 있어
+# scripts/write-locale-home-redirects.mjs 가 HTML stub 도 쓴다.
+/ko/ /ko/introduction/ 302!
+/en/ /en/introduction/ 302!
+/ja/ /ja/introduction/ 302!
+/ /ko/introduction/ 302!

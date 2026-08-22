@@ -1,12 +1,14 @@
 [build]
-  command = "npm run build && node -e \"const fs=require('fs'); const tpl=(u)=>'<!DOCTYPE html><html><head><meta http-equiv=refresh content=\\\"0;url='+u+'\\\"></head></html>'; fs.writeFileSync('dist/index.html',tpl('/ko/introduction/')); for(const l of['ko','en','ja']){fs.writeFileSync('dist/'+l+'/index.html',tpl('introduction/'));}\" "
+  command = "npm run build"
   publish = "dist"
   functions = "netlify/functions"
 
 [build.environment]
   NODE_VERSION = "22"
 
-# ─── MCP 서버 엔드포인트 ───
+# 콘텐츠 리디렉트는 public/_redirects (dist 로 복사)가 단일 소스.
+# 여기에는 Netlify Function 프록시와 force 로케일 홈만 둔다.
+
 [[redirects]]
   from = "/mcp"
   to = "/.netlify/functions/mcp"
@@ -17,99 +19,6 @@
   to = "/.netlify/functions/mcp"
   status = 200
 
-# ─── 삭제·통합된 문서 → 흡수한 문서로 ───
-[[redirects]]
-  from = "/ai/desktop-agents"
-  to = "/ko/ai/agents/"
-  status = 301
-
-[[redirects]]
-  from = "/ai/ai-use-cases"
-  to = "/ko/ai/ai-ml/"
-  status = 301
-
-[[redirects]]
-  from = "/ai/generative-models"
-  to = "/ko/ai/ai-ml/"
-  status = 301
-
-[[redirects]]
-  from = "/ai/embedding-models"
-  to = "/ko/ai/vector-store/"
-  status = 301
-
-# ─── 섹션별 스플랫 (구 GitBook 경로 → /ko/) ───
-[[redirects]]
-  from = "/about-cloud/*"
-  to = "/ko/about-cloud/:splat"
-  status = 301
-
-[[redirects]]
-  from = "/ai/*"
-  to = "/ko/ai/:splat"
-  status = 301
-
-[[redirects]]
-  from = "/compute/*"
-  to = "/ko/compute/:splat"
-  status = 301
-
-[[redirects]]
-  from = "/database/*"
-  to = "/ko/database/:splat"
-  status = 301
-
-[[redirects]]
-  from = "/devops/*"
-  to = "/ko/devops/:splat"
-  status = 301
-
-[[redirects]]
-  from = "/governance/*"
-  to = "/ko/governance/:splat"
-  status = 301
-
-[[redirects]]
-  from = "/networking/*"
-  to = "/ko/networking/:splat"
-  status = 301
-
-[[redirects]]
-  from = "/security/*"
-  to = "/ko/security/:splat"
-  status = 301
-
-[[redirects]]
-  from = "/storage/*"
-  to = "/ko/storage/:splat"
-  status = 301
-
-[[redirects]]
-  from = "/korea/*"
-  to = "/ko/korea/:splat"
-  status = 301
-
-[[redirects]]
-  from = "/us/*"
-  to = "/ko/us/:splat"
-  status = 301
-
-[[redirects]]
-  from = "/eu/*"
-  to = "/ko/eu/:splat"
-  status = 301
-
-[[redirects]]
-  from = "/japan/*"
-  to = "/ko/japan/:splat"
-  status = 301
-
-[[redirects]]
-  from = "/singapore/*"
-  to = "/ko/singapore/:splat"
-  status = 301
-
-# ─── 로케일 홈 → 소개 ───
 [[redirects]]
   from = "/ko/"
   to = "/ko/introduction/"
@@ -128,20 +37,8 @@
   status = 302
   force = true
 
-# ─── 루트 → 한국어 소개 ───
 [[redirects]]
   from = "/"
   to = "/ko/introduction/"
   status = 302
   force = true
-
-# ─── Headers ───
-[[headers]]
-  for = "/og-image.png"
-  [headers.values]
-    Cache-Control = "public, max-age=86400"
-
-[[headers]]
-  for = "/fonts/*"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"

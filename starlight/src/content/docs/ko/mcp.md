@@ -9,6 +9,14 @@ CloudPick 문서 사이트는 [Model Context Protocol (MCP)](https://modelcontex
 
 ## 엔드포인트
 
+컷오버 전(현재 동작):
+
+```
+https://cloudpick-docs-mcp.froguin.workers.dev/mcp
+```
+
+도메인 연결 후:
+
 ```
 https://docs.cloudpick.kr/mcp
 ```
@@ -26,7 +34,7 @@ https://docs.cloudpick.kr/mcp
   "mcpServers": {
     "cloudpick-docs": {
       "type": "streamable-http",
-      "url": "https://docs.cloudpick.kr/mcp"
+      "url": "https://cloudpick-docs-mcp.froguin.workers.dev/mcp"
     }
   }
 }
@@ -41,7 +49,7 @@ https://docs.cloudpick.kr/mcp
   "mcpServers": {
     "cloudpick-docs": {
       "type": "streamable-http",
-      "url": "https://docs.cloudpick.kr/mcp"
+      "url": "https://cloudpick-docs-mcp.froguin.workers.dev/mcp"
     }
   }
 }
@@ -54,7 +62,7 @@ Settings → MCP Servers → Add:
 ```json
 {
   "cloudpick-docs": {
-    "url": "https://docs.cloudpick.kr/mcp"
+    "url": "https://cloudpick-docs-mcp.froguin.workers.dev/mcp"
   }
 }
 ```
@@ -68,7 +76,7 @@ Settings → MCP Servers → Add:
   "servers": {
     "cloudpick-docs": {
       "type": "http",
-      "url": "https://docs.cloudpick.kr/mcp"
+      "url": "https://cloudpick-docs-mcp.froguin.workers.dev/mcp"
     }
   }
 }

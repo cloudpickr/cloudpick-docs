@@ -9,6 +9,14 @@ The CloudPick documentation site provides a [Model Context Protocol (MCP)](https
 
 ## Endpoint
 
+Before domain cutover (currently live):
+
+```
+https://cloudpick-docs-mcp.froguin.workers.dev/mcp
+```
+
+After the custom domain is connected:
+
 ```
 https://docs.cloudpick.kr/mcp
 ```
@@ -26,7 +34,7 @@ Protocol: **MCP Streamable HTTP** (POST)
   "mcpServers": {
     "cloudpick-docs": {
       "type": "streamable-http",
-      "url": "https://docs.cloudpick.kr/mcp"
+      "url": "https://cloudpick-docs-mcp.froguin.workers.dev/mcp"
     }
   }
 }
@@ -41,7 +49,7 @@ Protocol: **MCP Streamable HTTP** (POST)
   "mcpServers": {
     "cloudpick-docs": {
       "type": "streamable-http",
-      "url": "https://docs.cloudpick.kr/mcp"
+      "url": "https://cloudpick-docs-mcp.froguin.workers.dev/mcp"
     }
   }
 }
@@ -54,7 +62,7 @@ Settings → MCP Servers → Add:
 ```json
 {
   "cloudpick-docs": {
-    "url": "https://docs.cloudpick.kr/mcp"
+    "url": "https://cloudpick-docs-mcp.froguin.workers.dev/mcp"
   }
 }
 ```
@@ -68,7 +76,7 @@ Settings → MCP Servers → Add:
   "servers": {
     "cloudpick-docs": {
       "type": "http",
-      "url": "https://docs.cloudpick.kr/mcp"
+      "url": "https://cloudpick-docs-mcp.froguin.workers.dev/mcp"
     }
   }
 }

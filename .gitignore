@@ -14,3 +14,12 @@ scripts/standardize_naming.py
 starlight/node_modules/
 starlight/.astro/
 starlight/.wrangler/
+starlight/.netlify/
+starlight/dist/
+mcp/.wrangler/
+mcp/node_modules/
+.wrangler/
+
+# Local Netlify folder
+.netlify
+starlight/.netlify

@@ -43,7 +43,7 @@ async function loadSections(env: Env): Promise<DocSection[]> {
 	const cache = caches.default;
 	let res = await cache.match(cacheKey);
 	if (!res) {
-		const fetched = await fetch(url);
+		const fetched = await fetch(url, { signal: AbortSignal.timeout(10_000) });
 		if (!fetched.ok) {
 			throw new Error(`문서 소스 로드 실패: ${fetched.status} ${url}`);
 		}

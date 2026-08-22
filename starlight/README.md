@@ -1,7 +1,14 @@
 # CloudPick Docs — Starlight 사이트
 
 GitBook에서 마이그레이션된 멀티클라우드 기술 문서 사이트입니다.
-Astro [Starlight](https://starlight.astro.build) 기반, Cloudflare Pages에 정적 배포합니다.
+Astro [Starlight](https://starlight.astro.build) 기반 정적 사이트입니다.
+
+배포:
+
+- **Netlify** (`netlify.toml`) — 정적 `dist/` + `/mcp` Function
+- **Cloudflare Pages** (대안) — `dist/`만 업로드. MCP는 `../mcp/` Workers가 담당
+
+`@astrojs/cloudflare` 어댑터는 사용하지 않습니다 (wasm 빌드 오류).
 
 ## 구조
 
@@ -11,26 +18,24 @@ Astro [Starlight](https://starlight.astro.build) 기반, Cloudflare Pages에 정
     content-ref→링크, 상대 `.md` 링크→URL 경로, `GLOSSARY.md`→`glossary`
   - **`src/content/docs/ko/`의 일반 섹션 파일을 직접 수정하지 말 것** (재변환 시 덮어씀).
     루트 원본을 수정하고 스크립트를 재실행하세요.
-- `src/content/docs/ko/korea/` — 한국 특화 문서(CSAP, 망분리, 소버린 AI 등).
-  루트에 원본이 없는 Starlight 전용 콘텐츠로, 여기서 직접 편집합니다.
-  `src/routeData.ts` 미들웨어가 en/ja 사이드바에서 이 그룹을 숨깁니다.
-- `src/content/docs/en/` — 영어 번역본. 파일이 없으면 한국어로 폴백됩니다.
-- `src/content/docs/ja/` — 일본어(현재 랜딩 페이지만, 나머지는 폴백).
+- `src/content/docs/{ko,en,ja}/` — 3개 로케일 대칭 번역 (로케일당 동일 페이지).
+  파일이 없으면 한국어로 폴백됩니다. 미번역 파일을 만들지 마세요.
 
 ## i18n
 
-`defaultLocale: 'ko'`, 전체 접두사(`/ko/`, `/en/`, `/ja/`). 미번역 페이지는
-한국어 콘텐츠 + "번역 없음" 안내로 자동 폴백됩니다.
+`defaultLocale: 'ko'`, 전체 접두사(`/ko/`, `/en/`, `/ja/`).
+`/`, `/ko/`, `/en/`, `/ja/` 는 각 로케일 소개 페이지로 리디렉션됩니다.
 
 ## 명령어
 
 ```sh
 npm run dev      # 개발 서버
-npm run build    # dist/ 정적 빌드 (llms.txt, pagefind 인덱스 포함)
-npx wrangler pages deploy dist --project-name=cloudpick-docs  # 배포
+npm run build    # dist/ 정적 빌드 (llms.txt, pagefind, 로케일 홈 리디렉션 stub)
 ```
+
+Netlify는 `starlight/`를 베이스 디렉터리로 빌드합니다.
 
 ## AI 접근
 
 - 빌드 시 `starlight-llms-txt` 플러그인이 `/llms.txt`, `/llms-full.txt`, `/llms-small.txt` 생성
-- 원격 MCP 서버: `../mcp/` (Cloudflare Workers, llms-full.txt 기반 검색/조회)
+- MCP 엔드포인트: `https://docs.cloudpick.kr/mcp` (Netlify Function 또는 `../mcp/` Workers)

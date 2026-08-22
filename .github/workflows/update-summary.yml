@@ -16,9 +16,11 @@ jobs:
         with:
           ref: master
       - name: Extract and add SUMMARY entry
+        env:
+          BODY: ${{ github.event.pull_request.body }}
+          PR_TITLE: ${{ github.event.pull_request.title }}
         run: |
-          BODY="${{ github.event.pull_request.body }}"
-          ENTRY=$(echo "$BODY" | grep -oP '(?<=SUMMARY_ENTRY:).*?(?= -->)')
+          ENTRY=$(printf '%s\n' "$BODY" | grep -oP '(?<=SUMMARY_ENTRY:).*?(?= -->)')
           if [ -z "$ENTRY" ]; then exit 0; fi
 
           # Detect category from file path
@@ -39,5 +41,5 @@ jobs:
           git config user.name "cloudpick-bot"
           git config user.email "bot@cloudpick.dev"
           git add SUMMARY.md
-          git diff --cached --quiet || git commit -m "docs: SUMMARY.md 자동 업데이트 — ${{ github.event.pull_request.title }}"
+          git diff --cached --quiet || git commit -m "docs: SUMMARY.md 자동 업데이트 — ${PR_TITLE}"
           git push

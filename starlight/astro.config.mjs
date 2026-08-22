@@ -5,10 +5,11 @@ import starlightLlmsTxt from 'starlight-llms-txt';
 import mermaid from 'astro-mermaid';
 
 // https://astro.build/config
-// 정적 사이트이므로 어댑터 불필요 — Cloudflare Pages에는 dist/를 wrangler pages deploy로 올린다.
+// 정적 사이트 — 어댑터 불필요. @astrojs/cloudflare 사용 금지(satori wasm 빌드 오류).
 export default defineConfig({
 	site: 'https://docs.cloudpick.kr',
 	output: 'static',
+	trailingSlash: 'always',
 	integrations: [
 		mermaid({
 			// Starlight 다크모드 연동: html[data-theme] 감지
@@ -30,11 +31,6 @@ export default defineConfig({
 				{
 					tag: 'link',
 					attrs: { rel: 'stylesheet', href: '/fonts/pretendard/pretendardvariable-dynamic-subset.css' },
-				},
-				{
-					// Pretendard JP Variable — 일본어 자형 + 라틴 (CDN dynamic subset)
-					tag: 'link',
-					attrs: { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-jp-dynamic-subset.css' },
 				},
 				// ─── OpenGraph 메타 태그 (소셜 공유용) ───
 				{
@@ -61,18 +57,7 @@ export default defineConfig({
 					tag: 'meta',
 					attrs: { property: 'og:image:alt', content: 'CloudPick — Vendor-neutral multi-cloud decision guide' },
 				},
-				{
-					tag: 'meta',
-					attrs: { property: 'og:locale', content: 'ko_KR' },
-				},
-				{
-					tag: 'meta',
-					attrs: { property: 'og:locale:alternate', content: 'en_US' },
-				},
-				{
-					tag: 'meta',
-					attrs: { property: 'og:locale:alternate', content: 'ja_JP' },
-				},
+				// og:locale / og:locale:alternate 는 src/routeData.ts 가 로케일별로 주입
 				// ─── Twitter/X Card 메타 태그 ───
 				{
 					tag: 'meta',

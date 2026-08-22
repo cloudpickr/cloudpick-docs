@@ -4,7 +4,9 @@
 	"compatibility_date": "2026-08-01",
 	"compatibility_flags": ["nodejs_compat"],
 	"vars": {
-		"DOCS_BASE_URL": "https://docs.cloudpick.kr"
+		// 컷오버 전에는 Starlight 가 실제로 서빙하는 origin 을 가리킨다.
+		// docs.cloudpick.kr 로 바꾸면 GitBook 코퍼스를 인덱싱하게 되므로 도메인 연결 시점에 전환.
+		"DOCS_BASE_URL": "https://cloudpick-docs.pages.dev"
 	},
 	"routes": [
 		{ "pattern": "docs.cloudpick.kr/mcp*", "zone_name": "cloudpick.kr" }

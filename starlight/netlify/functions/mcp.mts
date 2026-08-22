@@ -14,8 +14,10 @@ interface DocSection {
   content: string;
 }
 
-const DOCS_BASE_URL = process.env.DOCS_BASE_URL || "https://docs.cloudpick.kr";
+// 컷오버 전 기본값은 Starlight 가 실제로 서빙하는 origin.
+const DOCS_BASE_URL = process.env.DOCS_BASE_URL || "https://cloudpick-docs.pages.dev";
 const CACHE_TTL_MS = 5 * 60 * 1000;
+const FETCH_TIMEOUT_MS = 10_000;
 
 let cachedSections: DocSection[] | null = null;
 let cacheTimestamp = 0;
@@ -49,14 +51,19 @@ async function loadSections(): Promise<DocSection[]> {
   }
 
   const url = `${DOCS_BASE_URL}/llms-full.txt`;
-  const res = await fetch(url);
-  if (!res.ok) {
-    throw new Error(`문서 소스 로드 실패: ${res.status} ${url}`);
+  try {
+    const res = await fetch(url, { signal: AbortSignal.timeout(FETCH_TIMEOUT_MS) });
+    if (!res.ok) {
+      throw new Error(`문서 소스 로드 실패: ${res.status} ${url}`);
+    }
+    cachedSections = parseSections(await res.text());
+    cacheTimestamp = now;
+    return cachedSections;
+  } catch (err) {
+    // 콜드스타트가 아닌 워커에서 만료된 캐시라도 있으면 문서 조회를 살려 둔다.
+    if (cachedSections) return cachedSections;
+    throw err;
   }
-
-  cachedSections = parseSections(await res.text());
-  cacheTimestamp = now;
-  return cachedSections;
 }
 
 function snippet(content: string, terms: string[], length = 240): string {
@@ -104,7 +111,10 @@ const TOOLS = [
   },
 ];
 
-async function callTool(name: string, args: Record<string, unknown>): Promise<{ content: { type: string; text: string }[] }> {
+async function callTool(
+  name: string,
+  args: Record<string, unknown>,
+): Promise<{ content: { type: string; text: string }[]; isError?: boolean }> {
   const sections = await loadSections();
 
   if (name === "list_docs") {
@@ -156,7 +166,7 @@ async function callTool(name: string, args: Record<string, unknown>): Promise<{ 
     return { content: [{ type: "text", text: `# ${hit.title}\n${hit.content.trim()}` }] };
   }
 
-  return { content: [{ type: "text", text: `알 수 없는 도구: ${name}` }] };
+  return { content: [{ type: "text", text: `알 수 없는 도구: ${name}` }], isError: true };
 }
 
 // ─── JSON-RPC 처리 ───
@@ -168,59 +178,76 @@ interface JsonRpcRequest {
   params?: Record<string, unknown>;
 }
 
-function jsonRpcResponse(id: string | number | undefined, result: unknown) {
-  return { jsonrpc: "2.0", id, result };
+const SUPPORTED_PROTOCOL_VERSIONS = ["2025-03-26", "2025-06-18", "2025-11-25"];
+const FALLBACK_PROTOCOL_VERSION = "2025-06-18";
+
+function jsonRpcResponse(id: string | number | null, result: unknown) {
+  return { jsonrpc: "2.0" as const, id, result };
 }
 
-function jsonRpcError(id: string | number | undefined, code: number, message: string) {
-  return { jsonrpc: "2.0", id, error: { code, message } };
+function jsonRpcError(id: string | number | null, code: number, message: string) {
+  return { jsonrpc: "2.0" as const, id, error: { code, message } };
 }
 
 async function handleJsonRpc(request: JsonRpcRequest) {
   const { id, method, params } = request;
+  const rpcId = id === undefined ? null : id;
 
   switch (method) {
-    case "initialize":
-      return jsonRpcResponse(id, {
-        protocolVersion: "2025-03-26",
+    case "initialize": {
+      const requested = typeof params?.protocolVersion === "string" ? params.protocolVersion : "";
+      const protocolVersion = SUPPORTED_PROTOCOL_VERSIONS.includes(requested)
+        ? requested
+        : FALLBACK_PROTOCOL_VERSION;
+      return jsonRpcResponse(rpcId, {
+        protocolVersion,
         capabilities: { tools: { listChanged: false } },
         serverInfo: { name: "cloudpick-docs", version: "1.0.0" },
       });
+    }
 
     case "notifications/initialized":
-      return null; // 알림이므로 응답 없음
+      return null;
 
     case "tools/list":
-      return jsonRpcResponse(id, { tools: TOOLS });
+      return jsonRpcResponse(rpcId, { tools: TOOLS });
 
     case "tools/call": {
-      const name = (params as { name: string })?.name;
+      const name = (params as { name?: string })?.name;
       const args = (params as { arguments?: Record<string, unknown> })?.arguments || {};
+      if (!name || !TOOLS.some((t) => t.name === name)) {
+        return jsonRpcError(rpcId, -32602, `Unknown tool: ${name ?? "(missing)"}`);
+      }
       try {
         const result = await callTool(name, args);
-        return jsonRpcResponse(id, result);
+        return jsonRpcResponse(rpcId, result);
       } catch (e: unknown) {
         const msg = e instanceof Error ? e.message : String(e);
-        return jsonRpcError(id, -32603, msg);
+        return jsonRpcResponse(rpcId, {
+          content: [{ type: "text", text: msg }],
+          isError: true,
+        });
       }
     }
 
     case "ping":
-      return jsonRpcResponse(id, {});
+      return jsonRpcResponse(rpcId, {});
 
     default:
-      return jsonRpcError(id, -32601, `Method not found: ${method}`);
+      return jsonRpcError(rpcId, -32601, `Method not found: ${method}`);
   }
 }
 
 // ─── Netlify Function 핸들러 ───
 
 export default async function handler(req: Request): Promise<Response> {
+  // CORS * : 공개 MCP. 에이전트 클라이언트가 임의의 origin에서 붙는다.
   const headers = {
-    "content-type": "application/json",
+    "content-type": "application/json; charset=utf-8",
     "access-control-allow-origin": "*",
     "access-control-allow-methods": "GET, POST, DELETE, OPTIONS",
-    "access-control-allow-headers": "content-type, mcp-session-id",
+    "access-control-allow-headers":
+      "content-type, accept, mcp-session-id, mcp-protocol-version, last-event-id",
   };
 
   // CORS preflight
@@ -228,24 +255,17 @@ export default async function handler(req: Request): Promise<Response> {
     return new Response(null, { status: 204, headers });
   }
 
-  // GET → 서버 정보
+  // GET 은 Streamable HTTP SSE. 이 서버는 stateless 라 미지원 → 405.
   if (req.method === "GET") {
-    return new Response(
-      JSON.stringify({
-        name: "cloudpick-docs",
-        version: "1.0.0",
-        description: "CloudPick 문서용 MCP 서버",
-        tools: TOOLS.map((t) => t.name),
-        endpoint: "POST /mcp",
-        source: `${DOCS_BASE_URL}/llms-full.txt`,
-      }),
-      { headers },
-    );
+    return new Response(null, {
+      status: 405,
+      headers: { ...headers, allow: "POST, DELETE, OPTIONS" },
+    });
   }
 
   // DELETE → 세션 종료 (stateless)
   if (req.method === "DELETE") {
-    return new Response(null, { status: 204, headers });
+    return new Response(null, { status: 202, headers });
   }
 
   // POST → JSON-RPC
@@ -255,26 +275,21 @@ export default async function handler(req: Request): Promise<Response> {
       body = await req.json();
     } catch {
       return new Response(
-        JSON.stringify(jsonRpcError(undefined, -32700, "Parse error")),
+        JSON.stringify(jsonRpcError(null, -32700, "Parse error")),
         { status: 400, headers },
       );
     }
 
-    // 배치 요청 지원
     if (Array.isArray(body)) {
-      const results = await Promise.all(
-        body.map((r: JsonRpcRequest) => handleJsonRpc(r)),
+      return new Response(
+        JSON.stringify(jsonRpcError(null, -32600, "Batch requests are not supported")),
+        { status: 400, headers },
       );
-      const responses = results.filter((r) => r !== null);
-      if (responses.length === 0) {
-        return new Response(null, { status: 204, headers });
-      }
-      return new Response(JSON.stringify(responses), { headers });
     }
 
     const result = await handleJsonRpc(body as JsonRpcRequest);
     if (result === null) {
-      return new Response(null, { status: 204, headers });
+      return new Response(null, { status: 202, headers });
     }
     return new Response(JSON.stringify(result), { headers });
   }

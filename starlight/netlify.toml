@@ -169,12 +169,6 @@
   to = "/ko/singapore/:slug/"
   status = 301
 
-# ─── .md 확장자 제거 (placeholder로 처리) ───
-[[redirects]]
-  from = "/:section/:slug.md"
-  to = "/ko/:section/:slug/"
-  status = 301
-
 # ─── 섹션별 스플랫 (구 GitBook 경로 → /ko/ 경로) ───
 [[redirects]]
   from = "/about-cloud/*"

@@ -14,12 +14,11 @@ description: "주요 벤더의 특징, 강점, 멀티클라우드 연동 서비�
 | **시장 점유율** | 28% | 21% | 14% | 비공개 |
 | **서비스 포트폴리오** | 매우 넓음 | 매우 넓음 | 넓음 | 핵심 집중 |
 | **리전 수** | [39개](https://aws.amazon.com/about-aws/global-infrastructure/regions_az/) | [70+](https://azure.microsoft.com/explore/global-infrastructure/geographies) | [43개](https://cloud.google.com/about/locations) | [50+](https://www.oracle.com/cloud/public-cloud-regions/) |
-| **한국 리전** | 서울 | 서울, 부산 | 서울 | 서울, 춘천 |
 | **강점** | 넓은 서비스 포트폴리오 | 엔터프라이즈 통합 (M365, AD) | AI/ML과 데이터 분석 | 데이터베이스와 가격 경쟁력 |
 | **콘솔** | [Console](https://console.aws.amazon.com) | [Portal](https://portal.azure.com) | [Console](https://console.cloud.google.com) | [Console](https://cloud.oracle.com) |
 
 :::note
-시장 점유율 출처: [Synergy Research Group — Q4 2025](https://www.srgresearch.com/articles/genai-helps-drive-quarterly-cloud-revenues-to-119-billion-as-growth-rate-jumped-yet-again-in-q4). 리전 수, 서비스 수 등은 빠르게 변하므로 각 벤더 공식 페이지에서 최신 현황을 확인하세요.
+시장 점유율 출처: [Synergy Research Group — Q4 2025](https://www.srgresearch.com/articles/genai-helps-drive-quarterly-cloud-revenues-to-119-billion-as-growth-rate-jumped-yet-again-in-q4). 리전 수, 서비스 수 등은 빠르게 변하므로 각 벤더 공식 페이지에서 최신 현황을 확인하세요. 국가별 로컬 리전은 [한국](../../korea/index/), [미국](../../us/index/), [EU](../../eu/index/), [일본](../../japan/index/), [싱가포르](../../singapore/index/) 가이드를 참고하세요.
 :::
 
 ## 주요 서비스 매핑
@@ -68,16 +67,14 @@ Amazon의 이커머스 인프라에서 출발한 AWS는 성숙한 서비스 포�
 - **핵심 강점:** 서비스 다양성, 글로벌 리전 수, 커뮤니티/문서 풍부
 - **차별점:** Amazon Bedrock(AI OS로 진화), Nova 2 모델 출시, 세분화된 IAM
 - **주의사항:** 서비스 수가 200+로 많아 초기 선택에 시간이 필요함. 이그레스 비용 구조를 사전에 확인할 것
-- **한국 리전:** 서울 4 AZ (2016~)
 
 ### Azure — 엔터프라이즈 통합의 강자
 
 Microsoft의 엔터프라이즈 소프트웨어 생태계(Microsoft 365, Active Directory, Dynamics 365)와 긴밀하게 통합됩니다. 기존 Microsoft 환경을 사용하는 기업에서 도입 경로가 비교적 명확합니다.
 
 - **핵심 강점:** Microsoft 365/AD 통합, 하이브리드(Azure Arc, Azure Stack), 엔터프라이즈 계약(EA)
-- **차별점:** Microsoft Foundry(구 Azure AI Foundry), 서울-부산 리전 쌍으로 국내 DR 가능, GitHub/VS Code 통합
+- **차별점:** Microsoft Foundry(구 Azure AI Foundry), 동일 국가 내 리전 쌍으로 in-country DR가 가능한 경우, GitHub/VS Code 통합
 - **주의사항:** 서비스 리브랜딩이 빈번하므로 최신 명칭을 공식 문서에서 확인할 것. 리전별 서비스 가용성이 다를 수 있음
-- **한국 리전:** 서울(Korea Central) 3 AZ + 부산(Korea South)
 
 ### Google Cloud — AI/ML과 데이터 분석
 
@@ -85,8 +82,7 @@ Google의 검색·데이터 처리 인프라에서 발전한 Google Cloud는 AI/
 
 - **핵심 강점:** AI/ML(Gemini Enterprise, TPU), 데이터 분석(BigQuery), 컨테이너(GKE)
 - **차별점:** Gemini Enterprise Agent Platform(구 Vertex AI), 글로벌 VPC(리전 종속 아님), Shared Fate 보안 모델
-- **주의사항:** 엔터프라이즈 도입 시 지원 플랜과 한국어 리소스 가용성을 사전에 확인할 것
-- **한국 리전:** 서울 3 Zone (2020~)
+- **주의사항:** 엔터프라이즈 도입 시 지원 플랜과 현지 언어 리소스 가용성을 사전에 확인할 것
 
 ### OCI — 데이터베이스와 가격 경쟁력
 
@@ -95,7 +91,6 @@ Oracle의 데이터베이스 기술력을 클라우드로 확장한 OCI는 Oracl
 - **핵심 강점:** Autonomous Database, Oracle DB 최적화, 이그레스 무료 범위(10TB/월)
 - **차별점:** OCI Enterprise AI(구 OCI Generative AI), 이그레스 10TB/월 무료, Dedicated Region(고객 DC에 OCI 설치)
 - **주의사항:** Oracle DB 외 워크로드는 서비스 카탈로그와 서드파티 생태계 규모를 사전에 확인할 것
-- **한국 리전:** 서울(`ap-seoul-1`), 춘천(`ap-chuncheon-1`)
 
 ## 벤더 간 멀티클라우드 연동 서비스
 
@@ -175,7 +170,7 @@ AWS는 타사 대비 직접적인 서비스 비교 페이지를 제공하지 않
 
 ## 체크리스트
 
-- [ ] 핵심 워크로드에 필요한 서비스가 후보 벤더의 한국 리전에서 제공되는지 확인했는가?
+- [ ] 핵심 워크로드에 필요한 서비스가 후보 벤더의 대상 사용자 리전에서 제공되는지 확인했는가?
 - [ ] 벤더별 공식 비교 자료(서비스 매핑)를 참고하여 동등 서비스를 식별했는가?
 - [ ] 팀이 실제로 사용할 벤더의 CLI/SDK/문서를 직접 체험해 보았는가?
 

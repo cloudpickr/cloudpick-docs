@@ -14,12 +14,11 @@ description: "Compares the characteristics, strengths, and multicloud interopera
 | **Market share** | 28% | 21% | 14% | Not disclosed |
 | **Service portfolio** | Very broad | Very broad | Broad | Focused on core areas |
 | **Number of regions** | [39](https://aws.amazon.com/about-aws/global-infrastructure/regions_az/) | [70+](https://azure.microsoft.com/explore/global-infrastructure/geographies) | [43](https://cloud.google.com/about/locations) | [50+](https://www.oracle.com/cloud/public-cloud-regions/) |
-| **Korea regions** | Seoul | Seoul, Busan | Seoul | Seoul, Chuncheon |
 | **Strengths** | Broad service portfolio | Enterprise integration (M365, AD) | AI/ML and data analytics | Databases and price competitiveness |
 | **Console** | [Console](https://console.aws.amazon.com) | [Portal](https://portal.azure.com) | [Console](https://console.cloud.google.com) | [Console](https://cloud.oracle.com) |
 
 :::note
-Market share source: [Synergy Research Group — Q4 2025](https://www.srgresearch.com/articles/genai-helps-drive-quarterly-cloud-revenues-to-119-billion-as-growth-rate-jumped-yet-again-in-q4). Region counts, service counts, and similar figures change quickly, so check each vendor's official page for the latest status.
+Market share source: [Synergy Research Group — Q4 2025](https://www.srgresearch.com/articles/genai-helps-drive-quarterly-cloud-revenues-to-119-billion-as-growth-rate-jumped-yet-again-in-q4). Region counts, service counts, and similar figures change quickly, so check each vendor's official page for the latest status. For local regions by country, see the [Korea](../../korea/), [United States](../../us/), [EU](../../eu/), [Japan](../../japan/), and [Singapore](../../singapore/) guides.
 :::
 
 ## Key Service Mapping
@@ -68,16 +67,14 @@ AWS, which grew out of Amazon's e-commerce infrastructure, has a mature service 
 - **Core strength:** Service variety, number of global regions, abundant community/documentation
 - **Differentiators:** Amazon Bedrock (evolving into an AI OS), launch of the Nova 2 model, granular IAM
 - **Caveats:** With 200+ services, initial selection can take time. Check the egress cost structure in advance.
-- **Korea region:** Seoul, 4 AZs (since 2016)
 
 ### Azure — Strong Enterprise Integration
 
 Azure integrates tightly with Microsoft's enterprise software ecosystem (Microsoft 365, Active Directory, Dynamics 365). Organizations already running a Microsoft environment tend to have a relatively clear adoption path.
 
 - **Core strength:** Microsoft 365/AD integration, hybrid (Azure Arc, Azure Stack), Enterprise Agreements (EA)
-- **Differentiators:** Microsoft Foundry (formerly Azure AI Foundry), Seoul-Busan region pair enabling in-country DR, GitHub/VS Code integration
+- **Differentiators:** Microsoft Foundry (formerly Azure AI Foundry), in-country DR where a same-country region pair exists, GitHub/VS Code integration
 - **Caveats:** Service rebranding happens frequently, so verify current naming in official docs. Service availability can vary by region.
-- **Korea regions:** Seoul (Korea Central), 3 AZs + Busan (Korea South)
 
 ### Google Cloud — AI/ML and Data Analytics
 
@@ -85,8 +82,7 @@ Google Cloud, which evolved from Google's search and data-processing infrastruct
 
 - **Core strength:** AI/ML (Gemini Enterprise, TPU), data analytics (BigQuery), containers (GKE)
 - **Differentiators:** Gemini Enterprise Agent Platform (formerly Vertex AI), global VPC (not region-bound), Shared Fate security model
-- **Caveats:** For enterprise adoption, check support plans and Korean-language resource availability in advance.
-- **Korea region:** Seoul, 3 zones (since 2020)
+- **Caveats:** For enterprise adoption, check support plans and local-language resource availability in advance.
 
 ### OCI — Databases and Price Competitiveness
 
@@ -95,7 +91,6 @@ OCI, which extends Oracle's database expertise into the cloud, has strengths for
 - **Core strength:** Autonomous Database, Oracle DB optimization, free egress allowance (10TB/month)
 - **Differentiators:** OCI Enterprise AI (formerly OCI Generative AI), 10TB/month free egress, Dedicated Region (OCI installed at the customer's data center)
 - **Caveats:** For workloads outside Oracle DB, check the service catalog and third-party ecosystem size in advance.
-- **Korea regions:** Seoul (`ap-seoul-1`), Chuncheon (`ap-chuncheon-1`)
 
 ## Cross-Vendor Multicloud Interoperability Services
 
@@ -175,7 +170,7 @@ The tools below are for reference only; a measurement at a given point in time d
 
 ## Checklist
 
-- [ ] Have you confirmed that the services needed for your core workload are available in your candidate vendors' Korea regions?
+- [ ] Have you confirmed that the services needed for your core workload are available in your candidate vendors' regions for your target users?
 - [ ] Have you identified equivalent services using each vendor's official comparison materials (service mapping)?
 - [ ] Has your team directly tried the CLI/SDK/documentation of the vendor it will actually use?
 

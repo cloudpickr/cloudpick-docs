@@ -14,12 +14,11 @@ description: "主要ベンダーの特徴、強み、マルチクラウド連携
 | **市場シェア** | 28% | 21% | 14% | 非公開 |
 | **サービスポートフォリオ** | 非常に広い | 非常に広い | 広い | コア領域に集中 |
 | **リージョン数** | [39](https://aws.amazon.com/about-aws/global-infrastructure/regions_az/) | [70+](https://azure.microsoft.com/explore/global-infrastructure/geographies) | [43](https://cloud.google.com/about/locations) | [50+](https://www.oracle.com/cloud/public-cloud-regions/) |
-| **韓国リージョン** | ソウル | ソウル、釜山 | ソウル | ソウル、春川 |
 | **強み** | 広いサービスポートフォリオ | エンタープライズ統合（M365、AD） | AI/MLとデータ分析 | データベースと価格競争力 |
 | **コンソール** | [Console](https://console.aws.amazon.com) | [Portal](https://portal.azure.com) | [Console](https://console.cloud.google.com) | [Console](https://cloud.oracle.com) |
 
 :::note
-市場シェアの出典: [Synergy Research Group — Q4 2025](https://www.srgresearch.com/articles/genai-helps-drive-quarterly-cloud-revenues-to-119-billion-as-growth-rate-jumped-yet-again-in-q4)。リージョン数、サービス数などは急速に変化するため、各ベンダーの公式ページで最新状況を確認してください。
+市場シェアの出典: [Synergy Research Group — Q4 2025](https://www.srgresearch.com/articles/genai-helps-drive-quarterly-cloud-revenues-to-119-billion-as-growth-rate-jumped-yet-again-in-q4)。リージョン数、サービス数などは急速に変化するため、各ベンダーの公式ページで最新状況を確認してください。国別のローカルリージョンは[韓国](../../korea/)、[米国](../../us/)、[EU](../../eu/)、[日本](../../japan/)、[シンガポール](../../singapore/)ガイドを参照してください。
 :::
 
 ## 主要サービスマッピング
@@ -68,16 +67,14 @@ Amazonのeコマースインフラから出発したAWSは、成熟したサー�
 - **主な強み:** サービスの多様性、グローバルリージョン数、豊富なコミュニティ/ドキュメント
 - **差別化ポイント:** Amazon Bedrock（AI OSへ進化）、Nova 2モデルのリリース、きめ細かいIAM
 - **注意点:** サービス数が200以上と多く、初期選定に時間が必要。イグレスコスト構造を事前に確認すること
-- **韓国リージョン:** ソウル 4 AZ（2016年〜）
 
 ### Azure — エンタープライズ統合の強者
 
 Microsoftのエンタープライズソフトウェアエコシステム（Microsoft 365、Active Directory、Dynamics 365）と緊密に統合されます。既存のMicrosoft環境を利用する企業にとって、導入経路が比較的明確です。
 
 - **主な強み:** Microsoft 365/AD統合、ハイブリッド（Azure Arc、Azure Stack）、エンタープライズ契約（EA）
-- **差別化ポイント:** Microsoft Foundry（旧Azure AI Foundry）、ソウル-釜山リージョンペアによる国内DR、GitHub/VS Code統合
+- **差別化ポイント:** Microsoft Foundry（旧Azure AI Foundry）、同一国内のリージョンペアで in-country DR が可能な場合、GitHub/VS Code統合
 - **注意点:** サービスのリブランディングが頻繁なため、最新名称を公式ドキュメントで確認すること。リージョンごとにサービス可用性が異なる場合がある
-- **韓国リージョン:** ソウル（Korea Central）3 AZ + 釜山（Korea South）
 
 ### Google Cloud — AI/MLとデータ分析
 
@@ -85,8 +82,7 @@ Googleの検索・データ処理インフラから発展したGoogle Cloudは�
 
 - **主な強み:** AI/ML（Gemini Enterprise、TPU）、データ分析（BigQuery）、コンテナ（GKE）
 - **差別化ポイント:** Gemini Enterprise Agent Platform（旧Vertex AI）、グローバルVPC（リージョン非依存）、Shared Fateセキュリティモデル
-- **注意点:** エンタープライズ導入時はサポートプランと韓国語リソースの可用性を事前に確認すること
-- **韓国リージョン:** ソウル 3 Zone（2020年〜）
+- **注意点:** エンタープライズ導入時はサポートプランと現地語リソースの可用性を事前に確認すること
 
 ### OCI — データベースと価格競争力
 
@@ -95,7 +91,6 @@ Oracleのデータベース技術力をクラウドに拡張したOCIは、Oracl
 - **主な強み:** Autonomous Database、Oracle DB最適化、イグレス無料枠（10TB/月）
 - **差別化ポイント:** OCI Enterprise AI（旧OCI Generative AI）、イグレス10TB/月無料、Dedicated Region（顧客DCへのOCI設置）
 - **注意点:** Oracle DB以外のワークロードはサービスカタログとサードパーティエコシステムの規模を事前に確認すること
-- **韓国リージョン:** ソウル（`ap-seoul-1`）、春川（`ap-chuncheon-1`）
 
 ## ベンダー間マルチクラウド連携サービス
 
@@ -175,7 +170,7 @@ AWSは他社と異なり直接的なサービス比較ページを提供して�
 
 ## チェックリスト
 
-- [ ] コアワークロードに必要なサービスが候補ベンダーの韓国リージョンで提供されているか確認したか？
+- [ ] コアワークロードに必要なサービスが候補ベンダーの対象ユーザー向けリージョンで提供されているか確認したか？
 - [ ] ベンダー別公式比較資料（サービスマッピング）を参考に、同等サービスを識別したか？
 - [ ] チームが実際に使用するベンダーのCLI/SDK/ドキュメントを直接体験してみたか？
 

@@ -11,6 +11,19 @@ This section covers the regulations and ecosystem you encounter when adopting an
 
 It is organized into four documents to help enterprise architects who are adopting cloud in the public or financial sector, or bringing generative AI into line with Korea's domestic regulatory environment.
 
+## Status of Korea Regions
+
+| Vendor | Region code | AZs / Zones | Launched |
+| --- | --- | --- | --- |
+| AWS | `ap-northeast-2` (Seoul) | 4 AZs | 2016 |
+| Azure | `koreacentral` (Seoul), `koreasouth` (Busan) | 3 AZs (Central) | 2017 |
+| Google Cloud | `asia-northeast3` (Seoul) | 3 Zones | 2020 |
+| OCI | `ap-seoul-1`, `ap-chuncheon-1` | 3 FDs | 2020 |
+
+:::note
+Azure (Seoul–Busan) and OCI (Seoul–Chuncheon) each have two regions in Korea, so you can design DR without data leaving the country. For AWS and Google Cloud, Tokyo and Osaka are the nearest DR candidates. For the region concepts themselves, see [Regions and Availability Zones](../../about-cloud/regions-and-zones/).
+:::
+
 ## Topics Covered
 
 ### Security and Regulation

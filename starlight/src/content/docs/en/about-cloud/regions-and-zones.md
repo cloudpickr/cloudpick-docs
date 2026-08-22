@@ -1,19 +1,19 @@
 ---
 title: "Regions and Availability Zones"
-description: "Explains the concepts of regions, availability zones, and edge locations, and compares the state of Korea regions and adjacent DR regions across vendors."
+description: "Explains the concepts of regions, availability zones, and edge locations, and compares adjacent DR regions across vendors."
 ---
 
 > Last reviewed: May 2026
 
 ## Overview
 
-If your own data center exists in only a single Seoul facility, a fire or power outage there would take down your entire service. If you place data centers in both Seoul and Busan for redundancy, the service can keep running from the other side even if one fails.
+If your own data center exists in only a single facility in one city, a fire or power outage there would take down your entire service. If you place data centers in two different cities for redundancy, the service can keep running from the other side even if one fails.
 
 Cloud **regions** and **availability zones** are exactly this redundancy concept implemented by a vendor at scale. Choosing a region isn't simply about picking a "server location" — it also determines latency, data sovereignty, and disaster recovery strategy.
 
 ### Region
 
-A **region** is a geographically separated cluster of data centers. Each region has independent power, cooling, and networking, and is physically dozens to thousands of kilometers away from other regions. In on-premises terms, this is equivalent to data centers located in different cities, like a Seoul data center and a Busan data center.
+A **region** is a geographically separated cluster of data centers. Each region has independent power, cooling, and networking, and is physically dozens to thousands of kilometers away from other regions. In on-premises terms, this is equivalent to data centers located in different cities.
 
 ### Availability Zone
 
@@ -23,7 +23,7 @@ In on-premises terms, this is similar to server rooms located in different build
 
 ```mermaid
 graph TB
-    subgraph "Region (Seoul)"
+    subgraph "Region"
         subgraph "AZ-a"
             DC1[Data Center 1]
         end
@@ -61,7 +61,7 @@ An **edge location** is small-scale infrastructure placed closer to users than a
 | --- | --- |
 | Hierarchy | Region → Availability Zone (AZ) |
 | VPC scope | Region-level |
-| Local Zone | Ultra-low-latency infrastructure placed in a specific city (Busan, in addition to Seoul, and so on) |
+| Local Zone | Ultra-low-latency infrastructure placed in a specific city |
 | Sovereign Cloud | Dedicated region for EU data sovereignty (EU operating staff, data stored within the EU). [AWS European Sovereign Cloud](https://aws.amazon.com/sovereign-cloud/) (Brandenburg, €7.8B investment) |
 
 #### Azure
@@ -71,7 +71,7 @@ An **edge location** is small-scale infrastructure placed closer to users than a
 | Hierarchy | Geography → Region → Availability Zone |
 | VNet scope | Region-level |
 | Region Pair | Two regions within the same geography are designated as a pair. Platform updates are not applied to both simultaneously |
-| Korea region pair | `koreacentral` (Seoul) ↔ `koreasouth` (Busan) — enables domestic DR |
+| Region pair examples | Some pairs enable in-country DR (e.g. Australia East–Southeast). See country guides for local status |
 
 ### Google Cloud
 
@@ -93,7 +93,7 @@ An **edge location** is small-scale infrastructure placed closer to users than a
 
 ## Considerations When Choosing a Region
 
-- **Latency** — Choose a region close to your users. For Korean users, a Korea region is best.
+- **Latency** — Choose a region close to your users. A region in the same country or area as your target users is often the best choice.
 - **Service availability** — Not every service is available in every region. AI/ML and newer services in particular are often available only in specific regions.
 - **Cost** — Pricing for the same service can vary by region. US regions are usually the cheapest.
 - **Compliance** — Regulations may require storing data in a specific country.
@@ -116,24 +116,19 @@ Once you understand regions and AZs, you need to decide what level of distributi
 Up through multi-AZ, this is approached as a **high availability (HA)** design; from multi-region onward, it's approached as a **disaster recovery (DR)** design. For DR strategy types (Backup & Restore through Active-Active), RPO/RTO definitions, and vendor-specific DR services, see [Disaster Recovery (DR)](../../governance/dr/).
 :::
 
-## Considerations in Korea
+## Regions by Country and Regulation
 
-### Status of Korea Regions
+Choosing a region is not only about latency — it is also about **where data is stored**. For local region codes, in-country DR, and cross-border personal-data transfer requirements, see each country guide:
 
-| Vendor | Region Code | Number of AZs/Zones | Launch Date |
-| --- | --- | --- | --- |
-| AWS | `ap-northeast-2` (Seoul) | 4 AZs | 2016 |
-| Azure | `koreacentral` (Seoul), `koreasouth` (Busan) | 3 AZs (Central) | 2017 |
-| Google Cloud | `asia-northeast3` (Seoul) | 3 Zones | 2020 |
-| OCI | `ap-seoul-1`, `ap-chuncheon-1` | 3 FDs | 2020 |
-
-:::note
-Azure (Seoul-Busan) and OCI (Seoul-Chuncheon) each have two domestic regions, enabling a DR configuration where data never leaves the country. For AWS/Google Cloud, Tokyo and Osaka are the closest DR candidates. For details on vendor-specific DR strategies, see [Disaster Recovery (DR)](../../governance/dr/).
-:::
+- [Korea](../../korea/) — Seoul, Busan, and Chuncheon regions; CSAP; Personal Information Protection Act
+- [United States](../../us/) — FedRAMP, data residency
+- [EU](../../eu/) — GDPR, sovereign cloud
+- [Japan](../../japan/) — ISMAP, government cloud
+- [Singapore](../../singapore/) — MTCS, PDPA
 
 ### Data Sovereignty
 
-Korea's **Personal Information Protection Act** requires either the data subject's consent or a legal basis when transferring personal information overseas. The **Credit Information Act** applies even stricter regulations to personal credit information in the financial sector. When choosing a cloud vendor, you must verify whether a Korea region exists and where data is stored.
+Many jurisdictions require consent or a legal basis when transferring personal information overseas. When choosing a cloud vendor, verify region availability and data storage location **in the jurisdiction of your target users**.
 
 Each CSP can enforce regional restrictions as policy:
 

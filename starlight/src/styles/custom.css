@@ -1,6 +1,6 @@
 /* CloudPick 커스텀 스타일 — 폰트 / 컬러 / 표 / 조판 */
 
-/* 코드 폰트: Jetendard (JetBrains Mono Nerd Font + Pretendard 한글) */
+/* 코드 한글 폴백: Jetendard. 라틴 코드는 JetBrains Mono가 우선. */
 @font-face {
 	font-family: 'Jetendard';
 	font-style: normal;
@@ -17,37 +17,38 @@
 }
 
 /*
- * 라틴: Space Grotesk Variable (기하학 산세리프).
- * 한글: Pretendard Variable (글리프 폴백).
- * 일본어: 시스템 고딕.
+ * 본문: Inter (영문 가독성) + Pretendard (한글). Pretendard는 Inter 메트릭에 맞춰 설계됨.
+ * 제목: Space Grotesk (디스플레이 전용).
+ * 코드: JetBrains Mono, 한글만 Jetendard.
  */
 :root {
-	--sl-font: 'Space Grotesk Variable', 'Pretendard Variable', var(--sl-font-system);
-	--sl-font-mono: 'Jetendard';
+	--sl-font: 'Inter Variable', 'Pretendard Variable', var(--sl-font-system);
+	--sl-font-mono: 'JetBrains Mono', 'Jetendard', ui-monospace, monospace;
+	--cp-font-display: 'Space Grotesk Variable', 'Pretendard Variable', var(--sl-font-system);
 	--sl-content-width: 54rem;
 }
 
 :root[lang='en'] {
-	--sl-font: 'Space Grotesk Variable', var(--sl-font-system);
+	--sl-font: 'Inter Variable', var(--sl-font-system);
+	--cp-font-display: 'Space Grotesk Variable', var(--sl-font-system);
 }
 
 :root[lang='ja'] {
-	--sl-font: 'Space Grotesk Variable', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP',
+	--sl-font: 'Inter Variable', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP',
 		'Yu Gothic', 'YuGothic', sans-serif;
+	--cp-font-display: 'Space Grotesk Variable', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN',
+		'Noto Sans JP', 'Yu Gothic', sans-serif;
+}
+
+.site-title,
+.sl-markdown-content :is(h1, h2, h3):not(:where(.not-content *)) {
+	font-family: var(--cp-font-display);
+	font-weight: 600;
+	letter-spacing: -0.03em;
 }
 
 .site-title {
-	font-weight: 600;
 	letter-spacing: -0.04em;
-}
-
-.sl-markdown-content :is(h1, h2, h3):not(:where(.not-content *)) {
-	letter-spacing: -0.03em;
-	font-weight: 600;
-}
-
-:root[lang='en'] .sl-markdown-content {
-	letter-spacing: -0.011em;
 }
 
 /* Accent — 벤더 중립 slate-blue (기본 보라 대체) */

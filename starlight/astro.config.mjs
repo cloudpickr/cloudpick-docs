@@ -27,7 +27,10 @@ export default defineConfig({
 			plugins: [starlightLlmsTxt()],
 			routeMiddleware: './src/routeData.ts',
 			customCss: [
+				'@fontsource-variable/inter/wght.css',
 				'@fontsource-variable/space-grotesk/wght.css',
+				'@fontsource/jetbrains-mono/latin-400.css',
+				'@fontsource/jetbrains-mono/latin-700.css',
 				'./src/styles/custom.css',
 			],
 			head: [

@@ -38,6 +38,10 @@ export default defineConfig({
 					tag: 'link',
 					attrs: { rel: 'stylesheet', href: '/fonts/pretendard/pretendardvariable-dynamic-subset.css' },
 				},
+				{
+					tag: 'script',
+					attrs: { src: '/mobile-select-menu.js', defer: true },
+				},
 				// ─── OpenGraph 메타 태그 (소셜 공유용) ───
 				{
 					tag: 'meta',

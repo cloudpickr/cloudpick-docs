@@ -109,3 +109,139 @@ h1[data-page-title] {
 .sl-markdown-content th {
 	white-space: nowrap;
 }
+
+/*
+ * Mobile language/theme pickers.
+ * Starlight puts them at the bottom of a long overflow:auto drawer, so they
+ * scroll away and the native <select> list is clipped (iOS/Android).
+ * Pin the footer, let only the nav tree scroll, and use a fixed listbox.
+ */
+@media (max-width: 49.999rem) {
+	.sidebar-pane {
+		display: flex;
+		flex-direction: column;
+		overflow: hidden;
+	}
+
+	.sidebar-content {
+		min-height: 0;
+		height: 100%;
+		max-height: 100%;
+		overflow: hidden;
+	}
+
+	.sidebar-content sl-sidebar-state-persist {
+		display: block;
+		flex: 1 1 auto;
+		min-height: 0;
+		overflow-y: auto;
+		-webkit-overflow-scrolling: touch;
+	}
+
+	.sidebar-content > .md\:sl-hidden {
+		flex: 0 0 auto;
+		z-index: 2;
+		background-color: var(--sl-color-black);
+		box-shadow: 0 -1px 0 var(--sl-color-gray-6);
+		padding-bottom: env(safe-area-inset-bottom, 0px);
+	}
+
+	.mobile-preferences {
+		align-items: center;
+		flex-wrap: nowrap;
+		gap: 0.35rem;
+		padding-block: 0.35rem;
+	}
+
+	.mobile-preferences starlight-theme-select label,
+	.mobile-preferences starlight-lang-select label {
+		--sl-select-width: 8.5rem;
+	}
+
+	.mobile-preferences starlight-theme-select select,
+	.mobile-preferences starlight-lang-select select {
+		font-size: 16px;
+		min-height: 2.75rem;
+		width: calc(var(--sl-select-width) + var(--sl-inline-padding) * 2);
+	}
+}
+
+/* Header pickers: don't clip the native list on tablet/narrow desktop. */
+.header,
+.header .right-group {
+	overflow: visible;
+}
+
+starlight-theme-select option,
+starlight-lang-select option {
+	background-color: Canvas;
+	color: CanvasText;
+}
+
+.cp-select-overlay {
+	display: none;
+}
+
+@media (max-width: 49.999rem) {
+	.cp-select-overlay {
+		display: block;
+		position: absolute;
+		inset: 0;
+		z-index: 2;
+		margin: 0;
+		padding: 0;
+		border: 0;
+		background: transparent;
+		cursor: pointer;
+		touch-action: manipulation;
+	}
+}
+
+.cp-select-backdrop {
+	position: fixed;
+	inset: 0;
+	z-index: 40;
+	background: transparent;
+}
+
+.cp-select-menu {
+	position: fixed;
+	z-index: 41;
+	display: flex;
+	flex-direction: column;
+	gap: 0.15rem;
+	padding: 0.35rem;
+	border: 1px solid var(--sl-color-gray-5);
+	border-radius: 0.5rem;
+	background: var(--sl-color-bg-nav);
+	box-shadow: var(--sl-shadow-md);
+	overflow-y: auto;
+	-webkit-overflow-scrolling: touch;
+}
+
+.cp-select-menu [role='option'] {
+	appearance: none;
+	display: block;
+	width: 100%;
+	margin: 0;
+	padding: 0.7rem 0.85rem;
+	border: 0;
+	border-radius: 0.35rem;
+	background: transparent;
+	color: var(--sl-color-white);
+	font: inherit;
+	font-size: 1rem;
+	text-align: start;
+	cursor: pointer;
+}
+
+.cp-select-menu [role='option']:hover,
+.cp-select-menu [role='option']:focus-visible {
+	background: var(--sl-color-gray-6);
+	outline: none;
+}
+
+.cp-select-menu [role='option'].is-selected {
+	background: var(--sl-color-accent-low);
+	color: var(--sl-color-white);
+}

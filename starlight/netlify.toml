@@ -6,16 +6,11 @@
 [build.environment]
   NODE_VERSION = "22"
 
-# 콘텐츠 리디렉트는 public/_redirects (dist 로 복사)가 단일 소스.
-# 여기에는 Netlify Function 프록시와 force 로케일 홈만 둔다.
-# .md 확장자 제거는 _redirects의 splat으로 처리 불가하므로 여기서 처리.
+# ─── 모든 리디렉트를 netlify.toml에 통합 ───
+# _redirects 파일은 netlify.toml redirects를 오버라이드하므로 사용하지 않음.
+# netlify.toml에서는 :placeholder.md 패턴이 정상 동작함.
 
-[[redirects]]
-  from = "/:section/:slug.md"
-  to = "/ko/:section/:slug/"
-  status = 301
-  force = true
-
+# ─── Netlify Function 프록시 ───
 [[redirects]]
   from = "/mcp"
   to = "/.netlify/functions/mcp"
@@ -26,6 +21,232 @@
   to = "/.netlify/functions/mcp"
   status = 200
 
+# ─── 삭제·통합된 문서 ───
+[[redirects]]
+  from = "/ai/desktop-agents"
+  to = "/ko/ai/agents/"
+  status = 301
+
+[[redirects]]
+  from = "/ai/desktop-agents.md"
+  to = "/ko/ai/agents/"
+  status = 301
+
+[[redirects]]
+  from = "/ai/ai-use-cases"
+  to = "/ko/ai/ai-ml/"
+  status = 301
+
+[[redirects]]
+  from = "/ai/ai-use-cases.md"
+  to = "/ko/ai/ai-ml/"
+  status = 301
+
+[[redirects]]
+  from = "/ai/generative-models"
+  to = "/ko/ai/ai-ml/"
+  status = 301
+
+[[redirects]]
+  from = "/ai/generative-models.md"
+  to = "/ko/ai/ai-ml/"
+  status = 301
+
+[[redirects]]
+  from = "/ai/embedding-models"
+  to = "/ko/ai/vector-store/"
+  status = 301
+
+[[redirects]]
+  from = "/ai/embedding-models.md"
+  to = "/ko/ai/vector-store/"
+  status = 301
+
+# ─── 홈·용어집 (GitBook 루트) ───
+[[redirects]]
+  from = "/readme.md"
+  to = "/ko/introduction/"
+  status = 301
+
+[[redirects]]
+  from = "/README.md"
+  to = "/ko/introduction/"
+  status = 301
+
+[[redirects]]
+  from = "/glossary"
+  to = "/ko/glossary/"
+  status = 301
+
+[[redirects]]
+  from = "/glossary.md"
+  to = "/ko/glossary/"
+  status = 301
+
+[[redirects]]
+  from = "/GLOSSARY.md"
+  to = "/ko/glossary/"
+  status = 301
+
+# ─── GitBook country-guides ───
+# 한국 (index)
+[[redirects]]
+  from = "/country-guides/index"
+  to = "/ko/korea/"
+  status = 301
+
+[[redirects]]
+  from = "/country-guides/index.md"
+  to = "/ko/korea/"
+  status = 301
+
+[[redirects]]
+  from = "/country-guides/index/compliance"
+  to = "/ko/korea/governance/compliance/"
+  status = 301
+
+[[redirects]]
+  from = "/country-guides/index/csap"
+  to = "/ko/korea/security/csap/"
+  status = 301
+
+[[redirects]]
+  from = "/country-guides/index/network-isolation"
+  to = "/ko/korea/security/network-isolation/"
+  status = 301
+
+[[redirects]]
+  from = "/country-guides/index/sovereign-fm-policy"
+  to = "/ko/korea/ai/sovereign-fm-policy/"
+  status = 301
+
+[[redirects]]
+  from = "/country-guides/index/fm-providers"
+  to = "/ko/korea/ai/fm-providers/"
+  status = 301
+
+# 미국 (index-1)
+[[redirects]]
+  from = "/country-guides/index-1"
+  to = "/ko/us/"
+  status = 301
+
+[[redirects]]
+  from = "/country-guides/index-1/:slug"
+  to = "/ko/us/:slug/"
+  status = 301
+
+# EU (index-2)
+[[redirects]]
+  from = "/country-guides/index-2"
+  to = "/ko/eu/"
+  status = 301
+
+[[redirects]]
+  from = "/country-guides/index-2/:slug"
+  to = "/ko/eu/:slug/"
+  status = 301
+
+# 일본 (index-3)
+[[redirects]]
+  from = "/country-guides/index-3"
+  to = "/ko/japan/"
+  status = 301
+
+[[redirects]]
+  from = "/country-guides/index-3/:slug"
+  to = "/ko/japan/:slug/"
+  status = 301
+
+# 싱가포르 (index-4)
+[[redirects]]
+  from = "/country-guides/index-4"
+  to = "/ko/singapore/"
+  status = 301
+
+[[redirects]]
+  from = "/country-guides/index-4/:slug"
+  to = "/ko/singapore/:slug/"
+  status = 301
+
+# ─── .md 확장자 제거 (placeholder로 처리) ───
+[[redirects]]
+  from = "/:section/:slug.md"
+  to = "/ko/:section/:slug/"
+  status = 301
+
+# ─── 섹션별 스플랫 (구 GitBook 경로 → /ko/ 경로) ───
+[[redirects]]
+  from = "/about-cloud/*"
+  to = "/ko/about-cloud/:splat/"
+  status = 301
+
+[[redirects]]
+  from = "/ai/*"
+  to = "/ko/ai/:splat/"
+  status = 301
+
+[[redirects]]
+  from = "/compute/*"
+  to = "/ko/compute/:splat/"
+  status = 301
+
+[[redirects]]
+  from = "/database/*"
+  to = "/ko/database/:splat/"
+  status = 301
+
+[[redirects]]
+  from = "/devops/*"
+  to = "/ko/devops/:splat/"
+  status = 301
+
+[[redirects]]
+  from = "/governance/*"
+  to = "/ko/governance/:splat/"
+  status = 301
+
+[[redirects]]
+  from = "/networking/*"
+  to = "/ko/networking/:splat/"
+  status = 301
+
+[[redirects]]
+  from = "/security/*"
+  to = "/ko/security/:splat/"
+  status = 301
+
+[[redirects]]
+  from = "/storage/*"
+  to = "/ko/storage/:splat/"
+  status = 301
+
+[[redirects]]
+  from = "/korea/*"
+  to = "/ko/korea/:splat/"
+  status = 301
+
+[[redirects]]
+  from = "/us/*"
+  to = "/ko/us/:splat/"
+  status = 301
+
+[[redirects]]
+  from = "/eu/*"
+  to = "/ko/eu/:splat/"
+  status = 301
+
+[[redirects]]
+  from = "/japan/*"
+  to = "/ko/japan/:splat/"
+  status = 301
+
+[[redirects]]
+  from = "/singapore/*"
+  to = "/ko/singapore/:splat/"
+  status = 301
+
+# ─── 로케일 홈 → 소개 ───
 [[redirects]]
   from = "/ko/"
   to = "/ko/introduction/"

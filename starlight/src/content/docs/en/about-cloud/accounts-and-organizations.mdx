@@ -78,7 +78,7 @@ Account separation alone isn't enough. Three layers must work together.
 | **Organization policy (guardrails)** | Limits the maximum scope an account can act within | SCP, Azure Policy, Organization Policy |
 | **IAM (permission granting)** | Grants actual permissions to users/services | IAM Policy, RBAC, IAM Binding |
 
-Example: if an SCP allows only the Seoul region, then no matter how broad the permissions granted via IAM, access to other regions remains impossible.
+Example: if an SCP allows only permitted regions, then no matter how broad the permissions granted via IAM, access to other regions remains impossible.
 
 :::note
 For IAM design details, see [IAM Overview](../../about-cloud/iam-overview/) → [IAM Design in Practice](../../security/iam/).

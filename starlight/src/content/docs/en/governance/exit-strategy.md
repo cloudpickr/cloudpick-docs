@@ -7,7 +7,7 @@ description: "Explains cloud vendor lock-in and strategies for securing portabil
 
 ## Why an Exit Strategy Matters
 
-The more deeply you integrate with a single vendor, the more **your pricing leverage shrinks**, and the more vulnerable you become to the vendor's policy changes (price hikes, service discontinuation, regional withdrawal). The EU's Digital Operational Resilience Act (DORA) and Korea's Electronic Financial Supervisory Regulations both mandate **documented Exit Plans** for the financial sector.
+The more deeply you integrate with a single vendor, the more **your pricing leverage shrinks**, and the more vulnerable you become to the vendor's policy changes (price hikes, service discontinuation, regional withdrawal). Some jurisdictions, such as the EU's DORA, mandate **documented Exit Plans** for the financial sector. Country-specific obligations are in the [Korea](../../korea/), [United States](../../us/), [EU](../../eu/), [Japan](../../japan/), and [Singapore](../../singapore/) guides.
 
 An important misconception:
 

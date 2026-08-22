@@ -49,7 +49,7 @@ The fastest way to get started. Builds an IPsec tunnel over the internet.
 | **Service name** | Site-to-Site VPN | VPN Gateway | Cloud VPN | Site-to-Site VPN |
 | **Max bandwidth** | 1.25 Gbps (per tunnel) | 10 Gbps (VpnGw5) | 3 Gbps (HA VPN) | 250 Mbps (per tunnel) |
 | **HA configuration** | 2 tunnels provided by default | Active-Active mode | HA VPN (99.99% SLA) | Redundant tunnels recommended |
-| **Cost (Seoul)** | ~$0.05/h + egress | ~$0.19/h (VpnGw1) | ~$0.075/h + egress | Hourly billing + egress |
+| **Cost (example)** | ~$0.05/h + egress | ~$0.19/h (VpnGw1) | ~$0.075/h + egress | Hourly billing + egress. Varies by region |
 
 > The figures above are as of the time of writing and are subject to change. Check each vendor's official pricing for the latest figures.
 
@@ -70,7 +70,7 @@ A connection over a dedicated physical circuit. Low latency and high bandwidth, 
 | --- | --- | --- | --- | --- |
 | **Service name** | Direct Connect | ExpressRoute | Cloud Interconnect | FastConnect |
 | **Max bandwidth** | 100 Gbps | 100 Gbps | 200 Gbps | 100 Gbps |
-| **Korea PoP** | KINX, LG U+ | KINX, LG U+ | KINX | KINX |
+| **PoP** | Vendor IX/colocation. See country guides | Same | Same | Same |
 | **Minimum commitment** | None (billed hourly per port) | None to 1 year | None | None (billed hourly per port) |
 | **Egress discount** | ~50% discount vs. standard | Unlimited egress included | Discount vs. standard | 10TB/month egress free |
 
@@ -80,22 +80,21 @@ A connection over a dedicated physical circuit. Low latency and high bandwidth, 
 **Azure ExpressRoute's distinctive point:** egress fees are included in the circuit fee, which can be the most economical option for large-volume data movement.
 :::
 
-### Cloud Exchange (KINX, Megaport, Equinix Fabric)
+### Cloud Exchange (Megaport, Equinix Fabric)
 
 A Cloud Exchange is a service that lets you connect to multiple clouds simultaneously through a single physical connection. It's the most efficient connection method in a multicloud environment.
 
 ```mermaid
 graph LR
-    AWS[AWS DX] --> IX[KINX / Cloud Exchange]
+    AWS[AWS DX] --> IX[Cloud Exchange / IX]
     Azure[Azure ER] --> IX
     Google Cloud[Google Cloud CI] --> IX
     OCI[OCI FC] --> IX
 ```
 
-**Options in Korea:**
-- **KINX**: the largest domestic IX (Internet Exchange). Has a PoP for AWS, Azure, Google Cloud, and OCI
-- **Megaport**: a global Cloud Exchange. Has a Seoul PoP
-- **Equinix Fabric**: the largest globally. Operates a Seoul data center
+**Cloud Exchange options (global):**
+- **Megaport**, **Equinix Fabric** — PoPs in many regions. Check country guides for whether a local PoP exists in the target country
+- Country-specific IXes (e.g., KINX in Korea) are covered in country guides such as [Korea](../../korea/)
 
 :::note
 **When to use:** when connecting 3 or more clouds, or when on-premises must also be connected
@@ -103,7 +102,7 @@ graph LR
 
 ### Connection Method Selection Guide
 
-| Criterion | Site-to-Site VPN | Dedicated connection (DX/ER/CI/FC) | Cloud Exchange (KINX/Megaport) |
+| Criterion | Site-to-Site VPN | Dedicated connection (DX/ER/CI/FC) | Cloud Exchange |
 | --- | --- | --- | --- |
 | **Bandwidth** | ~1 Gbps | 10-100 Gbps | 1-10 Gbps |
 | **Latency** | Via internet (variable) | Dedicated circuit (stable) | Dedicated circuit (stable) |
@@ -141,4 +140,5 @@ Transit architecture patterns, a detailed egress cost comparison, and DNS integr
 - [Google Cloud Interconnect](https://cloud.google.com/network-connectivity/docs/interconnect/concepts/overview)
 - [OCI FastConnect](https://docs.oracle.com/en-us/iaas/Content/Network/Concepts/fastconnect.htm)
 - [RFC 1918 — Address Allocation for Private Internets](https://datatracker.ietf.org/doc/html/rfc1918)
-- [KINX Cloud Hub](https://www.kinx.net/service/cloud/)
+- [Megaport](https://www.megaport.com/) — global Cloud Exchange
+- [Equinix Fabric](https://www.equinix.com/products/equinix-fabric) — global Cloud Exchange. See country guides for local IXes

@@ -21,11 +21,11 @@ For background on the shared responsibility model, see [Shared Responsibility Mo
 
 Public procurement certifications, personal data protection laws, and industry-specific regulations vary by country and region, directly affecting architectural decisions such as region selection, data residency, and isolation level. Country-specific details are covered in the relevant country document.
 
-- **Korea** — ISMS-P, CSAP, financial sector regulations (Electronic Financial Supervisory Regulation, network segregation): [Compliance (Korea)](../../korea/governance/compliance/)
-- **United States** — FedRAMP, HIPAA, ITAR/EAR: [US Guide](../../us/index/)
-- **EU** — GDPR and data sovereignty, DORA, NIS2 and the EU AI Act: [EU Guide](../../eu/index/)
-- **Japan** — ISMAP, APPI: [Japan Guide](../../japan/index/)
-- **Singapore** — MTCS, PDPA: [Singapore Guide](../../singapore/index/)
+- **Korea** — ISMS-P, CSAP, financial-sector/network segregation, sovereign FM: [Korea appendix](../../korea/) · [Compliance (Korea)](../../korea/governance/compliance/)
+- **United States** — FedRAMP, HIPAA, ITAR/EAR, state privacy laws, AI policy: [US overview](../../us/)
+- **EU** — GDPR and data sovereignty, DORA, NIS2 and the AI Act, member-state schemes, sovereign AI: [EU overview](../../eu/)
+- **Japan** — ISMAP, APPI, Government Cloud, AI landscape: [Japan overview](../../japan/)
+- **Singapore** — MTCS, PDPA, GCC/IM8, AI governance: [Singapore overview](../../singapore/)
 
 ## Major International Certifications
 
@@ -132,7 +132,7 @@ Rather than aligning controls only around audit time, run an ongoing detection s
 Things to verify when considering compliance in a multi-cloud environment:
 
 - [ ] Has **sensitivity classification** of the data you process/store been completed? (personal information, financial information, confidential information, etc.)
-- [ ] Have you identified the **legal requirements** that apply to that data? (domestic law + foreign law)
+- [ ] Have you identified the **legal requirements** that apply to that data? (applicable jurisdiction(s))
 - [ ] Does the vendor you intend to use **hold the necessary certifications in that region**?
 - [ ] Have you clearly defined **user responsibilities** under the shared responsibility model?
 - [ ] Have you automated **day-to-day operational controls** such as audit logging, access control, and encryption?
@@ -140,13 +140,13 @@ Things to verify when considering compliance in a multi-cloud environment:
 
 ## Ongoing Practices
 
-- **Manage certification renewal cycles** — most certifications run on a 3-year validity period with an annual follow-up or surveillance audit (e.g., ISO 27001, Korea's ISMS-P). Add renewal dates to your calendar.
+- **Manage certification renewal cycles** — most certifications run on a 3-year validity period with an annual follow-up or surveillance audit (e.g., ISO 27001). For country-specific certification cycles, see the country guides, and add renewal dates to your calendar.
 - **Continuous compliance** — instead of manual checks, use AWS Config, Azure Policy, or Google Cloud Organization Policy to detect policy violations in real time.
 - **Policy drift detection** — regularly check for differences between IaC and the actual environment to maintain compliance status.
 
 ## Common Mistakes
 
-- **Relying solely on vendor certification while neglecting user responsibilities** — even if the vendor holds certification, VPC, IAM, and encryption configuration remain the user's responsibility and will be flagged in an audit
+- **Relying solely on vendor certification while neglecting user responsibilities** — even if the vendor holds ISO 27001 or similar certification, VPC, IAM, and encryption configuration remain the user's responsibility and will be flagged in an audit
 - **Aligning controls only at audit time and letting drift accumulate otherwise** — cleaning up only right before the annual review lets compliance violations accumulate in daily operations
 - **Applying uniform security levels to all data without classification** — over-protection drives costs up, while under-protection creates regulatory violations
 
@@ -154,9 +154,11 @@ Things to verify when considering compliance in a multi-cloud environment:
 
 - [ ] Have you completed sensitivity classification (personal information, financial information, confidential information) of the data you process/store?
 - [ ] Are you running continuous compliance with real-time policy violation detection via AWS Config, Azure Policy, or similar tools?
-- [ ] Are certification renewal schedules (surveillance/follow-up audits) registered and managed on a calendar?
+- [ ] Are certification renewal schedules (ISO 27001 surveillance audits and country-specific certifications) registered and managed on a calendar?
 
 ## References
+
+Country regulators and local certification links live in the [Korea](../../korea/governance/compliance/), [United States](../../us/), [EU](../../eu/), [Japan](../../japan/), and [Singapore](../../singapore/) guides.
 
 ### AWS
 

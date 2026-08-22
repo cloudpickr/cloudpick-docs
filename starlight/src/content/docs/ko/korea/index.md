@@ -24,6 +24,29 @@ description: "한국 환경 특화 가이드 — CSAP, 망분리, 소버린 AI �
 Azure(서울-부산)와 OCI(서울-춘천)는 국내 2개 리전을 보유하여 데이터가 국외로 나가지 않는 DR 구성이 가능합니다. AWS/Google Cloud는 도쿄·오사카가 가장 가까운 DR 후보입니다. 리전 개념은 [리전과 가용영역](../../about-cloud/regions-and-zones/)을 참고하세요.
 :::
 
+### 한국 리전 기준 DR 구성
+
+| 벤더 | 프라이머리 | 세컨더리 후보 | 지연 시간 | 비고 |
+| --- | --- | --- | --- | --- |
+| AWS | `ap-northeast-2` (서울) | `ap-northeast-1` (도쿄), `ap-northeast-3` (오사카) | 약 30~50ms | 국외 이전 |
+| Azure | `koreacentral` (서울) | `koreasouth` (부산) | 약 5ms | **국내 DR 가능** |
+| Azure | `koreacentral` (서울) | `japaneast` (도쿄) | 약 30ms | 국외 이전 |
+| Google Cloud | `asia-northeast3` (서울) | `asia-northeast1` (도쿄), `asia-northeast2` (오사카) | 약 30~50ms | 국외 이전 |
+| OCI | `ap-seoul-1` (서울) | `ap-chuncheon-1` (춘천) | 약 5ms | **국내 DR 가능** |
+| OCI | `ap-seoul-1` (서울) | `ap-tokyo-1` (도쿄) | 약 30ms | 국외 이전 |
+
+:::caution
+국외 리전을 DR 대상으로 사용할 경우, 개인정보보호법·신용정보법에 따른 데이터 국외 이전 요건을 충족해야 합니다. DR 전략 유형은 [재해복구 (DR)](../../governance/dr/)를 참고하세요.
+:::
+
+### 한국 전용 연결·커뮤니티
+
+전용 연결(Direct Connect / ExpressRoute / Interconnect / FastConnect)의 한국 PoP는 KINX, LG U+가 대표적입니다. 멀티클라우드 Cloud Exchange는 [KINX Cloud Hub](https://www.kinx.net/service/cloud/), Megaport(서울 PoP), Equinix Fabric(서울 DC)을 검토합니다. 개념은 [멀티클라우드 네트워킹](../../networking/multicloud-networking/)을 참고하세요.
+
+로컬 사용자 커뮤니티: [AWSKRUG](https://www.awskr.org/), [GDG Cloud Korea](https://gdg.community.dev/gdg-cloud-korea/).
+
+공공·금융 대형 프로젝트에서는 삼성SDS, LG CNS, SK C&C 등 현지 SI가 전체 시스템을 구축하고, 제품사 FDE는 자사 AI/SaaS 통합을 담당하는 협업 구조가 흔합니다.
+
 ## 다루는 주제
 
 ### 보안·규제

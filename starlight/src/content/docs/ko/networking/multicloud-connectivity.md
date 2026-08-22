@@ -80,7 +80,7 @@ graph TD
 
 클라우드 간 데이터 이동의 가장 큰 비용 요소는 이그레스(아웃바운드) 요금입니다.
 
-| 구간 | 단가 (서울 리전 기준) | 비고 |
+| 구간 | 단가 (대표 리전 예시, 리전마다 다름) | 비고 |
 | --- | --- | --- |
 | AWS → 인터넷 | $0.126/GB (처음 10TB) | 이후 체감 |
 | Azure → 인터넷 | $0.12/GB | 처음 100GB/월 무료 ([Bandwidth 가격](https://azure.microsoft.com/pricing/details/bandwidth/)) |
@@ -171,7 +171,7 @@ graph TD
 
 ### 표준 및 커뮤니티
 
-- [KINX](https://www.kinx.net/) — 국내 최대 IX
 - [Megaport](https://www.megaport.com/) — 글로벌 Cloud Exchange
+- [Equinix Fabric](https://www.equinix.com/products/equinix-fabric) — 글로벌 Cloud Exchange. 국가별 IX는 국가 가이드 참고
 - [NIST Multi-Cloud Security Public Working Group](https://www.nist.gov/publications/nist-cloud-computing-reference-architecture)
 - [RFC 1918 — Address Allocation for Private Internets](https://www.rfc-editor.org/rfc/rfc1918)

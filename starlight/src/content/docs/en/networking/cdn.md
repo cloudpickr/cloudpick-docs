@@ -7,7 +7,7 @@ description: "Compares CDN concepts, caching strategies, global network accelera
 
 ## Overview
 
-Users of a web service are distributed around the world, but the origin server sits in a specific region. When a US user connects to a server in Seoul, latency occurs proportional to the physical distance.
+Users of a web service are distributed around the world, but the origin server sits in a specific region. Users in a distant region incur latency proportional to the physical distance.
 
 A **CDN** (Content Delivery Network) is a service that caches content at edge locations around the world, delivering it quickly from the location closest to the user. Since responses come from the edge instead of going all the way to the origin server, latency drops significantly and origin load decreases as well.
 

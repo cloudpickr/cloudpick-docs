@@ -23,7 +23,7 @@ description: "コンソール、CLI、SDK、Cloud Shellの役割とIaCとの関�
 | --- | --- | --- | --- | --- |
 | **名称** | AWS Management Console | Azure Portal | Google Cloud Console | OCI Console |
 | **URL** | [console.aws.amazon.com](https://console.aws.amazon.com) | [portal.azure.com](https://portal.azure.com) | [console.cloud.google.com](https://console.cloud.google.com) | [cloud.oracle.com](https://cloud.oracle.com) |
-| **日本語対応** | 対応 | 対応 | 部分対応 | 部分対応 |
+| **コンソール現地言語** | 主要言語に対応 | 主要言語に対応 | 言語により差あり | 言語により差あり |
 | **モバイルアプリ** | AWS Console Mobile App | Azure Mobile App | Google Cloud App | OCI Mobile App |
 | **特徴** | サービス別独立コンソール、リージョン選択必須 | 統合ダッシュボード、リソースグループ中心 | プロジェクト中心、検索機能が強力 | Compartment中心、シンプルなUI |
 
@@ -52,7 +52,7 @@ description: "コンソール、CLI、SDK、Cloud Shellの役割とIaCとの関�
 
 ```bash
 # AWS — EC2インスタンス一覧の取得
-aws ec2 describe-instances --region ap-northeast-2
+aws ec2 describe-instances --region us-east-1
 
 # Azure — VM一覧の取得
 az vm list --resource-group my-rg --output table

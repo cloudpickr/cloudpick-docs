@@ -23,7 +23,7 @@ description: "콘솔, CLI, SDK, Cloud Shell의 역할과 IaC와의 관계를 벤
 | --- | --- | --- | --- | --- |
 | **이름** | AWS Management Console | Azure Portal | Google Cloud Console | OCI Console |
 | **URL** | [console.aws.amazon.com](https://console.aws.amazon.com) | [portal.azure.com](https://portal.azure.com) | [console.cloud.google.com](https://console.cloud.google.com) | [cloud.oracle.com](https://cloud.oracle.com) |
-| **한국어 지원** | 지원 | 지원 | 부분 지원 | 부분 지원 |
+| **콘솔 현지 언어** | 주요 언어 지원 | 주요 언어 지원 | 언어별 차이 있음 | 언어별 차이 있음 |
 | **모바일 앱** | AWS Console Mobile App | Azure Mobile App | Google Cloud App | OCI Mobile App |
 | **특징** | 서비스별 독립 콘솔, 리전 선택 필수 | 통합 대시보드, 리소스 그룹 중심 | 프로젝트 중심, 검색 강점 | Compartment 중심, 깔끔한 UI |
 
@@ -52,7 +52,7 @@ description: "콘솔, CLI, SDK, Cloud Shell의 역할과 IaC와의 관계를 벤
 
 ```bash
 # AWS — EC2 인스턴스 목록 조회
-aws ec2 describe-instances --region ap-northeast-2
+aws ec2 describe-instances --region us-east-1
 
 # Azure — VM 목록 조회
 az vm list --resource-group my-rg --output table

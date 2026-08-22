@@ -62,7 +62,7 @@ Key benchmarks:
 - **Baseline setting** — guarantees a minimum security level when creating new accounts/projects
 - **Continuous monitoring** — automatically detects configuration drift (unintended changes)
 - **Executive reporting** — communicates current status quantitatively through a security score
-- **Compliance mapping** — CIS items are mapped to ISO 27001, SOC 2, and [ISMS-P](../../governance/compliance/) control items
+- **Compliance mapping** — CIS items are mapped to ISO 27001, SOC 2, and country-specific certification controls ([Compliance](../../governance/compliance/))
 
 ### CIS Operational Best Practices
 

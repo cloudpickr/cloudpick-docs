@@ -80,7 +80,7 @@ At AWS re:Invent in December 2025, AWS and Google Cloud announced a joint multic
 
 The largest cost factor in moving data between clouds is egress (outbound) fees.
 
-| Segment | Unit price (Seoul region) | Notes |
+| Segment | Unit price (representative region example; varies by region) | Notes |
 | --- | --- | --- |
 | AWS → internet | $0.126/GB (first 10TB) | Decreases afterward |
 | Azure → internet | $0.12/GB | First 100GB/month free ([Bandwidth pricing](https://azure.microsoft.com/pricing/details/bandwidth/)) |
@@ -171,7 +171,7 @@ Forward to each cloud's private DNS endpoint based on the domain suffix.
 
 ### Standards and Community
 
-- [KINX](https://www.kinx.net/) — the largest domestic IX
 - [Megaport](https://www.megaport.com/) — a global Cloud Exchange
+- [Equinix Fabric](https://www.equinix.com/products/equinix-fabric) — a global Cloud Exchange. For country-specific IX, see the country guides
 - [NIST Multi-Cloud Security Public Working Group](https://www.nist.gov/publications/nist-cloud-computing-reference-architecture)
 - [RFC 1918 — Address Allocation for Private Internets](https://www.rfc-editor.org/rfc/rfc1918)

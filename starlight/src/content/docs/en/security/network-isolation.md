@@ -7,6 +7,15 @@ description: "Explains physical/logical network segregation concepts, cloud netw
 
 ## Overview
 
+:::note
+This document covers the **concepts and cloud patterns** of physical and logical isolation. For country- and jurisdiction-specific regulatory layers, see:
+- Korea finance/public network segregation, N2SF, CSAP: [Network Segregation and Isolation (Korea)](../../korea/security/network-isolation/)
+- US federal/defense isolation: [US overview](../../us/) · [FedRAMP](../../us/fedramp/) · [ITAR/EAR](../../us/itar/)
+- EU financial ICT and sovereignty: [EU overview](../../eu/) · [DORA](../../eu/dora/)
+- Japan: [Japan overview](../../japan/)
+- Singapore: [Singapore overview](../../singapore/)
+:::
+
 **Network Segregation** is a control that separates the business network from the internet network so that external threats cannot reach internal systems. Because it blocks malware infiltration, remote intrusion, and data exfiltration at the network boundary, regulated markets in many countries — finance, public sector, healthcare — have long adopted it as a core security requirement. Korea, in particular, stands out for having built its public and financial sector security policy around network segregation for decades — for details on Korea's regulations (Electronic Financial Supervisory Regulation, CSAP, N2SF) and recent easing trends, see [Network Segregation and Isolation (Korea)](../../korea/security/network-isolation/).
 
 In a modern environment where connections between systems have become unavoidable — API integration, SaaS usage, remote work — the meaning of "segregation" and how it is implemented are evolving together.
@@ -58,7 +67,7 @@ The key question is not the "separation vs. connection" dichotomy, but rather: *
 | **Cost** | High, due to redundant equipment and circuits | Relatively low |
 | **Flexibility** | Weeks to months to change | Adjustable within minutes via policy changes |
 | **Patching/updates** | Requires manual transfer within the closed network → delays | Can be automated through a controlled path |
-| **Regulatory application** | Systems in the highest sensitivity tiers (e.g., Korea's CSAP High tier, some critical financial systems) | Most cloud workloads (e.g., Korea's CSAP Medium/Low tier) |
+| **Regulatory application** | Highest-sensitivity tiers (country-specific top classification, critical financial systems, etc.) | Most cloud workloads |
 
 ### Side-by-Side Operational Comparison
 
@@ -98,7 +107,7 @@ Because the cloud is built on software-defined networking (SDN), strong isolatio
 
 ### Air-Gapped/Dedicated Environments by Vendor
 
-For cases requiring a cloud environment completely isolated from the internet, each vendor offers the following options. Note, however, that certification status in each country's regulated market (e.g., Korea's CSAP) must be verified separately.
+For cases requiring a cloud environment completely isolated from the internet, each vendor offers the following options. Note, however, that certification status in the target country's regulated market must be verified separately.
 
 | Vendor | Service | Description |
 | --- | --- | --- |
@@ -162,6 +171,10 @@ Network segregation and isolation policy in regulated markets worldwide is evolv
 Country-specific regulatory details are covered in the relevant country document.
 
 - **Korea** — Electronic Financial Supervisory Regulation, CSAP High/Medium/Low tiers, ISMS-P, N2SF (National Network Security Framework) C/S/O classification: [Network Segregation and Isolation (Korea)](../../korea/security/network-isolation/)
+- **United States** — FedRAMP, ITAR/EAR: [US overview](../../us/)
+- **EU** — DORA, data sovereignty: [EU overview](../../eu/)
+- **Japan** — ISMAP, Government Cloud: [Japan overview](../../japan/)
+- **Singapore** — MTCS, PDPA: [Singapore overview](../../singapore/)
 
 :::note
 Regardless of the regulatory framework, most organizations don't have all systems at the same tier. The key is classifying systems by tier and applying a proportional isolation level to each. Rather than "everything at the highest tier" or "everything public," a mixed configuration is the realistic outcome.

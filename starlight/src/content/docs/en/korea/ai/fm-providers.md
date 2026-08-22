@@ -33,11 +33,24 @@ Korean LLM evaluation commonly uses benchmarks such as KMMLU (Korean knowledge u
 
 Among these providers, Naver Cloud, Upstage, SK Telecom, NC AI, and LG AI Research were selected as first-round elite teams in the government's Independent AI Foundation Model project, though the landscape keeps shifting — Naver Cloud and NC AI were eliminated in the first phase evaluation in December 2025, and Motif Technologies joined as an additional team. See [Sovereign AI and Independent Foundation Model Policy](../sovereign-fm-policy/) for the full selection timeline. NC AI, meanwhile, has shown signs of repositioning away from general-purpose LLMs and toward vertical generative AI in 3D, voice, and translation.
 
+## Channel Choice for Korean Enterprises
+
+| Requirement | Recommended Channel |
+| --- | --- |
+| Korean-language specialization + multi-cloud | Upstage Solar, LG EXAONE (1P or AWS/Azure Marketplace) |
+| Data sovereignty / network segregation | On-premises (Upstage, EXAONE, Llama) or a domestic-region 3P |
+| Consuming existing AWS/Azure commits | 3P (Bedrock / Azure Foundry / Marketplace) |
+| Immediate access to the latest global FMs | 1P (OpenAI, Anthropic direct) |
+| Financial/public-sector compliance | 3P (inheriting cloud certifications) + on-premises hybrid |
+| Responding to sovereign foundation model policy | Confirm which models participate in the policy before choosing a channel (for public-sector/financial procurement) |
+
+The global 1P/3P patterns themselves are covered in [1P vs 3P Model Delivery](../../ai/1p-vs-3p/).
+
 ## Selection Criteria Versus Global Models
 
 Choosing between a domestic FM and a global model such as GPT, Gemini, or Claude should be based not on which vendor is "better" but on **workload requirements**.
 
-- **Regulatory and sovereignty requirements**: workloads subject to network separation regulation (see [Network Separation and Isolation](../../security/network-isolation/)) or public-sector procurement (see [CSAP](../../security/csap/)) often benefit from models served in a domestic region. If a workload's data must not be transferred abroad, prioritize domestic providers' APIs backed by domestic data centers.
+- **Regulatory and sovereignty requirements**: workloads subject to network separation regulation (see [Network Separation and Isolation](../security/network-isolation/)) or public-sector procurement (see [CSAP](../security/csap/)) often benefit from models served in a domestic region. If a workload's data must not be transferred abroad, prioritize domestic providers' APIs backed by domestic data centers.
 - **Korean-language and domain-specific performance**: top-tier global models often still lead on general knowledge and reasoning, but domestic models are reported to hold an edge in handling Korean vocabulary, honorifics, and industry-specific terminology. Always verify with your own benchmarks.
 - **Licensing and customization**: Kakao Kanana, NC AI VARCO, and SKT A.X are open source with commercial use permitted, allowing fine-tuning and deployment on your own infrastructure. EXAONE, by contrast, requires a separate agreement for commercial use, and the higher-tier Solar and HyperCLOVA X models are primarily accessed via API. If on-premises or closed-VPC deployment is required, check license terms first.
 - **Vendor sustainability**: as shown by the phase-evaluation results of the sovereign AI project, Korea's domestic FM ecosystem is still in flux. Configuring models to be swappable via an API gateway reduces risk compared to an architecture that's deeply locked into a specific vendor.
@@ -57,9 +70,9 @@ Choosing between a domestic FM and a global model such as GPT, Gemini, or Claude
 
 > 📄 [Sovereign AI and Independent Foundation Model Policy](../sovereign-fm-policy/)
 
-> 📄 [CSAP (Cloud Security Assurance Program)](../../security/csap/)
+> 📄 [CSAP (Cloud Security Assurance Program)](../security/csap/)
 
-> 📄 [Network Separation and Isolation (Korea)](../../security/network-isolation/)
+> 📄 [Network Separation and Isolation (Korea)](../security/network-isolation/)
 
 > 📄 [Sovereign Landing Zone](../../../governance/landing-zone/#sovereign-landing-zone)
 

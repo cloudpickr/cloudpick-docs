@@ -165,32 +165,31 @@ Beyond DR testing, Chaos Engineering is the practice of routinely injecting fail
 | Google Cloud | — (3rd party: Gremlin, LitmusChaos) |
 | OCI | — (3rd party: Gremlin, LitmusChaos) |
 
-## DR Configuration Based on Korean Regions
+## DR Regions by Country and Regulation
 
-| Vendor | Primary (Korea) | Secondary Candidate | Latency | Notes |
-| --- | --- | --- | --- | --- |
-| AWS | `ap-northeast-2` (Seoul) | `ap-northeast-1` (Tokyo), `ap-northeast-3` (Osaka) | ~30-50ms | Cross-border transfer |
-| Azure | `koreacentral` (Seoul) | `koreasouth` (Busan) | ~5ms | **In-country DR possible** |
-| Azure | `koreacentral` (Seoul) | `japaneast` (Tokyo) | ~30ms | Cross-border transfer |
-| Google Cloud | `asia-northeast3` (Seoul) | `asia-northeast1` (Tokyo), `asia-northeast2` (Osaka) | ~30-50ms | Cross-border transfer |
-| OCI | `ap-seoul-1` (Seoul) | `ap-chuncheon-1` (Chuncheon) | ~5ms | **In-country DR possible** |
-| OCI | `ap-seoul-1` (Seoul) | `ap-tokyo-1` (Tokyo) | ~30ms | Cross-border transfer |
+When choosing a secondary region, look not only at latency but also at **whether data leaves the jurisdiction**. A region pair in the same country enables in-country DR; using a neighboring country's region creates cross-border transfer requirements. See each country guide for primary and secondary candidates:
+
+- [Korea](../../korea/) — Seoul, Busan, Chuncheon; vendors with in-country DR; cross-border personal data transfer
+- [United States](../../us/) — FedRAMP, data residency
+- [EU](../../eu/) — GDPR, sovereign cloud
+- [Japan](../../japan/) — ISMAP, Government Cloud
+- [Singapore](../../singapore/) — MTCS, PDPA
 
 :::caution
-If you use an overseas region for DR, you must meet the cross-border data transfer requirements under Korea's Personal Information Protection Act and Credit Information Act. For workloads with strict data sovereignty requirements, prioritize reviewing vendors that offer in-country DR from the table above.
+When using a region outside the jurisdiction for DR, you must meet that country's cross-border personal data transfer and data residency requirements. For workloads with strict data sovereignty, prioritize vendors that support in-country DR.
 :::
 
 ## Common Mistakes
 
 - **Building a DR plan and never testing it** — during an actual failure, outdated runbooks fail to work, and the target RTO cannot be achieved
 - **Applying the same DR strategy to every system** — designing everything as Active-Active without considering cost, or leaving everything at Backup & Restore
-- **Not reviewing data sovereignty when using an overseas DR region** — regulatory violations from failing to confirm cross-border transfer requirements under the Personal Information Protection Act/Credit Information Act
+- **Not reviewing data sovereignty when using an out-of-jurisdiction DR region** — regulatory violations from failing to confirm cross-border personal data transfer and residency requirements
 
 ## Checklist
 
 - [ ] Have you defined RPO/RTO per workload based on a Business Impact Analysis (BIA)?
 - [ ] Do you perform DR testing (at minimum a Walkthrough) at least once a year and keep runbooks up to date?
-- [ ] If using an overseas DR region, have you met the legal requirements for cross-border data transfer?
+- [ ] If using an out-of-jurisdiction DR region, have you met the legal requirements for cross-border data transfer?
 
 ## Related Documents
 

@@ -102,7 +102,7 @@ Cases where additional costs arise:
 - Unified multicloud management (a single point of contact for AWS + Azure, etc.)
 - Local invoicing and local-currency payment
 - Cost reporting and FinOps consulting
-- Support for regulatory compliance (CSAP, ISMS-P, etc.)
+- Support for country-specific certifications and regulations (see country guides)
 
 ## Community support
 
@@ -117,8 +117,6 @@ Even without a paid plan, you can get answers to technical questions through the
 | Google Cloud | [Google Cloud Community](https://www.googlecloudcommunity.com/) | Discussion forum |
 | Google Cloud | [Stack Overflow (google-cloud tag)](https://stackoverflow.com/questions/tagged/google-cloud-platform) | Development-related Q&A |
 | OCI | [Oracle Cloud Community](https://community.oracle.com/mosc/categories/oci) | Official Oracle forum |
-| AWS | [AWSKRUG](https://www.awskr.org/) | Korean AWS user community |
-| Google Cloud | [GDG Cloud Korea](https://gdg.community.dev/gdg-cloud-korea/) | Korean Google Cloud user community |
 
 :::note
 The list above only highlights representative communities. Many other vendor-specific, topic-specific, and regional communities also exist.

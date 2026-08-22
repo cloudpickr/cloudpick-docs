@@ -49,7 +49,7 @@ RFC 1918のプライベートアドレス帯をベンダー別に分割します
 | **サービス名** | Site-to-Site VPN | VPN Gateway | Cloud VPN | Site-to-Site VPN |
 | **最大帯域幅** | 1.25 Gbps（トンネルあたり） | 10 Gbps（VpnGw5） | 3 Gbps（HA VPN） | 250 Mbps（トンネルあたり） |
 | **HA構成** | 2トンネルを標準提供 | Active-Activeモード | HA VPN（99.99% SLA） | 冗長トンネルを推奨 |
-| **コスト（ソウル）** | ~$0.05/h + Egress | ~$0.19/h（VpnGw1） | ~$0.075/h + Egress | 時間課金 + Egress |
+| **コスト（例）** | ~$0.05/h + Egress | ~$0.19/h（VpnGw1） | ~$0.075/h + Egress | 時間課金 + Egress。リージョンごとに異なる |
 
 > 上記の数値は文書作成時点のものであり、変更される可能性があります。最新の価格は各ベンダーの公式価格表をご確認ください。
 
@@ -70,7 +70,7 @@ RFC 1918のプライベートアドレス帯をベンダー別に分割します
 | --- | --- | --- | --- | --- |
 | **サービス名** | Direct Connect | ExpressRoute | Cloud Interconnect | FastConnect |
 | **最大帯域幅** | 100 Gbps | 100 Gbps | 200 Gbps | 100 Gbps |
-| **韓国PoP** | KINX、LG U+ | KINX、LG U+ | KINX | KINX |
+| **接続拠点（PoP）** | ベンダー別IX/コロケーション。国ガイドを参照 | 同一 | 同一 | 同一 |
 | **最小契約期間** | なし（ポート時間課金） | なし~1年 | なし | なし（ポート時間課金） |
 | **Egress割引** | 通常比 ~50%割引 | 無制限Egress込み | 通常比割引 | Egress 10TB/月無料 |
 
@@ -80,22 +80,21 @@ RFC 1918のプライベートアドレス帯をベンダー別に分割します
 **Azure ExpressRouteの特異点:** Egress料金が回線料金に含まれているため、大量のデータ移動時に最も経済的な場合があります。
 :::
 
-### Cloud Exchange（KINX、Megaport、Equinix Fabric）
+### Cloud Exchange（Megaport、Equinix Fabric）
 
 Cloud Exchangeは1本の物理接続で複数のクラウドに同時接続できるサービスです。マルチクラウド環境において最も効率的な接続方式です。
 
 ```mermaid
 graph LR
-    AWS[AWS DX] --> IX[KINX / Cloud Exchange]
+    AWS[AWS DX] --> IX[Cloud Exchange / IX]
     Azure[Azure ER] --> IX
     Google Cloud[Google Cloud CI] --> IX
     OCI[OCI FC] --> IX
 ```
 
-**韓国での選択肢:**
-- **KINX**: 韓国国内最大のIX（Internet Exchange）。AWS、Azure、Google Cloud、OCIすべてにPoPを保有
-- **Megaport**: グローバルCloud Exchange。ソウルにPoPあり
-- **Equinix Fabric**: グローバル最大手。ソウルにデータセンターを運営
+**Cloud Exchangeの選択肢（グローバル）:**
+- **Megaport**、**Equinix Fabric** — 多数のリージョンにPoP。対象国のローカルPoPの有無は国ガイドで確認
+- 国別IX（例: 韓国のKINX）は[韓国](../../korea/)などの国ガイドを参照してください
 
 :::note
 **使用場面:** 3つ以上のクラウドを接続する場合、オンプレミスも併せて接続する場合
@@ -103,7 +102,7 @@ graph LR
 
 ### 接続方式の選定ガイド
 
-| 基準 | Site-to-Site VPN | 専用接続（DX/ER/CI/FC） | Cloud Exchange（KINX/Megaport） |
+| 基準 | Site-to-Site VPN | 専用接続（DX/ER/CI/FC） | Cloud Exchange |
 | --- | --- | --- | --- |
 | **帯域幅** | ~1 Gbps | 10~100 Gbps | 1~10 Gbps |
 | **レイテンシ** | インターネット経由（変動あり） | 専用回線（安定） | 専用回線（安定） |
@@ -141,4 +140,5 @@ graph LR
 - [Google Cloud Interconnect](https://cloud.google.com/network-connectivity/docs/interconnect/concepts/overview)
 - [OCI FastConnect](https://docs.oracle.com/en-us/iaas/Content/Network/Concepts/fastconnect.htm)
 - [RFC 1918 — Address Allocation for Private Internets](https://datatracker.ietf.org/doc/html/rfc1918)
-- [KINX Cloud Hub](https://www.kinx.net/service/cloud/)
+- [Megaport](https://www.megaport.com/) — グローバル Cloud Exchange
+- [Equinix Fabric](https://www.equinix.com/products/equinix-fabric) — グローバル Cloud Exchange。国別IXは各国ガイドを参照

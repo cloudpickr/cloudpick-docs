@@ -21,11 +21,11 @@ description: "ISO 27001、SOC 2など、グローバルクラウドのコンプ�
 
 国・地域ごとに公共調達認証、個人情報保護法、業界別規制が異なり、リージョン選択・データレジデンシー・分離レベルといったアーキテクチャ上の決定に直接影響します。国別の詳細は該当する国のドキュメントで扱います。
 
-- **韓国** — ISMS-P、CSAP、金融業界規制（電子金融監督規定・網分離）: [韓国付録](../../korea/index/) · [コンプライアンス（韓国）](../../korea/governance/compliance/)
-- **米国** — FedRAMP、HIPAA、ITAR/EAR: [米国概要](../../us/index/)
-- **EU** — GDPR・データ主権、DORA、NIS2・EU AI Act: [EU概要](../../eu/index/)
-- **日本** — ISMAP、APPI: [日本概要](../../japan/index/)
-- **シンガポール** — MTCS、PDPA: [シンガポール概要](../../singapore/index/)
+- **韓国** — ISMS-P、CSAP、金融・網分離、ソブリンFM: [韓国付録](../../korea/) · [コンプライアンス（韓国）](../../korea/governance/compliance/)
+- **米国** — FedRAMP、HIPAA、ITAR/EAR、州プライバシー法、AI政策: [米国概要](../../us/)
+- **EU** — GDPR・データ主権、DORA、NIS2・AI Act、加盟国スキーム、ソブリンAI: [EU概要](../../eu/)
+- **日本** — ISMAP、APPI、ガバメントクラウド、AIの地勢: [日本概要](../../japan/)
+- **シンガポール** — MTCS、PDPA、GCC・IM8、AIガバナンス: [シンガポール概要](../../singapore/)
 
 ## 国際的な主要認証
 
@@ -132,7 +132,7 @@ AICPA（米国公認会計士協会）に基づく監査報告書です。エン
 マルチクラウド環境でコンプライアンスを検討する際に確認すべき事項:
 
 - [ ] 処理・保存するデータの**機微度分類**は完了しているか？（個人情報、金融情報、機密情報など）
-- [ ] 当該データに適用される**法的要件**を把握しているか？（国内法＋海外法）
+- [ ] 当該データに適用される**法的要件**を把握しているか？（適用管轄）
 - [ ] 利用しようとするベンダーが、必要な**認証を該当リージョンで保有**しているか？
 - [ ] 共同責任モデルにおける**利用者責任範囲**を明確に定義したか？
 - [ ] 監査ログ、アクセス統制、暗号化など**日常運用統制**を自動化したか？
@@ -140,13 +140,13 @@ AICPA（米国公認会計士協会）に基づく監査報告書です。エン
 
 ## 継続的に行うべきこと
 
-- **認証更新周期の管理** — ISMS-Pは3年有効/年1回のフォローアップ審査、ISO 27001は3年周期/年1回のサーベイランス審査です。更新スケジュールをカレンダーに登録しましょう。
+- **認証更新周期の管理** — ほとんどの認証は3年有効で年1回の事後・サーベイランス審査があります（例: ISO 27001）。国固有の認証周期は国ガイドを参照し、更新スケジュールをカレンダーに登録してください。
 - **継続的コンプライアンス（Continuous Compliance）** — 手動点検の代わりに、AWS Config、Azure Policy、Google Cloud Organization Policyでポリシー違反をリアルタイムに検知します。
 - **ポリシードリフトの検知** — IaCと実際の環境の差異を定期的に確認し、コンプライアンス状態を維持します。
 
 ## よくある間違い
 
-- **ベンダー認証だけを信頼し、利用者責任範囲を放置する** — ベンダーがISMS-Pを保有していても、VPC、IAM、暗号化設定は利用者の責任のため監査で指摘される
+- **ベンダー認証だけを信頼し、利用者責任範囲を放置する** — ベンダーがISO 27001などを保有していても、VPC、IAM、暗号化設定は利用者の責任のため監査で指摘される
 - **監査の時点だけ統制を合わせ、普段はドリフトを放置する** — 年1回の審査直前だけ整理すると、日常運用での規定違反が積み重なる
 - **データ分類をせず、すべてのデータに同一のセキュリティレベルを適用する** — 過剰保護でコストが急増するか、過小保護で規制違反が発生する
 
@@ -154,34 +154,25 @@ AICPA（米国公認会計士協会）に基づく監査報告書です。エン
 
 - [ ] 処理・保存するデータの機微度分類（個人情報、金融情報、機密情報）を完了したか
 - [ ] AWS Config、Azure Policyなどでポリシー違反をリアルタイムに検知する継続的コンプライアンス体制を運用しているか
-- [ ] 認証更新スケジュール（ISMS-Pフォローアップ審査、ISO 27001サーベイランス審査）をカレンダーに登録し管理しているか
+- [ ] 認証更新スケジュール（ISO 27001サーベイランス審査および国別認証）をカレンダーに登録し管理しているか
 
 ## 参考資料
 
-### 韓国の機関
-
-- [KISA 認証・認定](https://isms.kisa.or.kr/)
-- [個人情報保護委員会](https://www.pipc.go.kr/)
-- [金融保安院](https://www.fsec.or.kr/)
+国の規制機関・ローカル認証リンクは[韓国](../../korea/governance/compliance/) · [米国](../../us/) · [EU](../../eu/) · [日本](../../japan/) · [シンガポール](../../singapore/)ガイドにあります。
 
 ### AWS
 
 - [AWS Compliance Programs](https://aws.amazon.com/compliance/programs/)
-- [AWS K-ISMS](https://aws.amazon.com/compliance/k-isms/)
-- [AWS CSAP](https://aws.amazon.com/compliance/csap/)
 - [AWS Artifact](https://aws.amazon.com/artifact/)
 
 ### Azure
 
 - [Microsoft Trust Center](https://www.microsoft.com/trust-center)
-- [Azure K-ISMS](https://learn.microsoft.com/azure/compliance/offerings/offering-korea-k-isms)
-- [Azure CSAP](https://learn.microsoft.com/azure/compliance/offerings/offering-korea-csap)
 - [Azure Compliance Offerings](https://learn.microsoft.com/azure/compliance/)
 
 ### Google Cloud
 
 - [Google Cloud Compliance Resource Center](https://cloud.google.com/security/compliance)
-- [Google Cloud K-ISMS](https://cloud.google.com/security/compliance/k-isms)
 - [Google Compliance Reports Manager](https://cloud.google.com/security/compliance/compliance-reports-manager)
 
 ### OCI

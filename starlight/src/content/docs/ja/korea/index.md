@@ -9,7 +9,7 @@ description: "韓国環境に特化したガイド — CSAP、網分離、ソブ
 
 本セクションでは、韓国市場でクラウドを導入・運用する際に直面する規制とエコシステムを扱います。これまでのベンダー中立ドキュメントがグローバル共通のアーキテクチャを扱ってきたのに対し、この付録では韓国固有の法制度・供給者環境に焦点を当てます。
 
-エンタープライズアーキテクトが公共・金融分野でクラウドを導入する際、あるいは生成AIを国内の規制環境に合わせて導入する際に参考にできるよう、4つのドキュメントで構成しています。
+エンタープライズアーキテクトが公共・金融分野でクラウドを導入する際、あるいは生成AIを国内の規制環境に合わせて導入する際に参考にできるよう構成しています。
 
 ## 韓国リージョン現況
 
@@ -23,6 +23,29 @@ description: "韓国環境に特化したガイド — CSAP、網分離、ソブ
 :::note
 Azure（ソウル-釜山）とOCI（ソウル-春川）は国内に2つのリージョンを保有しているため、データが国外に出ないDR構成が可能です。AWS/Google Cloudは東京・大阪が最も近いDR候補です。リージョンの概念は[リージョンと可用性ゾーン](../../about-cloud/regions-and-zones/)を参照してください。
 :::
+
+### 韓国リージョン基準のDR構成
+
+| ベンダー | プライマリ | セカンダリ候補 | レイテンシ | 備考 |
+| --- | --- | --- | --- | --- |
+| AWS | `ap-northeast-2`（ソウル） | `ap-northeast-1`（東京）、`ap-northeast-3`（大阪） | 約30〜50ms | 国外移転 |
+| Azure | `koreacentral`（ソウル） | `koreasouth`（釜山） | 約5ms | **国内DR可能** |
+| Azure | `koreacentral`（ソウル） | `japaneast`（東京） | 約30ms | 国外移転 |
+| Google Cloud | `asia-northeast3`（ソウル） | `asia-northeast1`（東京）、`asia-northeast2`（大阪） | 約30〜50ms | 国外移転 |
+| OCI | `ap-seoul-1`（ソウル） | `ap-chuncheon-1`（春川） | 約5ms | **国内DR可能** |
+| OCI | `ap-seoul-1`（ソウル） | `ap-tokyo-1`（東京） | 約30ms | 国外移転 |
+
+:::caution
+国外リージョンをDR対象として使用する場合、韓国の個人情報保護法・信用情報法に基づくデータの国外移転要件を満たす必要があります。DR戦略のタイプは[災害復旧（DR）](../../governance/dr/)を参照してください。
+:::
+
+### 韓国の専用接続・コミュニティ
+
+専用接続（Direct Connect / ExpressRoute / Interconnect / FastConnect）の韓国PoPはKINX、LG U+が代表的です。マルチクラウドのCloud Exchangeは[KINX Cloud Hub](https://www.kinx.net/service/cloud/)、Megaport（ソウルPoP）、Equinix Fabric（ソウルDC）を検討します。概念は[マルチクラウドネットワーキング](../../networking/multicloud-networking/)を参照してください。
+
+ローカルユーザーコミュニティ: [AWSKRUG](https://www.awskr.org/)、[GDG Cloud Korea](https://gdg.community.dev/gdg-cloud-korea/)。
+
+公共・金融の大型プロジェクトでは、サムスンSDS、LG CNS、SK C&Cなどの現地SIが全体システムを構築し、製品会社のFDEは自社AI/SaaS統合を担当する協業構造が一般的です。
 
 ## 取り扱うトピック
 

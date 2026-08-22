@@ -50,7 +50,7 @@ RFC 1918 프라이빗 대역을 벤더별로 분할합니다.
 | **서비스명** | Site-to-Site VPN | VPN Gateway | Cloud VPN | Site-to-Site VPN |
 | **최대 대역폭** | 1.25 Gbps (터널당) | 10 Gbps (VpnGw5) | 3 Gbps (HA VPN) | 250 Mbps (터널당) |
 | **HA 구성** | 2 터널 기본 제공 | Active-Active 모드 | HA VPN (99.99% SLA) | 이중화 터널 권장 |
-| **비용 (서울)** | ~$0.05/h + 이그레스 | ~$0.19/h (VpnGw1) | ~$0.075/h + 이그레스 | 시간당 과금 + 이그레스 |
+| **비용 (예시)** | ~$0.05/h + 이그레스 | ~$0.19/h (VpnGw1) | ~$0.075/h + 이그레스 | 시간당 과금 + 이그레스. 리전마다 다름 |
 
 > 위 수치는 문서 작성 시점 기준이며 변동될 수 있습니다. 최신 가격은 각 벤더 공식 가격표를 확인하세요.
 
@@ -71,7 +71,7 @@ RFC 1918 프라이빗 대역을 벤더별로 분할합니다.
 | --- | --- | --- | --- | --- |
 | **서비스명** | Direct Connect | ExpressRoute | Cloud Interconnect | FastConnect |
 | **최대 대역폭** | 100 Gbps | 100 Gbps | 200 Gbps | 100 Gbps |
-| **한국 PoP** | KINX, LG U+ | KINX, LG U+ | KINX | KINX |
+| **접속 거점 (PoP)** | 벤더별 IX/컬로케이션. 국가 가이드 참고 | 동일 | 동일 | 동일 |
 | **최소 약정** | 없음 (포트 시간당 과금) | 없음~1년 | 없음 | 없음 (포트 시간당 과금) |
 | **이그레스 할인** | 일반 대비 ~50% 할인 | 무제한 이그레스 포함 | 일반 대비 할인 | 이그레스 10TB/월 무료 |
 
@@ -81,22 +81,21 @@ RFC 1918 프라이빗 대역을 벤더별로 분할합니다.
 **Azure ExpressRoute의 특이점:** 이그레스 요금이 회선 요금에 포함되어 있어, 대량 데이터 이동 시 가장 경제적일 수 있습니다.
 {% endhint %}
 
-### Cloud Exchange (KINX, Megaport, Equinix Fabric)
+### Cloud Exchange (Megaport, Equinix Fabric)
 
 Cloud Exchange는 하나의 물리적 연결로 여러 클라우드에 동시 접속할 수 있는 서비스입니다. 멀티클라우드 환경에서 가장 효율적인 연결 방식입니다.
 
 ```mermaid
 graph LR
-    AWS[AWS DX] --> IX[KINX / Cloud Exchange]
+    AWS[AWS DX] --> IX[Cloud Exchange / IX]
     Azure[Azure ER] --> IX
     Google Cloud[Google Cloud CI] --> IX
     OCI[OCI FC] --> IX
 ```
 
-**한국에서의 선택지:**
-- **KINX**: 국내 최대 IX(Internet Exchange). AWS, Azure, Google Cloud, OCI 모두 PoP 보유
-- **Megaport**: 글로벌 Cloud Exchange. 서울 PoP 있음
-- **Equinix Fabric**: 글로벌 최대. 서울 데이터센터 운영
+**Cloud Exchange 선택지 (글로벌):**
+- **Megaport**, **Equinix Fabric** — 다수 리전에 PoP. 대상 국가의 로컬 PoP 여부는 국가 가이드에서 확인
+- 국가별 IX(예: 한국의 KINX)는 [한국](../korea/index.md) 등 국가 가이드를 참고하세요
 
 {% hint style="info" %}
 **언제 사용:** 3개 이상의 클라우드를 연결할 때, 온프레미스도 함께 연결할 때
@@ -104,7 +103,7 @@ graph LR
 
 ### 연결 방식 선택 가이드
 
-| 기준 | Site-to-Site VPN | 전용 연결 (DX/ER/CI/FC) | Cloud Exchange (KINX/Megaport) |
+| 기준 | Site-to-Site VPN | 전용 연결 (DX/ER/CI/FC) | Cloud Exchange |
 | --- | --- | --- | --- |
 | **대역폭** | ~1 Gbps | 10~100 Gbps | 1~10 Gbps |
 | **지연 시간** | 인터넷 경유 (변동) | 전용 회선 (안정) | 전용 회선 (안정) |
@@ -144,4 +143,5 @@ graph LR
 - [Google Cloud Interconnect](https://cloud.google.com/network-connectivity/docs/interconnect/concepts/overview)
 - [OCI FastConnect](https://docs.oracle.com/en-us/iaas/Content/Network/Concepts/fastconnect.htm)
 - [RFC 1918 — Address Allocation for Private Internets](https://datatracker.ietf.org/doc/html/rfc1918)
-- [KINX Cloud Hub](https://www.kinx.net/service/cloud/)
+- [Megaport](https://www.megaport.com/) — 글로벌 Cloud Exchange
+- [Equinix Fabric](https://www.equinix.com/products/equinix-fabric) — 글로벌 Cloud Exchange. 국가별 IX는 국가 가이드 참고

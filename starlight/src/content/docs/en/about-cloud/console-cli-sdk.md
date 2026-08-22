@@ -23,7 +23,7 @@ Each vendor provides a console for managing cloud resources from a web browser.
 | --- | --- | --- | --- | --- |
 | **Name** | AWS Management Console | Azure Portal | Google Cloud Console | OCI Console |
 | **URL** | [console.aws.amazon.com](https://console.aws.amazon.com) | [portal.azure.com](https://portal.azure.com) | [console.cloud.google.com](https://console.cloud.google.com) | [cloud.oracle.com](https://cloud.oracle.com) |
-| **Korean language support** | Supported | Supported | Partial | Partial |
+| **Console local-language support** | Major languages supported | Major languages supported | Varies by language | Varies by language |
 | **Mobile app** | AWS Console Mobile App | Azure Mobile App | Google Cloud App | OCI Mobile App |
 | **Characteristics** | Separate console per service, region selection required | Unified dashboard, resource-group centric | Project-centric, strong search | Compartment-centric, clean UI |
 
@@ -52,7 +52,7 @@ Each vendor provides a CLI tool for managing cloud resources from a terminal.
 
 ```bash
 # AWS — list EC2 instances
-aws ec2 describe-instances --region ap-northeast-2
+aws ec2 describe-instances --region us-east-1
 
 # Azure — list VMs
 az vm list --resource-group my-rg --output table

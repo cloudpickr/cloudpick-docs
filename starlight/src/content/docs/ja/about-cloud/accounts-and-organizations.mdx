@@ -78,7 +78,7 @@ import { Tabs, TabItem } from '@astrojs/starlight/components';
 | **組織ポリシー（ガードレール）** | アカウントが実行できる最大範囲を制限 | SCP、Azure Policy、Organization Policy |
 | **IAM（権限付与）** | ユーザー/サービスに実際の権限を付与 | IAM Policy、RBAC、IAM Binding |
 
-例: SCPで「ソウルリージョンのみ許可」を設定すると、IAMでどれだけ広い権限を付与しても、他のリージョンにはアクセスできません。
+例: SCPで「許可されたリージョンのみ使用」を設定すると、IAMでどれだけ広い権限を付与しても、他のリージョンにはアクセスできません。
 
 :::note
 IAM設計の詳細は[IAM概要](../../about-cloud/iam-overview/) → [IAM実務設計](../../security/iam/)を参照してください。

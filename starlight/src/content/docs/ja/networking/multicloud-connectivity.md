@@ -80,7 +80,7 @@ graph TD
 
 クラウド間のデータ移動における最大のコスト要素はEgress（アウトバウンド）料金です。
 
-| 区間 | 単価（ソウルリージョン基準） | 備考 |
+| 区間 | 単価（代表リージョンの例。リージョンごとに異なる） | 備考 |
 | --- | --- | --- |
 | AWS → インターネット | $0.126/GB（最初の10TB） | 以降は逓減 |
 | Azure → インターネット | $0.12/GB | 最初の100GB/月は無料（[Bandwidth料金](https://azure.microsoft.com/pricing/details/bandwidth/)） |
@@ -171,7 +171,7 @@ graph TD
 
 ### 標準とコミュニティ
 
-- [KINX](https://www.kinx.net/) — 韓国国内最大のIX
-- [Megaport](https://www.megaport.com/) — グローバルCloud Exchange
+- [Megaport](https://www.megaport.com/) — グローバル Cloud Exchange
+- [Equinix Fabric](https://www.equinix.com/products/equinix-fabric) — グローバル Cloud Exchange。国別のIXは各国ガイドを参照
 - [NIST Multi-Cloud Security Public Working Group](https://www.nist.gov/publications/nist-cloud-computing-reference-architecture)
 - [RFC 1918 — Address Allocation for Private Internets](https://www.rfc-editor.org/rfc/rfc1918)

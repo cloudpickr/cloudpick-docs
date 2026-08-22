@@ -72,7 +72,7 @@ A DB that distributes data worldwide across regions and allows reads/writes in e
 
 ### Why global DBs are hard
 
-Synchronizing data across regions is constrained by physics (the speed of light). The Seoul↔Virginia round-trip is around 200ms, so synchronously replicating every write drastically degrades performance.
+Synchronizing data across regions is constrained by physics (the speed of light). Intercontinental RTT can reach hundreds of milliseconds, so synchronously replicating every write drastically degrades performance.
 
 | Trade-off | Description |
 | --- | --- |

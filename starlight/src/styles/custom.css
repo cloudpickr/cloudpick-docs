@@ -40,14 +40,16 @@
 		'Noto Sans JP', 'Yu Gothic', sans-serif;
 }
 
-.site-title,
-.sl-markdown-content :is(h1, h2, h3):not(:where(.not-content *)) {
+/* 워드마크·사이드바·페이지 대제목(markdown 밖 h1#_top). 본문 h2/h3는 Inter 유지. */
+.sidebar-content {
 	font-family: var(--cp-font-display);
-	font-weight: 600;
-	letter-spacing: -0.03em;
 }
 
-.site-title {
+.site-title,
+.content-panel h1#_top,
+h1[data-page-title] {
+	font-family: var(--cp-font-display);
+	font-weight: 600;
 	letter-spacing: -0.04em;
 }
 

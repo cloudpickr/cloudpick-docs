@@ -8,6 +8,12 @@
 
 # 콘텐츠 리디렉트는 public/_redirects (dist 로 복사)가 단일 소스.
 # 여기에는 Netlify Function 프록시와 force 로케일 홈만 둔다.
+# .md 확장자 제거는 _redirects의 splat으로 처리 불가하므로 여기서 처리.
+
+[[redirects]]
+  from = "/:section/:slug.md"
+  to = "/ko/:section/:slug/"
+  status = 301
 
 [[redirects]]
   from = "/mcp"

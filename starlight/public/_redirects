@@ -54,17 +54,6 @@
 /country-guides/index-4.md /ko/singapore/ 301
 /country-guides/index-4/* /ko/singapore/:splat/ 301
 
-# ─── GitBook .md URL → 확장자 제거 (splat으로 처리) ───
-/about-cloud/*.md /ko/about-cloud/:splat/ 301
-/ai/*.md /ko/ai/:splat/ 301
-/compute/*.md /ko/compute/:splat/ 301
-/database/*.md /ko/database/:splat/ 301
-/devops/*.md /ko/devops/:splat/ 301
-/governance/*.md /ko/governance/:splat/ 301
-/networking/*.md /ko/networking/:splat/ 301
-/security/*.md /ko/security/:splat/ 301
-/storage/*.md /ko/storage/:splat/ 301
-
 # ─── 섹션별 스플랫 (구 GitBook 경로 = 신 /ko/ 경로) ───
 /about-cloud/* /ko/about-cloud/:splat/ 301
 /ai/* /ko/ai/:splat/ 301

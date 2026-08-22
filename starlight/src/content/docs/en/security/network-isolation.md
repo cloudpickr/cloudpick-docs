@@ -16,7 +16,7 @@ This document covers the **concepts and cloud patterns** of physical and logical
 - Singapore: [Singapore overview](../../singapore/)
 :::
 
-**Network Segregation** is a control that separates the business network from the internet network so that external threats cannot reach internal systems. Because it blocks malware infiltration, remote intrusion, and data exfiltration at the network boundary, regulated markets in many countries — finance, public sector, healthcare — have long adopted it as a core security requirement. Korea, in particular, stands out for having built its public and financial sector security policy around network segregation for decades — for details on Korea's regulations (Electronic Financial Supervisory Regulation, CSAP, N2SF) and recent easing trends, see [Network Segregation and Isolation (Korea)](../../korea/security/network-isolation/).
+**Network Segregation** is a control that separates the business network from the internet network so that external threats cannot reach internal systems. Because it blocks malware infiltration, remote intrusion, and data exfiltration at the network boundary, regulated markets in many countries — finance, public sector, healthcare — have long adopted it as a core security requirement.
 
 In a modern environment where connections between systems have become unavoidable — API integration, SaaS usage, remote work — the meaning of "segregation" and how it is implemented are evolving together.
 

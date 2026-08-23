@@ -42,6 +42,17 @@ export default defineConfig({
 					tag: 'script',
 					attrs: { src: '/mobile-select-menu.js', defer: true },
 				},
+				// ─── Google Analytics (GA4) ───
+				...(process.env.PUBLIC_GA_ID ? [
+					{
+						tag: 'script',
+						attrs: { src: `https://www.googletagmanager.com/gtag/js?id=${process.env.PUBLIC_GA_ID}`, async: true },
+					},
+					{
+						tag: 'script',
+						content: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${process.env.PUBLIC_GA_ID}');`,
+					},
+				] : []),
 				// ─── OpenGraph 메타 태그 (소셜 공유용) ───
 				{
 					tag: 'meta',

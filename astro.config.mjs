@@ -45,6 +45,11 @@ export default defineConfig({
 					tag: 'script',
 					attrs: { src: '/mobile-select-menu.js', defer: true },
 				},
+				// ─── .netlify.app → docs.cloudpick.kr 리디렉트 ───
+				{
+					tag: 'script',
+					content: `if(location.hostname.endsWith('.netlify.app')){location.replace('https://docs.cloudpick.kr'+location.pathname+location.search);}`,
+				},
 				// ─── Google Analytics (GA4) ───
 				...(process.env.PUBLIC_GA_ID ? [
 					{

@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build && node scripts/write-locale-home-redirects.mjs && node scripts/bundle-llms-for-mcp.mjs",
+    "build": "astro build && node scripts/write-locale-home-redirects.mjs",
     "build:netlify": "npm run build",
     "preview": "astro preview",
     "astro": "astro"

@@ -303,7 +303,7 @@ export default defineConfig({
 							translations: { en: 'Korea', ja: '韓国' },
 							collapsed: true,
 							items: [
-								{ slug: 'korea', label: '소개', translations: { en: 'Overview', ja: '概要' } },
+								{ slug: 'korea', label: '개요', translations: { en: 'Overview', ja: '概要' } },
 								{ slug: 'korea/governance/compliance' },
 								{ slug: 'korea/security/csap' },
 								{ slug: 'korea/security/network-isolation' },
@@ -316,7 +316,7 @@ export default defineConfig({
 							translations: { en: 'United States', ja: '米国' },
 							collapsed: true,
 							items: [
-								{ slug: 'us', label: '소개', translations: { en: 'Overview', ja: '概要' } },
+								{ slug: 'us', label: '개요', translations: { en: 'Overview', ja: '概要' } },
 								{ slug: 'us/fedramp' },
 								{ slug: 'us/hipaa' },
 								{ slug: 'us/itar' },
@@ -328,7 +328,7 @@ export default defineConfig({
 							label: 'EU',
 							collapsed: true,
 							items: [
-								{ slug: 'eu', label: '소개', translations: { en: 'Overview', ja: '概要' } },
+								{ slug: 'eu', label: '개요', translations: { en: 'Overview', ja: '概要' } },
 								{ slug: 'eu/gdpr-sovereignty' },
 								{ slug: 'eu/dora' },
 								{ slug: 'eu/nis2-ai-act' },
@@ -341,7 +341,7 @@ export default defineConfig({
 							translations: { en: 'Japan', ja: '日本' },
 							collapsed: true,
 							items: [
-								{ slug: 'japan', label: '소개', translations: { en: 'Overview', ja: '概要' } },
+								{ slug: 'japan', label: '개요', translations: { en: 'Overview', ja: '概要' } },
 								{ slug: 'japan/ismap' },
 								{ slug: 'japan/appi' },
 								{ slug: 'japan/government-cloud' },
@@ -353,7 +353,7 @@ export default defineConfig({
 							translations: { en: 'Singapore', ja: 'シンガポール' },
 							collapsed: true,
 							items: [
-								{ slug: 'singapore', label: '소개', translations: { en: 'Overview', ja: '概要' } },
+								{ slug: 'singapore', label: '개요', translations: { en: 'Overview', ja: '概要' } },
 								{ slug: 'singapore/mtcs' },
 								{ slug: 'singapore/pdpa' },
 								{ slug: 'singapore/government-cloud' },

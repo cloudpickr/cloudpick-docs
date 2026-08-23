@@ -26,6 +26,9 @@ export default defineConfig({
 			},
 			plugins: [starlightLlmsTxt()],
 			routeMiddleware: './src/routeData.ts',
+			components: {
+				Head: './src/components/Head.astro',
+			},
 			customCss: [
 				'@fontsource-variable/inter/wght.css',
 				'@fontsource-variable/space-grotesk/wght.css',

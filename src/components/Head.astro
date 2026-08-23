@@ -1,0 +1,62 @@
+---
+/**
+ * Starlight Head 컴포넌트 오버라이드
+ * 모든 페이지에 Schema.org JSON-LD 구조화 데이터를 자동 삽입합니다.
+ */
+import Default from '@astrojs/starlight/components/Head.astro';
+
+const route = Astro.locals.starlightRoute;
+const siteUrl = 'https://docs.cloudpick.kr';
+
+// route가 없는 페이지(404 등)는 JSON-LD 생략
+const hasRoute = !!route?.entry?.data;
+const title = hasRoute ? route.entry.data.title : '';
+const description = hasRoute ? (route.entry.data.description || '') : '';
+const slug = route?.slug || '';
+const pageUrl = slug ? `${siteUrl}/${slug}/` : siteUrl;
+const locale = slug.split('/')[0] || 'ko';
+
+// TechArticle JSON-LD
+const articleSchema = hasRoute ? JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": title,
+  "description": description,
+  "url": pageUrl,
+  "inLanguage": locale,
+  "author": {
+    "@type": "Organization",
+    "name": "CloudPick",
+    "url": siteUrl,
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "CloudPick",
+    "url": siteUrl,
+    "logo": {
+      "@type": "ImageObject",
+      "url": `${siteUrl}/og-image.png`,
+    },
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": pageUrl,
+  },
+}) : null;
+
+// WebSite (홈/소개 페이지만)
+const isHome = slug.endsWith('introduction') || slug === 'ko' || slug === 'en' || slug === 'ja';
+const webSiteSchema = isHome ? JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "CloudPick",
+  "url": siteUrl,
+  "description": "멀티클라우드 환경에서 올바른 의사결정을 내리기 위한 벤더 중립 가이드",
+  "inLanguage": ["ko", "en", "ja"],
+}) : null;
+---
+
+<Default><slot /></Default>
+
+{articleSchema && <script type="application/ld+json" set:html={articleSchema} />}
+{webSiteSchema && <script type="application/ld+json" set:html={webSiteSchema} />}

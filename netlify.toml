@@ -14,13 +14,7 @@
 # _redirects 파일은 netlify.toml redirects를 오버라이드하므로 사용하지 않음.
 # netlify.toml에서는 :placeholder.md 패턴이 정상 동작함.
 
-# ─── LLMs.txt 접근 차단 (MCP를 통해서만 제공) ───
-[[redirects]]
-  from = "/llms.txt"
-  to = "/404/"
-  status = 404
-  force = true
-
+# ─── LLMs.txt 접근 제어 (llms.txt 공개, full/small은 MCP 전용) ───
 [[redirects]]
   from = "/llms-full.txt"
   to = "/404/"

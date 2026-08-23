@@ -37,8 +37,8 @@ export const onPostBuild = async function ({ constants }) {
     }
   }
 
-  // 3. dist에서 llms*.txt 삭제 (public 접근 차단)
-  for (const file of ['llms.txt', 'llms-full.txt', 'llms-small.txt']) {
+  // 3. dist에서 llms-full.txt, llms-small.txt만 삭제 (llms.txt는 AI 비저빌리티용으로 공개 유지)
+  for (const file of ['llms-full.txt', 'llms-small.txt']) {
     const p = join(publishDir, file);
     if (existsSync(p)) {
       unlinkSync(p);

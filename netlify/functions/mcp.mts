@@ -240,6 +240,23 @@ async function handleJsonRpc(request: JsonRpcRequest) {
   }
 }
 
+// ─── Rate Limit (IP당 분 30회) ───
+
+const RATE_LIMIT_WINDOW_MS = 60_000;
+const RATE_LIMIT_MAX = 30;
+const rateLimitMap = new Map<string, { count: number; resetAt: number }>();
+
+function checkRateLimit(ip: string): boolean {
+  const now = Date.now();
+  let entry = rateLimitMap.get(ip);
+  if (!entry || now >= entry.resetAt) {
+    entry = { count: 0, resetAt: now + RATE_LIMIT_WINDOW_MS };
+    rateLimitMap.set(ip, entry);
+  }
+  entry.count++;
+  return entry.count <= RATE_LIMIT_MAX;
+}
+
 // ─── Netlify Function 핸들러 ───
 
 export default async function handler(req: Request): Promise<Response> {
@@ -255,6 +272,17 @@ export default async function handler(req: Request): Promise<Response> {
   // CORS preflight
   if (req.method === "OPTIONS") {
     return new Response(null, { status: 204, headers });
+  }
+
+  // Rate limit 체크
+  const clientIp = req.headers.get("x-nf-client-connection-ip")
+    || req.headers.get("x-forwarded-for")?.split(",")[0]?.trim()
+    || "unknown";
+  if (!checkRateLimit(clientIp)) {
+    return new Response(
+      JSON.stringify(jsonRpcError(null, -32000, "Rate limit exceeded. Max 30 requests/min.")),
+      { status: 429, headers: { ...headers, "retry-after": "60" } },
+    );
   }
 
   // GET 은 Streamable HTTP SSE. 이 서버는 stateless 라 미지원 → 405.

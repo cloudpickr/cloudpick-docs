@@ -2,7 +2,6 @@
   command = "npm run build"
   publish = "dist"
   functions = "netlify/functions"
-  edge_functions = "netlify/edge-functions"
 
 [build.environment]
   NODE_VERSION = "22"
@@ -283,5 +282,8 @@
   status = 302
   force = true
 
-# / 루트 리디렉트는 Edge Function(locale-redirect)이 처리
-# Accept-Language 헤더 기반으로 ko/en/ja 자동 분기
+[[redirects]]
+  from = "/"
+  to = "/ko/introduction/"
+  status = 302
+  force = true

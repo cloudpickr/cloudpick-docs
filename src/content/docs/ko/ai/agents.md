@@ -3,7 +3,7 @@ title: "AI 에이전트"
 description: "AI 에이전트의 개념, 아키텍처, 프로토콜, 벤더 플랫폼, 코딩/Desktop/자율 운영 에이전트를 비교합니다."
 ---
 
-> 문서 기준: 2026년 7월
+> 문서 기준: 2026년 8월
 
 ## 프롬프팅에서 에이전트로
 
@@ -38,6 +38,8 @@ LLM 채팅은 브라우저 안에 갇혀 있었습니다. Desktop Agent는 로�
 | 데이터 통제 | 로컬 제어 (조직 정책 적용 어려움) | DLP, 커넥터 허용 목록, 감사 로그 |
 | 장점 | 프라이버시, 커스터마이징 | 거버넌스, 프론티어 모델, 기업 도구 통합 |
 
+**Claude Cowork 현황 (2026.08):** macOS/Windows GA(4월) → 웹·iOS·Android + 클라우드 리모트 세션(7월). Chrome 사이드 패널 통합, 디바이스 간 세션 연속성 지원.
+
 :::note
 엔터프라이즈 Desktop Agent의 만족도는 **모델 성능보다 IT의 데이터소스 연결 범위**에 좌우됩니다. 이 세팅을 조직 단위로 체계적으로 하는 것이 AX입니다 — [에이전트 도입 가이드](../../ai/agent-adoption/) 참고.
 :::
@@ -70,11 +72,24 @@ LLM 채팅은 브라우저 안에 갇혀 있었습니다. Desktop Agent는 로�
 
 | 프로토콜 | 역할 | 핵심 |
 | --- | --- | --- |
-| [MCP](https://modelcontextprotocol.io/) | 에이전트 → 도구/데이터 | JSON-RPC 2.0, Tools/Resources/Prompts. 사실상 표준 |
-| [A2A](https://github.com/google/A2A) | 에이전트 → 에이전트 (크로스 벤더) | Agent Card, Task Lifecycle, SSE/gRPC |
+| [MCP](https://modelcontextprotocol.io/) | 에이전트 → 도구/데이터 | **2026-07-28 스펙**: 스테이트리스 코어, Extensions 프레임워크, Tasks, MCP Apps. 월 4억+ SDK 다운로드 |
+| [A2A](https://github.com/google-a2a/A2A) | 에이전트 → 에이전트 (크로스 벤더) | v1.0 (2026.03 GA). 멀티프로토콜 바인딩, 서명된 Agent Card, 150+ 참여 조직 |
 | [ACP](https://agentcommunicationprotocol.dev/) | 에이전트 → 에이전트 (사내 피어) | REST 네이티브, SDK 불필요 |
 
 세 프로토콜 모두 [AAIF (Linux Foundation)](https://www.linuxfoundation.org/press/linux-foundation-announces-the-formation-of-the-agentic-ai-foundation) 거버넌스 하에 있습니다.
+
+### MCP 2026-07-28 주요 변경
+
+MCP 출시 이래 최대 규모 개정입니다. 핵심 변경:
+
+- **스테이트리스 코어** — 프로토콜 수준 세션(`Mcp-Session-Id`)과 `initialize` 핸드셰이크 제거. 서버리스/엣지 배포 가능
+- **Extensions 프레임워크** — 역방향 DNS 식별자로 독립 버전 관리. Tasks, MCP Apps가 공식 Extension으로 졸업
+- **Tasks** — 비동기 장기 실행 작업을 위한 표준 라이프사이클
+- **MCP Apps** — 서버 렌더링 인터랙티브 UI를 호스트에서 샌드박스 실행
+- **인증 강화** — OAuth 2.1 기반 권한 부여 개선
+- **공식 폐기 정책** — Roots, Sampling, Logging이 deprecated 표시
+
+AgentCore Gateway, Claude 제품군에서 이미 지원 중입니다.
 
 ---
 
@@ -156,5 +171,5 @@ LLM 채팅은 브라우저 안에 갇혀 있었습니다. Desktop Agent는 로�
 - [Bedrock AgentCore](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/)
 - [Microsoft Foundry Agents](https://learn.microsoft.com/azure/ai-foundry/agents/)
 - [Gemini Agent Platform](https://cloud.google.com/products/agent-builder)
-- [MCP](https://modelcontextprotocol.io/) · [A2A](https://github.com/google/A2A) · [ACP](https://agentcommunicationprotocol.dev/)
+- [MCP](https://modelcontextprotocol.io/) · [MCP 2026-07-28 Changelog](https://modelcontextprotocol.io/specification/2026-07-28/changelog) · [A2A](https://github.com/google-a2a/A2A) · [ACP](https://agentcommunicationprotocol.dev/)
 - [Kiro](https://kiro.dev/) · [Claude Code](https://github.com/anthropics/claude-code) · [Codex](https://openai.com/codex/)

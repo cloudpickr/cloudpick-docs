@@ -170,7 +170,7 @@ A sovereign landing zone is not simply "deploying to an EU region." It restricts
 | --- | --- |
 | **DORA** (effective 2025.01.17) | Requires financial institutions to manage ICT third-party risk → cloud vendors must be managed as critical ICT providers, exit strategy required |
 | **NIS2** | Strengthens security obligations for critical infrastructure operators → requires landing-zone-level governance evidence |
-| **EU AI Act** (general application 2026.08) | Data governance requirements for high-risk AI systems → landing zone must include data classification/access control per AI workload |
+| **EU AI Act** (GPAI transparency 2026.08; high-risk AI deferred by Digital Omnibus — standalone 2027.12, product-embedded 2028.08) | Data governance requirements for high-risk AI systems → landing zone must include data classification/access control per AI workload |
 
 ## References
 

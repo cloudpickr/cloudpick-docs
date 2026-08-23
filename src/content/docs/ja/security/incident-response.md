@@ -3,7 +3,7 @@ title: "セキュリティインシデント対応"
 description: "クラウド環境におけるセキュリティインシデント対応の手順、ベンダー別ツール、自動化パターンについて説明します。"
 ---
 
-> 文書基準: 2026年5月
+> 文書基準: 2026年8月
 
 ## 概要
 
@@ -66,7 +66,7 @@ graph LR
 | 領域 | AWS | Azure | Google Cloud | OCI |
 | --- | --- | --- | --- | --- |
 | **検知** | GuardDuty | Defender for Cloud | Security Command Center | Cloud Guard |
-| **調査** | Detective | Sentinel (Investigation) | Chronicle | Logging Analytics |
+| **調査** | Detective | Sentinel (Investigation) | Google Unified Security (旧 Chronicle) | Logging Analytics |
 | **自動対応** | EventBridge → Lambda/Step Functions | Sentinel Playbook (Logic Apps) | Cloud Functions / Workflows | Events → Functions |
 | **フォレンジック** | スナップショット + SSM + Athena (ログクエリ) | Disk Snapshot + Log Analytics | Disk Snapshot + BigQuery | Block Volume Backup + Logging |
 | **ログ長期保存** | S3 + Glacier (Object Lock) | Immutable Blob Storage | Cloud Storage (Retention Lock) | Object Storage (Retention Rules) |
@@ -105,6 +105,7 @@ graph LR
 ### AWS
 
 - [AWS Security Incident Response Guide](https://docs.aws.amazon.com/whitepapers/latest/aws-security-incident-response-guide/aws-security-incident-response-guide.html)
+- [AWS Security Incident Response Service](https://aws.amazon.com/security-incident-response/) — 自動検知・トリアージ、AI駆動の調査、封じ込め機能、24/7 Security Incident Responseエンジニアへのアクセスを統合したマネージドサービス
 
 ### Azure
 
@@ -120,5 +121,9 @@ graph LR
 
 ### 標準とコミュニティ
 
-- [NIST SP 800-61 — Computer Security Incident Handling Guide](https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final)
+- [NIST SP 800-61 Rev.3 — Incident Response Recommendations and Considerations for Cybersecurity Risk Management (CSF 2.0 Community Profile)](https://csrc.nist.gov/pubs/sp/800/61/r3/final)
 - [SANS Incident Handler's Handbook](https://www.sans.org/white-papers/33901/)
+
+:::note
+NIST SP 800-61は2025年4月にRev.3が最終公開されました。Rev.3はRev.2に代わり、従来の「コンピューターセキュリティインシデントハンドリングガイド」から、NIST CSF 2.0と連携した「サイバーセキュリティリスク管理のためのインシデント対応推奨事項」へと移行しています。新しいフレームワークに合わせて対応手順を見直してください。
+:::

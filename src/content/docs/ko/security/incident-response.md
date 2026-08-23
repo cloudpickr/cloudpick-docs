@@ -3,7 +3,7 @@ title: "보안 사고 대응"
 description: "클라우드 환경에서의 보안 사고 대응 절차, 벤더별 도구, 자동화 패턴을 설명합니다."
 ---
 
-> 문서 기준: 2026년 5월
+> 문서 기준: 2026년 8월
 
 ## 개요
 
@@ -66,7 +66,7 @@ graph LR
 | 영역 | AWS | Azure | Google Cloud | OCI |
 | --- | --- | --- | --- | --- |
 | **탐지** | GuardDuty | Defender for Cloud | Security Command Center | Cloud Guard |
-| **조사** | Detective | Sentinel (Investigation) | Chronicle | Logging Analytics |
+| **조사** | Detective | Sentinel (Investigation) | Google Unified Security (구 Chronicle) | Logging Analytics |
 | **자동 대응** | EventBridge → Lambda/Step Functions | Sentinel Playbook (Logic Apps) | Cloud Functions / Workflows | Events → Functions |
 | **포렌식** | 스냅샷 + SSM + Athena (로그 쿼리) | Disk Snapshot + Log Analytics | Disk Snapshot + BigQuery | Block Volume Backup + Logging |
 | **로그 장기 보존** | S3 + Glacier (Object Lock) | Immutable Blob Storage | Cloud Storage (Retention Lock) | Object Storage (Retention Rules) |
@@ -105,6 +105,7 @@ graph LR
 ### AWS
 
 - [AWS Security Incident Response Guide](https://docs.aws.amazon.com/whitepapers/latest/aws-security-incident-response-guide/aws-security-incident-response-guide.html)
+- [AWS Security Incident Response Service](https://aws.amazon.com/security-incident-response/) — 자동 탐지·분류, AI 기반 조사, 격리 기능, 24/7 Security Incident Response 엔지니어 접근을 결합한 관리형 서비스
 
 ### Azure
 
@@ -120,5 +121,9 @@ graph LR
 
 ### 표준 및 커뮤니티
 
-- [NIST SP 800-61 — Computer Security Incident Handling Guide](https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final)
+- [NIST SP 800-61 Rev.3 — Incident Response Recommendations and Considerations for Cybersecurity Risk Management (CSF 2.0 Community Profile)](https://csrc.nist.gov/pubs/sp/800/61/r3/final)
 - [SANS Incident Handler's Handbook](https://www.sans.org/white-papers/33901/)
+
+:::note
+NIST SP 800-61은 2025년 4월에 Rev.3가 최종 발표되었습니다. Rev.3는 기존 "사고 처리 가이드"에서 CSF 2.0과 연계된 "사이버보안 리스크 관리를 위한 인시던트 대응 권장사항" 문서로 전환되었습니다. 새 프레임워크에 맞춰 대응 절차를 점검하세요.
+:::

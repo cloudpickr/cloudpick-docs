@@ -3,7 +3,7 @@ title: "Disaster Recovery (DR)"
 description: "Compares RPO/RTO, BIA, DR strategy types (Backup & Restore through Active-Active), and vendor-specific DR services."
 ---
 
-> Last reviewed: May 2026
+> Last reviewed: August 2026
 
 ## What Is DR
 
@@ -115,7 +115,7 @@ Core infrastructure runs at minimal/reduced scale in the DR region at all times,
 
 | Role | AWS | Azure | Google Cloud | OCI |
 | --- | --- | --- | --- | --- |
-| DR orchestration | Elastic Disaster Recovery (DRS) | Azure Site Recovery | — (configured as an architecture pattern) | Full Stack DR |
+| DR orchestration | Elastic Disaster Recovery (DRS) | Azure Site Recovery (managed via Resiliency) | — (configured as an architecture pattern) | Full Stack DR |
 | DB real-time replication | RDS Cross-Region Read Replica, Aurora Global DB | Azure SQL Geo-Replication | Cloud SQL Cross-Region Replica | Data Guard (Active) |
 | Traffic switching | Route 53 Failover | Traffic Manager / Front Door | Cloud DNS + Global LB | DNS Traffic Management |
 
@@ -202,13 +202,13 @@ When using a region outside the jurisdiction for DR, you must meet that country'
 ### AWS
 
 - [AWS Disaster Recovery whitepaper](https://docs.aws.amazon.com/whitepapers/latest/disaster-recovery-workloads-on-aws/disaster-recovery-workloads-on-aws.html)
-- [AWS Elastic Disaster Recovery](https://docs.aws.amazon.com/drs/)
+- [AWS Elastic Disaster Recovery](https://docs.aws.amazon.com/drs/) — 2026 updates: Fast Recovery mode (skips conversion for reduced recovery time), IPv6 support, European Sovereign Cloud availability
 - [AWS Fault Injection Service](https://docs.aws.amazon.com/fis/)
 
 ### Azure
 
 - [Azure Site Recovery documentation](https://learn.microsoft.com/en-us/azure/site-recovery/)
-- [Azure business continuity](https://learn.microsoft.com/en-us/azure/reliability/business-continuity-management-program)
+- [Azure Resiliency (formerly Business Continuity Center)](https://learn.microsoft.com/en-us/azure/business-continuity-center/business-continuity-center-overview) — rebranded as a unified management platform integrating Zone Resiliency, HA, Backup & DR, and Ransomware Protection
 - [Azure Chaos Studio](https://learn.microsoft.com/en-us/azure/chaos-studio/)
 
 ### Google Cloud
@@ -218,5 +218,5 @@ When using a region outside the jurisdiction for DR, you must meet that country'
 
 ### OCI
 
-- [OCI Full Stack DR](https://docs.oracle.com/en-us/iaas/disaster-recovery/index.html)
+- [OCI Full Stack DR](https://docs.oracle.com/en-us/iaas/disaster-recovery/index.html) — 2025–2026 expansions: AI-powered log summaries (Generative AI service integration), multicloud database support (Oracle DB@Azure/AWS/Google Cloud), OKE cross-region DR, Policy Advisor (automated IAM policy analysis), Oracle Integration Cloud native integration
 - [OCI business continuity guide](https://docs.oracle.com/en-us/iaas/disaster-recovery/index.html)

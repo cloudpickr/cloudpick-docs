@@ -3,7 +3,7 @@ title: "Data Analytics Platforms"
 description: "Compares data warehouses, data lakehouses, and analytics platforms across vendors."
 ---
 
-> Last reviewed: May 2026
+> Last reviewed: August 2026
 
 ## Overview
 
@@ -36,11 +36,11 @@ Running large aggregation queries against an operational DB causes:
 
 ### Key differences
 
-**BigQuery (Google Cloud)** — Fully serverless, requiring no cluster management. Billed based on the amount of data scanned per query, and BigQuery ML supports SQL-based ML training.
+**BigQuery (Google Cloud)** — Fully serverless, requiring no cluster management. Billed based on the amount of data scanned per query, and BigQuery ML supports SQL-based ML training. Gemini 3.1 Flash Lite / 3.5 Flash models are now GA for generative AI functions. Conversational Analytics (preview) enables natural-language data analysis. MCP (Model Context Protocol) integration allows building agent-based analytics workflows.
 
-**Redshift (AWS)** — Offers both cluster-based and Serverless options. Data in S3 can be queried directly via Redshift Spectrum, making integration with a data lake straightforward.
+**Redshift (AWS)** — Offers both cluster-based and Serverless options. Data in S3 can be queried directly via Redshift Spectrum, making integration with a data lake straightforward. AI-driven scaling is now the default for new Serverless workgroups (Apr 2026). Three-year Serverless Reservations are available for cost savings. Snapshot restores now automatically preserve zero-ETL and S3 event integrations (Jul 2026).
 
-**Synapse (Azure)** — Provides SQL analytics, Apache Spark, and Data Explorer on a single platform. The serverless SQL pool can query a data lake directly, and it integrates natively with Power BI.
+**Synapse (Azure)** — Provides SQL analytics, Apache Spark, and Data Explorer on a single platform. The serverless SQL pool can query a data lake directly, and it integrates natively with Power BI. Integration into Microsoft Fabric is ongoing; Fabric continues to add features including enhanced VS Code integration, improved notebook resiliency, expanded ML and governance capabilities, and new real-time data processing features.
 
 **Autonomous DW (OCI)** — Based on Oracle Database, it offers auto-tuning and auto-scaling. Highly compatible with existing Oracle workloads.
 

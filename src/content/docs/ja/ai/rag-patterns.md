@@ -3,7 +3,7 @@ title: "RAG高度パターン"
 description: "基本的なRAGの限界と、チャンキング、リランキング、クエリ拡張などの高度なパターンをベンダー公式ガイドに基づいて説明します。"
 ---
 
-> 文書基準: 2026年7月 | 本文書は変化の速い領域であり、四半期ごとのレビュー対象です。
+> 文書基準: 2026年8月 | 本文書は変化の速い領域であり、四半期ごとのレビュー対象です。
 
 :::note
 RAGの基礎は[AI入門](../../ai/getting-started/)のRAGセクションと[ベクトルストアとエンベディング](../../ai/vector-store/)を先にお読みください。
@@ -55,8 +55,8 @@ Azureの公式ガイドは、`Fixed-size` → `Recursive` → `Document-structur
 | ベンダー | 対応方式 | 参考 |
 | --- | --- | --- |
 | AWS Bedrock Knowledge Bases | 基本、固定サイズ、階層的(Hierarchical)、セマンティック(Semantic)チャンキング | [Knowledge Basesチャンキングオプション](https://docs.aws.amazon.com/bedrock/latest/userguide/kb-chunking-parsing.html) |
-| Azure AI Search | 統合ベクトル化時の自動チャンキング、ユーザー定義可能 | [Azure AI Searchチャンキング](https://learn.microsoft.com/azure/search/vector-search-how-to-chunk-documents) |
-| Vertex AI RAG Engine | チャンクサイズ/重複の設定 | [RAG Engineドキュメント](https://cloud.google.com/vertex-ai/generative-ai/docs/rag-overview) |
+| Azure AI Search (Foundry IQ) | 統合ベクトル化時の自動チャンキング、ユーザー定義可能 | [Azure AI Searchチャンキング](https://learn.microsoft.com/azure/search/vector-search-how-to-chunk-documents) |
+| Vertex AI RAG Engine | チャンクサイズ/重複の設定、RagManagedDbで自動管理 | [RAG Engineドキュメント](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-overview) |
 
 ### マネージドRAGパイプライン
 
@@ -64,9 +64,9 @@ Azureの公式ガイドは、`Fixed-size` → `Recursive` → `Document-structur
 
 | ベンダー | サービス | 特徴 |
 | --- | --- | --- |
-| AWS | [Amazon Bedrock Managed Knowledge Base](https://aws.amazon.com/bedrock/knowledge-bases/) | ネイティブデータコネクタ、**Smart Parsing**(マルチフォーマット自動パース)、**Agentic Retriever**(複雑なマルチステップクエリをエージェントが分解・検索)。AgentCore Gateway統合 |
-| Azure | [Azure AI Search + Foundry](https://learn.microsoft.com/azure/search/) | 統合ベクトル化、セマンティックランカー内蔵、カスタムスキルパイプライン |
-| Google Cloud | [Vertex AI RAG Engine](https://cloud.google.com/vertex-ai/generative-ai/docs/rag-overview) | ソース接続 → エンベディング → 検索を統合管理 |
+| AWS | [Amazon Bedrock Managed Knowledge Base](https://aws.amazon.com/bedrock/knowledge-bases/) | **2026年6月GA**。6つのネイティブデータコネクタ(S3、SharePoint、Confluence、Web Crawler、Google Drive、OneDrive)、**Smart Parsing**(マルチフォーマット自動パース)、**Agentic Retriever**(複雑なマルチステップクエリをエージェントが分解・検索)、マネージドベクトルストア。AgentCore Gateway MCP統合 |
+| Azure | [Azure AI Search (Foundry IQ)](https://learn.microsoft.com/azure/search/) | 統合ベクトル化、セマンティックランカー内蔵、カスタムスキルパイプライン。Microsoft Foundryポータルのマネージドナレッジレイヤーとしても利用可能 |
+| Google Cloud | [RAG Engine (Gemini Enterprise Agent Platform)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-overview) | ソース接続 → エンベディング → 検索を統合管理。**Cross Corpus Retrieval**(複数RAGコーパスの同時検索、プレビュー)。RagManagedDbでインフラ自動管理 |
 
 :::note
 マネージドRAGは迅速なプロトタイピングに適していますが、チャンキングロジックや検索アルゴリズムを細かく調整する必要がある場合は、自前構築の方が有利な場合があります。
@@ -175,7 +175,7 @@ RAGシステムは単に「答えが出る」だけでなく、**検索品質**�
 
 ### Google Cloud
 
-- [Vertex AI RAG Engine](https://cloud.google.com/vertex-ai/generative-ai/docs/rag-overview)
+- [RAG Engine (Gemini Enterprise Agent Platform)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-overview)
 - [Vertex AI Ranking API](https://cloud.google.com/generative-ai-app-builder/docs/ranking)
 - [Vertex AI Evaluation Service](https://cloud.google.com/vertex-ai/generative-ai/docs/models/evaluation-overview)
 

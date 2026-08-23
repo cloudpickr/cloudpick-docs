@@ -3,7 +3,7 @@ title: "API Gateway"
 description: "Compares the role of API Gateway, authentication integration, and deployment strategies across vendors."
 ---
 
-> Last reviewed: May 2026
+> Last reviewed: August 2026
 
 ## Overview
 
@@ -50,7 +50,7 @@ API Gateway itself doesn't handle authentication logic — it integrates with an
 | --- | --- | --- |
 | AWS | API Gateway (REST/HTTP/WebSocket) | Native integration with Lambda. Ideal for serverless API composition |
 | AWS | AppSync | GraphQL-only. Supports real-time subscriptions |
-| Azure | API Management (APIM) | Built-in developer portal. Unifies multicloud/hybrid APIs |
+| Azure | API Management (APIM) | Built-in developer portal. Unifies multicloud/hybrid APIs. AI Gateway tier (Public Preview, Jun 2026) for AI model and MCP server governance |
 | Google Cloud | Apigee | Enterprise API management platform. Analytics/monetization features |
 | Google Cloud | API Gateway | Lightweight. Good fit for Cloud Functions/Cloud Run integration |
 | OCI | OCI API Gateway | OCI Functions integration. Supports authentication, rate limiting, request transformation |
@@ -59,9 +59,9 @@ API Gateway itself doesn't handle authentication logic — it integrates with an
 
 **AWS API Gateway** — Has the deepest integration with Lambda, optimized for exposing serverless backends as APIs. It's split into 3 types for different purposes (REST API / HTTP API / WebSocket API), and HTTP API costs about 1/3 of REST API. Most new projects start with HTTP API, choosing REST API only when caching, WAF, or Usage Plans are needed.
 
-**Azure API Management** — A full-featured platform with a built-in developer portal, API versioning, and policy engine. A single service handles REST, WebSocket, and GraphQL. On-premises and cloud APIs can be unified under a single gateway.
+**Azure API Management** — A full-featured platform with a built-in developer portal, API versioning, and policy engine. A single service handles REST, WebSocket, and GraphQL. On-premises and cloud APIs can be unified under a single gateway. The AI Gateway tier (Public Preview, Jun 2026) provides purpose-built publishing, security, and governance for AI models and MCP servers. All v2 tiers (Basic v2, Standard v2, Premium v2) are now GA with flexible pricing and performance options.
 
-**Google Cloud Apigee** — An enterprise platform that manages APIs as a product. A single service handles all protocols, with strengths in API usage analytics, monetization, and partner management.
+**Google Cloud Apigee** — An enterprise platform that manages APIs as a product. A single service handles all protocols, with strengths in API usage analytics, monetization, and partner management. Gemini Code Assist integration for natural-language API spec generation is now GA, and API Hub supports agent registration, assessment, and Git-based synchronization.
 
 **OCI API Gateway** — Natively integrates with OCI Functions, and a single service lets you configure authentication (JWT validation), rate limiting, and request transformation as policies.
 

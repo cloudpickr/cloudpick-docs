@@ -3,7 +3,7 @@ title: "코드로 관리하는 인프라 (IaC)"
 description: "IaC 개념, 벤더 네이티브/멀티클라우드 도구 비교, Terraform 상태 관리와 모듈 설계를 다룹니다."
 ---
 
-> 문서 기준: 2026년 5월
+> 문서 기준: 2026년 8월
 
 ## 개요
 
@@ -39,8 +39,8 @@ description: "IaC 개념, 벤더 네이티브/멀티클라우드 도구 비교, 
 
 | 제품 | 언어 | 비고 |
 | --- | --- | --- |
-| Terraform / OpenTofu | HCL (HashiCorp Configuration Language) | 가장 널리 사용. 모든 벤더 지원 |
-| Pulumi | TypeScript, Python, Go, C#, Java | 일반 프로그래밍 언어 사용. 테스트 용이 |
+| Terraform / OpenTofu | HCL (HashiCorp Configuration Language) | 가장 널리 사용. 모든 벤더 지원. Terraform 1.15 / OpenTofu 1.13 (2026년 기준) |
+| Pulumi | TypeScript, Python, Go, C#, Java | 일반 프로그래밍 언어 사용. 테스트 용이. Pulumi Neo(에이전트 인프라) 출시 |
 | Crossplane | Kubernetes YAML | K8s 클러스터에서 클라우드 리소스 관리 |
 
 ### 통합 리소스 관리 API
@@ -58,11 +58,13 @@ AWS Cloud Control API는 Terraform이 새 AWS 리소스를 지원할 때 개별 
 
 ## 핵심 차이점
 
-**AWS CloudFormation / CDK** — AWS 서비스와 가장 빠르게 연동됩니다. 새 서비스 출시 시 CloudFormation 지원이 가장 먼저 나옵니다. CDK는 프로그래밍 언어의 조건문, 반복문, 추상화를 활용할 수 있어 대규모 인프라 관리에 유리합니다.
+**AWS CloudFormation / CDK** — AWS 서비스와 가장 빠르게 연동됩니다. 새 서비스 출시 시 CloudFormation 지원이 가장 먼저 나옵니다. CDK는 프로그래밍 언어의 조건문, 반복문, 추상화를 활용할 수 있어 대규모 인프라 관리에 유리합니다. CDK Mixins GA(2026.03)로 재사용 가능한 인프라 패턴 합성이 더 쉬워졌습니다. CDK는 v2가 현역이며 Construct Library와 CLI가 별도 패키지로 분리되었습니다.
 
 **Azure Bicep** — ARM Template의 복잡한 JSON을 간결한 DSL로 대체합니다. VS Code 확장으로 자동 완성과 검증을 제공합니다.
 
-**Terraform** — 멀티클라우드 환경에서 사실상 표준입니다. 하나의 언어(HCL)로 AWS, Azure, Google Cloud를 모두 관리할 수 있습니다. 상태 파일(State) 관리가 필요합니다.
+**Terraform** — 멀티클라우드 환경에서 사실상 표준입니다. 하나의 언어(HCL)로 AWS, Azure, Google Cloud를 모두 관리할 수 있습니다. 상태 파일(State) 관리가 필요합니다. 최신 안정 버전은 1.15로, 동적 모듈 소스(변수로 source/version 지정), variable/output deprecation 메커니즘, 인라인 타입 변환 함수, Windows ARM64 지원이 추가되었습니다.
+
+**OpenTofu** — Terraform의 MPL-2.0 오픈소스 포크로 CNCF Sandbox 프로젝트(2025.04 가입)입니다. 최신 안정 버전은 1.13이며, 상태 파일 암호화, 조기 변수 평가(early variable evaluation), 에페메럴 값(ephemeral values) 등 Terraform과 차별화되는 기능을 독자적으로 개발하고 있습니다. Terraform HCL과 높은 호환성을 유지합니다.
 
 **OCI Resource Manager** — Terraform 기반의 관리형 IaC 서비스로, 상태 파일 관리와 리소스 프로비저닝을 OCI 콘솔에서 통합 운영할 수 있습니다.
 

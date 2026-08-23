@@ -3,7 +3,7 @@ title: "API Gateway"
 description: "API Gatewayの役割、認証連携、デプロイ戦略をベンダー別に比較します。"
 ---
 
-> 文書基準: 2026年5月
+> 文書基準: 2026年8月
 
 ## 概要
 
@@ -50,7 +50,7 @@ API Gateway自体は認証ロジックを処理せず、外部の認証サービ
 | --- | --- | --- |
 | AWS | API Gateway (REST/HTTP/WebSocket) | Lambdaとネイティブ統合。サーバーレスAPI構成に最適 |
 | AWS | AppSync | GraphQL専用。リアルタイムサブスクリプション対応 |
-| Azure | API Management (APIM) | 開発者ポータル内蔵。マルチクラウド/ハイブリッドAPI統合 |
+| Azure | API Management (APIM) | 開発者ポータル内蔵。マルチクラウド/ハイブリッドAPI統合。AI Gatewayティア（Public Preview、2026.06）でAIモデル・MCPサーバー専用ゲートウェイ提供 |
 | Google Cloud | Apigee | エンタープライズAPI管理プラットフォーム。分析/収益化機能 |
 | Google Cloud | API Gateway | 軽量。Cloud Functions/Cloud Run連携に適合 |
 | OCI | OCI API Gateway | OCI Functions連携。認証、レート制限、リクエスト変換に対応 |
@@ -59,9 +59,9 @@ API Gateway自体は認証ロジックを処理せず、外部の認証サービ
 
 **AWS API Gateway** — Lambdaとの統合が最も深く、サーバーレスバックエンドをAPIとして公開するのに最適化されています。用途別に3種類(REST API / HTTP API / WebSocket API)が分かれており、HTTP APIはREST API比で約1/3のコストです。ほとんどの新規プロジェクトはHTTP APIから始め、キャッシング・WAF・Usage Planが必要な場合にのみREST APIを選択します。
 
-**Azure API Management** — 開発者ポータル、APIバージョン管理、ポリシーエンジンが内蔵されたフル機能プラットフォームです。単一サービスでREST、WebSocket、GraphQLすべてを処理します。オンプレミスAPIとクラウドAPIを1つのゲートウェイに統合できます。
+**Azure API Management** — 開発者ポータル、APIバージョン管理、ポリシーエンジンが内蔵されたフル機能プラットフォームです。単一サービスでREST、WebSocket、GraphQLすべてを処理します。オンプレミスAPIとクラウドAPIを1つのゲートウェイに統合できます。2026年6月にAI Gatewayティア（Public Preview）が追加され、AIモデルとMCPサーバーに特化した公開・セキュリティ・ガバナンス機能を提供します。v2ティア（Basic v2、Standard v2、Premium v2）がすべてGAとなり、柔軟な価格/性能選択が可能です。
 
-**Google Cloud Apigee** — APIを製品として管理するエンタープライズプラットフォームです。単一サービスですべてのプロトコルを処理し、API利用状況分析、収益化(monetization)、パートナー管理機能が強みです。
+**Google Cloud Apigee** — APIを製品として管理するエンタープライズプラットフォームです。単一サービスですべてのプロトコルを処理し、API利用状況分析、収益化(monetization)、パートナー管理機能が強みです。Gemini Code Assist統合による自然言語ベースのAPIスペック生成がGAとなり、API Hubを通じたエージェント登録・評価とGitベース同期をサポートします。
 
 **OCI API Gateway** — OCI Functionsとネイティブ連携し、単一サービスで認証(JWT検証)、レート制限、リクエスト変換をポリシーベースで設定できます。
 

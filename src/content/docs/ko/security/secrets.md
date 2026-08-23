@@ -3,7 +3,7 @@ title: "시크릿 관리"
 description: "시크릿 관리, KMS, 인증서 관리 서비스를 벤더별로 비교하고 자동 교체와 외부 도구 연동을 설명합니다."
 ---
 
-> 문서 기준: 2026년 5월
+> 문서 기준: 2026년 8월
 
 ## 개요
 
@@ -50,11 +50,11 @@ description: "시크릿 관리, KMS, 인증서 관리 서비스를 벤더별로 
 
 ## 핵심 차이점
 
-**AWS** — Secrets Manager와 Parameter Store 두 가지 선택지가 있습니다. 자동 교체가 필요하면 Secrets Manager, 단순 설정값 저장이면 Parameter Store(무료)가 적합합니다.
+**AWS** — Secrets Manager와 Parameter Store 두 가지 선택지가 있습니다. 자동 교체가 필요하면 Secrets Manager, 단순 설정값 저장이면 Parameter Store(무료)가 적합합니다. 2025~2026년에 Managed External Secrets 기능이 추가되어 Salesforce, MongoDB Atlas, Confluent Cloud, Jenkins 등 서드파티 자격 증명의 표준화된 관리와 자동 교체도 지원합니다.
 
 **Azure** — Key Vault 하나로 시크릿, 암호화 키, 인증서를 모두 관리합니다. 서비스가 분리되지 않아 관리가 단순합니다.
 
-**Google Cloud** — Secret Manager가 버전 관리를 기본 제공하여, 시크릿 변경 이력을 추적하고 이전 버전으로 롤백할 수 있습니다.
+**Google Cloud** — Secret Manager가 버전 관리를 기본 제공하여, 시크릿 변경 이력을 추적하고 이전 버전으로 롤백할 수 있습니다. 교체 스케줄(Rotation Schedule)을 네이티브로 설정할 수 있어, 지정 주기마다 Pub/Sub로 알림을 보내 Cloud Function에서 교체를 실행하는 패턴을 쉽게 구현할 수 있습니다.
 
 **OCI** — Vault 하나로 시크릿과 암호화 키를 통합 관리하며, HSM 키와 소프트웨어 키를 선택할 수 있습니다. IAM 정책으로 세밀한 접근 제어가 가능합니다.
 
@@ -79,9 +79,9 @@ description: "시크릿 관리, KMS, 인증서 관리 서비스를 벤더별로 
 
 | 벤더 | 자동 교체 지원 |
 | --- | --- |
-| AWS Secrets Manager | RDS, DocumentDB, Redshift 네이티브 교체. Lambda로 커스텀 교체 함수 작성 가능 |
+| AWS Secrets Manager | RDS, DocumentDB, Redshift 네이티브 교체. Lambda로 커스텀 교체 함수 작성 가능. Managed External Secrets로 서드파티(Salesforce, MongoDB Atlas, Confluent Cloud, Jenkins 등) 자격 증명도 자동 교체 |
 | Azure Key Vault | 인증서 자동 갱신. 시크릿은 Event Grid + Function App으로 교체 구현 |
-| Google Cloud Secret Manager | 시크릿 버전 관리만 제공. 교체 로직은 Cloud Scheduler + Cloud Function으로 구현 |
+| Google Cloud Secret Manager | 교체 스케줄(Rotation Schedule) 네이티브 지원 — 교체 주기와 시간을 설정하면 Pub/Sub 토픽으로 알림 발송. Cloud Function이 구독하여 실제 교체 로직을 실행하는 패턴 |
 | OCI Vault | Secret Rotation 지원 (Autonomous DB, MySQL 네이티브). Function으로 커스텀 교체 |
 
 ### 외부 시크릿 저장소 연동
@@ -90,7 +90,7 @@ HashiCorp Vault, CyberArk 등 외부 시크릿 관리 솔루션을 사용하는 
 
 | 통합 방식 | 설명 |
 | --- | --- |
-| **External Secrets Operator** | 클라우드 벤더 시크릿 저장소(AWS Secrets Manager, Azure Key Vault 등)의 시크릿을 Kubernetes Secret으로 자동 동기화 |
+| **External Secrets Operator** | 클라우드 벤더 시크릿 저장소(AWS Secrets Manager, Azure Key Vault 등)의 시크릿을 Kubernetes Secret으로 자동 동기화. v1.x GA 달성으로 프로덕션 안정성 확보 |
 | **HashiCorp Vault Dynamic Secrets** | Vault가 AWS IAM, DB 자격 증명을 동적으로 생성 |
 | **CSI Secret Store Driver** | Kubernetes Pod에 시크릿을 파일로 마운트 |
 

@@ -3,7 +3,7 @@ title: "재해복구 (DR)"
 description: "RPO/RTO, BIA, DR 전략 유형(Backup&Restore~Active-Active), 벤더별 DR 서비스를 비교합니다."
 ---
 
-> 문서 기준: 2026년 5월
+> 문서 기준: 2026년 8월
 
 ## DR이란
 
@@ -115,7 +115,7 @@ DR 리전에 핵심 인프라를 최소/축소 규모로 상시 가동하고, �
 
 | 역할 | AWS | Azure | Google Cloud | OCI |
 | --- | --- | --- | --- | --- |
-| DR 오케스트레이션 | Elastic Disaster Recovery (DRS) | Azure Site Recovery | — (아키텍처 패턴으로 구성) | Full Stack DR |
+| DR 오케스트레이션 | Elastic Disaster Recovery (DRS) | Azure Site Recovery (Resiliency 통합 관리) | — (아키텍처 패턴으로 구성) | Full Stack DR |
 | DB 실시간 복제 | RDS Cross-Region Read Replica, Aurora Global DB | Azure SQL Geo-Replication | Cloud SQL Cross-Region Replica | Data Guard (Active) |
 | 트래픽 전환 | Route 53 Failover | Traffic Manager / Front Door | Cloud DNS + Global LB | DNS Traffic Management |
 
@@ -202,13 +202,13 @@ DR 테스트를 넘어, 일상적으로 장애를 주입하여 시스템의 복�
 ### AWS
 
 - [AWS Disaster Recovery 백서](https://docs.aws.amazon.com/whitepapers/latest/disaster-recovery-workloads-on-aws/disaster-recovery-workloads-on-aws.html)
-- [AWS Elastic Disaster Recovery](https://docs.aws.amazon.com/drs/)
+- [AWS Elastic Disaster Recovery](https://docs.aws.amazon.com/drs/) — 2026년 신규: Fast Recovery 모드(변환 과정을 건너뛰어 복구 시간 단축), IPv6 지원, European Sovereign Cloud 가용
 - [AWS Fault Injection Service](https://docs.aws.amazon.com/fis/)
 
 ### Azure
 
 - [Azure Site Recovery 문서](https://learn.microsoft.com/en-us/azure/site-recovery/)
-- [Azure 비즈니스 연속성](https://learn.microsoft.com/en-us/azure/reliability/business-continuity-management-program)
+- [Azure Resiliency (구 Business Continuity Center)](https://learn.microsoft.com/en-us/azure/business-continuity-center/business-continuity-center-overview) — Zone Resiliency, HA, Backup & DR, 랜섬웨어 보호를 통합하는 단일 관리 플랫폼으로 리브랜딩
 - [Azure Chaos Studio](https://learn.microsoft.com/en-us/azure/chaos-studio/)
 
 ### Google Cloud
@@ -218,5 +218,5 @@ DR 테스트를 넘어, 일상적으로 장애를 주입하여 시스템의 복�
 
 ### OCI
 
-- [OCI Full Stack DR](https://docs.oracle.com/en-us/iaas/disaster-recovery/index.html)
+- [OCI Full Stack DR](https://docs.oracle.com/en-us/iaas/disaster-recovery/index.html) — 2025~2026년 확장: AI 기반 로그 요약(Generative AI 서비스 연동), 멀티클라우드 DB 지원(Oracle DB@Azure/AWS/Google Cloud), OKE 크로스 리전 DR, Policy Advisor(IAM 정책 자동 분석), Oracle Integration Cloud 네이티브 통합
 - [OCI 비즈니스 연속성 가이드](https://docs.oracle.com/en-us/iaas/disaster-recovery/index.html)

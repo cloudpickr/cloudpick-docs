@@ -3,7 +3,7 @@ title: Advanced RAG Patterns
 description: Limitations of basic RAG and advanced patterns including chunking, re-ranking, and query expansion based on vendor guides.
 ---
 
-> Document baseline: July 2026 | This is a fast-changing area subject to quarterly review.
+> Document baseline: August 2026 | This is a fast-changing area subject to quarterly review.
 
 :::note
 For RAG basics, read the RAG section in [Getting Started](../../ai/getting-started/) and [Vector Stores and Embeddings](../../ai/vector-store/) first.
@@ -55,8 +55,8 @@ Chunk size is never "set and forget." Measure retrieval quality with representat
 | Vendor | Supported Methods | Reference |
 | --- | --- | --- |
 | AWS Bedrock Knowledge Bases | Default, fixed-size, hierarchical, semantic | [KB Chunking Options](https://docs.aws.amazon.com/bedrock/latest/userguide/kb-chunking-parsing.html) |
-| Azure AI Search | Auto-chunking with integrated vectorization, customizable | [Azure AI Search Chunking](https://learn.microsoft.com/azure/search/vector-search-how-to-chunk-documents) |
-| Vertex AI RAG Engine | Chunk size/overlap configuration | [RAG Engine](https://cloud.google.com/vertex-ai/generative-ai/docs/rag-overview) |
+| Azure AI Search (Foundry IQ) | Auto-chunking with integrated vectorization, customizable | [Azure AI Search Chunking](https://learn.microsoft.com/azure/search/vector-search-how-to-chunk-documents) |
+| Vertex AI RAG Engine | Chunk size/overlap configuration, RagManagedDb auto-management | [RAG Engine](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-overview) |
 
 ### Managed RAG Pipelines
 
@@ -64,9 +64,9 @@ Instead of building chunking, embedding, retrieval, and re-ranking yourself, **m
 
 | Vendor | Service | Strengths |
 | --- | --- | --- |
-| AWS | [Bedrock Managed Knowledge Base](https://aws.amazon.com/bedrock/knowledge-bases/) | Native data connectors, Smart Parsing (automatic multi-format parsing), Agentic Retriever (agent decomposes and searches complex multi-step queries). AgentCore Gateway integration |
-| Azure | [Azure AI Search + Foundry](https://learn.microsoft.com/azure/search/) | Integrated vectorization, built-in semantic ranker, custom skill pipeline |
-| Google Cloud | [Vertex AI RAG Engine](https://cloud.google.com/vertex-ai/generative-ai/docs/rag-overview) | Source → embedding → retrieval unified |
+| AWS | [Bedrock Managed Knowledge Base](https://aws.amazon.com/bedrock/knowledge-bases/) | **GA June 2026**. 6 native data connectors (S3, SharePoint, Confluence, Web Crawler, Google Drive, OneDrive), Smart Parsing (automatic multi-format parsing), Agentic Retriever (agent decomposes and searches complex multi-step queries), managed vector store. AgentCore Gateway MCP integration |
+| Azure | [Azure AI Search (Foundry IQ)](https://learn.microsoft.com/azure/search/) | Integrated vectorization, built-in semantic ranker, custom skill pipeline. Also serves as managed knowledge layer in the Microsoft Foundry portal |
+| Google Cloud | [RAG Engine (Gemini Enterprise Agent Platform)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-overview) | Source → embedding → retrieval unified. **Cross Corpus Retrieval** (simultaneous retrieval across multiple RAG corpora, Preview). RagManagedDb for automatic infra management |
 
 :::note
 Managed RAG is ideal for rapid prototyping. For fine-grained control over chunking logic or search algorithms, custom builds may be preferable.
@@ -172,7 +172,7 @@ RAG systems require measuring **retrieval quality** and **response quality** sep
 - [Azure AI Search Semantic Ranker](https://learn.microsoft.com/azure/search/semantic-search-overview)
 
 ### Google Cloud
-- [Vertex AI RAG Engine](https://cloud.google.com/vertex-ai/generative-ai/docs/rag-overview)
+- [RAG Engine (Gemini Enterprise Agent Platform)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-overview)
 - [Vertex AI Ranking API](https://cloud.google.com/generative-ai-app-builder/docs/ranking)
 - [Vertex AI Evaluation Service](https://cloud.google.com/vertex-ai/generative-ai/docs/models/evaluation-overview)
 

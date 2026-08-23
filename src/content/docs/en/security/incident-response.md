@@ -3,7 +3,7 @@ title: "Security Incident Response"
 description: "Explains security incident response procedures in cloud environments, vendor-specific tools, and automation patterns."
 ---
 
-> Last reviewed: May 2026
+> Last reviewed: August 2026
 
 ## Overview
 
@@ -66,7 +66,7 @@ graph LR
 | Area | AWS | Azure | Google Cloud | OCI |
 | --- | --- | --- | --- | --- |
 | **Detection** | GuardDuty | Defender for Cloud | Security Command Center | Cloud Guard |
-| **Investigation** | Detective | Sentinel (Investigation) | Chronicle | Logging Analytics |
+| **Investigation** | Detective | Sentinel (Investigation) | Google Unified Security (formerly Chronicle) | Logging Analytics |
 | **Automated response** | EventBridge → Lambda/Step Functions | Sentinel Playbook (Logic Apps) | Cloud Functions / Workflows | Events → Functions |
 | **Forensics** | Snapshot + SSM + Athena (log queries) | Disk Snapshot + Log Analytics | Disk Snapshot + BigQuery | Block Volume Backup + Logging |
 | **Long-term log retention** | S3 + Glacier (Object Lock) | Immutable Blob Storage | Cloud Storage (Retention Lock) | Object Storage (Retention Rules) |
@@ -105,6 +105,7 @@ Things to prepare **before** an incident occurs:
 ### AWS
 
 - [AWS Security Incident Response Guide](https://docs.aws.amazon.com/whitepapers/latest/aws-security-incident-response-guide/aws-security-incident-response-guide.html)
+- [AWS Security Incident Response Service](https://aws.amazon.com/security-incident-response/) — A managed service combining automated detection and triage, AI-powered investigation, containment capabilities, and 24/7 access to Security Incident Response engineers
 
 ### Azure
 
@@ -120,5 +121,9 @@ Things to prepare **before** an incident occurs:
 
 ### Standards and community
 
-- [NIST SP 800-61 — Computer Security Incident Handling Guide](https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final)
+- [NIST SP 800-61 Rev.3 — Incident Response Recommendations and Considerations for Cybersecurity Risk Management (CSF 2.0 Community Profile)](https://csrc.nist.gov/pubs/sp/800/61/r3/final)
 - [SANS Incident Handler's Handbook](https://www.sans.org/white-papers/33901/)
+
+:::note
+NIST SP 800-61 Rev.3 was finalized in April 2025. It supersedes Rev.2 and transitions from a "Computer Security Incident Handling Guide" to an "Incident Response Recommendations and Considerations for Cybersecurity Risk Management" document aligned with the NIST CSF 2.0. Review your response procedures against the new framework.
+:::

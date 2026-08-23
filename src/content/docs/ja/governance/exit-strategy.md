@@ -3,11 +3,11 @@ title: "ベンダー依存と出口戦略"
 description: "クラウドベンダーへの依存を理解し、データ/アプリケーション/プロセスのポータビリティを確保する戦略を説明します。"
 ---
 
-> 文書基準: 2026年5月
+> 文書基準: 2026年8月
 
 ## なぜ出口戦略が必要か
 
-単一ベンダーへの統合を深めるほど、**価格交渉力が低下し**、ベンダーのポリシー変更（値上げ、サービス終了、地域からの撤退）に対して脆弱になります。EU DORAなど一部の管轄では、金融業界に**Exit Planの文書化**を義務付けています。国別の義務は[韓国](../../korea/) · [米国](../../us/) · [EU](../../eu/) · [日本](../../japan/) · [シンガポール](../../singapore/)ガイドを参照してください。
+単一ベンダーへの統合を深めるほど、**価格交渉力が低下し**、ベンダーのポリシー変更（値上げ、サービス終了、地域からの撤退）に対して脆弱になります。EU DORAなど一部の管轄では、金融業界に**Exit Planの文書化**を義務付けています。2025年11月、ESAs（EBA、EIOPA、ESMA）はDORAに基づき最初のCTPP（Critical ICT Third-Party Provider）指定リストを公開し、CTPPに指定されたベンダーを利用する金融機関はより厳格なExit準備を証明する必要があります。国別の義務は[韓国](../../korea/) · [米国](../../us/) · [EU](../../eu/) · [日本](../../japan/) · [シンガポール](../../singapore/)ガイドを参照してください。
 
 重要な誤解:
 
@@ -25,6 +25,7 @@ description: "クラウドベンダーへの依存を理解し、データ/ア�
 | **API依存** | 特定ベンダーのSDK/APIに合わせたコード | Lambdaイベントオブジェクト、Azure Durable Functionsの状態管理 |
 | **アーキテクチャ依存** | ベンダー固有のサービスに基づく設計 | Step Functionsワークフロー、Cosmos DB専用機能 |
 | **運用依存** | チームのスキルとツールチェーンの偏り | CloudFormationのみを使うチーム、Azure DevOpsパイプライン |
+| **AI/ML依存** | ファインチューニングモデル、エンベディング、ベクトルDBのベンダー依存 | エクスポート不可のベンダー固有ファインチューニングモデル、特定エンベディングモデルに紐づくベクトルインデックス、プラットフォーム依存のプロンプト/RAGパイプライン |
 
 ## 依存レベルとトレードオフ
 
@@ -100,7 +101,7 @@ graph LR
 
 - **標準フォーマット** — Parquet、Avro、JSON、CSV
 - **定期バックアップを中立的な場所に保存** — 別リージョン/ベンダー/オンプレミス
-- **イグレスコストの認識** — ペタバイト級のデータはイグレスコストが数千万円〜数億円に達する
+- **イグレスコストの認識** — ペタバイト級のデータはイグレスコストが数千万円〜数億円に達する。なお、Google Cloudは2024年1月からベンダー切り替え時のイグレス無料化を開始し、2025年9月にはEU/UKのマルチクラウド環境向けにData Transfer Essentialsを提供してイグレスコストを免除している（EU Data Act対応）
 - **オフライン転送の活用** — [ストレージマイグレーション](../../storage/migration/)を参照
 
 ## Exit実行計画
@@ -180,4 +181,5 @@ graph LR
 
 - [CNCF Cloud Native Trail Map](https://landscape.cncf.io/)
 - [EU DORA (Digital Operational Resilience Act)](https://www.eiopa.europa.eu/digital-operational-resilience-act-dora_en)
+- [ESAs CTPP指定および監督フレームワーク](https://www.esma.europa.eu/dora-oversight) — 2025年11月に最初のCTPP指定リストを公開
 - [Martin Fowler — Strangler Fig Application](https://martinfowler.com/bliki/StranglerFigApplication.html)

@@ -3,7 +3,7 @@ title: "Managed RDB"
 description: "Compares the difference between managed RDB and cloud-native DB, HA configuration, and PITR across vendors."
 ---
 
-> Last reviewed: June 2026
+> Last reviewed: August 2026
 
 ## Overview
 
@@ -39,10 +39,11 @@ For operations after choosing a DB — scaling patterns, query performance, cach
 | --- | --- | --- | --- |
 | AWS | RDS | Managed | MySQL, PostgreSQL, MariaDB, Oracle, SQL Server |
 | AWS | Aurora | **Native** | MySQL/PostgreSQL compatible. In-house designed distributed storage |
+| AWS | Aurora DSQL | **Native** | PostgreSQL-compatible distributed SQL. Serverless. Designed for 99.99% single-Region / 99.999% multi-Region availability. GA (May 2025). CDC support GA (Jul 2026) |
 | Azure | Azure SQL Database | Managed | Based on SQL Server |
 | Azure | Azure Database for MySQL/PostgreSQL | Managed | Managed open-source engines |
 | Google Cloud | Cloud SQL | Managed | MySQL, PostgreSQL, SQL Server |
-| Google Cloud | AlloyDB | **Native** | PostgreSQL compatible. In-house design. Built-in vector search |
+| Google Cloud | AlloyDB | **Native** | PostgreSQL compatible. In-house design. Built-in vector search. AlloyDB Omni (K8s Operator 1.7.0 GA) for on-premises/multicloud. PostgreSQL 18 compatible |
 | OCI | Autonomous Database | **Native** | Based on Oracle DB. Automatic tuning/patching/scaling |
 | OCI | MySQL HeatWave | Managed | MySQL compatible. Unified OLTP + OLAP processing |
 
@@ -65,6 +66,7 @@ A DB that distributes data worldwide across regions and allows reads/writes in e
 | Type | Vendor | Product | Multi-region writes | Consistency |
 | --- | --- | --- | --- | --- |
 | **RDB** | AWS | Aurora Global Database | — (reads distributed only; writes single-region) | Strong consistency (primary) |
+| **RDB** | AWS | Aurora DSQL | Supported (active-active multi-region) | Strong consistency (distributed transactions) |
 | **RDB** | Google Cloud | Spanner | Supported | Strong consistency (global transactions) |
 | **NoSQL** | Azure | Cosmos DB | Supported | 5 selectable consistency levels |
 | **NoSQL** | AWS | DynamoDB Global Tables | Supported | Eventual consistency (across regions) |
@@ -93,7 +95,7 @@ Global DBs are expensive and complex to design. For most workloads, review in th
 
 **Azure SQL Database** — Based on SQL Server. Provides the smoothest migration path for existing SQL Server workloads. Scales up to 100TB in the Hyperscale tier.
 
-**Google Cloud AlloyDB** — PostgreSQL compatible. Built-in vector search is a strength for AI workload integration.
+**Google Cloud AlloyDB** — PostgreSQL compatible. Built-in vector search is a strength for AI workload integration. AlloyDB Omni enables on-premises and multicloud (including GDC) deployments, with PostgreSQL 18 compatibility and Transparent Data Encryption (TDE) support.
 
 **OCI Autonomous Database** — Based on Oracle DB. Automatic tuning, automatic patching, automatic scaling. MySQL HeatWave also supports unified OLTP+OLAP processing.
 
@@ -104,7 +106,7 @@ Oracle is pursuing a strategy of placing its own database directly inside compet
 | Service | Location | Characteristics |
 | --- | --- | --- |
 | [Oracle Database@Azure](https://www.oracle.com/cloud/azure/) | Azure DC | Native provisioning from the Azure Portal |
-| [Oracle Database@AWS](https://www.oracle.com/cloud/aws/) | AWS DC | Direct provisioning from the AWS console. Oracle Autonomous AI Database Serverless GA (2026.06). DB@AWS available across 20 regions total |
+| [Oracle Database@AWS](https://www.oracle.com/cloud/aws/) | AWS DC | Direct provisioning from the AWS console. Rebranded as Oracle AI Database@AWS. Expanded to 22 regions (Aug 2026). Singapore and Milan added |
 | [Oracle Database@Google Cloud](https://www.oracle.com/cloud/google/) | Google Cloud DC | Used directly from the Google Cloud console |
 
 With the app and DB in the same data center, this minimizes latency, eliminates egress cost, and satisfies data sovereignty requirements.

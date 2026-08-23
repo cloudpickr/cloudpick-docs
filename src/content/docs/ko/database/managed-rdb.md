@@ -3,7 +3,7 @@ title: "관리형 RDB"
 description: "관리형 RDB와 클라우드 네이티브 DB의 차이, HA 구성, PITR을 벤더별로 비교합니다."
 ---
 
-> 문서 기준: 2026년 6월
+> 문서 기준: 2026년 8월
 
 ## 개요
 
@@ -39,10 +39,11 @@ DB 선택 후의 운영 — 확장 패턴, 쿼리 성능, 캐시, HA, 백업 —
 | --- | --- | --- | --- |
 | AWS | RDS | 관리형 | MySQL, PostgreSQL, MariaDB, Oracle, SQL Server |
 | AWS | Aurora | **네이티브** | MySQL/PostgreSQL 호환. 자체 설계 분산 스토리지 |
+| AWS | Aurora DSQL | **네이티브** | PostgreSQL 호환 분산 SQL. 서버리스. 단일 리전 99.99%·멀티 리전 99.999% 가용성 설계. GA (2025.05). CDC 지원 GA (2026.07) |
 | Azure | Azure SQL Database | 관리형 | SQL Server 기반 |
 | Azure | Azure Database for MySQL/PostgreSQL | 관리형 | 오픈소스 엔진 관리형 |
 | Google Cloud | Cloud SQL | 관리형 | MySQL, PostgreSQL, SQL Server |
-| Google Cloud | AlloyDB | **네이티브** | PostgreSQL 호환. 자체 설계. 벡터 검색 내장 |
+| Google Cloud | AlloyDB | **네이티브** | PostgreSQL 호환. 자체 설계. 벡터 검색 내장. AlloyDB Omni(K8s Operator 1.7.0 GA)로 온프레미스/멀티클라우드 배포 지원. PostgreSQL 18 호환 |
 | OCI | Autonomous Database | **네이티브** | Oracle DB 기반. 자동 튜닝/패치/스케일링 |
 | OCI | MySQL HeatWave | 관리형 | MySQL 호환. OLTP + OLAP 통합 처리 |
 
@@ -65,6 +66,7 @@ DB 선택 후의 운영 — 확장 패턴, 쿼리 성능, 캐시, HA, 백업 —
 | 유형 | 벤더 | 제품 | 멀티 리전 쓰기 | 일관성 |
 | --- | --- | --- | --- | --- |
 | **RDB** | AWS | Aurora Global Database | — (읽기만 분산, 쓰기는 단일 리전) | 강한 일관성 (프라이머리) |
+| **RDB** | AWS | Aurora DSQL | 지원 (액티브-액티브 멀티 리전) | 강한 일관성 (분산 트랜잭션) |
 | **RDB** | Google Cloud | Spanner | 지원 | 강한 일관성 (글로벌 트랜잭션) |
 | **NoSQL** | Azure | Cosmos DB | 지원 | 5가지 수준 선택 가능 |
 | **NoSQL** | AWS | DynamoDB Global Tables | 지원 | 최종 일관성 (리전 간) |
@@ -93,7 +95,7 @@ DB 선택 후의 운영 — 확장 패턴, 쿼리 성능, 캐시, HA, 백업 —
 
 **Azure SQL Database** — SQL Server 기반. 기존 SQL Server 워크로드를 가장 쉽게 마이그레이션할 수 있습니다. Hyperscale 티어에서 100TB까지 확장.
 
-**Google Cloud AlloyDB** — PostgreSQL 호환. 벡터 검색이 내장되어 AI 워크로드와의 통합이 강점입니다.
+**Google Cloud AlloyDB** — PostgreSQL 호환. 벡터 검색이 내장되어 AI 워크로드와의 통합이 강점입니다. AlloyDB Omni를 통해 온프레미스, 멀티클라우드(GDC 포함) 환경에도 배포할 수 있으며, PostgreSQL 18 호환과 투명 데이터 암호화(TDE)를 지원합니다.
 
 **OCI Autonomous Database** — Oracle DB 기반. 자동 튜닝, 자동 패치, 자동 스케일링. MySQL HeatWave로 OLTP+OLAP 통합 처리도 지원합니다.
 
@@ -104,7 +106,7 @@ Oracle은 자사 데이터베이스를 경쟁사 데이터센터 안에 직접 �
 | 서비스 | 배치 위치 | 특징 |
 | --- | --- | --- |
 | [Oracle Database@Azure](https://www.oracle.com/cloud/azure/) | Azure DC | Azure Portal에서 네이티브 프로비저닝 |
-| [Oracle Database@AWS](https://www.oracle.com/cloud/aws/) | AWS DC | AWS 콘솔에서 직접 프로비저닝. Oracle Autonomous AI Database Serverless GA (2026.06). DB@AWS 전체 20개 리전 |
+| [Oracle Database@AWS](https://www.oracle.com/cloud/aws/) | AWS DC | AWS 콘솔에서 직접 프로비저닝. Oracle AI Database@AWS로 리브랜딩. 22개 리전 확대(2026.08). 싱가포르·밀라노 추가 |
 | [Oracle Database@Google Cloud](https://www.oracle.com/cloud/google/) | Google Cloud DC | Google Cloud 콘솔에서 직접 사용 |
 
 앱과 DB가 같은 데이터센터에 있어 레이턴시 최소화, 이그레스 비용 없음, 데이터 주권 충족이 가능합니다.

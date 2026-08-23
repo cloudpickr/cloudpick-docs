@@ -9,7 +9,7 @@
  * 문서 데이터는 Netlify Blobs에서 로드합니다 (빌드 시 업로드됨).
  */
 
-import { getStore } from "@netlify/blobs";
+import { getDeployStore } from "@netlify/blobs";
 
 // ─── 문서 파싱 ───
 
@@ -54,7 +54,7 @@ async function loadSections(): Promise<DocSection[]> {
   }
 
   try {
-    const store = getStore(BLOB_STORE_NAME);
+    const store = getDeployStore(BLOB_STORE_NAME);
     const content = await store.get(BLOB_KEY, { type: "text" });
     if (!content) {
       throw new Error(`Blob "${BLOB_KEY}" not found in store "${BLOB_STORE_NAME}"`);

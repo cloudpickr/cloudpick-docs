@@ -3,11 +3,11 @@ title: "벤더 종속성과 출구 전략"
 description: "클라우드 벤더 종속성을 이해하고, 데이터/애플리케이션/프로세스의 포터빌리티를 확보하는 전략을 설명합니다."
 ---
 
-> 문서 기준: 2026년 5월
+> 문서 기준: 2026년 8월
 
 ## 왜 출구 전략이 필요한가
 
-단일 벤더에 깊이 통합할수록 **가격 협상력이 줄어들고**, 벤더의 정책 변경(가격 인상, 서비스 단종, 지역 철수)에 취약해집니다. EU DORA 등 일부 관할권은 금융권에 **Exit Plan 문서화**를 의무화합니다. 국가별 의무는 [한국](../../korea/index/) · [미국](../../us/index/) · [EU](../../eu/index/) · [일본](../../japan/index/) · [싱가포르](../../singapore/index/) 가이드를 참고하세요.
+단일 벤더에 깊이 통합할수록 **가격 협상력이 줄어들고**, 벤더의 정책 변경(가격 인상, 서비스 단종, 지역 철수)에 취약해집니다. EU DORA 등 일부 관할권은 금융권에 **Exit Plan 문서화**를 의무화합니다. 2025년 11월, ESAs(EBA, EIOPA, ESMA)는 DORA에 따라 첫 번째 CTPP(Critical ICT Third-Party Provider) 지정 리스트를 공개했으며, CTPP로 지정된 벤더를 사용하는 금융기관은 더욱 엄격한 Exit 준비를 입증해야 합니다. 국가별 의무는 [한국](../../korea/index/) · [미국](../../us/index/) · [EU](../../eu/index/) · [일본](../../japan/index/) · [싱가포르](../../singapore/index/) 가이드를 참고하세요.
 
 중요한 오해:
 
@@ -25,6 +25,7 @@ description: "클라우드 벤더 종속성을 이해하고, 데이터/애플리
 | **API 종속성** | 특정 벤더 SDK/API에 맞춰진 코드 | Lambda 이벤트 객체, Azure Durable Functions 상태 관리 |
 | **아키텍처 종속성** | 벤더 고유 서비스에 기반한 설계 | Step Functions 워크플로우, Cosmos DB 전용 기능 |
 | **운영 종속성** | 팀 역량과 도구 체인의 편중 | CloudFormation만 쓰는 팀, Azure DevOps 파이프라인 |
+| **AI/ML 종속성** | 파인튜닝 모델, 임베딩, 벡터 DB의 벤더 종속 | 벤더 전용 모델 파인튜닝(이전 불가), 특정 임베딩 모델에 종속된 벡터 인덱스, 프롬프트/RAG 파이프라인의 플랫폼 의존성 |
 
 ## 종속성 레벨과 트레이드오프
 
@@ -100,7 +101,7 @@ graph LR
 
 - **표준 포맷** — Parquet, Avro, JSON, CSV
 - **정기 백업을 중립 위치에 저장** — 다른 리전/벤더/온프레미스
-- **이그레스 비용 인지** — 페타바이트급 데이터는 이그레스 비용이 수천만 원~수억 원
+- **이그레스 비용 인지** — 페타바이트급 데이터는 이그레스 비용이 수천만 원~수억 원. 단, Google Cloud는 2024년 1월부터 벤더 전환 시 이그레스 무료화를 시행했고, 2025년 9월에는 EU/UK 멀티클라우드 환경에서 Data Transfer Essentials를 통해 이그레스 비용을 면제하고 있음 (EU Data Act 대응)
 - **오프라인 전송 활용** — [스토리지 마이그레이션](../../storage/migration/) 참고
 
 ## Exit 실행 계획
@@ -180,4 +181,5 @@ graph LR
 
 - [CNCF Cloud Native Trail Map](https://landscape.cncf.io/)
 - [EU DORA (Digital Operational Resilience Act)](https://www.eiopa.europa.eu/digital-operational-resilience-act-dora_en)
+- [ESAs CTPP 지정 및 감독 프레임워크](https://www.esma.europa.eu/dora-oversight) — 2025년 11월 첫 번째 CTPP 지정 리스트 공개
 - [Martin Fowler — Strangler Fig Application](https://martinfowler.com/bliki/StranglerFigApplication.html)

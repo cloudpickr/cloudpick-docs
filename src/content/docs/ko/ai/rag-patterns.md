@@ -3,7 +3,7 @@ title: "RAG 고급 패턴"
 description: "기본 RAG의 한계와 청킹, 리랭킹, 쿼리 확장 같은 고급 패턴을 벤더 공식 가이드 기반으로 설명합니다."
 ---
 
-> 문서 기준: 2026년 7월 | 이 문서는 변동이 빠른 영역으로 분기별 리뷰 대상입니다.
+> 문서 기준: 2026년 8월 | 이 문서는 변동이 빠른 영역으로 분기별 리뷰 대상입니다.
 
 :::note
 RAG 기초는 [AI 시작하기](../../ai/getting-started/)의 RAG 섹션과 [벡터 스토어와 임베딩](../../ai/vector-store/)를 먼저 읽어보세요.
@@ -55,8 +55,8 @@ Azure 공식 가이드는 `Fixed-size` → `Recursive` → `Document-structure` 
 | 벤더 | 지원 방식 | 참고 |
 | --- | --- | --- |
 | AWS Bedrock Knowledge Bases | 기본, 고정 크기, 계층적(Hierarchical), 시맨틱(Semantic) 청킹 | [Knowledge Bases 청킹 옵션](https://docs.aws.amazon.com/bedrock/latest/userguide/kb-chunking-parsing.html) |
-| Azure AI Search | 통합 벡터화 시 자동 청킹, 사용자 정의 가능 | [Azure AI Search 청킹](https://learn.microsoft.com/azure/search/vector-search-how-to-chunk-documents) |
-| Vertex AI RAG Engine | 청크 크기/중첩 설정 | [RAG Engine 문서](https://cloud.google.com/vertex-ai/generative-ai/docs/rag-overview) |
+| Azure AI Search (Foundry IQ) | 통합 벡터화 시 자동 청킹, 사용자 정의 가능 | [Azure AI Search 청킹](https://learn.microsoft.com/azure/search/vector-search-how-to-chunk-documents) |
+| Vertex AI RAG Engine | 청크 크기/중첩 설정, RagManagedDb 자동 관리 | [RAG Engine 문서](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-overview) |
 
 ### 관리형 RAG 파이프라인
 
@@ -64,9 +64,9 @@ Azure 공식 가이드는 `Fixed-size` → `Recursive` → `Document-structure` 
 
 | 벤더 | 서비스 | 특징 |
 | --- | --- | --- |
-| AWS | [Amazon Bedrock Managed Knowledge Base](https://aws.amazon.com/bedrock/knowledge-bases/) | 네이티브 데이터 커넥터, **Smart Parsing**(멀티포맷 자동 파싱), **Agentic Retriever**(복잡한 멀티스텝 쿼리를 에이전트가 분해·검색). AgentCore Gateway 통합 |
-| Azure | [Azure AI Search + Foundry](https://learn.microsoft.com/azure/search/) | 통합 벡터화, 시맨틱 랭커 내장, 커스텀 스킬 파이프라인 |
-| Google Cloud | [Vertex AI RAG Engine](https://cloud.google.com/vertex-ai/generative-ai/docs/rag-overview) | 소스 연결 → 임베딩 → 검색을 통합 관리 |
+| AWS | [Amazon Bedrock Managed Knowledge Base](https://aws.amazon.com/bedrock/knowledge-bases/) | **2026.06 GA**. 6개 네이티브 데이터 커넥터(S3, SharePoint, Confluence, Web Crawler, Google Drive, OneDrive), **Smart Parsing**(멀티포맷 자동 파싱), **Agentic Retriever**(복잡한 멀티스텝 쿼리를 에이전트가 분해·검색), 관리형 벡터 스토어. AgentCore Gateway MCP 통합 |
+| Azure | [Azure AI Search (Foundry IQ)](https://learn.microsoft.com/azure/search/) | 통합 벡터화, 시맨틱 랭커 내장, 커스텀 스킬 파이프라인. Microsoft Foundry 포털의 관리형 지식 계층으로도 활용 |
+| Google Cloud | [RAG Engine (Gemini Enterprise Agent Platform)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-overview) | 소스 연결 → 임베딩 → 검색을 통합 관리. **Cross Corpus Retrieval**(여러 RAG 코퍼스 동시 검색, 프리뷰). RagManagedDb로 인프라 자동 관리 |
 
 :::note
 관리형 RAG는 빠른 프로토타이핑에 적합하지만, 청킹 로직이나 검색 알고리즘을 세밀하게 조정해야 하는 경우에는 직접 구축이 더 유리할 수 있습니다.
@@ -175,7 +175,7 @@ RAG 시스템은 단순히 "답이 나온다"가 아니라, **검색 품질**과
 
 ### Google Cloud
 
-- [Vertex AI RAG Engine](https://cloud.google.com/vertex-ai/generative-ai/docs/rag-overview)
+- [RAG Engine (Gemini Enterprise Agent Platform)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-overview)
 - [Vertex AI Ranking API](https://cloud.google.com/generative-ai-app-builder/docs/ranking)
 - [Vertex AI Evaluation Service](https://cloud.google.com/vertex-ai/generative-ai/docs/models/evaluation-overview)
 

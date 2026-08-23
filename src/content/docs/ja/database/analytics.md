@@ -3,7 +3,7 @@ title: "データ分析プラットフォーム"
 description: "データウェアハウス、データレイクハウス、分析プラットフォームをベンダー別に比較します。"
 ---
 
-> 文書基準: 2026年5月
+> 文書基準: 2026年8月
 
 ## 概要
 
@@ -36,11 +36,11 @@ description: "データウェアハウス、データレイクハウス、分析
 
 ### 主な違い
 
-**BigQuery(Google Cloud)** — 完全サーバーレスでクラスタ管理が不要です。クエリスキャンデータ量に基づく課金であり、BigQuery MLによりSQLベースのML学習をサポートします。
+**BigQuery(Google Cloud)** — 完全サーバーレスでクラスタ管理が不要です。クエリスキャンデータ量に基づく課金であり、BigQuery MLによりSQLベースのML学習をサポートします。Gemini 3.1 Flash Lite / 3.5 Flashモデルが生成AI関数でGA利用可能となり、Conversational Analytics（プレビュー）で自然言語データ分析が可能です。MCP（Model Context Protocol）統合でエージェントベースの分析ワークフローを構築できます。
 
-**Redshift(AWS)** — クラスタベースとServerlessオプションの両方を提供します。S3のデータをRedshift Spectrumで直接クエリでき、データレイクとの統合が容易です。
+**Redshift(AWS)** — クラスタベースとServerlessオプションの両方を提供します。S3のデータをRedshift Spectrumで直接クエリでき、データレイクとの統合が容易です。ServerlessではAI駆動の自動スケーリングが新規ワークグループのデフォルトとなりました（2026.04）。3年予約（Serverless Reservations）でコスト削減が可能です。スナップショット復元時にzero-ETL/S3イベント統合が自動保持されます（2026.07）。
 
-**Synapse(Azure)** — SQL分析、Apache Spark、Data Explorerを1つのプラットフォームで提供します。サーバーレスSQLプールでデータレイクを直接クエリでき、Power BIとネイティブ統合されます。
+**Synapse(Azure)** — SQL分析、Apache Spark、Data Explorerを1つのプラットフォームで提供します。サーバーレスSQLプールでデータレイクを直接クエリでき、Power BIとネイティブ統合されます。Microsoft Fabricへの統合が進行中で、VS Code統合の強化、ノートブックの復元力向上、ML・ガバナンス機能拡張、リアルタイムデータ処理など継続的に機能追加されています。
 
 **Autonomous DW(OCI)** — Oracle Databaseベースで自動チューニング、自動スケーリングを提供します。既存のOracleワークロードとの互換性が高いです。
 

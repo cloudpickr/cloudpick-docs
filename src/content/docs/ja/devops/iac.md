@@ -3,7 +3,7 @@ title: "コードで管理するインフラ（IaC）"
 description: "IaCの概念、ベンダーネイティブ/マルチクラウドツールの比較、Terraformの状態管理とモジュール設計を扱います。"
 ---
 
-> 文書基準: 2026年5月
+> 文書基準: 2026年8月
 
 ## 概要
 
@@ -39,8 +39,8 @@ description: "IaCの概念、ベンダーネイティブ/マルチクラウド�
 
 | 製品 | 言語 | 備考 |
 | --- | --- | --- |
-| Terraform / OpenTofu | HCL（HashiCorp Configuration Language） | 最も広く使用。全ベンダー対応 |
-| Pulumi | TypeScript、Python、Go、C#、Java | 一般的なプログラミング言語を使用。テストが容易 |
+| Terraform / OpenTofu | HCL（HashiCorp Configuration Language） | 最も広く使用。全ベンダー対応。Terraform 1.15 / OpenTofu 1.13（2026年基準） |
+| Pulumi | TypeScript、Python、Go、C#、Java | 一般的なプログラミング言語を使用。テストが容易。Pulumi Neo（エージェントインフラ）リリース |
 | Crossplane | Kubernetes YAML | K8sクラスタからクラウドリソースを管理 |
 
 ### 統合リソース管理API
@@ -58,11 +58,13 @@ AWS Cloud Control APIは、Terraformが新しいAWSリソースをサポート�
 
 ## 主な違い
 
-**AWS CloudFormation / CDK** — AWSサービスと最も速く連携します。新サービスリリース時、CloudFormationのサポートが最初に登場します。CDKはプログラミング言語の条件文、ループ、抽象化を活用できるため、大規模インフラ管理に有利です。
+**AWS CloudFormation / CDK** — AWSサービスと最も速く連携します。新サービスリリース時、CloudFormationのサポートが最初に登場します。CDKはプログラミング言語の条件文、ループ、抽象化を活用できるため、大規模インフラ管理に有利です。CDK Mixins GA（2026.03）により再利用可能なインフラパターンの合成がより容易になりました。CDKはv2が現役で、Construct LibraryとCLIが別パッケージに分離されました。
 
 **Azure Bicep** — ARM Templateの複雑なJSONを簡潔なDSLに置き換えます。VS Code拡張機能によりオートコンプリートと検証を提供します。
 
-**Terraform** — マルチクラウド環境で事実上の標準です。一つの言語（HCL）でAWS、Azure、Google Cloudをすべて管理できます。状態ファイル（State）の管理が必要です。
+**Terraform** — マルチクラウド環境で事実上の標準です。一つの言語（HCL）でAWS、Azure、Google Cloudをすべて管理できます。状態ファイル（State）の管理が必要です。最新安定版は1.15で、動的モジュールソース（変数でsource/versionを指定）、variable/outputのdeprecation機構、インラインの型変換関数、Windows ARM64サポートが追加されました。
+
+**OpenTofu** — TerraformのMPL-2.0オープンソースフォークで、CNCF Sandboxプロジェクト（2025.04加入）です。最新安定版は1.13で、状態ファイル暗号化、早期変数評価（early variable evaluation）、エフェメラル値（ephemeral values）などTerraformと差別化される機能を独自に開発しています。Terraform HCLとの高い互換性を維持しています。
 
 **OCI Resource Manager** — Terraformベースの管理型IaCサービスで、状態ファイル管理とリソースプロビジョニングをOCIコンソールで統合運用できます。
 

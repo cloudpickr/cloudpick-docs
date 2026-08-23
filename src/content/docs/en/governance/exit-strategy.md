@@ -3,11 +3,11 @@ title: "Vendor Lock-in and Exit Strategy"
 description: "Explains cloud vendor lock-in and strategies for securing portability of data, applications, and processes."
 ---
 
-> Last reviewed: May 2026
+> Last reviewed: August 2026
 
 ## Why an Exit Strategy Matters
 
-The more deeply you integrate with a single vendor, the more **your pricing leverage shrinks**, and the more vulnerable you become to the vendor's policy changes (price hikes, service discontinuation, regional withdrawal). Some jurisdictions, such as the EU's DORA, mandate **documented Exit Plans** for the financial sector. Country-specific obligations are in the [Korea](../../korea/), [United States](../../us/), [EU](../../eu/), [Japan](../../japan/), and [Singapore](../../singapore/) guides.
+The more deeply you integrate with a single vendor, the more **your pricing leverage shrinks**, and the more vulnerable you become to the vendor's policy changes (price hikes, service discontinuation, regional withdrawal). Some jurisdictions, such as the EU's DORA, mandate **documented Exit Plans** for the financial sector. In November 2025, the ESAs (EBA, EIOPA, ESMA) published the first list of designated CTPPs (Critical ICT Third-Party Providers) under DORA, requiring financial entities using designated CTPPs to demonstrate stricter exit readiness. Country-specific obligations are in the [Korea](../../korea/), [United States](../../us/), [EU](../../eu/), [Japan](../../japan/), and [Singapore](../../singapore/) guides.
 
 An important misconception:
 
@@ -25,6 +25,7 @@ An important misconception:
 | **API lock-in** | Code built around a specific vendor SDK/API | Lambda event objects, Azure Durable Functions state management |
 | **Architecture lock-in** | Designs based on vendor-specific services | Step Functions workflows, Cosmos DB-exclusive features |
 | **Operational lock-in** | Team skills and toolchain concentrated on one vendor | Teams that only use CloudFormation, Azure DevOps pipelines |
+| **AI/ML lock-in** | Vendor dependency through fine-tuned models, embeddings, and vector DBs | Non-exportable vendor-specific fine-tuned models, vector indices tied to a specific embedding model, platform-dependent prompt/RAG pipelines |
 
 ## Lock-in Levels and Trade-offs
 
@@ -100,7 +101,7 @@ Abstraction has the downside of forcing a "**lowest common denominator**," makin
 
 - **Standard formats** — Parquet, Avro, JSON, CSV
 - **Store regular backups in a neutral location** — a different region/vendor/on-premises
-- **Be aware of egress costs** — egress fees for petabyte-scale data can run from tens of millions to hundreds of millions of KRW
+- **Be aware of egress costs** — egress fees for petabyte-scale data can run from tens of millions to hundreds of millions of KRW. Note: Google Cloud waived egress fees for switching providers starting January 2024, and in September 2025 launched Data Transfer Essentials for EU/UK, waiving multicloud egress fees in compliance with the EU Data Act
 - **Use offline transfer options** — see [Storage Migration](../../storage/migration/)
 
 ## Exit Execution Plan
@@ -180,4 +181,5 @@ Situations that would trigger an Exit:
 
 - [CNCF Cloud Native Trail Map](https://landscape.cncf.io/)
 - [EU DORA (Digital Operational Resilience Act)](https://www.eiopa.europa.eu/digital-operational-resilience-act-dora_en)
+- [ESAs CTPP Designation and Oversight Framework](https://www.esma.europa.eu/dora-oversight) — first CTPP designation list published November 2025
 - [Martin Fowler — Strangler Fig Application](https://martinfowler.com/bliki/StranglerFigApplication.html)

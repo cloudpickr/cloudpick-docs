@@ -3,7 +3,7 @@ title: "管理型RDB"
 description: "管理型RDBとクラウドネイティブDBの違い、HA構成、PITRをベンダー別に比較します。"
 ---
 
-> 文書基準: 2026年6月
+> 文書基準: 2026年8月
 
 ## 概要
 
@@ -39,10 +39,11 @@ DB選択後の運用 — スケーリングパターン、クエリ性能、キ�
 | --- | --- | --- | --- |
 | AWS | RDS | 管理型 | MySQL、PostgreSQL、MariaDB、Oracle、SQL Server |
 | AWS | Aurora | **ネイティブ** | MySQL/PostgreSQL互換。独自設計の分散ストレージ |
+| AWS | Aurora DSQL | **ネイティブ** | PostgreSQL互換の分散SQL。サーバーレス。単一リージョン99.99%・マルチリージョン99.999%の可用性設計。GA（2025.05）。CDC対応GA（2026.07） |
 | Azure | Azure SQL Database | 管理型 | SQL Serverベース |
 | Azure | Azure Database for MySQL/PostgreSQL | 管理型 | オープンソースエンジン管理型 |
 | Google Cloud | Cloud SQL | 管理型 | MySQL、PostgreSQL、SQL Server |
-| Google Cloud | AlloyDB | **ネイティブ** | PostgreSQL互換。独自設計。ベクトル検索内蔵 |
+| Google Cloud | AlloyDB | **ネイティブ** | PostgreSQL互換。独自設計。ベクトル検索内蔵。AlloyDB Omni（K8s Operator 1.7.0 GA）でオンプレミス/マルチクラウドデプロイ対応。PostgreSQL 18互換 |
 | OCI | Autonomous Database | **ネイティブ** | Oracle DBベース。自動チューニング/パッチ/スケーリング |
 | OCI | MySQL HeatWave | 管理型 | MySQL互換。OLTP + OLAP統合処理 |
 
@@ -65,6 +66,7 @@ DB選択後の運用 — スケーリングパターン、クエリ性能、キ�
 | タイプ | ベンダー | 製品 | マルチリージョン書き込み | 一貫性 |
 | --- | --- | --- | --- | --- |
 | **RDB** | AWS | Aurora Global Database | — (読み取りのみ分散、書き込みは単一リージョン) | 強い一貫性(プライマリ) |
+| **RDB** | AWS | Aurora DSQL | サポート（アクティブ-アクティブ マルチリージョン） | 強い一貫性（分散トランザクション） |
 | **RDB** | Google Cloud | Spanner | サポート | 強い一貫性(グローバルトランザクション) |
 | **NoSQL** | Azure | Cosmos DB | サポート | 5段階のレベル選択可能 |
 | **NoSQL** | AWS | DynamoDB Global Tables | サポート | 結果整合性(リージョン間) |
@@ -93,7 +95,7 @@ DB選択後の運用 — スケーリングパターン、クエリ性能、キ�
 
 **Azure SQL Database** — SQL Serverベース。既存のSQL Serverワークロードを最も容易にマイグレーションできます。Hyperscaleティアで100TBまで拡張。
 
-**Google Cloud AlloyDB** — PostgreSQL互換。ベクトル検索が内蔵されており、AIワークロードとの統合が強みです。
+**Google Cloud AlloyDB** — PostgreSQL互換。ベクトル検索が内蔵されており、AIワークロードとの統合が強みです。AlloyDB Omniにより、オンプレミスやマルチクラウド（GDC含む）環境にもデプロイ可能で、PostgreSQL 18互換と透過的データ暗号化（TDE）をサポートします。
 
 **OCI Autonomous Database** — Oracle DBベース。自動チューニング、自動パッチ、自動スケーリング。MySQL HeatWaveによるOLTP+OLAP統合処理もサポートします。
 
@@ -104,7 +106,7 @@ Oracleは自社データベースを競合他社のデータセンター内に�
 | サービス | 配置場所 | 特徴 |
 | --- | --- | --- |
 | [Oracle Database@Azure](https://www.oracle.com/cloud/azure/) | Azure DC | Azure Portalからネイティブプロビジョニング |
-| [Oracle Database@AWS](https://www.oracle.com/cloud/aws/) | AWS DC | AWSコンソールから直接プロビジョニング。Oracle Autonomous AI Database Serverless GA(2026.06)。DB@AWS全20リージョン |
+| [Oracle Database@AWS](https://www.oracle.com/cloud/aws/) | AWS DC | AWSコンソールから直接プロビジョニング。Oracle AI Database@AWSにリブランディング。22リージョンに拡大（2026.08）。シンガポール・ミラノ追加 |
 | [Oracle Database@Google Cloud](https://www.oracle.com/cloud/google/) | Google Cloud DC | Google Cloudコンソールから直接使用 |
 
 アプリとDBが同一データセンターにあるため、レイテンシ最小化、イグレスコストなし、データ主権の充足が可能です。

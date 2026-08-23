@@ -3,7 +3,7 @@ title: "Infrastructure as Code (IaC)"
 description: "Covers IaC concepts, comparisons of vendor-native and multicloud tools, and Terraform state management and module design."
 ---
 
-> Last reviewed: May 2026
+> Last reviewed: August 2026
 
 ## Overview
 
@@ -39,8 +39,8 @@ Creating infrastructure with console clicks is fast, but it's not reproducible a
 
 | Product | Language | Notes |
 | --- | --- | --- |
-| Terraform / OpenTofu | HCL (HashiCorp Configuration Language) | Most widely used. Supports every vendor |
-| Pulumi | TypeScript, Python, Go, C#, Java | Uses general-purpose programming languages. Easy to test |
+| Terraform / OpenTofu | HCL (HashiCorp Configuration Language) | Most widely used. Supports every vendor. Terraform 1.15 / OpenTofu 1.13 (as of 2026) |
+| Pulumi | TypeScript, Python, Go, C#, Java | Uses general-purpose programming languages. Easy to test. Pulumi Neo (agentic infrastructure) launched |
 | Crossplane | Kubernetes YAML | Manages cloud resources from a K8s cluster |
 
 ### Unified Resource Management API
@@ -58,11 +58,13 @@ Because Terraform can use Cloud Control API as the backend for new AWS resources
 
 ## Key Differences
 
-**AWS CloudFormation / CDK** — Integrates fastest with AWS services. CloudFormation support is typically the first to arrive when a new service launches. CDK can leverage a programming language's conditionals, loops, and abstractions, making it advantageous for managing large-scale infrastructure.
+**AWS CloudFormation / CDK** — Integrates fastest with AWS services. CloudFormation support is typically the first to arrive when a new service launches. CDK can leverage a programming language's conditionals, loops, and abstractions, making it advantageous for managing large-scale infrastructure. CDK Mixins GA (Mar 2026) makes composing reusable infrastructure patterns easier. CDK v2 remains current, with the Construct Library and CLI split into separate packages.
 
 **Azure Bicep** — Replaces the complex JSON of ARM Templates with a concise DSL. The VS Code extension provides autocomplete and validation.
 
-**Terraform** — The de facto standard in multicloud environments. A single language (HCL) can manage AWS, Azure, and Google Cloud all at once. Requires state file management.
+**Terraform** — The de facto standard in multicloud environments. A single language (HCL) can manage AWS, Azure, and Google Cloud all at once. Requires state file management. The latest stable version is 1.15, adding dynamic module sources (variables in source/version fields), a formal variable/output deprecation mechanism, inline type conversion functions, and Windows ARM64 support.
+
+**OpenTofu** — An MPL-2.0 open-source fork of Terraform and CNCF Sandbox project (joined Apr 2025). The latest stable version is 1.13. It independently develops differentiating features such as state file encryption, early variable evaluation, and ephemeral values, while maintaining high compatibility with Terraform HCL.
 
 **OCI Resource Manager** — A Terraform-based managed IaC service that lets you operate state file management and resource provisioning together from the OCI console.
 

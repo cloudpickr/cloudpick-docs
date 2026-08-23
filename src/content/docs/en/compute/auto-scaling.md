@@ -3,7 +3,7 @@ title: "Auto Scaling"
 description: "Compares VM auto scaling, predictive scaling, and application-level scaling across vendors."
 ---
 
-> Last reviewed: May 2026
+> Last reviewed: August 2026
 
 ## Overview
 

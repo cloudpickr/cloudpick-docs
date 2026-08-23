@@ -3,7 +3,7 @@ title: "Secrets Management"
 description: "Compares secrets management, KMS, and certificate management services across vendors, and explains automated rotation and external tool integration."
 ---
 
-> Last reviewed: May 2026
+> Last reviewed: August 2026
 
 ## Overview
 
@@ -50,11 +50,11 @@ Services that manage the keys used to encrypt secrets.
 
 ## Key Differences
 
-**AWS** — offers two options: Secrets Manager and Parameter Store. Use Secrets Manager when automatic rotation is needed, and Parameter Store (free) for simple configuration value storage.
+**AWS** — offers two options: Secrets Manager and Parameter Store. Use Secrets Manager when automatic rotation is needed, and Parameter Store (free) for simple configuration value storage. Since 2025–2026, the Managed External Secrets feature provides standardized management and automated rotation for third-party credentials (Salesforce, MongoDB Atlas, Confluent Cloud, Jenkins, etc.).
 
 **Azure** — manages secrets, encryption keys, and certificates all through a single Key Vault. Management is simpler since the services aren't split apart.
 
-**Google Cloud** — Secret Manager provides version management by default, letting you track secret change history and roll back to a previous version.
+**Google Cloud** — Secret Manager provides version management by default, letting you track secret change history and roll back to a previous version. It also natively supports rotation schedules — set the rotation frequency, and Secret Manager sends Pub/Sub notifications that trigger Cloud Functions to perform the actual rotation.
 
 **OCI** — Vault manages secrets and encryption keys together in one service, with a choice between HSM keys and software keys. Fine-grained access control is possible via IAM policies.
 
@@ -79,9 +79,9 @@ Periodically and automatically changing secrets minimizes damage in the event of
 
 | Vendor | Automatic rotation support |
 | --- | --- |
-| AWS Secrets Manager | Native rotation for RDS, DocumentDB, Redshift. Custom rotation functions can be written with Lambda |
+| AWS Secrets Manager | Native rotation for RDS, DocumentDB, Redshift. Custom rotation functions can be written with Lambda. Managed External Secrets extends automated rotation to third-party credentials (Salesforce, MongoDB Atlas, Confluent Cloud, Jenkins, etc.) |
 | Azure Key Vault | Automatic certificate renewal. Secret rotation is implemented via Event Grid + Function App |
-| Google Cloud Secret Manager | Provides only secret version management. Rotation logic is implemented with Cloud Scheduler + Cloud Function |
+| Google Cloud Secret Manager | Natively supports rotation schedules — set the rotation frequency and time, and Secret Manager sends notifications to a Pub/Sub topic. A subscribing Cloud Function executes the actual rotation logic |
 | OCI Vault | Supports secret rotation (native for Autonomous DB, MySQL). Custom rotation via Function |
 
 ### External Secret Store Integration
@@ -90,7 +90,7 @@ When using an external secrets management solution such as HashiCorp Vault or Cy
 
 | Integration method | Description |
 | --- | --- |
-| **External Secrets Operator** | Automatically syncs secrets from a cloud vendor's secret store (AWS Secrets Manager, Azure Key Vault, etc.) into a Kubernetes Secret |
+| **External Secrets Operator** | Automatically syncs secrets from a cloud vendor's secret store (AWS Secrets Manager, Azure Key Vault, etc.) into a Kubernetes Secret. Has reached v1.x GA for production stability |
 | **HashiCorp Vault Dynamic Secrets** | Vault dynamically generates AWS IAM or DB credentials |
 | **CSI Secret Store Driver** | Mounts secrets as files into Kubernetes pods |
 

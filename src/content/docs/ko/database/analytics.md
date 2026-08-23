@@ -3,7 +3,7 @@ title: "데이터 분석 플랫폼"
 description: "데이터 웨어하우스, 데이터 레이크하우스, 분석 플랫폼을 벤더별로 비교합니다."
 ---
 
-> 문서 기준: 2026년 5월
+> 문서 기준: 2026년 8월
 
 ## 개요
 
@@ -36,11 +36,11 @@ description: "데이터 웨어하우스, 데이터 레이크하우스, 분석 �
 
 ### 핵심 차이점
 
-**BigQuery (Google Cloud)** — 완전 서버리스로 클러스터 관리가 불필요합니다. 쿼리 스캔 데이터량 기반 과금이며, BigQuery ML로 SQL 기반 ML 학습을 지원합니다.
+**BigQuery (Google Cloud)** — 완전 서버리스로 클러스터 관리가 불필요합니다. 쿼리 스캔 데이터량 기반 과금이며, BigQuery ML로 SQL 기반 ML 학습을 지원합니다. Gemini 3.1 Flash Lite / 3.5 Flash 모델이 GA되어 생성형 AI 함수에서 직접 사용할 수 있으며, Conversational Analytics(프리뷰)로 자연어 기반 데이터 분석이 가능합니다. MCP(Model Context Protocol) 통합으로 에이전트 기반 분석 워크플로우를 구축할 수 있습니다.
 
-**Redshift (AWS)** — 클러스터 기반과 Serverless 옵션을 모두 제공합니다. S3의 데이터를 Redshift Spectrum으로 직접 쿼리할 수 있어 데이터 레이크와 통합이 용이합니다.
+**Redshift (AWS)** — 클러스터 기반과 Serverless 옵션을 모두 제공합니다. S3의 데이터를 Redshift Spectrum으로 직접 쿼리할 수 있어 데이터 레이크와 통합이 용이합니다. Serverless에서 AI 기반 자동 스케일링이 신규 워크그룹의 기본값으로 적용됩니다(2026.04). 3년 예약(Serverless Reservations)으로 비용을 추가 절감할 수 있습니다. 스냅샷 복원 시 zero-ETL/S3 이벤트 통합이 자동 보존됩니다(2026.07).
 
-**Synapse (Azure)** — SQL 분석, Apache Spark, Data Explorer를 하나의 플랫폼에서 제공합니다. 서버리스 SQL 풀로 데이터 레이크를 직접 쿼리할 수 있으며, Power BI와 네이티브 통합됩니다.
+**Synapse (Azure)** — SQL 분석, Apache Spark, Data Explorer를 하나의 플랫폼에서 제공합니다. 서버리스 SQL 풀로 데이터 레이크를 직접 쿼리할 수 있으며, Power BI와 네이티브 통합됩니다. Microsoft Fabric으로의 통합이 진행 중이며, Fabric은 VS Code 통합 강화, 노트북 복원력 개선, ML·거버넌스 기능 확장, 실시간 데이터 처리 등 지속적으로 기능을 추가하고 있습니다(Fabric April 2026 Feature Summary 등).
 
 **Autonomous DW (OCI)** — Oracle Database 기반으로 자동 튜닝, 자동 스케일링을 제공합니다. 기존 Oracle 워크로드와 호환성이 높습니다.
 

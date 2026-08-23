@@ -3,7 +3,7 @@ title: "シークレット管理"
 description: "シークレット管理、KMS、証明書管理サービスをベンダー別に比較し、自動ローテーションと外部ツール連携について説明します。"
 ---
 
-> 文書基準: 2026年5月
+> 文書基準: 2026年8月
 
 ## 概要
 
@@ -50,11 +50,11 @@ description: "シークレット管理、KMS、証明書管理サービスをベ
 
 ## 主な違い
 
-**AWS** — Secrets ManagerとParameter Storeの2つの選択肢があります。自動ローテーションが必要ならSecrets Manager、単純な設定値の保存であればParameter Store(無料)が適しています。
+**AWS** — Secrets ManagerとParameter Storeの2つの選択肢があります。自動ローテーションが必要ならSecrets Manager、単純な設定値の保存であればParameter Store(無料)が適しています。2025〜2026年にManaged External Secrets機能が追加され、Salesforce、MongoDB Atlas、Confluent Cloud、Jenkinsなどサードパーティの認証情報も標準化された管理と自動ローテーションに対応しています。
 
 **Azure** — Key Vault一つでシークレット、暗号化鍵、証明書をすべて管理します。サービスが分かれていないため、管理がシンプルです。
 
-**Google Cloud** — Secret Managerがバージョン管理を標準で提供しており、シークレットの変更履歴を追跡し、以前のバージョンへロールバックできます。
+**Google Cloud** — Secret Managerがバージョン管理を標準で提供しており、シークレットの変更履歴を追跡し、以前のバージョンへロールバックできます。ローテーションスケジュールもネイティブで設定可能で、指定周期ごとにPub/Sub通知を送信し、Cloud Functionでローテーションを実行するパターンを容易に実装できます。
 
 **OCI** — Vault一つでシークレットと暗号化鍵を統合管理し、HSM鍵とソフトウェア鍵を選択できます。IAMポリシーによってきめ細かなアクセス制御が可能です。
 
@@ -79,9 +79,9 @@ description: "シークレット管理、KMS、証明書管理サービスをベ
 
 | ベンダー | 自動ローテーション対応 |
 | --- | --- |
-| AWS Secrets Manager | RDS、DocumentDB、Redshiftのネイティブローテーション。Lambdaでカスタムローテーション関数を作成可能 |
+| AWS Secrets Manager | RDS、DocumentDB、Redshiftのネイティブローテーション。Lambdaでカスタムローテーション関数を作成可能。Managed External Secretsによりサードパーティ（Salesforce、MongoDB Atlas、Confluent Cloud、Jenkinsなど）の認証情報も自動ローテーション対応 |
 | Azure Key Vault | 証明書の自動更新。シークレットはEvent Grid + Function Appでローテーションを実装 |
-| Google Cloud Secret Manager | シークレットのバージョン管理のみ提供。ローテーションロジックはCloud Scheduler + Cloud Functionで実装 |
+| Google Cloud Secret Manager | ローテーションスケジュールをネイティブサポート — ローテーション周期と時間を設定すると、Pub/Subトピックへ通知を送信。Cloud Functionがサブスクライブして実際のローテーションロジックを実行するパターン |
 | OCI Vault | Secret Rotation対応 (Autonomous DB、MySQLネイティブ)。Functionでカスタムローテーション |
 
 ### 外部シークレットストアとの連携
@@ -90,7 +90,7 @@ HashiCorp Vault、CyberArkなど外部のシークレット管理ソリューシ
 
 | 統合方式 | 説明 |
 | --- | --- |
-| **External Secrets Operator** | クラウドベンダーのシークレットストア(AWS Secrets Manager、Azure Key Vaultなど)のシークレットをKubernetes Secretへ自動同期 |
+| **External Secrets Operator** | クラウドベンダーのシークレットストア(AWS Secrets Manager、Azure Key Vaultなど)のシークレットをKubernetes Secretへ自動同期。v1.x GAに到達し本番安定性を確保 |
 | **HashiCorp Vault Dynamic Secrets** | VaultがAWS IAM、DB認証情報を動的に生成 |
 | **CSI Secret Store Driver** | Kubernetes Podにシークレットをファイルとしてマウント |
 

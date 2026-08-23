@@ -16,10 +16,10 @@ description: "Hub-and-Spokeなどのトランジットアーキテクチャ、Cr
 中央にハブを置き、各クラウドをスポークとして接続するパターンです。
 
 ```mermaid
-graph TD
-    Hub[Hub VPC / Transit] --> AWS[AWS Spoke]
+flowchart TD
+    Hub[Hub VPC · Transit] --> AWS[AWS Spoke]
     Hub --> Azure[Azure Spoke]
-    Hub --> Google Cloud[Google Cloud Spoke]
+    Hub --> GCP[Google Cloud Spoke]
     Hub --> OCI[OCI Spoke]
 ```
 

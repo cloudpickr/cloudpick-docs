@@ -1,5 +1,5 @@
 ---
-title: "미국 가이드"
+title: "미국 개요"
 description: "FedRAMP, HIPAA, ITAR/EAR 등 미국 시장 진출·운영에 필요한 규제 개요와 상세 문서로 안내합니다."
 ---
 

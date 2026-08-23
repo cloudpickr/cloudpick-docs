@@ -1,5 +1,5 @@
 ---
-title: "Korea Guide"
+title: "Korea Overview"
 description: "Guides specific to the Korean market — CSAP, network separation, sovereign AI policy, and domestic FM providers"
 ---
 

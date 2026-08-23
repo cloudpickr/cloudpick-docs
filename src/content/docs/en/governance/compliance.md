@@ -21,7 +21,7 @@ For background on the shared responsibility model, see [Shared Responsibility Mo
 
 Public procurement certifications, personal data protection laws, and industry-specific regulations vary by country and region, directly affecting architectural decisions such as region selection, data residency, and isolation level. Country-specific details are covered in the relevant country document.
 
-- **Korea** — ISMS-P, CSAP, financial-sector/network segregation, sovereign FM: [Korea guide](../../korea/) · [Compliance (Korea)](../../korea/governance/compliance/)
+- **Korea** — ISMS-P, CSAP, financial-sector/network segregation, sovereign FM: [Korea overview](../../korea/) · [Compliance (Korea)](../../korea/governance/compliance/)
 - **United States** — FedRAMP, HIPAA, ITAR/EAR, state privacy laws, AI policy: [US overview](../../us/)
 - **EU** — GDPR and data sovereignty, DORA, NIS2 and the AI Act, member-state schemes, sovereign AI: [EU overview](../../eu/)
 - **Japan** — ISMAP, APPI, Government Cloud, AI landscape: [Japan overview](../../japan/)

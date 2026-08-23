@@ -1,5 +1,5 @@
 ---
-title: "EUガイド"
+title: "EU概要"
 description: "EU市場への進出・運用を検討するエンタープライズアーキテクトのためのGDPR・DORA・NIS2・AI法規制ガイド"
 ---
 

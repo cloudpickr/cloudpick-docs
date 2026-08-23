@@ -1,5 +1,5 @@
 ---
-title: "米国ガイド"
+title: "米国概要"
 description: "FedRAMP、HIPAA、ITAR/EARなど、米国市場への進出・運用に必要な規制の概要と詳細ドキュメントへご案内します。"
 ---
 

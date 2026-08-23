@@ -1,5 +1,5 @@
 ---
-title: "EU Guide"
+title: "EU Overview"
 description: "A regulatory guide to GDPR, DORA, NIS2, and the EU AI Act for enterprise architects evaluating market entry and operations in the EU."
 ---
 

@@ -21,7 +21,7 @@ description: "ISO 27001, SOC 2 등 글로벌 클라우드 규정 준수 인증�
 
 국가·지역마다 공공 조달 인증, 개인정보 보호법, 산업별 규제가 다르며, 리전 선택·데이터 레지던시·격리 수준 같은 아키텍처 결정에 직접 영향을 줍니다. 국가별 상세는 해당 국가 문서에서 다룹니다.
 
-- **한국** — ISMS-P, CSAP, 금융·망분리, 소버린 FM: [한국 가이드](../../korea/index/) · [컴플라이언스 (한국)](../../korea/governance/compliance/)
+- **한국** — ISMS-P, CSAP, 금융·망분리, 소버린 FM: [한국 개요](../../korea/index/) · [컴플라이언스 (한국)](../../korea/governance/compliance/)
 - **미국** — FedRAMP, HIPAA, ITAR/EAR, 주 프라이버시법, AI 정책: [미국 개요](../../us/index/)
 - **EU** — GDPR·데이터 주권, DORA, NIS2·AI Act, 회원국 스킴, 소버린 AI: [EU 개요](../../eu/index/)
 - **일본** — ISMAP, APPI, 가버먼트 클라우드, AI 지형: [일본 개요](../../japan/index/)

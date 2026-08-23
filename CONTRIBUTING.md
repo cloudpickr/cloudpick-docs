@@ -106,7 +106,7 @@ Starlight 문법을 사용합니다:
 
 - 글로벌 `governance/compliance.md`, `security/network-isolation.md` 등은 **개념·공통 패턴**.
 - 국가 문서는 **규제 레이어**. 첫 문단에서 글로벌 문서를 링크합니다.
-- 국가 index 페이지 title은 `[국가명] 가이드` / `[Country] Guide` / `[国名]ガイド` 패턴을 따릅니다.
+- 국가 index 페이지 title은 `[국가명] 개요` / `[Country] Overview` / `[国名]概要` 패턴을 따릅니다.
 
 ## 로컬 검증
 

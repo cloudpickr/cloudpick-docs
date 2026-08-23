@@ -1,5 +1,5 @@
 ---
-title: "한국 가이드"
+title: "한국 개요"
 description: "한국 환경 특화 가이드 — CSAP, 망분리, 소버린 AI 정책, 국산 FM 제공사"
 ---
 

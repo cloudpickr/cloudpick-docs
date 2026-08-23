@@ -1,5 +1,5 @@
 ---
-title: "Singapore Guide"
+title: "Singapore Overview"
 description: "A Singapore market-specific guide covering the MTCS cloud security standard and the PDPA data protection law"
 ---
 

@@ -127,11 +127,11 @@ description: "물리적·논리적 망분리 개념, 클라우드에서의 네�
 flowchart TB
     subgraph VPC["VPC (프로덕션)"]
         subgraph pub["Public Subnet"]
-            ALB[ALB / WAF]
+            ALB[ALB · WAF]
         end
         subgraph priv["Private Subnet"]
             APP[앱 서버]
-            DB[DB / 내부 API]
+            DB[DB · 내부 API]
         end
         subgraph ep["VPC Endpoint"]
             S3EP[S3]

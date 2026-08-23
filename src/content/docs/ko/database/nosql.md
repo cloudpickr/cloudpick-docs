@@ -95,7 +95,7 @@ flowchart TD
     A[NoSQL 필요] --> B{데이터 구조?}
     B -->|Key-Value| C{지연시간 < 1ms?}
     B -->|문서 JSON| D[DynamoDB / Cosmos DB<br/>Firestore / NoSQL DB]
-    B -->|넓은 열 Wide-Column| E[Bigtable / Cassandra 호환]
+    B -->|넓은 열 Wide-Column| E[Bigtable · Cassandra 호환]
     B -->|그래프 관계| F[Neptune / Cosmos DB Gremlin<br/>Neo4j]
     C -->|예| G[인메모리 캐시<br/>ElastiCache / Memorystore]
     C -->|아니오| D

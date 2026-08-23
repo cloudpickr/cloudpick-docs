@@ -17,7 +17,7 @@ Security incident response **cannot be prepared for after an incident has occurr
 
 ```mermaid
 graph LR
-    A[Detection] --> B[Classification/Severity Assessment] --> C[Isolation] --> D[Evidence Preservation] --> E[Eradication/Recovery] --> F[Post-mortem]
+    A[Detection] --> B[Classification·Severity Assessment] --> C[Isolation] --> D[Evidence Preservation] --> E[Eradication·Recovery] --> F[Post-mortem]
 ```
 
 | Stage | Activity | Cloud-specific points |

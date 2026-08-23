@@ -127,11 +127,11 @@ description: "物理的・論理的な網分離の概念、クラウドにおけ
 flowchart TB
     subgraph VPC["VPC (プロダクション)"]
         subgraph pub["Public Subnet"]
-            ALB[ALB / WAF]
+            ALB[ALB · WAF]
         end
         subgraph priv["Private Subnet"]
             APP[アプリサーバー]
-            DB[DB / 内部API]
+            DB[DB · Internal API]
         end
         subgraph ep["VPC Endpoint"]
             S3EP[S3]

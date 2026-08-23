@@ -97,7 +97,7 @@ Detects security misconfigurations before deployment in [infrastructure code](..
 
 ```mermaid
 graph LR
-    A[PR opened] --> B[Checkov/tfsec scan]
+    A[PR opened] --> B[Checkov·tfsec scan]
     B -->|Violation| C[PR blocked]
     C --> D[Fix and rescan]
     D --> B

@@ -75,7 +75,7 @@ Keep data in each cloud, and query multiple sources simultaneously at query time
 
 ```mermaid
 graph LR
-    U[Operator/query] --> F[Query federation layer]
+    U[Operator·query] --> F[Query federation layer]
     F --> A[AWS logs]
     F --> B[Azure logs]
     F --> G[Google Cloud logs]

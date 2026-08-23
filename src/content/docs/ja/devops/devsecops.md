@@ -97,7 +97,7 @@ Terraform、CloudFormation、Bicepなどの[インフラコード](../../devops/
 
 ```mermaid
 graph LR
-    A[PR作成] --> B[Checkov/tfsecスキャン]
+    A[PR作成] --> B[Checkov·tfsec scan]
     B -->|違反| C[PRブロック]
     C --> D[修正後再スキャン]
     D --> B

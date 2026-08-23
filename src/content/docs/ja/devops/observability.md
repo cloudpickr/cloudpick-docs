@@ -75,7 +75,7 @@ graph LR
 
 ```mermaid
 graph LR
-    U[運用者/クエリ] --> F[クエリ連合層]
+    U[運用者·クエリ] --> F[クエリ連合層]
     F --> A[AWSログ]
     F --> B[Azureログ]
     F --> G[Google Cloudログ]

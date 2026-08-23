@@ -75,7 +75,7 @@ graph LR
 
 ```mermaid
 graph LR
-    U[운영자/쿼리] --> F[쿼리 연합 계층]
+    U[운영자·쿼리] --> F[쿼리 연합 계층]
     F --> A[AWS 로그]
     F --> B[Azure 로그]
     F --> G[Google Cloud 로그]

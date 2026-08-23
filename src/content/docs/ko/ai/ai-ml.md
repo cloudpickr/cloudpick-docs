@@ -128,7 +128,7 @@ description: "벤더별 AI 플랫폼, 모델 카탈로그, GPU/AI 칩, Applied A
 
 ```mermaid
 graph LR
-    A[데이터 수집] --> B[데이터 준비/라벨링]
+    A[데이터 수집] --> B[데이터 준비·라벨링]
     B --> C[피처 엔지니어링]
     C --> D[모델 학습]
     D --> E[평가]

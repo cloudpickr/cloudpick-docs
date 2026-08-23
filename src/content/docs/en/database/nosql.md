@@ -95,7 +95,7 @@ flowchart TD
     A[NoSQL needed] --> B{Data structure?}
     B -->|Key-Value| C{Latency < 1ms?}
     B -->|JSON document| D[DynamoDB / Cosmos DB<br/>Firestore / NoSQL DB]
-    B -->|Wide-column| E[Bigtable / Cassandra-compatible]
+    B -->|Wide-column| E[Bigtable · Cassandra compatible]
     B -->|Graph relationship| F[Neptune / Cosmos DB Gremlin<br/>Neo4j]
     C -->|Yes| G[In-memory cache<br/>ElastiCache / Memorystore]
     C -->|No| D

@@ -116,7 +116,7 @@ For organizations that need to train and deploy their own models.
 
 ```mermaid
 graph LR
-    A[Data Collection] --> B[Data Prep/Labeling]
+    A[Data Collection] --> B[Data Prep·Labeling]
     B --> C[Feature Engineering]
     C --> D[Model Training]
     D --> E[Evaluation]

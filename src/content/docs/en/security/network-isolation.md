@@ -127,11 +127,11 @@ Most financial/public sector workloads don't require going as far as air-gapping
 flowchart TB
     subgraph VPC["VPC (Production)"]
         subgraph pub["Public Subnet"]
-            ALB[ALB / WAF]
+            ALB[ALB · WAF]
         end
         subgraph priv["Private Subnet"]
             APP[App server]
-            DB[DB / internal API]
+            DB[DB · Internal API]
         end
         subgraph ep["VPC Endpoint"]
             S3EP[S3]

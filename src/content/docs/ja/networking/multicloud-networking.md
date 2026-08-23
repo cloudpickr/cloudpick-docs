@@ -86,9 +86,9 @@ Cloud Exchangeは1本の物理接続で複数のクラウドに同時接続で�
 
 ```mermaid
 graph LR
-    AWS[AWS DX] --> IX[Cloud Exchange / IX]
+    AWS[AWS DX] --> IX[Cloud Exchange · IX]
     Azure[Azure ER] --> IX
-    Google Cloud[Google Cloud CI] --> IX
+    GCP[Google Cloud CI] --> IX
     OCI[OCI FC] --> IX
 ```
 

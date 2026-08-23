@@ -85,7 +85,7 @@ Martin Fowler가 제시한 패턴으로, 거대한 모놀리식 애플리케이�
 
 ```mermaid
 graph TD
-    U[사용자] --> P[라우팅 프록시/API Gateway]
+    U[사용자] --> P[라우팅 프록시·API Gateway]
     P -->|신규 기능| N[새 마이크로서비스]
     P -->|기존 기능| L[레거시 모놀리식]
     N -.점진적 확장.-> L

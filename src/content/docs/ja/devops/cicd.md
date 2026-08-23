@@ -34,7 +34,7 @@ CI/CDパイプラインは、コードがプロダクションに到達する前
 
 ```mermaid
 flowchart LR
-    D[🖥️ Dev\n開発/実験]
+    D[🖥️ Dev\n開発·実験]
     S[🔬 Staging\n統合検証]
     P[🚀 Prod\n実サービス]
 

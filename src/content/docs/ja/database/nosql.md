@@ -95,7 +95,7 @@ flowchart TD
     A[NoSQLが必要] --> B{データ構造は?}
     B -->|Key-Value| C{レイテンシ < 1ms?}
     B -->|ドキュメント（JSON）| D[DynamoDB / Cosmos DB<br/>Firestore / NoSQL DB]
-    B -->|ワイドカラム（Wide-Column）| E[Bigtable / Cassandra互換]
+    B -->|ワイドカラム（Wide-Column）| E[Bigtable · Cassandra compatible]
     B -->|グラフ（関係）| F[Neptune / Cosmos DB Gremlin<br/>Neo4j]
     C -->|はい| G[インメモリキャッシュ<br/>ElastiCache / Memorystore]
     C -->|いいえ| D

@@ -34,7 +34,7 @@ CI/CD 파이프라인은 코드가 프로덕션에 도달하기 전에 여러 �
 
 ```mermaid
 flowchart LR
-    D[🖥️ Dev\n개발/실험]
+    D[🖥️ Dev\n개발·실험]
     S[🔬 Staging\n통합 검증]
     P[🚀 Prod\n실제 서비스]
 

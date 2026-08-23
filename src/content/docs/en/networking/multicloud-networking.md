@@ -86,9 +86,9 @@ A Cloud Exchange is a service that lets you connect to multiple clouds simultane
 
 ```mermaid
 graph LR
-    AWS[AWS DX] --> IX[Cloud Exchange / IX]
+    AWS[AWS DX] --> IX[Cloud Exchange · IX]
     Azure[Azure ER] --> IX
-    Google Cloud[Google Cloud CI] --> IX
+    GCP[Google Cloud CI] --> IX
     OCI[OCI FC] --> IX
 ```
 

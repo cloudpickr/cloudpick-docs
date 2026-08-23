@@ -34,7 +34,7 @@ CI/CD pipelines route code through multiple environments before it reaches produ
 
 ```mermaid
 flowchart LR
-    D[🖥️ Dev\nDevelopment/experimentation]
+    D[🖥️ Dev\nDevelopment·experimentation]
     S[🔬 Staging\nIntegration validation]
     P[🚀 Prod\nLive service]
 

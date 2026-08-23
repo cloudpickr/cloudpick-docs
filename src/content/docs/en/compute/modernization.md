@@ -85,7 +85,7 @@ A pattern introduced by Martin Fowler in which a large monolithic application is
 
 ```mermaid
 graph TD
-    U[User] --> P[Routing proxy/API Gateway]
+    U[User] --> P[Routing proxy·API Gateway]
     P -->|New feature| N[New microservice]
     P -->|Existing feature| L[Legacy monolith]
     N -.Gradual expansion.-> L

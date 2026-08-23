@@ -97,7 +97,7 @@ Terraform, CloudFormation, Bicep 등 [인프라 코드](../../devops/iac/)에서
 
 ```mermaid
 graph LR
-    A[PR 생성] --> B[Checkov/tfsec 스캔]
+    A[PR 생성] --> B[Checkov·tfsec 스캔]
     B -->|위반| C[PR 블록]
     C --> D[수정 후 재스캔]
     D --> B

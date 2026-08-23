@@ -1,29 +1,33 @@
-name: Starlight Build
+name: Build
 
 on:
   pull_request:
     paths:
-      - "starlight/**"
+      - "src/**"
+      - "public/**"
+      - "astro.config.mjs"
+      - "package.json"
+      - "package-lock.json"
       - ".github/workflows/starlight-build.yml"
   push:
     branches: [master, main]
     paths:
-      - "starlight/**"
+      - "src/**"
+      - "public/**"
+      - "astro.config.mjs"
+      - "package.json"
+      - "package-lock.json"
       - ".github/workflows/starlight-build.yml"
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: starlight
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
           cache: npm
-          cache-dependency-path: starlight/package-lock.json
       - name: Install
         run: npm ci
       - name: Build

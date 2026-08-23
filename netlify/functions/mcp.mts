@@ -240,20 +240,39 @@ async function handleJsonRpc(request: JsonRpcRequest) {
   }
 }
 
-// ─── Rate Limit (IP당 분 30회) ───
+// ─── Rate Limit (클라이언트별 분 30회) ───
+// MCP session-id > IP 순으로 클라이언트를 식별.
+// NAT 뒤 다수 사용자도 세션별로 구분됩니다.
 
 const RATE_LIMIT_WINDOW_MS = 60_000;
 const RATE_LIMIT_MAX = 30;
 const rateLimitMap = new Map<string, { count: number; resetAt: number }>();
 
-function checkRateLimit(ip: string): boolean {
+function getRateLimitKey(req: Request): string {
+  // 1순위: MCP 세션 ID (클라이언트별 고유)
+  const sessionId = req.headers.get("mcp-session-id");
+  if (sessionId) return `session:${sessionId}`;
+  // 2순위: IP (fallback)
+  const ip = req.headers.get("x-nf-client-connection-ip")
+    || req.headers.get("x-forwarded-for")?.split(",")[0]?.trim()
+    || "unknown";
+  return `ip:${ip}`;
+}
+
+function checkRateLimit(key: string): boolean {
   const now = Date.now();
-  let entry = rateLimitMap.get(ip);
+  let entry = rateLimitMap.get(key);
   if (!entry || now >= entry.resetAt) {
     entry = { count: 0, resetAt: now + RATE_LIMIT_WINDOW_MS };
-    rateLimitMap.set(ip, entry);
+    rateLimitMap.set(key, entry);
   }
   entry.count++;
+  // 오래된 항목 정리 (메모리 누수 방지)
+  if (rateLimitMap.size > 10_000) {
+    for (const [k, v] of rateLimitMap) {
+      if (now >= v.resetAt) rateLimitMap.delete(k);
+    }
+  }
   return entry.count <= RATE_LIMIT_MAX;
 }
 
@@ -274,11 +293,9 @@ export default async function handler(req: Request): Promise<Response> {
     return new Response(null, { status: 204, headers });
   }
 
-  // Rate limit 체크
-  const clientIp = req.headers.get("x-nf-client-connection-ip")
-    || req.headers.get("x-forwarded-for")?.split(",")[0]?.trim()
-    || "unknown";
-  if (!checkRateLimit(clientIp)) {
+  // Rate limit 체크 (세션 ID 우선, IP fallback)
+  const rateLimitKey = getRateLimitKey(req);
+  if (!checkRateLimit(rateLimitKey)) {
     return new Response(
       JSON.stringify(jsonRpcError(null, -32000, "Rate limit exceeded. Max 30 requests/min.")),
       { status: 429, headers: { ...headers, "retry-after": "60" } },

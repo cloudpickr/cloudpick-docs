@@ -5,7 +5,11 @@
  * - POST /mcp: JSON-RPC 요청 처리
  * - GET /mcp: 서버 정보
  * - DELETE /mcp: 세션 종료 (stateless이므로 204)
+ *
+ * 문서 데이터는 Netlify Blobs에서 로드합니다 (빌드 시 업로드됨).
  */
+
+import { getStore } from "@netlify/blobs";
 
 // ─── 문서 파싱 ───
 
@@ -14,9 +18,9 @@ interface DocSection {
   content: string;
 }
 
-const DOCS_BASE_URL = process.env.DOCS_BASE_URL || "https://docs.cloudpick.kr";
+const BLOB_STORE_NAME = "mcp-docs";
+const BLOB_KEY = "llms-full";
 const CACHE_TTL_MS = 5 * 60 * 1000;
-const FETCH_TIMEOUT_MS = 10_000;
 
 let cachedSections: DocSection[] | null = null;
 let cacheTimestamp = 0;
@@ -49,17 +53,16 @@ async function loadSections(): Promise<DocSection[]> {
     return cachedSections;
   }
 
-  const url = `${DOCS_BASE_URL}/llms-full.txt`;
   try {
-    const res = await fetch(url, { signal: AbortSignal.timeout(FETCH_TIMEOUT_MS) });
-    if (!res.ok) {
-      throw new Error(`문서 소스 로드 실패: ${res.status} ${url}`);
+    const store = getStore(BLOB_STORE_NAME);
+    const content = await store.get(BLOB_KEY, { type: "text" });
+    if (!content) {
+      throw new Error(`Blob "${BLOB_KEY}" not found in store "${BLOB_STORE_NAME}"`);
     }
-    cachedSections = parseSections(await res.text());
+    cachedSections = parseSections(content);
     cacheTimestamp = now;
     return cachedSections;
   } catch (err) {
-    // 콜드스타트가 아닌 워커에서 만료된 캐시라도 있으면 문서 조회를 살려 둔다.
     if (cachedSections) return cachedSections;
     throw err;
   }

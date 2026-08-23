@@ -4,21 +4,19 @@ CloudPick은 **멀티클라우드 환경에서 올바른 의사결정을 내리�
 
 멀티클라우드를 기본값으로 권장하지 않습니다. 단일 벤더, 하이브리드, 멀티클라우드는 각각의 비용과 책임이 있으며, 워크로드와 조직 상황에 따라 선택해야 합니다.
 
-🌐 **사이트**: <https://docs.cloudpick.kr>
-
 ## 기술 스택
 
 - [Astro](https://astro.build/) + [Starlight](https://starlight.astro.build/) — 정적 문서 사이트
 - 3개 로케일: 한국어(ko, 기본), English(en), 日本語(ja)
-- Netlify 배포 (정적 빌드 + `/mcp` Serverless Function)
-- `starlight-llms-txt` 플러그인으로 `/llms.txt`, `/llms-full.txt` 자동 생성
+- Netlify 배포 (정적 빌드 + MCP Serverless Function)
+- 문서 데이터는 Netlify Blobs에 저장 — MCP를 통해서만 접근 가능
 
 ## 개발
 
 ```bash
 npm install
 npm run dev       # 개발 서버 (localhost:4321)
-npm run build     # dist/ 정적 빌드
+npm run build     # dist/ 정적 빌드 + Blob 업로드
 npm run preview   # 빌드 결과 로컬 프리뷰
 ```
 
@@ -34,6 +32,7 @@ src/
   styles/          ← 커스텀 CSS
 public/            ← 정적 에셋 (폰트, 이미지)
 netlify/           ← Netlify Functions (MCP 엔드포인트)
+scripts/           ← 빌드 후처리 (리디렉트 stub, Blob 업로드)
 astro.config.mjs   ← 사이트 설정, 사이드바, 로케일
 netlify.toml       ← Netlify 빌드 + 리디렉트 설정
 ```
@@ -60,10 +59,15 @@ netlify.toml       ← Netlify 빌드 + 리디렉트 설정
 - 미번역 파일은 만들지 않음 — 파일이 없으면 한국어로 폴백
 - 콘텐츠 원본(SOT)은 `src/content/docs/ko/`
 
-## AI 접근
+## MCP (AI 에이전트 연동)
 
-- 빌드 시 자동 생성: `/llms.txt`, `/llms-full.txt`, `/llms-small.txt`
-- MCP 엔드포인트: `https://docs.cloudpick.kr/mcp` (Netlify Function)
+AI 에이전트가 문서를 검색·조회할 수 있는 MCP 엔드포인트를 제공합니다.
+문서 전문 데이터는 Netlify Blobs에 저장되며, MCP Function을 통해서만 접근 가능합니다.
+
+사용 가능한 도구:
+- `list_docs` — 전체 페이지 제목 목록
+- `search_docs` — 키워드 검색
+- `get_doc` — 특정 문서 전문 조회
 
 ## 기여
 

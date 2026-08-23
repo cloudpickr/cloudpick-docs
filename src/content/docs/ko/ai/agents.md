@@ -94,7 +94,8 @@ LLM 채팅은 브라우저 안에 갇혀 있었습니다. Desktop Agent는 로�
 | [LangGraph](https://github.com/langchain-ai/langgraph) | 상태 머신 기반 멀티에이전트 |
 | [CrewAI](https://github.com/crewAIInc/crewAI) | 역할 기반 협업 |
 | [Strands Agents](https://strandsagents.com/) | AWS 오픈소스, 모델 비종속 |
-| [AutoGen](https://github.com/microsoft/autogen) | Microsoft, 대화형 멀티에이전트 |
+| [AG2](https://ag2.ai/) (구 AutoGen) | 커뮤니티 포크, 오픈소스 AgentOS |
+| [Microsoft Agent Framework](https://github.com/microsoft/autogen) | AutoGen 후속, 2026.04 GA |
 
 ---
 

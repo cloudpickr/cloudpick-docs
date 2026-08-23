@@ -167,7 +167,7 @@ flowchart LR
 
 ## AI 에이전트와 CI/CD — GitHub Agentic Workflows
 
-2026년, CI/CD 파이프라인에 **AI 코딩 에이전트**를 통합하는 패턴이 등장했습니다. [GitHub Agentic Workflows](https://github.github.com/gh-aw/)(2026.02 Technical Preview)는 기존의 결정론적 CI/CD에 "Continuous AI" 능력을 추가합니다.
+2026년, CI/CD 파이프라인에 **AI 코딩 에이전트**를 통합하는 패턴이 등장했습니다. [GitHub Agentic Workflows](https://github.github.com/gh-aw/)(2026.02 Technical Preview → 2026.06 Public Preview)는 기존의 결정론적 CI/CD에 "Continuous AI" 능력을 추가합니다.
 
 ### 개념
 

@@ -7,103 +7,246 @@ description: "독일 BSI C5, 프랑스 ANSSI SecNumCloud, 스페인 ENS, 이탈�
 
 ## 개요
 
-EU 차원의 통일된 클라우드 보안 인증 스킴(EUCS)이 아직 확정되지 않은 상태에서, 개별 회원국은 각자의 국가 스킴으로 공공조달·규제산업 클라우드 이용을 통제하고 있습니다. 독일의 BSI C5, 프랑스의 ANSSI SecNumCloud가 가장 성숙하고 국제적으로도 참조되는 스킴이며, 스페인 ENS와 이탈리아 ACN 체계도 각자의 방식으로 자국 공공부문 클라우드 조달을 게이트키핑합니다. 이 문서는 EU 시장에 공공·규제산업 워크로드를 배포하려는 아키텍트가 국가별로 무엇을 준비해야 하는지 정리합니다.
-
 :::note
 국가 스킴은 **EU 규정(Regulation)이 아니라 각국 법령·행정 절차**에 근거합니다. 따라서 특정 회원국에서 통과한 인증이 다른 회원국에서 자동으로 인정되지는 않으며, 스킴 간 상호 인정은 EUCS 등 EU 차원 프레임워크가 완성되어야 가능해집니다.
 :::
 
-## 독일 — BSI C5
+**망분리**(Network Segregation)는 업무망과 인터넷망을 분리하여 외부 위협이 내부 시스템에 도달하지 못하도록 하는 통제입니다. 인터넷을 통한 악성코드 유입, 원격 침투, 데이터 유출을 네트워크 경계에서 차단한다는 점에서, 여러 나라의 금융·공공·의료 규제 시장에서 오랫동안 핵심 보안 요건으로 쓰여 왔습니다.
 
-**C5(Cloud Computing Compliance Criteria Catalogue)** 는 독일 연방정보보안청(BSI, Bundesamt für Sicherheit in der Informationstechnik)이 운영하는 클라우드 보안 준수 기준 카탈로그입니다.
+다만 API 연동, SaaS 활용, 원격 근무 등 시스템 간 연결이 불가피해진 현대 환경에서는 "분리"의 의미와 구현 방식이 함께 진화하고 있습니다.
 
-- **C5:2020**: 121개 기준으로 구성되며, 2020년 이후 사실상 독일의 표준 클라우드 보안 감사 기준으로 자리 잡았습니다. ENISA가 EUCS Substantial 등급 요건을 설계할 때 C5:2020을 기초 자료로 삼았습니다.
-- **C5:2026**: 2026년 4월 초(일부 보도는 3월 말로 표기)에 최종본이 공개된 개정판으로, C5:2020의 기준을 계승하면서 168개 기준(17개 영역)으로 세분화·확장했습니다. **새 기준은 2027년 6월 1일부터 시작하는 평가 기간부터 구속력을 가지며**, 그 이전에도 조기 적용은 허용됩니다.
-- **조달상 지위**: C5는 법률이 아니므로 위반 시 직접적 법적 제재는 없지만, **독일 연방기관 대상 클라우드 조달에서는 C5 준수가 사실상 필수 요건**입니다. 금융·헬스케어 등 규제산업에서도 벤더 선정 시 C5 준수 여부를 표준적으로 요구합니다.
-- **하이퍼스케일러 대응**: AWS, Microsoft Azure, Google Cloud, SAP, IONOS 등이 C5 준수 확인서(attestation)를 보유하고 있으며, 주요 벤더는 매년 감사를 갱신합니다.
-
-## 프랑스 — ANSSI SecNumCloud
-
-**SecNumCloud**는 프랑스 국가사이버보안청(ANSSI, Agence nationale de la sécurité des systèmes d'information)이 발급하는 클라우드 서비스 자격(qualification)입니다. 현재 기준은 **버전 3.2**(2022년 개정)이며, 360개 이상의 기술·운영 요구사항을 PASSI(ANSSI 승인 감사기관)가 심사합니다.
-
-### 주권 요건이 핵심 차별점
-
-SecNumCloud 3.2가 다른 국가 스킴과 가장 크게 다른 지점은 **자본·지배구조 주권 요건**입니다.
-
-- 본사가 프랑스 또는 EU 역내에 있어야 하고
-- EU 역외 지분은 개별 주주 기준 24%, 합산 기준 39%를 넘을 수 없으며
-- 서비스에 배타적으로 EU법만 적용되어야 합니다(미국 CLOUD Act·FISA 702 등 역외 법의 데이터 접근 요구로부터 절연).
+온프레미스에서는 물리적으로 네트워크 장비를 분리하여 구현했습니다. 클라우드에서는 동일한 보안 목표를 **논리적 격리**로 달성할 수 있으며, 일부 규제 요건에서는 여전히 물리적 분리를 요구합니다.
 
 :::caution
-이 요건 때문에 **AWS·Microsoft·Google 등 미국계 하이퍼스케일러는 자사 명의로는 SecNumCloud 자격을 직접 취득할 수 없습니다.** 대신 이들은 프랑스 파트너와의 합작법인을 통해 우회 경로를 취하고 있으며, 그 진행 상황은 벤더마다 다릅니다(아래 "파트너십 인증 취득 현황" 참고).
+망분리는 보안의 **한 계층**이지 전부가 아닙니다. 물리적으로 분리된 망에서도 내부자 위협, USB를 통한 악성코드 유입, 패치 지연으로 인한 취약점 노출은 발생합니다. 망분리와 함께 [제로 트러스트](../../security/zero-trust/), [보안 태세 관리](../../security/security-posture/)를 병행해야 합니다.
 :::
 
-### 파트너십 인증 취득 현황 (2026년 7월 기준)
+## 망분리의 의미 — 분리인가, 통제된 연결인가
 
-| 파트너십 | 벤더 | 현황 |
+망분리의 본래 목적은 **두 네트워크 사이에 데이터 이동 경로 자체가 없는 것**입니다. 그러나 현실에서는 업무 편의를 위해 분리된 망을 다시 연결하는 솔루션을 도입하는 경우가 많습니다.
+
+| 솔루션 | 하는 일 | 본질 |
 | --- | --- | --- |
-| **S3NS** (Thales × Google Cloud 합작사) | Google Cloud | **2025년 12월 17일 SecNumCloud 3.2 자격 취득** — PREMI3NS 서비스로 IaaS·CaaS·PaaS 20여 개 서비스를 동시에 인증받은 최초 사례. 2026년 상반기 중 Cloud Run·Cloud Build·Cloud Spanner·Bigtable 등을 포함한 2차 확장 심사 진행 중 |
-| **Bleu** (Capgemini × Orange 합작사) | Microsoft Azure/M365 | 심사 1단계(J0, 신청 접수)를 통과했으며 2026년 상반기 자격 취득을 목표로 심사 진행 중. **2026년 8월 현재 완전한 SecNumCloud 3.2 자격은 아직 취득하지 않음** |
+| VDI (가상 데스크톱) | 인터넷망 단말에서 업무망 화면을 원격 표시 | 화면 전송 경로 = 연결 |
+| 망간 자료전송 시스템 | 파일을 검사 후 반대편 망으로 전달 | 데이터 이동 경로 = 연결 |
+| 클립보드/USB 통제 솔루션 | 복사·붙여넣기, 이동식 매체를 제한적 허용 | 제한된 데이터 경로 = 연결 |
 
-전체적으로 2026년 7월 기준 자격 보유 사업자는 **9~10개**(OVHcloud, 3DS Outscale, Cloud Temple, Orange Business, Cegedim.cloud, Worldline, Oodrive, Whaller, S3NS 등 — ANSSI 공식 카탈로그의 서비스 유형별 집계 기준으로는 10개 사업자명까지 확인됨)이며, Bleu·Scaleway·NumSpot 등 **12개 사업자**가 심사 진행 중입니다.
+이 솔루션들을 도입하는 순간, 그것은 "망분리"가 아니라 **망간 접근 통제**입니다. 경로가 존재하는 한 그 경로를 통한 데이터 유출·악성코드 유입 가능성도 존재합니다.
 
-## 스페인 — ENS
+:::caution
+"망분리를 했으니 안전하다"는 전제는 위험합니다. 망연계 솔루션이 하나라도 있다면 그 경로의 보안 수준이 곧 전체 보안 수준의 상한이 됩니다. 분리 자체가 목적이 아니라, **보호 대상 데이터가 허가 없이 이동하지 못하는 것**이 목적입니다.
+:::
 
-**ENS(Esquema Nacional de Seguridad, 국가보안체계)** 는 왕령(Royal Decree) 311/2022에 근거해 스페인 공공부문 정보시스템에 요구되는 보안 프레임워크로, **기본(Basic)·중간(Medium)·상(High)** 3단계로 구성됩니다.
+### 클라우드 관점에서의 시사점
 
-- 스페인 공공기관과 계약하려는 클라우드 벤더는 취급 정보의 민감도에 따라 해당 등급의 ENS 인증을 요구받습니다.
-- **하이퍼스케일러 대응**: AWS(174개 서비스, 31개 리전 대상 ENS High 갱신 인증), Microsoft Azure(BDO 감사를 통한 ENS High 준수 확인), Google Cloud(Google Cloud·Google Workspace ENS High 인증)가 모두 **최고 등급인 ENS High 인증을 보유**하고 있습니다. 이는 자본 주권 요건을 두는 SecNumCloud와 달리, ENS가 기술·운영 보안 통제 중심 스킴이기 때문입니다.
+클라우드의 논리적 격리(VPC, Private Subnet, Security Group)는 처음부터 **"통제된 연결"을 명시적으로 설계**하는 모델입니다. 어떤 트래픽이 어디로 갈 수 있는지를 코드로 정의하고, 모든 통신을 로깅하며, 정책 위반을 실시간 탐지합니다.
 
-## 이탈리아 — ACN과 국가전략클라우드(PSN)
+온프레미스 물리적 망분리 + VDI/망연계 솔루션 조합과 비교하면:
 
-이탈리아는 독일·프랑스와 달리 **인증형 스킴과 물리적 소버린 인프라를 결합**한 이원 구조를 취합니다.
+| 관점 | 물리적 망분리 + 망연계 솔루션 | 클라우드 논리적 격리 |
+| --- | --- | --- |
+| 경계 정의 | 물리 장비로 암묵적 분리, 솔루션으로 예외 생성 | 코드로 명시적 정의 (Security Group, NACL, IAM) |
+| 가시성 | 망연계 솔루션 로그에 의존 | VPC Flow Logs, CloudTrail 등 전 구간 로깅 |
+| 정책 변경 | 장비 설정 변경, 수 일~수 주 | 코드 변경 + 배포, 수 분 |
+| 드리프트 탐지 | 수동 점검 | 자동 탐지 (Config Rules, Policy, CSPM) |
+| 감사 증적 | 솔루션별 개별 로그 수집 | 통합 감사 로그 |
 
-1. **ACN 클라우드 자격분류(qualificazione)**: 2023년 1월 19일부터 국가사이버보안청(ACN, Agenzia per la Cybersicurezza Nazionale)이 AgID로부터 업무를 이관받아 공공부문 클라우드 서비스 자격분류를 담당합니다. 기밀성·무결성·가용성 영향도를 평가하는 설문 기반 절차로, 공공기관이 사용할 클라우드 서비스·인프라의 위험 등급을 분류합니다. "Strategia Cloud Italia"의 일환으로 이탈리아 공공행정의 약 75%를 자격분류된 클라우드로 이전하는 것이 목표입니다.
-2. **PSN(Polo Strategico Nazionale, 국가전략클라우드)**: 최고 수준의 신뢰성·복원력이 요구되는 공공 워크로드를 위한 물리적 소버린 인프라입니다. "Public Cloud PSN Managed" 구성을 통해 하이퍼스케일러 플랫폼을 PSN 데이터센터 내 공공행정 전용 리전으로 편입시켜, 레거시 전환이 필요한 기관도 단계적으로 이전할 수 있게 합니다. **2026년 7월 21일 기준 280개 이상의 중앙행정기관·지역보건기구·병원기관이 PSN으로 이전을 완료**했습니다(PNRR 목표 달성).
+핵심은 "분리냐 연결이냐"의 이분법이 아니라, **허용된 경로를 얼마나 명시적으로 정의하고, 그 외 모든 것을 차단하며, 위반을 실시간으로 탐지할 수 있는가**입니다.
+
+## 물리적 망분리 vs 논리적 망분리
+
+| 구분 | 물리적 망분리 | 논리적 망분리 |
+| --- | --- | --- |
+| **방식** | 별도의 네트워크 장비·회선·단말 사용 | 동일 인프라에서 가상화·암호화·접근 통제로 분리 |
+| **보안 수준** | 네트워크 레벨에서 완전 차단 | 설정 오류 시 경계 침투 가능 |
+| **비용** | 장비·회선 이중화로 높음 | 상대적으로 낮음 |
+| **유연성** | 변경에 수 주~수 개월 | 정책 변경으로 수 분 내 조정 |
+| **패치/업데이트** | 폐쇄망 내 수동 반입 필요 → 지연 발생 | 통제된 경로로 자동화 가능 |
+| **규제 적용** | 최고 민감도 구간(국가별 상 등급·핵심 금융 시스템 등) | 대부분의 클라우드 워크로드 |
+
+### 운영 관점 1:1 대조
+
+| 구분 | 온프레미스 (물리적 망분리) | 클라우드 (논리적 격리) | 트레이드오프 |
+| --- | --- | --- | --- |
+| **격리 방식** | 케이블·장비 물리 분리 | SDN(VPC) 기반 논리적 분리 | 물리적은 직관적이나 변경 어려움. 논리적은 유연하나 설정 오류 리스크 |
+| **경계 보안** | 하드웨어 방화벽 | Security Group + NACL | 하드웨어는 성능 안정적. SG/NACL은 자동화·코드 관리 가능 |
+| **가시성** | 물리 포트·패킷 캡처 | VPC Flow Logs, 실시간 모니터링 | 물리적은 전문 장비 필요. 클라우드는 기본 제공되나 로그 비용 발생 |
+| **장애 복구** | 장비 교체 (수 시간~수 일) | Multi-AZ 자동 페일오버 (수 초~수 분) | 클라우드는 빠르나 벤더 의존. 물리적은 자체 통제 가능 |
+| **변경 관리** | 장비 설정 변경, 작업 신청서 | 코드 변경 + CI/CD 배포 | 물리적은 승인 체계 명확. 클라우드는 빠르나 거버넌스 별도 필요 |
+| **감사 증적** | 장비별 개별 로그 수집 | 통합 감사 로그 (CloudTrail 등) | 물리적은 로그 통합 어려움. 클라우드는 기본 통합되나 보존 정책 설정 필요 |
+
+두 방식 모두 장단점이 있으며, 워크로드의 민감도와 규제 요건에 따라 적합한 방식이 다릅니다. 많은 조직이 핵심 시스템은 물리적 분리를 유지하면서, 비민감 워크로드부터 논리적 격리로 확장하는 하이브리드 접근을 채택합니다.
+
+### 물리적 망분리의 현실적 한계
+
+물리적 망분리가 "절대 안전"을 보장하지는 않습니다.
+
+- **패치 지연**: 폐쇄망은 인터넷 접근이 불가하여 보안 패치 적용이 수 주~수 개월 지연됩니다. 이 기간 동안 알려진 취약점에 노출됩니다.
+- **내부자 위협**: 물리적 분리는 외부 공격을 차단하지만, 내부 권한을 가진 사용자의 데이터 유출은 막지 못합니다.
+- **운영 복잡성**: 이중 단말, 망간 자료전송 시스템, 별도 인증 체계 등 운영 부담이 큽니다.
+- **DR 제약**: 폐쇄망 환경에서 원격지 DR 구성이 어렵습니다.
+
+## 클라우드에서의 네트워크 격리 구현
+
+클라우드는 소프트웨어 정의 네트워크(SDN)를 기반으로 하므로, 물리적 장비 없이도 강력한 격리를 구현할 수 있습니다.
+
+### 격리 수준별 구현 패턴
+
+| 격리 수준 | 구현 방법 | 적합한 경우 |
+| --- | --- | --- |
+| **VPC/VNet 분리** | 워크로드별 독립 VPC, 라우팅 차단 | 일반적인 환경 분리 (dev/prod) |
+| **프라이빗 서브넷** | 인터넷 게이트웨이 없는 서브넷, NAT 경유만 허용 | DB, 내부 API 등 외부 노출 불필요 시스템 |
+| **프라이빗 서비스 연결** | 관리형 서비스 접근을 벤더 내부 네트워크로 한정 | 스토리지, DB 등 접근 시 인터넷 우회 |
+| **전용선** | 인터넷을 경유하지 않는 물리 전용 네트워크 연결 | 온프레미스↔클라우드 간 통신 |
+| **에어갭** | 인터넷과 완전히 단절된 클라우드 환경 | 가장 엄격한 규제 |
+
+### 벤더별 에어갭/전용 환경
+
+인터넷과 완전히 분리된 클라우드 환경이 필요한 경우, 각 벤더는 다음 옵션을 제공합니다. 단, 대상 국가 규제 시장에서의 인증 여부는 별도로 확인해야 합니다.
+
+| 벤더 | 서비스 | 설명 |
+| --- | --- | --- |
+| AWS | Outposts | 고객 데이터센터에 AWS 인프라 설치. 로컬 처리 |
+| AWS | Snow Family (Snowball Edge) | 완전 오프라인 환경에서 컴퓨팅/스토리지 제공 |
+| Azure | Azure Stack Hub / HCI | 고객 DC에서 Azure 서비스 운영. 연결/비연결 모드 |
+| Azure | Azure Government (격리 리전) | 미국 정부 전용 물리적 분리 리전 |
+| Google Cloud | Google Distributed Cloud (GDC) Air-gapped | 완전 오프라인 환경에서 Google Cloud 서비스 운영 |
+| OCI | Dedicated Region | 고객 DC에 OCI 전체 리전 설치. 완전 격리 |
+| OCI | Roving Edge Infrastructure | 오프라인 환경용 이동식 컴퓨팅 |
+
+### 일반적인 규제 시장 아키텍처 패턴
+
+대부분의 금융/공공 워크로드는 에어갭까지 필요하지 않으며, 다음 패턴으로 규제 요건을 충족합니다.
+
+```mermaid
+flowchart TB
+    subgraph VPC["VPC (프로덕션)"]
+        subgraph pub["Public Subnet"]
+            ALB[ALB · WAF]
+        end
+        subgraph priv["Private Subnet"]
+            APP[앱 서버]
+            DB[DB · 내부 API]
+        end
+        subgraph ep["VPC Endpoint"]
+            S3EP[S3]
+            KMSEP[KMS]
+        end
+    end
+
+    Internet((인터넷)) -->|HTTPS only| ALB
+    ALB -->|SG 허용 포트만| APP
+    APP -->|SG 허용 포트만| DB
+    APP --- S3EP
+    APP --- KMSEP
+
+    subgraph OnPrem["온프레미스 DC"]
+        Legacy[기존 시스템]
+    end
+
+    VPC ===|전용선\nDirect Connect / ExpressRoute| OnPrem
+```
+
+**핵심 원칙:**
+
+- 인터넷 노출 최소화 — Public Subnet에는 로드밸런서/WAF만 배치
+- 관리형 서비스 접근은 VPC Endpoint 경유 — NAT Gateway/인터넷 우회
+- 온프레미스 연결은 전용선 — VPN은 백업 경로로만 사용
+- 모든 통신 암호화 — TLS 1.2+ 필수
+
+## 규제 요건 매핑
+
+세계 여러 규제 시장의 망분리·격리 정책은 "모든 시스템을 동일 수준으로 분리"하는 일률적 접근에서, **데이터 등급에 따른 차등 보안**으로 바뀌고 있습니다. 정책 질문도 "분리 여부"의 이분법에서 "어떤 수준의 통제가 필요한가"로 이동합니다.
+
+| 규제/기준 | 요구사항 | 클라우드 대응 |
+| --- | --- | --- |
+| **PCI DSS** (카드 결제, 글로벌) | CDE(카드 데이터 환경) 네트워크 격리 | 전용 VPC + 방화벽 + 로깅 |
+| **국가별 공공·금융 규제** | 물리적/논리적 분리 요건과 등급 체계는 국가마다 다름 | 해당 국가 가이드에서 상세 매핑 |
+
+국가별 규제 상세는 해당 국가 문서를 참고하세요.
+
+- **한국** — 전자금융감독규정, CSAP 상·중·하, ISMS-P, N²SF C/S/O: [망분리와 네트워크 격리 (한국)](../../korea/security/network-isolation/)
+- **미국** — FedRAMP, ITAR/EAR: [미국 개요](../../us/index/)
+- **EU** — DORA, 데이터 주권: [EU 개요](../../eu/index/)
+- **일본** — ISMAP, 가버먼트 클라우드: [일본 개요](../../japan/index/)
+- **싱가포르** — MTCS, PDPA: [싱가포르 개요](../../singapore/index/)
 
 :::note
-이탈리아 모델에서는 하이퍼스케일러가 ACN으로부터 **독일 C5·프랑스 SecNumCloud 방식의 개별 자격증을 직접 취득**하기보다, **PSN이라는 이탈리아 통제 하의 물리적 게이트웨이를 통해 서비스를 제공**하는 방식에 가깝습니다. 개별 서비스 단위의 인증 범위는 벤더·PSN 공식 발표로 별도 확인이 필요합니다.
+규제 체계와 무관하게, 대부분의 기관은 모든 시스템이 같은 등급이 아닙니다. 시스템별로 등급을 분류하고 격리 수준을 차등 적용하는 것이 핵심입니다. 모든 시스템을 가장 높은 등급으로만 격리하는 것이 아니라, 현실적인 혼합 구성이 필요합니다.
 :::
 
-## EUCS와의 관계 — 통합 논의는 진행 중
+## 안티패턴
 
-위 4개 국가 스킴은 각자 독자적으로 운영되지만, EU 차원의 **EUCS(European Cybersecurity Certification Scheme for Cloud Services)** 가 완성되면 상호 인정의 기초가 될 것으로 예상됩니다.
+| 안티패턴 | 문제 | 올바른 접근 |
+| --- | --- | --- |
+| 모든 서브넷을 Public으로 구성 | 모든 리소스가 인터넷에 노출 | Private Subnet 기본, Public은 LB/Bastion만 |
+| Security Group에 0.0.0.0/0 인바운드 허용 | 사실상 방화벽 없음 | 최소 권한 원칙, 필요한 포트/소스만 허용 |
+| NAT Gateway로 모든 아웃바운드를 허용 | 데이터 유출 경로 존재 | VPC Endpoint 우선, 아웃바운드도 제한 |
+| 망분리만 하고 내부 모니터링 없음 | 내부 횡이동 탐지 불가 | VPC Flow Logs + 이상 탐지 + Network Policy |
+| 물리적 망분리 후 패치 방치 | 알려진 취약점에 장기 노출 | 통제된 패치 경로 확보, 정기 취약점 스캔 |
 
-- C5:2020은 EUCS Substantial 등급 요건 설계의 기초 자료로 이미 반영되었습니다.
-- EUCS 작업은 최고 등급(High+)의 "주권성 요건" 포함 여부를 둘러싼 회원국 간 이견으로 수년간 정체되었다가, 2026년 1월 20일 발표된 **Cybersecurity Act 2(CSA2)** 개정 흐름 속에서 재개되는 중입니다.
-- **2026년 8월 현재 EUCS는 여전히 확정되지 않았고, 주권성 요건 포함 여부는 논쟁이 진행 중입니다.** (자세한 경과는 [GDPR과 데이터 주권 — EUCS 인증 스킴의 유동성](../../eu/gdpr-sovereignty/#eucs-인증-스킴의-유동성) 참고)
+### 예방적 가드레일 — 실수가 사고로 확대되기 전에
 
-그때까지 국가 스킴은 "잠정적이지만 시장에서 신뢰받는 증빙"으로 기능하며, 특히 BSI C5와 SecNumCloud는 EUCS 전환기의 사실상 기준으로 참조되고 있습니다.
+온프레미스에서는 실수(잘못된 방화벽 규칙, 포트 개방)를 사후에 감사로 발견하는 경우가 많습니다. 클라우드에서는 **실수 자체를 차단하는 예방적 통제**를 자동화할 수 있습니다.
 
-## 국가별 조달 게이트 — 요약
+| 가드레일 | 동작 | 벤더 예시 |
+| --- | --- | --- |
+| **조직 정책으로 위험 행위 원천 차단** | 특정 리전 외 리소스 생성 금지, 퍼블릭 접근 차단 | AWS SCP, Azure Policy, Google Cloud Organization Policy |
+| **설정 변경 시 자동 탐지·복구** | 규칙 위반 리소스를 즉시 알림 또는 자동 수정 | AWS Config Rules, Azure Policy (remediation), Google Cloud Security Command Center |
+| **네트워크 변경 실시간 감시** | Security Group 변경, 새 인터넷 경로 생성 시 즉시 알림 | CloudTrail + EventBridge, Azure Monitor, Google Cloud Cloud Audit Logs |
 
-국가 스킴은 인증 자체가 목적이 아니라 **공공·규제산업 조달의 통과 요건**으로 기능한다는 공통점이 있습니다. 다만 게이트의 성격은 국가마다 다릅니다.
+단, 가드레일은 **설정해야 작동합니다.** 기본 상태에서는 대부분 비활성화되어 있으며, 조직의 보안 요건에 맞게 정책을 정의하고 유지하는 것은 사용자의 책임입니다.
 
-| 국가 | 스킴 | 성격 | 하이퍼스케일러 직접 취득 가능 여부 |
-| --- | --- | --- | --- |
-| 독일 | BSI C5 | 기술·운영 통제 감사 (자본 요건 없음) | 가능 — AWS·Azure·Google Cloud 등 취득 완료 |
-| 프랑스 | SecNumCloud 3.2 | 기술·운영 통제 + **자본·지배구조 주권 요건** | 불가 — 파트너십(S3NS는 취득 완료, Bleu는 심사 중) 경유 필요 |
-| 스페인 | ENS (Basic/Medium/High) | 기술·운영 통제 감사 (자본 요건 없음) | 가능 — AWS·Azure·Google Cloud 모두 ENS High 취득 |
-| 이탈리아 | ACN 자격분류 + PSN | 설문 기반 등급분류 + 물리적 소버린 인프라 결합 | PSN 파트너십 경유 방식 |
+## 자주 하는 실수
 
-## 실무 시사점
+- **Security Group에 0.0.0.0/0 인바운드를 "임시로" 열고 방치** — 테스트 후 제거하지 않아 사실상 방화벽이 없는 상태로 운영됨
+- **망분리만 하고 내부 모니터링을 하지 않음** — 외부 차단에만 집중하여 내부 횡이동(Lateral Movement)을 탐지하지 못함
+- **NAT Gateway로 모든 아웃바운드를 허용** — VPC Endpoint를 사용하지 않아 데이터 유출 경로가 존재하고 불필요한 비용 발생
 
-- **국가별로 별도 검토가 필요합니다.** EU 단일 인증이 없는 현재, "EU 진출"을 단일 요건으로 뭉뚱그리지 말고 목표 회원국(공공조달 상대·규제 당국)별로 요구 스킴을 개별 확인해야 합니다.
-- **프랑스향 워크로드는 벤더 선택 자체가 제약됩니다.** 프랑스 공공기관·중요 인프라 사업자(OIV/OSE) 대상 민감 데이터를 다룬다면, SecNumCloud 자격을 직접 보유했거나(S3NS 등) 취득이 임박한 벤더로 선택지가 좁혀집니다. Bleu처럼 심사 진행 중인 옵션은 **완전 자격 취득 시점을 계약·마이그레이션 일정에 전제하지 않아야** 합니다.
-- **독일·스페인은 상대적으로 하이퍼스케일러 선택 폭이 넓습니다.** 자본 주권 요건이 없는 두 스킴은 이미 주요 벤더가 최고 등급 인증을 보유하고 있어, 벤더 선정보다는 인증 범위(서비스 목록)와 리전 커버리지 확인이 실무의 핵심입니다.
-- **이탈리아는 인증서가 아니라 인프라 경로를 확인해야 합니다.** ACN 자격분류 등급과 함께, 워크로드가 PSN 경유로 제공되는지, 그 경우 운영 통제·SLA가 어떻게 달라지는지를 벤더·PSN 공식 문서에서 확인합니다.
-- **국가 스킴을 EUCS 확정의 임시 대체재로 활용하되, 고정 전제로 설계하지 않습니다.** EUCS가 최종 확정되면 상호 인정 범위나 요건이 바뀔 수 있으므로, 특정 국가 스킴에만 의존하는 아키텍처보다 전환 여지를 남긴 설계가 안전합니다.
+## 체크리스트
+
+- [ ] 워크로드 등급에 따라 VPC/서브넷 분리 전략을 수립했는가
+- [ ] 인터넷 노출이 필요한 리소스를 최소화했는가 (Public Subnet 최소화)
+- [ ] 관리형 서비스 접근에 VPC Endpoint / Private Link를 사용하는가
+- [ ] 온프레미스 연결에 전용선을 사용하는가 (VPN은 백업만)
+- [ ] Security Group / NACL에 최소 권한 원칙을 적용했는가
+- [ ] VPC Flow Logs를 활성화하고 이상 탐지를 구성했는가
+- [ ] 아웃바운드 트래픽도 제한하고 있는가 (데이터 유출 방지)
+- [ ] 규제 요건에 맞는 격리 수준을 선택했는가 (논리적 vs 물리적)
+- [ ] 폐쇄망 환경에서도 패치 적용 경로를 확보했는가
+
+## 관련 문서
+
+- [제로 트러스트](../../security/zero-trust/)
+- [VPC와 서브넷](../../networking/vpc-subnet/)
+- [컴플라이언스](../../governance/compliance/)
 
 ## 참고하기
 
-- [BSI — C5 소개](https://www.bsi.bund.de/EN/Themen/Unternehmen-und-Organisationen/Informationen-und-Empfehlungen/Empfehlungen-nach-Angriffszielen/Cloud-Computing/Kriterienkatalog-C5/C5_Einfuehrung/C5_Einfuehrung_node.html)
-- [BSI — C5:2026 카탈로그](https://www.bsi.bund.de/EN/Themen/Unternehmen-und-Organisationen/Informationen-und-Empfehlungen/Empfehlungen-nach-Angriffszielen/Cloud-Computing/Kriterienkatalog-C5/C5_2025/C5_2025_node.html)
-- [cyber.gouv.fr — SecNumCloud (ANSSI)](https://cyber.gouv.fr/)
-- [Thales — S3NS SecNumCloud 자격 취득 발표 (2025.12)](https://www.thalesgroup.com/en/news-centre/press-releases/s3ns-announces-secnumcloud-qualification-premi3ns-its-trusted-cloud)
-- [Bleu — SecNumCloud 3.2 J0 심사 통과 공지](https://www.bleucloud.fr/bleu-valide-le-j0-de-la-qualification-secnumcloud-3-2/)
-- [AWS — Esquema Nacional de Seguridad(ENS) 준수](https://aws.amazon.com/compliance/esquema-nacional-de-seguridad)
-- [Google Cloud — ENS 준수](https://cloud.google.com/security/compliance/ens)
-- [ACN — Strategia Cloud Italia / 클라우드 자격분류](https://www.acn.gov.it/en/strategia/strategia-cloud-italia/qualificazione-cloud)
-- [Polo Strategico Nazionale 공식 사이트](https://www.polostrategiconazionale.it/en/)
-- [ENISA — EUCS 후보 스킴](https://certification.enisa.europa.eu/)
-- [ANSSI — SecNumCloud 인증·자격 카탈로그](https://messervices.cyber.gouv.fr/visas/catalogue-produits-services-profils-de-protection-sites-certifies-qualifies-agrees-anssi.pdf)
+### 규제/표준
+
+- [PCI DSS v4.0 (PCI SSC)](https://www.pcisecuritystandards.org/)
+- 한국 법령·CSAP·N²SF 링크는 [망분리와 네트워크 격리 (한국)](../../korea/security/network-isolation/)을 참고하세요.
+
+### AWS
+
+- [VPC 보안 모범사례](https://docs.aws.amazon.com/ko_kr/vpc/latest/userguide/vpc-security-best-practices.html)
+- [AWS PrivateLink 문서](https://docs.aws.amazon.com/ko_kr/vpc/latest/privatelink/)
+- [AWS Outposts 문서](https://docs.aws.amazon.com/ko_kr/outposts/)
+
+### Azure
+
+- [Azure 네트워크 보안 모범사례](https://learn.microsoft.com/ko-kr/azure/security/fundamentals/network-best-practices)
+- [Azure Private Link 문서](https://learn.microsoft.com/ko-kr/azure/private-link/)
+- [Azure Stack Hub 문서](https://learn.microsoft.com/ko-kr/azure-stack/operator/)
+
+### Google Cloud
+
+- [VPC 보안 모범사례](https://cloud.google.com/architecture/framework/security/network-security)
+- [Private Google Access 문서](https://cloud.google.com/vpc/docs/private-google-access)
+- [Google Distributed Cloud 문서](https://cloud.google.com/distributed-cloud/hosted/docs)
+
+### OCI
+
+- [OCI 네트워크 보안 모범사례](https://docs.oracle.com/en-us/iaas/Content/Security/Reference/networking_security.htm)
+- [OCI Dedicated Region 문서](https://docs.oracle.com/en-us/iaas/Content/dedicated-region/home.htm)

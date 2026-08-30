@@ -155,4 +155,4 @@ Transit architecture patterns, a detailed egress cost comparison, and DNS integr
 
 - [RFC 1918 — Address Allocation for Private Internets](https://datatracker.ietf.org/doc/html/rfc1918)
 - [Megaport](https://www.megaport.com/) — global Cloud Exchange
-- [Equinix Fabric](https://www.equinix.com/products/equinix-fabric) — global Cloud Exchange. See country guides for local IXes
+- [Equinix Fabric](https://www.equinix.com/interconnection-services/equinix-fabric) — global Cloud Exchange. See country guides for local IXes

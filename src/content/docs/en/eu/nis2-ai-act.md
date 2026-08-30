@@ -90,7 +90,7 @@ On the same day (2026.8.2), **enforcement (sanction) powers over GPAI providers*
 ## References
 
 - [EUR-Lex — NIS2 Directive (Directive (EU) 2022/2555)](https://eur-lex.europa.eu/eli/dir/2022/2555/oj)
-- [ENISA — NIS2 Directive](https://www.enisa.europa.eu/topics/nis-directive)
+- [European Commission — NIS2 Directive policy](https://digital-strategy.ec.europa.eu/en/policies/nis2-directive)
 - [EUR-Lex — EU AI Act (Regulation (EU) 2024/1689)](https://eur-lex.europa.eu/eli/reg/2024/1689/oj)
 - [artificialintelligenceact.eu — EU AI Act Explained](https://artificialintelligenceact.eu/)
 - [European Commission — AI Regulatory Framework (includes guidance on the Article 50 transparency guidelines)](https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai)

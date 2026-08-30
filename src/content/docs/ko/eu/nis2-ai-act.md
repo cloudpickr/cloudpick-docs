@@ -90,7 +90,7 @@ Digital Omnibus로 **고위험 AI 의무는 연기**되었지만, **제50조 투
 ## 참고하기
 
 - [EUR-Lex — NIS2 지침 (Directive (EU) 2022/2555)](https://eur-lex.europa.eu/eli/dir/2022/2555/oj)
-- [ENISA — NIS2 지침](https://www.enisa.europa.eu/topics/nis-directive)
+- [European Commission — NIS2 지침 정책](https://digital-strategy.ec.europa.eu/en/policies/nis2-directive)
 - [EUR-Lex — EU AI Act (Regulation (EU) 2024/1689)](https://eur-lex.europa.eu/eli/reg/2024/1689/oj)
 - [artificialintelligenceact.eu — EU AI Act 해설](https://artificialintelligenceact.eu/)
 - [EU 집행위원회 — AI 규제 프레임워크 (제50조 투명성 의무 가이드라인 안내 포함)](https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai)

@@ -155,4 +155,4 @@ graph LR
 
 - [RFC 1918 — Address Allocation for Private Internets](https://datatracker.ietf.org/doc/html/rfc1918)
 - [Megaport](https://www.megaport.com/) — 글로벌 Cloud Exchange
-- [Equinix Fabric](https://www.equinix.com/products/equinix-fabric) — 글로벌 Cloud Exchange. 국가별 IX는 국가 가이드 참고
+- [Equinix Fabric](https://www.equinix.com/interconnection-services/equinix-fabric) — 글로벌 Cloud Exchange. 국가별 IX는 국가 가이드 참고

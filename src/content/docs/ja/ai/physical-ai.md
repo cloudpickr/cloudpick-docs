@@ -50,7 +50,7 @@ flowchart LR
 | ロボット・物理シミュレーション | — (RoboMaker提供終了、自己構成) | — (パートナー・自己構成) | — (パートナー・自己構成) | — | [NVIDIA Isaac Sim / Isaac Lab](https://developer.nvidia.com/isaac/sim) |
 
 :::caution
-**AWS RoboMakerは2025年9月10日に提供終了(サポート終了)**しました([サポート終了のお知らせ](https://docs.aws.amazon.com/robomaker/latest/dg/chapter-welcome.html))。現在AWSでのロボットシミュレーションは専用のマネージドサービスなしに、GPUインスタンス + オープンソース(Isaac Sim、Gazebo等)で自己構成します。EOL(サポート終了)されたサービスを新規設計に含めないよう注意してください。
+**AWS RoboMakerは2025年9月10日に提供終了(サポート終了)**しました。現在AWSでのロボットシミュレーションは専用のマネージドサービスなしに、GPUインスタンス + オープンソース(Isaac Sim、Gazebo等)で自己構成します。EOL(サポート終了)されたサービスを新規設計に含めないよう注意してください。
 :::
 
 :::note

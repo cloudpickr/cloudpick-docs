@@ -50,7 +50,7 @@ Training robots and vehicles solely in the real world is costly, risky, and slow
 | Robotics / physics simulation | — (RoboMaker discontinued; self-managed) | — (partner / self-managed) | — (partner / self-managed) | — | [NVIDIA Isaac Sim / Isaac Lab](https://developer.nvidia.com/isaac/sim) |
 
 :::caution
-**AWS RoboMaker reached end of support on September 10, 2025** ([end-of-support notice](https://docs.aws.amazon.com/robomaker/latest/dg/chapter-welcome.html)). Robot simulation on AWS is now built without a dedicated managed service, using GPU instances plus open source (Isaac Sim, Gazebo, etc.). Take care not to include an end-of-life (EOL) service in new designs.
+**AWS RoboMaker reached end of support on September 10, 2025.** Robot simulation on AWS is now built without a dedicated managed service, using GPU instances plus open source (Isaac Sim, Gazebo, etc.). Take care not to include an end-of-life (EOL) service in new designs.
 :::
 
 :::note

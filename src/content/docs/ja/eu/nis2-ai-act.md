@@ -90,7 +90,7 @@ Digital Omnibusにより**高リスクAI義務は延期**されましたが、**
 ## 参考資料
 
 - [EUR-Lex — NIS2指令（Directive (EU) 2022/2555）](https://eur-lex.europa.eu/eli/dir/2022/2555/oj)
-- [ENISA — NIS2指令](https://www.enisa.europa.eu/topics/nis-directive)
+- [European Commission — NIS2指令政策](https://digital-strategy.ec.europa.eu/en/policies/nis2-directive)
 - [EUR-Lex — EU AI法（Regulation (EU) 2024/1689）](https://eur-lex.europa.eu/eli/reg/2024/1689/oj)
 - [artificialintelligenceact.eu — EU AI法解説](https://artificialintelligenceact.eu/)
 - [EU欧州委員会 — AI規制フレームワーク（第50条の透明性義務ガイドラインの案内を含む）](https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai)

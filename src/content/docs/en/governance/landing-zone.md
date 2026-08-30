@@ -3,7 +3,7 @@ title: "Landing Zone"
 description: "Explains the components of a landing zone — the foundational setup for a multi-account cloud environment — with vendor comparisons and an adoption sequence."
 ---
 
-> Last reviewed: July 2026
+> Last reviewed: August 2026
 
 ## What Is a Landing Zone
 
@@ -170,7 +170,7 @@ A sovereign landing zone is not simply "deploying to an EU region." It restricts
 | --- | --- |
 | **DORA** (effective 2025.01.17) | Requires financial institutions to manage ICT third-party risk → cloud vendors must be managed as critical ICT providers, exit strategy required |
 | **NIS2** | Strengthens security obligations for critical infrastructure operators → requires landing-zone-level governance evidence |
-| **EU AI Act** (GPAI transparency 2026.08; high-risk AI deferred by Digital Omnibus — standalone 2027.12, product-embedded 2028.08) | Data governance requirements for high-risk AI systems → landing zone must include data classification/access control per AI workload |
+| **EU AI Act** (GPAI obligations 2025.08; sanction powers and Article 50 transparency 2026.08; high-risk AI deferred by Digital Omnibus — standalone 2027.12, product-embedded 2028.08) | Data governance requirements for high-risk AI systems → landing zone must include data classification/access control per AI workload |
 
 ## References
 

@@ -1,6 +1,6 @@
 ---
 title: "NIS2 + EU AI Act"
-description: "Covers NIS2's cybersecurity and incident-reporting obligations, the EU AI Act implementation timeline, and the 2026 Digital Omnibus deferral of high-risk AI obligations."
+description: "Covers NIS2's cybersecurity and incident-reporting obligations, the EU AI Act implementation timeline, the Article 50 transparency obligations that took effect on 2026-08-02, and the Digital Omnibus deferral of high-risk AI obligations."
 ---
 
 > Last reviewed: August 2026
@@ -50,6 +50,7 @@ The **EU AI Act (Regulation (EU) 2024/1689)** entered into force on August 1, 20
 | --- | --- |
 | **2025.2.2** | Prohibited AI practices (social scoring, real-time remote biometric identification, etc.) and AI literacy obligations take effect |
 | **2025.8.2** | Obligations for GPAI (general-purpose AI) model providers take effect — transparency, copyright, and safety/security documentation obligations. However, **enforcement (sanction) powers only take effect from 2026.8.2**, making the first year effectively a grace period |
+| **2026.8.2** | **(1) Article 50 transparency obligations take effect** — informing users interacting with an AI system, and machine-readable marking of AI-generated or manipulated content (including deepfakes). **(2) GPAI sanction powers activate**, along with full enforcement authority for member states' market surveillance authorities |
 | **~~2026.8.2 (original)~~** | Originally the application date for high-risk AI system (Annex III) obligations, but this was **deferred by the Digital Omnibus** described below |
 
 ### High-Risk AI Obligations Deferred Under the Digital Omnibus (Confirmed)
@@ -64,12 +65,26 @@ In the first half of 2026, EU lawmakers reached a provisional agreement on the *
 As of August 9, 2026, this deferral is **already a settled legal fact** (not "still under debate"). However, the GPAI obligations (which took effect in August 2025) are not subject to this deferral and are already in force — only the Commission's power to sanction GPAI violations takes effect from 2026.8.2. Do not confuse the two dates.
 :::
 
+### Article 50 Transparency Obligations Take Effect (2026.8.2)
+
+Although the Digital Omnibus **deferred the high-risk AI obligations**, the **Article 50 transparency obligations took effect on schedule on August 2, 2026**. Do not confuse the two dates. Article 50 applies to a broad range of AI systems regardless of risk tier.
+
+- **AI interaction disclosure**: AI systems that interact with natural persons, such as chatbots, must let users know they are dealing with an AI (except where this is obvious).
+- **Synthetic content marking**: AI-generated or manipulated audio, image, video, and text (including deepfakes) must be **marked in a machine-readable format**, and deployers of deepfakes must disclose that the content is artificially generated.
+- **Grace period**: under **Article 111(4)** as introduced by the Digital Omnibus, **generative systems already placed on the market before August 2, 2026** are given a grace period until **December 2, 2026** to meet the Article 50 marking requirement.
+- **Penalty level**: violations of Article 50 fall within the national fine band of EU AI Act Article 99(4), exposing organizations to fines of up to **EUR 15 million or 3% of worldwide annual turnover, whichever is higher**.
+
+:::caution
+On the same day (2026.8.2), **enforcement (sanction) powers over GPAI providers** also activated. The first-year grace period on the GPAI obligations that applied from August 2025 has ended, so the EU AI Office can now actually exercise its investigation and fining powers. Reconfirm the fast-moving implementation details against the [full EU AI Act text](https://artificialintelligenceact.eu/) and each member state's competent authority notices.
+:::
+
 ## Practical Impact on Cloud Architecture and AI Workloads
 
 - **Automate NIS2 incident response**: the short 24-hour and 72-hour reporting deadlines are difficult to meet with manual processes. Reporting deadlines should be designed backward by linking cloud vendors' incident-notification SLAs with your own SOC (Security Operations Center) processes.
 - **Document supply-chain due diligence**: if your organization is an NIS2 essential/important entity, your cloud/ICT vendors' NIS2 compliance posture (certifications, security controls) must be built into your contracting and audit processes.
 - **Read the high-risk AI deferral as "more time," not "no need to worry"**: although Annex III high-risk AI obligations have been pushed to December 2027, data governance, model documentation, and human-oversight frameworks take time to build, so it is advantageous to factor them into design now. In particular, if you operate or plan workloads that fall into high-risk categories (recruitment, credit scoring, law enforcement-related, etc.), it is advisable to put data lineage and audit-log systems in place early.
 - **GPAI obligations are already in effect**: if you develop or provide your own foundation model, or offer a service in the EU that embeds a GPAI model, you must already comply with the transparency, copyright, and safety documentation obligations.
+- **Synthetic content marking is in force now**: if you use generative AI to produce images, audio, video, or text and offer it in the EU, the Article 50 marking obligation applies from 2026.8.2. Systems already on the market have a grace period until 2026.12.2, but it is safer to build content provenance marking (e.g., C2PA watermarking/provenance metadata) and deepfake disclosure procedures into your pipeline early.
 - **Reconfirming the latest status is essential**: NIS2 transposition status and the AI Act's detailed implementing measures (harmonized standards, high-risk classification guidelines) continue to be updated, so it is safer to build a process for reconfirming them from official sources at project kickoff.
 
 ## References
@@ -78,5 +93,5 @@ As of August 9, 2026, this deferral is **already a settled legal fact** (not "st
 - [ENISA — NIS2 Directive](https://www.enisa.europa.eu/topics/nis-directive)
 - [EUR-Lex — EU AI Act (Regulation (EU) 2024/1689)](https://eur-lex.europa.eu/eli/reg/2024/1689/oj)
 - [artificialintelligenceact.eu — EU AI Act Explained](https://artificialintelligenceact.eu/)
-- [European Commission — AI Regulatory Framework](https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai)
+- [European Commission — AI Regulatory Framework (includes guidance on the Article 50 transparency guidelines)](https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai)
 - [Council of the EU — Final Approval of the AI Digital Omnibus Press Release (2026.6.29)](https://www.consilium.europa.eu/en/press/press-releases/2026/06/29/artificial-intelligence-council-gives-final-green-light-to-simplify-and-streamline-rules/)

@@ -66,7 +66,7 @@ AICPA（米国公認会計士協会）に基づく監査報告書です。エン
 | **公共（米国）** | FedRAMP / FedRAMP 20x | 米国連邦 | 20x: 数か月単位の手動認可を、OSCALベースの機械可読エビデンス・自動検証中心に短縮する自動化優先プロセス（[fedramp.gov/20x](https://www.fedramp.gov/20x/)） |
 | **公共（EU）** | C5（ドイツ）、ENS（スペイン）等 | EU | |
 | **個人情報（EU）** | GDPR | EU | |
-| **AI（EU）** | EU AI Act | EU | GPAI義務・透明性（Article 50）2025.8.2〜2026.8.2適用。高リスクAIはDigital Omnibusにより延期 — 独立型2027.12.2、製品内蔵2028.8.2。[EU AI Act全文](https://artificialintelligenceact.eu/) |
+| **AI（EU）** | EU AI Act | EU | GPAI義務は2025.8.2適用、制裁権限・第50条の透明性義務は2026.8.2発効（合成コンテンツの表示は既存の市場投入済みシステムについて2026.12.2まで猶予）。高リスクAIはDigital Omnibusにより延期 — 独立型2027.12.2、製品内蔵2028.8.2。[EU AI Act全文](https://artificialintelligenceact.eu/) |
 | **金融（EU）** | DORA | EU | 2025年1月17日適用開始。CTPP（Critical Third-Party Provider）指定手続きが進行中。[詳細](../../governance/landing-zone/) |
 
 各ベンダーの該当認証状況は、**AWS Compliance Programs**、**Azure Trust Center**、**Google Cloud Compliance**、**Oracle Cloud Compliance**の各ページで確認します。

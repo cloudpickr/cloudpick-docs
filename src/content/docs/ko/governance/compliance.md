@@ -66,7 +66,7 @@ AICPA(미국 공인회계사 협회) 기반 감사 보고서. 엔터프라이즈
 | **공공 (미국)** | FedRAMP / FedRAMP 20x | 미국 연방 | 20x: 수개월 단위 수동 인가를 OSCAL 기반 기계판독 증거·자동 검증 중심으로 단축하는 자동화 우선 프로세스 ([fedramp.gov/20x](https://www.fedramp.gov/20x/)) |
 | **공공 (EU)** | C5 (독일), ENS (스페인) 등 | EU | |
 | **개인정보 (EU)** | GDPR | EU | |
-| **AI (EU)** | EU AI Act | EU | GPAI 의무·투명성(Article 50) 2025.8.2~2026.8.2 적용. 고위험 AI는 Digital Omnibus로 연기 — 독립형 2027.12.2, 제품 내장 2028.8.2. [EU AI Act 전문](https://artificialintelligenceact.eu/) |
+| **AI (EU)** | EU AI Act | EU | GPAI 의무 2025.8.2 적용, 제재 권한·제50조 투명성 의무 2026.8.2 발효(합성 콘텐츠 표시는 기존 시스템 2026.12.2 유예). 고위험 AI는 Digital Omnibus로 연기 — 독립형 2027.12.2, 제품 내장 2028.8.2. [EU AI Act 전문](https://artificialintelligenceact.eu/) |
 | **금융 (EU)** | DORA | EU | 2025.1.17 적용 개시. CTPP(Critical Third-Party Provider) 지정 절차 진행 중. [상세](../../governance/landing-zone/) |
 
 각 벤더의 해당 인증 현황은 **AWS Compliance Programs**, **Azure Trust Center**, **Google Cloud Compliance**, **Oracle Cloud Compliance** 페이지에서 확인합니다.

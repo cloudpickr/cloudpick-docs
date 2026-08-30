@@ -146,12 +146,13 @@ Threat areas newly emphasized in the 2025 update.
 | Date | Applicable requirement |
 | --- | --- |
 | **August 2, 2025** | GPAI (general-purpose AI) model provider obligations take effect — technical documentation, training data transparency, copyright policy |
-| **August 2, 2026** | General application — high-risk AI system regulation ([full EU AI Act text](https://artificialintelligenceact.eu/)) |
+| **August 2, 2026** | Article 50 transparency obligations take effect (marking of synthetic content and deepfakes) + GPAI sanction powers activate. **High-risk AI (Annex III) obligations were deferred to 2027.12.2 by the Digital Omnibus** ([full EU AI Act text](https://artificialintelligenceact.eu/), [details](../../eu/nis2-ai-act/)) |
 
 **Impact on cloud operations:**
 
 - If you use a GPAI model, you must review the **Model Card** and transparency documentation the vendor provides
-- For AI systems classified as high-risk, logging, human oversight, and risk assessment become legal obligations
+- Generative AI outputs (images, audio, video, text) require machine-readable marking under Article 50 (systems already on the market have a grace period until 2026.12.2)
+- For AI systems classified as high-risk, logging, human oversight, and risk assessment become legal obligations (application was deferred to 2027.12, but early preparation is recommended)
 - Bedrock, Azure AI, and Vertex AI are all expanding governance features to support EU AI Act compliance
 
 ### Audit Standards Frameworks

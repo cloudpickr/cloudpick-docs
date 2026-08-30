@@ -66,7 +66,7 @@ Each vendor's SOC reports are **confidential materials**, downloaded after a cus
 | **Public sector (US)** | FedRAMP / FedRAMP 20x | US federal | 20x: an automation-first process that shortens months-long manual authorization into OSCAL-based, machine-readable evidence and automated verification ([fedramp.gov/20x](https://www.fedramp.gov/20x/)) |
 | **Public sector (EU)** | C5 (Germany), ENS (Spain), etc. | EU | |
 | **Privacy (EU)** | GDPR | EU | |
-| **AI (EU)** | EU AI Act | EU | GPAI obligations & transparency (Article 50) applied 2025-08-02 to 2026-08-02. High-risk AI deferred by Digital Omnibus — standalone 2027-12-02, product-embedded 2028-08-02. [Full text](https://artificialintelligenceact.eu/) |
+| **AI (EU)** | EU AI Act | EU | GPAI obligations applied 2025-08-02; sanction powers and Article 50 transparency obligations took effect 2026-08-02 (synthetic-content marking has a grace period until 2026-12-02 for systems already on the market). High-risk AI deferred by Digital Omnibus — standalone 2027-12-02, product-embedded 2028-08-02. [Full text](https://artificialintelligenceact.eu/) |
 | **Finance (EU)** | DORA | EU | Applicable since 2025-01-17. CTPP (Critical Third-Party Provider) designation process ongoing. [Details](../../governance/landing-zone/) |
 
 Check each vendor's certification status on their **AWS Compliance Programs**, **Azure Trust Center**, **Google Cloud Compliance**, and **Oracle Cloud Compliance** pages.

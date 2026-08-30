@@ -9,7 +9,7 @@ CloudPick은 **멀티클라우드 환경에서 올바른 의사결정을 내리�
 - [Astro](https://astro.build/) + [Starlight](https://starlight.astro.build/) — 정적 문서 사이트
 - 3개 로케일: 한국어(ko, 기본), English(en), 日本語(ja)
 - Netlify 배포 (정적 빌드 + MCP Serverless Function)
-- 문서 데이터는 Netlify Blobs에 저장 — MCP를 통해서만 접근 가능
+- 문서 데이터는 언어별로 Netlify Blobs에 저장 — 다국어 MCP(ko/en/ja)를 통해서만 접근 가능
 
 ## 개발
 
@@ -31,8 +31,10 @@ src/
       ja/          ← 일본어 번역
   styles/          ← 커스텀 CSS
 public/            ← 정적 에셋 (폰트, 이미지)
-netlify/           ← Netlify Functions (MCP 엔드포인트)
-scripts/           ← 빌드 후처리 (리디렉트 stub, Blob 업로드)
+netlify/           ← Netlify Functions (MCP 엔드포인트, Blob 헬스체크)
+plugins/           ← 빌드 플러그인 (언어별 llms Blob 업로드)
+scripts/           ← 빌드 후처리 (리디렉트 stub, 언어별 llms 생성), 문서 린터
+config/            ← 로케일 단일 정의 (locales.mjs — 언어 목록 SOT)
 astro.config.mjs   ← 사이트 설정, 사이드바, 로케일
 netlify.toml       ← Netlify 빌드 + 리디렉트 설정
 ```
@@ -62,12 +64,15 @@ netlify.toml       ← Netlify 빌드 + 리디렉트 설정
 ## MCP (AI 에이전트 연동)
 
 AI 에이전트가 문서를 검색·조회할 수 있는 MCP 엔드포인트를 제공합니다.
-문서 전문 데이터는 Netlify Blobs에 저장되며, MCP Function을 통해서만 접근 가능합니다.
+문서 전문 데이터는 언어별로 Netlify Blobs에 저장되며(`llms-full-{ko,en,ja}`), MCP Function을 통해서만 접근 가능합니다.
 
-사용 가능한 도구:
-- `list_docs` — 전체 페이지 제목 목록
-- `search_docs` — 키워드 검색
-- `get_doc` — 특정 문서 전문 조회
+- 엔드포인트: `https://docs.cloudpick.kr/mcp` (언어와 무관하게 단일 URL)
+- 사용 가능한 도구:
+  - `list_docs` — 전체 페이지 제목 목록
+  - `search_docs` — 키워드 검색
+  - `get_doc` — 특정 문서 전문 조회
+- **다국어**: 세 도구 모두 선택적 `lang`(`ko`·`en`·`ja`) 파라미터를 받습니다. 미지정 시 검색어/제목의 문자로 언어를 판별하고(한글→ko, 가나→ja), 신호가 없으면 **기본값 ko(SOT)로 폴백**합니다. 응답은 사용 언어와 재요청 방법을 담은 헤더로 시작합니다.
+- 자세한 설정·동작은 [문서의 MCP 페이지](https://docs.cloudpick.kr/ko/mcp/)를 참고하세요.
 
 ## 기여
 

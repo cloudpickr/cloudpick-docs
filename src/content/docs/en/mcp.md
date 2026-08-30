@@ -17,6 +17,10 @@ Protocol: **MCP Streamable HTTP** (POST)
 
 This is the same origin as the docs site. `/mcp` is the MCP server.
 
+:::note[Legacy GitBook endpoint]
+The old GitBook address `https://docs.cloudpick.kr/~gitbook/mcp` still reaches the endpoint above. Existing client configurations keep working without changes, but the tools served are the CloudPick MCP tools listed below — **use `/mcp` for any new configuration**.
+:::
+
 ## Client Configuration
 
 ### Kiro

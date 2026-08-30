@@ -135,10 +135,24 @@ graph LR
 
 ## 参考資料
 
+### AWS
+
 - [AWS Direct Connect](https://docs.aws.amazon.com/directconnect/latest/UserGuide/Welcome.html)
+
+### Azure
+
 - [Azure ExpressRoute](https://learn.microsoft.com/azure/expressroute/expressroute-introduction)
+
+### Google Cloud
+
 - [Google Cloud Interconnect](https://cloud.google.com/network-connectivity/docs/interconnect/concepts/overview)
+
+### OCI
+
 - [OCI FastConnect](https://docs.oracle.com/en-us/iaas/Content/Network/Concepts/fastconnect.htm)
+
+### 標準・相互接続
+
 - [RFC 1918 — Address Allocation for Private Internets](https://datatracker.ietf.org/doc/html/rfc1918)
 - [Megaport](https://www.megaport.com/) — グローバル Cloud Exchange
 - [Equinix Fabric](https://www.equinix.com/products/equinix-fabric) — グローバル Cloud Exchange。国別IXは各国ガイドを参照

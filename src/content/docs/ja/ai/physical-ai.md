@@ -114,12 +114,28 @@ Halosは**基盤モデルではなく安全システム**です。ロボット�
 
 ## 参考資料
 
+### AWS
+
 - [AWS IoT Greengrass開発者ガイド](https://docs.aws.amazon.com/greengrass/v2/developerguide/)
 - [AWS IoT TwinMaker](https://aws.amazon.com/iot-twinmaker/)
+- [AWS IoT SiteWise](https://aws.amazon.com/iot-sitewise/)
+
+### Azure
+
 - [Azure IoT Operationsドキュメント](https://learn.microsoft.com/azure/iot-operations/)
 - [Azure Digital Twinsドキュメント](https://learn.microsoft.com/azure/digital-twins/)
+
+### Google Cloud
+
 - [Google Distributed Cloud](https://cloud.google.com/distributed-cloud)
+- [Coral / Edge TPU](https://cloud.google.com/edge-tpu)
+
+### OCI
+
 - [Oracle Roving Edge Infrastructure](https://www.oracle.com/cloud/roving-edge-infrastructure/)
+
+### クロスベンダー (NVIDIA)
+
 - [NVIDIA Isaac GR00T (開発者ページ)](https://developer.nvidia.com/isaac/gr00t)
 - [NVIDIA Omniverse](https://www.nvidia.com/en-us/omniverse/)
 - [NVIDIA 自動運転(DRIVE・Halos)ソリューション](https://www.nvidia.com/en-us/solutions/autonomous-vehicles/)

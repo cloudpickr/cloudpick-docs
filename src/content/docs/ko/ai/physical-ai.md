@@ -114,12 +114,28 @@ Halos는 **파운데이션 모델이 아니라 안전 시스템**입니다. 로�
 
 ## 참고하기
 
+### AWS
+
 - [AWS IoT Greengrass 개발자 가이드](https://docs.aws.amazon.com/greengrass/v2/developerguide/)
 - [AWS IoT TwinMaker](https://aws.amazon.com/iot-twinmaker/)
+- [AWS IoT SiteWise](https://aws.amazon.com/iot-sitewise/)
+
+### Azure
+
 - [Azure IoT Operations 문서](https://learn.microsoft.com/azure/iot-operations/)
 - [Azure Digital Twins 문서](https://learn.microsoft.com/azure/digital-twins/)
+
+### Google Cloud
+
 - [Google Distributed Cloud](https://cloud.google.com/distributed-cloud)
+- [Coral / Edge TPU](https://cloud.google.com/edge-tpu)
+
+### OCI
+
 - [Oracle Roving Edge Infrastructure](https://www.oracle.com/cloud/roving-edge-infrastructure/)
+
+### 크로스벤더 (NVIDIA)
+
 - [NVIDIA Isaac GR00T (개발자 페이지)](https://developer.nvidia.com/isaac/gr00t)
 - [NVIDIA Omniverse](https://www.nvidia.com/en-us/omniverse/)
 - [NVIDIA 자율주행(DRIVE·Halos) 솔루션](https://www.nvidia.com/en-us/solutions/autonomous-vehicles/)

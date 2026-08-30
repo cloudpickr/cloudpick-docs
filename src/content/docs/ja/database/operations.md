@@ -133,10 +133,39 @@ NoSQLはRDBと異なり、**クエリパターンを先に決めてからキー�
 - [ ] マルチAZまたは読み取りレプリカで高可用性が構成されているか
 - [ ] PITR(Point-in-Time Recovery)復旧を実際にテストしたことがあるか
 
-## 参考資料
-
-### 関連ドキュメント
+## 関連ドキュメント
 
 - [マネージドRDB](../../database/managed-rdb/) — DB選択ガイド
 - [NoSQL](../../database/nosql/) — NoSQL選択ガイド
 - [キャッシュとインメモリ](../../database/cache/) — キャッシュ選択ガイド
+
+## 参考資料
+
+### AWS
+
+- [Amazon RDS ユーザーガイド](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Welcome.html)
+- [Amazon Aurora ユーザーガイド](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
+- [Amazon RDS Proxy](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-proxy.html)
+- [RDS リードレプリカの操作](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html)
+
+### Azure
+
+- [Azure Database for PostgreSQL ドキュメント](https://learn.microsoft.com/azure/postgresql/)
+- [Azure SQL Database 高可用性](https://learn.microsoft.com/azure/azure-sql/database/high-availability-sla)
+- [Azure SQL Database 読み取りスケールアウト(リードレプリカ)](https://learn.microsoft.com/azure/azure-sql/database/read-scale-out)
+
+### Google Cloud
+
+- [Cloud SQL 高可用性の概要](https://cloud.google.com/sql/docs/postgres/high-availability)
+- [Cloud SQL リードレプリカ](https://cloud.google.com/sql/docs/postgres/replication)
+- [Cloud SQL Auth Proxy](https://cloud.google.com/sql/docs/postgres/sql-proxy)
+
+### OCI
+
+- [OCI Autonomous Database ドキュメント](https://docs.oracle.com/en-us/iaas/autonomous-database/index.html)
+- [Autonomous Data Guard](https://docs.oracle.com/en-us/iaas/autonomous-database-serverless/doc/autonomous-data-guard.html)
+
+### 標準・ツール
+
+- [PostgreSQL EXPLAIN ドキュメント](https://www.postgresql.org/docs/current/sql-explain.html)
+- [PgBouncer — 軽量コネクションプーラー](https://www.pgbouncer.org/)

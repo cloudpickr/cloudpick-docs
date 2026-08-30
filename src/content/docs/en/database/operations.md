@@ -133,10 +133,39 @@ For cache pattern definitions (Cache-Aside, Write-Through, Write-Behind, etc.) a
 - [ ] Is high availability configured via multi-AZ or read replicas?
 - [ ] Have you actually tested PITR (point-in-time recovery)?
 
-## References
-
-### Related documents
+## Related Documents
 
 - [Managed RDB](../../database/managed-rdb/) — DB selection guide
 - [NoSQL](../../database/nosql/) — NoSQL selection guide
 - [Cache and In-Memory](../../database/cache/) — cache selection guide
+
+## References
+
+### AWS
+
+- [Amazon RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Welcome.html)
+- [Amazon Aurora User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
+- [Amazon RDS Proxy](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-proxy.html)
+- [Working with RDS read replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html)
+
+### Azure
+
+- [Azure Database for PostgreSQL documentation](https://learn.microsoft.com/azure/postgresql/)
+- [Azure SQL Database high availability](https://learn.microsoft.com/azure/azure-sql/database/high-availability-sla)
+- [Azure SQL Database read scale-out (read replicas)](https://learn.microsoft.com/azure/azure-sql/database/read-scale-out)
+
+### Google Cloud
+
+- [Cloud SQL high availability overview](https://cloud.google.com/sql/docs/postgres/high-availability)
+- [Cloud SQL read replicas](https://cloud.google.com/sql/docs/postgres/replication)
+- [Cloud SQL Auth Proxy](https://cloud.google.com/sql/docs/postgres/sql-proxy)
+
+### OCI
+
+- [OCI Autonomous Database documentation](https://docs.oracle.com/en-us/iaas/autonomous-database/index.html)
+- [Autonomous Data Guard](https://docs.oracle.com/en-us/iaas/autonomous-database-serverless/doc/autonomous-data-guard.html)
+
+### Standards & Tools
+
+- [PostgreSQL EXPLAIN documentation](https://www.postgresql.org/docs/current/sql-explain.html)
+- [PgBouncer — lightweight connection pooler](https://www.pgbouncer.org/)

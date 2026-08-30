@@ -133,10 +133,39 @@ NoSQL은 RDB와 달리 **쿼리 패턴을 먼저 정하고 키를 설계**해야
 - [ ] 멀티 AZ 또는 읽기 복제본으로 고가용성이 구성되어 있는가
 - [ ] PITR(Point-in-Time Recovery) 복구를 실제로 테스트해본 적이 있는가
 
-## 참고하기
-
-### 관련 문서
+## 관련 문서
 
 - [관리형 RDB](../../database/managed-rdb/) — DB 선택 가이드
 - [NoSQL](../../database/nosql/) — NoSQL 선택 가이드
 - [캐시와 인메모리](../../database/cache/) — 캐시 선택 가이드
+
+## 참고하기
+
+### AWS
+
+- [Amazon RDS 사용 설명서](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Welcome.html)
+- [Amazon Aurora 사용 설명서](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
+- [Amazon RDS Proxy](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-proxy.html)
+- [RDS 읽기 복제본으로 작업하기](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html)
+
+### Azure
+
+- [Azure Database for PostgreSQL 문서](https://learn.microsoft.com/azure/postgresql/)
+- [Azure SQL Database 고가용성](https://learn.microsoft.com/azure/azure-sql/database/high-availability-sla)
+- [Azure SQL Database 읽기 복제본(읽기 배율 확장)](https://learn.microsoft.com/azure/azure-sql/database/read-scale-out)
+
+### Google Cloud
+
+- [Cloud SQL 고가용성 개요](https://cloud.google.com/sql/docs/postgres/high-availability)
+- [Cloud SQL 읽기 복제본](https://cloud.google.com/sql/docs/postgres/replication)
+- [Cloud SQL Auth Proxy](https://cloud.google.com/sql/docs/postgres/sql-proxy)
+
+### OCI
+
+- [OCI Autonomous Database 문서](https://docs.oracle.com/en-us/iaas/autonomous-database/index.html)
+- [Autonomous Data Guard](https://docs.oracle.com/en-us/iaas/autonomous-database-serverless/doc/autonomous-data-guard.html)
+
+### 표준·도구
+
+- [PostgreSQL EXPLAIN 문서](https://www.postgresql.org/docs/current/sql-explain.html)
+- [PgBouncer — 경량 커넥션 풀러](https://www.pgbouncer.org/)

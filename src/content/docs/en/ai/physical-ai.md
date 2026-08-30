@@ -114,12 +114,28 @@ Halos is a **safety system, not a foundation model**. The foundation model that 
 
 ## References
 
+### AWS
+
 - [AWS IoT Greengrass Developer Guide](https://docs.aws.amazon.com/greengrass/v2/developerguide/)
 - [AWS IoT TwinMaker](https://aws.amazon.com/iot-twinmaker/)
+- [AWS IoT SiteWise](https://aws.amazon.com/iot-sitewise/)
+
+### Azure
+
 - [Azure IoT Operations documentation](https://learn.microsoft.com/azure/iot-operations/)
 - [Azure Digital Twins documentation](https://learn.microsoft.com/azure/digital-twins/)
+
+### Google Cloud
+
 - [Google Distributed Cloud](https://cloud.google.com/distributed-cloud)
+- [Coral / Edge TPU](https://cloud.google.com/edge-tpu)
+
+### OCI
+
 - [Oracle Roving Edge Infrastructure](https://www.oracle.com/cloud/roving-edge-infrastructure/)
+
+### Cross-vendor (NVIDIA)
+
 - [NVIDIA Isaac GR00T (developer page)](https://developer.nvidia.com/isaac/gr00t)
 - [NVIDIA Omniverse](https://www.nvidia.com/en-us/omniverse/)
 - [NVIDIA Autonomous Vehicles (DRIVE / Halos) solutions](https://www.nvidia.com/en-us/solutions/autonomous-vehicles/)

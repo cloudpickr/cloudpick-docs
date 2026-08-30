@@ -135,10 +135,24 @@ graph LR
 
 ## 참고하기
 
+### AWS
+
 - [AWS Direct Connect](https://docs.aws.amazon.com/directconnect/latest/UserGuide/Welcome.html)
+
+### Azure
+
 - [Azure ExpressRoute](https://learn.microsoft.com/azure/expressroute/expressroute-introduction)
+
+### Google Cloud
+
 - [Google Cloud Interconnect](https://cloud.google.com/network-connectivity/docs/interconnect/concepts/overview)
+
+### OCI
+
 - [OCI FastConnect](https://docs.oracle.com/en-us/iaas/Content/Network/Concepts/fastconnect.htm)
+
+### 표준·상호연결
+
 - [RFC 1918 — Address Allocation for Private Internets](https://datatracker.ietf.org/doc/html/rfc1918)
 - [Megaport](https://www.megaport.com/) — 글로벌 Cloud Exchange
 - [Equinix Fabric](https://www.equinix.com/products/equinix-fabric) — 글로벌 Cloud Exchange. 국가별 IX는 국가 가이드 참고

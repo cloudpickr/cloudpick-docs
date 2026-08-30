@@ -188,11 +188,7 @@ AI 서비스는 다른 클라우드 서비스보다 **변경 빈도가 매우 �
 
 ### Physical AI (물리 세계 연결)
 
-| 영역 | 클라우드 서비스 |
-| --- | --- |
-| IoT + 엣지 추론 | AWS IoT Greengrass, Azure IoT Operations, Google Edge TPU |
-| 디지털 트윈 | AWS IoT TwinMaker, Azure Digital Twins, NVIDIA Omniverse |
-| 로보틱스 | NVIDIA Isaac, Halos for Robotics |
+센서·로봇·설비 등 물리 세계와 AI를 연결하는 Physical AI(엣지 추론, 디지털 트윈·시뮬레이션, 로보틱스 파운데이션 모델)는 별도 문서 [Physical AI](../../ai/physical-ai/)에서 벤더 중립 관점으로 자세히 다룹니다.
 
 ## 멀티클라우드 모델 접근의 변화 (2025-2026)
 

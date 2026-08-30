@@ -176,11 +176,7 @@ AI services change **far more frequently** than other cloud services. Model name
 
 ### Physical AI (Connecting to the Physical World)
 
-| Area | Cloud Services |
-| --- | --- |
-| IoT + edge inference | AWS IoT Greengrass, Azure IoT Operations, Google Edge TPU |
-| Digital twins | AWS IoT TwinMaker, Azure Digital Twins, NVIDIA Omniverse |
-| Robotics | NVIDIA Isaac, Halos for Robotics |
+Physical AI — connecting AI to the physical world of sensors, robots, and equipment (edge inference, digital twins and simulation, robotics foundation models) — is covered in detail from a vendor-neutral perspective in the dedicated [Physical AI](../../ai/physical-ai/) document.
 
 ## Multicloud Model Access (2025–2026)
 

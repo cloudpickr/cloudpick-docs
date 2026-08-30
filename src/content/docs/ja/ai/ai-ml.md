@@ -188,11 +188,7 @@ AIサービスは他のクラウドサービスよりも**変更頻度が非常�
 
 ### Physical AI (物理世界との接続)
 
-| 領域 | クラウドサービス |
-| --- | --- |
-| IoT + エッジ推論 | AWS IoT Greengrass, Azure IoT Operations, Google Edge TPU |
-| デジタルツイン | AWS IoT TwinMaker, Azure Digital Twins, NVIDIA Omniverse |
-| ロボティクス | NVIDIA Isaac, Halos for Robotics |
+センサー・ロボット・設備など物理世界とAIを接続するPhysical AI(エッジ推論、デジタルツイン・シミュレーション、ロボティクス基盤モデル)は、別文書[Physical AI](../../ai/physical-ai/)でベンダー中立の視点から詳しく扱います。
 
 ## マルチクラウドモデルアクセスの変化 (2025-2026)
 

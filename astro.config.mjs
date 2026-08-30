@@ -309,6 +309,7 @@ export default defineConfig({
 							items: [
 								{ slug: 'ai/llmops' },
 								{ slug: 'ai/multicloud-ai' },
+								{ slug: 'ai/physical-ai' },
 							],
 						},
 					],

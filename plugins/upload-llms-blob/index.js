@@ -1,22 +1,22 @@
 import { readFileSync, writeFileSync, mkdirSync, unlinkSync, existsSync, readdirSync, rmdirSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { getDeployStore } from '@netlify/blobs';
+import { LOCALES, DEFAULT_LOCALE, blobKeyFor } from '../../config/locales.mjs';
 
 const BLOB_STORE_NAME = 'mcp-docs';
-const LOCALES = ['ko', 'en', 'ja'];
 
 // 업로드할 항목: blobKey → dist 내 소스 파일 경로(publishDir 기준 상대)
 //  - 언어별: llms-full-{lang}  ← dist/llms/llms-full-{lang}.txt
 //  - 라우팅 인덱스: routing-index ← dist/llms/routing-index.json
-//  - legacy: llms-full (=ko) ← 하위호환용 1릴리스 병행 유지
+//  - legacy: llms-full (=기본 로케일) ← 하위호환용 1릴리스 병행 유지
 function buildUploadPlan(publishDir) {
   const plan = [];
   for (const lang of LOCALES) {
-    plan.push({ key: `llms-full-${lang}`, path: join(publishDir, 'llms', `llms-full-${lang}.txt`) });
+    plan.push({ key: blobKeyFor(lang), path: join(publishDir, 'llms', `${blobKeyFor(lang)}.txt`) });
   }
   plan.push({ key: 'routing-index', path: join(publishDir, 'llms', 'routing-index.json') });
-  // legacy: 기존 MCP/외부 리더 호환 — ko와 동일 내용
-  plan.push({ key: 'llms-full', path: join(publishDir, 'llms', 'llms-full-ko.txt') });
+  // legacy: 기존 MCP/외부 리더 호환 — 기본 로케일과 동일 내용
+  plan.push({ key: 'llms-full', path: join(publishDir, 'llms', `${blobKeyFor(DEFAULT_LOCALE)}.txt`) });
   return plan;
 }
 
@@ -29,9 +29,9 @@ export const onPostBuild = async function ({ constants }) {
   if (missing.length) {
     // en/ja 누락은 로케일 비대칭 부분 배포 위험 → 명확히 경고
     console.warn(`[upload-llms-blob] ⚠️ WARNING: ${missing.length} expected file(s) missing: ${missing.map((m) => m.key).join(', ')}. Locales may be out of sync.`);
-    // ko 언어 파일조차 없으면 업로드할 게 없으므로 종료
-    if (!existsSync(join(publishDir, 'llms', 'llms-full-ko.txt'))) {
-      console.log('[upload-llms-blob] ko source missing — nothing to upload, skipping.');
+    // 기본 로케일 파일조차 없으면 업로드할 게 없으므로 종료
+    if (!existsSync(join(publishDir, 'llms', `${blobKeyFor(DEFAULT_LOCALE)}.txt`))) {
+      console.log(`[upload-llms-blob] ${DEFAULT_LOCALE} source missing — nothing to upload, skipping.`);
       return;
     }
   }
@@ -81,7 +81,7 @@ export const onPostBuild = async function ({ constants }) {
   //  - dist/llms-full.txt / llms-small.txt (플러그인 산출물)도 삭제
   //  - dist/llms.txt 는 AI 비저빌리티용으로 공개 유지
   for (const lang of LOCALES) {
-    const p = join(publishDir, 'llms', `llms-full-${lang}.txt`);
+    const p = join(publishDir, 'llms', `${blobKeyFor(lang)}.txt`);
     if (existsSync(p)) { unlinkSync(p); }
   }
   for (const f of ['routing-index.json']) {

@@ -89,13 +89,28 @@ Settings → MCP Servers → Add:
 CloudPick docs are available in Korean (ko), English (en), and Japanese (ja), and the MCP server **auto-detects the request language** to return docs in that language.
 
 - **One endpoint URL, language-independent** (`https://docs.cloudpick.kr/mcp`). You do not need a different URL per language.
-- **Auto-detection**: `search_docs` infers the language from the query's script (Hangul → ko, Kana → ja). Otherwise it defaults to **ko**.
-- **Explicit selection**: to be certain, pass the optional `lang` parameter (`ko`·`en`·`ja`) to any tool — ideally set to the user's conversation language. Latin-only queries (e.g., `EKS`, `S3`) can't be identified by script alone, so specifying `lang` is more reliable.
-- **Cross-language lookup**: `get_doc` routes to the right language document whatever language the title is in.
+- **The default language is Korean (ko).** Korean is the source of truth (SOT); when there is no language signal, the server always responds in ko.
+- **Auto-detection**: the language is inferred from the query/title script (Hangul → ko, Kana → ja). Latin-only queries (e.g., `EKS`, `S3`) carry no language signal and **fall back to ko**.
+- **Explicit selection**: to be certain, pass the optional `lang` parameter (`ko`·`en`·`ja`) to any tool. **Setting it to the user's conversation language is recommended.**
+- **Language header**: every response starts with a `[lang=ko | also available: en, ja | source_lang=ko | to get another language, call again with lang="en"]` header. It tells you which language was returned, which other versions exist, and how to re-request another language, so the agent can call again with `lang` when needed.
 
-:::note
-`lang` is optional. Write in Korean and you get Korean docs; write in English or Japanese and you get those, just as before.
+:::note[Language resolution — the same for all three tools]
+Language is resolved in this order: **① explicit `lang` parameter → ② script detection of the query/title (Hangul→ko, Kana→ja) → ③ default ko**. All three tools (`list_docs`·`search_docs`·`get_doc`) use this identical rule — there are no per-tool exceptions.
+
+This means **Latin-only queries/titles (e.g., `EKS`, `CDN`, `API Gateway`) cannot be identified and respond in ko**. To get English or Japanese, specify `lang` explicitly as shown below.
 :::
+
+### Getting answers in English or Japanese
+
+Because Latin-only queries and titles respond in Korean (the default), **specify the `lang` parameter explicitly to receive English or Japanese responses**. Most MCP clients let you pass this via the tool arguments — **instruct your agent to pass the user's conversation language as `lang`**.
+
+```text
+search_docs({ query: "EKS", lang: "en" })          // search in English
+get_doc({ title: "VPC and Subnets", lang: "en" })   // fetch the English doc
+get_doc({ title: "VPCとサブネット", lang: "ja" })    // fetch the Japanese doc
+```
+
+Queries in Hangul or Kana are auto-detected and respond in ko or ja respectively without `lang`. If a document does not exist in the detected language, another language version is located and returned (cross-language lookup); in that case the `lang=` value in the response header tells you the actual returned language.
 
 ## Usage Examples
 

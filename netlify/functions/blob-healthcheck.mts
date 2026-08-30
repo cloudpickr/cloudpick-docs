@@ -3,10 +3,11 @@
  * 주 1회 실행하여 언어별 llms-full Blob이 존재하고 최소 크기 이상인지 확인합니다.
  */
 import { getStore } from "@netlify/blobs";
+import { LANG_BLOB_KEYS } from "../../config/locales.mjs";
 
 const BLOB_STORE_NAME = "mcp-docs";
-// 언어별 blob 키. 세 언어 모두 존재·정상 크기여야 정상.
-const LANG_KEYS = ["llms-full-ko", "llms-full-en", "llms-full-ja"];
+// 언어별 blob 키(config/locales.mjs 파생). 모든 언어가 존재·정상 크기여야 정상.
+const LANG_KEYS = LANG_BLOB_KEYS;
 const MIN_SIZE_BYTES = 100_000; // 최소 100KB 이상이어야 정상
 
 export default async function handler() {

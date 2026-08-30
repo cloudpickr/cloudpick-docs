@@ -10,6 +10,7 @@
  */
 
 import { getDeployStore } from "@netlify/blobs";
+import { LOCALES as SHARED_LOCALES, DEFAULT_LOCALE as SHARED_DEFAULT } from "../../config/locales.mjs";
 
 // ─── 문서 파싱 ───
 
@@ -18,13 +19,49 @@ interface DocSection {
   content: string;
 }
 
+// 응답 상단에 붙이는 언어 메타 헤더. 에이전트가 실제로 읽는 텍스트 한 줄로,
+// 어떤 언어로 응답했는지(lang)와 다른 어떤 언어가 존재하는지(also)를 알린다.
+// 기본(SOT)은 ko이며, 다른 언어가 필요하면 lang 파라미터로 명시 재요청하도록 가이드한다.
+// 에이전트가 읽는 한 줄이므로 행동 지침을 명시적으로 포함한다.
+function langHeader(lang: Lang, available?: Lang[]): string {
+  const others = (available ?? SUPPORTED_LANGS).filter((l) => l !== lang);
+  if (others.length === 0) {
+    return `[lang=${lang} | source_lang=${DEFAULT_LANG}]`;
+  }
+  return (
+    `[lang=${lang} | also available: ${others.join(", ")} | source_lang=${DEFAULT_LANG}` +
+    ` | to get another language, call again with lang="${others[0]}"]`
+  );
+}
+
 const BLOB_STORE_NAME = "mcp-docs";
 const CACHE_TTL_MS = 5 * 60 * 1000;
 
 // 지원 언어. 기본(fallback)은 ko — SOT 로케일.
+// ⚠️ 이 목록은 MCP 함수 전용 상수다(서버리스 런타임 격리). 언어별 스크립트 감지 규칙
+//    (detectScriptLang)·enum·메시지가 이 목록과 강하게 결합돼 있어 함께 갱신해야 한다.
+//    단일 정의(config/locales.mjs)와의 드리프트는 아래 모듈 로드 시 단언으로 방지한다.
 const SUPPORTED_LANGS = ["ko", "en", "ja"] as const;
 type Lang = (typeof SUPPORTED_LANGS)[number];
 const DEFAULT_LANG: Lang = "ko";
+
+// ── 드리프트 방지 단언(모듈 로드 시 1회) ──
+// config/locales.mjs(빌드/업로드/헬스체크의 단일 정의)에 언어가 추가/변경됐는데
+// MCP의 SUPPORTED_LANGS·DEFAULT_LANG·detectScriptLang을 갱신하지 않으면 여기서 즉시 실패한다.
+// (esbuild가 이 정적 import를 번들에 인라인하므로 런타임 파일/블롭 접근이 필요 없다.)
+{
+  const mcp = [...SUPPORTED_LANGS].sort().join(",");
+  const shared = [...SHARED_LOCALES].sort().join(",");
+  if (mcp !== shared) {
+    throw new Error(
+      `[mcp] locale drift: SUPPORTED_LANGS=[${mcp}] but config/locales.mjs=[${shared}]. ` +
+        `Update SUPPORTED_LANGS + detectScriptLang() + LANG_PARAM.enum + empty-result messages together.`,
+    );
+  }
+  if (DEFAULT_LANG !== SHARED_DEFAULT) {
+    throw new Error(`[mcp] default-locale drift: DEFAULT_LANG="${DEFAULT_LANG}" but config/locales.mjs="${SHARED_DEFAULT}".`);
+  }
+}
 
 // 언어별 blob 키. 신규 키가 없으면(구 배포) legacy "llms-full"(=ko)로 폴백.
 function blobKeyFor(lang: Lang): string {
@@ -144,7 +181,7 @@ const LANG_PARAM = {
   type: "string",
   enum: ["ko", "en", "ja"],
   description:
-    "Response language (ko/en/ja). Optional — set it to the user's conversation language. If omitted, the language is auto-detected from the query script (Hangul→ko, Kana→ja), defaulting to ko.",
+    "Response language (ko/en/ja). Optional — set it to the user's conversation language. If omitted, the language is auto-detected from the query script (Hangul→ko, Kana→ja); Latin-only queries (e.g. 'EKS', 'S3') carry no signal and default to ko, the source-of-truth language. Every response is prefixed with a '[lang=… | also: … | source_lang=ko]' header stating which language was returned and which others exist — pass lang explicitly (e.g. lang:'en') to get another language.",
 } as const;
 
 const TOOLS = [
@@ -194,7 +231,7 @@ async function callTool(
     const lang = detectLang("", args.lang);
     const sections = await loadSections(lang);
     const titles = sections.map((s, i) => `${i + 1}. ${s.title}`).join("\n");
-    return { content: [{ type: "text", text: titles }] };
+    return { content: [{ type: "text", text: `${langHeader(lang)}\n${titles}` }] };
   }
 
   if (name === "search_docs") {
@@ -229,37 +266,25 @@ async function callTool(
       return { content: [{ type: "text", text: msg }] };
     }
     const text = scored.map(({ s }) => `## ${s.title}\n${snippet(s.content, terms)}`).join("\n\n");
-    return { content: [{ type: "text", text }] };
+    return { content: [{ type: "text", text: `${langHeader(lang)}\n${text}` }] };
   }
 
   if (name === "get_doc") {
     const title = (args.title as string) || "";
     const tl = title.toLowerCase();
 
-    // 언어 결정: 명시 lang → 제목 스크립트 감지 → routing-index → ko.
-    let lang: Lang | undefined;
-    if (typeof args.lang === "string") {
-      lang = detectLang("", args.lang); // 명시 lang 최우선
-    } else {
-      // 제목의 스크립트로 언어를 먼저 추정(가나→ja, 한글→ko)
-      const scripted = detectScriptLang(title); // null이면 Latin/신호없음
-      const idx = await loadRoutingIndex();
-      const langs = idx[tl] ?? idx[Object.keys(idx).find((k) => k.includes(tl) || tl.includes(k)) ?? ""] ?? [];
-      if (scripted && (langs.length === 0 || langs.includes(scripted))) {
-        lang = scripted;
-      } else if (langs.length > 0) {
-        // 동음이의(영자 제목 등): en 우선(영자 제목은 en일 가능성이 큼), 그 외 목록 첫 요소
-        lang = langs.includes("en") ? "en" : langs[0];
-      } else {
-        lang = scripted ?? DEFAULT_LANG;
-      }
-    }
+    // 언어 결정은 다른 도구와 동일한 단일 규칙: 명시 lang → 제목 스크립트(한글/가나) → ko.
+    // (영문 제목을 en으로 자동 라우팅하던 특례는 제거 — 문서화된 기본값과 충돌하는
+    //  '숨은 두 번째 기본값'이라 예측 불가능했다. 영어가 필요하면 lang:"en"으로 명시.)
+    const lang = detectLang(title, args.lang);
 
+    let resolvedLang = lang;
     let sections = await loadSections(lang);
     let exact = sections.find((s) => s.title.toLowerCase() === tl);
     let partial = sections.filter((s) => s.title.toLowerCase().includes(tl));
 
-    // 판별 언어에서 못 찾으면 다른 언어 blob도 탐색(교차언어 폴백)
+    // 판별 언어에서 못 찾으면 다른 언어 blob도 탐색(교차언어 '조회' 폴백 — 언어 기본값 변경이
+    // 아니라, 해당 제목이 그 언어에만 존재할 때 문서를 찾아주기 위한 것).
     if (!exact && partial.length === 0) {
       for (const alt of SUPPORTED_LANGS) {
         if (alt === lang) continue;
@@ -268,6 +293,7 @@ async function callTool(
         const p = altSections.filter((s) => s.title.toLowerCase().includes(tl));
         if (e || p.length > 0) {
           sections = altSections;
+          resolvedLang = alt;
           exact = e;
           partial = p;
           break;
@@ -282,7 +308,14 @@ async function callTool(
         : `'${title}' 문서를 찾지 못했습니다. list_docs로 제목을 확인하세요. (Not found — use list_docs.)`;
       return { content: [{ type: "text", text: msg }] };
     }
-    return { content: [{ type: "text", text: `# ${hit.title}\n${hit.content.trim()}` }] };
+    // 이 제목이 실제로 존재하는 언어 목록을 routing-index에서 얻어 헤더 also:에 반영.
+    // (index가 없으면 undefined → 전체 지원 언어로 표기)
+    const idx = await loadRoutingIndex();
+    const available = idx[hit.title.toLowerCase()] as Lang[] | undefined;
+    // resolvedLang이 요청 lang과 다르면 교차언어 폴백이 일어난 것 — 헤더로 명시한다.
+    return {
+      content: [{ type: "text", text: `${langHeader(resolvedLang, available)}\n# ${hit.title}\n${hit.content.trim()}` }],
+    };
   }
 
   return { content: [{ type: "text", text: `알 수 없는 도구: ${name}` }], isError: true };
@@ -322,6 +355,13 @@ async function handleJsonRpc(request: JsonRpcRequest) {
         protocolVersion,
         capabilities: { tools: { listChanged: false } },
         serverInfo: { name: "cloudpick-docs", version: "1.0.0" },
+        instructions:
+          "CloudPick documentation MCP. Docs exist in ko (source of truth), en, and ja. " +
+          "Default response language is ko; queries in Hangul→ko and Kana→ja are auto-detected. " +
+          "Latin-only queries have no language signal and return ko by default. " +
+          "To get English or Japanese, pass the optional `lang` parameter (e.g. lang:'en') — " +
+          "set it to the user's conversation language. Every tool response starts with a " +
+          "'[lang=… | also: … | source_lang=ko]' header indicating the returned language.",
       });
     }
 

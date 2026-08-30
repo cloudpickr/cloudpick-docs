@@ -3,6 +3,7 @@ import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import starlightLlmsTxt from 'starlight-llms-txt';
 import mermaid from 'astro-mermaid';
+import { STARLIGHT_LOCALES, DEFAULT_LOCALE } from './config/locales.mjs';
 
 // https://astro.build/config
 // 정적 사이트 — 어댑터 불필요. @astrojs/cloudflare 사용 금지(satori wasm 빌드 오류).
@@ -18,12 +19,8 @@ export default defineConfig({
 		starlight({
 			title: 'CloudPick',
 			description: '멀티클라우드 환경에서 올바른 의사결정을 내리기 위한 벤더 중립 가이드',
-			defaultLocale: 'ko',
-			locales: {
-				ko: { label: '한국어', lang: 'ko' },
-				en: { label: 'English', lang: 'en' },
-				ja: { label: '日本語', lang: 'ja' },
-			},
+			defaultLocale: DEFAULT_LOCALE,
+			locales: STARLIGHT_LOCALES,
 			plugins: [starlightLlmsTxt()],
 			routeMiddleware: './src/routeData.ts',
 			components: {

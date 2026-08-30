@@ -26,11 +26,13 @@
  */
 import { readFileSync, writeFileSync, mkdirSync, existsSync, readdirSync, statSync } from 'node:fs';
 import { join, relative } from 'node:path';
+import { LOCALES, DEFAULT_LOCALE } from '../config/locales.mjs';
 
 const DOCS_DIR = 'src/content/docs';
 const DIST_DIR = 'dist';
 const OUT_DIR = join(DIST_DIR, 'llms');
-const LOCALES = ['ko', 'en', 'ja'];
+// 기본(SOT) 로케일 외 나머지는 소스에서 생성. LOCALES/DEFAULT_LOCALE는 config/locales.mjs가 유일 정의.
+const NON_DEFAULT_LOCALES = LOCALES.filter((l) => l !== DEFAULT_LOCALE);
 const PAGE_SEPARATOR = '\n\n';
 const SITE_TITLE = 'CloudPick';
 const SYSTEM_LINE = `<SYSTEM>This is the full developer documentation for ${SITE_TITLE}</SYSTEM>`;
@@ -147,23 +149,23 @@ function main() {
     if (!routingIndex[key].includes(lang)) routingIndex[key].push(lang);
   };
 
-  // ── ko: 플러그인 산출물 우선, 없으면 소스에서 생성 ──
+  // ── 기본 로케일(ko, SOT): 플러그인 산출물 우선, 없으면 소스에서 생성 ──
   const pluginKoPath = join(DIST_DIR, 'llms-full.txt');
-  let koText;
+  let defaultText;
   if (existsSync(pluginKoPath)) {
-    koText = readFileSync(pluginKoPath, 'utf-8');
-    for (const e of titlesFromPluginText(koText)) addTitle(e.title, 'ko');
-    console.log('[build-llms-locales] ko: reused plugin dist/llms-full.txt');
+    defaultText = readFileSync(pluginKoPath, 'utf-8');
+    for (const e of titlesFromPluginText(defaultText)) addTitle(e.title, DEFAULT_LOCALE);
+    console.log(`[build-llms-locales] ${DEFAULT_LOCALE}: reused plugin dist/llms-full.txt`);
   } else {
-    const gen = generateFromSource('ko');
-    koText = gen.text;
-    for (const e of gen.entries) addTitle(e.title, 'ko');
-    console.log('[build-llms-locales] ko: generated from source (plugin output not found)');
+    const gen = generateFromSource(DEFAULT_LOCALE);
+    defaultText = gen.text;
+    for (const e of gen.entries) addTitle(e.title, DEFAULT_LOCALE);
+    console.log(`[build-llms-locales] ${DEFAULT_LOCALE}: generated from source (plugin output not found)`);
   }
-  writeFileSync(join(OUT_DIR, 'llms-full-ko.txt'), koText);
+  writeFileSync(join(OUT_DIR, `llms-full-${DEFAULT_LOCALE}.txt`), defaultText);
 
-  // ── en/ja: 소스에서 생성 ──
-  for (const locale of ['en', 'ja']) {
+  // ── 그 외 로케일: 소스에서 생성 ──
+  for (const locale of NON_DEFAULT_LOCALES) {
     const gen = generateFromSource(locale);
     writeFileSync(join(OUT_DIR, `llms-full-${locale}.txt`), gen.text);
     for (const e of gen.entries) addTitle(e.title, locale);
@@ -171,7 +173,7 @@ function main() {
   }
 
   writeFileSync(join(OUT_DIR, 'routing-index.json'), JSON.stringify(routingIndex));
-  console.log(`[build-llms-locales] ✓ wrote llms-full-{ko,en,ja}.txt + routing-index.json (${Object.keys(routingIndex).length} titles) to ${OUT_DIR}`);
+  console.log(`[build-llms-locales] ✓ wrote llms-full-{${LOCALES.join(',')}}.txt + routing-index.json (${Object.keys(routingIndex).length} titles) to ${OUT_DIR}`);
 }
 
 main();

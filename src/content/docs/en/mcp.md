@@ -80,9 +80,22 @@ Settings → MCP Servers → Add:
 
 | Tool | Description | Parameters |
 | --- | --- | --- |
-| `list_docs` | Returns the full list of document titles | None |
-| `search_docs` | Search docs by keyword (Korean/English) | `query`, `limit` (default 5) |
-| `get_doc` | Returns full markdown of a single document | `title` (partial match supported) |
+| `list_docs` | Returns the full list of document titles | `lang` (optional) |
+| `search_docs` | Search docs by keyword (ko·en·ja) | `query`, `limit` (default 5), `lang` (optional) |
+| `get_doc` | Returns full markdown of a single document | `title` (partial match supported), `lang` (optional) |
+
+## Multilingual Support
+
+CloudPick docs are available in Korean (ko), English (en), and Japanese (ja), and the MCP server **auto-detects the request language** to return docs in that language.
+
+- **One endpoint URL, language-independent** (`https://docs.cloudpick.kr/mcp`). You do not need a different URL per language.
+- **Auto-detection**: `search_docs` infers the language from the query's script (Hangul → ko, Kana → ja). Otherwise it defaults to **ko**.
+- **Explicit selection**: to be certain, pass the optional `lang` parameter (`ko`·`en`·`ja`) to any tool — ideally set to the user's conversation language. Latin-only queries (e.g., `EKS`, `S3`) can't be identified by script alone, so specifying `lang` is more reliable.
+- **Cross-language lookup**: `get_doc` routes to the right language document whatever language the title is in.
+
+:::note
+`lang` is optional. Write in Korean and you get Korean docs; write in English or Japanese and you get those, just as before.
+:::
 
 ## Usage Examples
 

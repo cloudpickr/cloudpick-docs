@@ -27,6 +27,13 @@
   status = 404
   force = true
 
+# 언어별 llms 원천(llms-full-{ko,en,ja}.txt)·라우팅 인덱스는 MCP 전용 — 공개 차단
+[[redirects]]
+  from = "/llms/*"
+  to = "/404/"
+  status = 404
+  force = true
+
 # ─── Netlify Function 프록시 ───
 [[redirects]]
   from = "/mcp"

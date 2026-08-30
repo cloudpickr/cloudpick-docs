@@ -21,7 +21,7 @@
         "npm:astro-mermaid@^2.1.0",
         "npm:astro@^7.0.2",
         "npm:mermaid@^11.16.1",
-        "npm:sharp@~0.34.5",
+        "npm:sharp@~0.35.4",
         "npm:starlight-llms-txt@0.11"
       ]
     }

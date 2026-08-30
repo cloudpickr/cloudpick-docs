@@ -19,11 +19,49 @@ interface DocSection {
 }
 
 const BLOB_STORE_NAME = "mcp-docs";
-const BLOB_KEY = "llms-full";
 const CACHE_TTL_MS = 5 * 60 * 1000;
 
-let cachedSections: DocSection[] | null = null;
-let cacheTimestamp = 0;
+// 지원 언어. 기본(fallback)은 ko — SOT 로케일.
+const SUPPORTED_LANGS = ["ko", "en", "ja"] as const;
+type Lang = (typeof SUPPORTED_LANGS)[number];
+const DEFAULT_LANG: Lang = "ko";
+
+// 언어별 blob 키. 신규 키가 없으면(구 배포) legacy "llms-full"(=ko)로 폴백.
+function blobKeyFor(lang: Lang): string {
+  return `llms-full-${lang}`;
+}
+const LEGACY_BLOB_KEY = "llms-full";
+const ROUTING_INDEX_KEY = "routing-index";
+
+// 언어별 파싱 결과 캐시 (stateless 함수 인스턴스 내 lazy 로딩)
+const sectionCache = new Map<Lang, { sections: DocSection[]; ts: number }>();
+// 제목(소문자) → 존재하는 언어 목록. 동음이의(영자 서비스명 등)를 모두 보존.
+let routingIndex: Record<string, Lang[]> | null = null;
+let routingIndexTs = 0;
+
+/**
+ * 텍스트의 스크립트로만 언어를 감지한다. 신호가 없으면(Latin 전용 등) null.
+ * 가나(히라가나/가타카나)→ja, 한글(음절/자모)→ko.
+ */
+function detectScriptLang(text: string): Lang | null {
+  if (!text) return null;
+  if (/[\u3040-\u30ff]/.test(text)) return "ja";
+  if (/[\uac00-\ud7a3\u1100-\u11ff\u3130-\u318f]/.test(text)) return "ko";
+  return null;
+}
+
+/**
+ * 쿼리 텍스트로 언어를 자동 판별한다.
+ * 우선순위: 명시적 lang 파라미터 → 스크립트 감지(한글/가나) → ko 기본값.
+ * Latin 전용·신호 없음은 ko로 폴백(하위호환: 기존 한국어 사용자 무손상).
+ */
+function detectLang(text: string, explicit?: unknown): Lang {
+  if (typeof explicit === "string") {
+    const e = explicit.toLowerCase().trim();
+    if ((SUPPORTED_LANGS as readonly string[]).includes(e)) return e as Lang;
+  }
+  return detectScriptLang(text) ?? DEFAULT_LANG;
+}
 
 function parseSections(text: string): DocSection[] {
   const sections: DocSection[] = [];
@@ -47,25 +85,45 @@ function parseSections(text: string): DocSection[] {
   return sections;
 }
 
-async function loadSections(): Promise<DocSection[]> {
+async function loadSections(lang: Lang): Promise<DocSection[]> {
   const now = Date.now();
-  if (cachedSections && now - cacheTimestamp < CACHE_TTL_MS) {
-    return cachedSections;
+  const cached = sectionCache.get(lang);
+  if (cached && now - cached.ts < CACHE_TTL_MS) {
+    return cached.sections;
   }
 
   try {
     const store = getDeployStore(BLOB_STORE_NAME);
-    const content = await store.get(BLOB_KEY, { type: "text" });
-    if (!content) {
-      throw new Error(`Blob "${BLOB_KEY}" not found in store "${BLOB_STORE_NAME}"`);
+    // 신규 언어별 키 → 없으면 legacy(ko) 키로 폴백(구 배포 호환)
+    let content = await store.get(blobKeyFor(lang), { type: "text" });
+    if (!content && lang === DEFAULT_LANG) {
+      content = await store.get(LEGACY_BLOB_KEY, { type: "text" });
     }
-    cachedSections = parseSections(content);
-    cacheTimestamp = now;
-    return cachedSections;
+    if (!content) {
+      throw new Error(`Blob for lang "${lang}" not found in store "${BLOB_STORE_NAME}"`);
+    }
+    const sections = parseSections(content);
+    sectionCache.set(lang, { sections, ts: now });
+    return sections;
   } catch (err) {
-    if (cachedSections) return cachedSections;
+    if (cached) return cached.sections;
     throw err;
   }
+}
+
+/** routing-index blob 로드(제목 소문자 → 언어 목록). 없으면 빈 맵. */
+async function loadRoutingIndex(): Promise<Record<string, Lang[]>> {
+  const now = Date.now();
+  if (routingIndex && now - routingIndexTs < CACHE_TTL_MS) return routingIndex;
+  try {
+    const store = getDeployStore(BLOB_STORE_NAME);
+    const raw = await store.get(ROUTING_INDEX_KEY, { type: "text" });
+    routingIndex = raw ? (JSON.parse(raw) as Record<string, Lang[]>) : {};
+  } catch {
+    routingIndex = routingIndex || {};
+  }
+  routingIndexTs = now;
+  return routingIndex;
 }
 
 function snippet(content: string, terms: string[], length = 240): string {
@@ -82,31 +140,46 @@ function snippet(content: string, terms: string[], length = 240): string {
 
 // ─── MCP Tool 실행 ───
 
+const LANG_PARAM = {
+  type: "string",
+  enum: ["ko", "en", "ja"],
+  description:
+    "Response language (ko/en/ja). Optional — set it to the user's conversation language. If omitted, the language is auto-detected from the query script (Hangul→ko, Kana→ja), defaulting to ko.",
+} as const;
+
 const TOOLS = [
   {
     name: "list_docs",
-    description: "CloudPick 멀티클라우드 문서의 전체 페이지 제목 목록을 반환합니다.",
-    inputSchema: { type: "object" as const, properties: {} },
+    description:
+      "CloudPick 멀티클라우드 문서의 전체 페이지 제목 목록을 반환합니다. (Returns all page titles of the CloudPick multi-cloud docs.)",
+    inputSchema: {
+      type: "object" as const,
+      properties: { lang: LANG_PARAM },
+    },
   },
   {
     name: "search_docs",
-    description: "CloudPick 문서를 키워드로 검색합니다. 관련도 순으로 상위 결과를 반환합니다.",
+    description:
+      "CloudPick 문서를 키워드로 검색합니다. 관련도 순 상위 결과를 반환합니다. (Searches CloudPick docs by keyword; ko/en/ja supported, auto-detected from the query.)",
     inputSchema: {
       type: "object" as const,
       properties: {
-        query: { type: "string", description: "검색 키워드" },
-        limit: { type: "number", description: "최대 결과 수 (기본 5)" },
+        query: { type: "string", description: "검색 키워드 (search keyword)" },
+        limit: { type: "number", description: "최대 결과 수 (기본 5) (max results, default 5)" },
+        lang: LANG_PARAM,
       },
       required: ["query"],
     },
   },
   {
     name: "get_doc",
-    description: "문서 한 편의 전체 마크다운을 반환합니다. 부분 일치 지원.",
+    description:
+      "문서 한 편의 전체 마크다운을 반환합니다. 부분 일치 지원. 제목이 어느 언어든 해당 언어 문서로 라우팅합니다. (Returns a full document; title match routes to the right language.)",
     inputSchema: {
       type: "object" as const,
       properties: {
-        title: { type: "string", description: "문서 제목 (부분 일치 지원)" },
+        title: { type: "string", description: "문서 제목 (부분 일치) (document title, partial match)" },
+        lang: LANG_PARAM,
       },
       required: ["title"],
     },
@@ -117,15 +190,17 @@ async function callTool(
   name: string,
   args: Record<string, unknown>,
 ): Promise<{ content: { type: string; text: string }[]; isError?: boolean }> {
-  const sections = await loadSections();
-
   if (name === "list_docs") {
+    const lang = detectLang("", args.lang);
+    const sections = await loadSections(lang);
     const titles = sections.map((s, i) => `${i + 1}. ${s.title}`).join("\n");
     return { content: [{ type: "text", text: titles }] };
   }
 
   if (name === "search_docs") {
     const query = (args.query as string) || "";
+    const lang = detectLang(query, args.lang);
+    const sections = await loadSections(lang);
     const limit = Math.min(Math.max((args.limit as number) || 5, 1), 20);
     const terms = query.split(/\s+/).filter(Boolean);
 
@@ -146,7 +221,12 @@ async function callTool(
       .slice(0, limit);
 
     if (scored.length === 0) {
-      return { content: [{ type: "text", text: `'${query}'에 대한 검색 결과가 없습니다.` }] };
+      const msg = lang === "ja"
+        ? `'${query}' の検索結果がありません。`
+        : lang === "en"
+          ? `No results for '${query}'.`
+          : `'${query}'에 대한 검색 결과가 없습니다.`;
+      return { content: [{ type: "text", text: msg }] };
     }
     const text = scored.map(({ s }) => `## ${s.title}\n${snippet(s.content, terms)}`).join("\n\n");
     return { content: [{ type: "text", text }] };
@@ -155,14 +235,51 @@ async function callTool(
   if (name === "get_doc") {
     const title = (args.title as string) || "";
     const tl = title.toLowerCase();
-    const exact = sections.find((s) => s.title.toLowerCase() === tl);
-    const partial = sections.filter((s) => s.title.toLowerCase().includes(tl));
-    const hit = exact ?? (partial.length === 1 ? partial[0] : undefined);
 
+    // 언어 결정: 명시 lang → 제목 스크립트 감지 → routing-index → ko.
+    let lang: Lang | undefined;
+    if (typeof args.lang === "string") {
+      lang = detectLang("", args.lang); // 명시 lang 최우선
+    } else {
+      // 제목의 스크립트로 언어를 먼저 추정(가나→ja, 한글→ko)
+      const scripted = detectScriptLang(title); // null이면 Latin/신호없음
+      const idx = await loadRoutingIndex();
+      const langs = idx[tl] ?? idx[Object.keys(idx).find((k) => k.includes(tl) || tl.includes(k)) ?? ""] ?? [];
+      if (scripted && (langs.length === 0 || langs.includes(scripted))) {
+        lang = scripted;
+      } else if (langs.length > 0) {
+        // 동음이의(영자 제목 등): en 우선(영자 제목은 en일 가능성이 큼), 그 외 목록 첫 요소
+        lang = langs.includes("en") ? "en" : langs[0];
+      } else {
+        lang = scripted ?? DEFAULT_LANG;
+      }
+    }
+
+    let sections = await loadSections(lang);
+    let exact = sections.find((s) => s.title.toLowerCase() === tl);
+    let partial = sections.filter((s) => s.title.toLowerCase().includes(tl));
+
+    // 판별 언어에서 못 찾으면 다른 언어 blob도 탐색(교차언어 폴백)
+    if (!exact && partial.length === 0) {
+      for (const alt of SUPPORTED_LANGS) {
+        if (alt === lang) continue;
+        const altSections = await loadSections(alt);
+        const e = altSections.find((s) => s.title.toLowerCase() === tl);
+        const p = altSections.filter((s) => s.title.toLowerCase().includes(tl));
+        if (e || p.length > 0) {
+          sections = altSections;
+          exact = e;
+          partial = p;
+          break;
+        }
+      }
+    }
+
+    const hit = exact ?? (partial.length === 1 ? partial[0] : undefined);
     if (!hit) {
       const msg = partial.length > 1
         ? `'${title}'와 일치하는 문서가 ${partial.length}개입니다:\n${partial.map((s) => `- ${s.title}`).join("\n")}`
-        : `'${title}' 문서를 찾지 못했습니다. list_docs로 제목을 확인하세요.`;
+        : `'${title}' 문서를 찾지 못했습니다. list_docs로 제목을 확인하세요. (Not found — use list_docs.)`;
       return { content: [{ type: "text", text: msg }] };
     }
     return { content: [{ type: "text", text: `# ${hit.title}\n${hit.content.trim()}` }] };

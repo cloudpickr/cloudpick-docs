@@ -45,20 +45,10 @@
   to = "/.netlify/functions/mcp"
   status = 200
 
-# 구 GitBook MCP 엔드포인트 호환 — 기존 클라이언트 설정(.kiro/settings/mcp.json 등)이
-# 그대로 동작하도록 유지한다.
-# ⚠️ 반드시 rewrite(status 200)여야 한다. MCP Streamable HTTP는 JSON-RPC 본문을 실은
-#    POST이며, 301/302는 다수 클라이언트가 GET으로 바꾸고 본문을 버리므로 프로토콜이 깨진다.
-#    rewrite는 메서드·헤더·본문을 그대로 함수에 전달한다.
-[[redirects]]
-  from = "/~gitbook/mcp"
-  to = "/.netlify/functions/mcp"
-  status = 200
-
-[[redirects]]
-  from = "/~gitbook/mcp/*"
-  to = "/.netlify/functions/mcp"
-  status = 200
+# 구 GitBook MCP 엔드포인트(/~gitbook/mcp) 호환은 여기서 리다이렉트하지 않는다.
+# netlify/functions/mcp.mts가 config.path로 이 경로를 직접 소유해야 req.url에 원래
+# 요청 경로가 보존되어(rewrite를 거치면 사라짐) 함수가 "구 엔드포인트로 들어왔다"를
+# 판별해 initialize 응답에 마이그레이션 안내(instructions)를 실을 수 있다.
 
 # ─── 삭제·통합된 문서 ───
 [[redirects]]

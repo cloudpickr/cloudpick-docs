@@ -18,7 +18,7 @@ https://docs.cloudpick.kr/mcp
 ドキュメントサイトと同じオリジンです。`/mcp` が MCP サーバーです。
 
 :::note[旧 GitBook エンドポイント]
-GitBook 時代のアドレス `https://docs.cloudpick.kr/~gitbook/mcp` も上記エンドポイントにそのまま接続されます。既存のクライアント設定を変更しなくても動作しますが、提供されるツールは以下の CloudPick MCP ツール一覧に従います。**新規設定では `/mcp` を使用してください。**
+GitBook 時代のアドレス `https://docs.cloudpick.kr/~gitbook/mcp` も上記エンドポイントにそのまま接続されます。既存のクライアント設定を変更しなくても動作しますが、提供されるツールは以下の CloudPick MCP ツール一覧に従います。このアドレスで接続すると `initialize` 応答の instructions にも `/mcp` への移行を促す案内が添えられ、接続元のエージェントがユーザーに伝えられるようになっています。**新規設定では最初から `/mcp` を使用してください。**
 :::
 
 ## クライアント別設定

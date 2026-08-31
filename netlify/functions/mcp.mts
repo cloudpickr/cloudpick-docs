@@ -341,7 +341,15 @@ function jsonRpcError(id: string | number | null, code: number, message: string)
   return { jsonrpc: "2.0" as const, id, error: { code, message } };
 }
 
-async function handleJsonRpc(request: JsonRpcRequest) {
+// 구 GitBook 경로(/~gitbook/mcp)로 들어온 요청에 initialize 응답으로 실어 보내는 이전 안내.
+// MCP 클라이언트는 대개 instructions를 모델 컨텍스트에 넣으므로, 에이전트가 사용자에게
+// "엔드포인트를 /mcp로 바꾸라"고 알려줄 수 있는 기회가 된다.
+const LEGACY_ENDPOINT_NOTICE =
+  "NOTE: This request reached the CloudPick docs MCP server via the legacy GitBook endpoint " +
+  "(https://docs.cloudpick.kr/~gitbook/mcp). It still works, but is deprecated — tell the user to " +
+  "update their MCP client configuration to use https://docs.cloudpick.kr/mcp instead. ";
+
+async function handleJsonRpc(request: JsonRpcRequest, isLegacyEndpoint: boolean) {
   const { id, method, params } = request;
   const rpcId = id === undefined ? null : id;
 
@@ -356,6 +364,7 @@ async function handleJsonRpc(request: JsonRpcRequest) {
         capabilities: { tools: { listChanged: false } },
         serverInfo: { name: "cloudpick-docs", version: "1.0.0" },
         instructions:
+          (isLegacyEndpoint ? LEGACY_ENDPOINT_NOTICE : "") +
           "CloudPick documentation MCP. Docs exist in ko (source of truth), en, and ja. " +
           "Default response language is ko; queries in Hangul→ko and Kana→ja are auto-detected. " +
           "Latin-only queries have no language signal and return ko by default. " +
@@ -437,13 +446,24 @@ function checkRateLimit(key: string): boolean {
 
 export default async function handler(req: Request): Promise<Response> {
   // CORS * : 공개 MCP. 에이전트 클라이언트가 임의의 origin에서 붙는다.
-  const headers = {
+  const headers: Record<string, string> = {
     "content-type": "application/json; charset=utf-8",
     "access-control-allow-origin": "*",
     "access-control-allow-methods": "GET, POST, DELETE, OPTIONS",
     "access-control-allow-headers":
       "content-type, accept, mcp-session-id, mcp-protocol-version, last-event-id",
   };
+
+  // 구 GitBook 엔드포인트(/~gitbook/mcp) 여부. config.path로 함수가 이 경로를 직접
+  // 소유하므로(rewrite를 거치지 않음) req.url에 실제 요청 경로가 그대로 담긴다.
+  // 메서드 분기보다 먼저 판별해, 모든 응답(OPTIONS/GET/DELETE/POST/429)에 일관되게
+  // 표준 폐기 신호 헤더를 실을 수 있게 한다.
+  const isLegacyEndpoint = new URL(req.url).pathname.startsWith("/~gitbook/mcp");
+  if (isLegacyEndpoint) {
+    // 사람이 네트워크 탭에서 봐도 알 수 있도록 표준 폐기 신호도 함께 보낸다.
+    headers["deprecation"] = "true";
+    headers["link"] = '<https://docs.cloudpick.kr/mcp>; rel="successor-version"';
+  }
 
   // CORS preflight
   if (req.method === "OPTIONS") {
@@ -491,7 +511,7 @@ export default async function handler(req: Request): Promise<Response> {
       );
     }
 
-    const result = await handleJsonRpc(body as JsonRpcRequest);
+    const result = await handleJsonRpc(body as JsonRpcRequest, isLegacyEndpoint);
     if (result === null) {
       return new Response(null, { status: 202, headers });
     }
@@ -502,5 +522,7 @@ export default async function handler(req: Request): Promise<Response> {
 }
 
 export const config = {
-  path: "/mcp",
+  // 배열 + URLPattern 와일드카드: 함수가 이 경로들을 직접 소유하므로
+  // req.url에 원래 요청 경로가 보존된다(위 isLegacyEndpoint 판별에 필요).
+  path: ["/mcp", "/~gitbook/mcp", "/~gitbook/mcp/*"],
 };

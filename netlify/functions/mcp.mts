@@ -341,13 +341,25 @@ function jsonRpcError(id: string | number | null, code: number, message: string)
   return { jsonrpc: "2.0" as const, id, error: { code, message } };
 }
 
-// 구 GitBook 경로(/~gitbook/mcp)로 들어온 요청에 initialize 응답으로 실어 보내는 이전 안내.
+// 구 GitBook 경로(/~gitbook/mcp)로 들어온 요청에 실어 보내는 이관 안내.
 // MCP 클라이언트는 대개 instructions를 모델 컨텍스트에 넣으므로, 에이전트가 사용자에게
 // "엔드포인트를 /mcp로 바꾸라"고 알려줄 수 있는 기회가 된다.
 const LEGACY_ENDPOINT_NOTICE =
   "NOTE: This request reached the CloudPick docs MCP server via the legacy GitBook endpoint " +
-  "(https://docs.cloudpick.kr/~gitbook/mcp). It still works, but is deprecated — tell the user to " +
-  "update their MCP client configuration to use https://docs.cloudpick.kr/mcp instead. ";
+  "(https://docs.cloudpick.kr/~gitbook/mcp). Tell the user to update their MCP client " +
+  "configuration to use https://docs.cloudpick.kr/mcp instead. ";
+
+// 구 엔드포인트는 실제 문서 도구를 더 이상 제공하지 않는다(stub) — tools/list는 이 안내
+// 도구 하나만 반환하고, tools/call은 어떤 도구명이 오든 동일한 안내를 돌려준다.
+// 그래도 200으로 정상 응답하므로 handshake 자체는 깨지지 않고, 클라이언트가 캐시해둔
+// 옛 도구명(searchDocumentation/getPage 등)으로 호출해도 에러 대신 안내가 온다.
+const MIGRATION_STUB_TOOL = {
+  name: "migration_notice",
+  description:
+    "⚠️ This is a stub. The CloudPick docs MCP has moved to https://docs.cloudpick.kr/mcp — " +
+    "update your MCP client configuration there to get real search/list/get_doc tools again.",
+  inputSchema: { type: "object" as const, properties: {} },
+};
 
 async function handleJsonRpc(request: JsonRpcRequest, isLegacyEndpoint: boolean) {
   const { id, method, params } = request;
@@ -378,9 +390,14 @@ async function handleJsonRpc(request: JsonRpcRequest, isLegacyEndpoint: boolean)
       return null;
 
     case "tools/list":
-      return jsonRpcResponse(rpcId, { tools: TOOLS });
+      return jsonRpcResponse(rpcId, { tools: isLegacyEndpoint ? [MIGRATION_STUB_TOOL] : TOOLS });
 
     case "tools/call": {
+      // 구 엔드포인트에서는 요청한 도구명과 무관하게 이관 안내만 돌려준다(stub).
+      if (isLegacyEndpoint) {
+        return jsonRpcResponse(rpcId, { content: [{ type: "text", text: LEGACY_ENDPOINT_NOTICE.trim() }] });
+      }
+
       const name = (params as { name?: string })?.name;
       const args = (params as { arguments?: Record<string, unknown> })?.arguments || {};
       if (!name || !TOOLS.some((t) => t.name === name)) {

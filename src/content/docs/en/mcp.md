@@ -18,7 +18,7 @@ Protocol: **MCP Streamable HTTP** (POST)
 This is the same origin as the docs site. `/mcp` is the MCP server.
 
 :::note[Legacy GitBook endpoint]
-The old GitBook address `https://docs.cloudpick.kr/~gitbook/mcp` still reaches the endpoint above. Existing client configurations keep working without changes, but the tools served are the CloudPick MCP tools listed below. Connecting through this address also adds a migration note to the `initialize` response's `instructions`, telling the connecting agent to update the URL — so it may pass that along to you. **Use `/mcp` for any new configuration.**
+The old GitBook address `https://docs.cloudpick.kr/~gitbook/mcp` still connects, but it's now a **notice-only stub** — it no longer serves the real documentation tools. `tools/list` returns a single `migration_notice` tool instead of `list_docs`/`search_docs`/`get_doc`, and calling any tool name just returns text telling you to update your configuration to use `/mcp`. The same note is also added to the `initialize` response's `instructions`. Search and lookup no longer work through this address — **update your configuration to `/mcp`.**
 :::
 
 ## Client Configuration

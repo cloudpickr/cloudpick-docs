@@ -1,0 +1,68 @@
+# lychee 링크 검사 설정 (로컬·CI 공통)
+# 목적: 실제 데드링크(404 등)만 잡고, 봇 차단·rate-limit·프로토콜 특성으로 인한
+#       오탐을 최대한 줄인다. 도구 교체 대신 lychee 설정으로 정공법 해결.
+
+# ── 검사 범위 ──
+# http/https URL(외부 링크)만 검사한다. 내부 상대 링크(../..)와
+# root-relative 링크(/ko/..)는 Astro가 라우팅하고 `npm run build`가 이미
+# 깨진 내부 링크를 검증하므로, 여기서는 scheme 한정 + 제외로 오탐을 막는다.
+scheme = ["https", "http"]
+
+# ── 허용 상태 코드 ──
+# 200-206: 정상
+# 429: rate-limit(과다 요청) — 링크 자체는 유효
+# 202: 일부 정부/기관 사이트(imda.gov.sg, pdpc.gov.sg 등)가 WAF 앞단에서 반환
+# 307/308: 일부 사이트(asean.org 등)가 반환하는 리다이렉트 — 링크는 유효
+# 403: 봇 차단(브라우저에선 정상) — 예: partner.microsoft.com
+# 999: LinkedIn 등 일부 사이트의 봇 방어 코드
+accept = ["200..=206", "202", "307", "308", "403", "429", "999"]
+
+# ── 봇 차단 완화 ──
+# 실제 브라우저 User-Agent로 요청해 봇 필터를 통과한다.
+user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0 Safari/537.36"
+
+# ── rate-limit·연결 실패 완화 ──
+# 호스트당 동시 요청을 낮춰 cloud.google.com 등의 대량 요청 차단을 회피.
+max_concurrency = 8
+timeout = 30
+max_retries = 3
+retry_wait_time = 2
+
+# ── 캐시 ──
+# 동일 URL 반복 검사를 줄여 속도·안정성 향상. 일시 오류는 캐시에서 제외.
+cache = true
+cache_exclude_status = ["429", "500..=599"]
+
+# ── 제외 ──
+# 인증 필요 콘솔/포털·봇 차단이 고질적인 도메인은 검사에서 제외(오탐 방지).
+exclude = [
+  "^https?://localhost",
+  "^https?://127\\.0\\.0\\.1",
+  # root-relative 내부 링크(/ko/.. /en/.. /ja/..) — Astro 라우팅 대상이고
+  # npm run build가 깨진 내부 링크를 이미 검증하므로 lychee 검사 제외.
+  "^/(ko|en|ja)/",
+  # 로그인 필요 콘솔·포털
+  "console\\.aws\\.amazon\\.com",
+  "portal\\.azure\\.com",
+  "console\\.cloud\\.google\\.com",
+  "cloud\\.oracle\\.com",
+  "console\\.upstage\\.ai",
+  "platform\\.openai\\.com",
+  # 봇 방어가 고질적이라 CI(공유 IP)에서 신뢰 불가(브라우저에선 정상).
+  # 실제 유효성은 로컬/브라우저에서 확인. CI 오탐만 유발하므로 제외.
+  "partner\\.microsoft\\.com",
+  # cloud.google.com은 GitHub Actions IP에서 reCAPTCHA(google.com/sorry)로
+  # 리다이렉트되어 100% 실패한다(실제 페이지는 정상). CI 검사 불가로 제외.
+  "^https?://cloud\\.google\\.com",
+  "^https?://docs\\.cloud\\.google\\.com",
+  "google\\.com/sorry",
+  # KISA(한국 정보보호 인증) — CI IP에서 연결 차단이 고질적.
+  "isms\\.kisa\\.or\\.kr",
+  # ai.google.dev — 접속 시 OAuth 로그인(oauth2authorize)으로 302 리다이렉트되어
+  # CI에서 검사 불가(브라우저에선 정상). 실제 유효성은 브라우저에서 확인.
+  "^https?://ai\\.google\\.dev",
+  # Meta(llama.com→developer.meta.com)는 브라우저 User-Agent를 오히려 400으로
+  # 차단한다(위 user_agent 설정과 상충). 실제 페이지는 정상이므로 제외.
+  "^https?://www\\.llama\\.com",
+  "^https?://developer\\.meta\\.com",
+]

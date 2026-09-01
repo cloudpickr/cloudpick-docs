@@ -55,7 +55,7 @@ description: "ベンダー別のAIプラットフォーム、モデルカタロ�
 | **Anthropic** | Claude Fable 5, Opus 5, Opus 4.8, Sonnet 5, Haiku | [api.anthropic.com](https://platform.claude.com/) | Bedrock, Vertex AI |
 | **Google** | Gemini 3.5 Pro/Flash, 3.1 Pro, Gemini Omni (Preview/GAは[公式文書](https://ai.google.dev/)で確認) | [Gemini API](https://ai.google.dev/) | Vertex AI (ネイティブ) |
 | **xAI** | Grok 4.3, Grok 4.1 Fast, Imagine | [x.ai/api](https://x.ai/api) | OCI, Vertex AI, Bedrock, Azure |
-| **Meta** | Llama 4 (オープンウェイト) | [llama.meta.com](https://llama.meta.com/) | Bedrock, Vertex, Azure, OCI (ホスティング) |
+| **Meta** | Llama 4 (オープンウェイト) | [llama.com](https://www.llama.com/) | Bedrock, Vertex, Azure, OCI (ホスティング) |
 | **Amazon** | Nova 1(Premier/Pro/Lite/Micro/Sonic等) + **Nova 2**(Lite, Pro等 — 世代区分) | — (Bedrock専用) | Bedrock |
 | **Microsoft** | MAI (Image/Voice/Transcribe) | — (Foundry専用) | Azure Foundry |
 | **Mistral** | Large, Small, Codestral | [api.mistral.ai](https://docs.mistral.ai/) | Bedrock, Azure, Vertex |

@@ -7,12 +7,12 @@ on:
     paths:
       - "src/content/docs/**"
       - ".github/workflows/external-link-check.yml"
-      - ".lycheeignore"
+      - "lychee.toml"
   pull_request:
     paths:
       - "src/content/docs/**"
       - ".github/workflows/external-link-check.yml"
-      - ".lycheeignore"
+      - "lychee.toml"
   # 주기 점검 — 콘텐츠 변경이 없어도 외부 링크가 죽는 link-rot을 잡음
   schedule:
     - cron: "0 0 * * 1" # 매주 월요일 UTC 00:00
@@ -35,16 +35,13 @@ jobs:
         id: lychee
         uses: lycheeverse/lychee-action@v2
         with:
-          # http(s) URL만 검사 — 내부 상대 링크(../..)는 Astro가 라우팅하며
-          # lychee가 파일 경로로 오해해 오탐을 내므로 스킴을 http/https로 한정한다.
+          # 오탐 완화 설정은 lychee.toml에 통합(User-Agent, host-concurrency,
+          # accept 코드, 봇 차단 도메인 제외 등). 로컬 검사와 동일 설정을 공유.
           args: >-
             --verbose
             --no-progress
-            --scheme https
-            --scheme http
-            --accept 200,204,301,302,307,308,403,429
-            --timeout 30
-            --max-retries 3
+            --config lychee.toml
+            --root-dir "${{ github.workspace }}/src/content/docs"
             "src/content/docs/**/*.md"
             "src/content/docs/**/*.mdx"
           # push/PR에서는 깨진 링크 발견 시 워크플로를 실패시켜 커밋 단계에서 차단.

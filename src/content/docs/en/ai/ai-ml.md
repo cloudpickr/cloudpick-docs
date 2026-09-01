@@ -49,7 +49,7 @@ On-premises AI/ML requires purchasing GPU servers, installing frameworks, and bu
 | **Anthropic** | Claude Fable 5, Opus 5, Opus 4.8, Sonnet 5, Haiku | [api.anthropic.com](https://platform.claude.com/) | Bedrock, Vertex AI |
 | **Google** | Gemini 3.5 Pro/Flash, 3.1 Pro, Gemini Omni (check [official docs](https://ai.google.dev/) for Preview/GA status) | [Gemini API](https://ai.google.dev/) | Vertex AI (native) |
 | **xAI** | Grok 4.3, Grok 4.1 Fast, Imagine | [x.ai/api](https://x.ai/api) | OCI, Vertex AI, Bedrock, Azure |
-| **Meta** | Llama 4 (open-weight) | [llama.meta.com](https://llama.meta.com/) | Bedrock, Vertex, Azure, OCI |
+| **Meta** | Llama 4 (open-weight) | [llama.com](https://www.llama.com/) | Bedrock, Vertex, Azure, OCI |
 | **Amazon** | Nova 1 (Premier/Pro/Lite/Micro/Sonic, etc.) + **Nova 2** (Lite, Pro, etc. — generational distinction) | — (Bedrock only) | Bedrock |
 | **Microsoft** | MAI (Image/Voice/Transcribe) | — (Foundry only) | Azure Foundry |
 | **Mistral** | Large, Small, Codestral | [api.mistral.ai](https://docs.mistral.ai/) | Bedrock, Azure, Vertex |

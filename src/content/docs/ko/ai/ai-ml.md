@@ -55,7 +55,7 @@ description: "벤더별 AI 플랫폼, 모델 카탈로그, GPU/AI 칩, Applied A
 | **Anthropic** | Claude Fable 5, Opus 5, Opus 4.8, Sonnet 5, Haiku | [api.anthropic.com](https://platform.claude.com/) | Bedrock, Vertex AI |
 | **Google** | Gemini 3.5 Pro/Flash, 3.1 Pro, Gemini Omni (Preview/GA는 [공식 문서](https://ai.google.dev/) 확인) | [Gemini API](https://ai.google.dev/) | Vertex AI (네이티브) |
 | **xAI** | Grok 4.3, Grok 4.1 Fast, Imagine | [x.ai/api](https://x.ai/api) | OCI, Vertex AI, Bedrock, Azure |
-| **Meta** | Llama 4 (오픈웨이트) | [llama.meta.com](https://llama.meta.com/) | Bedrock, Vertex, Azure, OCI (호스팅) |
+| **Meta** | Llama 4 (오픈웨이트) | [llama.com](https://www.llama.com/) | Bedrock, Vertex, Azure, OCI (호스팅) |
 | **Amazon** | Nova 1(Premier/Pro/Lite/Micro/Sonic 등) + **Nova 2**(Lite, Pro 등 — 세대 구분) | — (Bedrock 전용) | Bedrock |
 | **Microsoft** | MAI (Image/Voice/Transcribe) | — (Foundry 전용) | Azure Foundry |
 | **Mistral** | Large, Small, Codestral | [api.mistral.ai](https://docs.mistral.ai/) | Bedrock, Azure, Vertex |

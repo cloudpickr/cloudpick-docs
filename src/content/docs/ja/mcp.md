@@ -17,6 +17,10 @@ https://docs.cloudpick.kr/mcp
 
 ドキュメントサイトと同じオリジンです。`/mcp` が MCP サーバーです。
 
+:::note[旧 GitBook エンドポイント]
+GitBook 時代のアドレス `https://docs.cloudpick.kr/~gitbook/mcp` は接続自体は引き続きできますが、今は**案内のみを返す stub** です。`tools/list` は実際のツール（`list_docs`/`search_docs`/`get_doc`）の代わりに `migration_notice` を1つだけ返し、どのツールを呼び出しても「`/mcp` に設定を移してください」という案内テキストが返ってきます。`initialize` 応答の instructions にも同じ案内が添えられます。検索・取得はこのアドレスではもう機能しないため、**必ず `/mcp` に設定を移してください。**
+:::
+
 ## クライアント別設定
 
 ### Kiro

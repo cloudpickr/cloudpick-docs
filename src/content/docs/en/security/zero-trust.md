@@ -134,7 +134,7 @@ Managing non-human identities — AI agents, service accounts, CI/CD pipeline bo
 
 #### Microsoft Entra Agent ID
 
-Microsoft introduced [Entra Agent ID](https://learn.microsoft.com/entra/identity-platform/agent-id/), which treats AI agents as independently managed first-class identities in the directory (announced at Build 2025). Agents receive the same conditional access, lifecycle management, and audit logging as human identities. For details on agent adoption governance, see the [AI Agent Adoption Guide](../../ai/agent-adoption/).
+Microsoft introduced [Entra Agent ID](https://learn.microsoft.com/entra/workload-id/workload-identities-overview), which treats AI agents as independently managed first-class identities in the directory (announced at Build 2025). Agents receive the same conditional access, lifecycle management, and audit logging as human identities. For details on agent adoption governance, see the [AI Agent Adoption Guide](../../ai/agent-adoption/).
 
 ### Strengthening Workload Identity
 

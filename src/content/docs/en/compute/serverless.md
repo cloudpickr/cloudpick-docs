@@ -179,7 +179,7 @@ Serverless reduces infrastructure management, but operations doesn't disappear.
 ### Azure
 
 - [Azure Functions documentation](https://learn.microsoft.com/ko-kr/azure/azure-functions/)
-- [Azure Durable Functions documentation](https://learn.microsoft.com/ko-kr/azure/azure-functions/durable/)
+- [Azure Durable Functions documentation](https://learn.microsoft.com/azure/azure-functions/durable/durable-functions-overview)
 
 ### Google Cloud
 

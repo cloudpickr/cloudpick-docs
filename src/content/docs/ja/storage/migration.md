@@ -163,7 +163,7 @@ description: "大容量データをクラウドへ移行するオンライン/�
 
 ### Google Cloud
 
-- [Storage Transfer Serviceドキュメント](https://cloud.google.com/storage-transfer-service/docs)
+- [Storage Transfer Serviceドキュメント](https://cloud.google.com/storage-transfer/docs)
 - [Transfer Applianceドキュメント](https://cloud.google.com/transfer-appliance/docs)
 - [Cloud Storage FUSEドキュメント](https://cloud.google.com/storage/docs/cloud-storage-fuse/overview)
 

@@ -153,7 +153,7 @@ For model operations, evaluation, and cost tracking see [LLMOps](../../ai/llmops
 
 ### Introductory Resources
 - [AWS — What is Generative AI?](https://aws.amazon.com/what-is/generative-ai/)
-- [Microsoft — What is Generative AI?](https://azure.microsoft.com/en-us/solutions/ai/generative-ai)
+- [Microsoft Learn — Azure OpenAI Service overview](https://learn.microsoft.com/azure/ai-services/openai/overview)
 - [Google Cloud — Gen AI Overview](https://cloud.google.com/ai/generative-ai)
 - [Oracle — What Is Generative AI?](https://www.oracle.com/artificial-intelligence/generative-ai/what-is-generative-ai/)
 

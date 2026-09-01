@@ -70,7 +70,7 @@ Don't try to cover all roles with one tool. Work agents and coding agents differ
 | **Data Protection** | Connector allowlists, model training disabled, sensitive data classification + access control, DLP integration |
 | **Behavioral Boundaries** | Approval policies by access level (read may require approval for sensitive data; write/send/pay requires approval). All prompt/tool-call audit logs |
 | **Cost Management** | Seat + usage billing monitoring, model tier limits by role, per-team budget caps |
-| **Agent Identity** | Manage agents as non-human identities — least privilege, Policy-Based Access Control. On Azure, [Entra Agent ID](https://learn.microsoft.com/entra/identity-platform/agent-id/) grants agents first-class directory identities, applying conditional access and lifecycle management the same as human identities |
+| **Agent Identity** | Manage agents as non-human identities — least privilege, Policy-Based Access Control. On Azure, [Entra Agent ID](https://learn.microsoft.com/entra/workload-id/workload-identities-overview) grants agents first-class directory identities, applying conditional access and lifecycle management the same as human identities |
 
 ### Governance Tool Mapping
 
@@ -129,7 +129,7 @@ Don't try to cover all roles with one tool. Work agents and coding agents differ
 
 ### Azure
 
-- [Microsoft Entra Agent ID](https://learn.microsoft.com/entra/identity-platform/agent-id/)
+- [Microsoft Entra Agent ID](https://learn.microsoft.com/entra/workload-id/workload-identities-overview)
 - [Microsoft Copilot Studio](https://learn.microsoft.com/microsoft-copilot-studio/)
 - [Microsoft Purview](https://learn.microsoft.com/purview/)
 

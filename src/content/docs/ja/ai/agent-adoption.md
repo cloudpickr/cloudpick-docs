@@ -72,7 +72,7 @@ AIエージェントを企業に導入する際、「どのツールを使うか
 | **データ保護** | コネクタ許可リスト、モデル学習の無効化、機密データ分類後のアクセス制御、DLP連携 |
 | **行動境界** | アクセスレベル別の承認ポリシー (読み取りも機密度に応じて制限可能、書き込み/送信/決済は承認が必要)。すべてのプロンプト・ツール呼び出しの監査ログ (保持ポリシーとPII二次保存リスクを併せて検討) |
 | **コスト管理** | Seat + 使用量課金のモニタリング、役割別モデルティア制限、チーム別予算上限 |
-| **エージェントID** | エージェントを非人間IDとして管理 — 最小権限の原則、行動ベースのアクセス制御(Policy-Based Access Control)。Azureでは[Entra Agent ID](https://learn.microsoft.com/entra/identity-platform/agent-id/)でエージェントにディレクトリ第一級IDを付与し、条件付きアクセス・ライフサイクル管理を人間IDと同様に適用 |
+| **エージェントID** | エージェントを非人間IDとして管理 — 最小権限の原則、行動ベースのアクセス制御(Policy-Based Access Control)。Azureでは[Entra Agent ID](https://learn.microsoft.com/entra/workload-id/workload-identities-overview)でエージェントにディレクトリ第一級IDを付与し、条件付きアクセス・ライフサイクル管理を人間IDと同様に適用 |
 
 ### ガバナンスツールマッピング
 
@@ -132,7 +132,7 @@ AIエージェントを企業に導入する際、「どのツールを使うか
 
 ### Azure
 
-- [Microsoft Entra Agent ID](https://learn.microsoft.com/entra/identity-platform/agent-id/)
+- [Microsoft Entra Agent ID](https://learn.microsoft.com/entra/workload-id/workload-identities-overview)
 - [Microsoft Copilot Studio](https://learn.microsoft.com/microsoft-copilot-studio/)
 - [Microsoft Purview](https://learn.microsoft.com/purview/)
 

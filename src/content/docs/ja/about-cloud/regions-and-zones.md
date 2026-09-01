@@ -62,7 +62,7 @@ graph TB
 | 階層構造 | Region → Availability Zone (AZ) |
 | VPC範囲 | リージョン単位 |
 | Local Zone | 特定都市に超低遅延インフラを配置 |
-| Sovereign Cloud | 欧州データ主権専用リージョン（EU運用人員、EU内データ保管）。[AWS European Sovereign Cloud](https://aws.amazon.com/sovereign-cloud/)（Brandenburg、€7.8B投資） |
+| Sovereign Cloud | 欧州データ主権専用リージョン（EU運用人員、EU内データ保管）。[AWS European Sovereign Cloud](https://aws.amazon.com/compliance/digital-sovereignty/)（Brandenburg、€7.8B投資） |
 
 #### Azure
 
@@ -143,7 +143,7 @@ graph TB
 
 | ベンダー | ソブリンオプション | 主な特徴 |
 | --- | --- | --- |
-| AWS | [European Sovereign Cloud](https://aws.amazon.com/sovereign-cloud/) | EU専用インフラ・人員・ガバナンス。Brandenburg開設（€7.8B投資） |
+| AWS | [European Sovereign Cloud](https://aws.amazon.com/compliance/digital-sovereignty/) | EU専用インフラ・人員・ガバナンス。Brandenburg開設（€7.8B投資） |
 | Azure | [Cloud for Sovereignty](https://learn.microsoft.com/industry/sovereignty/) / Data Guardian | ソブリンランディングゾーン（SLZ）、EU Data Boundary、機密コンピューティング |
 | Google Cloud | [Sovereign Controls](https://cloud.google.com/blog/products/identity-security/delivering-a-secure-open-sovereign-digital-world) + パートナー（S3NS、T-Systems） | 管轄権内での鍵管理、アクセス透明性、GDC（分散クラウド） |
 | OCI | [EU Sovereign Cloud](https://www.oracle.com/cloud/eu-sovereign-cloud/) | EU Realm独立運用。EU法人・人員のみアクセス可能 |
@@ -170,7 +170,7 @@ graph TB
 
 - [AWSリージョンおよびアベイラビリティーゾーン](https://docs.aws.amazon.com/ko_kr/AWSEC2/latest/UserGuide/using-regions-availability-zones.html)
 - [AWS Local Zones](https://aws.amazon.com/about-aws/global-infrastructure/localzones/)
-- [AWS European Sovereign Cloud](https://aws.amazon.com/sovereign-cloud/)
+- [AWS European Sovereign Cloud](https://aws.amazon.com/compliance/digital-sovereignty/)
 
 ### Azure
 

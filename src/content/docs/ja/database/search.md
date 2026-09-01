@@ -61,7 +61,7 @@ Apache Lucene (検索エンジンライブラリ)
 | ベンダー | 全文検索 | AI検索 (ハイブリッド) | ログ分析 |
 | --- | --- | --- | --- |
 | AWS | [OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/) | OpenSearch + k-NN | [CloudWatch Logs Insights](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/) |
-| Azure | [Azure AI Search](https://learn.microsoft.com/azure/search/) | AI Search (ベクトル + キーワード + セマンティック) | [Log Analytics](https://learn.microsoft.com/azure/azure-monitor/logs/) |
+| Azure | [Azure AI Search](https://learn.microsoft.com/azure/search/) | AI Search (ベクトル + キーワード + セマンティック) | [Log Analytics](https://learn.microsoft.com/azure/azure-monitor/logs/data-platform-logs) |
 | Google Cloud | — (Firestore全文検索は限定的) | [Vertex AI Search](https://cloud.google.com/generative-ai-app-builder/docs) | [Cloud Logging](https://cloud.google.com/logging/docs) + [BigQuery](https://cloud.google.com/bigquery/docs) |
 | OCI | [OCI Search with OpenSearch](https://docs.oracle.com/en-us/iaas/Content/search-opensearch/home.htm) | OpenSearch + k-NN | [OCI Logging Analytics](https://docs.oracle.com/en-us/iaas/logging-analytics/home.htm) |
 
@@ -97,7 +97,7 @@ Apache Lucene (検索エンジンライブラリ)
 ### Azure
 
 - [Azure AI Search 文書](https://learn.microsoft.com/azure/search/)
-- [Log Analytics 文書](https://learn.microsoft.com/azure/azure-monitor/logs/)
+- [Log Analytics 文書](https://learn.microsoft.com/azure/azure-monitor/logs/data-platform-logs)
 
 ### Google Cloud
 

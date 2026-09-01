@@ -22,7 +22,7 @@ description: "데이터 파이프라인(ETL/ELT)의 개념, 벤더별 서비스,
 | AWS | [Glue](https://docs.aws.amazon.com/glue/) (서버리스 Spark) | [Kinesis Data Streams](https://docs.aws.amazon.com/kinesis/) | [Step Functions](https://docs.aws.amazon.com/step-functions/), [MWAA](https://docs.aws.amazon.com/mwaa/) (Airflow) |
 | Azure | [Data Factory](https://learn.microsoft.com/azure/data-factory/) | [Stream Analytics](https://learn.microsoft.com/azure/stream-analytics/) | Data Factory 파이프라인, [Synapse Pipelines](https://learn.microsoft.com/azure/synapse-analytics/) |
 | Google Cloud | [Dataflow](https://cloud.google.com/dataflow/docs) (Apache Beam) | Dataflow (통합) | [Cloud Composer](https://cloud.google.com/composer/docs) (Airflow), [Workflows](https://cloud.google.com/workflows/docs) |
-| OCI | [OCI Data Integration](https://docs.oracle.com/en-us/iaas/data-integration/home.htm) | [OCI Streaming](https://docs.oracle.com/en-us/iaas/Content/Streaming/home.htm) + [Data Flow](https://docs.oracle.com/en-us/iaas/data-flow/home.htm) (Spark) | OCI Data Integration 파이프라인 |
+| OCI | [OCI Data Integration](https://docs.oracle.com/en-us/iaas/data-integration/home.htm) | [OCI Streaming](https://docs.oracle.com/en-us/iaas/Content/Streaming/home.htm) + [Data Flow](https://docs.oracle.com/en-us/iaas/data-flow/using/home.htm) (Spark) | OCI Data Integration 파이프라인 |
 
 ## 배치 vs 스트리밍
 
@@ -111,4 +111,4 @@ Zero-ETL은 **단순 복제**에 적합하고, 복잡한 변환·다중 소스 �
 ### OCI
 
 - [OCI Data Integration 문서](https://docs.oracle.com/en-us/iaas/data-integration/home.htm)
-- [OCI Data Flow 문서](https://docs.oracle.com/en-us/iaas/data-flow/home.htm)
+- [OCI Data Flow 문서](https://docs.oracle.com/en-us/iaas/data-flow/using/home.htm)

@@ -85,7 +85,7 @@ IL1과 IL3은 별도로 존재하지 않으며(IL1은 불필요, IL3은 IL4로 �
 - [FedRAMP 공식 사이트](https://www.fedramp.gov/)
 - [FedRAMP Marketplace](https://marketplace.fedramp.gov/)
 - [FedRAMP 20x 프로그램](https://www.fedramp.gov/20x/)
-- [FedRAMP 업데이트 공지](https://www.fedramp.gov/updates/)
+- [FedRAMP 업데이트 공지](https://www.fedramp.gov/blog/)
 - [AWS GovCloud (US) 컴플라이언스](https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-compliance.html)
 - [Azure Government 공식 페이지](https://azure.microsoft.com/en-us/explore/global-infrastructure/government/)
 - [Google Cloud Assured Workloads 개요](https://cloud.google.com/assured-workloads/docs/overview)

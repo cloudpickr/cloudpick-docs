@@ -53,5 +53,5 @@ description: "クラウドガバナンスの必要性、主要領域、本セク
 
 - [AWS Cloud Adoption Framework](https://aws.amazon.com/cloud-adoption-framework/)
 - [Azure Cloud Adoption Framework](https://learn.microsoft.com/azure/cloud-adoption-framework/)
-- [Google Cloud Architecture Framework — Governance](https://cloud.google.com/architecture/framework/security/governance)
+- [Google Cloud Architecture Framework — Governance](https://cloud.google.com/architecture/framework/security)
 - [FinOps Foundation](https://www.finops.org/)

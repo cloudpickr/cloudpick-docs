@@ -85,7 +85,7 @@ IL1 and IL3 do not exist as separate levels (IL1 is unnecessary; IL3 has been me
 - [FedRAMP official site](https://www.fedramp.gov/)
 - [FedRAMP Marketplace](https://marketplace.fedramp.gov/)
 - [FedRAMP 20x program](https://www.fedramp.gov/20x/)
-- [FedRAMP update announcements](https://www.fedramp.gov/updates/)
+- [FedRAMP update announcements](https://www.fedramp.gov/blog/)
 - [AWS GovCloud (US) compliance](https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-compliance.html)
 - [Azure Government official page](https://azure.microsoft.com/en-us/explore/global-infrastructure/government/)
 - [Google Cloud Assured Workloads overview](https://cloud.google.com/assured-workloads/docs/overview)

@@ -62,7 +62,7 @@ An **edge location** is small-scale infrastructure placed closer to users than a
 | Hierarchy | Region → Availability Zone (AZ) |
 | VPC scope | Region-level |
 | Local Zone | Ultra-low-latency infrastructure placed in a specific city |
-| Sovereign Cloud | Dedicated region for EU data sovereignty (EU operating staff, data stored within the EU). [AWS European Sovereign Cloud](https://aws.amazon.com/sovereign-cloud/) (Brandenburg, €7.8B investment) |
+| Sovereign Cloud | Dedicated region for EU data sovereignty (EU operating staff, data stored within the EU). [AWS European Sovereign Cloud](https://aws.amazon.com/compliance/digital-sovereignty/) (Brandenburg, €7.8B investment) |
 
 #### Azure
 
@@ -143,7 +143,7 @@ As data sovereignty requirements grow stricter, **sovereign regions** that are p
 
 | Vendor | Sovereign Option | Key Characteristics |
 | --- | --- | --- |
-| AWS | [European Sovereign Cloud](https://aws.amazon.com/sovereign-cloud/) | EU-dedicated infrastructure, staff, and governance. Brandenburg launch (€7.8B investment) |
+| AWS | [European Sovereign Cloud](https://aws.amazon.com/compliance/digital-sovereignty/) | EU-dedicated infrastructure, staff, and governance. Brandenburg launch (€7.8B investment) |
 | Azure | [Cloud for Sovereignty](https://learn.microsoft.com/industry/sovereignty/) / Data Guardian | Sovereign Landing Zone (SLZ), EU Data Boundary, confidential computing |
 | Google Cloud | [Sovereign Controls](https://cloud.google.com/blog/products/identity-security/delivering-a-secure-open-sovereign-digital-world) + partners (S3NS, T-Systems) | In-jurisdiction key management, access transparency, GDC (Distributed Cloud) |
 | OCI | [EU Sovereign Cloud](https://www.oracle.com/cloud/eu-sovereign-cloud/) | Independently operated EU Realm. Accessible only by EU entities and staff |
@@ -170,7 +170,7 @@ For sovereign landing zone guardrail design and vendor-specific implementation d
 
 - [AWS Regions and Availability Zones](https://docs.aws.amazon.com/ko_kr/AWSEC2/latest/UserGuide/using-regions-availability-zones.html)
 - [AWS Local Zones](https://aws.amazon.com/about-aws/global-infrastructure/localzones/)
-- [AWS European Sovereign Cloud](https://aws.amazon.com/sovereign-cloud/)
+- [AWS European Sovereign Cloud](https://aws.amazon.com/compliance/digital-sovereignty/)
 
 ### Azure
 

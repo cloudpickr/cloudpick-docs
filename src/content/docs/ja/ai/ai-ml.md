@@ -58,7 +58,7 @@ description: "ベンダー別のAIプラットフォーム、モデルカタロ�
 | **Meta** | Llama 4 (オープンウェイト) | [llama.meta.com](https://llama.meta.com/) | Bedrock, Vertex, Azure, OCI (ホスティング) |
 | **Amazon** | Nova 1(Premier/Pro/Lite/Micro/Sonic等) + **Nova 2**(Lite, Pro等 — 世代区分) | — (Bedrock専用) | Bedrock |
 | **Microsoft** | MAI (Image/Voice/Transcribe) | — (Foundry専用) | Azure Foundry |
-| **Mistral** | Large, Small, Codestral | [api.mistral.ai](https://api.mistral.ai/) | Bedrock, Azure, Vertex |
+| **Mistral** | Large, Small, Codestral | [api.mistral.ai](https://docs.mistral.ai/) | Bedrock, Azure, Vertex |
 | **Upstage** | Solar Pro 3/2/Mini | [console.upstage.ai](https://console.upstage.ai/) | AWS/Azure Marketplace |
 | **LG AI Research** | EXAONE 4.x | 直接契約 | Marketplace、セルフホスティング |
 

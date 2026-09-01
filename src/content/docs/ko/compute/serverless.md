@@ -179,7 +179,7 @@ Cold Start는 서버리스의 가장 큰 단점입니다. 벤더별 완화 방�
 ### Azure
 
 - [Azure Functions 문서](https://learn.microsoft.com/ko-kr/azure/azure-functions/)
-- [Azure Durable Functions 문서](https://learn.microsoft.com/ko-kr/azure/azure-functions/durable/)
+- [Azure Durable Functions 문서](https://learn.microsoft.com/azure/azure-functions/durable/durable-functions-overview)
 
 ### Google Cloud
 

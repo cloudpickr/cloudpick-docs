@@ -61,7 +61,7 @@ This document focuses on full-text search and log analytics.
 | Vendor | Full-text search | AI search (hybrid) | Log analytics |
 | --- | --- | --- | --- |
 | AWS | [OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/) | OpenSearch + k-NN | [CloudWatch Logs Insights](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/) |
-| Azure | [Azure AI Search](https://learn.microsoft.com/azure/search/) | AI Search (vector + keyword + semantic) | [Log Analytics](https://learn.microsoft.com/azure/azure-monitor/logs/) |
+| Azure | [Azure AI Search](https://learn.microsoft.com/azure/search/) | AI Search (vector + keyword + semantic) | [Log Analytics](https://learn.microsoft.com/azure/azure-monitor/logs/data-platform-logs) |
 | Google Cloud | — (Firestore full-text search is limited) | [Vertex AI Search](https://cloud.google.com/generative-ai-app-builder/docs) | [Cloud Logging](https://cloud.google.com/logging/docs) + [BigQuery](https://cloud.google.com/bigquery/docs) |
 | OCI | [OCI Search with OpenSearch](https://docs.oracle.com/en-us/iaas/Content/search-opensearch/home.htm) | OpenSearch + k-NN | [OCI Logging Analytics](https://docs.oracle.com/en-us/iaas/logging-analytics/home.htm) |
 
@@ -97,7 +97,7 @@ This document focuses on full-text search and log analytics.
 ### Azure
 
 - [Azure AI Search documentation](https://learn.microsoft.com/azure/search/)
-- [Log Analytics documentation](https://learn.microsoft.com/azure/azure-monitor/logs/)
+- [Log Analytics documentation](https://learn.microsoft.com/azure/azure-monitor/logs/data-platform-logs)
 
 ### Google Cloud
 

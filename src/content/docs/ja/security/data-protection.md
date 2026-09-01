@@ -62,7 +62,7 @@ description: "転送中/保存時の暗号化、WAF、ネットワークセキ�
 | ベンダー | 状況 | 参考 |
 | --- | --- | --- |
 | AWS | KMSでML-KEMハイブリッドTLSに対応。S3、ACMなどサービス間通信にPQハイブリッド鍵交換を適用中 | [AWS Post-Quantum Cryptography](https://aws.amazon.com/security/post-quantum-cryptography/) |
-| Azure | Microsoft Quantum Safe Program。SymCryptライブラリにML-KEM/ML-DSAを実装。TLS 1.3ハイブリッド鍵交換に対応 | [Microsoft Quantum Safe](https://www.microsoft.com/en-us/security/blog/topic/quantum-safe/) |
+| Azure | Microsoft Quantum Safe Program。SymCryptライブラリにML-KEM/ML-DSAを実装。TLS 1.3ハイブリッド鍵交換に対応 | [Microsoft Quantum Safe](https://www.microsoft.com/en-us/security/blog/2025/08/20/quantum-safe-security-progress-towards-next-generation-cryptography/) |
 | Google Cloud | Cloud KMSでPQCデジタル署名(ML-DSA)をプレビュー提供。Chrome/BoringSSLへML-KEMハイブリッドの展開完了 | [Google Cloud PQC](https://cloud.google.com/blog/products/identity-security/quantum-safe-digital-signatures-in-cloud-kms) |
 | OCI | OCI VaultなどでPQCアルゴリズムのロードマップを発表。Oracle Database TLSハイブリッドモードなどは公式ロードマップ・リリースノートに基づき確認 (具体的な製品ドキュメントが公開され次第リンクを差し替え) | [Oracle Security](https://www.oracle.com/security/) (総合ハブ。PQC専用ページは公式ドキュメントで確認) |
 
@@ -86,7 +86,7 @@ PQC移行は数年単位のプロジェクトです。今すぐすべてのシ�
 | AWS | [Nitro Enclaves](https://aws.amazon.com/ec2/nitro/nitro-enclaves/) | — (Nitroアーキテクチャ自体がハイパーバイザー分離) | [AWS Nitro](https://aws.amazon.com/ec2/nitro/) |
 | Azure | [Confidential VMs (AMD SEV-SNP, Intel TDX)](https://learn.microsoft.com/azure/confidential-computing/) | **NCC H100 v5** — NVIDIA H100機密GPU | [Azure Confidential Computing](https://azure.microsoft.com/solutions/confidential-compute/) |
 | Google Cloud | [Confidential VMs (AMD SEV, Intel TDX)](https://cloud.google.com/confidential-computing) | **A3 Confidential VM** — H100機密GPU | [GCP Confidential Computing](https://cloud.google.com/confidential-computing/docs) |
-| OCI | [Confidential Computing (AMD SEV)](https://docs.oracle.com/en-us/iaas/Content/Compute/References/confidential-compute.htm) | — | [OCI Compute](https://docs.oracle.com/en-us/iaas/Content/Compute/home.htm) |
+| OCI | [Confidential Computing (AMD SEV)](https://docs.oracle.com/en-us/iaas/Content/Compute/References/confidential_compute.htm) | — | [OCI Compute](https://docs.oracle.com/en-us/iaas/Content/Compute/home.htm) |
 
 **主な活用事例:**
 - AI/ML推論におけるモデルIPと入力データの同時保護 (機密GPU)

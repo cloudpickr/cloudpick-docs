@@ -62,7 +62,7 @@ In response, NIST has finalized new cryptographic standards, and major cloud ven
 | Vendor | Status | Reference |
 | --- | --- | --- |
 | AWS | KMS supports ML-KEM hybrid TLS. PQ hybrid key exchange being applied to inter-service communication for S3, ACM, and others | [AWS Post-Quantum Cryptography](https://aws.amazon.com/security/post-quantum-cryptography/) |
-| Azure | Microsoft Quantum Safe Program. ML-KEM/ML-DSA implemented in the SymCrypt library. TLS 1.3 hybrid key exchange supported | [Microsoft Quantum Safe](https://www.microsoft.com/en-us/security/blog/topic/quantum-safe/) |
+| Azure | Microsoft Quantum Safe Program. ML-KEM/ML-DSA implemented in the SymCrypt library. TLS 1.3 hybrid key exchange supported | [Microsoft Quantum Safe](https://www.microsoft.com/en-us/security/blog/2025/08/20/quantum-safe-security-progress-towards-next-generation-cryptography/) |
 | Google Cloud | PQC digital signatures (ML-DSA) in preview in Cloud KMS. ML-KEM hybrid deployment completed in Chrome/BoringSSL | [Google Cloud PQC](https://cloud.google.com/blog/products/identity-security/quantum-safe-digital-signatures-in-cloud-kms) |
 | OCI | Has announced a PQC algorithm roadmap for OCI Vault and other services. Confirm hybrid TLS mode for Oracle Database and similar items against the official roadmap/release notes (link to be updated once specific product documentation is published) | [Oracle Security](https://www.oracle.com/security/) (general hub; check official documentation for a dedicated PQC page) |
 
@@ -86,7 +86,7 @@ While traditional encryption protects data "at rest" and "in transit," confident
 | AWS | [Nitro Enclaves](https://aws.amazon.com/ec2/nitro/nitro-enclaves/) | — (the Nitro architecture itself provides hypervisor-level isolation) | [AWS Nitro](https://aws.amazon.com/ec2/nitro/) |
 | Azure | [Confidential VMs (AMD SEV-SNP, Intel TDX)](https://learn.microsoft.com/azure/confidential-computing/) | **NCC H100 v5** — NVIDIA H100 confidential GPU | [Azure Confidential Computing](https://azure.microsoft.com/solutions/confidential-compute/) |
 | Google Cloud | [Confidential VMs (AMD SEV, Intel TDX)](https://cloud.google.com/confidential-computing) | **A3 Confidential VM** — H100 confidential GPU | [GCP Confidential Computing](https://cloud.google.com/confidential-computing/docs) |
-| OCI | [Confidential Computing (AMD SEV)](https://docs.oracle.com/en-us/iaas/Content/Compute/References/confidential-compute.htm) | — | [OCI Compute](https://docs.oracle.com/en-us/iaas/Content/Compute/home.htm) |
+| OCI | [Confidential Computing (AMD SEV)](https://docs.oracle.com/en-us/iaas/Content/Compute/References/confidential_compute.htm) | — | [OCI Compute](https://docs.oracle.com/en-us/iaas/Content/Compute/home.htm) |
 
 **Key use cases:**
 - Protecting both model IP and input data simultaneously in AI/ML inference (confidential GPUs)

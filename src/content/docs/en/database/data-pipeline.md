@@ -22,7 +22,7 @@ To use raw data in an [analytics platform](../../database/analytics/) or an ML p
 | AWS | [Glue](https://docs.aws.amazon.com/glue/) (serverless Spark) | [Kinesis Data Streams](https://docs.aws.amazon.com/kinesis/) | [Step Functions](https://docs.aws.amazon.com/step-functions/), [MWAA](https://docs.aws.amazon.com/mwaa/) (Airflow) |
 | Azure | [Data Factory](https://learn.microsoft.com/azure/data-factory/) | [Stream Analytics](https://learn.microsoft.com/azure/stream-analytics/) | Data Factory pipelines, [Synapse Pipelines](https://learn.microsoft.com/azure/synapse-analytics/) |
 | Google Cloud | [Dataflow](https://cloud.google.com/dataflow/docs) (Apache Beam) | Dataflow (unified) | [Cloud Composer](https://cloud.google.com/composer/docs) (Airflow), [Workflows](https://cloud.google.com/workflows/docs) |
-| OCI | [OCI Data Integration](https://docs.oracle.com/en-us/iaas/data-integration/home.htm) | [OCI Streaming](https://docs.oracle.com/en-us/iaas/Content/Streaming/home.htm) + [Data Flow](https://docs.oracle.com/en-us/iaas/data-flow/home.htm) (Spark) | OCI Data Integration pipelines |
+| OCI | [OCI Data Integration](https://docs.oracle.com/en-us/iaas/data-integration/home.htm) | [OCI Streaming](https://docs.oracle.com/en-us/iaas/Content/Streaming/home.htm) + [Data Flow](https://docs.oracle.com/en-us/iaas/data-flow/using/home.htm) (Spark) | OCI Data Integration pipelines |
 
 ## Batch vs. streaming
 
@@ -111,4 +111,4 @@ Zero-ETL is suitable for **simple replication**, and complex transformation, mul
 ### OCI
 
 - [OCI Data Integration documentation](https://docs.oracle.com/en-us/iaas/data-integration/home.htm)
-- [OCI Data Flow documentation](https://docs.oracle.com/en-us/iaas/data-flow/home.htm)
+- [OCI Data Flow documentation](https://docs.oracle.com/en-us/iaas/data-flow/using/home.htm)

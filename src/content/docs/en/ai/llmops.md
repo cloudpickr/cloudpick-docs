@@ -116,8 +116,8 @@ AI agents have **multi-step trajectories** (plan → tool call → observe → r
 | [Arize AX](https://arize.com/) | Continuous evaluation, trajectory accuracy, drift detection |
 | [Galileo](https://www.galileo.ai/) | Luna evaluators (low cost/latency), tool selection quality, failure clustering |
 | [AgentCore Observability](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/observability-get-started.html) (AWS) | CloudWatch + OTEL auto-instrumentation, session/tool/memory metrics |
-| [Azure Foundry Monitoring](https://learn.microsoft.com/en-us/azure/foundry/concepts/monitoring) (Azure) | OTEL-based multi-agent tracing, continuous evaluation, Azure Monitor integration |
-| [Vertex AI Tracing](https://cloud.google.com/vertex-ai/generative-ai/docs/observability) (Google) | Cloud Trace integration, ADK tracing, model + tool timeline |
+| [Azure Foundry Monitoring](https://learn.microsoft.com/azure/ai-foundry/concepts/observability) (Azure) | OTEL-based multi-agent tracing, continuous evaluation, Azure Monitor integration |
+| [Vertex AI Tracing](https://cloud.google.com/vertex-ai/docs/model-monitoring/overview) (Google) | Cloud Trace integration, ADK tracing, model + tool timeline |
 | [Langfuse](https://langfuse.com/) (Open-source) | Self-hosted, framework-agnostic tracing, cost tracking, prompt management |
 | [Phoenix](https://github.com/Arize-ai/phoenix) (Open-source) | OpenInference-based, self-hosted, trace + eval + drift |
 

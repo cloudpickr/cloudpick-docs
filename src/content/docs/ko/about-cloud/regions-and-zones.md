@@ -62,7 +62,7 @@ graph TB
 | 계층 구조 | Region → Availability Zone (AZ) |
 | VPC 범위 | 리전 단위 |
 | Local Zone | 특정 도시에 초저지연 인프라 배치 |
-| Sovereign Cloud | 유럽 데이터 주권 전용 리전 (EU 운영 인력, EU 내 데이터 보관). [AWS European Sovereign Cloud](https://aws.amazon.com/sovereign-cloud/) (Brandenburg, €7.8B 투자) |
+| Sovereign Cloud | 유럽 데이터 주권 전용 리전 (EU 운영 인력, EU 내 데이터 보관). [AWS European Sovereign Cloud](https://aws.amazon.com/compliance/digital-sovereignty/) (Brandenburg, €7.8B 투자) |
 
 #### Azure
 
@@ -143,7 +143,7 @@ graph TB
 
 | 벤더 | 소버린 옵션 | 핵심 특징 |
 | --- | --- | --- |
-| AWS | [European Sovereign Cloud](https://aws.amazon.com/sovereign-cloud/) | EU 전용 인프라·인력·거버넌스. Brandenburg 개소 (€7.8B 투자) |
+| AWS | [European Sovereign Cloud](https://aws.amazon.com/compliance/digital-sovereignty/) | EU 전용 인프라·인력·거버넌스. Brandenburg 개소 (€7.8B 투자) |
 | Azure | [Cloud for Sovereignty](https://learn.microsoft.com/industry/sovereignty/) / Data Guardian | 소버린 랜딩존(SLZ), EU Data Boundary, 기밀 컴퓨팅 |
 | Google Cloud | [Sovereign Controls](https://cloud.google.com/blog/products/identity-security/delivering-a-secure-open-sovereign-digital-world) + 파트너(S3NS, T-Systems) | 관할권 내 키 관리, 접근 투명성, GDC(분산 클라우드) |
 | OCI | [EU Sovereign Cloud](https://www.oracle.com/cloud/eu-sovereign-cloud/) | EU Realm 독립 운영. EU 법인·인력만 접근 |
@@ -170,7 +170,7 @@ graph TB
 
 - [AWS 리전 및 가용영역](https://docs.aws.amazon.com/ko_kr/AWSEC2/latest/UserGuide/using-regions-availability-zones.html)
 - [AWS Local Zones](https://aws.amazon.com/about-aws/global-infrastructure/localzones/)
-- [AWS European Sovereign Cloud](https://aws.amazon.com/sovereign-cloud/)
+- [AWS European Sovereign Cloud](https://aws.amazon.com/compliance/digital-sovereignty/)
 
 ### Azure
 

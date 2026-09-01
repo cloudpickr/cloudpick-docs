@@ -62,7 +62,7 @@ description: "전송 중/저장 시 암호화, WAF, 네트워크 보안을 벤�
 | 벤더 | 현황 | 참고 |
 | --- | --- | --- |
 | AWS | KMS에서 ML-KEM 하이브리드 TLS 지원. S3, ACM 등 서비스 간 통신에 PQ 하이브리드 키 교환 적용 중 | [AWS Post-Quantum Cryptography](https://aws.amazon.com/security/post-quantum-cryptography/) |
-| Azure | Microsoft Quantum Safe Program. SymCrypt 라이브러리에 ML-KEM/ML-DSA 구현. TLS 1.3 하이브리드 키 교환 지원 | [Microsoft Quantum Safe](https://www.microsoft.com/en-us/security/blog/topic/quantum-safe/) |
+| Azure | Microsoft Quantum Safe Program. SymCrypt 라이브러리에 ML-KEM/ML-DSA 구현. TLS 1.3 하이브리드 키 교환 지원 | [Microsoft Quantum Safe](https://www.microsoft.com/en-us/security/blog/2025/08/20/quantum-safe-security-progress-towards-next-generation-cryptography/) |
 | Google Cloud | Cloud KMS에서 PQC 디지털 서명(ML-DSA) 프리뷰. Chrome/BoringSSL에 ML-KEM 하이브리드 배포 완료 | [Google Cloud PQC](https://cloud.google.com/blog/products/identity-security/quantum-safe-digital-signatures-in-cloud-kms) |
 | OCI | OCI Vault 등에서 PQC 알고리즘 로드맵을 발표. Oracle Database TLS 하이브리드 모드 등은 공식 로드맵·릴리스 노트 기준으로 확인 (구체 제품 문서가 공개되면 링크로 교체) | [Oracle Security](https://www.oracle.com/security/) (일반 허브; PQC 전용 페이지는 공식 문서 확인) |
 
@@ -86,7 +86,7 @@ PQC 전환은 수년이 걸리는 프로젝트입니다. 지금 당장 모든 �
 | AWS | [Nitro Enclaves](https://aws.amazon.com/ec2/nitro/nitro-enclaves/) | — (Nitro 아키텍처 자체가 하이퍼바이저 격리) | [AWS Nitro](https://aws.amazon.com/ec2/nitro/) |
 | Azure | [Confidential VMs (AMD SEV-SNP, Intel TDX)](https://learn.microsoft.com/azure/confidential-computing/) | **NCC H100 v5** — NVIDIA H100 기밀 GPU | [Azure Confidential Computing](https://azure.microsoft.com/solutions/confidential-compute/) |
 | Google Cloud | [Confidential VMs (AMD SEV, Intel TDX)](https://cloud.google.com/confidential-computing) | **A3 Confidential VM** — H100 기밀 GPU | [GCP Confidential Computing](https://cloud.google.com/confidential-computing/docs) |
-| OCI | [Confidential Computing (AMD SEV)](https://docs.oracle.com/en-us/iaas/Content/Compute/References/confidential-compute.htm) | — | [OCI Compute](https://docs.oracle.com/en-us/iaas/Content/Compute/home.htm) |
+| OCI | [Confidential Computing (AMD SEV)](https://docs.oracle.com/en-us/iaas/Content/Compute/References/confidential_compute.htm) | — | [OCI Compute](https://docs.oracle.com/en-us/iaas/Content/Compute/home.htm) |
 
 **주요 활용 사례:**
 - AI/ML 추론에서 모델 IP와 입력 데이터 동시 보호 (기밀 GPU)

@@ -89,7 +89,7 @@ EO 14110の撤回は、その大統領令が生み出したすべての成果物
 - [ホワイトハウス — Ensuring a National Policy Framework for AI (EO 14365, 2025.12)](https://www.whitehouse.gov/presidential-actions/2025/12/eliminating-state-law-obstruction-of-national-artificial-intelligence-policy/)
 - [NIST — AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework)
 - [NIST — AI RMF: Generative AI Profile (NIST AI 600-1)](https://www.nist.gov/itl/ai-risk-management-framework)
-- [OMB — M-25-21, M-25-22 (whitehouse.gov OMB memoranda)](https://www.whitehouse.gov/omb/briefing-room/)
+- [OMB — M-25-21, M-25-22 (whitehouse.gov OMB memoranda)](https://www.whitehouse.gov/omb/)
 - [Colorado Attorney General — Colorado AI Act](https://coag.gov/)
 - [Texas Attorney General — TRAIGA](https://www.texasattorneygeneral.gov/)
 - [DOJ — xAIコロラドAI法訴訟介入発表(2026年4月)](https://www.justice.gov/opa/pr/justice-department-intervenes-xai-lawsuit-challenging-colorados-algorithmic-discrimination)

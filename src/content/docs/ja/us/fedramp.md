@@ -85,7 +85,7 @@ IL1とIL3は別途存在せず(IL1は不要、IL3はIL4に統合)、FedRAMP Mode
 - [FedRAMP公式サイト](https://www.fedramp.gov/)
 - [FedRAMP Marketplace](https://marketplace.fedramp.gov/)
 - [FedRAMP 20xプログラム](https://www.fedramp.gov/20x/)
-- [FedRAMPアップデートのお知らせ](https://www.fedramp.gov/updates/)
+- [FedRAMPアップデートのお知らせ](https://www.fedramp.gov/blog/)
 - [AWS GovCloud (US)コンプライアンス](https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-compliance.html)
 - [Azure Government公式ページ](https://azure.microsoft.com/en-us/explore/global-infrastructure/government/)
 - [Google Cloud Assured Workloads概要](https://cloud.google.com/assured-workloads/docs/overview)

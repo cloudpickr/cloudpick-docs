@@ -249,9 +249,9 @@ flowchart TB
 
 - [VPC セキュリティベストプラクティス](https://cloud.google.com/architecture/framework/security/network-security)
 - [Private Google Access ドキュメント](https://cloud.google.com/vpc/docs/private-google-access)
-- [Google Distributed Cloud ドキュメント](https://cloud.google.com/distributed-cloud/hosted/docs)
+- [Google Distributed Cloud ドキュメント](https://cloud.google.com/distributed-cloud)
 
 ### OCI
 
 - [OCI ネットワークセキュリティベストプラクティス](https://docs.oracle.com/en-us/iaas/Content/Security/Reference/networking_security.htm)
-- [OCI Dedicated Region ドキュメント](https://docs.oracle.com/en-us/iaas/Content/dedicated-region/home.htm)
+- [OCI Dedicated Region ドキュメント](https://docs.oracle.com/iaas/Content/dedicated/dedicated-region/dedicated-region-overview.htm)

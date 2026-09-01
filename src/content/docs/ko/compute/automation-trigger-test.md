@@ -52,8 +52,8 @@ description: "클라우드 자동화 트리거 서비스를 벤더별로 비교�
 - 다양한 프로그래밍 언어 지원 (Node.js, Python, Java, Go, .NET, Ruby)
 
 **주요 사용 사례:**
-- [CI/CD 파이프라인 통합](https://aws.amazon.com/ko/blogs/korea/set-up-a-ci-cd-pipeline-with-aws-codepipeline-aws-codebuild-amazon-s3-and-aws-codecommit/)
-- [실시간 데이터 처리](https://aws.amazon.com/ko/blogs/korea/building-real-time-data-pipelines-with-aws/)
+- [CI/CD 파이프라인 통합](https://docs.aws.amazon.com/codepipeline/latest/userguide/tutorials-simple-s3.html)
+- [실시간 데이터 처리](https://docs.aws.amazon.com/whitepapers/latest/streaming-data-solutions-amazon-kinesis/streaming-data-solutions-amazon-kinesis.html)
 - [서버리스 백엔드](https://aws.amazon.com/ko/serverless/)
 - ETL 워크로드
 
@@ -80,7 +80,7 @@ description: "클라우드 자동화 트리거 서비스를 벤더별로 비교�
 - 강력한 CI/CD 및 DevOps 통합
 
 **주요 사용 사례:**
-- [.NET 기반 애플리케이션 백엔드](https://docs.microsoft.com/ko-kr/azure/azure-functions/functions-comparison)
+- [.NET 기반 애플리케이션 백엔드](https://learn.microsoft.com/azure/azure-functions/functions-compare-logic-apps-ms-flow-webjobs)
 - [이벤트 기반 워크플로우](https://azure.microsoft.com/ko-kr/services/event-grid/)
 - [데이터 통합](https://azure.microsoft.com/ko-kr/services/data-factory/)
 
@@ -248,7 +248,7 @@ description: "클라우드 자동화 트리거 서비스를 벤더별로 비교�
 
 ### Azure
 - [Azure Functions 공식 문서](https://learn.microsoft.com/ko-kr/azure/azure-functions/)
-- [Azure Durable Functions 공식 문서](https://learn.microsoft.com/ko-kr/azure/azure-functions/durable/)
+- [Azure Durable Functions 공식 문서](https://learn.microsoft.com/azure/azure-functions/durable/durable-functions-overview)
 
 ### Google Cloud
 - [Google Cloud Functions 공식 문서](https://cloud.google.com/functions/docs)

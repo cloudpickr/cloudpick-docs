@@ -134,7 +134,7 @@ AIエージェント、サービスアカウント、CI/CDパイプラインボ�
 
 #### Microsoft Entra Agent ID
 
-Microsoftは、AIエージェントをディレクトリ内で独立管理される1級ID(first-class identity)として扱う[Entra Agent ID](https://learn.microsoft.com/entra/identity-platform/agent-id/)を導入しました (Build 2025)。エージェントには、条件付きアクセス、ライフサイクル管理、監査ログが人間IDと同様に適用されます。エージェント導入のガバナンス詳細は[AIエージェント導入ガイド](../../ai/agent-adoption/)を参照してください。
+Microsoftは、AIエージェントをディレクトリ内で独立管理される1級ID(first-class identity)として扱う[Entra Agent ID](https://learn.microsoft.com/entra/workload-id/workload-identities-overview)を導入しました (Build 2025)。エージェントには、条件付きアクセス、ライフサイクル管理、監査ログが人間IDと同様に適用されます。エージェント導入のガバナンス詳細は[AIエージェント導入ガイド](../../ai/agent-adoption/)を参照してください。
 
 ### ワークロードIDの強化
 

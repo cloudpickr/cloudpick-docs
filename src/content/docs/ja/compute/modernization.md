@@ -204,8 +204,8 @@ graph LR
 ### AWS
 
 - [AWS Prescriptive Guidance — Cloud Design Patterns](https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/welcome.html)
-- [AWS Prescriptive Guidance — Modernization strategy](https://docs.aws.amazon.com/prescriptive-guidance/latest/modernization-decomposing-monoliths/welcome.html)
-- [AWS — Decomposing monoliths into microservices](https://docs.aws.amazon.com/prescriptive-guidance/latest/modernization-decomposing-monoliths/welcome.html)
+- [AWS Prescriptive Guidance — Modernization strategy](https://docs.aws.amazon.com/whitepapers/latest/microservices-on-aws/microservices-on-aws.html)
+- [AWS — Decomposing monoliths into microservices](https://docs.aws.amazon.com/whitepapers/latest/microservices-on-aws/microservices-on-aws.html)
 - [AWS App2Container](https://aws.amazon.com/app2container/)
 
 ### Azure

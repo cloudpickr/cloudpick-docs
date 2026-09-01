@@ -76,4 +76,4 @@ ITAR/EAR violations are a serious legal risk that can lead to criminal penalties
 - [AWS GovCloud ITAR compliance guide](https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-itar.html)
 - [AWS ITAR compliance](https://aws.amazon.com/compliance/itar/)
 - [Google Cloud Assured Workloads — ITAR data boundary](https://docs.cloud.google.com/assured-workloads/docs/control-packages/itar)
-- [Microsoft GCC High overview](https://learn.microsoft.com/microsoft-365/enterprise/microsoft-365-government-gcc-high-and-dod)
+- [Microsoft GCC High overview](https://learn.microsoft.com/en-us/office365/servicedescriptions/office-365-platform-service-description/office-365-us-government/gcc-high-and-dod)

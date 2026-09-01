@@ -76,4 +76,4 @@ ITAR/EAR違反は刑事処罰にまで至りうる重大な法的リスクです
 - [AWS GovCloud ITAR準拠ガイド](https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-itar.html)
 - [AWS ITARコンプライアンス](https://aws.amazon.com/compliance/itar/)
 - [Google Cloud Assured Workloads — ITARデータ境界](https://docs.cloud.google.com/assured-workloads/docs/control-packages/itar)
-- [Microsoft GCC High概要](https://learn.microsoft.com/microsoft-365/enterprise/microsoft-365-government-gcc-high-and-dod)
+- [Microsoft GCC High概要](https://learn.microsoft.com/en-us/office365/servicedescriptions/office-365-platform-service-description/office-365-us-government/gcc-high-and-dod)

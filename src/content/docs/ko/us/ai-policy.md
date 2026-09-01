@@ -89,7 +89,7 @@ EO 14110 폐지는 그 행정명령이 만들어낸 모든 산출물(예: NIST A
 - [백악관 — Ensuring a National Policy Framework for AI (EO 14365, 2025.12)](https://www.whitehouse.gov/presidential-actions/2025/12/eliminating-state-law-obstruction-of-national-artificial-intelligence-policy/)
 - [NIST — AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework)
 - [NIST — AI RMF: Generative AI Profile (NIST AI 600-1)](https://www.nist.gov/itl/ai-risk-management-framework)
-- [OMB — M-25-21, M-25-22 (whitehouse.gov OMB memoranda)](https://www.whitehouse.gov/omb/briefing-room/)
+- [OMB — M-25-21, M-25-22 (whitehouse.gov OMB memoranda)](https://www.whitehouse.gov/omb/)
 - [Colorado Attorney General — Colorado AI Act](https://coag.gov/)
 - [Texas Attorney General — TRAIGA](https://www.texasattorneygeneral.gov/)
 - [DOJ — xAI 콜로라도 AI법 소송 개입 발표(2026년 4월)](https://www.justice.gov/opa/pr/justice-department-intervenes-xai-lawsuit-challenging-colorados-algorithmic-discrimination)

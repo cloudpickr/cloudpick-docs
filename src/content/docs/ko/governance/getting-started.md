@@ -53,5 +53,5 @@ description: "클라우드 거버넌스의 필요성, 핵심 영역, 이 섹션�
 
 - [AWS Cloud Adoption Framework](https://aws.amazon.com/cloud-adoption-framework/)
 - [Azure Cloud Adoption Framework](https://learn.microsoft.com/azure/cloud-adoption-framework/)
-- [Google Cloud Architecture Framework — Governance](https://cloud.google.com/architecture/framework/security/governance)
+- [Google Cloud Architecture Framework — Governance](https://cloud.google.com/architecture/framework/security)
 - [FinOps Foundation](https://www.finops.org/)

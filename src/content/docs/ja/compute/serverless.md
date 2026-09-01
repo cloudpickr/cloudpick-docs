@@ -179,7 +179,7 @@ Cold Startはサーバーレスの最大の欠点です。ベンダー別の緩�
 ### Azure
 
 - [Azure Functions ドキュメント](https://learn.microsoft.com/ko-kr/azure/azure-functions/)
-- [Azure Durable Functions ドキュメント](https://learn.microsoft.com/ko-kr/azure/azure-functions/durable/)
+- [Azure Durable Functions ドキュメント](https://learn.microsoft.com/azure/azure-functions/durable/durable-functions-overview)
 
 ### Google Cloud
 

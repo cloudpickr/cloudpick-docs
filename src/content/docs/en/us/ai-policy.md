@@ -89,7 +89,7 @@ As the Colorado case shows, state AI law is a highly fluid area marked by repeat
 - [White House — Ensuring a National Policy Framework for AI (EO 14365, December 2025)](https://www.whitehouse.gov/presidential-actions/2025/12/eliminating-state-law-obstruction-of-national-artificial-intelligence-policy/)
 - [NIST — AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework)
 - [NIST — AI RMF: Generative AI Profile (NIST AI 600-1)](https://www.nist.gov/itl/ai-risk-management-framework)
-- [OMB — M-25-21, M-25-22 (whitehouse.gov OMB memoranda)](https://www.whitehouse.gov/omb/briefing-room/)
+- [OMB — M-25-21, M-25-22 (whitehouse.gov OMB memoranda)](https://www.whitehouse.gov/omb/)
 - [Colorado Attorney General — Colorado AI Act](https://coag.gov/)
 - [Texas Attorney General — TRAIGA](https://www.texasattorneygeneral.gov/)
 - [DOJ — Announcement of Intervention in xAI's Colorado AI Act Lawsuit (April 2026)](https://www.justice.gov/opa/pr/justice-department-intervenes-xai-lawsuit-challenging-colorados-algorithmic-discrimination)

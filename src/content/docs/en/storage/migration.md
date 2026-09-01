@@ -163,7 +163,7 @@ Vendor tools mostly perform automatic verification, but it's safer to also perfo
 
 ### Google Cloud
 
-- [Storage Transfer Service documentation](https://cloud.google.com/storage-transfer-service/docs)
+- [Storage Transfer Service documentation](https://cloud.google.com/storage-transfer/docs)
 - [Transfer Appliance documentation](https://cloud.google.com/transfer-appliance/docs)
 - [Cloud Storage FUSE documentation](https://cloud.google.com/storage/docs/cloud-storage-fuse/overview)
 

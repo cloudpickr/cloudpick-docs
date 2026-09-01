@@ -22,7 +22,7 @@ description: "データパイプライン(ETL/ELT)の概念、ベンダー別サ
 | AWS | [Glue](https://docs.aws.amazon.com/glue/)(サーバーレスSpark) | [Kinesis Data Streams](https://docs.aws.amazon.com/kinesis/) | [Step Functions](https://docs.aws.amazon.com/step-functions/)、[MWAA](https://docs.aws.amazon.com/mwaa/)(Airflow) |
 | Azure | [Data Factory](https://learn.microsoft.com/azure/data-factory/) | [Stream Analytics](https://learn.microsoft.com/azure/stream-analytics/) | Data Factoryパイプライン、[Synapse Pipelines](https://learn.microsoft.com/azure/synapse-analytics/) |
 | Google Cloud | [Dataflow](https://cloud.google.com/dataflow/docs)(Apache Beam) | Dataflow(統合) | [Cloud Composer](https://cloud.google.com/composer/docs)(Airflow)、[Workflows](https://cloud.google.com/workflows/docs) |
-| OCI | [OCI Data Integration](https://docs.oracle.com/en-us/iaas/data-integration/home.htm) | [OCI Streaming](https://docs.oracle.com/en-us/iaas/Content/Streaming/home.htm) + [Data Flow](https://docs.oracle.com/en-us/iaas/data-flow/home.htm)(Spark) | OCI Data Integrationパイプライン |
+| OCI | [OCI Data Integration](https://docs.oracle.com/en-us/iaas/data-integration/home.htm) | [OCI Streaming](https://docs.oracle.com/en-us/iaas/Content/Streaming/home.htm) + [Data Flow](https://docs.oracle.com/en-us/iaas/data-flow/using/home.htm)(Spark) | OCI Data Integrationパイプライン |
 
 ## バッチ vs ストリーミング
 
@@ -111,4 +111,4 @@ Zero-ETLは**単純レプリケーション**に適しており、複雑な変�
 ### OCI
 
 - [OCI Data Integration ドキュメント](https://docs.oracle.com/en-us/iaas/data-integration/home.htm)
-- [OCI Data Flow ドキュメント](https://docs.oracle.com/en-us/iaas/data-flow/home.htm)
+- [OCI Data Flow ドキュメント](https://docs.oracle.com/en-us/iaas/data-flow/using/home.htm)

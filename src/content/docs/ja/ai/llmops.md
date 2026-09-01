@@ -116,8 +116,8 @@ AIエージェントは単一のLLM呼び出しとは異なり、**マルチス�
 | [Arize AX](https://arize.com/) | 継続的評価、トラジェクトリ精度、ドリフト検出 |
 | [Galileo](https://www.galileo.ai/) | Luna評価器(低コスト/低レイテンシ)、ツール選択品質、失敗クラスタリング |
 | [AgentCore Observability](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/observability-get-started.html)(AWS) | CloudWatch + OTEL自動計装、セッション/ツール/メモリメトリクス |
-| [Azure Foundry Monitoring](https://learn.microsoft.com/en-us/azure/foundry/concepts/monitoring)(Azure) | OTELベースのマルチエージェントトレーシング、継続的評価、Azure Monitor連携 |
-| [Vertex AI Tracing](https://cloud.google.com/vertex-ai/generative-ai/docs/observability)(Google) | Cloud Trace連携、ADKトレーシング、モデル+ツールタイムライン |
+| [Azure Foundry Monitoring](https://learn.microsoft.com/azure/ai-foundry/concepts/observability)(Azure) | OTELベースのマルチエージェントトレーシング、継続的評価、Azure Monitor連携 |
+| [Vertex AI Tracing](https://cloud.google.com/vertex-ai/docs/model-monitoring/overview)(Google) | Cloud Trace連携、ADKトレーシング、モデル+ツールタイムライン |
 | [Langfuse](https://langfuse.com/)(オープンソース) | セルフホスティング、フレームワーク非依存トレーシング、コスト追跡、プロンプト管理 |
 | [Phoenix](https://github.com/Arize-ai/phoenix)(オープンソース) | OpenInferenceベース、セルフホスティング、トレース+評価+ドリフト |
 

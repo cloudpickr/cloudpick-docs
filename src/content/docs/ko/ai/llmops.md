@@ -116,8 +116,8 @@ AI 에이전트는 단일 LLM 호출과 달리 **멀티스텝 트라젝토리**(
 | [Arize AX](https://arize.com/) | 지속적 평가, 트라젝토리 정확도, 드리프트 탐지 |
 | [Galileo](https://www.galileo.ai/) | Luna 평가기(저비용/저지연), 도구 선택 품질, 실패 클러스터링 |
 | [AgentCore Observability](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/observability-get-started.html) (AWS) | CloudWatch + OTEL 자동 계측, 세션/도구/메모리 메트릭 |
-| [Azure Foundry Monitoring](https://learn.microsoft.com/en-us/azure/foundry/concepts/monitoring) (Azure) | OTEL 기반 멀티에이전트 트레이싱, 지속적 평가, Azure Monitor 연동 |
-| [Vertex AI Tracing](https://cloud.google.com/vertex-ai/generative-ai/docs/observability) (Google) | Cloud Trace 연동, ADK 트레이싱, 모델+도구 타임라인 |
+| [Azure Foundry Monitoring](https://learn.microsoft.com/azure/ai-foundry/concepts/observability) (Azure) | OTEL 기반 멀티에이전트 트레이싱, 지속적 평가, Azure Monitor 연동 |
+| [Vertex AI Tracing](https://cloud.google.com/vertex-ai/docs/model-monitoring/overview) (Google) | Cloud Trace 연동, ADK 트레이싱, 모델+도구 타임라인 |
 | [Langfuse](https://langfuse.com/) (오픈소스) | 셀프호스팅, 프레임워크 비종속 트레이싱, 비용 추적, 프롬프트 관리 |
 | [Phoenix](https://github.com/Arize-ai/phoenix) (오픈소스) | OpenInference 기반, 셀프호스팅, 트레이스+평가+드리프트 |
 

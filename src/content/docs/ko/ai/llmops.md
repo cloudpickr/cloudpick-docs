@@ -15,8 +15,8 @@ graph LR
     E --> A
 ```
 
-:::note
-모델 선택은 [AI 플랫폼과 모델 비교](../../ai/ai-ml/)를, RAG 파이프라인 구축은 [RAG 고급 패턴](../../ai/rag-patterns/)을, AI 보안은 [AI 보안](../../security/ai-security/)을 참고하세요.
+:::note[선행 지식 및 연결 문서]
+모델 선택은 [AI 플랫폼과 모델 비교](../../ai/ai-ml/)를, RAG 파이프라인 구축은 [RAG 고급 패턴](../../ai/rag-patterns/)을, AI 보안은 [AI 보안](../../security/ai-security/)을 참고하세요. 조달·과금 모델(Seat/API 티어, 예약 용량, Showback/Chargeback)은 [LLM 라이선스와 비용 관리](../../ai/licensing/)가 다루며, 이 문서는 **프로덕션 런타임의 비용 운영**(Budget Guardrail, Fallback, 요청당 비용)에 초점을 둡니다.
 :::
 
 ## 평가 (Evaluation)
@@ -140,6 +140,13 @@ AI 에이전트는 단일 LLM 호출과 달리 **멀티스텝 트라젝토리**(
 - [ ] 프롬프트/모델 변경 시 Golden Set 기반 회귀 테스트를 CI 파이프라인에서 자동 실행하는가
 - [ ] 프롬프트/응답 로그에 PII 마스킹을 적용하고 있는가
 - [ ] 주 모델 장애 시 대체 모델로 자동 전환하는 Fallback 전략을 구성했는가
+
+## 관련 문서
+
+- [LLM 라이선스와 비용 관리](../../ai/licensing/) — 조달·과금 모델(Seat/API 티어, 예약 용량, Showback/Chargeback)
+- [LLM 채널 선택 가이드](../../ai/1p-vs-3p/) — 동일 FM을 1P(직접) vs 3P(클라우드 경유)로 소비할 때의 차이
+- [AI 플랫폼과 모델 비교](../../ai/ai-ml/) — 모델 카탈로그, 추론 단가 최적화(캐싱·배치·라우팅)
+- [FinOps](../../governance/finops/) — 클라우드 비용 거버넌스 전반
 
 ## 참고하기
 

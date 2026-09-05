@@ -97,12 +97,17 @@ Reserved capacity (PTU, Provisioned) incurs cost even when idle. Check vendor pr
 | **Token Budgets** | Daily/monthly token caps per project/team/user |
 | **AI Gateway** | LiteLLM, Portkey, etc. for virtual key issuance, hard budgets, routing control |
 
+:::note
+The table above focuses on organization-level **billing models and procurement governance** (who spends how much, and how it is allocated/charged). For runtime controls that enforce per-request budgets (budget guardrails) and switch models on failure (fallback), see [LLMOps](../../ai/llmops/); for per-model inference unit-cost reduction (prompt caching, batch, model routing), see [AI Platforms and Model Comparison — Inference Cost Optimization](../../ai/ai-ml/#inference-cost-optimization).
+:::
+
 ---
 
 ## Related Documents
 
 - [LLM Channel Selection Guide](../../ai/1p-vs-3p/) — Channel patterns, Seat vs API
 - [AI Platforms and Model Comparison](../../ai/ai-ml/) — Model catalog, inference cost optimization
+- [LLMOps](../../ai/llmops/) — Runtime cost operations (budget guardrails, fallback, cost per request)
 - [FinOps](../../governance/finops/) — Cloud cost governance
 - [Agent Adoption Guide](../../ai/agent-adoption/) — Agent cost management
 

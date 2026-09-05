@@ -15,8 +15,8 @@ graph LR
     E --> A
 ```
 
-:::note
-For model selection, see [AI Platforms](../../ai/ai-ml/); for building RAG pipelines, see [Advanced RAG Patterns](../../ai/rag-patterns/); for AI security, see [AI Security](../../security/ai-security/).
+:::note[Prerequisites & related docs]
+For model selection, see [AI Platforms](../../ai/ai-ml/); for building RAG pipelines, see [Advanced RAG Patterns](../../ai/rag-patterns/); for AI security, see [AI Security](../../security/ai-security/). Procurement and billing models (Seat/API tiers, reserved capacity, showback/chargeback) are covered in [LLM Licensing and Cost Management](../../ai/licensing/); this document focuses on **production-runtime cost operations** (budget guardrails, fallback, cost per request).
 :::
 
 ## Evaluation
@@ -140,6 +140,13 @@ AI agents have **multi-step trajectories** (plan → tool call → observe → r
 - [ ] Golden Set regression tests run automatically in CI on prompt/model changes
 - [ ] PII masking applied to all prompt/response logs
 - [ ] Fallback strategy configured for automatic failover to alternate model
+
+## Related Documents
+
+- [LLM Licensing and Cost Management](../../ai/licensing/) — procurement and billing models (Seat/API tiers, reserved capacity, showback/chargeback)
+- [LLM Channel Selection Guide](../../ai/1p-vs-3p/) — differences between consuming the same FM 1P (direct) vs 3P (via cloud)
+- [AI Platforms and Model Comparison](../../ai/ai-ml/) — model catalog, inference unit-cost optimization (caching, batch, routing)
+- [FinOps](../../governance/finops/) — cloud cost governance overall
 
 ## References
 

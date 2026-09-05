@@ -77,6 +77,14 @@ A framework in DevOps/SRE for systematically defining "is the service reliable e
 For details, see [SLI/SLO and Error Budgets](../../devops/slo/).
 :::
 
+## AI Engineering and DevOps (MLOps / LLMOps)
+
+As generative AI and traditional ML models become core components of modern cloud applications, integrating standard code deployment pipelines (DevOps) with **MLOps / LLMOps** — which automates dataset handling, prompt templates, and model evaluation — has become essential.
+
+:::note
+For the 7-stage AI system lifecycle, responsibility boundaries across deployment tiers, and concrete integration patterns with DevOps pipelines, see [AI System Lifecycle and Engineering](../../ai/lifecycle/).
+:::
+
 ## Common Mistakes
 
 - **Creating a "DevOps team" while keeping the existing silos** — DevOps is a culture, not a team name. It just creates another wall between the development team and the operations team.

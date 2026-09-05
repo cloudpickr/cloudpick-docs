@@ -20,21 +20,32 @@ description: Overview of AI domains (traditional ML, deep learning, generative A
 **Starting now?** Most enterprise AI adoption begins with **generative AI** (FM API calls). Traditional ML remains active where data pipelines exist; deep learning thrives for image/speech workloads. This guide focuses on generative AI while pointing to traditional ML/DL where needed.
 :::
 
-### Deciding Which AI You Need
+### Deciding Which AI You Need (Personas & Approach)
 
-| Problem to Solve | Approach | Document |
-| --- | --- | --- |
-| Structured data prediction (revenue, churn, anomaly) | Traditional ML | [AI Platforms — ML Platforms](../../ai/ai-ml/) |
-| Image/video classification, object detection | Deep Learning (Computer Vision) | [AI Platforms — ML Platforms](../../ai/ai-ml/) |
-| Natural language conversation, summarization, code generation | Generative AI (FM API) | See below |
-| Multi-step automation, tool calling, autonomous tasks | Agents | [AI Agents](../../ai/agents/) |
-| Productivity assist (AI tools for all employees) | Desktop Agent | [AI Agents](../../ai/agents/) |
+Your AI adoption strategy depends not only on the technical problem, but on **who builds and uses it (non-technical users vs developers vs ML engineers)** and the **UI/UX interaction model**.
+
+| Tier (Delivery Model) | Target Persona | UI/UX Interaction Model | Representative Cloud Services | Typical Enterprise Use Cases |
+| --- | --- | --- | --- | --- |
+| **1. Buy (Ready-made SaaS)** | Non-technical business users (zero-code) | In-app embedded assistant (Copilots), enterprise web chat UI | Microsoft 365 Copilot, Gemini for Workspace, Salesforce Agentforce | Email/document drafting, meeting summarization, CRM sales briefing |
+| **2. Assemble (Low-Code Studio)** | Citizen developers, business analysts | Drag-and-drop visual canvas, Slack/Teams bot embed | Microsoft Copilot Studio, Bedrock IDE (SageMaker Unified Studio), Vertex AI Agent Builder | HR policy Q&A bot, departmental structured data collection bot |
+| **3. Build (Custom App & API)** | Software engineers, application developers | Custom web/mobile frontends, background headless agents, backend APIs | Amazon Bedrock API, Azure AI Foundry SDK, Gemini Enterprise API | ERP integration agents, customer-facing app features |
+| **4. Train & Ops (Full ML Platform)** | ML engineers, data scientists | Jupyter/VS Code, MLOps orchestration pipelines | SageMaker AI, Azure Machine Learning, Vertex AI Pipelines | Financial fraud detection (FDS), large-scale time-series forecasting, domain model fine-tuning |
+
+:::note
+- **Essence of Tiers**: These 4 tiers are not a sequential maturity ladder, but a **trade-off axis between operational burden (TCO) and organizational control (IP protection/customization)**.
+- **General business automation for non-technical teams**: Starting with Tier 1 (Buy) or Tier 2 (Assemble) is most effective for speed and cost.
+- **Custom enterprise integration and proprietary apps**: Use Tier 3 (Build) with foundation model APIs and agent SDKs.
+- **Tabular predictive data and custom training**: See Tier 4 (Train & Ops) in [ML Platforms](../../ai/ai-ml/#ml-platforms).
+- **Full AI lifecycle & engineering**: For the 7-stage lifecycle, governance, and MLOps vs LLMOps operational frameworks, see [AI System Lifecycle and Engineering](../../ai/lifecycle/).
+:::
 
 ---
 
 ## Why Use AI on the Cloud
 
-Training an AI model from scratch requires billions in GPU investment, millions of training samples, and months of compute time. Most organizations use **ready-made AI services provided by cloud vendors** rather than doing this themselves.
+Pre-training a frontier foundation model from scratch requires tens of millions of dollars in massive GPU clusters, trillions of training tokens, and months of compute time. Most enterprises use **ready-made AI services provided by cloud vendors** rather than doing this themselves.
+
+By analogy, it is like drawing electricity from the power grid rather than building your own power plant. We focus on "what to do with electricity," not "how to generate electricity."
 
 ## Three Key Concepts
 

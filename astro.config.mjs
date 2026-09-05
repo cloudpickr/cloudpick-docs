@@ -278,6 +278,7 @@ export default defineConfig({
 							translations: { en: 'Foundations & models', ja: '基礎とモデル' },
 							items: [
 								{ slug: 'ai/getting-started' },
+								{ slug: 'ai/lifecycle' },
 								{ slug: 'ai/ai-ml' },
 								{ slug: 'ai/prompt-engineering' },
 							],

@@ -112,57 +112,8 @@ For organizations that need to train and deploy their own models.
 
 **OCI Enterprise AI** — An expanded platform that evolved from the former OCI Generative AI. It hosts models such as Cohere, Meta Llama, xAI Grok 4.3, and Google Gemini on OCI infrastructure, and supports high-performance workloads with Dedicated AI Clusters and RDMA-based Bare Metal GPUs. It has added **AI Guardrails** (content moderation, PII detection, prompt injection defense) and **Enterprise AI Agents** (GA). Through its partnership with OpenAI, GPT-5.5/5.4 and Codex are expected to become available on the OCI Marketplace via Oracle Universal Credits, and its strength is native integration with Oracle Database and applications.
 
-## ML Pipeline and MLOps
-
-### ML Lifecycle
-
-```mermaid
-graph LR
-    A[Data Collection] --> B[Data Prep·Labeling]
-    B --> C[Feature Engineering]
-    C --> D[Model Training]
-    D --> E[Evaluation]
-    E --> F[Model Deployment]
-    F --> G[Monitoring]
-    G --> A
-```
-
-### Tools by Stage
-
-| Stage | AWS | Azure | Google Cloud | OCI |
-| --- | --- | --- | --- | --- |
-| **Data Prep** | SageMaker Data Wrangler, Ground Truth | Azure ML Data Labeling | Vertex AI Data Labeling | OCI Data Labeling |
-| **Feature Store** | SageMaker Feature Store | Azure ML Feature Store | Vertex AI Feature Store | OCI Feature Store |
-| **Training** | SageMaker Training + Auto Tuning | Azure ML + AutoML | Vertex AI Training + HPT | OCI Data Science Training |
-| **Model Registry** | SageMaker Model Registry | Azure ML Model Registry | Vertex AI Model Registry | OCI Model Catalog |
-| **Deployment** | SageMaker Endpoints + Serverless | Azure ML Online/Batch Endpoints | Vertex AI Endpoints | OCI Model Deployment |
-| **Monitoring** | SageMaker Model Monitor | Azure ML Data Drift Detection | Vertex AI Model Monitoring | OCI Model Monitoring |
-| **Pipelines** | SageMaker Pipelines | Azure ML Pipelines | Vertex AI Pipelines (Kubeflow) | OCI Data Science Jobs + Pipelines |
-
-### Choosing Between Generative AI and Traditional ML
-
-| Requirement | Recommended Approach |
-| --- | --- |
-| Natural language conversation, summarization, translation | Foundation model APIs (Bedrock/Microsoft Foundry/Vertex AI) |
-| Domain-specific knowledge + general LLM | RAG (foundation model + vector store) |
-| Highly optimized for a specific task | Fine-tuning or custom model training |
-| Image/object recognition | Pre-trained vision models or Computer Vision APIs |
-| Time-series forecasting, anomaly detection | Traditional ML (SageMaker AI/Vertex AI, etc.) |
-| Ultra-lightweight edge deployment | Traditional ML + model quantization |
-
-### AI Development Lifecycle (AI-DLC)
-
-For the full lifecycle of an AI project (problem definition → data → model → evaluation → deployment → monitoring → improvement) and operational details, see [LLMOps](../../ai/llmops/).
-- **Cost governance** — AI costs scale with usage and are hard to predict. Be sure to set daily/monthly budget caps, per-task token limits, and cost-overrun alerts.
-- **Data drift** — If RAG documents become outdated, answer quality gradually degrades. Set up a regular data refresh pipeline.
-- **Compliance** — PII masking in input/output logs, data retention policies, and whether the model uses your data for training must be continuously managed.
-
-:::note
-Generative AI's DLC has a **much shorter iteration cycle** than traditional ML. Unlike traditional ML, where model training can take months, prompt changes take effect in minutes and RAG data updates take effect in hours. This fast cycle requires an evaluation, deployment, and rollback framework suited to it.
-:::
-
-:::caution
-AI services change **far more frequently** than other cloud services. Model names, API endpoints, and pricing change often, so check each vendor's official documentation for changes after this document's reference date.
+:::tip[AI System Lifecycle & Enterprise Adoption Matrix]
+The 7-stage end-to-end AI System Life Cycle, 4-Tier adoption matrix with control boundaries, technical task selection guide, and MLOps vs LLMOps operational frameworks are detailed comprehensively in [AI System Lifecycle and Engineering](../../ai/lifecycle/).
 :::
 
 ## Where AI Adoption Is Expanding

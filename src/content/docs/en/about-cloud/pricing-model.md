@@ -7,14 +7,14 @@ description: "Compares on-demand, reserved, and spot pricing models, plus hidden
 
 ## On-Premises vs. Cloud Cost Structure
 
-Running your own data center incurs costs before you even purchase a server. Server purchase costs, rack space rental, power and cooling costs, network equipment, and even the personnel costs to manage all of it — hundreds of millions of won in upfront investment is required before you even launch a service. This is called **capital expenditure** (CapEx). It is similar to buying a house — you pay a large sum upfront, then continue to bear maintenance costs afterward.
+Running your own data center incurs costs before you even purchase a server. Server purchase costs, rack space rental, power and cooling costs, network equipment, and even the personnel costs to manage all of it — hundreds of thousands to millions of dollars in upfront capital investment is required before you even launch a service. This is called **capital expenditure** (CapEx). It is similar to buying a house — you pay a large sum upfront, then continue to bear maintenance costs afterward.
 
 Cloud shifts this structure to **OpEx** (Operational Expenditure). With no upfront investment, you pay only for what you use. It is similar to living in a rental — you move in when you need to, and move out when you don't.
 
 | Item | On-Premises (CapEx) | Cloud (OpEx) |
 | --- | --- | --- |
-| **Upfront investment** | Purchasing servers and network equipment (hundreds of millions of won) | None |
-| **Billing method** | Depreciation after purchase (3-5 years) | Usage-based pay-as-you-go |
+| **Upfront investment** | Purchasing servers and network equipment (hundreds of thousands of dollars) | None |
+| **Billing method** | Depreciation after purchase (3–5 years) | Usage-based pay-as-you-go |
 | **Scaling up** | Purchasing additional equipment (weeks to months) | Instant scaling |
 | **Scaling down** | Difficult to dispose of equipment | Instant scale-down, cost savings |
 | **Maintenance** | Requires your own staff | Managed by the vendor |
@@ -96,9 +96,9 @@ AWS, Azure, and Google Cloud all offer policies that waive egress costs when ful
 
 The biggest practical barriers when considering multi-cloud are **inter-cloud data transfer costs** and **latency caused by physical distance**.
 
-**Data gravity:** Compute resources inevitably gravitate toward where data has accumulated. The cost of moving petabyte-scale data to another vendor can reach tens of millions to hundreds of millions of won.
+**Data gravity:** Compute resources inevitably gravitate toward where data has accumulated. The cost of moving petabyte-scale data to another vendor can reach tens of thousands to hundreds of thousands of dollars.
 
-**Latency when distributing across clouds:** Splitting tiers across clouds — for example, Web (AWS) and DB (OCI) — adds round-trip latency (RTT). RTT between AZs within the same region is about 1ms, but a dedicated connection between clouds adds 5-20ms. This difference can significantly affect perceived performance for services with heavy API call volume.
+**Latency when distributing across clouds:** Splitting tiers across clouds — for example, Web (AWS) and DB (OCI) — adds round-trip latency (RTT). RTT between AZs within the same region is about 1ms, but a dedicated connection between clouds adds 5–20ms. This difference can significantly affect perceived performance for services with heavy API call volume.
 
 **Decision criteria for multi-cloud distribution:**
 

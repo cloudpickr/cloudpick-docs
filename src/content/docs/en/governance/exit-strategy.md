@@ -101,7 +101,7 @@ Abstraction has the downside of forcing a "**lowest common denominator**," makin
 
 - **Standard formats** — Parquet, Avro, JSON, CSV
 - **Store regular backups in a neutral location** — a different region/vendor/on-premises
-- **Be aware of egress costs** — egress fees for petabyte-scale data can run from tens of millions to hundreds of millions of KRW. Note: Google Cloud waived egress fees for switching providers starting January 2024, and in September 2025 launched Data Transfer Essentials for EU/UK, waiving multicloud egress fees in compliance with the EU Data Act
+- **Be aware of egress costs** — egress fees for petabyte-scale data can run into tens of thousands to hundreds of thousands of USD. Note: Google Cloud waived egress fees for switching providers starting January 2024, and in September 2025 launched Data Transfer Essentials for EU/UK, waiving multicloud egress fees in compliance with the EU Data Act
 - **Use offline transfer options** — see [Storage Migration](../../storage/migration/)
 
 ## Exit Execution Plan
@@ -148,7 +148,7 @@ Situations that would trigger an Exit:
 
 - **Giving up all managed services to eliminate lock-in** — running everything directly on Kubernetes for the sake of portability, which actually increases operational burden and cost
 - **Documenting the Exit Plan without validating it** — never running an annual competing-vendor PoC or real migration test, so the plan drifts from reality
-- **Not estimating egress costs in advance** — overlooking that egress costs for petabyte-scale data can reach hundreds of millions of KRW
+- **Not estimating egress costs in advance** — overlooking that egress costs for petabyte-scale data can reach tens of thousands to hundreds of thousands of USD
 
 ## Checklist
 

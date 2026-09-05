@@ -42,30 +42,42 @@ It's common to split subnets into three tiers: **public**, **private**, and **is
 | **Private** | Application layer | Outbound only, via NAT | App servers, container worker nodes |
 | **Isolated** | DB, internal systems | No internet access | Managed DB, cache |
 
-### Subnet Sizing
+### Subnet Sizing Principles
 
-| Consideration | Recommendation |
-| --- | --- |
-| VPC CIDR | `/16` (65,536 IPs). Too small makes expansion difficult |
-| Subnet CIDR | Start with `/24` (256 IPs). Use `/20` (4,096 IPs) if you have many Kubernetes nodes |
-| Vendor-reserved IPs | AWS/Azure reserve 5 IPs per subnet. `/28` or smaller leaves very few usable IPs |
-| AZ distribution | At least 2, recommended 3 AZs |
+VPC size cannot be rigidly prescribed by a single CIDR block; it must be calculated using a composite demand formula: **Number of AZs × Number of Tiers × IPs per Subnet + Managed Endpoints + Failure & Growth Buffer**.
+
+#### 1. Workload-Based VPC CIDR Starting Point Guide
+
+| Workload Scale | Recommended Starting CIDR (Example) | Usable IP Count | Architectural Layout & Considerations |
+| --- | --- | --- | --- |
+| **Small Spoke / Sandbox / PoC** | `/22`–`/24` | 1,024–256 | 1–2 AZs, simple 2-tier (web/app) setup. Isolated environment with low IP exhaustion risk |
+| **Standard Enterprise App (3 AZ × 3 Tiers)** | `/19`–`/20` | 8,192–4,096 | Symmetrically placing `/24` (256 IPs) across 3 AZs × 3 tiers (Public/Private/Isolated) requires 9 subnets = 2,304 IPs minimum → `/20` (4,096) or `/19` for growth buffer |
+| **High-Density Containers / Large Landing Zone** | `/16`–`/18` | 65,536–16,384 | EKS VPC CNI and environments allocating real VPC private IPs per Pod, or utilize secondary CIDRs |
+
+#### 2. Subnet Allocation Principles
+
+| Consideration | Sizing Principle & Recommendation | Description |
+| --- | --- | --- |
+| **General Workload Subnets** | Start with `/24` (256 IPs) | Standard size for web/app tiers. For high-density container/pod environments, evaluate secondary CIDR blocks. |
+| **Dedicated Infrastructure Subnets** | Minimal allocation by purpose (`/26`–`/28`) | • **AWS TGW Attachment**: `/28` (consumes only 1 ENI per AZ to eliminate IP waste)<br/>• **PrivateLink / Endpoints**: `/27`–`/28` sized to projected interface endpoint counts<br/>• **Vendor Requirements**: Azure `GatewaySubnet` (min `/27`), `AzureFirewallSubnet` (min `/26`), GCP Proxy-only subnet (`/24`) |
+| **Vendor-Reserved IPs** | 3–5 reserved IPs per vendor | AWS and Azure reserve 5 IPs per subnet, GCP reserves 4 (first 2 and last 2), OCI reserves 3. In a `/28` (16 IPs), usable host IPs are only 11 (AWS), which must be accounted for. |
+| **AZ Distribution** | Deploy symmetrically across at least 2, recommended 3 AZs | Symmetrically allocate subnets across AZs to maintain fault domain isolation. |
 
 ### CIDR Planning
 
-CIDR design is the hardest decision to change later.
+CIDR design is the hardest architectural decision to change later.
 
-| Strategy | Example | Description |
+| Strategy | Allocation Example | Description |
 | --- | --- | --- |
-| Separate ranges per environment | `10.0.0.0/16` (prod), `10.1.0.0/16` (dev) | Prevents conflicts between environments |
-| Allocation per team/service | `10.10.0.0/16` (Team A), `10.20.0.0/16` (Team B) | Ensures team autonomy |
-| Avoiding the on-premises range | If on-premises uses `172.16.0.0/12`, the cloud uses `10.0.0.0/8` | Prevents conflicts over a dedicated line connection |
+| **Separate ranges per environment** | `10.0.0.0/20` (prod), `10.0.16.0/20` (dev) | Routing isolation and conflict prevention between environments |
+| **Allocation per team/service** | `10.1.0.0/21` (Payment), `10.1.8.0/21` (Logistics) | Ensures team autonomy while enabling route summarization |
+| **Avoiding the on-premises range** | If on-premises uses `172.16.0.0/12`, assign unused cloud blocks in `10.0.0.0/8` | Prevents routing collisions over Direct Connect, ExpressRoute, or VPN |
 
 :::caution
-`10.0.0.0/16` is the most common default, so multiple VPCs often end up with the same CIDR. Manage a CIDR allocation registry at the organizational level.
+Monolithically duplicating `10.0.0.0/16` templates causes immediate route collisions when establishing VPC Peering or Transit Gateway connections. Maintain a centralized IPAM (IP Address Management) registry across your organization.
 :::
 
-For multicloud CIDR design, see [Multicloud Connectivity](../../networking/multicloud-connectivity/).
+For multicloud CIDR splitting principles, see [Multicloud Network Design Foundations](../../networking/multicloud-networking/).
 
 ## Security (Network Firewall)
 

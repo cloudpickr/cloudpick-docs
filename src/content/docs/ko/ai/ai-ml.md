@@ -120,59 +120,8 @@ description: "벤더별 AI 플랫폼, 모델 카탈로그, GPU/AI 칩, Applied A
 
 **OCI Enterprise AI** — 구 OCI Generative AI가 확장된 플랫폼입니다. Cohere, Meta Llama, xAI Grok 4.3, Google Gemini 등의 모델을 OCI 인프라에서 호스팅하며, 전용 AI 클러스터(Dedicated AI Cluster)와 RDMA 기반 Bare Metal GPU로 고성능 워크로드를 지원합니다. **AI Guardrails**(콘텐츠 모더레이션, PII 탐지, 프롬프트 인젝션 방어)와 **Enterprise AI Agents**(GA)가 추가되었습니다. OpenAI와의 파트너십으로 GPT-5.5/5.4 및 Codex를 OCI Marketplace에서 Oracle Universal Credits로 이용할 수 있게 될 예정이며, Oracle Database/애플리케이션과의 네이티브 통합이 강점입니다.
 
-## ML 파이프라인과 MLOps
-
-직접 모델을 학습하고 운영할 때는 MLOps 파이프라인을 구성합니다.
-
-### ML 라이프사이클
-
-```mermaid
-graph LR
-    A[데이터 수집] --> B[데이터 준비·라벨링]
-    B --> C[피처 엔지니어링]
-    C --> D[모델 학습]
-    D --> E[평가]
-    E --> F[모델 배포]
-    F --> G[모니터링]
-    G --> A
-```
-
-### 단계별 도구
-
-| 단계 | AWS | Azure | Google Cloud | OCI |
-| --- | --- | --- | --- | --- |
-| **데이터 준비** | SageMaker AI Data Wrangler, Ground Truth | Azure ML Data Labeling | Vertex AI Data Labeling | OCI Data Labeling |
-| **피처 스토어** | SageMaker AI Feature Store | Azure ML Feature Store | Vertex AI Feature Store | OCI Feature Store |
-| **학습/튜닝** | SageMaker AI Training + Automatic Model Tuning | Azure ML + AutoML | Vertex AI Training + Hyperparameter Tuning | OCI Data Science Training |
-| **모델 레지스트리** | SageMaker AI Model Registry | Azure ML Model Registry | Vertex AI Model Registry | OCI Model Catalog |
-| **배포** | SageMaker AI Endpoints + Serverless | Azure ML Online/Batch Endpoints | Vertex AI Endpoints | OCI Model Deployment |
-| **모니터링** | SageMaker AI Model Monitor | Azure ML Data Drift Detection | Vertex AI Model Monitoring | OCI Model Monitoring |
-| **파이프라인** | SageMaker AI Pipelines | Azure ML Pipelines | Vertex AI Pipelines (Kubeflow 기반) | OCI Data Science Jobs + Pipelines |
-
-### 생성형 AI vs 전통 ML 선택
-
-| 요구사항 | 권장 접근 |
-| --- | --- |
-| 자연어 대화, 요약, 번역 | 파운데이션 모델 API (Bedrock/Microsoft Foundry/Vertex AI) |
-| 도메인 특화 지식 + 일반 LLM | RAG (파운데이션 모델 + 벡터 스토어) |
-| 특정 태스크에 고도로 최적화 | Fine-tuning 또는 커스텀 모델 학습 |
-| 이미지/객체 인식 | 사전 학습 비전 모델 또는 Computer Vision API |
-| 시계열 예측, 이상 탐지 | 전통 ML (SageMaker AI/Vertex AI 등) |
-| 초경량 엣지 배포 | 전통 ML + 모델 양자화 |
-
-### AI 개발 수명주기 (AI-DLC)
-
-AI 프로젝트의 전체 수명주기(문제 정의→데이터→모델→평가→배포→모니터링→개선)와 운영 상세는 [LLMOps](../../ai/llmops/)를 참고하세요.
-- **비용 거버넌스** — AI 비용은 사용량에 비례하여 예측이 어렵습니다. 일/월 예산 상한, 태스크별 토큰 한도, 비용 초과 알림을 반드시 설정하세요.
-- **데이터 드리프트** — RAG용 문서가 오래되면 답변 품질이 서서히 저하됩니다. 정기적인 데이터 갱신 파이프라인을 구성하세요.
-- **규정 준수** — 입출력 로그의 PII 마스킹, 데이터 보존 정책, 모델의 학습 데이터 사용 여부를 지속적으로 관리해야 합니다.
-
-:::note
-생성형 AI의 DLC는 전통 ML보다 **반복 주기가 짧습니다**. 모델 학습에 수개월이 걸리는 전통 ML과 달리, 프롬프트 변경은 수 분, RAG 데이터 업데이트는 수 시간이면 반영됩니다. 이 빠른 주기에 맞는 평가·배포·롤백 체계가 필요합니다.
-:::
-
-:::caution
-AI 서비스는 다른 클라우드 서비스보다 **변경 빈도가 매우 높습니다.** 모델명, API 엔드포인트, 가격이 수시로 바뀌므로, 이 문서의 기준 시점 이후 변경사항은 각 벤더의 공식 문서를 확인하세요.
+:::tip[AI 시스템 수명주기와 엔터프라이즈 도입 전략]
+AI 시스템의 7단계 전 수명주기(AI System Life Cycle), 대상 페르소나 및 책임 경계별 4-Tier 도입 매트릭스, 기술 태스크별 선택 가이드, 그리고 MLOps vs LLMOps 운영 체계 위계는 **[AI 시스템 수명주기와 엔지니어링](../../ai/lifecycle/)** 문서에서 독립적으로 상세히 다룹니다.
 :::
 
 ## AI 활용의 확장 방향

@@ -120,59 +120,8 @@ description: "ベンダー別のAIプラットフォーム、モデルカタロ�
 
 **OCI Enterprise AI** — 旧OCI Generative AIが拡張されたプラットフォームです。Cohere、Meta Llama、xAI Grok 4.3、Google GeminiなどのモデルをOCIインフラでホスティングし、専用AIクラスター(Dedicated AI Cluster)とRDMAベースのBare Metal GPUで高性能ワークロードを支援します。**AI Guardrails**(コンテンツモデレーション、PII検出、プロンプトインジェクション防御)と**Enterprise AI Agents**(GA)が追加されました。OpenAIとのパートナーシップにより、GPT-5.5/5.4およびCodexをOCI MarketplaceでOracle Universal Creditsとして利用できるようになる予定であり、Oracle Database/アプリケーションとのネイティブ統合が強みです。
 
-## MLパイプラインとMLOps
-
-自らモデルを学習・運用する際は、MLOpsパイプラインを構成します。
-
-### MLライフサイクル
-
-```mermaid
-graph LR
-    A[データ収集] --> B[データ準備·ラベリング]
-    B --> C[フィーチャーエンジニアリング]
-    C --> D[モデル学習]
-    D --> E[評価]
-    E --> F[モデルデプロイ]
-    F --> G[モニタリング]
-    G --> A
-```
-
-### 段階別ツール
-
-| 段階 | AWS | Azure | Google Cloud | OCI |
-| --- | --- | --- | --- | --- |
-| **データ準備** | SageMaker AI Data Wrangler, Ground Truth | Azure ML Data Labeling | Vertex AI Data Labeling | OCI Data Labeling |
-| **フィーチャーストア** | SageMaker AI Feature Store | Azure ML Feature Store | Vertex AI Feature Store | OCI Feature Store |
-| **学習/チューニング** | SageMaker AI Training + Automatic Model Tuning | Azure ML + AutoML | Vertex AI Training + Hyperparameter Tuning | OCI Data Science Training |
-| **モデルレジストリ** | SageMaker AI Model Registry | Azure ML Model Registry | Vertex AI Model Registry | OCI Model Catalog |
-| **デプロイ** | SageMaker AI Endpoints + Serverless | Azure ML Online/Batch Endpoints | Vertex AI Endpoints | OCI Model Deployment |
-| **モニタリング** | SageMaker AI Model Monitor | Azure ML Data Drift Detection | Vertex AI Model Monitoring | OCI Model Monitoring |
-| **パイプライン** | SageMaker AI Pipelines | Azure ML Pipelines | Vertex AI Pipelines (Kubeflowベース) | OCI Data Science Jobs + Pipelines |
-
-### 生成AI vs 従来型MLの選択
-
-| 要件 | 推奨アプローチ |
-| --- | --- |
-| 自然言語対話、要約、翻訳 | ファウンデーションモデルAPI (Bedrock/Microsoft Foundry/Vertex AI) |
-| ドメイン特化知識 + 汎用LLM | RAG (ファウンデーションモデル + ベクトルストア) |
-| 特定タスクへの高度な最適化 | Fine-tuningまたはカスタムモデル学習 |
-| 画像/オブジェクト認識 | 事前学習済みビジョンモデルまたはComputer Vision API |
-| 時系列予測、異常検知 | 従来型ML (SageMaker AI/Vertex AI等) |
-| 超軽量エッジデプロイ | 従来型ML + モデル量子化 |
-
-### AI開発ライフサイクル (AI-DLC)
-
-AIプロジェクトの全体ライフサイクル(問題定義→データ→モデル→評価→デプロイ→モニタリング→改善)と運用の詳細は[LLMOps](../../ai/llmops/)を参照してください。
-- **コストガバナンス** — AIコストは使用量に比例するため予測が難しいです。日次/月次の予算上限、タスク別トークン上限、コスト超過アラートを必ず設定してください。
-- **データドリフト** — RAG用文書が古くなると回答品質が徐々に低下します。定期的なデータ更新パイプラインを構成してください。
-- **コンプライアンス** — 入出力ログのPIIマスキング、データ保持ポリシー、モデルの学習データ使用有無を継続的に管理する必要があります。
-
-:::note
-生成AIのDLCは従来型MLよりも**反復サイクルが短いです**。モデル学習に数か月かかる従来型MLとは異なり、プロンプト変更は数分、RAGデータの更新は数時間で反映されます。この速いサイクルに合った評価・デプロイ・ロールバック体系が必要です。
-:::
-
-:::caution
-AIサービスは他のクラウドサービスよりも**変更頻度が非常に高いです。** モデル名、APIエンドポイント、価格が随時変わるため、本文書の基準時点以降の変更事項は各ベンダーの公式文書を確認してください。
+:::tip[AIシステムライフサイクルとエンタープライズ導入マトリクス]
+AIシステムの7段階エンドツーエンドライフサイクル(AI System Life Cycle)、対象ペルソナおよび責任境界別4-Tier導入マトリクス、技術タスク別選択ガイド、そしてMLOps vs LLMOpsの運用体系は、[AIシステムライフサイクルとエンジニアリング](../../ai/lifecycle/)で独立して詳しく解説しています。
 :::
 
 ## AI活用の拡張方向

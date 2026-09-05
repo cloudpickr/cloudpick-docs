@@ -23,7 +23,7 @@ Referencing global standard frameworks such as NIST AI RMF 1.0 (Govern–Map–M
 ```mermaid
 graph LR
     A[1. Problem Framing<br/>& Governance] --> B[2. Data Prep<br/>& Governance]
-    B --> C[3. Model Strategy<br/>(Buy/Build/Train)]
+    B --> C["3. Model Strategy<br/>(Buy/Build/Train)"]
     C --> D[4. App Building<br/>& Pipelines]
     D --> E[5. Multi-Dim Eval<br/>& Verification]
     E --> F[6. Deployment<br/>& Serving]

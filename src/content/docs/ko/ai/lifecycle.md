@@ -23,7 +23,7 @@ NIST AI RMF 1.0(Govern–Map–Measure–Manage)과 ISO/IEC 5338(AI 시스템 �
 ```mermaid
 graph LR
     A[1. 문제 정의<br/>및 거버넌스] --> B[2. 데이터 수집<br/>및 거버넌스]
-    B --> C[3. 모델 전략 수립<br/>(Buy/Build/Train)]
+    B --> C["3. 모델 전략 수립<br/>(Buy/Build/Train)"]
     C --> D[4. 앱 구축<br/>및 파이프라인]
     D --> E[5. 다차원 평가<br/>및 검증]
     E --> F[6. 배포 및 서빙]

@@ -4,7 +4,9 @@ Mermaid 다이어그램 린트 — Mermaid 11.x 호환성 검사
 
 검사 항목:
 1. 노드 라벨에 따옴표 없이 슬래시(/) 사용 → syntax error 유발
-2. 노드 ID에 공백 → 파서 혼동 (subgraph 제외)
+2. 노드 라벨에 따옴표 없이 괄호/중괄호 등 특수문자 → parse error 유발
+3. 노드 ID에 공백 → 파서 혼동 (subgraph 제외)
+4. 이스케이프된 mermaid 코드펜스(\\`\\`\\`mermaid) → 렌더링 안 됨
 
 사용법:
   python3 scripts/lint-mermaid.py              # 전체 검사
@@ -17,9 +19,24 @@ import sys
 DOCS_DIR = "src/content/docs"
 LOCALES = ["ko", "en", "ja"]
 
+# 대괄호 노드 라벨 안에서 따옴표로 감싸지 않으면 Mermaid 파서를 깨뜨리는 문자.
+# 슬래시(/)는 기존 별도 규칙에서 처리하므로 여기서는 괄호류만 대상으로 한다.
+LABEL_BREAKING_CHARS = "()（）{}"
+
 
 def find_issues(content, path):
     issues = []
+
+    # 4. 이스케이프된 mermaid 코드펜스 감지 (렌더링 실패의 흔한 원인).
+    #    정상 펜스(```)가 아니라 백슬래시가 섞인 \` 형태를 잡는다.
+    for ln_idx, line in enumerate(content.split("\n"), 1):
+        if "mermaid" in line and re.search(r"\\`", line):
+            issues.append({
+                "file": path, "block": 0, "line": ln_idx,
+                "type": "escaped_fence",
+                "detail": line.strip()[:60],
+            })
+
     blocks = re.findall(r"```mermaid\n(.*?)\n```", content, re.DOTALL)
     for block_idx, block in enumerate(blocks):
         for ln_idx, line in enumerate(block.strip().split("\n"), 1):
@@ -33,6 +50,19 @@ def find_issues(content, path):
                         "line": ln_idx,
                         "type": "slash_in_label",
                         "detail": f"[{u}]",
+                    })
+
+            # 따옴표 없이 괄호/중괄호가 포함된 대괄호 노드 라벨 → parse error.
+            #  예: C[3. 모델 전략<br/>(Buy/Build/Train)]  →  C["...(...)"]
+            for label in re.findall(r'(?<!")\[([^"\]]+)\](?!")', line):
+                # 따옴표로 이미 감싼 라벨(["..."])은 위 look-around로 제외됨.
+                if any(ch in label for ch in LABEL_BREAKING_CHARS):
+                    issues.append({
+                        "file": path,
+                        "block": block_idx + 1,
+                        "line": ln_idx,
+                        "type": "unquoted_paren_in_label",
+                        "detail": f"[{label}]",
                     })
 
             # 노드 ID에 공백 (subgraph 제외)

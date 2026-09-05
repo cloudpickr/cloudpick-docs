@@ -65,4 +65,16 @@ exclude = [
   # 차단한다(위 user_agent 설정과 상충). 실제 페이지는 정상이므로 제외.
   "^https?://www\\.llama\\.com",
   "^https?://developer\\.meta\\.com",
+  # ── 한국 도메인은 lychee(해외 CI IP)에서 타임아웃/차단이 고질적이므로 제외하고,
+  #    NCP(한국 리전) 함수 scripts/check-korean-links.mjs가 전담 검증한다.
+  #    allowlist는 check-korean-links.mjs의 ALLOWED_HOST_SUFFIXES와 일치시킨다.
+  "\\.go\\.kr",
+  "\\.or\\.kr",
+  "\\.korea\\.kr",
+  "namu\\.wiki",
+  "\\.naver\\.com",
+  "\\.ncloud\\.com",
+  "\\.ncloud-docs\\.com",
+  "\\.naverncp\\.com",
+  "\\.ntruss\\.com",
 ]

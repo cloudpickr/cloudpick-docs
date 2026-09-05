@@ -17,11 +17,7 @@ AIエージェントを企業に導入する際、「どのツールを使うか
 
 ## エージェント種類別の役割
 
-| 種類 | 対象 | 例 |
-| --- | --- | --- |
-| **Desktop Agent** (業務) | 全社員 | Claude Cowork, Amazon Quick, ChatGPT, M365 Copilot, Gemini |
-| **Coding Agent** (開発) | エンジニアリング | Kiro, Claude Code, Codex, Grok Build, GitHub Copilot, Antigravity, OpenCode, Pi |
-| **自律運用エージェント** (IT運用) | DevOps/セキュリティ/FinOps | AWS DevOps Agent, Security Copilot, Security Operations Agents |
+導入対象のエージェントは大きく **Desktop Agent**(業務・全社員)、**Coding Agent**(開発・エンジニアリング)、**自律運用エージェント**(IT運用・DevOps/セキュリティ/FinOps)の3種類に分かれます。各種類の定義・代表ツール・特徴は[AIエージェント — エージェントの種類](../../ai/agents/#エージェントの種類)を参照してください。本文書は、この3種類を**どのように組織へ安全に展開するか**に焦点を当てます。
 
 ---
 

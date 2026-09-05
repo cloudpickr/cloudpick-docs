@@ -17,11 +17,7 @@ AI 에이전트를 기업에 도입할 때, "어떤 도구를 쓸지"보다 "어
 
 ## 에이전트 유형별 역할
 
-| 유형 | 대상 | 예시 |
-| --- | --- | --- |
-| **Desktop Agent** (업무) | 전 직원 | Claude Cowork, Amazon Quick, ChatGPT, M365 Copilot, Gemini |
-| **Coding Agent** (개발) | 엔지니어링 | Kiro, Claude Code, Codex, Grok Build, GitHub Copilot, Antigravity, OpenCode, Pi |
-| **자율 운영 에이전트** (IT 운영) | DevOps/보안/FinOps | AWS DevOps Agent, Security Copilot, Security Operations Agents |
+도입 대상 에이전트는 크게 **Desktop Agent**(업무·전 직원), **Coding Agent**(개발·엔지니어링), **자율 운영 에이전트**(IT 운영·DevOps/보안/FinOps) 세 유형으로 나뉩니다. 각 유형의 정의·대표 도구·특징은 [AI 에이전트 — 에이전트 유형](../../ai/agents/#에이전트-유형)을 참고하세요. 이 문서는 세 유형을 **어떻게 조직에 안전하게 확산시킬지**에 초점을 둡니다.
 
 ---
 

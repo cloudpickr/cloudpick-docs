@@ -17,11 +17,7 @@ For technical architecture and protocols, see [AI Agents](../../ai/agents/).
 
 ## Agent Types by Role
 
-| Type | Audience | Examples |
-| --- | --- | --- |
-| **Desktop Agent** (work) | All employees | Claude Cowork, Amazon Quick, ChatGPT, M365 Copilot, Gemini |
-| **Coding Agent** (dev) | Engineering | Kiro, Claude Code, Codex, Grok Build, GitHub Copilot, Antigravity, OpenCode |
-| **Autonomous Ops Agent** (IT ops) | DevOps/Security/FinOps | AWS DevOps Agent, Security Copilot, Security Operations Agents |
+Agents for adoption fall into three types: **Desktop Agent** (work, all employees), **Coding Agent** (dev, engineering), and **Autonomous Ops Agent** (IT ops — DevOps/security/FinOps). For each type's definition, representative tools, and characteristics, see [AI Agents — Agent Types](../../ai/agents/#agent-types). This document focuses on **how to safely roll these three types out across an organization**.
 
 ---
 

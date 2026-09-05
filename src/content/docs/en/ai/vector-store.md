@@ -8,7 +8,7 @@ description: Vector store concepts, vendor comparison, and embedding model selec
 ## Overview
 
 :::note
-**New to vectors/embeddings?** Read the RAG section in [Getting Started](../../ai/getting-started/) first.
+**New to vectors/embeddings?** Read the RAG section in [Getting Started](../../ai/getting-started/) first. After this document (vector store basics), advanced implementation such as chunking, re-ranking, and hybrid search continues in [Advanced RAG Patterns](../../ai/rag-patterns/).
 :::
 
 ### Use Cases

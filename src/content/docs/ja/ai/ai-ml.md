@@ -54,7 +54,7 @@ description: "ベンダー別のAIプラットフォーム、モデルカタロ�
 | **OpenAI** | GPT-5.6 (Sol/Terra/Luna), GPT-5.5, oシリーズ | [api.openai.com](https://platform.openai.com/) | Azure Foundry, Bedrock |
 | **Anthropic** | Claude Fable 5, Opus 5, Opus 4.8, Sonnet 5, Haiku | [api.anthropic.com](https://platform.claude.com/) | Bedrock, Vertex AI |
 | **Google** | Gemini 3.5 Pro/Flash, 3.1 Pro, Gemini Omni (Preview/GAは[公式文書](https://ai.google.dev/)で確認) | [Gemini API](https://ai.google.dev/) | Vertex AI (ネイティブ) |
-| **xAI** | Grok 4.3, Grok 4.1 Fast, Imagine | [x.ai/api](https://x.ai/api) | OCI, Vertex AI, Bedrock, Azure |
+| **SpaceXAI (旧xAI)** | Grok 4.6, Grok 4.3, Grok Imagine | [x.ai/api](https://x.ai/api) | OCI, Vertex AI, Bedrock, Azure |
 | **Meta** | Llama 4 (オープンウェイト) | [llama.com](https://www.llama.com/) | Bedrock, Vertex, Azure, OCI (ホスティング) |
 | **Amazon** | Nova 1(Premier/Pro/Lite/Micro/Sonic等) + **Nova 2**(Lite, Pro等 — 世代区分) | — (Bedrock専用) | Bedrock |
 | **Microsoft** | MAI (Image/Voice/Transcribe) | — (Foundry専用) | Azure Foundry |
@@ -120,7 +120,7 @@ description: "ベンダー別のAIプラットフォーム、モデルカタロ�
 
 **Gemini Enterprise Agent Platform** — 旧Vertex AIがエージェント中心に全面刷新されたプラットフォームです。Google自社の**Gemini 3.x/2.5**シリーズ(3.5 Pro/3.5 Flash/3.1 Pro等 — 各バリエーションのPreview/GA・上限は[公式文書](https://cloud.google.com/vertex-ai/generative-ai/docs)で確認)のネイティブなマルチモーダル能力とTPUインフラが強みです。長文コンテキスト・推論モード・**Gemini Omni**(マルチモーダル)や、Agent Studioを通じたローコードエージェント開発、Google Search/BigQueryとの連携が差別化ポイントです。
 
-**OCI Enterprise AI** — 旧OCI Generative AIが拡張されたプラットフォームです。Cohere、Meta Llama、xAI Grok 4.3、Google GeminiなどのモデルをOCIインフラでホスティングし、専用AIクラスター(Dedicated AI Cluster)とRDMAベースのBare Metal GPUで高性能ワークロードを支援します。**AI Guardrails**(コンテンツモデレーション、PII検出、プロンプトインジェクション防御)と**Enterprise AI Agents**(GA)が追加されました。OpenAIとのパートナーシップにより、GPT-5.5/5.4およびCodexをOCI MarketplaceでOracle Universal Creditsとして利用できるようになる予定であり、Oracle Database/アプリケーションとのネイティブ統合が強みです。
+**OCI Enterprise AI** — 旧OCI Generative AIが拡張されたプラットフォームです。Cohere、Meta Llama、SpaceXAI Grok、Google GeminiなどのモデルをOCIインフラでホスティングし、専用AIクラスター(Dedicated AI Cluster)とRDMAベースのBare Metal GPUで高性能ワークロードを支援します。**AI Guardrails**(コンテンツモデレーション、PII検出、プロンプトインジェクション防御)と**Enterprise AI Agents**(GA)が追加されました。OpenAIとのパートナーシップにより、GPT-5.5/5.4およびCodexをOCI MarketplaceでOracle Universal Creditsとして利用できるようになる予定であり、Oracle Database/アプリケーションとのネイティブ統合が強みです。
 
 :::tip[AIシステムライフサイクルとエンタープライズ導入マトリクス]
 AIシステムの7段階エンドツーエンドライフサイクル(AI System Life Cycle)、対象ペルソナおよび責任境界別4-Tier導入マトリクス、技術タスク別選択ガイド、そしてMLOps vs LLMOpsの運用体系は、[AIシステムライフサイクルとエンジニアリング](../../ai/lifecycle/)で独立して詳しく解説しています。
@@ -149,7 +149,7 @@ AIシステムの7段階エンドツーエンドライフサイクル(AI System 
 | --- | --- | --- |
 | 2026.04 | **OpenAI-Microsoft独占終了** | OpenAIモデルをAzure以外のプラットフォームでも提供可能に |
 | 2026.04 | **OpenAIモデル → Bedrock提供開始** | 独占終了直後にGPT-5.xがBedrockに登場 |
-| 2025-2026 | **xAI Grokのマルチクラウド展開** | Azure AI Foundry(2025.09), Vertex AI, OCI, Bedrock(2026.06 Grok 4.3 GA) |
+| 2025-2026 | **SpaceXAI(旧xAI) Grokのマルチクラウド展開** | Azure AI Foundry(2025.09), Vertex AI, OCI, Bedrock(2026.06 Grok 4.3 GA) |
 | 2025-2026 | **Anthropic Claudeのチャネル強化** | 既存のBedrock/Vertexに加え、OCIなどの追加チャネル |
 
 **運用上の示唆:**

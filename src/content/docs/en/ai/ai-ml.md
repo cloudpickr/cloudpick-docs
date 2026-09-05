@@ -50,7 +50,7 @@ On-premises AI/ML requires purchasing GPU servers, installing frameworks, and bu
 | **OpenAI** | GPT-5.6, GPT-5.5, o-series | [api.openai.com](https://platform.openai.com/) | Azure Foundry, Bedrock |
 | **Anthropic** | Claude Fable 5, Opus 5, Opus 4.8, Sonnet 5, Haiku | [api.anthropic.com](https://platform.claude.com/) | Bedrock, Vertex AI |
 | **Google** | Gemini 3.5 Pro/Flash, 3.1 Pro, Gemini Omni (check [official docs](https://ai.google.dev/) for Preview/GA status) | [Gemini API](https://ai.google.dev/) | Vertex AI (native) |
-| **xAI** | Grok 4.3, Grok 4.1 Fast, Imagine | [x.ai/api](https://x.ai/api) | OCI, Vertex AI, Bedrock, Azure |
+| **SpaceXAI (formerly xAI)** | Grok 4.6, Grok 4.3, Grok Imagine | [x.ai/api](https://x.ai/api) | OCI, Vertex AI, Bedrock, Azure |
 | **Meta** | Llama 4 (open-weight) | [llama.com](https://www.llama.com/) | Bedrock, Vertex, Azure, OCI |
 | **Amazon** | Nova 1 (Premier/Pro/Lite/Micro/Sonic, etc.) + **Nova 2** (Lite, Pro, etc. — generational distinction) | — (Bedrock only) | Bedrock |
 | **Microsoft** | MAI (Image/Voice/Transcribe) | — (Foundry only) | Azure Foundry |
@@ -112,7 +112,7 @@ The table below lists GPU instance products by vendor. For per-generation GPU (H
 
 **Gemini Enterprise Agent Platform** — A full agent-centric overhaul of the former Vertex AI. Its strengths are the native multimodal capabilities of Google's own **Gemini 3.x/2.5** series (3.5 Pro/3.5 Flash/3.1 Pro, etc. — check the [official documentation](https://cloud.google.com/vertex-ai/generative-ai/docs) for the Preview/GA status and limits of each variant) and its TPU infrastructure. Its differentiators are long context, reasoning mode, **Gemini Omni** (multimodal), low-code agent development through Agent Studio, and integration with Google Search/BigQuery.
 
-**OCI Enterprise AI** — An expanded platform that evolved from the former OCI Generative AI. It hosts models such as Cohere, Meta Llama, xAI Grok 4.3, and Google Gemini on OCI infrastructure, and supports high-performance workloads with Dedicated AI Clusters and RDMA-based Bare Metal GPUs. It has added **AI Guardrails** (content moderation, PII detection, prompt injection defense) and **Enterprise AI Agents** (GA). Through its partnership with OpenAI, GPT-5.5/5.4 and Codex are expected to become available on the OCI Marketplace via Oracle Universal Credits, and its strength is native integration with Oracle Database and applications.
+**OCI Enterprise AI** — An expanded platform that evolved from the former OCI Generative AI. It hosts models such as Cohere, Meta Llama, SpaceXAI Grok, and Google Gemini on OCI infrastructure, and supports high-performance workloads with Dedicated AI Clusters and RDMA-based Bare Metal GPUs. It has added **AI Guardrails** (content moderation, PII detection, prompt injection defense) and **Enterprise AI Agents** (GA). Through its partnership with OpenAI, GPT-5.5/5.4 and Codex are expected to become available on the OCI Marketplace via Oracle Universal Credits, and its strength is native integration with Oracle Database and applications.
 
 :::tip[AI System Lifecycle & Enterprise Adoption Matrix]
 The 7-stage end-to-end AI System Life Cycle, 4-Tier adoption matrix with control boundaries, technical task selection guide, and MLOps vs LLMOps operational frameworks are detailed comprehensively in [AI System Lifecycle and Engineering](../../ai/lifecycle/).
@@ -139,7 +139,7 @@ Physical AI — connecting AI to the physical world of sensors, robots, and equi
 | --- | --- |
 | **OpenAI-Microsoft exclusivity ended (2026.04)** | OpenAI models available on non-Azure platforms |
 | **OpenAI → Bedrock (2026.04)** | GPT-5.x available on Bedrock post-exclusivity |
-| **xAI Grok multicloud expansion** | Available on Azure, Vertex AI, OCI, Bedrock |
+| **SpaceXAI (formerly xAI) Grok multicloud expansion** | Available on Azure, Vertex AI, OCI, Bedrock |
 | **Anthropic Claude channel expansion** | Beyond Bedrock/Vertex to additional channels |
 
 ## Inference Cost Optimization

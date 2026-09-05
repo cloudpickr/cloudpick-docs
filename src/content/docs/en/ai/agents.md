@@ -122,7 +122,7 @@ Already supported by AgentCore Gateway and Claude products.
 | [Kiro](https://kiro.dev/) | AWS | Spec-driven, Hooks, IDE/CLI/Web |
 | [Claude Code](https://github.com/anthropics/claude-code) | Anthropic | Agent Teams, 29 hooks, plugins |
 | [Codex](https://openai.com/codex/) | OpenAI | Parallel agents, Computer Use |
-| [Grok Build](https://x.ai/news/grok-build-cli) | xAI | 8 parallel sub-agents, Git worktree isolation |
+| [Grok Build](https://x.ai/news/grok-build-cli) | SpaceXAI | 8 parallel sub-agents, Git worktree isolation |
 | [GitHub Copilot](https://github.com/features/copilot) | Microsoft | Agent Mode, Agent Merge, Cloud Sessions |
 | [Antigravity](https://antigravity.google/) | Google | Agent-first IDE, Managed Agents |
 | [OpenCode](https://opencode.ai/) | Anomaly | Open-source, model-agnostic |

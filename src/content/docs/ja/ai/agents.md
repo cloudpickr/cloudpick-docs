@@ -124,7 +124,7 @@ AgentCore GatewayおよびClaude製品群ですでにサポート中。
 | [Kiro](https://kiro.dev/) | AWS | Spec-driven、Hooks、IDE/CLI/Web |
 | [Claude Code](https://github.com/anthropics/claude-code) | Anthropic | Agent Teams、29 hooks、プラグイン |
 | [Codex](https://openai.com/codex/) | OpenAI | 並列エージェント、Computer Use |
-| [Grok Build](https://x.ai/news/grok-build-cli) | xAI | 8並列サブエージェント、Git worktree分離 |
+| [Grok Build](https://x.ai/news/grok-build-cli) | SpaceXAI | 8並列サブエージェント、Git worktree分離 |
 | [GitHub Copilot](https://github.com/features/copilot) | Microsoft | Agent Mode、Agent Merge、Cloud Sessions |
 | [Antigravity](https://antigravity.google/) | Google | Agent-first IDE、Managed Agents |
 | [OpenCode](https://opencode.ai/) | Anomaly | オープンソース、モデル非依存 |

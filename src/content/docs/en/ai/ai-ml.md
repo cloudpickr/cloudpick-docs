@@ -95,6 +95,8 @@ For organizations that need to train and deploy their own models.
 
 ### GPU / AI Accelerators
 
+The table below lists GPU instance products by vendor. For per-generation GPU (H100/H200/B200/GB200) spec/performance comparison and regional availability, see [Multicloud AI — GPU Availability](../../ai/multicloud-ai/#gpu-availability).
+
 | Vendor | Products | Notes |
 | --- | --- | --- |
 | AWS | P6 (B200), P6e (GB200 UltraServer), P5 (H100), Trn2 (Trainium), Inf2 (Inferentia) | Blackwell: P6-B200 (8×B200), P6e-GB200 (up to 72 GPU NVLink). Training: Trainium, Inference: Inferentia |

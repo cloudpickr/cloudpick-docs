@@ -34,12 +34,7 @@ Verify quality before deployment.
 
 ### RAG Evaluation Metrics
 
-| Metric | Measures | Meaning |
-| --- | --- | --- |
-| **Retrieval Precision** | Relevant docs among retrieved | Are irrelevant docs mixed in? |
-| **Retrieval Recall** | Retrieved among all relevant docs | Are needed docs being missed? |
-| **Faithfulness** | Response grounded in retrieved docs | Hallucination check |
-| **Answer Relevance** | Response addresses the question | Off-topic answer check |
+RAG retrieval/response quality metrics (Recall@K, MRR, NDCG, Faithfulness, Answer Relevance, Context Precision/Recall) and evaluation tools are covered in detail in [Advanced RAG Patterns — Evaluation](../../ai/rag-patterns/#evaluation).
 
 ### Vendor Evaluation Tools
 

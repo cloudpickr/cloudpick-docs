@@ -103,6 +103,8 @@ description: "벤더별 AI 플랫폼, 모델 카탈로그, GPU/AI 칩, Applied A
 
 ### GPU / AI 가속기
 
+아래는 벤더별 GPU 인스턴스 제품 목록입니다. GPU 세대별(H100/H200/B200/GB200) 스펙·성능 비교와 리전 가용성은 [멀티클라우드 AI — GPU 가용성](../../ai/multicloud-ai/#gpu-가용성)을 참고하세요.
+
 | 벤더 | 제품 | 비고 |
 | --- | --- | --- |
 | AWS | P6 (NVIDIA B200), P6e (GB200 UltraServer), P5 (H100), Trn2 (Trainium), Inf2 (Inferentia) | Blackwell: P6-B200(8×B200), P6e-GB200(최대 72 GPU NVLink). 학습: Trainium, 추론: Inferentia로 비용 최적화 |

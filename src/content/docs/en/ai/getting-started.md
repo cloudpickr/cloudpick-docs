@@ -17,24 +17,22 @@ description: Overview of AI domains (traditional ML, deep learning, generative A
 | **Agentic AI** | LLM + tool use + autonomous execution | Given a goal, plans, executes, and verifies on its own | AgentCore, Foundry Agents, Gemini Agent Platform |
 
 :::note
-**Starting now?** Most enterprise AI adoption begins with **generative AI** (FM API calls). Traditional ML remains active where data pipelines exist; deep learning thrives for image/speech workloads. This guide focuses on generative AI while pointing to traditional ML/DL where needed.
+**Starting now?** Most enterprise AI adoption begins with **generative AI** (FM API calls). Traditional ML remains active where data pipelines exist; deep learning thrives for image/speech workloads. This guide focuses on generative AI while pointing to traditional ML/DL where needed. For a detailed comparison of per-generation vendor services and models, see [AI Platform and Model Comparison](../../ai/ai-ml/).
 :::
 
 ### Deciding Which AI You Need (Personas & Approach)
 
-Your AI adoption strategy depends not only on the technical problem, but on **who builds and uses it (non-technical users vs developers vs ML engineers)** and the **UI/UX interaction model**.
+Your AI adoption strategy depends not only on the technical problem, but on **who builds and uses it (non-technical users vs developers vs ML engineers)**. The summary below helps you quickly locate your position; for the full matrix with control/responsibility boundaries and representative vendor solutions, see [AI System Lifecycle and Engineering](../../ai/lifecycle/#4-tier-enterprise-adoption-matrix).
 
-| Tier (Delivery Model) | Target Persona | UI/UX Interaction Model | Representative Cloud Services | Typical Enterprise Use Cases |
-| --- | --- | --- | --- | --- |
-| **1. Buy (Ready-made SaaS)** | Non-technical business users (zero-code) | In-app embedded assistant (Copilots), enterprise web chat UI | Microsoft 365 Copilot, Gemini for Workspace, Salesforce Agentforce | Email/document drafting, meeting summarization, CRM sales briefing |
-| **2. Assemble (Low-Code Studio)** | Citizen developers, business analysts | Drag-and-drop visual canvas, Slack/Teams bot embed | Microsoft Copilot Studio, Bedrock IDE (SageMaker Unified Studio), Vertex AI Agent Builder | HR policy Q&A bot, departmental structured data collection bot |
-| **3. Build (Custom App & API)** | Software engineers, application developers | Custom web/mobile frontends, background headless agents, backend APIs | Amazon Bedrock API, Azure AI Foundry SDK, Gemini Enterprise API | ERP integration agents, customer-facing app features |
-| **4. Train & Ops (Full ML Platform)** | ML engineers, data scientists | Jupyter/VS Code, MLOps orchestration pipelines | SageMaker AI, Azure Machine Learning, Vertex AI Pipelines | Financial fraud detection (FDS), large-scale time-series forecasting, domain model fine-tuning |
+| Delivery Model | Target Persona | One-line description |
+| --- | --- | --- |
+| **1. Buy (Ready-made SaaS)** | Non-technical business users (zero-code) | Subscribe to ready-made copilots/chatbots and use them immediately |
+| **2. Assemble (Low-Code Studio)** | Citizen developers, business analysts | Assemble knowledge bases and workflows in a low-code studio |
+| **3. Build (Custom App & API)** | Software engineers, application developers | Build your own apps and agents with FM APIs/SDKs |
+| **4. Train & Ops (Full ML Platform)** | ML engineers, data scientists | Own model weights and infrastructure; train and operate directly |
 
 :::note
 - **Essence of Tiers**: These 4 tiers are not a sequential maturity ladder, but a **trade-off axis between operational burden (TCO) and organizational control (IP protection/customization)**.
-- **General business automation for non-technical teams**: Starting with Tier 1 (Buy) or Tier 2 (Assemble) is most effective for speed and cost.
-- **Custom enterprise integration and proprietary apps**: Use Tier 3 (Build) with foundation model APIs and agent SDKs.
 - **Tabular predictive data and custom training**: See Tier 4 (Train & Ops) in [ML Platforms](../../ai/ai-ml/#ml-platforms).
 - **Full AI lifecycle & engineering**: For the 7-stage lifecycle, governance, and MLOps vs LLMOps operational frameworks, see [AI System Lifecycle and Engineering](../../ai/lifecycle/).
 :::
@@ -111,6 +109,8 @@ Unnecessary for most organizations. This is what Google, OpenAI, and Anthropic d
 For model operations, evaluation, and cost tracking see [LLMOps](../../ai/llmops/). For AI security and guardrails see [AI Security](../../security/ai-security/).
 
 ## When to Use Which Method
+
+The table below takes a beginner's **learning-order** view (simple → advanced). For a practical routing view that maps requirements directly to approaches, technologies, and docs, see [AI System Lifecycle — Technical Task Selection Guide](../../ai/lifecycle/#technical-task-selection-guide).
 
 | Situation | Recommended |
 | --- | --- |

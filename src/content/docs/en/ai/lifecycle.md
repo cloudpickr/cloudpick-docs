@@ -84,6 +84,8 @@ These 4 Tiers are not a mandatory sequential maturity ladder. Instead, they repr
 
 ## Technical Task Selection Guide
 
+The table below takes a practical **routing** view that maps requirements directly to approaches, technologies, and docs. If you are new to AI and want a simple → advanced **learning order**, see [Getting Started with AI — When to Use Which Method](../../ai/getting-started/#when-to-use-which-method).
+
 | Requirement | Recommended Approach | Key Technologies & References |
 | --- | --- | --- |
 | Natural language conversation, summarization, translation | Foundation model APIs | [AI Platforms & Model Comparison](../../ai/ai-ml/) |

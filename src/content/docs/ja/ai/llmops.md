@@ -34,12 +34,7 @@ graph LR
 
 ### RAG評価指標
 
-| 指標 | 測定対象 | 意味 |
-| --- | --- | --- |
-| **Retrieval Precision** | 検索された文書のうち関連文書の割合 | 不要な文書が混ざっていないか |
-| **Retrieval Recall** | 関連文書のうち実際に検索された割合 | 必要な文書を見逃していないか |
-| **Faithfulness** | 応答が検索された文書に基づいているか | ハルシネーション(Hallucination)の有無 |
-| **Answer Relevance** | 応答が質問に適切か | 質問と無関係な回答の有無 |
+RAGの検索・応答品質指標(Recall@K、MRR、NDCG、Faithfulness、Answer Relevance、Context Precision/Recall)と評価ツールは[RAG高度パターン — 評価](../../ai/rag-patterns/#評価)で詳しく扱います。
 
 ### ベンダー別評価ツール
 

@@ -101,29 +101,15 @@ graph TD
 
 ### Stage 1: API Call
 
-The simplest starting point. Send a question to one of Amazon Bedrock, Microsoft Foundry, Gemini Enterprise, or OCI Enterprise AI and receive an answer. See [AI Platform and Model Comparison](../../ai/ai-ml/) for vendor comparisons.
-
-**Use cases:**
-- Chatbots that answer user questions
-- Document summarization
-- Translation
+The simplest starting point. Send a question to one of Amazon Bedrock, Microsoft Foundry, Gemini Enterprise, or OCI Enterprise AI and receive an answer. Ready to use for chatbots, document summarization, translation, and similar tasks. See [AI Platform and Model Comparison](../../ai/ai-ml/) for vendor comparisons, and [When This Helps](../../ai/ai-ml/#when-this-helps) for a broader list of use cases.
 
 ### Stage 2: Prompt Engineering
 
-Same API, dramatically different results depending on how you ask. For example, giving a clear role and instruction like "You are a legal expert. Find five risk factors in the contract below" improves quality. For detailed design techniques, see [Prompt Engineering](../../ai/prompt-engineering/).
-
-**This is an improvement you can make without writing code.**
+Same API, dramatically different results depending on how you ask. Giving a clear role and instruction improves quality without writing any code. For detailed design techniques, see [Prompt Engineering](../../ai/prompt-engineering/).
 
 ### Stage 3: RAG (Retrieval-Augmented Generation)
 
-Foundation models are rich in general knowledge but **do not know your company's data**. RAG retrieves your documents, includes the relevant parts in the prompt, and then sends it to the model.
-
-Analogy: "Letting the model take an open-book exam."
-
-**Use cases:**
-- Internal document-based chatbots
-- Automated product FAQ responses
-- Legal/medical document lookup
+Foundation models are rich in general knowledge but **do not know your company's data**. RAG retrieves your documents, includes the relevant parts in the prompt, and then sends it to the model (analogy: "an open-book exam"). Used for internal document-based chatbots, product FAQ, and legal/medical document lookup.
 
 RAG works with [Vector Stores](../../ai/vector-store/). See [Advanced RAG Patterns](../../ai/rag-patterns/) for implementation details.
 

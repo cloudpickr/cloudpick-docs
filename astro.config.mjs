@@ -274,21 +274,10 @@ export default defineConfig({
 					translations: { ko: 'AI', ja: 'AI' },
 					items: [
 						{
-							label: '기초·모델',
-							translations: { en: 'Foundations & models', ja: '基礎とモデル' },
+							label: '시작하기',
+							translations: { en: 'Start here', ja: 'はじめに' },
 							items: [
 								{ slug: 'ai/getting-started' },
-								{ slug: 'ai/lifecycle' },
-								{ slug: 'ai/ai-ml' },
-								{ slug: 'ai/prompt-engineering' },
-							],
-						},
-						{
-							label: '데이터·RAG',
-							translations: { en: 'Data & RAG', ja: 'データとRAG' },
-							items: [
-								{ slug: 'ai/rag-patterns' },
-								{ slug: 'ai/vector-store' },
 							],
 						},
 						{
@@ -300,8 +289,17 @@ export default defineConfig({
 							],
 						},
 						{
-							label: '채널·비용·운영',
-							translations: { en: 'Channel, cost & ops', ja: 'チャネル・コスト・運用' },
+							label: '프롬프트·RAG',
+							translations: { en: 'Prompt & RAG', ja: 'プロンプトとRAG' },
+							items: [
+								{ slug: 'ai/prompt-engineering' },
+								{ slug: 'ai/rag-patterns' },
+								{ slug: 'ai/vector-store' },
+							],
+						},
+						{
+							label: '운영·채널·비용',
+							translations: { en: 'Ops, channel & cost', ja: '運用・チャネル・コスト' },
 							items: [
 								{ slug: 'ai/1p-vs-3p' },
 								{ slug: 'ai/licensing' },
@@ -309,9 +307,11 @@ export default defineConfig({
 							],
 						},
 						{
-							label: '인프라·응용',
-							translations: { en: 'Infrastructure & applied', ja: 'インフラと応用' },
+							label: '참조',
+							translations: { en: 'Reference', ja: '参照' },
 							items: [
+								{ slug: 'ai/ai-ml' },
+								{ slug: 'ai/lifecycle' },
 								{ slug: 'ai/multicloud-ai' },
 								{ slug: 'ai/physical-ai' },
 							],

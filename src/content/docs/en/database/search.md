@@ -8,7 +8,7 @@ description: "Compares full-text search, vector search, and log analytics servic
 ## Overview
 
 :::note[Prerequisites and related documents]
-For transactional data storage, see [Managed RDB](../../database/managed-rdb/) and [NoSQL](../../database/nosql/) first. This document focuses on search-engine workloads such as full-text search, log analysis, and tokenization. AI-based semantic search connects to [Vector Stores](../../ai/vector-store/).
+For transactional data storage, see [Managed RDB](../../database/managed-rdb/) and [NoSQL](../../database/nosql/) first. This document focuses on search-engine workloads such as full-text search, vector search, and log analysis. For vector stores from a generative-AI embedding-pipeline perspective, see [Vector Stores](../../ai/vector-store/).
 :::
 
 ### Where search is needed in practice

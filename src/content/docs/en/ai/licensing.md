@@ -8,7 +8,7 @@ description: FM provider license tiers (Seat/API), 3P reserved capacity, and cos
 ## Seat Plans vs API Tiers
 
 :::note[Prerequisites and related documents]
-For foundation model and platform basics, see [Getting Started with AI](../../ai/getting-started/); for first-party vs third-party model selection, see [1P vs 3P](../../ai/1p-vs-3p/) first. This document focuses on FM license tiers and cost management.
+For foundation model and platform basics, see [Getting Started with AI](../../ai/getting-started/); for where to consume the same FM (1P direct vs 3P via cloud), see the [LLM Channel Selection Guide](../../ai/1p-vs-3p/) first. This document focuses on FM license tiers and cost management.
 :::
 
 Seat (per-user) and API (per-token) are separate billing models. Most enterprises use both.

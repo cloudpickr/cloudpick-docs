@@ -74,8 +74,7 @@ description: "クラウドセキュリティ態勢管理(CSPM)、ワークロー
 
 ## 脅威検知の詳細
 
-<details>
-<summary>AWS GuardDutyの検知タイプ</summary>
+#### AWS GuardDutyの検知タイプ
 
 VPC Flow Logs、DNSログ、CloudTrail、S3データイベント、EKS監査ログ、Lambdaネットワーク活動を分析して脅威を検知します。
 
@@ -86,28 +85,17 @@ VPC Flow Logs、DNSログ、CloudTrail、S3データイベント、EKS監査ロ�
 | データ流出 | S3バケットからの異常な大量ダウンロード、DNSを通じたデータ流出 |
 | 権限昇格 | IAMポリシー変更後の異常なAPI呼び出しパターン |
 
-</details>
-
-<details>
-<summary>Azure Defender + Sentinel</summary>
+#### Azure Defender + Sentinel
 
 Defender for Cloudがワークロードごとの脅威を検知し、SentinelがSIEMとしてログを収集・相関分析します。SentinelのSOAR(自動対応)機能により、Playbookを通じた自動隔離、通知、チケット生成が可能です。
 
-</details>
-
-<details>
-<summary>Google Cloud Security Command Center</summary>
+#### Google Cloud Security Command Center
 
 Event Threat DetectionがCloud Audit Logs、VPC Flow Logsを分析して脅威を検知します。Chronicle SIEMと連携すると、大規模なログ分析と脅威ハンティングが可能になります。
 
-</details>
-
-<details>
-<summary>OCI Cloud Guard</summary>
+#### OCI Cloud Guard
 
 **Detector** (検知)と**Responder** (対応)で構成されます。構成上の問題や活動の異常を検知すると、自動的に対応アクション(リソース無効化、タグ追加、通知など)を実行します。標準提供され、追加コストはありません。
-
-</details>
 
 ## 自動対応 (Auto-Remediation)
 

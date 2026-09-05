@@ -74,13 +74,15 @@ Apply the principle of least privilege when an AI agent calls tools.
 
 | Vendor | Service | Capabilities |
 | --- | --- | --- |
-| AWS | [Bedrock Guardrails](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html) | Content filters, PII detection/masking, topic blocking, word filters, prompt attack detection, hallucination detection (Automated Reasoning¹) |
+| AWS | [Bedrock Guardrails](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html) | Content filters, PII detection/masking, topic blocking, word filters, prompt attack detection, hallucination detection (Automated Reasoning) |
 | Azure | [Azure AI Content Safety](https://learn.microsoft.com/azure/ai-services/content-safety/) | Harmful content detection (violence/hate/sexual/self-harm), prompt shields |
 | Google Cloud | [Vertex AI Safety Filters](https://cloud.google.com/vertex-ai/generative-ai/docs/multimodal/configure-safety-filters) | Configurable blocking thresholds per safety category |
 | Google Cloud | [Google AI Threat Defense](https://cloud.google.com/security/ai-threat-defense) | **GA May 2026.** A Gemini-based autonomous security platform integrating Wiz, Mandiant, and Security Operations. Threat modeling, automated response, continuous monitoring |
 | OCI | [OCI Enterprise AI Guardrails](https://docs.oracle.com/iaas/Content/generative-ai/home.htm) | Content moderation, PII detection, prompt injection defense |
 
-> ¹ Automated Reasoning checks currently support **English (US) only**, detect mode only, and no streaming. For Korean-language workloads, pair it with other hallucination detection methods (e.g., RAG-based verification).
+:::caution[Bedrock Automated Reasoning limitations]
+Automated Reasoning checks currently support **English (US) only**, detect mode only, and no streaming. For Korean-language workloads, pair it with other hallucination detection methods (e.g., RAG-based verification).
+:::
 
 ### Model-Level Guardrails — Claude Fable 5 / Mythos
 

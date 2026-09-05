@@ -74,8 +74,7 @@ description: "클라우드 보안 태세 관리(CSPM), 워크로드 보호(CWPP)
 
 ## 위협 탐지 상세
 
-<details>
-<summary>AWS GuardDuty 탐지 유형</summary>
+#### AWS GuardDuty 탐지 유형
 
 VPC Flow Logs, DNS 로그, CloudTrail, S3 데이터 이벤트, EKS 감사 로그, Lambda 네트워크 활동을 분석하여 위협을 탐지합니다.
 
@@ -86,28 +85,17 @@ VPC Flow Logs, DNS 로그, CloudTrail, S3 데이터 이벤트, EKS 감사 로그
 | 데이터 유출 | S3 버킷에서 비정상적 대량 다운로드, DNS를 통한 데이터 유출 |
 | 권한 상승 | IAM 정책 변경 후 비정상 API 호출 패턴 |
 
-</details>
-
-<details>
-<summary>Azure Defender + Sentinel</summary>
+#### Azure Defender + Sentinel
 
 Defender for Cloud가 워크로드별 위협을 탐지하고, Sentinel이 SIEM으로서 로그를 수집·상관 분석합니다. Sentinel의 SOAR(자동 대응) 기능으로 Playbook을 통해 자동 격리, 알림, 티켓 생성이 가능합니다.
 
-</details>
-
-<details>
-<summary>Google Cloud Security Command Center</summary>
+#### Google Cloud Security Command Center
 
 Event Threat Detection이 Cloud Audit Logs, VPC Flow Logs를 분석하여 위협을 탐지합니다. Chronicle SIEM과 연동하면 대규모 로그 분석과 위협 헌팅이 가능합니다.
 
-</details>
-
-<details>
-<summary>OCI Cloud Guard</summary>
+#### OCI Cloud Guard
 
 **Detector** (탐지)와 **Responder** (대응)로 구성됩니다. 구성 문제와 활동 이상을 탐지하면 자동으로 대응 액션(리소스 비활성화, 태그 추가, 알림 등)을 실행합니다. 기본 제공되며 추가 비용이 없습니다.
-
-</details>
 
 ## 자동 대응 (Auto-Remediation)
 

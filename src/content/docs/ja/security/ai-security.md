@@ -74,13 +74,15 @@ AIエージェントがツール(Tool)を呼び出す際に最小権限の原則
 
 | ベンダー | サービス | 機能 |
 | --- | --- | --- |
-| AWS | [Bedrock Guardrails](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html) | コンテンツフィルタ、PII検知/マスキング、トピック遮断、単語フィルタ、プロンプト攻撃検知、幻覚検知(Automated Reasoning¹) |
+| AWS | [Bedrock Guardrails](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html) | コンテンツフィルタ、PII検知/マスキング、トピック遮断、単語フィルタ、プロンプト攻撃検知、幻覚検知(Automated Reasoning) |
 | Azure | [Azure AI Content Safety](https://learn.microsoft.com/azure/ai-services/content-safety/) | 有害コンテンツ検知 (暴力/憎悪/性的/自傷)、プロンプトシールド |
 | Google Cloud | [Vertex AI Safety Filters](https://cloud.google.com/vertex-ai/generative-ai/docs/multimodal/configure-safety-filters) | 安全カテゴリ別の遮断しきい値設定 |
 | Google Cloud | [Google AI Threat Defense](https://cloud.google.com/security/ai-threat-defense) | **2026年5月GA。** Geminiベースの自律型セキュリティプラットフォーム。Wiz + Mandiant + Security Operationsを統合。脅威モデリング、自動対応、継続的モニタリング |
 | OCI | [OCI Enterprise AI Guardrails](https://docs.oracle.com/iaas/Content/generative-ai/home.htm) | コンテンツモデレーション、PII検知、プロンプトインジェクション対策 |
 
-> ¹ Automated Reasoning checksは現在**英語(US)専用**で、detectモードのみ対応、ストリーミング非対応です。韓国語ワークロードでは他の幻覚検知手法(RAGベースの検証など)を併用してください。
+:::caution[Bedrock Automated Reasoningの制約]
+Automated Reasoning checksは現在**英語(US)専用**で、detectモードのみ対応、ストリーミング非対応です。韓国語ワークロードでは他の幻覚検知手法(RAGベースの検証など)を併用してください。
+:::
 
 ### モデルレベルのガードレール — Claude Fable 5 / Mythos
 

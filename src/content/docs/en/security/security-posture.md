@@ -74,8 +74,7 @@ Key benchmarks:
 
 ## Threat Detection Details
 
-<details>
-<summary>AWS GuardDuty detection types</summary>
+#### AWS GuardDuty detection types
 
 Detects threats by analyzing VPC Flow Logs, DNS logs, CloudTrail, S3 data events, EKS audit logs, and Lambda network activity.
 
@@ -86,28 +85,17 @@ Detects threats by analyzing VPC Flow Logs, DNS logs, CloudTrail, S3 data events
 | Data exfiltration | Abnormally large downloads from an S3 bucket, data exfiltration via DNS |
 | Privilege escalation | Abnormal API call patterns following an IAM policy change |
 
-</details>
-
-<details>
-<summary>Azure Defender + Sentinel</summary>
+#### Azure Defender + Sentinel
 
 Defender for Cloud detects threats per workload, while Sentinel collects and correlates logs as a SIEM. Sentinel's SOAR (automated response) capability enables automated isolation, alerting, and ticket creation through playbooks.
 
-</details>
-
-<details>
-<summary>Google Cloud Security Command Center</summary>
+#### Google Cloud Security Command Center
 
 Event Threat Detection analyzes Cloud Audit Logs and VPC Flow Logs to detect threats. Integrating with Chronicle SIEM enables large-scale log analysis and threat hunting.
 
-</details>
-
-<details>
-<summary>OCI Cloud Guard</summary>
+#### OCI Cloud Guard
 
 Consists of a **Detector** and a **Responder**. When configuration issues or activity anomalies are detected, it automatically executes response actions (disabling a resource, adding a tag, sending an alert, etc.). Included by default at no additional cost.
-
-</details>
 
 ## Auto-Remediation
 

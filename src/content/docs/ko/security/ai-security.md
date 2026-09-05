@@ -74,13 +74,15 @@ AI 에이전트가 도구(Tool)를 호출할 때 최소 권한 원칙을 적용�
 
 | 벤더 | 서비스 | 기능 |
 | --- | --- | --- |
-| AWS | [Bedrock Guardrails](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html) | 콘텐츠 필터, PII 탐지/마스킹, 주제 차단, 단어 필터, 프롬프트 공격 탐지, 환각 탐지(Automated Reasoning¹) |
+| AWS | [Bedrock Guardrails](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html) | 콘텐츠 필터, PII 탐지/마스킹, 주제 차단, 단어 필터, 프롬프트 공격 탐지, 환각 탐지(Automated Reasoning) |
 | Azure | [Azure AI Content Safety](https://learn.microsoft.com/azure/ai-services/content-safety/) | 유해 콘텐츠 탐지 (폭력/혐오/성적/자해), 프롬프트 실드 |
 | Google Cloud | [Vertex AI Safety Filters](https://cloud.google.com/vertex-ai/generative-ai/docs/multimodal/configure-safety-filters) | 안전 카테고리별 차단 임계값 설정 |
 | Google Cloud | [Google AI Threat Defense](https://cloud.google.com/security/ai-threat-defense) | **2026.05 GA.** Gemini 기반 자율 보안 플랫폼. Wiz + Mandiant + Security Operations 통합. 위협 모델링, 자동 대응, 지속적 모니터링 |
 | OCI | [OCI Enterprise AI Guardrails](https://docs.oracle.com/iaas/Content/generative-ai/home.htm) | 콘텐츠 모더레이션, PII 탐지, 프롬프트 인젝션 방어 |
 
-> ¹ Automated Reasoning checks는 현재 **영어(US) 전용**, detect 모드만 지원, 스트리밍 미지원. 한국어 워크로드에서는 다른 환각 탐지 방법(RAG 기반 검증 등)을 병행하세요.
+:::caution[Bedrock Automated Reasoning 제약]
+Automated Reasoning checks는 현재 **영어(US) 전용**이며, detect 모드만 지원하고 스트리밍은 미지원입니다. 한국어 워크로드에서는 다른 환각 탐지 방법(RAG 기반 검증 등)을 병행하세요.
+:::
 
 ### 모델 수준 가드레일 — Claude Fable 5 / Mythos
 

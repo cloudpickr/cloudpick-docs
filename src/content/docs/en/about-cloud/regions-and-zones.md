@@ -3,7 +3,7 @@ title: "Regions and Availability Zones"
 description: "Explains the concepts of regions, availability zones, and edge locations, and compares adjacent DR regions across vendors."
 ---
 
-> Last reviewed: May 2026
+> Last reviewed: August 2026
 
 ## Overview
 

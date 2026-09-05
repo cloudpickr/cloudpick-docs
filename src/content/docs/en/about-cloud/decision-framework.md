@@ -3,7 +3,7 @@ title: "Vendor Selection Decision Framework"
 description: "Explains the criteria and decision framework to consider when choosing a cloud vendor and services."
 ---
 
-> Last reviewed: May 2026
+> Last reviewed: August 2026
 
 ## Why a Decision Framework Is Needed
 

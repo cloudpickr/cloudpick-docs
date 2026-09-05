@@ -3,7 +3,7 @@ title: "Cache and In-Memory Databases"
 description: "Compares the concept of in-memory caching, cache patterns, and vendor-managed services."
 ---
 
-> Last reviewed: May 2026
+> Last reviewed: August 2026
 
 ## Overview
 
@@ -52,11 +52,11 @@ For anti-patterns to watch for when operating a cache (using it as permanent sto
 
 | Requirement | Recommendation |
 | --- | --- |
-| DB read load distribution (general cache) | ElastiCache/Memorystore Redis (Cache-Aside) |
-| Session store (TTL + structured data) | Redis (Hash type) |
-| Primary DB replacement (durability required) | MemoryDB |
+| DB read load distribution (general cache) | ElastiCache/Memorystore Valkey (or Redis) (Cache-Aside) |
+| Session store (TTL + structured data) | Valkey / Redis (Hash type) |
+| Primary DB replacement (durability required) | MemoryDB for Valkey |
 | Simple key-value, maximum throughput | Memcached |
-| Real-time leaderboard/counters | Redis (Sorted Set) |
+| Real-time leaderboard/counters | Valkey / Redis (Sorted Set) |
 
 ## Common mistakes
 

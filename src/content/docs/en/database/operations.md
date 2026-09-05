@@ -3,7 +3,7 @@ title: "Database Operations"
 description: "Covers RDB scaling patterns, NoSQL key design, cache operations, slow query management, and HA/backup."
 ---
 
-> Last reviewed: May 2026
+> Last reviewed: August 2026
 
 ## Overview
 

@@ -3,7 +3,7 @@ title: "Database Migration"
 description: "Compares DB migration strategies (Rehost/Replatform/Refactor) and downtime-minimization techniques across vendors."
 ---
 
-> Last reviewed: May 2026
+> Last reviewed: August 2026
 
 ## Overview
 
@@ -120,7 +120,7 @@ Key techniques for reducing downtime in large-scale DB migrations.
 | **CDC (Change Data Capture)** | Reads the source DB's transaction log and continuously replicates to the target | The default for online migration. Real-time sync after the initial load |
 | **Blue/Green deployment** | Run the existing DB (Blue) and new DB (Green) simultaneously, then switch traffic | When rollback needs to be easy at cutover |
 | **Read-only lock** | Switch the source DB to read-only just before cutover, then switch over once replication is complete | When a few minutes to tens of minutes of downtime is acceptable |
-| **Dual writes** | The application writes to both DBs simultaneously | When zero downtime is required but complexity is high |
+| **Dual writes** | The application writes to both DBs simultaneously | When near-zero downtime is required but complexity is high |
 
 ## Common mistakes
 

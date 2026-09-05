@@ -3,7 +3,7 @@ title: "CI/CD"
 description: "Explains CI/CD pipelines, vendor product comparisons, deployment strategies, and approval process design."
 ---
 
-> Last reviewed: June 2026
+> Last reviewed: August 2026
 
 ## Overview
 
@@ -80,7 +80,7 @@ When environments are separated:
 | --- | --- | --- |
 | AWS | CodeCommit | New repository creation discontinued in 2024. GitHub/GitLab recommended |
 | Azure | Azure Repos | Git-based. Included in Azure DevOps |
-| Google Cloud | Cloud Source Repositories | Supports mirroring. GitHub/GitLab integration |
+| Google Cloud | Cloud Source Repositories | New repository creation discontinued in 2024. Secure Source Manager or GitHub/GitLab recommended |
 | OCI | OCI DevOps Code Repositories | Git-based. Included in OCI DevOps |
 
 ### Artifact Repositories

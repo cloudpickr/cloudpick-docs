@@ -21,7 +21,7 @@ It is organized to help enterprise architects who are adopting cloud in the publ
 | OCI | `ap-seoul-1`, `ap-chuncheon-1` | 3 FDs | 2020 |
 
 :::note
-Azure (Seoul–Busan) and OCI (Seoul–Chuncheon) each have two regions in Korea, so you can design DR without data leaving the country. For AWS and Google Cloud, Tokyo and Osaka are the nearest DR candidates. For the region concepts themselves, see [Regions and Availability Zones](../../about-cloud/regions-and-zones/).
+Azure (Seoul–Busan) and OCI (Seoul–Chuncheon) each have two regions in Korea, so you can design DR without data leaving the country. For AWS and Google Cloud, Tokyo and Osaka are the nearest DR candidates. For the region concepts themselves, see [Regions and Availability Zones](../about-cloud/regions-and-zones/).
 :::
 
 ### DR Configuration Based on Korean Regions
@@ -36,12 +36,12 @@ Azure (Seoul–Busan) and OCI (Seoul–Chuncheon) each have two regions in Korea
 | OCI | `ap-seoul-1` (Seoul) | `ap-tokyo-1` (Tokyo) | ~30ms | Cross-border transfer |
 
 :::caution
-If you use an overseas region for DR, you must meet the cross-border data transfer requirements under Korea's Personal Information Protection Act and Credit Information Act. For DR strategy types, see [Disaster Recovery (DR)](../../governance/dr/).
+If you use an overseas region for DR, you must meet the cross-border data transfer requirements under Korea's Personal Information Protection Act and Credit Information Act. For DR strategy types, see [Disaster Recovery (DR)](../governance/dr/).
 :::
 
 ### Dedicated connectivity and community in Korea
 
-Korean PoPs for dedicated connections (Direct Connect / ExpressRoute / Interconnect / FastConnect) are typically KINX and LG U+. For multicloud Cloud Exchange, consider [KINX Cloud Hub](https://www.kinx.net/service/cloud/), Megaport (Seoul PoP), and Equinix Fabric (Seoul DC). For the concepts, see [Multicloud Networking](../../networking/multicloud-networking/).
+Korean PoPs for dedicated connections (Direct Connect / ExpressRoute / Interconnect / FastConnect) are typically KINX and LG U+. For multicloud Cloud Exchange, consider [KINX Cloud Hub](https://www.kinx.net/service/cloud/), Megaport (Seoul PoP), and Equinix Fabric (Seoul DC). For the concepts, see [Multicloud Networking](../networking/multicloud-networking/).
 
 Local user communities: [AWSKRUG](https://www.awskr.org/), [GDG Cloud Korea](https://gdg.community.dev/gdg-cloud-korea/).
 

@@ -3,7 +3,7 @@ title: "Monitoring"
 description: "Compares metrics/logs/traces, APM, SLO monitoring, and alerting operational principles across vendors."
 ---
 
-> Last reviewed: May 2026
+> Last reviewed: August 2026
 
 :::note
 For multicloud unified observability, see [Unified Observability Architecture](../../devops/observability/).

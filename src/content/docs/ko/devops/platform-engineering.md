@@ -3,7 +3,7 @@ title: "플랫폼 엔지니어링"
 description: "플랫폼 엔지니어링과 IDP(Internal Developer Platform)의 개념, 도구, 멀티클라우드 표준화를 설명합니다."
 ---
 
-> 문서 기준: 2026년 5월
+> 문서 기준: 2026년 8월
 
 ## 개요
 

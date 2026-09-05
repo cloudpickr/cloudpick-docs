@@ -65,7 +65,7 @@ flowchart TD
 
 | 비교 항목 | Cross-Cloud Interconnect | 전용 연결 + IX (Direct Connect + ExpressRoute 등) |
 | --- | --- | --- |
-| **경유 지점** | 벤더 간 직접 연결 (단일 홉) | IX 또는 코로케이션 시설 경유 (2~3홉) |
+| **경유 지점** | 벤더 간 직접 연결 (단일 홉) | IX 또는 코로케이션 시설 경유 (2–3홉) |
 | **설정 복잡도** | 콘솔에서 상대 벤더 선택 후 프로비저닝 | 양쪽 전용 연결 + IX 포트 + BGP 설정 |
 | **레이턴시** | 최소 (같은 메트로 내 직접 연결) | IX 경유로 약간 높음 |
 | **비용 구조** | 포트 비용 + 데이터 전송 (OCI는 전송 무료) | 양쪽 전용 연결 비용 + IX 포트 비용 |
@@ -85,7 +85,7 @@ flowchart TD
 | AWS → 인터넷 | $0.126/GB (처음 10TB) | 이후 체감 |
 | Azure → 인터넷 | $0.12/GB | 처음 100GB/월 무료 ([Bandwidth 가격](https://azure.microsoft.com/pricing/details/bandwidth/)) |
 | Google Cloud → 인터넷 | $0.12/GB | 처음 200GB/월 무료 |
-| OCI → 인터넷 | 10TB/월 무료, 이후 ~$0.0085/GB | 타사 대비 매우 저렴 |
+| OCI → 인터넷 | 10TB/월 무료, 이후 –$0.0085/GB | 타사 대비 매우 저렴 |
 | AWS → Direct Connect | ~$0.04/GB | 회선비 별도 |
 | Azure → ExpressRoute | 포함 (Unlimited 플랜) | 회선비에 포함 |
 | Google Cloud → Interconnect | ~$0.05/GB | 회선비 별도 |

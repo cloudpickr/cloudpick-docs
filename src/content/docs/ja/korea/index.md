@@ -21,7 +21,7 @@ description: "韓国環境に特化したガイド — CSAP、網分離、ソブ
 | OCI | `ap-seoul-1`、`ap-chuncheon-1` | 3 FD | 2020年 |
 
 :::note
-Azure（ソウル-釜山）とOCI（ソウル-春川）は国内に2つのリージョンを保有しているため、データが国外に出ないDR構成が可能です。AWS/Google Cloudは東京・大阪が最も近いDR候補です。リージョンの概念は[リージョンと可用性ゾーン](../../about-cloud/regions-and-zones/)を参照してください。
+Azure（ソウル-釜山）とOCI（ソウル-春川）は国内に2つのリージョンを保有しているため、データが国外に出ないDR構成が可能です。AWS/Google Cloudは東京・大阪が最も近いDR候補です。リージョンの概念は[リージョンと可用性ゾーン](../about-cloud/regions-and-zones/)を参照してください。
 :::
 
 ### 韓国リージョン基準のDR構成
@@ -36,12 +36,12 @@ Azure（ソウル-釜山）とOCI（ソウル-春川）は国内に2つのリー
 | OCI | `ap-seoul-1`（ソウル） | `ap-tokyo-1`（東京） | 約30ms | 国外移転 |
 
 :::caution
-国外リージョンをDR対象として使用する場合、韓国の個人情報保護法・信用情報法に基づくデータの国外移転要件を満たす必要があります。DR戦略のタイプは[災害復旧（DR）](../../governance/dr/)を参照してください。
+国外リージョンをDR対象として使用する場合、韓国の個人情報保護法・信用情報法に基づくデータの国外移転要件を満たす必要があります。DR戦略のタイプは[災害復旧（DR）](../governance/dr/)を参照してください。
 :::
 
 ### 韓国の専用接続・コミュニティ
 
-専用接続（Direct Connect / ExpressRoute / Interconnect / FastConnect）の韓国PoPはKINX、LG U+が代表的です。マルチクラウドのCloud Exchangeは[KINX Cloud Hub](https://www.kinx.net/service/cloud/)、Megaport（ソウルPoP）、Equinix Fabric（ソウルDC）を検討します。概念は[マルチクラウドネットワーキング](../../networking/multicloud-networking/)を参照してください。
+専用接続（Direct Connect / ExpressRoute / Interconnect / FastConnect）の韓国PoPはKINX、LG U+が代表的です。マルチクラウドのCloud Exchangeは[KINX Cloud Hub](https://www.kinx.net/service/cloud/)、Megaport（ソウルPoP）、Equinix Fabric（ソウルDC）を検討します。概念は[マルチクラウドネットワーキング](../networking/multicloud-networking/)を参照してください。
 
 ローカルユーザーコミュニティ: [AWSKRUG](https://www.awskr.org/)、[GDG Cloud Korea](https://gdg.community.dev/gdg-cloud-korea/)。
 

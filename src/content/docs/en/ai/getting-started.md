@@ -3,6 +3,8 @@ title: Getting Started with AI
 description: Overview of AI domains (traditional ML, deep learning, generative AI, agents) and how to get started on the cloud.
 ---
 
+> Last reviewed: August 2026
+
 ## The Big Picture
 
 "AI" is not a single technology. It is a collective term for decades of techniques that **coexist** rather than replace one another.

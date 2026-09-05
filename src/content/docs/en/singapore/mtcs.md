@@ -14,7 +14,7 @@ First enacted in 2013, it went through SS 584:2015, and the current version is *
 Certification is assessed by MTCS Certifying Bodies (CBs) accredited by the Singapore Accreditation Council (SAC). Certificates are valid for three years and must undergo an annual surveillance audit to remain in effect.
 
 :::note
-Unlike Korea's CSAP, which is a legally mandated entry regulation, MTCS is better understood as an industry standard that functions as **a widely required standard in public procurement and financial-sector vendor due diligence**. In government cloud procurement issued by IMDA (such as the Government Commercial Cloud), MTCS certification is commonly specified as a requirement.
+Rather than being a legally mandated barrier to entry, MTCS is better understood as a national standard-based framework (SS 584) that functions as **a widely required qualification in public procurement and financial-sector vendor due diligence**. In government cloud procurement issued by IMDA (such as the Government Commercial Cloud), MTCS certification is commonly specified as a requirement.
 :::
 
 ## Tier Structure (Level 1–3)
@@ -59,7 +59,7 @@ Major hyperscalers publish OSPAR audit reports annually for use by their Singapo
 
 - **Public procurement**: within IMDA's government cloud procurement framework, MTCS Level 3 certification functions as a de facto condition of participation. Vendors or services without certification may be barred from bidding altogether.
 - **Financial sector**: MTCS certification is only the starting point — actual adoption decisions are often determined by compliance with the MAS TRM Guidelines and possession of an OSPAR audit report. It is advisable to request a vendor's latest OSPAR report early in the adoption process to review its audit scope and any exceptions.
-- **Practical implications**: architects already familiar with a separate cloud security certification framework in their home market (e.g., Korea's CSAP/ISMS-P) should note that Singapore operates a separate certification scheme (MTCS) and a separate financial-sector audit framework (OSPAR). The two frameworks are not mutually recognized, so a separate certification and audit roadmap must be planned when entering the Singapore market.
+- **Global enterprise entry implications**: Architects already familiar with international frameworks such as ISO/IEC 27001 or SOC 2 in their home markets should note that Singapore operates its own cloud security certification scheme (MTCS) and a separate financial-sector audit framework (OSPAR). Because international standards do not grant automatic full mutual recognition, organizations must plan a dedicated certification and audit roadmap when entering Singapore's public and financial sectors.
 
 ## Pre-Adoption Checklist
 

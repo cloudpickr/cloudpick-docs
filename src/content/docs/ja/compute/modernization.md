@@ -3,7 +3,7 @@ title: "アプリケーションモダナイゼーション"
 description: "レガシーアプリケーションをクラウドネイティブへ移行するモダナイゼーション戦略と主要パターンを、ベンダー公式ガイドに基づいて解説します。"
 ---
 
-> 文書基準: 2026年5月
+> 文書基準: 2026年8月
 
 ## モダナイゼーションとは
 
@@ -56,7 +56,7 @@ Microsoft Cloud Adoption Frameworkが提示する3つの主要戦略:
 | 戦略 | 説明 | 難易度 | 対象 |
 | --- | --- | --- | --- |
 | **Replatform** (リプラットフォーム) | エンジンは維持しつつマネージドサービスへ転換。軽微な最適化 | 中 | DBをRDSへ、VMをApp Service/Container Appsへ |
-| **Refactor** (リファクタ) | アプリケーション構造を一部書き換え。サービス分解の開始 | 中~高 | モノリシックから特定機能を分離 |
+| **Refactor** (リファクタ) | アプリケーション構造を一部書き換え。サービス分解の開始 | 中～高 | モノリシックから特定機能を分離 |
 | **Rearchitect** (リアーキテクト) | アーキテクチャをゼロから再設計。マイクロサービス、サーバーレス | 高 | 拡張性/復元力の根本的な改善が必要 |
 
 出典: [Azure CAF Modernization Strategies](https://learn.microsoft.com/azure/cloud-adoption-framework/modernize/modernization-cloud-replatform-refactor-rearchitect)

@@ -1,6 +1,6 @@
 ---
 title: "재해복구 (DR)"
-description: "RPO/RTO, BIA, DR 전략 유형(Backup&Restore~Active-Active), 벤더별 DR 서비스를 비교합니다."
+description: "RPO/RTO, BIA, DR 전략 유형(Backup&Restore–Active-Active), 벤더별 DR 서비스를 비교합니다."
 ---
 
 > 문서 기준: 2026년 8월
@@ -18,9 +18,9 @@ DR 계획을 세우려면 먼저 "무엇을 재해로 볼 것인가"를 정의�
 | 분류 | 예시 | 영향 범위 |
 | --- | --- | --- |
 | **자연재해** | 지진, 홍수, 태풍, 화재, 정전 | 단일 또는 복수 데이터센터, 리전 |
-| **하드웨어/인프라 장애** | 전원 공급 장치 고장, 네트워크 백본 단절, 스토리지 클러스터 손상 | 단일 AZ ~ 리전 |
-| **소프트웨어/플랫폼 장애** | 클라우드 벤더의 리전 단위 서비스 장애, 배포 실패 | 단일 서비스 ~ 리전 |
-| **인적 오류** | 실수로 인한 삭제, 잘못된 변경, 구성 오류 | 단일 리소스 ~ 전체 계정 |
+| **하드웨어/인프라 장애** | 전원 공급 장치 고장, 네트워크 백본 단절, 스토리지 클러스터 손상 | 단일 AZ – 리전 |
+| **소프트웨어/플랫폼 장애** | 클라우드 벤더의 리전 단위 서비스 장애, 배포 실패 | 단일 서비스 – 리전 |
+| **인적 오류** | 실수로 인한 삭제, 잘못된 변경, 구성 오류 | 단일 리소스 – 전체 계정 |
 | **보안 사고** | 랜섬웨어, 데이터 유출, 크리덴셜 탈취 | 데이터, 계정, 리전 |
 | **외부 공급망 문제** | 외부 API/서비스 중단, SaaS 벤더 장애 | 해당 의존성 범위 |
 
@@ -73,8 +73,8 @@ DR 목표를 설정하기 전에 다음을 먼저 정의해야 합니다:
 | 티어 | RPO | RTO | DR 전략 | 예시 |
 | --- | --- | --- | --- | --- |
 | **Tier 1** (미션 크리티컬) | 0 (데이터 손실 불가) | 수 분 | Active-Active / Hot Standby | 결제 시스템, 거래 플랫폼 |
-| **Tier 2** (비즈니스 크리티컬) | 수 분~1시간 | 1~4시간 | Warm Standby | 주문 관리, CRM |
-| **Tier 3** (일반 업무) | 수 시간~24시간 | 24시간 | Pilot Light / Backup & Restore | 내부 도구, 개발 환경 |
+| **Tier 2** (비즈니스 크리티컬) | 수 분–1시간 | 1–4시간 | Warm Standby | 주문 관리, CRM |
+| **Tier 3** (일반 업무) | 수 시간–24시간 | 24시간 | Pilot Light / Backup & Restore | 내부 도구, 개발 환경 |
 
 ## DR 전략 유형
 
@@ -92,7 +92,7 @@ graph LR
 | --- | --- | --- | --- | --- |
 | **Backup & Restore** | 시간 단위 | 시간 단위 | 낮음 | 정기 백업 후 장애 시 복원. 가장 저렴하지만 가장 느림 |
 | **Pilot Light** | 분 단위 | 수십 분 | 중간 | 핵심 인프라만 최소 규모로 상시 가동. 장애 시 스케일업 |
-| **Warm Standby** | 초~분 | 분 단위 | 높음 | 축소된 규모의 전체 환경을 상시 가동. 장애 시 스케일업 |
+| **Warm Standby** | 초–분 | 분 단위 | 높음 | 축소된 규모의 전체 환경을 상시 가동. 장애 시 스케일업 |
 | **Active-Active** | 0 | 거의 0 | 매우 높음 | 두 리전에서 동시에 트래픽 처리. 장애 시 자동 페일오버 |
 
 ## 전략별 구현 — 벤더 서비스 매핑
@@ -109,7 +109,7 @@ graph LR
 | DB 백업 복제 | RDS 자동 백업 크로스 리전 복사 | Azure SQL Geo-Backup | Cloud SQL 크로스 리전 백업 | Data Guard (Standby) |
 | 인프라 재생성 | CloudFormation / Terraform | ARM / Bicep / Terraform | Terraform | Resource Manager / Terraform |
 
-### Pilot Light ~ Warm Standby 구현
+### Pilot Light – Warm Standby 구현
 
 DR 리전에 핵심 인프라를 최소/축소 규모로 상시 가동하고, 장애 시 스케일업합니다.
 
@@ -169,11 +169,11 @@ DR 테스트를 넘어, 일상적으로 장애를 주입하여 시스템의 복�
 
 세컨더리 리전을 고를 때는 지연뿐 아니라 **데이터가 관할권 밖으로 나가는지**를 함께 봅니다. 같은 국가 안에 리전 쌍이 있으면 in-country DR이 가능하고, 인접국 리전을 쓰면 국외 이전 요건이 생깁니다. 국가별 프라이머리·세컨더리 후보는 각 가이드를 참고하세요.
 
-- [한국](../../korea/index/) — 서울·부산·춘천, 국내 DR 가능 벤더, 개인정보 국외이전
-- [미국](../../us/index/) — FedRAMP, 데이터 레지던시
-- [EU](../../eu/index/) — GDPR, 소버린 클라우드
-- [일본](../../japan/index/) — ISMAP, 가버먼트 클라우드
-- [싱가포르](../../singapore/index/) — MTCS, PDPA
+- [한국](../../korea/) — 서울·부산·춘천, 국내 DR 가능 벤더, 개인정보 국외이전
+- [미국](../../us/) — FedRAMP, 데이터 레지던시
+- [EU](../../eu/) — GDPR, 소버린 클라우드
+- [일본](../../japan/) — ISMAP, 가버먼트 클라우드
+- [싱가포르](../../singapore/) — MTCS, PDPA
 
 :::caution
 관할권 밖 리전을 DR 대상으로 쓸 때는 해당 국가의 개인정보 국외 이전·데이터 레지던시 요건을 충족해야 합니다. 데이터 주권이 엄격한 워크로드는 in-country DR이 가능한 벤더를 우선 검토하세요.
@@ -218,5 +218,5 @@ DR 테스트를 넘어, 일상적으로 장애를 주입하여 시스템의 복�
 
 ### OCI
 
-- [OCI Full Stack DR](https://docs.oracle.com/en-us/iaas/disaster-recovery/index.html) — 2025~2026년 확장: AI 기반 로그 요약(Generative AI 서비스 연동), 멀티클라우드 DB 지원(Oracle DB@Azure/AWS/Google Cloud), OKE 크로스 리전 DR, Policy Advisor(IAM 정책 자동 분석), Oracle Integration Cloud 네이티브 통합
+- [OCI Full Stack DR](https://docs.oracle.com/en-us/iaas/disaster-recovery/index.html) — 2025–2026년 확장: AI 기반 로그 요약(Generative AI 서비스 연동), 멀티클라우드 DB 지원(Oracle DB@Azure/AWS/Google Cloud), OKE 크로스 리전 DR, Policy Advisor(IAM 정책 자동 분석), Oracle Integration Cloud 네이티브 통합
 - [OCI 비즈니스 연속성 가이드](https://docs.oracle.com/en-us/iaas/disaster-recovery/index.html)

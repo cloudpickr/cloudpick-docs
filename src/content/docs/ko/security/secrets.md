@@ -50,7 +50,7 @@ description: "시크릿 관리, KMS, 인증서 관리 서비스를 벤더별로 
 
 ## 핵심 차이점
 
-**AWS** — Secrets Manager와 Parameter Store 두 가지 선택지가 있습니다. 자동 교체가 필요하면 Secrets Manager, 단순 설정값 저장이면 Parameter Store(무료)가 적합합니다. 2025~2026년에 Managed External Secrets 기능이 추가되어 Salesforce, MongoDB Atlas, Confluent Cloud, Jenkins 등 서드파티 자격 증명의 표준화된 관리와 자동 교체도 지원합니다.
+**AWS** — Secrets Manager와 Parameter Store 두 가지 선택지가 있습니다. 자동 교체가 필요하면 Secrets Manager, 단순 설정값 저장이면 Parameter Store(무료)가 적합합니다. 2025–2026년에 Managed External Secrets 기능이 추가되어 Salesforce, MongoDB Atlas, Confluent Cloud, Jenkins 등 서드파티 자격 증명의 표준화된 관리와 자동 교체도 지원합니다.
 
 **Azure** — Key Vault 하나로 시크릿, 암호화 키, 인증서를 모두 관리합니다. 서비스가 분리되지 않아 관리가 단순합니다.
 

@@ -3,7 +3,7 @@ title: "現場デプロイメント（Field Deployment）"
 description: "現場デプロイメントエンジニア（FDE）の役割、必要なスキル、そしてマルチクラウド環境での実務知識を整理します。"
 ---
 
-> 文書基準: 2026年7月
+> 文書基準: 2026年8月
 
 現場デプロイメントエンジニア（Forward Deployment Engineer, FDE）は、顧客環境に直接エンベッドされ、製品をプロダクションに定着させる役割です。設計やアドバイザリーではなく、実際のプロダクションコードを作成し、所有します。
 
@@ -28,7 +28,7 @@ Palantirが2000年代半ば、米国情報機関にGothamを配備する際に�
 | 2026年5月 | OpenAI Deployment Company設立（TPG主導の投資） | ~$4B |
 | 2026年5月 | Anthropicエンタープライズサービス JV「Ode」（Blackstone、Goldman Sachs） | ~$1.5B |
 | 2026年6月 | AWS Forward Deployed Engineering組織新設 | ~$1B |
-| 2025-2026 | FDE求人公告が前年比800%~1,000%+増加 | 39+社、220+オープンポジション |
+| 2025-2026 | FDE求人公告が前年比800%～1,000%+増加 | 39+社、220+オープンポジション |
 
 ---
 
@@ -38,7 +38,7 @@ FDEとSA（Solutions Architect）はいずれも顧客と技術をつなぐ役�
 
 | 基準 | Solutions Architect（SA） | Forward Deployment Engineer（FDE） |
 | --- | --- | --- |
-| **主な活動時期** | プリセール ~ 初期実装 | ポストセール ~ プロダクション運用 |
+| **主な活動時期** | プリセール ～ 初期実装 | ポストセール ～ プロダクション運用 |
 | **中核業務** | アーキテクチャ設計、技術検証、PoC | プロダクションコード作成、統合、ライブ運用 |
 | **コード所有** | 低い（PoC/デモレベル） | 高い（プロダクションコードを直接所有） |
 | **顧客関係** | アドバイザリー型（Advisory） | エンベッド型（Embedded） |
@@ -62,9 +62,9 @@ FDEとSI（System Integrator）はいずれも顧客現場でコードを書き�
 | **所属** | 製品会社（モデル提供企業、SaaSベンダー） | 別のコンサルティング/SI法人 |
 | **目的** | 自社製品を顧客環境に定着させ、製品フィードバックを本社に還流 | SOW（作業指示書）範囲のシステムを納期内に構築・納品 |
 | **コード所有** | 製品コアへの貢献が可能。再利用可能なパターンを製品に還流 | 顧客所有。プロジェクト終了後は保守契約に移行 |
-| **期間** | 製品が定着するまで（数週間~数か月、反復的） | SOW期間（数か月~数年、終了が明確） |
+| **期間** | 製品が定着するまで（数週間～数か月、反復的） | SOW期間（数か月～数年、終了が明確） |
 | **成功指標** | 製品採用率、TTV、製品改善への貢献 | 納期遵守、受入テスト通過、検収 |
-| **人員モデル** | 少数精鋭（1~3名） | 大規模投入（数十~数百名） |
+| **人員モデル** | 少数精鋭（1～3名） | 大規模投入（数十～数百名） |
 | **プレイブック** | なし（プレイブックがまだない場所で働く） | あり（方法論、成果物テンプレート） |
 | **製品フィードバック** | 中核的役割 — 現場の問題を製品ロードマップに反映 | 限定的 — ベンダーとは別組織 |
 
@@ -163,7 +163,7 @@ FDEがプロダクションコードを所有するなら、運用について�
 
 2026年現在、FDEの働き方が変化しています。
 
-**これまで**: 現場で直接グルーコードを作成、手動統合、数週間~数か月を要する
+**これまで**: 現場で直接グルーコードを作成、手動統合、数週間～数か月を要する
 
 **現在**: 少人数の人間チーム + AIエージェントの組み合わせ
 - エージェントがスキャフォールディング、評価（eval）、長期ワークフローを実行
@@ -192,4 +192,3 @@ FDEがプロダクションコードを所有するなら、運用について�
 - [FDE vs Solutions Architect (2026)](https://fde.academy/blog/forward-deployed-engineer-vs-solutions-architect)
 - [Forbes: AI Giants Bet Billions On FDE (2026)](https://www.forbes.com/sites/janakirammsv/2026/05/28/ai-giants-bet-billions-on-the-most-expensive-job-in-enterprise/)
 - [AWS Forward Deployed Engineering発表](https://www.aboutamazon.com/news/aws/aws-1-billion-forward-deployed-ai-engineers)
-- [FDE Hiring Trends 2026](https://www.paraform.com/blog/forward-deployed-engineer-demand-quadrupled)

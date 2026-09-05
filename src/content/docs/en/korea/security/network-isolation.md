@@ -115,7 +115,7 @@ Most organizations don't have all systems at the same tier. The core of N²SF is
 
 ## References
 
-- [Electronic Financial Supervision Regulation (Financial Services Commission)](https://www.law.go.kr/행정규칙/전자금융감독규정)
+- [Electronic Financial Supervision Regulation (Financial Services Commission)](https://www.law.go.kr/%ED%96%89%EC%A0%95%EA%B7%9C%EC%B9%99/%EC%A0%84%EC%9E%90%EA%B8%88%EC%9C%B5%EA%B0%90%EB%8F%85%EA%B7%9C%EC%A0%95)
 - [CSAP Cloud Security Assurance Program (KISA)](https://isms.kisa.or.kr/main/csap/intro/)
 - [N²SF National Network Security Framework 1.0 Security Guidelines (National Cyber Security Center resource library)](https://www.ncsc.go.kr)
 - [NIS publishes the official N²SF security guidelines (Sept 30, 2025)](https://www.digitaltoday.co.kr/news/articleView.html?idxno=537182)

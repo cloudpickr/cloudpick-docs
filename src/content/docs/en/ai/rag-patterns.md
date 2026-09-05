@@ -3,7 +3,7 @@ title: Advanced RAG Patterns
 description: Limitations of basic RAG and advanced patterns including chunking, re-ranking, and query expansion based on vendor guides.
 ---
 
-> Document baseline: August 2026 | This is a fast-changing area subject to quarterly review.
+> Last reviewed: August 2026 | This is a fast-moving area subject to quarterly review.
 
 :::note
 For RAG basics, read the RAG section in [Getting Started](../../ai/getting-started/) and [Vector Stores and Embeddings](../../ai/vector-store/) first.

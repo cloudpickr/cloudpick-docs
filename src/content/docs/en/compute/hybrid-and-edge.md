@@ -3,7 +3,7 @@ title: "Hybrid/Edge Computing"
 description: "Compares hybrid cloud, edge computing, and multi-cloud architecture patterns across vendors."
 ---
 
-> Last reviewed: May 2026
+> Last reviewed: August 2026
 
 ## Overview
 

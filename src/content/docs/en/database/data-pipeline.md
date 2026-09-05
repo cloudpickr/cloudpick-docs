@@ -3,7 +3,7 @@ title: "Data Pipeline and ETL"
 description: "Compares the concept of data pipelines (ETL/ELT), vendor services, and choosing between batch and streaming."
 ---
 
-> Last reviewed: May 2026
+> Last reviewed: August 2026
 
 ## Overview
 

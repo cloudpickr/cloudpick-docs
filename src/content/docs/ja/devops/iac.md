@@ -32,7 +32,7 @@ description: "IaCの概念、ベンダーネイティブ/マルチクラウド�
 | AWS | CDK（Cloud Development Kit） | TypeScript、Python、Java、Go、C# | プログラミング言語でCloudFormationを生成 |
 | Azure | Bicep | Bicep DSL | ARM Templateの簡潔な代替 |
 | Azure | ARM Templates | JSON | Azureネイティブ。複雑だが完全な機能 |
-| Google Cloud | Config Connector | Kubernetes YAML | K8sリソースのようにGoogle Cloudリソースを管理 |
+| Google Cloud | Infrastructure Manager / Config Connector | HCL（Terraform） / K8s YAML | マネージドTerraform（サポート終了したDeployment Managerの後継）およびK8sベース管理 |
 | OCI | OCI Resource Manager | HCL（Terraform） | Terraformベース。OCIネイティブの管理型サービス |
 
 ### マルチクラウドIaC
@@ -51,7 +51,7 @@ IaCツールがリソースを管理するには、各サービス別のAPIを�
 | --- | --- | --- |
 | AWS | Cloud Control API | すべてのAWS＋サードパーティリソースをCRUD-L単一APIで管理。TerraformなどIaCツールのバックエンドとして使用 |
 | Azure | Azure Resource Manager（ARM）REST API | すべてのAzureリソースを単一の管理レイヤーで制御。AzAPI Terraformプロバイダーで直接呼び出し可能 |
-| Google Cloud | — （サービス別個別API） | Config ConnectorがK8s APIとして抽象化するが、統合CRUD APIはない |
+| Google Cloud | Infrastructure Manager API / 個別API | マネージドTerraform実行APIおよびConfig Connector（K8s API） |
 | OCI | OCI Resource Manager API | Terraform State管理＋リソースプロビジョニングAPI |
 
 AWS Cloud Control APIは、Terraformが新しいAWSリソースをサポートする際に、個別サービスAPIの代わりにCloud Control APIをバックエンドとして使用できるため、新サービスリリース時のIaCサポートが速くなります。

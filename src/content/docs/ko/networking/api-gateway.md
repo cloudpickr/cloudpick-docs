@@ -84,7 +84,7 @@ API를 외부에 공개한 뒤에는 **하위 호환성 유지**가 핵심입니
 
 | 전략 | 설명 | 벤더별 구현 |
 | --- | --- | --- |
-| **Canary** | 새 버전에 소량 트래픽(5~10%)을 보내고 모니터링 후 확대 | AWS: API Gateway Canary Deployment (Stage 가중치), Azure APIM: Revision + Traffic Split, Google Cloud Apigee: TargetServer 가중치 |
+| **Canary** | 새 버전에 소량 트래픽(5–10%)을 보내고 모니터링 후 확대 | AWS: API Gateway Canary Deployment (Stage 가중치), Azure APIM: Revision + Traffic Split, Google Cloud Apigee: TargetServer 가중치 |
 | **Blue/Green** | 두 환경을 동시 운영 후 트래픽 전환. 롤백 즉시 가능 | AWS: Stage 전환, Azure APIM: Revision 전환, Google Cloud: Revision 전환 |
 | **버전 분리** | `/v1`, `/v2` 별도 엔드포인트로 공존 | 모든 벤더 지원. 기존 소비자 영향 없이 새 버전 추가 |
 

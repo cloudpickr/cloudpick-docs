@@ -3,7 +3,7 @@ title: "Getting Started with DevOps"
 description: "Explains the definition of DevOps, GitOps, platform engineering, and SLI/SLO/error budgets."
 ---
 
-> Last reviewed: May 2026
+> Last reviewed: August 2026
 
 ## Overview
 

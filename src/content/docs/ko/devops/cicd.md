@@ -3,7 +3,7 @@ title: "CI/CD"
 description: "CI/CD 파이프라인, 벤더별 제품 비교, 배포 전략, 승인 프로세스 설계를 설명합니다."
 ---
 
-> 문서 기준: 2026년 6월
+> 문서 기준: 2026년 8월
 
 ## 개요
 
@@ -80,7 +80,7 @@ flowchart LR
 | --- | --- | --- |
 | AWS | CodeCommit | 2024년 신규 생성 중단. GitHub/GitLab 사용 권장 |
 | Azure | Azure Repos | Git 기반. Azure DevOps에 포함 |
-| Google Cloud | Cloud Source Repositories | 미러링 지원. GitHub/GitLab 연동 |
+| Google Cloud | Cloud Source Repositories | 2024년 신규 생성 중단. Secure Source Manager 또는 GitHub/GitLab 사용 권장 |
 | OCI | OCI DevOps Code Repositories | Git 기반. OCI DevOps에 포함 |
 
 ### 아티팩트 저장소

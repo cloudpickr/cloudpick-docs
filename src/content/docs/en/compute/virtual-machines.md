@@ -3,15 +3,15 @@ title: "Virtual Machines"
 description: "Compares general-purpose, Arm, and GPU virtual machine products and images (OS templates) across vendors."
 ---
 
-> Last reviewed: July 2026
+> Last reviewed: August 2026
 
 ## Overview
 
-Operating servers in your own data center requires purchasing hardware, installing it, configuring the OS, and setting up networking yourself. Provisioning equipment takes weeks, and changing specs requires a physical swap.
+To run servers in your own datacenter, you have to purchase hardware, install it, configure the OS, and set up networking yourself. Equipment procurement takes weeks, and changing specifications requires physical replacement.
 
-A **virtual machine** (VM) replaces this process with software. You can create a server with the specs you want in minutes, and delete it immediately once it's no longer needed. It's the cloud's most fundamental service, solving the flexibility problem of physical servers.
+A **virtual machine** (VM) replaces this process with software. You can create a server with your desired specifications in minutes and delete it immediately when no longer needed. It is the most fundamental cloud service that solved the flexibility problem of physical servers.
 
-That said, with a VM you still have to manage OS patching, security configuration, and incident response yourself. To reduce this management burden, higher levels of abstraction such as containers and serverless have emerged.
+However, with VMs users must still manage OS patching, security configuration, and failure recovery themselves. To reduce this management burden, higher-level abstractions like containers and serverless emerged.
 
 ## Product comparison
 
@@ -19,18 +19,18 @@ That said, with a VM you still have to manage OS patching, security configuratio
 
 | Vendor | Product | Notes |
 | --- | --- | --- |
-| AWS | EC2 (Elastic Compute Cloud) | 400+ instance types. Segmented into general-purpose, compute, memory, GPU, etc. |
-| Azure | Virtual Machines | Strong for Windows workloads (Hybrid Benefit) |
-| Google Cloud | Compute Engine | Custom Machine Type allows freely combining CPU/memory |
+| AWS | EC2 (Elastic Compute Cloud) | 400+ instance types. Categorized into general purpose, compute, memory, GPU, etc. |
+| Azure | Virtual Machines | Strength in Windows workloads (Hybrid Benefit) |
+| Google Cloud | Compute Engine | Freely combine CPU/memory with Custom Machine Types |
 | OCI | OCI Compute | Flexible Shape allows freely combining CPU/memory. Ampere A1 free tier |
 
 ### Arm-based VM
 
 | Vendor | Product | Notes |
 | --- | --- | --- |
-| AWS | EC2 Graviton (t4g, m7g, etc.) | In-house designed Arm processor. Better price-performance than x86 |
-| Azure | Dpsv5/Dplsv5 series | Based on Ampere Altra |
-| Google Cloud | Tau T2A | Arm-based general purpose |
+| AWS | EC2 Graviton (latest m9g/c9g/r9g, m8g, t4g, etc.) | In-house designed Arm processors (latest Graviton5; earlier Graviton4/3/2 still offered). Better price-performance than x86 |
+| Azure | Cobalt 100 (Dpsv6, etc.) / Dpsv5 series | Based on in-house Cobalt 100 and Ampere Altra |
+| Google Cloud | Axion (C4A) / Tau T2A | In-house designed Axion and Arm-based general purpose |
 | OCI | Ampere A1 Compute | Based on Ampere Altra. Free tier available |
 
 ### GPU / AI accelerators
@@ -39,7 +39,7 @@ That said, with a VM you still have to manage OS patching, security configuratio
 | --- | --- | --- |
 | AWS | P5, **G7**, G5, Inf2, Trn1/Trn2 | NVIDIA (H100, **RTX PRO 4500 Blackwell**) + in-house chips (Inferentia, Trainium). G7 is the first major cloud offering of RTX PRO Blackwell |
 | Azure | NC, ND, NV series | NVIDIA A100, H100 |
-| Google Cloud | A3, A2, G2 series + TPU v8 | NVIDIA H100 + in-house TPU (latest v8 generation) |
+| Google Cloud | A3, A2, G2 series + TPU (v5p/v6e/Ironwood) | NVIDIA H100 + in-house TPU (latest 7th-gen Ironwood/TPU7x) |
 | OCI | GPU Instances (A10, A100, H100) | NVIDIA GPU. Bare Metal option available |
 
 ### Images (OS templates)

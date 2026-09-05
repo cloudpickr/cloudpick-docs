@@ -3,7 +3,7 @@ title: "DNS"
 description: "관리형 DNS, 라우팅 정책, DNSSEC, Private DNS를 벤더별로 비교합니다."
 ---
 
-> 문서 기준: 2026년 5월
+> 문서 기준: 2026년 8월
 
 ## 개요
 

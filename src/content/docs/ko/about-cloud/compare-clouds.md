@@ -3,7 +3,7 @@ title: "벤더 비교하기"
 description: "주요 벤더의 특징, 강점, 멀티클라우드 연동 서비스를 비교합니다."
 ---
 
-> 문서 기준: 2026년 5월
+> 문서 기준: 2026년 8월
 
 ## 한눈에 보기
 
@@ -18,7 +18,7 @@ description: "주요 벤더의 특징, 강점, 멀티클라우드 연동 서비�
 | **콘솔** | [Console](https://console.aws.amazon.com) | [Portal](https://portal.azure.com) | [Console](https://console.cloud.google.com) | [Console](https://cloud.oracle.com) |
 
 :::note
-시장 점유율 출처: [Synergy Research Group — Q4 2025](https://www.srgresearch.com/articles/genai-helps-drive-quarterly-cloud-revenues-to-119-billion-as-growth-rate-jumped-yet-again-in-q4). 리전 수, 서비스 수 등은 빠르게 변하므로 각 벤더 공식 페이지에서 최신 현황을 확인하세요. 국가별 로컬 리전은 [한국](../../korea/index/), [미국](../../us/index/), [EU](../../eu/index/), [일본](../../japan/index/), [싱가포르](../../singapore/index/) 가이드를 참고하세요.
+시장 점유율 출처: [Synergy Research Group — Q4 2025](https://www.srgresearch.com/articles/genai-helps-drive-quarterly-cloud-revenues-to-119-billion-as-growth-rate-jumped-yet-again-in-q4). 리전 수, 서비스 수 등은 빠르게 변하므로 각 벤더 공식 페이지에서 최신 현황을 확인하세요. 국가별 로컬 리전은 [한국](../../korea/), [미국](../../us/), [EU](../../eu/), [일본](../../japan/), [싱가포르](../../singapore/) 가이드를 참고하세요.
 :::
 
 ## 주요 서비스 매핑
@@ -43,13 +43,13 @@ description: "주요 벤더의 특징, 강점, 멀티클라우드 연동 서비�
 | **IAM** | IAM + Identity Center | Entra ID | Cloud IAM | IAM with Identity Domains |
 | **시크릿 관리** | Secrets Manager | Key Vault | Secret Manager | Vault |
 | **위협 탐지** | GuardDuty | Defender for Cloud | Security Command Center | Cloud Guard |
-| **IaC** | CloudFormation / CDK | Bicep / ARM | Deployment Manager | Resource Manager |
+| **IaC** | CloudFormation / CDK | Bicep / ARM | Infrastructure Manager / Deployment Manager | Resource Manager |
 | **CI/CD** | CodePipeline / CodeBuild | Azure DevOps | Cloud Build | DevOps Service |
 | **데이터 이전 (대용량)** | Snowball / DataSync | Data Box / Data Factory | Transfer Appliance / Storage Transfer | OCI Data Transfer |
 | **DB 마이그레이션** | Database Migration Service (DMS) | Azure Database Migration Service | Database Migration Service | OCI Database Migration |
 | **메시지 큐** | SQS | Service Bus | Cloud Tasks / Pub/Sub | OCI Queue |
 | **이벤트 스트리밍** | MSK (Kafka) | Event Hubs | Pub/Sub | Streaming (Kafka 호환) |
-| **검색** | OpenSearch Service | Azure AI Search | — (마켓플레이스) | OCI Search with OpenSearch |
+| **검색** | OpenSearch Service | Azure AI Search | Vertex AI Search | OCI Search with OpenSearch |
 | **데이터 파이프라인 (ETL)** | Glue / MWAA | Data Factory / Synapse Pipelines | Dataflow / Cloud Composer | OCI Data Integration |
 | **모니터링** | CloudWatch | Azure Monitor | Cloud Monitoring | OCI Monitoring |
 | **AI/LLM 플랫폼** | Amazon Bedrock | Microsoft Foundry | Gemini Enterprise Agent Platform | OCI Enterprise AI |
@@ -99,7 +99,7 @@ Oracle의 데이터베이스 기술력을 클라우드로 확장한 OCI는 Oracl
 | 카테고리 | 설명 | 상세 |
 | --- | --- | --- |
 | **네트워크 직접 연결** | 벤더 간 전용 네트워크로 프라이빗 연결. 인터넷을 경유하지 않아 지연과 보안 모두 유리 | [멀티클라우드 커넥티비티](../../networking/multicloud-connectivity/) |
-| **타 클라우드 내 DB 배치** | 경쟁사 데이터센터 안에 자사 DB를 네이티브 배치. 앱은 AWS/Azure/Google Cloud에 두고 DB만 Oracle을 쓰는 구성이 가능 | [관리형 RDB — Database@Cloud](../../database/managed-rdb/#database-cloud-db) |
+| **타 클라우드 내 DB 배치** | 경쟁사 데이터센터 안에 자사 DB를 네이티브 배치. 앱은 AWS/Azure/Google Cloud에 두고 DB만 Oracle을 쓰는 구성이 가능 | [관리형 RDB — Database@Cloud](../../database/managed-rdb/#databasecloud) |
 | **멀티클라우드 관리 플랫폼** | 타 클라우드의 서버, Kubernetes, DB를 자사 콘솔에서 통합 관리. 운영 도구를 하나로 통일하려는 수요에 대응 | 아래 참조 |
 
 ### 멀티클라우드 관리 플랫폼

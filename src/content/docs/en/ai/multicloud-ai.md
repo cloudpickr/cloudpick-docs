@@ -3,7 +3,7 @@ title: Multicloud AI
 description: Multicloud AI architecture patterns, RAG pipelines, and GPU availability compared across vendors.
 ---
 
-> Document baseline: August 2026 | This is a fast-changing area subject to quarterly review.
+> Last reviewed: August 2026 | This is a fast-moving area subject to quarterly review.
 
 :::note
 This is advanced content. If new to AI service comparison, read [Getting Started with AI](../../ai/getting-started/) and [AI Platforms](../../ai/ai-ml/) first.

@@ -3,7 +3,7 @@ title: "애플리케이션 모더나이제이션"
 description: "레거시 애플리케이션을 클라우드 네이티브로 전환하는 모더나이제이션 전략과 주요 패턴을 벤더 공식 가이드 기반으로 설명합니다."
 ---
 
-> 문서 기준: 2026년 5월
+> 문서 기준: 2026년 8월
 
 ## 모더나이제이션이란
 
@@ -56,7 +56,7 @@ Microsoft Cloud Adoption Framework이 제시하는 3가지 주요 전략:
 | 전략 | 설명 | 난이도 | 대상 |
 | --- | --- | --- | --- |
 | **Replatform** (리플랫폼) | 엔진은 유지하되 관리형 서비스로 전환. 약간의 최적화 | 중간 | DB를 RDS로, VM을 App Service/Container Apps로 |
-| **Refactor** (리팩터) | 애플리케이션 구조를 일부 재작성. 서비스 분해 시작 | 중~상 | 모놀리식에서 특정 기능을 분리 |
+| **Refactor** (리팩터) | 애플리케이션 구조를 일부 재작성. 서비스 분해 시작 | 중–상 | 모놀리식에서 특정 기능을 분리 |
 | **Rearchitect** (리아키텍트) | 아키텍처를 처음부터 재설계. 마이크로서비스, 서버리스 | 상 | 확장성/복원력 근본 개선 필요 |
 
 출처: [Azure CAF Modernization Strategies](https://learn.microsoft.com/azure/cloud-adoption-framework/modernize/modernization-cloud-replatform-refactor-rearchitect)

@@ -7,9 +7,9 @@ description: "Covers the GDPR cross-border transfer framework, the EU Data Bound
 
 ## Overview
 
-The GDPR (General Data Protection Regulation) has kept evolving even since it took effect in 2018. In recent years, the changes have been less about the text of the law itself and more about intensifying requirements on **where, and by whom, personal data is physically processed**. This document summarizes the cross-border transfer framework that non-EU companies encounter when expanding cloud workloads into the EU or processing EU customer data, along with the "sovereign cloud" options that have emerged against that backdrop.
+The General Data Protection Regulation (GDPR) has continued to evolve since taking effect in 2018. Changes in recent years have shown up less in the statutory text itself than in the strengthening of demands around **"where personal data is physically processed, and by whom."** This document outlines the cross-border transfer framework encountered when global enterprises expand cloud workloads to the EU or process EU customer data, and examines the "Sovereign Cloud" options that have emerged against this backdrop.
 
-## The GDPR Cross-Border Transfer Framework
+## GDPR Cross-Border Transfer Framework
 
 Chapter V of the GDPR requires separate safeguards for transfers of personal data outside the EU. The main mechanisms used in practice are as follows.
 
@@ -19,15 +19,15 @@ Chapter V of the GDPR requires separate safeguards for transfers of personal dat
 | **SCCs (Standard Contractual Clauses)** | European Commission-approved standard clauses executed between contracting parties for transfers to countries without an adequacy decision. The 2021 revision is the current version |
 | **BCRs (Binding Corporate Rules)** | Binding internal rules applied to transfers within a multinational corporate group |
 
-### Korea's Adequacy Decision (2021)
+### Adequacy Decisions Overview (Japan, Korea, UK, US DPF, etc.)
 
-Korea received an **adequacy decision** from the European Commission on December 17, 2021. Negotiations between the Personal Information Protection Commission and the EU concluded in March 2021, and the decision was formally adopted that December.
+The European Commission has adopted **adequacy decisions** for key trading partners including Japan (2019), the Republic of Korea (December 2021), the United Kingdom, Switzerland, Canada, and the United States (EU-US Data Privacy Framework, 2023).
 
 :::caution
-**Korea's adequacy decision applies only in the EU → Korea direction.** In other words, personal data can be transferred from the EU to Korea without additional safeguards such as SCCs, but in the reverse direction (where a Korean company directly collects or processes the personal data of EU residents — i.e., is subject to the GDPR's extraterritorial application), the GDPR's own compliance obligations apply separately. The adequacy decision does not exempt a company from GDPR compliance obligations themselves.
+**Adequacy decisions apply in principle to transfers from the EU to the recipient country (EU → destination country).** In other words, personal data can be transferred from the EU to an adequacy-recognized country without additional safeguards such as SCCs. However, in the reverse direction, where a non-EU company directly collects or processes personal data of individuals in the EU (subject to GDPR Article 3 extraterritorial reach), GDPR compliance obligations apply directly. An adequacy decision does not exempt a company from GDPR compliance obligations themselves.
 :::
 
-When a non-EU company uses cloud services in an EU region to process EU customer data, it must, regardless of the direction of transfer, confirm that the vendor contract (the DPA, or Data Processing Addendum) includes SCCs, and that the region and governance options the vendor offers satisfy its own data classification requirements.
+When a global enterprise uses cloud services in an EU region to process EU customer data or transfers data overseas, it must, regardless of the direction of transfer, confirm that the vendor contract (the DPA, or Data Processing Addendum) includes SCCs, and that the region and governance options the vendor offers satisfy its own data classification requirements.
 
 ## EU Data Boundary
 

@@ -3,11 +3,11 @@ title: "캐시와 인메모리 데이터베이스"
 description: "인메모리 캐시의 개념, 캐시 패턴, 벤더별 관리형 서비스를 비교합니다."
 ---
 
-> 문서 기준: 2026년 5월
+> 문서 기준: 2026년 8월
 
 ## 개요
 
-데이터베이스 조회는 디스크 I/O가 발생하여 수 ms~수십 ms가 걸립니다. **인메모리 캐시**는 자주 조회되는 데이터를 메모리에 저장하여 응답 시간을 마이크로초 단위로 줄입니다.
+데이터베이스 조회는 디스크 I/O가 발생하여 수 ms–수십 ms가 걸립니다. **인메모리 캐시**는 자주 조회되는 데이터를 메모리에 저장하여 응답 시간을 마이크로초 단위로 줄입니다.
 
 :::note
 캐시 운영 시 주의할 안티패턴(영구 저장소처럼 사용, TTL 미설정, 캐시 의존 아키텍처 등)은 [데이터베이스 운영 — 캐시 안티패턴](../../database/operations/#캐시-운영-주의사항)을 참고하세요.
@@ -52,11 +52,11 @@ description: "인메모리 캐시의 개념, 캐시 패턴, 벤더별 관리형 
 
 | 요구사항 | 권장 |
 | --- | --- |
-| DB 읽기 부하 분산 (일반 캐시) | ElastiCache/Memorystore Redis (Cache-Aside) |
-| 세션 스토어 (TTL + 구조화 데이터) | Redis (Hash 타입) |
-| 프라이머리 DB 대체 (내구성 필요) | MemoryDB |
+| DB 읽기 부하 분산 (일반 캐시) | ElastiCache/Memorystore Valkey (또는 Redis) (Cache-Aside) |
+| 세션 스토어 (TTL + 구조화 데이터) | Valkey / Redis (Hash 타입) |
+| 프라이머리 DB 대체 (내구성 필요) | MemoryDB for Valkey |
 | 단순 key-value, 최대 처리량 | Memcached |
-| 실시간 리더보드/카운터 | Redis (Sorted Set) |
+| 실시간 리더보드/카운터 | Valkey / Redis (Sorted Set) |
 
 ## 자주 하는 실수
 

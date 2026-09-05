@@ -3,7 +3,7 @@ title: "Multicloud Network Design Fundamentals"
 description: "Explains CIDR planning, a comparison of inter-cloud connection methods, and selection criteria for getting started with multicloud networking."
 ---
 
-> Last reviewed: May 2026
+> Last reviewed: August 2026
 
 :::note
 For advanced topics such as transit architecture, egress cost, and DNS integration, see [Multicloud Network Architecture](../../networking/multicloud-connectivity/).

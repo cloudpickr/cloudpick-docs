@@ -3,7 +3,7 @@ title: "Understanding the Cost Structure"
 description: "Compares on-demand, reserved, and spot pricing models, plus hidden cost items such as egress, across vendors."
 ---
 
-> Last reviewed: May 2026
+> Last reviewed: August 2026
 
 ## On-Premises vs. Cloud Cost Structure
 

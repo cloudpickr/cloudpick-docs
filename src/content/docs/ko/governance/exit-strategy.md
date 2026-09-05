@@ -7,7 +7,7 @@ description: "클라우드 벤더 종속성을 이해하고, 데이터/애플리
 
 ## 왜 출구 전략이 필요한가
 
-단일 벤더에 깊이 통합할수록 **가격 협상력이 줄어들고**, 벤더의 정책 변경(가격 인상, 서비스 단종, 지역 철수)에 취약해집니다. EU DORA 등 일부 관할권은 금융권에 **Exit Plan 문서화**를 의무화합니다. 2025년 11월, ESAs(EBA, EIOPA, ESMA)는 DORA에 따라 첫 번째 CTPP(Critical ICT Third-Party Provider) 지정 리스트를 공개했으며, CTPP로 지정된 벤더를 사용하는 금융기관은 더욱 엄격한 Exit 준비를 입증해야 합니다. 국가별 의무는 [한국](../../korea/index/) · [미국](../../us/index/) · [EU](../../eu/index/) · [일본](../../japan/index/) · [싱가포르](../../singapore/index/) 가이드를 참고하세요.
+단일 벤더에 깊이 통합할수록 **가격 협상력이 줄어들고**, 벤더의 정책 변경(가격 인상, 서비스 단종, 지역 철수)에 취약해집니다. EU DORA 등 일부 관할권은 금융권에 **Exit Plan 문서화**를 의무화합니다. 2025년 11월, ESAs(EBA, EIOPA, ESMA)는 DORA에 따라 첫 번째 CTPP(Critical ICT Third-Party Provider) 지정 리스트를 공개했으며, CTPP로 지정된 벤더를 사용하는 금융기관은 더욱 엄격한 Exit 준비를 입증해야 합니다. 국가별 의무는 [한국](../../korea/) · [미국](../../us/) · [EU](../../eu/) · [일본](../../japan/) · [싱가포르](../../singapore/) 가이드를 참고하세요.
 
 중요한 오해:
 
@@ -101,7 +101,7 @@ graph LR
 
 - **표준 포맷** — Parquet, Avro, JSON, CSV
 - **정기 백업을 중립 위치에 저장** — 다른 리전/벤더/온프레미스
-- **이그레스 비용 인지** — 페타바이트급 데이터는 이그레스 비용이 수천만 원~수억 원. 단, Google Cloud는 2024년 1월부터 벤더 전환 시 이그레스 무료화를 시행했고, 2025년 9월에는 EU/UK 멀티클라우드 환경에서 Data Transfer Essentials를 통해 이그레스 비용을 면제하고 있음 (EU Data Act 대응)
+- **이그레스 비용 인지** — 페타바이트급 데이터는 이그레스 비용이 수천만 원–수억 원. 단, Google Cloud는 2024년 1월부터 벤더 전환 시 이그레스 무료화를 시행했고, 2025년 9월에는 EU/UK 멀티클라우드 환경에서 Data Transfer Essentials를 통해 이그레스 비용을 면제하고 있음 (EU Data Act 대응)
 - **오프라인 전송 활용** — [스토리지 마이그레이션](../../storage/migration/) 참고
 
 ## Exit 실행 계획

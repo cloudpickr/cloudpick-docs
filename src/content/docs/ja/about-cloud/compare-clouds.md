@@ -3,7 +3,7 @@ title: "ベンダー比較"
 description: "主要ベンダーの特徴、強み、マルチクラウド連携サービスを比較します。"
 ---
 
-> 文書基準: 2026年5月
+> 文書基準: 2026年8月
 
 ## 一目で見る比較
 
@@ -43,13 +43,13 @@ description: "主要ベンダーの特徴、強み、マルチクラウド連携
 | **IAM** | IAM + Identity Center | Entra ID | Cloud IAM | IAM with Identity Domains |
 | **シークレット管理** | Secrets Manager | Key Vault | Secret Manager | Vault |
 | **脅威検知** | GuardDuty | Defender for Cloud | Security Command Center | Cloud Guard |
-| **IaC** | CloudFormation / CDK | Bicep / ARM | Deployment Manager | Resource Manager |
+| **IaC** | CloudFormation / CDK | Bicep / ARM | Infrastructure Manager / Deployment Manager | Resource Manager |
 | **CI/CD** | CodePipeline / CodeBuild | Azure DevOps | Cloud Build | DevOps Service |
 | **データ移行（大容量）** | Snowball / DataSync | Data Box / Data Factory | Transfer Appliance / Storage Transfer | OCI Data Transfer |
 | **DBマイグレーション** | Database Migration Service (DMS) | Azure Database Migration Service | Database Migration Service | OCI Database Migration |
 | **メッセージキュー** | SQS | Service Bus | Cloud Tasks / Pub/Sub | OCI Queue |
 | **イベントストリーミング** | MSK（Kafka） | Event Hubs | Pub/Sub | Streaming（Kafka互換） |
-| **検索** | OpenSearch Service | Azure AI Search | —（マーケットプレイス） | OCI Search with OpenSearch |
+| **検索** | OpenSearch Service | Azure AI Search | Vertex AI Search | OCI Search with OpenSearch |
 | **データパイプライン（ETL）** | Glue / MWAA | Data Factory / Synapse Pipelines | Dataflow / Cloud Composer | OCI Data Integration |
 | **モニタリング** | CloudWatch | Azure Monitor | Cloud Monitoring | OCI Monitoring |
 | **AI/LLMプラットフォーム** | Amazon Bedrock | Microsoft Foundry | Gemini Enterprise Agent Platform | OCI Enterprise AI |
@@ -99,7 +99,7 @@ Oracleのデータベース技術力をクラウドに拡張したOCIは、Oracl
 | カテゴリ | 説明 | 詳細 |
 | --- | --- | --- |
 | **ネットワーク直接接続** | ベンダー間の専用ネットワークによるプライベート接続。インターネットを経由しないため遅延とセキュリティの両面で有利 | [マルチクラウドコネクティビティ](../../networking/multicloud-connectivity/) |
-| **他クラウド内へのDB配置** | 競合他社のデータセンター内に自社DBをネイティブ配置。アプリはAWS/Azure/Google Cloudに置き、DBのみOracleを使う構成が可能 | [マネージドRDB — Database@Cloud](../../database/managed-rdb/#database-cloud-db) |
+| **他クラウド内へのDB配置** | 競合他社のデータセンター内に自社DBをネイティブ配置。アプリはAWS/Azure/Google Cloudに置き、DBのみOracleを使う構成が可能 | [マネージドRDB — Database@Cloud](../../database/managed-rdb/#databasecloud) |
 | **マルチクラウド管理プラットフォーム** | 他クラウドのサーバー、Kubernetes、DBを自社コンソールで統合管理。運用ツールを一元化したい需要に対応 | 下記参照 |
 
 ### マルチクラウド管理プラットフォーム

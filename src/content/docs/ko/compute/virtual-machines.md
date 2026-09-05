@@ -3,7 +3,7 @@ title: "가상머신"
 description: "범용, Arm, GPU 가상머신 제품과 이미지(OS 템플릿)를 벤더별로 비교합니다."
 ---
 
-> 문서 기준: 2026년 7월
+> 문서 기준: 2026년 8월
 
 ## 개요
 
@@ -19,18 +19,18 @@ description: "범용, Arm, GPU 가상머신 제품과 이미지(OS 템플릿)를
 
 | 벤더 | 제품 | 비고 |
 | --- | --- | --- |
-| AWS | EC2 (Elastic Compute Cloud) | 400+ 인스턴스 유형. 범용·컴퓨팅·메모리·GPU 등 세분화 |
-| Azure | Virtual Machines | Windows 워크로드에 강점 (Hybrid Benefit) |
-| Google Cloud | Compute Engine | Custom Machine Type으로 CPU/메모리 자유 조합 |
+| AWS | EC2 (M/C/R 인스턴스) | 인스턴스 유형이 가장 다양. 1초 단위 과금 |
+| Azure | Virtual Machines (D/F/E 시리즈) | Windows 워크로드에 강점 (Azure Hybrid Benefit으로 라이선스 절감) |
+| Google Cloud | Compute Engine (N/C/E/M 머신 시리즈) | Custom Machine Type (CPU/메모리 비율 자유 지정) |
 | OCI | OCI Compute | Flexible Shape으로 CPU/메모리 자유 조합. Ampere A1 무료 티어 |
 
 ### Arm 기반 VM
 
 | 벤더 | 제품 | 비고 |
 | --- | --- | --- |
-| AWS | EC2 Graviton (t4g, m7g 등) | 자체 설계 Arm 프로세서. x86 대비 높은 가격 대비 성능 |
-| Azure | Dpsv5/Dplsv5 시리즈 | Ampere Altra 기반 |
-| Google Cloud | Tau T2A | Arm 기반 범용 |
+| AWS | EC2 Graviton (최신 m9g/c9g/r9g, m8g, t4g 등) | 자체 설계 Arm 프로세서(최신 Graviton5, 이전 세대 Graviton4/3/2 병행). x86 대비 높은 가격 대비 성능 |
+| Azure | Cobalt 100 (Dpsv6 등) / Dpsv5 시리즈 | 자체 설계 Cobalt 100 및 Ampere Altra 기반 |
+| Google Cloud | Axion (C4A) / Tau T2A | 자체 설계 Axion 및 Arm 기반 범용 |
 | OCI | Ampere A1 Compute | Ampere Altra 기반. 무료 티어 제공 |
 
 ### GPU / AI 가속기
@@ -39,7 +39,7 @@ description: "범용, Arm, GPU 가상머신 제품과 이미지(OS 템플릿)를
 | --- | --- | --- |
 | AWS | P5, **G7**, G5, Inf2, Trn1/Trn2 | NVIDIA (H100, **RTX PRO 4500 Blackwell**) + 자체 칩(Inferentia, Trainium). G7은 최초 주요 클라우드 RTX PRO Blackwell 제공 |
 | Azure | NC, ND, NV 시리즈 | NVIDIA A100, H100 |
-| Google Cloud | A3, A2, G2 시리즈 + TPU v8 | NVIDIA H100 + 자체 TPU (v8세대 최신) |
+| Google Cloud | A3, A2, G2 시리즈 + TPU (v5p/v6e/Ironwood) | NVIDIA H100 + 자체 TPU (7세대 Ironwood/TPU7x 최신) |
 | OCI | GPU Instances (A10, A100, H100) | NVIDIA GPU. Bare Metal 옵션 제공 |
 
 ### 이미지 (OS 템플릿)

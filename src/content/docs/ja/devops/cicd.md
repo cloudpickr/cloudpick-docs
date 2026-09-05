@@ -3,7 +3,7 @@ title: "CI/CD"
 description: "CI/CDパイプライン、ベンダー別製品比較、デプロイ戦略、承認プロセス設計について説明します。"
 ---
 
-> 文書基準: 2026年6月
+> 文書基準: 2026年8月
 
 ## 概要
 
@@ -80,7 +80,7 @@ flowchart LR
 | --- | --- | --- |
 | AWS | CodeCommit | 2024年に新規作成を停止。GitHub/GitLabの使用を推奨 |
 | Azure | Azure Repos | Gitベース。Azure DevOpsに含まれる |
-| Google Cloud | Cloud Source Repositories | ミラーリング対応。GitHub/GitLab連携 |
+| Google Cloud | Cloud Source Repositories | 2024年に新規作成を停止。Secure Source ManagerまたはGitHub/GitLabの使用を推奨 |
 | OCI | OCI DevOps Code Repositories | Gitベース。OCI DevOpsに含まれる |
 
 ### アーティファクトリポジトリ

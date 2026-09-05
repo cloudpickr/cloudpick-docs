@@ -3,6 +3,8 @@ title: LLM Channel Selection Guide
 description: Compare consuming FMs directly (1P) vs. through cloud platforms (3P), and Seat vs. API usage patterns.
 ---
 
+> Last reviewed: August 2026
+
 ## Overview
 
 When adopting FMs, there are **two independent decisions**:

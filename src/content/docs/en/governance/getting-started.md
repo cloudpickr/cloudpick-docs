@@ -3,7 +3,7 @@ title: "Getting Started with Cloud Governance"
 description: "Explains why cloud governance matters, its core areas, and a reading guide for this section."
 ---
 
-> Last reviewed: May 2026
+> Last reviewed: August 2026
 
 ## Why Governance
 

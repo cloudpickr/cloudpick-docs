@@ -44,13 +44,13 @@ Among these providers, Upstage, SK Telecom, and LG AI Research passed the govern
 | Financial/public-sector compliance | 3P (inheriting cloud certifications) + on-premises hybrid |
 | Responding to sovereign foundation model policy | Confirm which models participate in the policy before choosing a channel (for public-sector/financial procurement) |
 
-The global 1P/3P patterns themselves are covered in [1P vs 3P Model Delivery](../../ai/1p-vs-3p/).
+The global 1P/3P patterns themselves are covered in [1P vs 3P Model Delivery](../../../ai/1p-vs-3p/).
 
 ## Selection Criteria Versus Global Models
 
 Choosing between a domestic FM and a global model such as GPT, Gemini, or Claude should be based not on which vendor is "better" but on **workload requirements**.
 
-- **Regulatory and sovereignty requirements**: workloads subject to network separation regulation (see [Network Separation and Isolation](../security/network-isolation/)) or public-sector procurement (see [CSAP](../security/csap/)) often benefit from models served in a domestic region. If a workload's data must not be transferred abroad, prioritize domestic providers' APIs backed by domestic data centers.
+- **Regulatory and sovereignty requirements**: workloads subject to network separation regulation (see [Network Separation and Isolation](../../../korea/security/network-isolation/)) or public-sector procurement (see [CSAP](../../../korea/security/csap/)) often benefit from models served in a domestic region. If a workload's data must not be transferred abroad, prioritize domestic providers' APIs backed by domestic data centers.
 - **Korean-language and domain-specific performance**: top-tier global models often still lead on general knowledge and reasoning, but domestic models are reported to hold an edge in handling Korean vocabulary, honorifics, and industry-specific terminology. Always verify with your own benchmarks.
 - **Licensing and customization**: Kakao Kanana, NC AI VARCO, and SKT A.X are open source with commercial use permitted, allowing fine-tuning and deployment on your own infrastructure. EXAONE, by contrast, requires a separate agreement for commercial use, and the higher-tier Solar and HyperCLOVA X models are primarily accessed via API. If on-premises or closed-VPC deployment is required, check license terms first.
 - **Vendor sustainability**: as shown by the phase-evaluation results of the sovereign AI project, Korea's domestic FM ecosystem is still in flux. Configuring models to be swappable via an API gateway reduces risk compared to an architecture that's deeply locked into a specific vendor.
@@ -69,8 +69,8 @@ Choosing between a domestic FM and a global model such as GPT, Gemini, or Claude
 ## Related Documents
 
 - [Sovereign AI and Independent Foundation Model Policy](../sovereign-fm-policy/)
-- [CSAP (Cloud Security Assurance Program)](../security/csap/)
-- [Network Separation and Isolation (Korea)](../security/network-isolation/)
+- [CSAP (Cloud Security Assurance Program)](../../../korea/security/csap/)
+- [Network Separation and Isolation (Korea)](../../../korea/security/network-isolation/)
 - [Sovereign Landing Zone](../../../governance/landing-zone/#sovereign-landing-zone)
 
 ## References

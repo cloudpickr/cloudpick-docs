@@ -3,7 +3,7 @@ title: "IAM Overview"
 description: "Compares the fundamental concepts, authentication methods, and permission models of IAM across vendors."
 ---
 
-> Last reviewed: May 2026
+> Last reviewed: August 2026
 
 :::note
 For practical operations such as managing identity types by category (people/devices/third parties), applying least privilege, and security review checklists, see [IAM Design and Security Operations in Practice](../../security/iam/).

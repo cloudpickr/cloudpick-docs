@@ -71,7 +71,7 @@ GPUインスタンスの価格はリージョン、コミット期間、可用�
 :::
 
 :::note
-**機密AI推論:** モデルIPや機密性の高い入力データを処理中も保護する必要がある場合は、**機密コンピューティングGPU**(Azure NCC H100 v5, GCP A3 Confidential VM)を使用できます。ベンダー別の機密コンピューティング比較は[データ保護 — 機密コンピューティング](../../security/data-protection/#기밀-컴퓨팅-confidential-computing)を参照してください。
+**機密AI推論:** モデルIPや機密性の高い入力データを処理中も保護する必要がある場合は、**機密コンピューティングGPU**(Azure NCC H100 v5, GCP A3 Confidential VM)を使用できます。ベンダー別の機密コンピューティング比較は[データ保護 — 機密コンピューティング](../../security/data-protection/#機密コンピューティング-confidential-computing)を参照してください。
 :::
 
 ## RAGパイプライン

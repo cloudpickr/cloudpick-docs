@@ -65,7 +65,7 @@ flowchart TD
 
 | 比較項目 | Cross-Cloud Interconnect | 専用接続 + IX（Direct Connect + ExpressRouteなど） |
 | --- | --- | --- |
-| **経由地点** | ベンダー間直接接続（単一ホップ） | IXまたはコロケーション施設経由（2~3ホップ） |
+| **経由地点** | ベンダー間直接接続（単一ホップ） | IXまたはコロケーション施設経由（2～3ホップ） |
 | **設定の複雑さ** | コンソールで相手ベンダーを選択してプロビジョニング | 両側の専用接続 + IXポート + BGP設定 |
 | **レイテンシ** | 最小（同一メトロ内の直接接続） | IX経由でやや高い |
 | **コスト構造** | ポート費用 + データ転送（OCIは転送無料） | 両側の専用接続費用 + IXポート費用 |
@@ -85,7 +85,7 @@ flowchart TD
 | AWS → インターネット | $0.126/GB（最初の10TB） | 以降は逓減 |
 | Azure → インターネット | $0.12/GB | 最初の100GB/月は無料（[Bandwidth料金](https://azure.microsoft.com/pricing/details/bandwidth/)） |
 | Google Cloud → インターネット | $0.12/GB | 最初の200GB/月は無料 |
-| OCI → インターネット | 10TB/月無料、以降 ~$0.0085/GB | 他社と比べて非常に安価 |
+| OCI → インターネット | 10TB/月無料、以降 ～$0.0085/GB | 他社と比べて非常に安価 |
 | AWS → Direct Connect | ~$0.04/GB | 回線費別途 |
 | Azure → ExpressRoute | 含む（Unlimitedプラン） | 回線費に含まれる |
 | Google Cloud → Interconnect | ~$0.05/GB | 回線費別途 |

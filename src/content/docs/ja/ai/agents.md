@@ -25,7 +25,7 @@ description: "AIエージェントの概念、アーキテクチャ、プロト�
 | --- | --- | --- | --- |
 | **Desktop Agent** (業務) | 全社員 | Claude Cowork、Amazon Quick、ChatGPT Work、M365 Copilot、Gemini | ローカルファイル・アプリへのアクセス、Computer Use、MCPコネクタ |
 | **Coding Agent** (開発) | エンジニアリング | Kiro、Claude Code、Codex、Grok Build、Copilot、Antigravity、OpenCode | ターミナル/IDE/Git、コード生成・修正・テスト・PR |
-| **自律運用エージェント** | DevOps/セキュリティ/FinOps | AWS DevOps/Security/FinOps Agent、Security Copilot、Google SecOps Agents | 数時間~数日の自律実行、常時の人的監督なし |
+| **自律運用エージェント** | DevOps/セキュリティ/FinOps | AWS DevOps/Security/FinOps Agent、Security Copilot、Google SecOps Agents | 数時間～数日の自律実行、常時の人的監督なし |
 
 ### Desktop Agent — なぜ登場したのか
 
@@ -131,7 +131,7 @@ AgentCore GatewayおよびClaude製品群ですでにサポート中。
 
 | 項目 | 内容 |
 | --- | --- |
-| **コスト** | ループ実行によりトークンを数倍~数十倍消費。タスクごとの予算、ループ制限、モデル階層化が必要 |
+| **コスト** | ループ実行によりトークンを数倍～数十倍消費。タスクごとの予算、ループ制限、モデル階層化が必要 |
 | **評価** | タスク成功率、ツール選択精度、ハルシネーション率。ベンダー別評価サービスを活用 |
 | **可観測性** | OpenTelemetryベースのトレーシング。エージェント特化の指標は[LLMOps](../../ai/llmops/)参照 |
 | **セキュリティ** | プロンプトインジェクション、権限昇格、データ流出、無限ループ。詳細は[AIセキュリティ](../../security/ai-security/)参照 |

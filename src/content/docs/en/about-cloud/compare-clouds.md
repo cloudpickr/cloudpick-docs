@@ -3,7 +3,7 @@ title: "Comparing Vendors"
 description: "Compares the characteristics, strengths, and multicloud interoperability services of major vendors."
 ---
 
-> Last reviewed: May 2026
+> Last reviewed: August 2026
 
 ## At a Glance
 
@@ -43,13 +43,13 @@ Use this reference if you're familiar with one vendor and want to find the equiv
 | **IAM** | IAM + Identity Center | Entra ID | Cloud IAM | IAM with Identity Domains |
 | **Secrets management** | Secrets Manager | Key Vault | Secret Manager | Vault |
 | **Threat detection** | GuardDuty | Defender for Cloud | Security Command Center | Cloud Guard |
-| **IaC** | CloudFormation / CDK | Bicep / ARM | Deployment Manager | Resource Manager |
+| **IaC** | CloudFormation / CDK | Bicep / ARM | Infrastructure Manager / Deployment Manager | Resource Manager |
 | **CI/CD** | CodePipeline / CodeBuild | Azure DevOps | Cloud Build | DevOps Service |
 | **Data transfer (bulk)** | Snowball / DataSync | Data Box / Data Factory | Transfer Appliance / Storage Transfer | OCI Data Transfer |
 | **Database migration** | Database Migration Service (DMS) | Azure Database Migration Service | Database Migration Service | OCI Database Migration |
 | **Message queue** | SQS | Service Bus | Cloud Tasks / Pub/Sub | OCI Queue |
 | **Event streaming** | MSK (Kafka) | Event Hubs | Pub/Sub | Streaming (Kafka-compatible) |
-| **Search** | OpenSearch Service | Azure AI Search | — (marketplace) | OCI Search with OpenSearch |
+| **Search** | OpenSearch Service | Azure AI Search | Vertex AI Search | OCI Search with OpenSearch |
 | **Data pipeline (ETL)** | Glue / MWAA | Data Factory / Synapse Pipelines | Dataflow / Cloud Composer | OCI Data Integration |
 | **Monitoring** | CloudWatch | Azure Monitor | Cloud Monitoring | OCI Monitoring |
 | **AI/LLM platform** | Amazon Bedrock | Microsoft Foundry | Gemini Enterprise Agent Platform | OCI Enterprise AI |
@@ -99,7 +99,7 @@ Major CSPs compete with each other while also responding to customer demand for 
 | Category | Description | Details |
 | --- | --- | --- |
 | **Direct network interconnect** | Private connectivity between vendors over a dedicated network. Bypassing the internet benefits both latency and security | [Multicloud Connectivity](../../networking/multicloud-connectivity/) |
-| **Database placement in another cloud** | Native placement of your own DB inside a competitor's data center. You can run apps on AWS/Azure/Google Cloud while using Oracle only for the DB | [Managed RDBMS — Database@Cloud](../../database/managed-rdb/#database-cloud-db) |
+| **Database placement in another cloud** | Native placement of your own DB inside a competitor's data center. You can run apps on AWS/Azure/Google Cloud while using Oracle only for the DB | [Managed RDBMS — Database@Cloud](../../database/managed-rdb/#databasecloud) |
 | **Multicloud management platform** | Unified management of servers, Kubernetes, and DBs in another cloud from your own console. Addresses demand to consolidate operational tooling | See below |
 
 ### Multicloud Management Platforms

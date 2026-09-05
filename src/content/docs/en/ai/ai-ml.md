@@ -3,6 +3,8 @@ title: AI Platforms and Model Comparison
 description: Compare AI platforms, model catalogs, GPU/AI accelerators, and Applied AI services across vendors.
 ---
 
+> Last reviewed: August 2026 | This is a fast-moving area subject to quarterly review.
+
 ## Overview
 
 :::note
@@ -97,7 +99,7 @@ For organizations that need to train and deploy their own models.
 | --- | --- | --- |
 | AWS | P6 (B200), P6e (GB200 UltraServer), P5 (H100), Trn2 (Trainium), Inf2 (Inferentia) | Blackwell: P6-B200 (8×B200), P6e-GB200 (up to 72 GPU NVLink). Training: Trainium, Inference: Inferentia |
 | Azure | ND GB200-v6, ND H200 v5, ND H100 v5 | GB200-v6: Blackwell flagship for DL training/GenAI/HPC |
-| Google Cloud | A4X (GB200 NVL72), A4 (B200), A3 (H100), TPU v5p/v6e | A4X: first cloud GB200 NVL72. TPU: Google's custom AI accelerator |
+| Google Cloud | A4X (GB200 NVL72), A4 (B200), A3 (H100), TPU v5p/v6e/Ironwood | A4X: rack-scale GB200 NVL72. TPU: Google's custom AI accelerator (Ironwood latest) |
 | OCI | GPU Instances (B200, H100, A100) | NVIDIA Blackwell + Bare Metal + RDMA cluster support |
 
 ## Key Differences

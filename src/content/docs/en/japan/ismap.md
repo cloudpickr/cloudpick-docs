@@ -1,6 +1,6 @@
 ---
 title: "ISMAP (Japan Government Cloud Procurement Certification)"
-description: "Covers the overview, registration process, the distinction between ISMAP and ISMAP-LIU, hyperscaler registration status, and implications for Korean companies of Japan's cloud security assessment program for government information systems (ISMAP)."
+description: "Covers the overview, registration process, the distinction between ISMAP and ISMAP-LIU, hyperscaler registration status, and implications for foreign companies of Japan's cloud security assessment program for government information systems (ISMAP)."
 ---
 
 > Last reviewed: August 2026
@@ -9,7 +9,7 @@ description: "Covers the overview, registration process, the distinction between
 
 ISMAP (Information system Security Management and Assessment Program, 政府情報システムのためのセキュリティ評価制度) is a program under which the security level required when Japanese government agencies procure cloud services is assessed and registered in advance. It began operating in June 2020. The National Cybersecurity Office (国家サイバー統括室, NCO — the organization created by reorganizing NISC in July 2025), the Digital Agency (デジタル庁), the Ministry of Internal Affairs and Communications, and the Ministry of Economy, Trade and Industry participate as the responsible ministries, while the Information-technology Promotion Agency (IPA) serves as the operating support body that assists with registration review.
 
-The Japanese government has adopted a cloud-by-default principle (クラウド・バイ・デフォルト原則) through its "Basic Policy on the Appropriate Use of Cloud Services in Government Information Systems," and the Digital Agency's Government Cloud (ガバメントクラウド) — the shared cloud infrastructure for the government — also lists ISMAP registration as a condition of use. In other words, similar to Korea's CSAP (Cloud Security Assurance Program), ISMAP functions as the **de facto entry gate** for public-sector cloud procurement in Japan.
+The Japanese government has adopted a cloud-by-default principle (クラウド・バイ・デフォルト原則) through its "Basic Policy on the Appropriate Use of Cloud Services in Government Information Systems," and the Digital Agency's Government Cloud (ガバメントクラウド) — the shared cloud infrastructure for the government — also lists ISMAP registration as a condition of use. In other words, similar to other government cloud security certifications (such as the US FedRAMP or Korea's CSAP), ISMAP functions as the **de facto entry gate** for public-sector cloud procurement in Japan.
 
 :::note
 ISMAP is a Japan-specific program, separate from international certifications such as ISO 27001 and SOC 2. Even a vendor holding international certifications is, in principle, unable to supply cloud services to Japanese government agencies without ISMAP registration.
@@ -62,13 +62,13 @@ The table above is a summary as of the time it was verified via web search. The 
 
 ISMAP functions less like a certification and more like a **list of procurement-eligible services**. Government agencies are, in principle, required to procure from among the services listed on the ISMAP Cloud Service List or the ISMAP-LIU list, so services not on the list are effectively excluded from government procurement without a separate individual review. ISMAP registration is also a condition of participation in the Government Cloud, so as local government systems increasingly migrate to the Government Cloud, ISMAP's reach is trending to extend beyond the central government to local governments and public bodies as a whole.
 
-## Practical Implications for Entering Japan's Public-Sector SaaS Market
+## Practical Implications for Foreign Companies and Global SaaS Entering Japan's Public Sector
 
 - **Both an entry barrier and a trust signal**: ISMAP is a prerequisite for entering Japan's public sector, but registration itself is also used as a signal that demonstrates security maturity to large private-sector and regulated-industry customers. It is worth considering even for companies that are not targeting public procurement.
 - **Audit and review cost and duration**: selecting an external auditing body, addressing the management standards, IPA's technical review, and the Steering Committee's decision can together take anywhere from several months to nearly a year, so this should be factored into a Japan market-entry roadmap early on.
-- **Room to leverage ISMAP-LIU**: companies starting with a specific-purpose SaaS rather than a government-wide system may find the ISMAP-LIU route relatively less burdensome. However, since the abolition of pre-application in April 2025 has brought the procedure closer to standard ISMAP, the latest requirements should be checked.
+- **Room to leverage ISMAP-LIU**: foreign companies starting with a specific-purpose SaaS rather than a government-wide system may find the ISMAP-LIU route relatively less burdensome. However, since the abolition of pre-application in April 2025 has brought the procedure closer to standard ISMAP, the latest requirements should be checked.
 - **Local entity and local audit response required**: Japanese-language documentation and collaboration with Japan-based auditing bodies are effectively essential during the audit and review process.
-- **Example: Korean Company Registration Cases**: as of the time this document was written, no publicly available cases of Korea-affiliated companies registered on the ISMAP Cloud Service List could be confirmed (verification needed — checking the latest registration status directly on the ISMAP Portal is recommended).
+- **Foreign Company Registration Status**: outside of global hyperscalers, the registration of independent non-Japanese SaaS providers remains relatively limited, making early preparation essential (checking the latest registration status directly on the ISMAP Portal is recommended).
 
 ## References
 

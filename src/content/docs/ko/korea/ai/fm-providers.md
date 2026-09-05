@@ -17,7 +17,7 @@ description: "네이버, LG AI연구원, 카카오, KT, 업스테이지, NC AI, 
 
 | 제공사 | 대표 모델 | 최신 버전(2026.8 기준) | 라이선스 | 주요 제공 채널 |
 | --- | --- | --- | --- | --- |
-| 네이버(클라우드) | HyperCLOVA X | SEED(경량/오픈), THINK(추론 특화), DASH(경량·고속) 라인업. 2025.12 SEED 32B THINK/8B Omni, 2026 상반기 SEED 4B 옴니모달(국방 특화) 공개 | SEED 시리즈 일부(0.5B~3B급)는 오픈소스 공개, 상위 모델은 API 전용 | 네이버클라우드 CLOVA Studio API (Basic/Exclusive/Neurocloud 요금제) |
+| 네이버(클라우드) | HyperCLOVA X | SEED(경량/오픈), THINK(추론 특화), DASH(경량·고속) 라인업. 2025.12 SEED 32B THINK/8B Omni, 2026 상반기 SEED 4B 옴니모달(국방 특화) 공개 | SEED 시리즈 일부(0.5B–3B급)는 오픈소스 공개, 상위 모델은 API 전용 | 네이버클라우드 CLOVA Studio API (Basic/Exclusive/Neurocloud 요금제) |
 | LG AI연구원 | EXAONE | EXAONE 4.0(하이브리드 추론), EXAONE 4.5(멀티모달) | 연구·교육 목적 무료 공개, **상업적 이용은 LG AI Research와 별도 라이선스 계약 필요** | Hugging Face 모델 공개, LG AI Research 자체 API, 교육기관 대상 라이선스 확대 |
 | 카카오 | Kanana | Kanana-2 시리즈(2026.1 업데이트 4종), Kanana-2 경량 SLM 4종(2026.7, 1.3B/3B) | Apache 2.0 기반 Kanana Open License — **상업적 이용 허용** | Hugging Face 오픈소스 배포. 온디바이스 구동 최적화 |
 | KT | 믿:음(Mi:dm) | 믿:음 K 2.5 Pro(2026.2, MWC26 공개). 이전 Mi:dm K 2.0(2025.7)은 Base 11.5B + 온디바이스 Mini 2.3B 구성 | 자체 서비스/B2B 공급 중심(공개 라이선스 정보 제한적) | KT 자체 엔터프라이즈 AI 플랫폼을 통한 B2B·B2G 공급(AICC, 챗봇, 문서인식, 법률·금융 특화 등) |

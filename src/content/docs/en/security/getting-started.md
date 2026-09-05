@@ -3,7 +3,7 @@ title: "Getting Started with Cloud Security"
 description: "A structured reading guide to the security section, organizing the cloud security approach and the areas it protects."
 ---
 
-> Last reviewed: May 2026
+> Last reviewed: August 2026
 
 ## Security Starts with "What to Protect"
 

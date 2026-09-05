@@ -1,13 +1,13 @@
 ---
 title: "APPI (Japan's Act on the Protection of Personal Information)"
-description: "Covers the cross-border transfer requirements under Japan's Act on the Protection of Personal Information (APPI), whether Korea and Japan mutually recognize each other's adequacy, the impact on cloud region selection, handling of My Number, and the 2025–2026 revision trends."
+description: "Covers cross-border transfer requirements under Japan's Act on the Protection of Personal Information (APPI), adequacy recognition status across jurisdictions, cloud region selection impact, handling of My Number, and 2025–2026 revision trends."
 ---
 
 > Last reviewed: August 2026
 
 ## Overview
 
-The Act on the Protection of Personal Information (APPI, 個人情報保護法) is the foundational law that applies broadly to businesses handling personal information in Japan, and it is overseen by the Personal Information Protection Commission (PPC, 個人情報保護委員会). Like Korea's Personal Information Protection Act, it sets out obligations covering the full lifecycle of personal data — collection, use, provision, and retention — and the provision most directly relevant to cloud architecture is the **cross-border transfer regulation (provision to a third party located in a foreign country)** under Article 28.
+The Act on the Protection of Personal Information (APPI, 個人情報保護法) is the foundational law that applies broadly to businesses handling personal information in Japan, and it is overseen by the Personal Information Protection Commission (PPC, 個人情報保護委員会). Like major global data protection frameworks (such as GDPR), it sets out obligations covering the full lifecycle of personal data — collection, use, provision, and retention — and the provision most directly relevant to cloud architecture is the **cross-border transfer regulation (provision to a third party located in a foreign country)** under Article 28.
 
 Japan has no separate law mandating data localization, but in practice the cross-border transfer procedures required under APPI and the obligation to "understand the external environment" (外的環境の把握) have a substantial effect on cloud region selection.
 
@@ -28,25 +28,25 @@ To transfer data without consent, the transferring party must ensure — through
 Transfers to a country or region designated by PPC rule as having "a personal information protection framework equivalent to that of Japan" are permitted without the above procedures. As of August 2026, the **EU and the United Kingdom** are the only jurisdictions to have received this designation, and the designation requirements include regulation comparable to that applying to personal information handlers, the existence of an independent supervisory authority, and the possibility of mutual cooperation.
 
 :::caution
-Korea is not included on this list of "countries designated by rule." In other words, when transferring personal data from Japan to Korea, the country-level special exemption cannot be applied, and either the ① individual consent route or the ② compliant-framework route above must be established individually.
+Jurisdictions outside the EU and the UK — such as the United States, Korea, and Singapore — are not included on this list of "countries designated by rule." Therefore, when transferring personal data from Japan to these jurisdictions, the country-level blanket exemption does not apply, and either ① individual consent or ② a compliant-framework route must be established individually.
 :::
 
-## Whether Korea and Japan Mutually Recognize Each Other's Adequacy
+## Cross-Border Data Transfers and Adequacy Recognition Status
 
-As of August 2026, **no mutual adequacy (equivalence) recognition based on the domestic laws of both countries has been established** between Korea and Japan.
+As of August 2026, the **EU (and EEA) and the United Kingdom** are the only jurisdictions officially designated under Article 28 of Japan's APPI as having an equivalent level of data protection.
 
-- **Japan → Korea direction**: as explained above, Korea is not on the list of countries designated under Article 28 of APPI, so either individual consent or a compliant framework must be established individually.
-- **Korea → Japan direction**: Article 28-8 of Korea's Personal Information Protection Act provides a procedure allowing overseas transfer where the Personal Information Protection Commission recognizes that the level of protection in the recipient country is substantially equivalent to that of Korea, but as of August 2026 there is no confirmed case of Japan having been designated as such an "equivalence-recognized" country. Korea's Personal Information Protection Commission has, in its 2025–2026 policy plans, stated that it is at the stage of reviewing the United States, the United Kingdom, and Japan as candidates for expanded mutual data-transfer cooperation (verification needed — since designation status is fluid, checking the latest official notices is recommended).
-- For reference, the EU issued an adequacy decision for Korea in 2021, and in September 2025 Korea's own recognition of the EU took effect, making the arrangement mutual (the EU announced completion of its first periodic review in July 2026). Japan also received an adequacy decision from the EU in 2019. However, these are each separate bilateral relationships with the EU and are distinct from any direct mutual recognition between Korea and Japan.
+- **Requirements for transfers to non-designated countries**: To transfer personal data to cloud regions or overseas offices in non-designated countries (such as the US or Asia-Pacific nations including Korea and Singapore), organizations must obtain advance individual consent or implement contractual safety measures (such as SCC-equivalent compliant frameworks).
+- **Leveraging APEC CBPR**: Between Japan and other APEC member economies (such as the US, Korea, and Singapore), certification under the APEC Cross-Border Privacy Rules (CBPR) system can be utilized as a recognized compliant framework.
+- **Limitations of mutual adequacy**: Bilateral adequacy arrangements between specific jurisdictions (e.g., Japan–EU mutual recognition or Korea–EU mutual arrangements) do not automatically extend to third countries. For instance, no comprehensive bilateral mutual adequacy agreement exists directly between Korea and Japan, nor between the US and Japan, requiring independent transfer mechanisms.
 
-As long as this situation persists, Korean companies moving Japanese user data to a Korea region, or conversely sending data from a Japanese cloud to Korea, need to design individual mechanisms — such as an SCC-style contract or a consent procedure — at the contract and terms-of-service level.
+Consequently, when global enterprises transfer Japanese user data to overseas regions or configure multi-region cloud architectures, they must incorporate individual mechanisms — such as SCC-style contracts or explicit consent flows — into their terms of service and architecture design.
 
 ## Impact on Cloud Region Selection and Data Residency
 
 APPI does not mandate that data be kept in a specific region, but the following two factors have a substantial practical effect on region selection.
 
 - **Obligation to understand the external environment**: when personal data is stored on a cloud server operated by a foreign business, the operator must understand the personal information protection system of the country where that server is located and reflect the resulting safety-control measures in its disclosure items on the handling of personal information (retained personal information disclosure, related to Article 32). There is an exception under which this is not treated as "provision to a foreign third party" if the cloud provider does not handle the personal data under contract and appropriate access controls are in place, but even in that case the obligation to understand the external environment itself remains.
-- **Practical trend**: to reduce the burden described above, many businesses preferentially choose a Japan region (Tokyo, Osaka, etc.), or at minimum document the legal system of the region where data is stored and disclose it to users. When companies provide cloud services to the Japanese market, deciding on the use of a Japan region at the initial architecture design stage is a way to reduce compliance burden further down the line.
+- **Practical trend**: to reduce the burden described above, many businesses preferentially choose a Japan region (Tokyo, Osaka, etc.), or at minimum document the legal system of the region where data is stored and disclose it to users. When global enterprises provide cloud services to the Japanese market, deciding on the use of a Japan region at the initial architecture design stage is a way to reduce compliance burden further down the line.
 
 ## Handling of My Number and Other Sensitive Information
 
@@ -57,7 +57,7 @@ Japan's My Number (マイナンバー, personal number) system is governed by a 
 - In practice, ISMAP-registered services are often used as a reference benchmark for a security level suitable for handling My Number and other sensitive information. ISMAP itself is not a legal certification for handling My Number, so ultimate suitability must be judged through individual contracts and the design of safety-control measures.
 
 :::note
-My Number (personal number) requirements are similar in character to Korea's resident registration number (unique identifying information) regulations, but the underlying laws and supervisory authorities differ. When entering the Japanese market, it should be kept in mind that APPI compliance alone may not satisfy My Number-related requirements.
+My Number (personal number) requirements are similar in character to statutory national identification numbers in other countries (such as the US SSN or Korea's resident registration number), but they are governed by separate legislation and strict regulatory oversight. When entering the Japanese market, it should be kept in mind that general APPI compliance alone may not satisfy strict My Number-related entrustment and encryption requirements.
 :::
 
 ## 2025–2026 Revision Trends (Triennial Review)
@@ -83,5 +83,5 @@ The 2026 amendment is built around four pillars — promoting appropriate data u
 - [PPC: Cross-Border Transfer of Data Between Japan and the EU/UK (Mutual Recognition)](https://www.ppc.go.jp/enforcement/cooperation/cooperation/sougoninshou/)
 - [PPC: Report on the Review of the EU and UK Designation (March 2023)](https://www.ppc.go.jp/files/pdf/20230322_review_report.pdf)
 - [PPC: FAQ — Understanding the External Environment](https://www.ppc.go.jp/all_faq_index/faq1-q10-25/)
-- [Personal Information Protection Commission (Korea) — Country Information](https://www.pipc.go.kr/np/default/page.do?mCode=D060010000)
-- [Regulation on the Operation of Overseas Transfer of Personal Information (Korea, National Law Information Center)](https://www.law.go.kr/LSW/admRulLsInfoP.do?admRulSeq=2100000230332)
+- [APEC Cross-Border Privacy Rules System](https://www.cbprs.org/)
+

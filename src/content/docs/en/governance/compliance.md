@@ -62,7 +62,7 @@ Each vendor's SOC reports are **confidential materials**, downloaded after a cus
 | Industry | Key regulation | Applicable region | Notes |
 | --- | --- | --- | --- |
 | **Healthcare** | HIPAA, HITRUST | United States | |
-| **Card payments** | PCI DSS v4.0.1 | Global | v4.0 (2024-03-31, superseding v3.2.1) → v4.0.1 (2024-06 errata). As of 2025-03-31, all ~50 previously "future-dated" v4.0 requirements are mandatory |
+| **Card payments** | PCI DSS v4.0.1 | Global | v4.0 (2024-03-31, superseding v3.2.1) → v4.0.1 (2024-06 errata). As of 2025-03-31, all –50 previously "future-dated" v4.0 requirements are mandatory |
 | **Public sector (US)** | FedRAMP / FedRAMP 20x | US federal | 20x: an automation-first process that shortens months-long manual authorization into OSCAL-based, machine-readable evidence and automated verification ([fedramp.gov/20x](https://www.fedramp.gov/20x/)) |
 | **Public sector (EU)** | C5 (Germany), ENS (Spain), etc. | EU | |
 | **Privacy (EU)** | GDPR | EU | |

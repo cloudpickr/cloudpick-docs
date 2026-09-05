@@ -115,7 +115,7 @@ description: "한국 금융·공공 환경에서의 망분리 규정과 클라�
 
 ## 참고하기
 
-- [전자금융감독규정 (금융위원회)](https://www.law.go.kr/행정규칙/전자금융감독규정)
+- [전자금융감독규정 (금융위원회)](https://www.law.go.kr/%ED%96%89%EC%A0%95%EA%B7%9C%EC%B9%99/%EC%A0%84%EC%9E%90%EA%B8%88%EC%9C%B5%EA%B0%90%EB%8F%85%EA%B7%9C%EC%A0%95)
 - [CSAP 클라우드 보안인증 (KISA)](https://isms.kisa.or.kr/main/csap/intro/)
 - [N²SF 국가망보안체계 1.0 보안가이드라인 (국가사이버안보센터 자료실)](https://www.ncsc.go.kr)
 - [국정원, N²SF 보안가이드라인 정식판 공개 (2025.9.30)](https://www.digitaltoday.co.kr/news/articleView.html?idxno=537182)

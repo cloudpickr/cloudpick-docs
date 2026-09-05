@@ -3,7 +3,7 @@ title: "Field Deployment"
 description: "Summarizes the role of Forward Deployed Engineers (FDE), the skills they need, and practical knowledge for multicloud environments."
 ---
 
-> Last reviewed: July 2026
+> Last reviewed: August 2026
 
 A Forward Deployed Engineer (FDE) is embedded directly in a customer's environment to land the product in production. Rather than design or advisory work, they write and own real production code.
 
@@ -38,7 +38,7 @@ FDEs and SAs (Solutions Architects) both connect customers with technology, but 
 
 | Criterion | Solutions Architect (SA) | Forward Deployed Engineer (FDE) |
 | --- | --- | --- |
-| **Primary activity timing** | Pre-sale ~ initial implementation | Post-sale ~ production operations |
+| **Primary activity timing** | Pre-sale – initial implementation | Post-sale – production operations |
 | **Core work** | Architecture design, technical validation, PoC | Writing production code, integration, live operations |
 | **Code ownership** | Low (PoC/demo level) | High (directly owns production code) |
 | **Customer relationship** | Advisory | Embedded |
@@ -192,4 +192,3 @@ As of 2026, how FDEs work is changing.
 - [FDE vs Solutions Architect (2026)](https://fde.academy/blog/forward-deployed-engineer-vs-solutions-architect)
 - [Forbes: AI Giants Bet Billions On FDE (2026)](https://www.forbes.com/sites/janakirammsv/2026/05/28/ai-giants-bet-billions-on-the-most-expensive-job-in-enterprise/)
 - [AWS Forward Deployed Engineering Announcement](https://www.aboutamazon.com/news/aws/aws-1-billion-forward-deployed-ai-engineers)
-- [FDE Hiring Trends 2026](https://www.paraform.com/blog/forward-deployed-engineer-demand-quadrupled)

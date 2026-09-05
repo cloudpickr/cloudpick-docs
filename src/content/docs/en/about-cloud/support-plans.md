@@ -3,7 +3,7 @@ title: "Technical Support and Advisors"
 description: "Compares CSP technical support plans, MSP partner roles, advisor services, and response time SLAs across vendors."
 ---
 
-> Last reviewed: May 2026
+> Last reviewed: August 2026
 
 ## Overview
 

@@ -3,7 +3,7 @@ title: "Getting Started with Cloud"
 description: "Explains the definition of cloud, the IaaS/PaaS/SaaS service models, and the public/private/hybrid deployment models."
 ---
 
-> Last reviewed: May 2026
+> Last reviewed: August 2026
 
 ## Definition of Cloud
 

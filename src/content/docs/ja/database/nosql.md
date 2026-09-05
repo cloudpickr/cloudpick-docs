@@ -3,7 +3,7 @@ title: "NoSQL"
 description: "キー・バリュー、ドキュメント、ワイドカラム、グラフなどNoSQLタイプ別の製品をベンダー別に比較し、キー設計パターンを説明します。"
 ---
 
-> 文書基準: 2026年5月
+> 文書基準: 2026年8月
 
 ## 概要
 
@@ -85,7 +85,7 @@ description: "キー・バリュー、ドキュメント、ワイドカラム、
 **OCI NoSQL Database** — キー・バリュー、ドキュメント、ワイドカラムを1つのサービスでサポートし、サーバーレス容量管理と予測可能な低レイテンシ性能を提供します。
 
 :::note
-グローバル分散DB(DynamoDB Global Tables、Cosmos DB、Spannerなど)の一貫性トレードオフと選択基準は[マネージドRDB — グローバル分散DB](../../database/managed-rdb/#글로벌-분산-db)を参考にしてください。
+グローバル分散DB(DynamoDB Global Tables、Cosmos DB、Spannerなど)の一貫性トレードオフと選択基準は[マネージドRDB — グローバル分散DB](../../database/managed-rdb/#グローバル分散db)を参考にしてください。
 :::
 
 ## 選択ガイド

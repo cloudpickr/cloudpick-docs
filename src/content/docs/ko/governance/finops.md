@@ -142,7 +142,7 @@ FinOps의 출발점은 **누가, 무엇에, 얼마를 썼는가** 를 정확히 
 
 ### 시작 체크리스트
 
-- [ ] 표준 태그 키 세트 정의 (8~10개 이내로 시작, 이후 확장)
+- [ ] 표준 태그 키 세트 정의 (8–10개 이내로 시작, 이후 확장)
 - [ ] 태그 값 허용 목록 문서화 (예: `env` 값은 `prod`/`staging`/`dev`만)
 - [ ] 조직/OU/폴더/컴파트먼트 수준의 상속 정책 적용
 - [ ] IaC 모듈에 필수 태그 입력 강제
@@ -209,7 +209,7 @@ VPC 관련 비용은 숨겨져 있어 예상치 못한 청구가 발생하기 �
 
 | 비용 항목 | 설명 | 대응 |
 | --- | --- | --- |
-| **NAT Gateway** | 시간당 비용 + GB당 처리 비용. 대량 아웃바운드 시 월 수백~수천 달러 | VPC Endpoint로 AWS 서비스 접근 시 NAT 우회 |
+| **NAT Gateway** | 시간당 비용 + GB당 처리 비용. 대량 아웃바운드 시 월 수백–수천 달러 | VPC Endpoint로 AWS 서비스 접근 시 NAT 우회 |
 | **크로스 AZ 트래픽** | 같은 리전이라도 AZ 간 통신은 GB당 과금 | 가능하면 같은 AZ 내 통신 유지, AZ-aware 라우팅 |
 | **VPC Endpoint vs 인터넷 경유** | S3 등 접근 시 NAT Gateway 경유하면 처리 비용 발생 | Gateway Endpoint(S3, DynamoDB)는 무료 |
 | **Transit Gateway** | 시간당 + GB당 데이터 처리 비용 | VPC 피어링(데이터 전송만 과금)과 비교 검토 |
@@ -226,7 +226,7 @@ VPC 관련 비용은 숨겨져 있어 예상치 못한 청구가 발생하기 �
 
 ### 약정 할인 전략
 
-각 벤더는 1년 또는 3년 약정 시 최대 70~72% 할인을 제공합니다. 하지만 약정한 만큼 사용하지 못하면 비용 낭비가 됩니다.
+각 벤더는 1년 또는 3년 약정 시 최대 70–72% 할인을 제공합니다. 하지만 약정한 만큼 사용하지 못하면 비용 낭비가 됩니다.
 
 ### 약정 상품 유형
 
@@ -235,7 +235,7 @@ VPC 관련 비용은 숨겨져 있어 예상치 못한 청구가 발생하기 �
 | **인스턴스 예약** | 특정 인스턴스 타입 고정 | Reserved Instances | Reserved VM Instances | — | — |
 | **사용 금액 약정 (유연)** | 시간당 지출 금액 약정, 인스턴스 유형 변경 가능 | Savings Plans | Savings Plans | CUD (Flexible) | Universal Credits |
 | **자동 할인** | 약정 없이 사용량에 따라 자동 할인 | — | — | SUD (Sustained Use Discount) | — |
-| **스팟/Preemptible** | 중단 가능 대신 60~90% 할인 | Spot Instances | Spot VMs | Spot VMs / Preemptible | Preemptible Instances |
+| **스팟/Preemptible** | 중단 가능 대신 60–90% 할인 | Spot Instances | Spot VMs | Spot VMs / Preemptible | Preemptible Instances |
 
 ### 적용 전략
 

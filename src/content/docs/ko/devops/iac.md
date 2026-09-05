@@ -7,7 +7,7 @@ description: "IaC 개념, 벤더 네이티브/멀티클라우드 도구 비교, 
 
 ## 개요
 
-콘솔에서 클릭으로 인프라를 만들면 빠르지만, 재현이 불가능하고 변경 이력을 추적할 수 없습니다. CLI 스크립트로 자동화해도 "현재 상태가 어떤지"를 코드가 알지 못합니다. 담당자가 바뀌면 "이 서버가 왜 이렇게 설정되어 있는지" 아무도 모르는 상황이 됩니다.
+콘솔에서 클릭으로 인프라를 만들면 빠르지만, 동일 환경 재현이 극히 어렵고 변경 이력을 체계적으로 추적하기 어렵습니다. CLI 스크립트로 자동화해도 "현재 상태가 어떤지"를 코드가 알지 못합니다. 담당자가 바뀌면 "이 서버가 왜 이렇게 설정되어 있는지" 아무도 모르는 상황이 됩니다.
 
 **IaC** (Infrastructure as Code)는 인프라의 원하는 상태를 코드로 정의하여, 버전 관리, 코드 리뷰, 자동 배포, 변경 추적을 가능하게 합니다. 온프레미스에서 서버 설정을 문서로 관리하던 것을, 실행 가능한 코드로 대체하는 것입니다.
 
@@ -32,7 +32,7 @@ description: "IaC 개념, 벤더 네이티브/멀티클라우드 도구 비교, 
 | AWS | CDK (Cloud Development Kit) | TypeScript, Python, Java, Go, C# | 프로그래밍 언어로 CloudFormation 생성 |
 | Azure | Bicep | Bicep DSL | ARM Template의 간결한 대안 |
 | Azure | ARM Templates | JSON | Azure 네이티브. 복잡하지만 완전한 기능 |
-| Google Cloud | Config Connector | Kubernetes YAML | K8s 리소스처럼 Google Cloud 리소스 관리 |
+| Google Cloud | Infrastructure Manager / Config Connector | HCL (Terraform) / K8s YAML | 관리형 Terraform(지원 종료된 Deployment Manager의 후속) 및 K8s 기반 관리 |
 | OCI | OCI Resource Manager | HCL (Terraform) | Terraform 기반. OCI 네이티브 관리형 |
 
 ### 멀티클라우드 IaC
@@ -51,7 +51,7 @@ IaC 도구가 리소스를 관리하려면 각 서비스별 API를 호출해야 
 | --- | --- | --- |
 | AWS | Cloud Control API | 모든 AWS + 3rd party 리소스를 CRUD-L 단일 API로 관리. Terraform 등 IaC 도구의 백엔드로 사용 |
 | Azure | Azure Resource Manager (ARM) REST API | 모든 Azure 리소스를 단일 관리 계층으로 제어. AzAPI Terraform 프로바이더로 직접 호출 가능 |
-| Google Cloud | — (서비스별 개별 API) | Config Connector가 K8s API로 추상화하지만, 통합 CRUD API는 없음 |
+| Google Cloud | Infrastructure Manager API / 개별 API | 관리형 Terraform 실행 API 및 Config Connector(K8s API) 제공 |
 | OCI | OCI Resource Manager API | Terraform State 관리 + 리소스 프로비저닝 API |
 
 AWS Cloud Control API는 Terraform이 새 AWS 리소스를 지원할 때 개별 서비스 API 대신 Cloud Control API를 백엔드로 사용할 수 있어, 새 서비스 출시 시 IaC 지원이 빨라집니다.
@@ -143,7 +143,7 @@ IaC 외부에서 리소스가 수동으로 변경되면 코드와 실제 상태�
 ## 자주 하는 실수
 
 - **콘솔 직접 수정 후 drift 방치** — 콘솔에서 리소스를 수동 변경하면 코드와 실제 상태가 불일치(drift)합니다. 이를 방치하면 다음 `apply` 시 예상치 못한 변경이 발생합니다.
-- **상태 파일 로컬 저장** — `terraform.tfstate`를 로컬에 저장하면 팀 협업이 불가능하고, 파일 유실 시 인프라 관리가 불가능해집니다.
+- **상태 파일 로컬 저장** — `terraform.tfstate`를 로컬에 저장하면 팀 협업이 어렵고, 파일 유실 시 인프라 형상 추적 및 관리가 극히 어려워집니다. 원격 백엔드를 사용하세요.
 - **모듈화 없이 복사-붙여넣기** — 동일한 코드를 여러 환경에 복사하면 변경 시 모든 곳을 수동으로 수정해야 하며, 불일치가 발생합니다.
 - **Azure에서 사용자 계정으로 IaC 실행** — 2025.10부터 Azure CLI/PowerShell/ARM API에 MFA가 강제됩니다. CI/CD 파이프라인이 `az login --identity`(Managed Identity) 또는 서비스 프린시펄 + Federated Credential을 사용하지 않으면 중단됩니다. 상세는 [IAM — Azure MFA 의무화](../../security/iam/)를 참고하세요.
 

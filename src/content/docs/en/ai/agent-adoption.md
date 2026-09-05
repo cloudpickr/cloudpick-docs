@@ -3,6 +3,8 @@ title: Agent Adoption Guide
 description: Enterprise adoption strategy, rollout stages, tool selection, and governance for Desktop/Coding/Autonomous agents.
 ---
 
+> Last reviewed: August 2026
+
 ## Overview
 
 When adopting AI agents in the enterprise, the harder problem is not "which tool to use" but "how to scale adoption safely." This document covers a phased approach to agent adoption, tool selection by role, and governance frameworks.

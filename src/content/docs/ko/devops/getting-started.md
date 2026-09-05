@@ -3,7 +3,7 @@ title: "DevOps 시작하기"
 description: "DevOps의 정의, GitOps, 플랫폼 엔지니어링, SLI/SLO/에러 버짓을 설명합니다."
 ---
 
-> 문서 기준: 2026년 5월
+> 문서 기준: 2026년 8월
 
 ## 개요
 

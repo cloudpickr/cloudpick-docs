@@ -3,7 +3,7 @@ title: "SLI/SLO and Error Budgets"
 description: "Explains the concepts of SLI, SLO, SLA, and error budgets, and how to set them."
 ---
 
-> Last reviewed: May 2026
+> Last reviewed: August 2026
 
 ## Overview
 

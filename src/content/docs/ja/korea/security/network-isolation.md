@@ -115,7 +115,7 @@ description: "韓国の金融・公共環境における網分離規定とクラ
 
 ## 参考資料
 
-- [電子金融監督規定（金融委員会）](https://www.law.go.kr/행정규칙/전자금융감독규정)
+- [電子金融監督規定（金融委員会）](https://www.law.go.kr/%ED%96%89%EC%A0%95%EA%B7%9C%EC%B9%99/%EC%A0%84%EC%9E%90%EA%B8%88%EC%9C%B5%EA%B0%90%EB%8F%85%EA%B7%9C%EC%A0%95)
 - [CSAPクラウドセキュリティ認証（KISA）](https://isms.kisa.or.kr/main/csap/intro/)
 - [N²SF国家網セキュリティ体系1.0セキュリティガイドライン（国家サイバー安保センター資料室）](https://www.ncsc.go.kr)
 - [国家情報院、N²SFセキュリティガイドライン正式版を公開（2025.9.30）](https://www.digitaltoday.co.kr/news/articleView.html?idxno=537182)

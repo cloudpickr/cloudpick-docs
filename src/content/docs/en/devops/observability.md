@@ -3,7 +3,7 @@ title: "Unified Observability Architecture"
 description: "Explains observability architecture patterns for unifying logs, metrics, and traces in a multicloud environment."
 ---
 
-> Last reviewed: May 2026
+> Last reviewed: August 2026
 
 :::note
 For single-cloud monitoring fundamentals, see [Monitoring](../../devops/monitoring/). SLI/SLO/SLA concepts are covered in [SLI/SLO and Error Budgets](../../devops/slo/). This document focuses on **how to unify observability across a multicloud environment**.

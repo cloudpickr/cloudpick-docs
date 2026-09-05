@@ -3,7 +3,7 @@ title: LLM Licensing and Cost Management
 description: FM provider license tiers (Seat/API), 3P reserved capacity, and cost management tools and patterns.
 ---
 
-> Document baseline: August 2026
+> Last reviewed: August 2026
 
 ## Seat Plans vs API Tiers
 

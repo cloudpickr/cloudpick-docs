@@ -3,7 +3,7 @@ title: "Cloud Management Tools (Console, CLI, SDK)"
 description: "Compares the roles of the console, CLI, SDK, and Cloud Shell across vendors, and their relationship to IaC."
 ---
 
-> Last reviewed: May 2026
+> Last reviewed: August 2026
 
 ## Three Ways to Work with the Cloud
 

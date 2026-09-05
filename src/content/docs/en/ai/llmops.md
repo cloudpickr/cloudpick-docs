@@ -3,7 +3,7 @@ title: LLMOps
 description: LLM production operations — evaluation, observability, prompt version management, and cost tracking across vendors.
 ---
 
-> Document baseline: August 2026 | This is a fast-changing area subject to quarterly review.
+> Last reviewed: August 2026 | This is a fast-moving area subject to quarterly review.
 
 ## Overview
 

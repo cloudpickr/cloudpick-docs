@@ -107,7 +107,7 @@ description: "ベンダー別のAIプラットフォーム、モデルカタロ�
 | --- | --- | --- |
 | AWS | P6 (NVIDIA B200), P6e (GB200 UltraServer), P5 (H100), Trn2 (Trainium), Inf2 (Inferentia) | Blackwell: P6-B200(8×B200)、P6e-GB200(最大72 GPU NVLink)。学習: Trainium、推論: Inferentiaでコスト最適化 |
 | Azure | ND GB200-v6, ND H200 v5, ND H100 v5 | GB200-v6: Blackwellフラッグシップ。DL学習/生成AI/HPC |
-| Google Cloud | A4X (GB200 NVL72), A4 (B200), A3 (H100), TPU v5p/v6e | A4: Blackwell単一GPU、A4X: GB200 NVL72初のクラウド提供。TPU: Google自社AIアクセラレータ |
+| Google Cloud | A4X (GB200 NVL72), A4 (B200), A3 (H100), TPU v5p/v6e/Ironwood | A4: Blackwell単一GPU、A4X: GB200 NVL72ラックスケール提供。TPU: Google自社AIアクセラレータ（Ironwood最新） |
 | OCI | GPU Instances (B200, H100, A100) | NVIDIA Blackwell + Bare Metal + RDMAクラスター対応 |
 
 ## 主な違い
@@ -192,7 +192,7 @@ AIサービスは他のクラウドサービスよりも**変更頻度が非常�
 
 ## マルチクラウドモデルアクセスの変化 (2025-2026)
 
-2025~2026年にかけて、モデル提供社とクラウドベンダー間の関係が変化しています。最大の変化はOpenAI-Microsoft独占の終了であり、その他の提供社もチャネルを拡大しています。
+2025～2026年にかけて、モデル提供社とクラウドベンダー間の関係が変化しています。最大の変化はOpenAI-Microsoft独占の終了であり、その他の提供社もチャネルを拡大しています。
 
 | 時期 | イベント | 影響 |
 | --- | --- | --- |
@@ -216,7 +216,7 @@ AIサービスは他のクラウドサービスよりも**変更頻度が非常�
 | **Flex/バッチ推論** | レイテンシに敏感でないワークロードを低優先度で処理してコスト削減 | Bedrock Flex Inference, Azure Batch API, Vertex Batch Predictions |
 | **モデルルーティング** | 単純なクエリは軽量モデル(Flash/Haiku/mini)、複雑なクエリのみ高性能モデルに分岐 | Bedrock IntelligentPromptRouter, 自社構築 |
 | **プロンプトキャッシング** | 同一のシステムプロンプト/コンテキストをキャッシュして繰り返しトークンのコストを削減 | Anthropic Prompt Caching, OpenAI Cached Tokens, Gemini Context Caching |
-| **長期コンテキスト vs RAG** | モデルのコンテキストウィンドウ拡張(1~2M+トークン)によりRAGなしでも十分な場合が発生 | Gemini 3.5 Pro, Claude Opus系 |
+| **長期コンテキスト vs RAG** | モデルのコンテキストウィンドウ拡張(1～2M+トークン)によりRAGなしでも十分な場合が発生 | Gemini 3.5 Pro, Claude Opus系 |
 | **GPU価格競争** | ハイパースケーラー間でのGPUインスタンス価格引き下げ傾向 | AWS, Azure, GCP競争的値下げ |
 
 :::note

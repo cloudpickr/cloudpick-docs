@@ -60,7 +60,7 @@ Following the release of N²SF (National Network Security Framework) 1.0 in Sept
 :::
 
 :::note
-Detailed requirements per CSAP tier, hyperscaler and domestic CSP certification status, and developments toward the National Intelligence Service's unified verification system planned for 2027 are covered in depth in [CSAP (Cloud Security Assurance Program)](../security/csap/).
+Detailed requirements per CSAP tier, hyperscaler and domestic CSP certification status, and developments toward the National Intelligence Service's unified verification system planned for 2027 are covered in depth in [CSAP (Cloud Security Assurance Program)](../../../korea/security/csap/).
 :::
 
 ## Financial Sector Regulations

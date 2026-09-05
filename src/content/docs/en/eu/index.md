@@ -7,7 +7,7 @@ description: "A regulatory guide to GDPR, DORA, NIS2, and the EU AI Act for ente
 
 ## Overview
 
-This section is a regulatory guide for Korean enterprise architects who are deploying cloud workloads into the EU (European Union) market or dealing with EU customers and financial institutions. While the earlier vendor-neutral documents covered globally common architecture, this guide focuses on the **EU's distinctive legal and regulatory environment** and its implications for landing zones, data placement, and vendor selection.
+This section is a regulatory guide for global enterprise architects who are deploying cloud workloads into the EU (European Union) market or dealing with EU customers and financial institutions. While the earlier vendor-neutral documents covered globally common architecture, this guide focuses on the **EU's distinctive legal and regulatory environment** and its implications for landing zones, data placement, and vendor selection.
 
 ## Topics Covered
 
@@ -19,7 +19,7 @@ This section is a regulatory guide for Korean enterprise architects who are depl
 
 ## Why EU Regulation Has Surged Now
 
-Between 2025 and 2026, the density of EU cloud- and AI-related regulation increased markedly. DORA began to apply (January 2025) and CTPPs were designated (November 2025); Microsoft completed the EU Data Boundary (February 2025); AWS European Sovereign Cloud went live (January 2026); and the EU AI Act took effect in stages (prohibited practices in February 2025, GPAI in August 2025) — all in quick succession. At the same time, matters that remain unsettled, such as the EUCS certification scheme and the proposed Cybersecurity Act 2 (CSA2) amendment (January 2026), are progressing in parallel. This is the result of the "Digital Sovereignty" policy stance that strengthened after the war in Ukraine converging with a wave of framework legislation enacted in the early 2020s (DORA, NIS2, and the AI Act, following GDPR) that has, after transition periods, entered its application phase all at once. For Korean companies, it is important to track and distinguish which regulations are already finalized and in effect from those that remain in flux.
+Between 2025 and 2026, the density of EU cloud- and AI-related regulation increased markedly. DORA began to apply (January 2025) and CTPPs were designated (November 2025); Microsoft completed the EU Data Boundary (February 2025); AWS European Sovereign Cloud went live (January 2026); and the EU AI Act took effect in stages (prohibited practices in February 2025, GPAI in August 2025) — all in quick succession. At the same time, matters that remain unsettled, such as the EUCS certification scheme and the proposed Cybersecurity Act 2 (CSA2) amendment (January 2026), are progressing in parallel. This is the result of the "Digital Sovereignty" policy stance that strengthened after the war in Ukraine converging with a wave of framework legislation enacted in the early 2020s (DORA, NIS2, and the AI Act, following GDPR) that has, after transition periods, entered its application phase all at once. For global companies, it is important to track and distinguish which regulations are already finalized and in effect from those that remain in flux.
 
 :::note
 This section covers a fast-moving regulatory landscape. We recommend checking the latest announcements directly through the official sources listed in the "References" section at the bottom of each document.
@@ -27,6 +27,6 @@ This section covers a fast-moving regulatory landscape. We recommend checking th
 
 ## Related Documents
 
-- [Compliance](../../governance/compliance/)
-- [Vendor Lock-in and Exit Strategy](../../governance/exit-strategy/)
-- [Landing Zone — Sovereign Landing Zone](../../governance/landing-zone/#sovereign-landing-zone)
+- [Compliance](../governance/compliance/)
+- [Vendor Lock-in and Exit Strategy](../governance/exit-strategy/)
+- [Landing Zone — Sovereign Landing Zone](../governance/landing-zone/#sovereign-landing-zone)

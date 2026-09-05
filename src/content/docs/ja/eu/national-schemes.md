@@ -45,7 +45,7 @@ SecNumCloud 3.2が他の国別スキームと最も大きく異なる点は、**
 | **S3NS** (Thales × Google Cloud 合弁会社) | Google Cloud | **2025年12月17日にSecNumCloud 3.2資格を取得** — PREMI3NSサービスでIaaS・CaaS・PaaSの20以上のサービスを同時に認証取得した最初の事例。2026年上半期中にCloud Run・Cloud Build・Cloud Spanner・Bigtableなどを含む第2次拡張審査を実施中 |
 | **Bleu** (Capgemini × Orange 合弁会社) | Microsoft Azure/M365 | 審査第1段階(J0、申請受理)を通過し、2026年上半期の資格取得を目標に審査を進行中。**2026年8月時点で完全なSecNumCloud 3.2資格はまだ取得していない** |
 
-全体として2026年7月時点で**9~10社**(OVHcloud、3DS Outscale、Cloud Temple、Orange Business、Cegedim.cloud、Worldline、Oodrive、Whaller、S3NSなど — 集計基準によって異なり、ANSSI公式カタログのサービス種別ごとの集計では10社の事業者名まで確認されている)がSecNumCloud 3.2資格を保有しており、Bleu・Scaleway・NumSpotなど**12社**が審査中です。
+全体として2026年7月時点で**9～10社**(OVHcloud、3DS Outscale、Cloud Temple、Orange Business、Cegedim.cloud、Worldline、Oodrive、Whaller、S3NSなど — 集計基準によって異なり、ANSSI公式カタログのサービス種別ごとの集計では10社の事業者名まで確認されている)がSecNumCloud 3.2資格を保有しており、Bleu・Scaleway・NumSpotなど**12社**が審査中です。
 
 ## スペイン — ENS
 

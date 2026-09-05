@@ -32,7 +32,7 @@ Creating infrastructure with console clicks is fast, but it's not reproducible a
 | AWS | CDK (Cloud Development Kit) | TypeScript, Python, Java, Go, C# | Generates CloudFormation from a programming language |
 | Azure | Bicep | Bicep DSL | A concise alternative to ARM Templates |
 | Azure | ARM Templates | JSON | Azure-native. Complex but full-featured |
-| Google Cloud | Config Connector | Kubernetes YAML | Manages Google Cloud resources like K8s resources |
+| Google Cloud | Infrastructure Manager / Config Connector | HCL (Terraform) / K8s YAML | Managed Terraform service (successor to the discontinued Deployment Manager) and K8s-based management |
 | OCI | OCI Resource Manager | HCL (Terraform) | Terraform-based. OCI-native managed offering |
 
 ### Multicloud IaC
@@ -51,7 +51,7 @@ For an IaC tool to manage resources, it must call each service's individual API.
 | --- | --- | --- |
 | AWS | Cloud Control API | Manages all AWS + 3rd-party resources through a single CRUD-L API. Used as a backend by IaC tools like Terraform |
 | Azure | Azure Resource Manager (ARM) REST API | Controls every Azure resource through a single management layer. Can be called directly via the AzAPI Terraform provider |
-| Google Cloud | — (individual per-service APIs) | Config Connector abstracts via the K8s API, but there's no unified CRUD API |
+| Google Cloud | Infrastructure Manager API / individual APIs | Managed Terraform execution API and Config Connector (K8s API) |
 | OCI | OCI Resource Manager API | Terraform state management + resource provisioning API |
 
 Because Terraform can use Cloud Control API as the backend for new AWS resources instead of an individual service API, IaC support for newly released services arrives faster.

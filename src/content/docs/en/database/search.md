@@ -3,7 +3,7 @@ title: "Search and Log Analytics"
 description: "Compares full-text search, vector search, and log analytics services across vendors."
 ---
 
-> Last reviewed: May 2026
+> Last reviewed: August 2026
 
 ## Overview
 
@@ -73,19 +73,19 @@ This document focuses on full-text search and log analytics.
 | AI-based question answering (RAG) | [Vector Store](../../ai/vector-store/) + hybrid search |
 | Large-scale log search + dashboards | OpenSearch (Dashboards), Log Analytics, Cloud Logging |
 | Cost-minimized long-term log retention + querying | S3 + Athena, BigQuery, OCI Object Storage + Logging Analytics |
-| Korean morphological analysis needed | OpenSearch (nori plugin), Azure AI Search (Korean analyzer) |
+| Multilingual and CJK morphological analysis needed | OpenSearch (nori, kuromoji plugins), Azure AI Search (language-specific analyzers) |
 
 ## Common mistakes
 
 - **Trying to replace full-text search with the RDB's LIKE search** — As data grows, this causes performance to degrade sharply due to full table scans. Adopt a search engine if you need full-text search.
-- **Setting an excessive number of shards** — In OpenSearch/Elasticsearch, too many shards increases cluster overhead. Design around 10-50GB per shard.
+- **Setting an excessive number of shards** — In OpenSearch/Elasticsearch, too many shards increases cluster overhead. Design around 10–50GB per shard.
 - **Setting log retention to unlimited** — Permanently storing all logs in a search engine causes storage cost to explode. Use hot/warm/cold tiers and move older logs to object storage.
 
 ## Checklist
 
 - [ ] Have you defined your search requirements (keyword/semantic/hybrid) and chosen a suitable service?
 - [ ] Have you set an index lifecycle management (ILM) policy and log retention period?
-- [ ] If Korean search is needed, have you configured a morphological analyzer (nori, etc.)?
+- [ ] If multilingual or CJK search is needed, have you configured an appropriate morphological analyzer (nori, kuromoji, etc.)?
 
 ## References
 

@@ -3,7 +3,7 @@ title: Prompt Engineering
 description: Core prompt engineering patterns (Few-shot, Chain-of-Thought, ReAct) with links to vendor official guides.
 ---
 
-> Document baseline: August 2026
+> Last reviewed: August 2026
 
 :::note
 New to LLMs/prompts? Read [Getting Started with AI](../../ai/getting-started/) first.

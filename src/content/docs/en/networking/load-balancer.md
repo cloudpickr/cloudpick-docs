@@ -3,7 +3,7 @@ title: "Load Balancer"
 description: "Compares L4/L7/global load balancers, SSL/TLS handling, and health-check design across vendors."
 ---
 
-> Last reviewed: May 2026
+> Last reviewed: August 2026
 
 ## Overview
 

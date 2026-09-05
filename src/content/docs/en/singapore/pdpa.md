@@ -38,7 +38,7 @@ On **April 14, 2026**, the PDPC issued a revised guide on cross-border data tran
 - Instead of negotiating and reviewing individual contracts (similar to SCC-style clauses) for every transaction, a route where **certification alone establishes the legal basis for a cross-border transfer** is clearly laid out.
 
 :::caution
-CBPR and PRP are certification schemes recognized only among APEC member economies. Where the destination country or company does not participate in the APEC CBPR/PRP certification system, existing mechanisms such as contractual clauses or BCRs still need to be used. Korea participates in the APEC CBPR system, so it is worth evaluating the practical benefit of this certification route when designing data transfers with a Korea region or Korea-based affiliates.
+CBPR and PRP are certification schemes recognized only among APEC member economies. Where the destination country or company does not participate in the APEC CBPR/PRP certification system, existing mechanisms such as contractual clauses or BCRs still need to be used. Major economies including the US, Korea, and Japan participate in the APEC CBPR system, so it is worth evaluating the practical benefit of this certification route when designing cross-border data transfers with these jurisdictions.
 :::
 
 ## Practical Implications for ASEAN Region Design

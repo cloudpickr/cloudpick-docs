@@ -3,7 +3,7 @@ title: "현장 배포 (Field Deployment)"
 description: "현장 배포 엔지니어(FDE)의 역할, 필요 역량, 그리고 멀티클라우드 환경에서의 실무 지식을 정리합니다."
 ---
 
-> 문서 기준: 2026년 7월
+> 문서 기준: 2026년 8월
 
 현장 배포 엔지니어(Forward Deployment Engineer, FDE)는 고객 환경에 직접 임베드되어 제품을 프로덕션에 안착시키는 역할입니다. 설계나 자문이 아닌, 실제 프로덕션 코드를 작성하고 소유합니다.
 
@@ -28,7 +28,7 @@ Palantir가 2000년대 중반, 미국 정보기관에 Gotham을 배포하면서 
 | 2026년 5월 | OpenAI Deployment Company 설립 (TPG 주도 투자) | ~$4B |
 | 2026년 5월 | Anthropic 엔터프라이즈 서비스 JV "Ode" (Blackstone, Goldman Sachs) | ~$1.5B |
 | 2026년 6월 | AWS Forward Deployed Engineering 조직 신설 | ~$1B |
-| 2025-2026 | FDE 채용 공고 전년 대비 800%~1,000%+ 증가 | 39+ 기업, 220+ 오픈 포지션 |
+| 2025-2026 | FDE 채용 공고 전년 대비 800%–1,000%+ 증가 | 39+ 기업, 220+ 오픈 포지션 |
 
 ---
 
@@ -38,7 +38,7 @@ FDE와 SA(Solutions Architect)는 모두 고객과 기술을 연결하지만, �
 
 | 기준 | Solutions Architect (SA) | Forward Deployment Engineer (FDE) |
 | --- | --- | --- |
-| **주 활동 시점** | 프리세일 ~ 초기 구현 | 포스트세일 ~ 프로덕션 운영 |
+| **주 활동 시점** | 프리세일 – 초기 구현 | 포스트세일 – 프로덕션 운영 |
 | **핵심 업무** | 아키텍처 설계, 기술 검증, PoC | 프로덕션 코드 작성, 통합, 라이브 운영 |
 | **코드 소유** | 낮음 (PoC/데모 수준) | 높음 (프로덕션 코드 직접 소유) |
 | **고객 관계** | 자문형 (Advisory) | 임베드형 (Embedded) |
@@ -62,14 +62,14 @@ FDE와 SI(System Integrator)는 모두 고객 현장에서 코드를 작성하�
 | **소속** | 제품 회사 (모델사, SaaS 벤더) | 별도 컨설팅/SI 법인 |
 | **목적** | 자사 제품을 고객 환경에 안착시키고, 제품 피드백을 본사에 환류 | SOW(작업 명세서) 범위의 시스템을 납기 내 구축·납품 |
 | **코드 소유** | 제품 코어에 기여 가능. 재사용 가능한 패턴을 제품에 환류 | 고객 소유. 프로젝트 종료 후 유지보수 계약으로 전환 |
-| **기간** | 제품이 안착할 때까지 (수주~수개월, 반복) | SOW 기간 (수개월~수년, 종료 명확) |
+| **기간** | 제품이 안착할 때까지 (수주–수개월, 반복) | SOW 기간 (수개월–수년, 종료 명확) |
 | **성공 지표** | 제품 채택률, TTV, 제품 개선에 기여 | 납기 준수, 인수 테스트 통과, 검수 |
-| **인력 모델** | 소수 정예 (1~3명) | 대규모 투입 (수십~수백 명) |
+| **인력 모델** | 소수 정예 (1–3명) | 대규모 투입 (수십–수백 명) |
 | **플레이북** | 없음 (플레이북이 아직 없는 곳에서 일함) | 있음 (방법론, 산출물 템플릿) |
 | **제품 피드백** | 핵심 역할 — 현장 문제를 제품 로드맵에 반영 | 제한적 — 벤더와 별도 조직 |
 
 :::note
-공공·금융 대형 프로젝트에서는 현지 SI가 전체 시스템을 구축하고, FDE는 자사 AI/SaaS 통합만 담당하는 **협업** 구조가 흔합니다. 국가별 SI·조달 구도는 [한국](../../korea/index/) · [미국](../../us/index/) · [EU](../../eu/index/) · [일본](../../japan/index/) · [싱가포르](../../singapore/index/) 가이드를 참고하세요.
+공공·금융 대형 프로젝트에서는 현지 SI가 전체 시스템을 구축하고, FDE는 자사 AI/SaaS 통합만 담당하는 **협업** 구조가 흔합니다. 국가별 SI·조달 구도는 [한국](../../korea/) · [미국](../../us/) · [EU](../../eu/) · [일본](../../japan/) · [싱가포르](../../singapore/) 가이드를 참고하세요.
 :::
 
 :::caution
@@ -163,7 +163,7 @@ FDE가 프로덕션 코드를 소유한다면, 운영도 함께 알아야 합니
 
 2026년 기준, FDE의 업무 방식이 변하고 있습니다.
 
-**이전**: 현장에서 직접 글루코드 작성, 수동 통합, 수 주~수 개월 소요
+**이전**: 현장에서 직접 글루코드 작성, 수동 통합, 수 주–수 개월 소요
 
 **현재**: 소규모 인간 팀 + AI 에이전트 조합
 - 에이전트가 스캐폴딩, 평가(eval), 장기 워크플로우 수행
@@ -192,4 +192,3 @@ FDE가 프로덕션 코드를 소유한다면, 운영도 함께 알아야 합니
 - [FDE vs Solutions Architect (2026)](https://fde.academy/blog/forward-deployed-engineer-vs-solutions-architect)
 - [Forbes: AI Giants Bet Billions On FDE (2026)](https://www.forbes.com/sites/janakirammsv/2026/05/28/ai-giants-bet-billions-on-the-most-expensive-job-in-enterprise/)
 - [AWS Forward Deployed Engineering 발표](https://www.aboutamazon.com/news/aws/aws-1-billion-forward-deployed-ai-engineers)
-- [FDE Hiring Trends 2026](https://www.paraform.com/blog/forward-deployed-engineer-demand-quadrupled)

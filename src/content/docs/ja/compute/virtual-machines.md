@@ -3,15 +3,15 @@ title: "仮想マシン"
 description: "汎用、Arm、GPU仮想マシン製品とイメージ(OSテンプレート)をベンダー別に比較します。"
 ---
 
-> 文書基準: 2026年7月
+> 文書基準: 2026年8月
 
 ## 概要
 
-自社データセンターでサーバーを運用するには、ハードウェアの購入、設置、OS設定、ネットワーク構成を自ら行う必要があります。機器の導入には数週間かかり、スペックを変更するには物理的に交換しなければなりません。
+自社データセンターでサーバーを運用するには、ハードウェアの購入、設置、OS設定、ネットワーク構成を自ら行う必要があります。機器導入に数週間かかり、スペックを変更するには物理的に交換する必要があります。
 
-**仮想マシン** (VM)は、このプロセスをソフトウェアで代替します。数分で希望のスペックのサーバーを作成し、不要になれば即座に削除できます。物理サーバーの柔軟性の問題を解決した、クラウドの最も基本的なサービスです。
+**仮想マシン** (VM)はこのプロセスをソフトウェアで代替します。数分で希望スペックのサーバーを作成し、不要になれば即座に削除できます。物理サーバーの柔軟性の問題を解決した、クラウドの最も基本的なサービスです。
 
-ただしVMは依然として、OSパッチ、セキュリティ設定、障害対応をユーザーが直接管理する必要があります。この管理負担を減らすために、コンテナやサーバーレスといったより高いレベルの抽象化が登場しました。
+ただし、VMでもOSパッチ、セキュリティ設定、障害対応はユーザー自身が管理する必要があります。この管理負担を軽減するために、コンテナやサーバーレスといった、より高い抽象化レイヤーが登場しました。
 
 ## 製品比較
 
@@ -19,18 +19,18 @@ description: "汎用、Arm、GPU仮想マシン製品とイメージ(OSテンプ
 
 | ベンダー | 製品 | 備考 |
 | --- | --- | --- |
-| AWS | EC2 (Elastic Compute Cloud) | 400種類以上のインスタンスタイプ。汎用・コンピューティング・メモリ・GPUなど細分化 |
-| Azure | Virtual Machines | Windowsワークロードに強み (Hybrid Benefit) |
-| Google Cloud | Compute Engine | Custom Machine TypeでCPU/メモリを自由に組み合わせ |
+| AWS | EC2 (M/C/Rインスタンス) | インスタンスタイプが最も多様。1秒単位の課金 |
+| Azure | Virtual Machines (D/F/Eシリーズ) | Windowsワークロードに強み (Azure Hybrid Benefitによるライセンス節約) |
+| Google Cloud | Compute Engine (N/C/E/Mマシンシリーズ) | Custom Machine Type (CPU/メモリ比率を自由に指定) |
 | OCI | OCI Compute | Flexible ShapeでCPU/メモリを自由に組み合わせ。Ampere A1無料枠 |
 
 ### Armベース VM
 
 | ベンダー | 製品 | 備考 |
 | --- | --- | --- |
-| AWS | EC2 Graviton (t4g、m7gなど) | 自社設計のArmプロセッサ。x86に比べ高いコストパフォーマンス |
-| Azure | Dpsv5/Dplsv5シリーズ | Ampere Altraベース |
-| Google Cloud | Tau T2A | Armベースの汎用 |
+| AWS | EC2 Graviton (最新 m9g/c9g/r9g、m8g、t4gなど) | 自社設計のArmプロセッサ(最新Graviton5、旧世代Graviton4/3/2も併行提供)。x86に比べ高いコストパフォーマンス |
+| Azure | Cobalt 100 (Dpsv6など) / Dpsv5シリーズ | 自社設計Cobalt 100およびAmpere Altraベース |
+| Google Cloud | Axion (C4A) / Tau T2A | 自社設計AxionおよびArmベース汎用 |
 | OCI | Ampere A1 Compute | Ampere Altraベース。無料枠を提供 |
 
 ### GPU / AIアクセラレータ
@@ -39,7 +39,7 @@ description: "汎用、Arm、GPU仮想マシン製品とイメージ(OSテンプ
 | --- | --- | --- |
 | AWS | P5、**G7**、G5、Inf2、Trn1/Trn2 | NVIDIA (H100、**RTX PRO 4500 Blackwell**) + 自社チップ(Inferentia、Trainium)。G7は主要クラウド初のRTX PRO Blackwell提供 |
 | Azure | NC、ND、NVシリーズ | NVIDIA A100、H100 |
-| Google Cloud | A3、A2、G2シリーズ + TPU v8 | NVIDIA H100 + 自社TPU (v8世代最新) |
+| Google Cloud | A3、A2、G2シリーズ + TPU (v5p/v6e/Ironwood) | NVIDIA H100 + 自社TPU (第7世代Ironwood/TPU7x最新) |
 | OCI | GPU Instances (A10、A100、H100) | NVIDIA GPU。Bare Metalオプション提供 |
 
 ### イメージ (OSテンプレート)

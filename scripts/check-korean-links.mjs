@@ -6,6 +6,7 @@ import { pathToFileURL } from 'node:url';
 
 const MAX_URLS_PER_REQUEST = 10;
 const MAX_REQUESTS_PER_RUN = 20;
+const OIDC_AUDIENCE = 'ncp://cloudpick-link-checker';
 const ALLOWED_HOST_SUFFIXES = Object.freeze([
   'go.kr',
   'or.kr',
@@ -70,7 +71,32 @@ export function validateEndpoint(rawUrl) {
   return endpoint;
 }
 
-export async function checkChunks(urls, endpoint, apiKey, fetchImpl = globalThis.fetch) {
+export async function getGithubOidcToken(env, fetchImpl = globalThis.fetch) {
+  const requestUrl = (env.ACTIONS_ID_TOKEN_REQUEST_URL || '').trim();
+  const requestToken = (env.ACTIONS_ID_TOKEN_REQUEST_TOKEN || '').trim();
+  if (!requestUrl || !requestToken) throw new Error('GitHub OIDC environment is unavailable');
+  const endpoint = new URL(requestUrl);
+  endpoint.searchParams.set('audience', OIDC_AUDIENCE);
+  const response = await fetchImpl(endpoint, {
+    method: 'GET',
+    signal: AbortSignal.timeout(10_000),
+    headers: { Authorization: `Bearer ${requestToken}` },
+  });
+  if (!response.ok) throw new Error(`GitHub OIDC returned HTTP ${response.status}`);
+  const payload = await response.json();
+  if (!payload || typeof payload.value !== 'string' || payload.value.split('.').length !== 3) {
+    throw new Error('GitHub OIDC returned an invalid token');
+  }
+  return payload.value;
+}
+
+export async function checkChunks(
+  urls,
+  endpoint,
+  apiKey,
+  oidcToken,
+  fetchImpl = globalThis.fetch,
+) {
   const chunks = [];
   for (let offset = 0; offset < urls.length; offset += MAX_URLS_PER_REQUEST) {
     chunks.push(urls.slice(offset, offset + MAX_URLS_PER_REQUEST));
@@ -85,6 +111,7 @@ export async function checkChunks(urls, endpoint, apiKey, fetchImpl = globalThis
       headers: {
         'Content-Type': 'application/json',
         'x-ncp-apigw-api-key': apiKey,
+        Authorization: `Bearer ${oidcToken}`,
       },
       body: JSON.stringify({ urls: chunk }),
     });
@@ -122,7 +149,8 @@ export async function run(env = process.env, fetchImpl = globalThis.fetch) {
 
   let results;
   try {
-    results = await checkChunks(urls, endpoint, apiKey, fetchImpl);
+    const oidcToken = await getGithubOidcToken(env, fetchImpl);
+    results = await checkChunks(urls, endpoint, apiKey, oidcToken, fetchImpl);
   } catch (error) {
     console.log(`::warning::NCP Korean link check was inconclusive: ${error.message}`);
     return 0;

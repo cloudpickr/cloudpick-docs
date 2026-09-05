@@ -31,9 +31,11 @@ jobs:
   link-check:
     runs-on: ubuntu-latest
     permissions:
+      contents: read
+      id-token: write
       issues: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Test Korean link checker adapter
         run: node --test scripts/check-korean-links.test.mjs

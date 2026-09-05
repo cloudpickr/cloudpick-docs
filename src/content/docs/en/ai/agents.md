@@ -7,6 +7,10 @@ description: Concepts, architecture, protocols, vendor platforms, and comparison
 
 ## From Prompting to Agents
 
+:::note[Prerequisites and related documents]
+If you are new to AI, read [Getting Started with AI](../../ai/getting-started/) and [Prompt Engineering](../../ai/prompt-engineering/) first. This document focuses on the concepts, architecture, and vendor platforms of autonomous agents that build on top of them. For organizational adoption strategy, see the [Agent Adoption Guide](../../ai/agent-adoption/).
+:::
+
 Traditional LLMs follow a **single prompt → single response** pattern. AI agents have an **autonomous execution loop**: given a goal, they plan, call tools, verify results, and retry if needed.
 
 | Aspect | LLM Prompting | AI Agent |

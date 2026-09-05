@@ -7,6 +7,10 @@ description: "データパイプライン(ETL/ELT)の概念、ベンダー別サ
 
 ## 概要
 
+:::note[前提知識と関連ドキュメント]
+パイプラインのソースとなるデータストアは[マネージドRDB](../../database/managed-rdb/)・[NoSQL](../../database/nosql/)、収集層であるイベントストリーミングは[メッセージング](../../database/messaging/)、最終的な格納先である分析プラットフォームは[分析](../../database/analytics/)を参照してください。本ドキュメントは、データを移動・加工するETL/ELTパイプラインに焦点を当てます。
+:::
+
 元データを[分析プラットフォーム](../../database/analytics/)やMLパイプラインで使用するには、**抽出(Extract) → 変換(Transform) → 格納(Load)** の過程が必要です。
 
 | 区分 | ETL | ELT |

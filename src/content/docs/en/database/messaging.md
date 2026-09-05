@@ -7,6 +7,10 @@ description: "Compares the concept of message queues and event streaming, vendor
 
 ## Overview
 
+:::note[Prerequisites and related documents]
+Messaging and event streaming (Kafka, SQS, EventBridge) are not merely a communication mechanism — they are core data-architecture components for transaction decoupling between databases (Saga), real-time change data capture (CDC), and the ingestion layer of [data pipelines](../../database/data-pipeline/). This document compares asynchronous messaging and streaming engines from that perspective. For event-driven architecture design, see [Modernization](../../compute/modernization/).
+:::
+
 ### An easy way to understand it
 
 A **message queue** is like a restaurant's order slip. When the front of house (producer) puts up a slip, it piles up while the kitchen (consumer) is busy, and gets processed in order once there's capacity. The front of house doesn't need to know the kitchen's state.

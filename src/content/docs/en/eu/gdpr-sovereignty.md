@@ -7,6 +7,10 @@ description: "Covers the GDPR cross-border transfer framework, the EU Data Bound
 
 ## Overview
 
+:::note[Prerequisites and related documents]
+For EU cloud regulation overall, see the [EU Guide](../../eu/); for general data protection principles, see [Data Protection](../../security/data-protection/) first. This document focuses on the GDPR cross-border transfer framework and sovereign cloud options.
+:::
+
 The General Data Protection Regulation (GDPR) has continued to evolve since taking effect in 2018. Changes in recent years have shown up less in the statutory text itself than in the strengthening of demands around **"where personal data is physically processed, and by whom."** This document outlines the cross-border transfer framework encountered when global enterprises expand cloud workloads to the EU or process EU customer data, and examines the "Sovereign Cloud" options that have emerged against this backdrop.
 
 ## GDPR Cross-Border Transfer Framework

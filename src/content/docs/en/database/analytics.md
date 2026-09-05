@@ -7,6 +7,10 @@ description: "Compares data warehouses, data lakehouses, and analytics platforms
 
 ## Overview
 
+:::note[Prerequisites and related documents]
+For transactional database selection, see [Managed RDB](../../database/managed-rdb/) and [NoSQL](../../database/nosql/) first. Data ingestion and transformation connect to [Data Pipelines](../../database/data-pipeline/). This document focuses on analytics (OLAP) workloads such as large-scale aggregation, BI, and data warehousing.
+:::
+
 ### OLTP vs. OLAP — why they're separated
 
 Operational databases ([managed RDB](../../database/managed-rdb/), [NoSQL](../../database/nosql/)) are optimized for transaction processing (OLTP). Aggregating and analyzing large volumes of data requires a separate analytics platform (OLAP).

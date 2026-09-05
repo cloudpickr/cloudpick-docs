@@ -5,9 +5,13 @@ description: "Explains transit architectures such as Hub-and-Spoke, Cross-Cloud 
 
 > Last reviewed: August 2026
 
-:::note
-For an overview of connectivity methods and CIDR design, see [Multicloud Network Design Fundamentals](../../networking/multicloud-networking/).
+:::note[Prerequisites and related documents]
+For an overview of connectivity methods and CIDR design, read [Multicloud Network Design Fundamentals](../../networking/multicloud-networking/) first. Building on that, this document focuses on advanced design such as hub-and-spoke and transit architectures, Cross-Cloud Interconnect, and egress cost optimization.
 :::
+
+## Overview
+
+When workloads are spread across multiple clouds, simple 1:1 connections quickly become complex to manage, cost, and secure. This document covers transit architectures that connect many clouds, accounts, and regions at scale, along with the egress cost and DNS integration strategies they entail.
 
 ## Transit Architecture Patterns
 

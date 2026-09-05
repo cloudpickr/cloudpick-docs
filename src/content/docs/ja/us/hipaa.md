@@ -7,6 +7,10 @@ description: "米国のヘルスケアデータ保護規制HIPAA/HITECHのPHIの
 
 ## 概要
 
+:::note[前提知識と関連ドキュメント]
+米国のクラウド規制全般は[米国ガイド](../../us/)、データ保護の一般原則は[データ保護](../../security/data-protection/)を先に参照してください。本ドキュメントは、米国のヘルスケア情報保護法制であるHIPAA/HITECHに焦点を当てます。
+:::
+
 HIPAA(Health Insurance Portability and Accountability Act、1996年)は米国のヘルスケア情報保護に関する連邦法であり、HHS(保健福祉省)傘下のOCR(公民権局、Office for Civil Rights)が執行を担当します。2009年に制定されたHITECH(Health Information Technology for Economic and Clinical Health Act)は、電子医療記録の普及に合わせてHIPAAの執行力を強化し、データ漏洩時の通知義務(Breach Notification Rule)を新設しました。両法は通常、まとめて「HIPAA/HITECH」と呼ばれます。
 
 HIPAAは単一の認証制度ではなく、遵守すべき法的要件の体系であり、「HIPAA認証」という公式な資格は存在しません。組織自らが要件を満たし、それを文書・監査によって証明する構造です。

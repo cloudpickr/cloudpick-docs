@@ -7,6 +7,10 @@ description: "Covers cross-border transfer requirements under Japan's Act on the
 
 ## Overview
 
+:::note[Prerequisites and related documents]
+For Japan cloud regulation overall, see the [Japan Guide](../../japan/); for general privacy and data residency concepts, see [Data Protection](../../security/data-protection/) first. This document focuses on Japan's APPI and its cross-border transfer regulation.
+:::
+
 The Act on the Protection of Personal Information (APPI, 個人情報保護法) is the foundational law that applies broadly to businesses handling personal information in Japan, and it is overseen by the Personal Information Protection Commission (PPC, 個人情報保護委員会). Like major global data protection frameworks (such as GDPR), it sets out obligations covering the full lifecycle of personal data — collection, use, provision, and retention — and the provision most directly relevant to cloud architecture is the **cross-border transfer regulation (provision to a third party located in a foreign country)** under Article 28.
 
 Japan has no separate law mandating data localization, but in practice the cross-border transfer procedures required under APPI and the obligation to "understand the external environment" (外的環境の把握) have a substantial effect on cloud region selection.

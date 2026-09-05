@@ -7,6 +7,10 @@ description: "Compares the concept of data pipelines (ETL/ELT), vendor services,
 
 ## Overview
 
+:::note[Prerequisites and related documents]
+The data stores that feed a pipeline are covered in [Managed RDB](../../database/managed-rdb/) and [NoSQL](../../database/nosql/); the event-streaming ingestion layer in [Messaging](../../database/messaging/); and the analytics platforms that are the final load target in [Analytics](../../database/analytics/). This document focuses on the ETL/ELT pipelines that move and transform data.
+:::
+
 To use raw data in an [analytics platform](../../database/analytics/) or an ML pipeline, you need an **Extract → Transform → Load** process.
 
 | Aspect | ETL | ELT |

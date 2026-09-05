@@ -7,6 +7,10 @@ description: "An overview of HIPAA/HITECH, the US regulation protecting healthca
 
 ## Overview
 
+:::note[Prerequisites and related documents]
+For US cloud regulation overall, see the [US Guide](../../us/); for general data protection principles, see [Data Protection](../../security/data-protection/) first. This document focuses on HIPAA/HITECH, the US healthcare information protection laws.
+:::
+
 HIPAA (Health Insurance Portability and Accountability Act, 1996) is the US federal law protecting healthcare information, enforced by the Office for Civil Rights (OCR) under the Department of Health and Human Services (HHS). HITECH (Health Information Technology for Economic and Clinical Health Act), enacted in 2009, strengthened HIPAA's enforcement power in response to the spread of electronic health records and introduced a data breach notification requirement (the Breach Notification Rule). The two laws are commonly referred to together as "HIPAA/HITECH."
 
 HIPAA is not a single certification program but a framework of legal requirements that organizations must satisfy — there is no official credential called "HIPAA certification." Organizations must meet the requirements themselves and demonstrate this through documentation and audits.

@@ -7,6 +7,10 @@ description: "Compares AI service security threats (prompt injection, sensitive 
 
 ## Overview
 
+:::note[Prerequisites and related documents]
+For AI service and platform basics, see [Getting Started with AI](../../ai/getting-started/); for multicloud AI design, see [Multicloud AI](../../ai/multicloud-ai/) first. This document focuses on AI-specific security threats — prompt injection, sensitive data leakage, agent permissions — and guardrails.
+:::
+
 Deploying AI services to production adds **AI-specific security threats** on top of traditional ones. This document covers in detail what was mentioned as a design consideration in [Multicloud AI](../../ai/multicloud-ai/).
 
 ## Key Threats

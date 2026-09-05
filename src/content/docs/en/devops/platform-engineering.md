@@ -7,6 +7,10 @@ description: "Explains the concepts, tools, and multicloud standardization of pl
 
 ## Overview
 
+:::note[Prerequisites and related documents]
+This is an advanced topic that assumes the CI/CD and automation concepts from [Getting Started with DevOps](../../devops/getting-started/) and [Kubernetes operations](../../devops/kubernetes-operations/). Read those first for basic pipeline concepts. This document focuses on building an Internal Developer Platform (IDP) for developer self-service.
+:::
+
 If [DevOps](../../devops/getting-started/) is "collaboration between development and operations," **platform engineering** is "building a platform that lets developers deploy as a self-service without thinking about infrastructure."
 
 Instead of a developer opening a Jira ticket to request something from the infrastructure team, they provision their own environment by following the Golden Path the platform provides.

@@ -7,6 +7,10 @@ description: "Compares managed services across vendors for securely accessing in
 
 ## Overview
 
+:::note[Prerequisites and related documents]
+For network isolation and subnet design, see [VPC and Subnets](../../networking/vpc-subnet/); for identity and permission control, see [IAM](../../security/iam/) first. This document focuses on managed remote access that reaches instances without exposing public IPs.
+:::
+
 Traditionally, SSH (Linux) or RDP (Windows) is used to access servers. However, this comes with issues such as public IP exposure, SSH key management, and open security groups.
 
 Cloud vendors provide **agent-based or proxy-based** managed access services, enabling secure access to instances in a private subnet without a public IP.

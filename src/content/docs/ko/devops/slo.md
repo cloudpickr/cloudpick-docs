@@ -7,6 +7,10 @@ description: "SLI, SLO, SLA, 에러 버짓의 개념과 설정 방법을 설명�
 
 ## 개요
 
+:::note[선행 지식 및 연결 문서]
+DevOps 기본 흐름은 [DevOps 시작하기](../../devops/getting-started/), 지표 수집·모니터링은 [모니터링](../../devops/monitoring/)과 [관측성](../../devops/observability/)을 먼저 참고하세요. 이 문서는 서비스 안정성을 정량 목표로 정의하는 SLI/SLO/SLA에 초점을 둡니다.
+:::
+
 DevOps/SRE에서 "서비스가 충분히 안정적인가?"를 체계적으로 정의하는 프레임워크가 SLI/SLO/SLA입니다.
 
 | 용어 | 정의 | 예시 |

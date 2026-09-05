@@ -7,6 +7,10 @@ description: "SLI、SLO、SLA、エラーバジェットの概念と設定方法
 
 ## 概要
 
+:::note[前提知識と関連ドキュメント]
+DevOpsの基本的な流れは[DevOpsを始める](../../devops/getting-started/)、メトリクス収集・モニタリングは[モニタリング](../../devops/monitoring/)と[可観測性](../../devops/observability/)を先に参照してください。本ドキュメントは、サービスの安定性を定量目標として定義するSLI/SLO/SLAに焦点を当てます。
+:::
+
 DevOps/SREにおいて「サービスが十分に安定しているか」を体系的に定義するフレームワークがSLI/SLO/SLAです。
 
 | 用語 | 定義 | 例 |

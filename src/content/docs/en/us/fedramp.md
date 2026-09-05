@@ -7,6 +7,10 @@ description: "An overview of FedRAMP, the security authorization program for US 
 
 ## Overview
 
+:::note[Prerequisites and related documents]
+For US cloud regulation overall, see the [US Guide](../../us/); for the shared responsibility model and general compliance principles, see [Compliance](../../governance/compliance/) first. This document focuses on FedRAMP, the US federal cloud procurement authorization program.
+:::
+
 FedRAMP (Federal Risk and Authorization Management Program) is a government-wide authorization program that verifies the security of cloud services procured by US federal agencies. It is operated by the FedRAMP PMO under the GSA (General Services Administration) and evaluates and authorizes the security controls of cloud service providers (CSPs) based on the NIST SP 800-53 control framework. Its core principle is "Do Once, Use Many Times" — allowing agencies to reuse a FedRAMP-authorized service rather than each agency repeating its own security review.
 
 FedRAMP is not legally mandatory for private companies, but it is a de facto entry requirement for virtually any cloud service provider seeking to deliver SaaS/PaaS/IaaS to federal agencies.

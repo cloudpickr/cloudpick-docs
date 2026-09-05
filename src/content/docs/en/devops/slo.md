@@ -7,6 +7,10 @@ description: "Explains the concepts of SLI, SLO, SLA, and error budgets, and how
 
 ## Overview
 
+:::note[Prerequisites and related documents]
+For the basic DevOps flow, see [Getting Started with DevOps](../../devops/getting-started/); for metric collection and monitoring, see [Monitoring](../../devops/monitoring/) and [Observability](../../devops/observability/) first. This document focuses on SLI/SLO/SLA, which define service reliability as quantitative targets.
+:::
+
 In DevOps/SRE, SLI/SLO/SLA is the framework for systematically defining "is the service reliable enough?"
 
 | Term | Definition | Example |

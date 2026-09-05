@@ -7,6 +7,10 @@ description: "EU AI Continent Action Plan・AI Factories、Mistral AI・Aleph Al
 
 ## 概要
 
+:::note[前提知識と関連ドキュメント]
+EUのクラウド規制全般は[EUガイド](../../eu/)、GDPR・データ主権の背景は[GDPRとデータ主権](../../eu/gdpr-sovereignty/)を先に参照してください。本ドキュメントは、EUのAI主権政策と欧州FMエコシステムに焦点を当てます。
+:::
+
 EUはクラウドインフラのデータ主権を超え、**AIモデル・コンピューティング能力そのものの域内確保**を政策目標として明示しています。米国・中国系ファウンデーションモデル(FM)への依存を下げ、欧州産AIエコシステムを育成しようとするこの流れは、政府主導のインフラ投資(AI Factories/Gigafactories)と民間FM提供企業の育成(Mistral AI、Aleph Alphaなど)が並行する構造です。本文書は、2026年8月現在のEU AI戦略の進捗状況と欧州FMエコシステム、ハイパースケーラーのソブリンクラウドにおけるAIサービス範囲を整理します。
 
 ## EU AI戦略 — AI Continent Action Plan

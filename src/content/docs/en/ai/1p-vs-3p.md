@@ -7,6 +7,10 @@ description: Compare consuming FMs directly (1P) vs. through cloud platforms (3P
 
 ## Overview
 
+:::note[Prerequisites and related documents]
+For foundation model (FM) and cloud AI platform basics, see [Getting Started with AI](../../ai/getting-started/) and [AI Platform and Model Comparison](../../ai/ai-ml/) first. This document focuses on choosing between first-party and third-party models when adopting FMs.
+:::
+
 When adopting FMs, there are **two independent decisions**:
 
 | Decision Axis | Question | Options |

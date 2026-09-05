@@ -7,6 +7,10 @@ description: "미국 헬스케어 데이터 보호 규제 HIPAA/HITECH의 PHI �
 
 ## 개요
 
+:::note[선행 지식 및 연결 문서]
+미국 클라우드 규제 전반은 [미국 가이드](../../us/), 데이터 보호 일반 원칙은 [데이터 보호](../../security/data-protection/)를 먼저 참고하세요. 이 문서는 미국 헬스케어 정보 보호 법제인 HIPAA/HITECH에 초점을 둡니다.
+:::
+
 HIPAA(Health Insurance Portability and Accountability Act, 1996)는 미국의 헬스케어 정보 보호 연방법으로, HHS(보건복지부) 산하 OCR(민권실, Office for Civil Rights)이 집행을 담당합니다. 2009년 제정된 HITECH(Health Information Technology for Economic and Clinical Health Act)는 전자 의료 기록 확산에 맞춰 HIPAA의 집행력을 강화하고, 데이터 유출 시 통지 의무(Breach Notification Rule)를 신설했습니다. 두 법은 통상 함께 "HIPAA/HITECH"로 묶여 언급됩니다.
 
 HIPAA는 단일 인증 제도가 아니라 준수해야 할 법적 요건 체계이며, "HIPAA 인증"이라는 공식 자격은 존재하지 않습니다. 조직 스스로 요건을 충족하고 이를 문서·감사로 입증하는 구조입니다.

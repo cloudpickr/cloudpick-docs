@@ -7,6 +7,10 @@ description: "Compares DB migration strategies (Rehost/Replatform/Refactor) and 
 
 ## Overview
 
+:::note[Prerequisites and related documents]
+For database type selection, see [Managed RDB](../../database/managed-rdb/) and [NoSQL](../../database/nosql/) first. Server and application migration overall connects to [Compute Migration](../../compute/migration/), and bulk physical data transfer to [Storage Migration](../../storage/migration/). This document focuses on database migration (schema, data, and downtime minimization).
+:::
+
 **Migration services** are used when moving an on-premises DB to the cloud, or moving a DB between clouds. Simple backup/restore can work, but for large-scale DBs, **online migration** — continuously synchronizing data while minimizing downtime — is needed.
 
 ### Types of migration

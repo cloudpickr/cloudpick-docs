@@ -7,6 +7,10 @@ description: "Covers the EU AI Continent Action Plan and AI Factories, European 
 
 ## Overview
 
+:::note[Prerequisites and related documents]
+For EU cloud regulation overall, see the [EU Guide](../../eu/); for GDPR and data sovereignty background, see [GDPR and Data Sovereignty](../../eu/gdpr-sovereignty/) first. This document focuses on the EU's AI sovereignty policy and the European FM ecosystem.
+:::
+
 Beyond data sovereignty for cloud infrastructure, the EU has made **securing AI models and compute capacity themselves within the region** an explicit policy goal. This push to reduce dependence on US- and China-based foundation models (FMs) and to cultivate a European AI ecosystem combines government-led infrastructure investment (AI Factories/Gigafactories) with the cultivation of private FM providers (Mistral AI, Aleph Alpha, and others). This document summarizes the state of the EU's AI strategy, the European FM ecosystem, and the scope of AI services offered by hyperscaler sovereign clouds as of August 2026.
 
 ## The EU AI Strategy — the AI Continent Action Plan

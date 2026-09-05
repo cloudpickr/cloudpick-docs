@@ -7,6 +7,10 @@ description: "데이터 파이프라인(ETL/ELT)의 개념, 벤더별 서비스,
 
 ## 개요
 
+:::note[선행 지식 및 연결 문서]
+파이프라인의 소스가 되는 데이터 저장소는 [관리형 RDB](../../database/managed-rdb/)·[NoSQL](../../database/nosql/), 수집 계층인 이벤트 스트리밍은 [메시징](../../database/messaging/)을, 최종 적재 대상인 분석 플랫폼은 [분석](../../database/analytics/)을 참고하세요. 이 문서는 데이터를 이동·가공하는 ETL/ELT 파이프라인에 초점을 둡니다.
+:::
+
 원본 데이터를 [분석 플랫폼](../../database/analytics/)이나 ML 파이프라인에서 사용하려면 **추출(Extract) → 변환(Transform) → 적재(Load)** 과정이 필요합니다.
 
 | 구분 | ETL | ELT |

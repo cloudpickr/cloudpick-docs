@@ -5,9 +5,13 @@ description: "Hub-and-Spoke 등 트랜짓 아키텍처, Cross-Cloud Interconnect
 
 > 문서 기준: 2026년 8월
 
-:::note
-연결 방식 개요와 CIDR 설계는 [멀티클라우드 네트워크 설계 기초](../../networking/multicloud-networking/)를 참고하세요.
+:::note[선행 지식 및 연결 문서]
+연결 방식 개요와 CIDR 설계 등 기초는 [멀티클라우드 네트워크 설계 기초](../../networking/multicloud-networking/)를 먼저 참고하세요. 이 문서는 그 위에서 Hub-and-Spoke·트랜짓 아키텍처, Cross-Cloud Interconnect, 이그레스 비용 최적화 등 심화 설계에 초점을 둡니다.
 :::
+
+## 개요
+
+여러 클라우드에 워크로드가 분산되면, 단순한 1:1 연결로는 관리·비용·보안이 급격히 복잡해집니다. 이 문서는 다수의 클라우드·계정·리전을 확장 가능하게 연결하는 트랜짓 아키텍처와, 그에 따르는 이그레스 비용·DNS 통합 전략을 다룹니다.
 
 ## 트랜짓 아키텍처 패턴
 

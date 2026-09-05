@@ -7,6 +7,10 @@ description: "플랫폼 엔지니어링과 IDP(Internal Developer Platform)의 �
 
 ## 개요
 
+:::note[선행 지식 및 연결 문서]
+이 문서는 [DevOps 시작하기](../../devops/getting-started/)의 CI/CD·자동화 개념과 [쿠버네티스 운영](../../devops/kubernetes-operations/)을 전제로 하는 심화 주제입니다. 기본 파이프라인 개념은 해당 문서를 먼저 참고하세요. 이 문서는 개발자 셀프서비스를 위한 내부 개발자 플랫폼(IDP) 구축에 초점을 둡니다.
+:::
+
 [DevOps](../../devops/getting-started/)가 "개발과 운영의 협업"이라면, **플랫폼 엔지니어링**은 "개발자가 인프라를 의식하지 않고 셀프서비스로 배포할 수 있는 플랫폼을 만드는 것"입니다.
 
 개발자가 Jira 티켓을 열어 인프라팀에 요청하는 대신, 플랫폼이 제공하는 Golden Path를 따라 스스로 환경을 프로비저닝합니다.

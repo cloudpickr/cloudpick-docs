@@ -7,6 +7,10 @@ description: "Compares the principles of the Zero Trust security model with vend
 
 ## Overview
 
+:::note[Prerequisites and related documents]
+For security basics and asset identification, see [Getting Started with Security](../../security/getting-started/); for identity and access control, see [IAM](../../security/iam/) first. This document focuses on zero-trust architecture that goes beyond perimeter security.
+:::
+
 Traditional network security follows a **Perimeter Security** model: trust everything inside the firewall, block everything outside. But with cloud, remote work, and SaaS adoption, the boundary between "inside" and "outside" has disappeared.
 
 **Zero Trust** follows the principle "Never trust, always verify." Every access request is verified regardless of network location.

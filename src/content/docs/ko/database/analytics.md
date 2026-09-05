@@ -7,6 +7,10 @@ description: "데이터 웨어하우스, 데이터 레이크하우스, 분석 �
 
 ## 개요
 
+:::note[선행 지식 및 연결 문서]
+트랜잭션 데이터베이스 선택은 [관리형 RDB](../../database/managed-rdb/), [NoSQL](../../database/nosql/)을 먼저 참고하세요. 데이터 수집·변환은 [데이터 파이프라인](../../database/data-pipeline/)과 연결됩니다. 이 문서는 대규모 집계·BI·데이터 웨어하우스 등 분석(OLAP) 워크로드에 초점을 둡니다.
+:::
+
 ### OLTP vs OLAP — 왜 분리하는가
 
 운영 데이터베이스([관리형 RDB](../../database/managed-rdb/), [NoSQL](../../database/nosql/))는 트랜잭션 처리(OLTP)에 최적화되어 있습니다. 대량 데이터를 집계·분석하려면 별도의 분석 플랫폼(OLAP)이 필요합니다.

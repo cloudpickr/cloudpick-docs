@@ -7,6 +7,10 @@ description: "Compares the concept of a service mesh, the sidecar vs. sidecarles
 
 ## Overview
 
+:::note[Prerequisites and related documents]
+This document assumes you are running microservices with [container services](../../compute/containers/) and [Kubernetes operations](../../devops/kubernetes-operations/). Read those first for container and orchestration basics. This document focuses on the service mesh, which handles inter-service communication at the infrastructure layer.
+:::
+
 Operating microservices with [container services](../../compute/containers/) makes inter-service communication complex. A **service mesh** manages this communication at the infrastructure layer, providing security, observability, and traffic control without any application code changes.
 
 ### Problems a service mesh solves

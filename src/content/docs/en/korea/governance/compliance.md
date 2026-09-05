@@ -7,6 +7,10 @@ description: "A rundown of Korea's cloud compliance certifications and requireme
 
 ## Overview
 
+:::note[Prerequisites and related documents]
+For the **general principles of compliance** — the shared responsibility model, automating compliance operations, and so on — see global [Compliance](../../../governance/compliance/) first. This document focuses on the **Korea regulatory layer** (ISMS-P, CSAP, etc.) that sits on top of them.
+:::
+
 Adopting cloud in Korea requires meeting Korea-specific certifications and regulations in addition to international ones such as ISO 27001 and SOC 2. The **general principles of compliance** — the shared responsibility model, automating compliance operations, and so on — are covered in [Compliance](../../../governance/compliance/); this document is the **Korea regulatory layer** that sits on top of those principles.
 
 ## ISMS-P (Personal Information & Information Security Management System)

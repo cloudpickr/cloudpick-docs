@@ -6,7 +6,7 @@ description: Limitations of basic RAG and advanced patterns including chunking, 
 > Last reviewed: August 2026 | This is a fast-moving area subject to quarterly review.
 
 :::note
-For RAG basics, read the RAG section in [Getting Started](../../ai/getting-started/) and [Vector Stores and Embeddings](../../ai/vector-store/) first.
+For RAG basics (vector stores, embeddings, basic retrieval), read the RAG section in [Getting Started](../../ai/getting-started/) and [Vector Stores and Embeddings](../../ai/vector-store/) first. This document builds on those basics with **advanced patterns that raise production quality** (chunking, re-ranking, hybrid search, query expansion, evaluation).
 :::
 
 ## Limitations of Basic RAG

@@ -19,18 +19,25 @@ The first rule of multicloud: **no VPC/VNet CIDR across any cloud should overlap
 
 If IPs overlap, routing becomes impossible, and changing it later requires redeploying workloads. Plan the entire IP space from the start.
 
-### Recommended Design Pattern
+### Splitting Principles
 
-Split the RFC 1918 private ranges by vendor.
+What matters in CIDR splitting is not a rule that assigns a specific range to a specific vendor, but the following principles.
 
-| Range | Allocation | Example |
+- **No overlap** — Divide the entire IP space up front so that no range across any cloud or on-premises environment overlaps.
+- **Room to grow** — Leave generous blocks per area, accounting for growth in regions, environments (prod/dev), and workloads.
+- **Include on-premises** — If you have (or plan) hybrid connectivity, include on-premises ranges in the plan too.
+- **Consistent sizing** — For example, assigning a `/16` per vendor and splitting into `/24` subnets within it keeps management and expansion simple.
+
+Divide the RFC 1918 private ranges (`10.0.0.0/8`, `172.16.0.0/12`, `192.168.0.0/16`) according to the principles above. The table below is just **one possible layout** — which range goes to which vendor is up to your organization.
+
+| Range (example) | Layout (example) | Sub-split (example) |
 | --- | --- | --- |
-| `10.0.0.0/8` | AWS | `10.0.0.0/16` (prod), `10.1.0.0/16` (dev) |
-| `172.16.0.0/12` | Azure | `172.16.0.0/16` (prod), `172.17.0.0/16` (dev) |
-| `192.168.0.0/16` | Google Cloud / other | `192.168.0.0/20` (Google Cloud), `192.168.16.0/20` (other) |
+| `10.0.0.0/8` | Vendor A | `10.0.0.0/16` (prod), `10.1.0.0/16` (dev) |
+| `172.16.0.0/12` | Vendor B | `172.16.0.0/16` (prod), `172.17.0.0/16` (dev) |
+| `192.168.0.0/16` | Vendor C / other | `192.168.0.0/20`, `192.168.16.0/20` |
 
 :::note
-**Tip:** Assign at the `/16` level per vendor, and split into `/24` subnets within that — it's flexible for future expansion. If there's an on-premises environment, be sure to include its range in the plan too.
+Because the ranges differ in size (`/8` > `/12` > `/16`), place larger ranges where the most subnets/regions are needed.
 :::
 
 ### Cautions

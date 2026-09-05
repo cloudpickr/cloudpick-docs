@@ -28,7 +28,7 @@ Transfer time is determined by data size and network speed.
 | 1TB | ~2.5 hours | ~15 minutes | Online (DataSync, Storage Transfer Service) |
 | 10TB | ~25 hours | ~2.5 hours | Online + dedicated connection (Direct Connect, ExpressRoute) |
 | 100TB | ~10 days | ~25 hours | Offline (Snowball, Data Box) |
-| 1PB | ~100 days | ~10 days | Offline (Snowmobile, Data Box Heavy) |
+| 1PB | ~100 days | ~10 days | Offline (Data Box Heavy, Transfer Appliance) |
 
 > The figures above are illustrative and vary by region/time. Check each vendor's official pricing page for current rates.
 
@@ -88,9 +88,8 @@ Used when network transfer is impractical due to data size, or when the network 
 
 | Vendor | Product | Capacity | Feature |
 | --- | --- | --- | --- |
-| AWS | [Snowcone](https://aws.amazon.com/snowcone/) | ~8 TB | Compact, backpack-portable |
-| AWS | [Snowball Edge](https://aws.amazon.com/snowball/) | ~80 TB | Common for large-scale migration |
-| AWS | Snowmobile | ~100 PB | Shipping-container scale (note: new orders discontinued after 2024) |
+| AWS | Snowball Edge | ~80 TB | Not available to new customers as of Nov 7, 2025 (existing customers only). New customers should use Data Transfer Terminal or [DataSync](https://aws.amazon.com/datasync/) |
+| AWS | Snowcone / Snowmobile | — | Discontinued (Snowcone HDD/SSD retired Nov 2024; Snowmobile service ended) |
 | Azure | [Data Box Disk](https://azure.microsoft.com/products/databox/) | ~35 TB | SSD-based, small capacity |
 | Azure | [Data Box](https://azure.microsoft.com/products/databox/) | ~100 TB | Standard device |
 | Azure | Data Box Heavy | ~1 PB | Large-capacity device |

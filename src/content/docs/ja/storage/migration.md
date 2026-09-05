@@ -28,7 +28,7 @@ description: "大容量データをクラウドへ移行するオンライン/�
 | 1TB | 約2.5時間 | 約15分 | オンライン(DataSync、Storage Transfer Service) |
 | 10TB | 約25時間 | 約2.5時間 | オンライン + 専用接続(Direct Connect、ExpressRoute) |
 | 100TB | 約10日 | 約25時間 | オフライン(Snowball、Data Box) |
-| 1PB | 約100日 | 約10日 | オフライン(Snowmobile、Data Box Heavy) |
+| 1PB | 約100日 | 約10日 | オフライン(Data Box Heavy、Transfer Appliance) |
 
 > 上記の数値は例であり、リージョン/時期によって異なります。最新価格は各ベンダーの公式価格表を確認してください。
 
@@ -88,9 +88,8 @@ description: "大容量データをクラウドへ移行するオンライン/�
 
 | ベンダー | 製品 | 容量 | 特徴 |
 | --- | --- | --- | --- |
-| AWS | [Snowcone](https://aws.amazon.com/snowcone/) | ~8 TB | 小型、バックパックで持ち運び可能 |
-| AWS | [Snowball Edge](https://aws.amazon.com/snowball/) | ~80 TB | 一般的な大容量移行 |
-| AWS | Snowmobile | ~100 PB | コンテナトラック規模(ただし2024年以降新規注文終了) |
+| AWS | Snowball Edge | 約80 TB | 2025年11月7日より新規顧客は注文不可(既存顧客のみ利用可)。新規顧客はData Transfer Terminalまたは[DataSync](https://aws.amazon.com/datasync/)を推奨 |
+| AWS | Snowcone / Snowmobile | — | 提供終了(Snowcone HDD/SSDは2024年11月に終了、Snowmobileはサービス終了) |
 | Azure | [Data Box Disk](https://azure.microsoft.com/products/databox/) | ~35 TB | SSDベースの小容量 |
 | Azure | [Data Box](https://azure.microsoft.com/products/databox/) | ~100 TB | 標準機器 |
 | Azure | Data Box Heavy | ~1 PB | 大容量機器 |

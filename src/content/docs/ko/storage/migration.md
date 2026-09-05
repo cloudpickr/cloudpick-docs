@@ -28,7 +28,7 @@ description: "대용량 데이터를 클라우드로 이전하는 온라인/오�
 | 1TB | 약 2.5시간 | 약 15분 | 온라인 (DataSync, Storage Transfer Service) |
 | 10TB | 약 25시간 | 약 2.5시간 | 온라인 + 전용 연결 (Direct Connect, ExpressRoute) |
 | 100TB | 약 10일 | 약 25시간 | 오프라인 (Snowball, Data Box) |
-| 1PB | 약 100일 | 약 10일 | 오프라인 (Snowmobile, Data Box Heavy) |
+| 1PB | 약 100일 | 약 10일 | 오프라인 (Data Box Heavy, Transfer Appliance) |
 
 > 위 수치는 예시이며 리전/시점에 따라 달라집니다. 최신 가격은 각 벤더 공식 가격표를 확인하세요.
 
@@ -88,15 +88,14 @@ description: "대용량 데이터를 클라우드로 이전하는 온라인/오�
 
 | 벤더 | 제품 | 용량 | 특징 |
 | --- | --- | --- | --- |
-| AWS | [Snowcone](https://aws.amazon.com/snowcone/) | ~8 TB | 소형, 배낭 휴대 가능 |
-| AWS | [Snowball Edge](https://aws.amazon.com/snowball/) | ~80 TB | 일반적인 대용량 이전 |
-| AWS | Snowmobile | ~100 PB | 컨테이너 트럭 규모 (단, 2024년 이후 신규 주문 종료) |
-| Azure | [Data Box Disk](https://azure.microsoft.com/products/databox/) | ~35 TB | SSD 기반 소용량 |
-| Azure | [Data Box](https://azure.microsoft.com/products/databox/) | ~100 TB | 표준 장비 |
-| Azure | Data Box Heavy | ~1 PB | 대용량 장비 |
+| AWS | Snowball Edge | 약 80 TB | 2025년 11월 7일부터 신규 고객 주문 불가(기존 고객만 이용). 신규 고객은 Data Transfer Terminal 또는 [DataSync](https://aws.amazon.com/datasync/) 권장 |
+| AWS | Snowcone / Snowmobile | — | 단종(Snowcone HDD/SSD 2024년 11월 단종, Snowmobile 서비스 종료) |
+| Azure | [Data Box Disk](https://azure.microsoft.com/products/databox/) | 약 35 TB | SSD 기반 소용량 |
+| Azure | [Data Box](https://azure.microsoft.com/products/databox/) | 약 100 TB | 표준 장비 |
+| Azure | Data Box Heavy | 약 1 PB | 대용량 장비 |
 | Google Cloud | [Transfer Appliance](https://cloud.google.com/transfer-appliance/docs) | TA40: 약 40 TB, TA300: 약 300 TB | 일반/대용량 |
-| OCI | [Data Transfer Appliance](https://docs.oracle.com/en-us/iaas/Content/DataTransfer/home.htm) | ~150 TB | 임대 장비로 전송 |
-| OCI | Data Transfer Disk | ~32 TB | 고객이 디스크 구매 후 발송 |
+| OCI | [Data Transfer Appliance](https://docs.oracle.com/en-us/iaas/Content/DataTransfer/home.htm) | 약 150 TB | 임대 장비로 전송 |
+| OCI | Data Transfer Disk | 약 32 TB | 고객이 디스크 구매 후 발송 |
 
 > 위 수치는 예시이며 리전/시점에 따라 달라집니다. 최신 가격은 각 벤더 공식 가격표를 확인하세요.
 

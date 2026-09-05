@@ -34,7 +34,7 @@ graph LR
 ### 1. Problem Framing & Governance
 - **Business Value Assessment** — Define return on investment (ROI), key performance indicators (KPIs: latency, task completion rate, cost caps).
 - **Regulatory & Compliance Mapping** — Establish data privacy, network isolation, and intellectual property (IP) protection requirements upfront.
-- **AI Suitability Check** — Prevent the anti-pattern of applying expensive Large Language Models (LLMs) to problems better solved by rule-based logic or simple heuristics.
+- **AI Suitability Check** — Prevent the anti-pattern of applying expensive Large Language Models (LLMs) to problems better solved by rule-based logic or simple heuristics. For a beginner-level entry decision, see the four-question gate in [Getting Started with AI — Decide First](../../ai/getting-started/#decide-first-is-ai-the-right-fit-for-this-problem).
 
 ### 2. Data Preparation & Governance
 - **Data Pipeline Engineering** — Ingest structured/unstructured data, sanitize, chunk, and maintain semantic metadata catalogs.

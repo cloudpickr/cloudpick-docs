@@ -20,6 +20,10 @@ description: Compare AI platforms, model catalogs, GPU/AI accelerators, and Appl
 | **Generative AI** | Foundation models (LLM, multimodal) | Text/image/code generation. Used via API | Bedrock, Microsoft Foundry, Gemini |
 | **Agentic AI** | LLM + tool use + autonomous execution | Plans, executes, verifies given a goal | AgentCore, Foundry Agents, [details→](../../ai/agents/) |
 
+:::note
+The table above is a deep-dive from a model-selection and technical-characteristics angle. For an introductory overview of what each generation is and which way of using AI it leads to, see [Getting Started with AI — Background: The AI Technology Lineage](../../ai/getting-started/#background-the-ai-technology-lineage).
+:::
+
 ### When This Helps
 
 - **Chatbot/support automation** — Responding to customer inquiries around the clock

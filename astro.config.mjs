@@ -297,15 +297,21 @@ export default defineConfig({
 							items: [
 								{ slug: 'ai/agents' },
 								{ slug: 'ai/agent-adoption' },
-								{ slug: 'ai/1p-vs-3p' },
-								{ slug: 'ai/licensing' },
 							],
 						},
 						{
-							label: '운영·멀티클라우드',
-							translations: { en: 'Ops & multicloud', ja: '運用とマルチクラウド' },
+							label: '채널·비용·운영',
+							translations: { en: 'Channel, cost & ops', ja: 'チャネル・コスト・運用' },
 							items: [
+								{ slug: 'ai/1p-vs-3p' },
+								{ slug: 'ai/licensing' },
 								{ slug: 'ai/llmops' },
+							],
+						},
+						{
+							label: '인프라·응용',
+							translations: { en: 'Infrastructure & applied', ja: 'インフラと応用' },
+							items: [
 								{ slug: 'ai/multicloud-ai' },
 								{ slug: 'ai/physical-ai' },
 							],

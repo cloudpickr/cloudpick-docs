@@ -158,12 +158,12 @@ A DR plan **must be tested regularly**. If you run the recovery procedure for th
 
 Beyond DR testing, Chaos Engineering is the practice of routinely injecting failures to verify system resilience.
 
-| Vendor | Tool |
+| Vendor | Native tool |
 | --- | --- |
 | AWS | [AWS Fault Injection Service](https://docs.aws.amazon.com/fis/) |
 | Azure | [Azure Chaos Studio](https://learn.microsoft.com/en-us/azure/chaos-studio/) |
-| Google Cloud | — (3rd party: Gremlin, LitmusChaos) |
-| OCI | — (3rd party: Gremlin, LitmusChaos) |
+
+Google Cloud and OCI do not offer a native chaos engineering service. They rely on vendor-neutral third-party tools such as Gremlin and LitmusChaos, which also work across all clouds including AWS and Azure.
 
 ## DR Regions by Country and Regulation
 

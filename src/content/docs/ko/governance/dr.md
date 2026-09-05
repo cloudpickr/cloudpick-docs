@@ -158,12 +158,12 @@ DR 계획은 **반드시 정기적으로 테스트**해야 합니다. 실제 장
 
 DR 테스트를 넘어, 일상적으로 장애를 주입하여 시스템의 복원력을 검증하는 것이 Chaos Engineering입니다.
 
-| 벤더 | 도구 |
+| 벤더 | 네이티브 도구 |
 | --- | --- |
 | AWS | [AWS Fault Injection Service](https://docs.aws.amazon.com/fis/) |
 | Azure | [Azure Chaos Studio](https://learn.microsoft.com/en-us/azure/chaos-studio/) |
-| Google Cloud | — (3rd party: Gremlin, LitmusChaos) |
-| OCI | — (3rd party: Gremlin, LitmusChaos) |
+
+Google Cloud와 OCI는 네이티브 카오스 엔지니어링 서비스를 제공하지 않습니다. Gremlin, LitmusChaos 같은 벤더 중립 서드파티 도구를 사용하며, 이 도구들은 AWS·Azure를 포함한 모든 클라우드에서도 동작합니다.
 
 ## 국가·규제별 DR 리전
 

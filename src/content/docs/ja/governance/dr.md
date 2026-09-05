@@ -158,12 +158,12 @@ DR計画は**必ず定期的にテスト**する必要があります。実際�
 
 DRテストを超えて、日常的に障害を注入してシステムの復元力を検証するのがChaos Engineeringです。
 
-| ベンダー | ツール |
+| ベンダー | ネイティブツール |
 | --- | --- |
 | AWS | [AWS Fault Injection Service](https://docs.aws.amazon.com/fis/) |
 | Azure | [Azure Chaos Studio](https://learn.microsoft.com/en-us/azure/chaos-studio/) |
-| Google Cloud | —（サードパーティ: Gremlin、LitmusChaos） |
-| OCI | —（サードパーティ: Gremlin、LitmusChaos） |
+
+Google CloudとOCIはネイティブなカオスエンジニアリングサービスを提供していません。Gremlin、LitmusChaosなどのベンダー中立なサードパーティツールを使用し、これらはAWS・Azureを含むすべてのクラウドでも動作します。
 
 ## 国・規制別のDRリージョン
 

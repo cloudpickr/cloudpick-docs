@@ -77,7 +77,4 @@ CSAP(Cloud Security Assurance Program, 클라우드 서비스 보안인증제)�
 - [CSAP 상·중 등급제 본격 시행..."안보·외교는 프라이빗 클라우드 강제" — 아주경제](https://www.ajunews.com/view/20240206093321587)
 - [공공클라우드 인증, 국정원으로 단일화...CSAP 10년만에 해체 — ZDNet Korea](https://zdnet.co.kr/view/?no=20260420130424)
 - [공공 클라우드 보안 '국정원 단일화'... CSAP는 ISMS 통합 — 보안뉴스](https://m.boannews.com/html/detail.html?idx=143270)
-- [[단독] 클라우드, 내년부터 CSAP 없어도 공공 진출 가능해진다 — 전자신문](https://www.etnews.com/20251212000235)
-- [AWS, CSAP 하 등급 획득…글로벌 빅3 모두 韓 공공 클라우드 시장 진입 — 전자신문](https://www.etnews.com/20250401000420)
-- [올해 SaaS 개발 지원 사업, 네이버·NHN·KT클라우드 참여 — 전자신문](https://www.etnews.com/20250314000044)
 - [클라우드서비스 보안인증(CSAP) — 한국인터넷진흥원(KISA)](https://www.kisa.or.kr/1050603)

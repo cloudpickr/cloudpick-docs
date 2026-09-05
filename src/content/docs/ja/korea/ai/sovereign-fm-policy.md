@@ -81,7 +81,6 @@ description: "韓国政府のソブリンAI政策と独自AIファウンデー�
 - [国家代表AI、2次選抜に突入…4チームが今月3チームに — ZDNet Korea](https://zdnet.co.kr/view/?no=20260803164056)
 - [独破模2次段階評価が8日に開始…国民評価団200名が「K-AI」を評価 — バイラインネットワーク](https://byline.network/2026/08/0806-3/)
 - [Second Round of Dokpamo: Upstage, SKT, and LG Corp.… Reasons for Motif's Elimination from AAII Top Spot — Edaily](https://en.edaily.co.kr/news/eda202608185493/)
-- [政府、「ソブリンAI」核心GPU確保に総力戦…3兆ウォン投入事業の延長を検討 — 電子新聞](https://www.etnews.com/20260707000304)
 - [「AIハイウェイ構築が本格化」…国家AIコンピューティングセンター、1.5万枚の半導体基盤で「ソブリンインフラ」始動 — 人工知能新聞](https://www.aitimes.kr/news/articleView.html?idxno=39891)
 - [「国家AIコンピューティングセンターのGPU、B200確定ではない…最新AI半導体を導入」 — ZDNet Korea](https://zdnet.co.kr/view/?no=20260803165045)
 - [国家代表AI — ナムウィキ](https://namu.wiki/w/%EA%B5%AD%EA%B0%80%EB%8C%80%ED%91%9C%20AI)

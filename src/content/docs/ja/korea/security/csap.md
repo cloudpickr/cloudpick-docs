@@ -77,7 +77,4 @@ CSAP（Cloud Security Assurance Program、クラウドサービスセキュリ�
 - [CSAP上・中等級制、本格施行…「安保・外交はプライベートクラウド強制」— アジュ経済](https://www.ajunews.com/view/20240206093321587)
 - [公共クラウド認証、国家情報院に単一化…CSAP、10年ぶりに解体 — ZDNet Korea](https://zdnet.co.kr/view/?no=20260420130424)
 - [公共クラウドセキュリティ「国家情報院への単一化」…CSAPはISMSに統合 — 保安ニュース（보안뉴스）](https://m.boannews.com/html/detail.html?idx=143270)
-- [【独自】クラウド、来年からCSAPなしでも公共進出が可能に — 電子新聞](https://www.etnews.com/20251212000235)
-- [AWS、CSAP下等級を取得…グローバルビッグ3すべてが韓国公共クラウド市場に参入 — 電子新聞](https://www.etnews.com/20250401000420)
-- [今年のSaaS開発支援事業、ネイバー・NHN・KTクラウドが参加 — 電子新聞](https://www.etnews.com/20250314000044)
 - [クラウドサービスセキュリティ認証（CSAP）— 韓国インターネット振興院（KISA）](https://www.kisa.or.kr/1050603)

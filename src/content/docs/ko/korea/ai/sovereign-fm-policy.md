@@ -81,7 +81,6 @@ description: "한국 정부의 소버린 AI 정책과 독자 AI 파운데이션 
 - [국가대표 AI 2차 선발 돌입…4개 팀, 이달 3팀으로 — ZDNet Korea](https://zdnet.co.kr/view/?no=20260803164056)
 - [독파모 2차 단계평가 8일 시작…국민평가단 200명이 'K-AI' 평가 — 바이라인네트워크](https://byline.network/2026/08/0806-3/)
 - [Second Round of Dokpamo: Upstage, SKT, and LG Corp.… Reasons for Motif's Elimination from AAII Top Spot — Edaily](https://en.edaily.co.kr/news/eda202608185493/)
-- [정부, '소버린 AI' 핵심 GPU 확보 총력전… 3조 투입 사업 연장 검토 — 전자신문](https://www.etnews.com/20260707000304)
 - ["AI 고속도로 구축 본격화"…국가 AI컴퓨팅센, 1.5만장 반도체 기반 '소버린 인프라' 시동 — 인공지능신문](https://www.aitimes.kr/news/articleView.html?idxno=39891)
 - ["국가AI컴퓨팅센터 GPU, B200 확정 아냐…최신 AI 반도체 도입" — ZDNet Korea](https://zdnet.co.kr/view/?no=20260803165045)
 - [국가대표 AI — 나무위키](https://namu.wiki/w/%EA%B5%AD%EA%B0%80%EB%8C%80%ED%91%9C%20AI)

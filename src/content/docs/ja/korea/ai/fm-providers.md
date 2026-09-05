@@ -75,7 +75,6 @@ description: "ネイバー、LG AI研究院、カカオ、KT、アップステ�
 
 ## 参考資料
 
-- [ネイバークラウド、軽量オムニモーダルモデルを公開…「国防環境に最適化」 — 電子新聞](https://www.etnews.com/20260615000237)
 - [ネイバー、最上級の言語能力を備えた推論モデル「HyperCLOVA X」 — ネイバークラウド](https://www.navercloudcorp.com/ko/media/pressrelease/view/?seq=33058)
 - [次世代ハイブリッドAI、EXAONE 4.0を公開 — LG AI Research](https://www.lgresearch.ai/blog/view?seq=575)
 - [LG Reveals Next-Gen Multimodal AI 'EXAONE 4.5' — PR Newswire](https://www.prnewswire.com/news-releases/lg-reveals-next-gen-multimodal-ai-exaone-4-5-302736993.html)

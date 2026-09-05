@@ -81,7 +81,6 @@ Separately from the independent model development effort, the government is buil
 - [Korea's national AI team enters second-round selection…4 teams narrowing to 3 this month — ZDNet Korea](https://zdnet.co.kr/view/?no=20260803164056)
 - [Dokpamo second phase evaluation begins on the 8th…200-person citizen panel to evaluate 'K-AI' — Byline Network](https://byline.network/2026/08/0806-3/)
 - [Second Round of Dokpamo: Upstage, SKT, and LG Corp.… Reasons for Motif's Elimination from AAII Top Spot — Edaily](https://en.edaily.co.kr/news/eda202608185493/)
-- [Government goes all-in on securing GPUs for 'sovereign AI'…reviewing extension of KRW 3 trillion program — Electronic Times](https://www.etnews.com/20260707000304)
 - ["Building the AI highway in earnest"…National AI Computing Center kicks off 'sovereign infrastructure' with a 15,000-chip base — AI Times Korea](https://www.aitimes.kr/news/articleView.html?idxno=39891)
 - ["National AI Computing Center GPU not confirmed as B200…latest AI chips to be adopted" — ZDNet Korea](https://zdnet.co.kr/view/?no=20260803165045)
 - [Korea's national AI team — Namuwiki](https://namu.wiki/w/%EA%B5%AD%EA%B0%80%EB%8C%80%ED%91%9C%20AI)

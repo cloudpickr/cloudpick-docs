@@ -75,7 +75,6 @@ description: "네이버, LG AI연구원, 카카오, KT, 업스테이지, NC AI, 
 
 ## 참고하기
 
-- [네이버클라우드, 경량 옴니모달 모델 공개…"국방 환경 최적화" — 전자신문](https://www.etnews.com/20260615000237)
 - [네이버, 최상급 언어 능력 갖춘 추론모델 'HyperCLOVA X' — 네이버클라우드](https://www.navercloudcorp.com/ko/media/pressrelease/view/?seq=33058)
 - [차세대 하이브리드 AI, EXAONE 4.0 공개 — LG AI Research](https://www.lgresearch.ai/blog/view?seq=575)
 - [LG Reveals Next-Gen Multimodal AI 'EXAONE 4.5' — PR Newswire](https://www.prnewswire.com/news-releases/lg-reveals-next-gen-multimodal-ai-exaone-4-5-302736993.html)

@@ -77,7 +77,4 @@ This restructuring extends a trend under discussion since late 2025 to simplify 
 - [CSAP High/Medium tier system in effect..."Security and diplomacy mandated to use private cloud" — Ajunews](https://www.ajunews.com/view/20240206093321587)
 - [Public cloud certification to be unified under the NIS...CSAP dismantled after 10 years — ZDNet Korea](https://zdnet.co.kr/view/?no=20260420130424)
 - [Public cloud security "unified under the NIS"... CSAP integrated into ISMS — Boannews](https://m.boannews.com/html/detail.html?idx=143270)
-- [[Exclusive] Cloud providers to be able to enter the public sector without CSAP starting next year — Electronic Times](https://www.etnews.com/20251212000235)
-- [AWS obtains CSAP Low tier…all three global top-3 providers now in Korea's public cloud market — Electronic Times](https://www.etnews.com/20250401000420)
-- [This year's SaaS development support program sees participation from Naver, NHN, and KT Cloud — Electronic Times](https://www.etnews.com/20250314000044)
 - [Cloud Security Assurance Program (CSAP) — Korea Internet & Security Agency (KISA)](https://www.kisa.or.kr/1050603)

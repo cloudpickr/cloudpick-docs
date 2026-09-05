@@ -75,7 +75,6 @@ Choosing between a domestic FM and a global model such as GPT, Gemini, or Claude
 
 ## References
 
-- [Naver Cloud unveils lightweight omni-modal model…"optimized for defense environments" — Electronic Times](https://www.etnews.com/20260615000237)
 - [Naver's top-tier reasoning model with advanced language capability, 'HyperCLOVA X' — Naver Cloud](https://www.navercloudcorp.com/ko/media/pressrelease/view/?seq=33058)
 - [Next-generation hybrid AI, EXAONE 4.0 unveiled — LG AI Research](https://www.lgresearch.ai/blog/view?seq=575)
 - [LG Reveals Next-Gen Multimodal AI 'EXAONE 4.5' — PR Newswire](https://www.prnewswire.com/news-releases/lg-reveals-next-gen-multimodal-ai-exaone-4-5-302736993.html)

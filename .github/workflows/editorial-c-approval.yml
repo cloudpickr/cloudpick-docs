@@ -50,8 +50,10 @@ jobs:
       - name: Evaluate C-approval gate
         uses: actions/github-script@v7
         env:
-          # 콤마구분 GitHub 로그인 allowlist. 미설정이면 C 승인 불가(임의 사람 추가 안 함).
-          C_APPROVAL_ALLOWLIST: ${{ vars.EDITORIAL_C_APPROVAL_ALLOWLIST }}
+          # C 승인 allowlist(콤마구분 GitHub 로그인). 사용자 명시 승인으로 froguin 지정.
+          # 리포 변수 EDITORIAL_C_APPROVAL_ALLOWLIST가 설정되면 그것을 우선 사용하고,
+          # 미설정 시 승인된 기본값 'froguin'을 쓴다(임의 추가가 아니라 명시 승인된 신원).
+          C_APPROVAL_ALLOWLIST: ${{ vars.EDITORIAL_C_APPROVAL_ALLOWLIST || 'froguin' }}
         with:
           script: |
             const fs = require('fs');

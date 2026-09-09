@@ -89,3 +89,27 @@ Grok(스택 측 `runner/editorial_packet.py`)과 저장소 측 스키마가 **�
 
 - 운영 cutover, 기존 게이트 해제, 브랜치 보호 설정 변경, 유료 추론 서비스 추가.
 - admin/bot 우회 차단 정책 확정 — cutover 전 별도로 정합니다.
+
+## 필요한 Secret / Variable (부모가 값 설정 — 코드는 값 안 읽음/안 만듦)
+
+리뷰/게이트 워크플로우가 참조하는 이름. 실제 값은 스택 측이 발급·등록한다.
+
+| 이름 | 종류 | 용도 | 최소 권한/요구 |
+| --- | --- | --- | --- |
+| `LITELLM_BASE_URL` | secret | LiteLLM OpenAI 호환 엔드포인트 | HTTPS. `/chat/completions` 지원. 사설/메타데이터 목적지 금지 |
+| `LITELLM_API_KEY` | secret | 리뷰 전용 스코프 키 | **리뷰(chat completion)만**. merge/write/관리 권한 없음. 마스터키 아님 |
+| `LITELLM_REVIEWER_MODEL` | variable | 리뷰어 모델명 | 패킷 `writer.model`과 **달라야** 함(writer-distinct) |
+| `LITELLM_REVIEWER_PROVIDER` | variable | (선택) 리뷰어 공급자 | writer provider와 구별 확인용 |
+| `EDITORIAL_C_APPROVAL_ALLOWLIST` | variable | C 승인 허용 GitHub 로그인(콤마구분) | 사용자 승인값 `froguin` (미설정 시 워크플로우 기본값 `froguin`) |
+
+- 키 미설정 시 LLM 리뷰는 `skipped-unconfigured`(non-pass)로 동작하며 결정론적 5개
+  게이트는 그대로 필수다. outage/quota/timeout도 절대 pass로 변환하지 않는다.
+- 엔드포인트 fetcher는 사설/메타데이터 주소·불안전 리다이렉트를 거부하고 바이트·시간
+  상한을 적용한다(계약 §Evidence). 리뷰 잡은 base 코드만 실행하고 PR은 데이터로만 쓴다.
+
+## 실제 enforce(required 등록) 전환 절차 (검증 후)
+
+기존 필수 5개(`build`·`link-check`·`mermaid-lint`·`strikethrough-lint`·
+`docs-consistency-lint`)에 더해 `editorial-review`·`editorial-c-approval`를 required로
+등록하는 것은 **versioned script + rollback 기록**으로 검증 후 적용한다. 이 저장소는
+아직 등록하지 않았다(shadow-ready). admin/bot 우회 방침 확정도 전환 선행 조건이다.

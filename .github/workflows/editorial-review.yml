@@ -1,0 +1,142 @@
+name: Editorial Review
+
+# 계약: froguin/multi-agent-stack@3113cfc §Review, approval and budget enforcement
+#
+# 흐름: (1) 저렴한 검증(패킷 스키마·분류) → (2) B/C면 독립 LLM 리뷰(공식 근거·문체·로케일).
+#   - A: LLM 리뷰 불필요(결정론적 5개 필수 체크로 충분). B/C: writer-distinct LLM 리뷰.
+#   - outage/미설정/예산초과/unknown은 pass로 변환하지 않는다(비승인).
+#
+# 보안(계약 §4):
+#   - 이 잡은 신뢰된 base-branch 코드만 실행한다(checkout ref=default branch).
+#   - PR 텍스트/문서 diff는 데이터로만 프롬프트에 담는다(명령 아님).
+#   - LLM 키는 '이 리뷰 잡에만' 최소 권한으로 주입. build/린트 잡에는 주지 않는다.
+#   - PR head 코드를 실행하지 않는다(스크립트 실행·도구 호출 없음).
+#
+# 이 워크플로우가 기록하는 status: 'editorial-review'.
+# 실제 required 등록은 검증 후 versioned script로 별도 적용한다.
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+
+permissions:
+  contents: read
+  statuses: write
+  pull-requests: read
+
+concurrency:
+  group: editorial-review-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  review:
+    # draft PR은 리뷰 지출 안 함(ready_for_review에서 수행).
+    if: github.event.pull_request.draft == false
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout base (trusted)
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install validator deps
+        run: pip install --quiet jsonschema
+
+      # PR head SHA와 변경 파일/패킷을 '데이터'로 가져온다(코드 실행 아님).
+      - name: Collect PR metadata (data only)
+        id: meta
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const prNumber = context.payload.pull_request.number;
+            const { data: fresh } = await github.rest.pulls.get({
+              owner: context.repo.owner, repo: context.repo.repo, pull_number: prNumber,
+            });
+            core.setOutput('head_sha', fresh.head.sha);
+            core.setOutput('base_sha', fresh.base.sha);
+            const files = await github.paginate(github.rest.pulls.listFiles, {
+              owner: context.repo.owner, repo: context.repo.repo, pull_number: prNumber, per_page: 100,
+            });
+            const fs = require('fs');
+            const numstat = files.map(f => `${f.additions}\t${f.deletions}\t${f.filename}`).join('\n');
+            const smap = { added:'A', removed:'D', modified:'M', renamed:'R', changed:'M' };
+            const nameStatus = files.map(f => f.status === 'renamed'
+              ? `R100\t${f.previous_filename}\t${f.filename}`
+              : `${smap[f.status]||'M'}\t${f.filename}`).join('\n');
+            fs.writeFileSync('/tmp/numstat.txt', numstat + '\n');
+            fs.writeFileSync('/tmp/name_status.txt', nameStatus + '\n');
+            // 패킷(있으면) 텍스트를 데이터로만 저장. 실행하지 않는다.
+            const packetFile = files.find(f => /^\.editorial\/packets\/.+\.json$/.test(f.filename));
+            core.setOutput('has_packet', packetFile ? 'true' : 'false');
+            if (packetFile) core.setOutput('packet_path', packetFile.filename);
+
+      - name: Classify change (deterministic, no LLM)
+        id: classify
+        run: |
+          TIER=$(python3 .editorial/classify_change.py /tmp/numstat.txt /tmp/name_status.txt | python3 -c "import sys,json;print(json.load(sys.stdin)['tier'])")
+          echo "tier=$TIER" >> "$GITHUB_OUTPUT"
+          echo "Classified tier: $TIER"
+
+      # A: LLM 리뷰 불필요 → editorial-review success(결정론적 게이트가 담당).
+      - name: Record A pass
+        if: steps.classify.outputs.tier == 'A'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.repos.createCommitStatus({
+              owner: context.repo.owner, repo: context.repo.repo,
+              sha: '${{ steps.meta.outputs.head_sha }}',
+              state: 'success', context: 'editorial-review',
+              description: 'tier A: deterministic checks only, no LLM review required',
+            });
+
+      # B/C: 독립 LLM 리뷰. LiteLLM 키는 이 스텝에만 주입.
+      - name: Run independent LLM review (B/C)
+        if: steps.classify.outputs.tier == 'B' || steps.classify.outputs.tier == 'C'
+        id: llm
+        env:
+          LITELLM_BASE_URL: ${{ secrets.LITELLM_BASE_URL }}
+          LITELLM_API_KEY: ${{ secrets.LITELLM_API_KEY }}
+          LITELLM_REVIEWER_MODEL: ${{ vars.LITELLM_REVIEWER_MODEL }}
+          LITELLM_REVIEWER_PROVIDER: ${{ vars.LITELLM_REVIEWER_PROVIDER }}
+        run: |
+          # 패킷/diff를 데이터 파일로만 전달. 없으면 검증 실패(비승인).
+          if [ "${{ steps.meta.outputs.has_packet }}" != "true" ]; then
+            echo "::warning::no evidence packet for B/C change"
+          fi
+          # diff 텍스트(데이터)
+          git fetch origin "${{ steps.meta.outputs.head_sha }}" --depth=1 || true
+          git diff "${{ steps.meta.outputs.base_sha }}" "${{ steps.meta.outputs.head_sha }}" > /tmp/diff.txt || echo "(diff unavailable)" > /tmp/diff.txt
+          # 패킷 파일: PR head에서 데이터로만 취득(체크아웃 없이 API 경유는 생략, 없으면 빈 객체)
+          echo '{}' > /tmp/packet.json
+          set +e
+          python3 .editorial/review_runner.py /tmp/packet.json /tmp/diff.txt > /tmp/verdict.json
+          RC=$?
+          set -e
+          cat /tmp/verdict.json
+          echo "rc=$RC" >> "$GITHUB_OUTPUT"
+
+      - name: Record B/C review status
+        if: steps.classify.outputs.tier == 'B' || steps.classify.outputs.tier == 'C'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            let verdict = 'error', reasons = ['no verdict'];
+            try {
+              const v = JSON.parse(fs.readFileSync('/tmp/verdict.json', 'utf8'));
+              verdict = v.verdict; reasons = v.reasons || [];
+            } catch (e) { core.warning('verdict parse failed: ' + e.message); }
+            // approve만 success. changes_requested/error/skipped-unconfigured는 non-pass.
+            const state = verdict === 'approve' ? 'success'
+              : (verdict === 'changes_requested' ? 'failure' : 'pending');
+            await github.rest.repos.createCommitStatus({
+              owner: context.repo.owner, repo: context.repo.repo,
+              sha: '${{ steps.meta.outputs.head_sha }}',
+              state, context: 'editorial-review',
+              description: `${verdict}: ${(reasons[0]||'').slice(0,100)}`.slice(0,140),
+            });

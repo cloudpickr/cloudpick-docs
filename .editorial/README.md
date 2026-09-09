@@ -1,0 +1,76 @@
+# Editorial handoff — 저장소 측 참조
+
+이 디렉터리는 multi-agent-stack → 문서 저장소 편집 핸드오프 계약의 **저장소 측 준비물**을 담습니다.
+운영 전환(cutover)은 아직 이루어지지 않았으며, 기존 발행 게이트는 그대로 유효합니다.
+
+## 계약 원본 (Source of Truth)
+
+계약 본문은 이 저장소에 **사본을 두지 않습니다.** 아래 핀 커밋 링크를 단일 기준으로 참조합니다.
+
+- **정규 계약(pinned):** `froguin/multi-agent-stack` 커밋 `3113cfc`
+  `docs/architecture/editorial-actions-contract.md`
+- 계약의 명확화 반영 및 핀 갱신은 **스택 측 책임**입니다. 여기의 핀만 따라 갱신합니다.
+- 이전 핀: `e0dbbdc` (동일 본문 + 합의 명확화가 `3113cfc`에 반영됨).
+
+## 이 디렉터리의 내용
+
+- `packet.schema.json` — 근거 패킷(evidence packet) **형식 검증** 스키마(JSON Schema 2020-12).
+  계약 §Evidence packet의 최소 필드를 반영합니다.
+- 패킷 실제 파일 위치(계약 제안): `.editorial/packets/<jira_key>.json` (draft PR에 포함).
+
+## 공통 크기 상한 (스택·저장소 양측 동일 적용)
+
+Grok(스택 측 `runner/editorial_packet.py`)과 저장소 측 스키마가 **동일 한도**를 쓰도록 고정합니다.
+
+| 항목 | 한도 | 강제 위치 |
+| --- | --- | --- |
+| 패킷 직렬화 크기(UTF-8) | 128 KiB | trusted validator (파일 크기 — JSON Schema로 표현 불가) |
+| `changed_paths` | 64개 | 스키마 `maxItems` |
+| `claim_ledger` | 32개 | 스키마 `maxItems` |
+| claim당 `sources` | 8개 | 스키마 `maxItems` |
+
+## 검증 분담 (형식 vs 신뢰)
+
+스키마(형식)로 잡는 것과 trusted validator(Actions)가 최종 담당하는 것을 구분합니다.
+
+- **스키마가 잡음:** 필수 필드, enum, 경로 패턴(제어문자·`..`·중복 슬래시·역슬래시 차단),
+  `source_url` 또는 `sources` 최소 1개 존재, 배열 상한, SHA-256 형식.
+- **trusted validator가 최종 담당(스키마로 불가):**
+  - 경로 **정규화** 검증 — 정규식은 최선의 방어일 뿐, `../`·`./`·심볼릭·정규화 후 탈출을
+    validator가 정규 상대경로로 재확인.
+  - 패킷 **직렬화 128KiB** 상한(파일 크기).
+  - **파서/파일 레벨 케이스**(파싱된 객체로는 판별 불가): 중복 JSON 키 거부(표준 파서는
+    마지막 값 채택하므로 strict 파서로 거부), 후행 개행(trailing newline) 정책, BOM.
+  - claim 출처의 **실재·내용 일치**, `status: verified`의 진위 — 자기신고 verified로
+    대체 금지, 공식 출처 독립 fetch로 확인(fetcher는 사설/메타데이터 목적지·불안전
+    리다이렉트 거부, 바이트·시간 상한).
+  - `checked_at`/`source_updated_at`의 의미(미상 발행일에 오늘 날짜 대체 금지).
+
+## 스택 측 하드닝 케이스 호환 (agy 패킷 빌더)
+
+스택 측 `runner/editorial_packet.py`가 강화 중인 거부 케이스에 대한 저장소 스키마 대응:
+
+| 케이스 | 스키마 처리 | 비고 |
+| --- | --- | --- |
+| timezone 없는 `checked_at` | **거부** (pattern으로 RFC3339 tz 강제) | `format:date-time`은 비강제라 pattern 병행 |
+| `./` 경로(선두·중간) | **거부** (`(^\|/)\.\.?(/\|$)` not) | `..`·`./` 모두 차단 |
+| malformed `changed_paths`(비문자열·빈 배열) | **거부** (items type·minItems) | |
+| 후행 개행(trailing newline) | validator/파일 레벨 | 스키마는 파싱된 객체만 봄 |
+| 중복 JSON 키 | validator/파서 레벨 | strict 파서로 거부 |
+
+## 경계와 주의 (계약과 일치)
+
+- **형식 검증 ≠ 내용 신뢰.** 스키마 통과는 패킷의 *모양*만 보증하며, 근거 내용의 사실성은
+  신뢰된 base-branch 정책(Actions)이 실제 diff·공식 출처로 독립 검증합니다.
+- **`tier_hint`·`generated_by_llm`·`writer`는 입력 신호일 뿐** 최종 판정이 아닙니다.
+  Actions가 실제 diff·근거로 재분류하며, 불명확/이견은 상향(escalate)하되 조용히 하향하지 않습니다.
+  LLM 생성 편집은 최소 B이고, 출처 불명은 A로 낮추지 않습니다.
+- **검증된 패킷 JSON만** 문서 스코프 카운팅에서 제외됩니다. 그 외 `.editorial/` 임의 변경은
+  C/blocked로 취급합니다(무검증 경로 통째 제외 금지).
+- 이 디렉터리는 `src/content/docs/` 밖이라 문서 린터(`lint-mermaid`/`lint-strikethrough`/
+  `lint-docs-consistency`)와 Astro 빌드·콘텐츠 컬렉션의 대상이 아닙니다(회귀 테스트로 확인).
+
+## 아직 하지 않은 것 (전환 전 금지)
+
+- 운영 cutover, 기존 게이트 해제, 브랜치 보호 설정 변경, 유료 추론 서비스 추가.
+- admin/bot 우회 차단 정책 확정 — cutover 전 별도로 정합니다.

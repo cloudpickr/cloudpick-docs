@@ -16,7 +16,22 @@
 
 - `packet.schema.json` — 근거 패킷(evidence packet) **형식 검증** 스키마(JSON Schema 2020-12).
   계약 §Evidence packet의 최소 필드를 반영합니다.
+- `validate_packet.py` — 패킷 **trusted validator**(형식+파서/파일 레벨: 경로 정규화·128KiB·
+  중복 JSON 키·trailing newline·BOM·checked_at RFC3339·target∈changed·파일명 일치).
+- `classify_change.py` — 실제 diff+패킷으로 **A/B/C 재판정**(tier_hint는 입력일 뿐,
+  LLM 생성 최소 B, 신규/삭제/이동/문서외/규제=C, 근거 없는 비기계적 변경은 C로 상향).
+- `review_runner.py` — B/C **독립 LLM 리뷰**(LiteLLM 재사용, writer-distinct 강제, 예산·
+  호출·토큰 상한, outage/미설정은 non-pass, PR 내용은 데이터). 미설정 시 shadow(non-pass).
+- `envelope.py` — 리뷰 결과를 repo/PR/base_sha/head_sha/packet-SHA256/policy/reviewer-config
+  튜플에 **바인딩**. 하나라도 바뀌면 이전 결과 무효(캐시 미스). freshness 만료 포함.
+- `tests/` — 위 4개의 실제 단위 테스트(unittest).
 - 패킷 실제 파일 위치(계약 제안): `.editorial/packets/<jira_key>.json` (draft PR에 포함).
+
+관련 워크플로/스크립트(저장소 루트):
+- `.github/workflows/editorial-c-approval.yml` — C 승인 게이트(status `editorial-c-approval`).
+- `.github/scripts/c_approval_gate.cjs` (+`.test.cjs`) — A/B는 명시 pass, C는 allowlisted
+  human의 exact-SHA 승인(작성자/봇/stale/철회/비allowlist 거부, head 이벤트마다 재확인).
+  `EDITORIAL_C_APPROVAL_ALLOWLIST` 변수 미설정 시 C는 승인 불가(임의 승인자 없음).
 
 ## 공통 크기 상한 (스택·저장소 양측 동일 적용)
 

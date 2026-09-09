@@ -27,12 +27,14 @@ Manage the background server with `astro dev stop`, `astro dev status`, and `ast
   - 글로벌 코어 문서 및 타국 가이드(`japan/`, `us/`, `eu/`, `singapore/`)에서는 특정 국가 시점이 아닌 중립적인 다국가·크로스보더 관점으로 서술합니다.
 - **3개 로케일 대칭성 보장**:
   - 파일 추가, 수정, 삭제 시 `ko`, `en`, `ja` 세 언어의 파일 경로와 내용이 완벽하게 일치해야 합니다. 미번역 파일이나 고립된 테스트 문서를 남기지 않습니다.
+  - `python3 scripts/lint-docs-consistency.py` 린터(파일 경로 대칭성 검사)를 통과해야 합니다.
 
 ## 문서 기준 및 사실 검증 원칙
 
 - **기준 시점: 2026년 8월**:
-  - 모든 문서는 `> 문서 기준: 2026년 8월` 기준 최신 정보를 반영합니다.
+  - 모든 문서는 `> 문서 기준: 2026년 8월` 기준 최신 정보를 반영합니다. (en: `> Last reviewed: August 2026`, ja: `> 文書基準: 2026年8月`)
   - 과거 시점(2024~2025년 및 2026년 상반기)의 출시/발효 일정이 "예정"으로 남아있지 않도록 현행화합니다.
+  - 랜딩·웰컴 페이지(`index.mdx`, `introduction.mdx`)를 제외한 모든 문서는 이 기준 마커를 포함해야 하며, `python3 scripts/lint-docs-consistency.py` 린터(마커 존재 검사)를 통과해야 합니다.
 - **공식 출처 기반 & 교차검증(Cross-check)**:
   - 기술 사실, 서비스 명칭, 가격 체계, 법적 요건은 반드시 각 벤더(AWS, Azure, Google Cloud, OCI)의 최신 공식 문서, 표준 기구(NIST, CNCF, FinOps Foundation), 공식 법률/가이드라인을 교차검증하여 작성합니다.
   - 변경 의도나 기준이 모호한 경우 반드시 `git log`와 커밋 히스토리를 확인하여 이전 의사결정 맥락을 파악한 후 진행합니다.
@@ -53,6 +55,7 @@ Manage the background server with `astro dev stop`, `astro dev status`, and `ast
 - **접이식(`<details>`/`<summary>`) 금지**:
   - 접이식 블록은 딥링크(`#앵커`)로 진입 시 내용이 감춰지고, 페이지 내 검색(Pagefind)·스크린리더에서 콘텐츠가 누락되므로 사용하지 않습니다.
   - 상세 정보는 접지 말고 소제목(`###`/`####`)이나 표로 펼쳐서 항상 노출합니다.
+  - `python3 scripts/lint-docs-consistency.py` 린터(접이식 블록 검사)를 통과해야 합니다.
 - **보조 정보는 Starlight aside로 통일**:
   - 주의·참고·팁은 원시 HTML이나 위첨자 각주(`¹`, `> ¹ ...`)가 아니라 Starlight 네이티브 aside 문법(`:::note`, `:::caution`, `:::tip`)으로 작성합니다.
   - 표 셀에 각주 기호를 달아 표 밖에서 설명하는 방식 대신, 해당 제약·주의사항을 aside 블록으로 표 근처에 명시합니다.

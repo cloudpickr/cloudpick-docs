@@ -54,5 +54,26 @@ jobs:
           C_APPROVAL_ALLOWLIST: ${{ vars.EDITORIAL_C_APPROVAL_ALLOWLIST }}
         with:
           script: |
-            const script = require('.github/scripts/c_approval_gate.cjs');
+            const fs = require('fs');
+            const path = '.github/scripts/c_approval_gate.cjs';
+            // 신뢰된 base 브랜치에 게이트 스크립트가 아직 없으면(부트스트랩 PR),
+            // 승인으로 변환하지 않고 pending status를 기록한다(데드락·오승인 방지).
+            if (!fs.existsSync(path)) {
+              core.warning(`gate script not present on trusted base yet: ${path}`);
+              const pr = context.payload.pull_request
+                || (context.payload.issue && context.payload.issue.pull_request ? context.payload.issue : null);
+              if (pr) {
+                const prNumber = context.payload.pull_request?.number || context.payload.issue?.number;
+                const { data: fresh } = await github.rest.pulls.get({
+                  owner: context.repo.owner, repo: context.repo.repo, pull_number: prNumber,
+                });
+                await github.rest.repos.createCommitStatus({
+                  owner: context.repo.owner, repo: context.repo.repo, sha: fresh.head.sha,
+                  state: 'pending', context: 'editorial-c-approval',
+                  description: 'gate script not yet on base branch (bootstrap) — not an approval',
+                });
+              }
+              return;
+            }
+            const script = require(`${process.cwd()}/${path}`);
             await script({ github, context, core, exec });

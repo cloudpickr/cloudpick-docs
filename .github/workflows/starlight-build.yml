@@ -9,6 +9,10 @@ on:
       - "package.json"
       - "package-lock.json"
       - ".github/workflows/starlight-build.yml"
+      # 메타데이터/핸드오프 변경도 실제 build 체크(내부 링크 검증 포함)를 수행하도록
+      # PR 경로 범위에 포함 — paths 필터 미포함으로 인한 required check 무한 pending 방지.
+      - ".editorial/**"
+      - ".github/PULL_REQUEST_TEMPLATE.md"
   push:
     branches: [master, main]
     paths:

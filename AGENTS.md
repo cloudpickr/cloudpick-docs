@@ -38,6 +38,10 @@ Manage the background server with `astro dev stop`, `astro dev status`, and `ast
 - **공식 출처 기반 & 교차검증(Cross-check)**:
   - 기술 사실, 서비스 명칭, 가격 체계, 법적 요건은 반드시 각 벤더(AWS, Azure, Google Cloud, OCI)의 최신 공식 문서, 표준 기구(NIST, CNCF, FinOps Foundation), 공식 법률/가이드라인을 교차검증하여 작성합니다.
   - 변경 의도나 기준이 모호한 경우 반드시 `git log`와 커밋 히스토리를 확인하여 이전 의사결정 맥락을 파악한 후 진행합니다.
+- **링크 유효성 검증(내부·외부)**:
+  - **내부 링크**(상대 `../`·root-relative `/ko/..`)는 `npm run build`의 `starlight-links-validator`가 대상 존재 여부를 검증합니다. 깨진 내부 링크·누락 파일이 있으면 빌드가 실패해 머지가 차단됩니다.
+  - **외부 링크**(`참고하기`의 공식 문서)는 CI(`External Link Check`, lychee)가 매 커밋 검사하며, 깨진 링크(404/410)는 차단됩니다. 리다이렉트(301/302/307/308)는 유효로 허용합니다. 한국 도메인은 NCP 함수(`scripts/check-korean-links.mjs`)가 전담합니다.
+  - 깨진 링크는 발견 즉시 유효한 공식 URL로 대체하거나 제거한 뒤 커밋합니다.
 
 ## 표기 및 문체 규약
 

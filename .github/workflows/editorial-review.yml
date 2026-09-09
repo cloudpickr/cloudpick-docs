@@ -77,9 +77,28 @@ jobs:
       - name: Classify change (deterministic, no LLM)
         id: classify
         run: |
+          # 신뢰된 base(master)에 스크립트가 아직 없으면(부트스트랩 도입 PR) 승인으로
+          # 변환하지 않고 tier=bootstrap으로 표시(아래에서 pending status 기록).
+          if [ ! -f .editorial/classify_change.py ]; then
+            echo "::warning::classify script not on trusted base yet (bootstrap)"
+            echo "tier=bootstrap" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
           TIER=$(python3 .editorial/classify_change.py /tmp/numstat.txt /tmp/name_status.txt | python3 -c "import sys,json;print(json.load(sys.stdin)['tier'])")
           echo "tier=$TIER" >> "$GITHUB_OUTPUT"
           echo "Classified tier: $TIER"
+
+      - name: Record bootstrap pending
+        if: steps.classify.outputs.tier == 'bootstrap'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.repos.createCommitStatus({
+              owner: context.repo.owner, repo: context.repo.repo,
+              sha: '${{ steps.meta.outputs.head_sha }}',
+              state: 'pending', context: 'editorial-review',
+              description: 'review scripts not yet on base branch (bootstrap) — not an approval',
+            });
 
       # A: LLM 리뷰 불필요 → editorial-review success(결정론적 게이트가 담당).
       - name: Record A pass

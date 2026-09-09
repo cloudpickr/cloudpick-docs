@@ -2,6 +2,7 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import starlightLlmsTxt from 'starlight-llms-txt';
+import starlightLinksValidator from 'starlight-links-validator';
 import mermaid from 'astro-mermaid';
 import { STARLIGHT_LOCALES, DEFAULT_LOCALE } from './config/locales.mjs';
 
@@ -21,7 +22,16 @@ export default defineConfig({
 			description: '멀티클라우드 환경에서 올바른 의사결정을 내리기 위한 벤더 중립 가이드',
 			defaultLocale: DEFAULT_LOCALE,
 			locales: STARLIGHT_LOCALES,
-			plugins: [starlightLlmsTxt()],
+			plugins: [
+				starlightLlmsTxt(),
+				// 내부 링크(상대·root-relative) 검증. 대상이 존재하지 않는 깨진
+				// 내부 링크가 있으면 빌드를 실패시켜 머지를 차단한다. 외부 링크는
+				// lychee가 담당한다. 상대경로(../) 링크는 이 리포의 정상 표기이므로
+				// 형식을 금지(errorOnRelativeLinks)하지 않고, 대상 존재 여부만 검증한다.
+				starlightLinksValidator({
+					errorOnRelativeLinks: false,
+				}),
+			],
 			routeMiddleware: './src/routeData.ts',
 			components: {
 				Head: './src/components/Head.astro',

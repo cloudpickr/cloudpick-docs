@@ -4,8 +4,9 @@
 
 # ── 검사 범위 ──
 # http/https URL(외부 링크)만 검사한다. 내부 상대 링크(../..)와
-# root-relative 링크(/ko/..)는 Astro가 라우팅하고 `npm run build`가 이미
-# 깨진 내부 링크를 검증하므로, 여기서는 scheme 한정 + 제외로 오탐을 막는다.
+# root-relative 링크(/ko/..)는 `npm run build`의 starlight-links-validator가
+# 대상 존재 여부를 검증(깨진 내부 링크 시 빌드 실패)하므로, 여기서는
+# scheme 한정 + 제외로 외부 링크에만 집중해 오탐을 막는다.
 scheme = ["https", "http"]
 
 # ── 허용 상태 코드 ──
@@ -38,8 +39,8 @@ cache_exclude_status = ["429", "500..=599"]
 exclude = [
   "^https?://localhost",
   "^https?://127\\.0\\.0\\.1",
-  # root-relative 내부 링크(/ko/.. /en/.. /ja/..) — Astro 라우팅 대상이고
-  # npm run build가 깨진 내부 링크를 이미 검증하므로 lychee 검사 제외.
+  # root-relative 내부 링크(/ko/.. /en/.. /ja/..) — starlight-links-validator가
+  # npm run build에서 대상 존재 여부를 검증하므로 lychee 검사 제외.
   "^/(ko|en|ja)/",
   # 로그인 필요 콘솔·포털
   "console\\.aws\\.amazon\\.com",

@@ -165,4 +165,4 @@ MSP는 일반적으로 **클라우드 사용료에 대한 추가 마진을 받�
 
 - [OCI Support](https://www.oracle.com/support/)
 - [OCI Cloud Advisor](https://docs.oracle.com/en-us/iaas/Content/CloudAdvisor/Concepts/cloudadvisoroverview.htm)
-- [OCI 파트너](https://www.oracle.com/kr/partnernetwork/)
+- [OCI 파트너](https://www.oracle.com/partner/)

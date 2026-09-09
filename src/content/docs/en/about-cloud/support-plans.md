@@ -158,4 +158,4 @@ The list above only highlights representative communities. Many other vendor-spe
 
 - [OCI Support](https://www.oracle.com/support/)
 - [OCI Cloud Advisor](https://docs.oracle.com/en-us/iaas/Content/CloudAdvisor/Concepts/cloudadvisoroverview.htm)
-- [OCI Partners](https://www.oracle.com/kr/partnernetwork/)
+- [OCI Partners](https://www.oracle.com/partner/)

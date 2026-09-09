@@ -165,4 +165,4 @@ MSPは一般的に**クラウド使用料に対して追加マージンを取り
 
 - [OCI Support](https://www.oracle.com/support/)
 - [OCI Cloud Advisor](https://docs.oracle.com/en-us/iaas/Content/CloudAdvisor/Concepts/cloudadvisoroverview.htm)
-- [OCIパートナー](https://www.oracle.com/kr/partnernetwork/)
+- [OCIパートナー](https://www.oracle.com/partner/)

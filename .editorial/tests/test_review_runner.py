@@ -48,8 +48,29 @@ class TestWriterDistinct(unittest.TestCase):
         self.assertEqual(r.verdict, "error")
         self.assertFalse(r.cacheable)
 
-    def test_distinct_model_ok(self):
-        c = cfg(model="reviewer-model")
+    def test_same_provider_rejected(self):
+        # 다른 model이지만 같은 provider → 독립 아님
+        c = cfg(model="reviewer-model", provider="provider-a")  # writer provider와 동일
+        r = rr.run_review(c, PACKET, DIFF, call_fn=lambda *a, **k: '{"verdict":"approve"}')
+        self.assertEqual(r.verdict, "error")
+        self.assertFalse(r.cacheable)
+
+    def test_missing_reviewer_provider_rejected(self):
+        c = rr.ReviewConfig(base_url="https://x", api_key="k",
+                            reviewer_model="reviewer-model", reviewer_provider=None)
+        r = rr.run_review(c, PACKET, DIFF, call_fn=lambda *a, **k: '{"verdict":"approve"}')
+        self.assertEqual(r.verdict, "error")
+
+    def test_missing_writer_in_packet_rejected(self):
+        # writer 신고가 없으면 독립성 확인 불가 → 보류(error, 비승인)
+        packet_no_writer = {k: v for k, v in PACKET.items() if k != "writer"}
+        r = rr.run_review(cfg(), packet_no_writer, DIFF,
+                          call_fn=lambda *a, **k: '{"verdict":"approve","reasons":[]}')
+        self.assertEqual(r.verdict, "error")
+        self.assertFalse(r.cacheable)
+
+    def test_distinct_model_and_provider_ok(self):
+        c = cfg(model="reviewer-model", provider="provider-b")
         r = rr.run_review(c, PACKET, DIFF, call_fn=lambda *a, **k: '{"verdict":"approve","reasons":[]}')
         self.assertEqual(r.verdict, "approve")
 

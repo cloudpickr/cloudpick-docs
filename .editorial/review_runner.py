@@ -64,21 +64,32 @@ class ReviewResult:
 
 
 def writer_distinct(config: ReviewConfig, packet: dict) -> tuple[bool, str]:
-    """리뷰어가 패킷 writer와 다른 model/provider인지 확인."""
-    writer = (packet or {}).get("writer") or {}
-    w_model = (writer.get("model") or "").strip().lower()
-    w_provider = (writer.get("provider") or "").strip().lower()
+    """리뷰어가 패킷 writer와 독립인지 확인(계약 writer-distinct model/provider).
+
+    독립으로 인정하지 않는 경우:
+      - reviewer model/provider 미설정
+      - writer 정보 누락(자기신고조차 없음) → 독립성 확인 불가 → 보류
+      - reviewer model == writer model (role name만 다른 동일 모델)
+      - reviewer provider == writer provider (같은 공급자면 다른 model이어도 독립 아님)
+    """
     r_model = (config.reviewer_model or "").strip().lower()
     r_provider = (config.reviewer_provider or "").strip().lower()
     if not r_model:
         return False, "reviewer model not configured"
-    # 모델이 같으면 role name만 다른 것으로 간주(비독립).
+    if not r_provider:
+        return False, "reviewer provider not configured (cannot establish distinctness)"
+
+    writer = (packet or {}).get("writer") or {}
+    w_model = (writer.get("model") or "").strip().lower()
+    w_provider = (writer.get("provider") or "").strip().lower()
+    # writer 신고가 없으면 독립성을 확인할 수 없다 → 승인 보류(계약: writer 누락 시 B/C 보류).
+    if not w_model or not w_provider:
+        return False, "writer model/provider missing in packet — cannot confirm independence"
     if r_model == w_model:
         return False, f"reviewer model equals writer model ({r_model}) — not independent"
-    # provider 정보가 양쪽 다 있으면 그것도 같으면 안 됨(보수적).
-    if w_provider and r_provider and r_provider == w_provider and r_model == w_model:
-        return False, "reviewer provider+model equals writer — not independent"
-    return True, "writer-distinct reviewer confirmed"
+    if r_provider == w_provider:
+        return False, f"reviewer provider equals writer provider ({r_provider}) — not independent"
+    return True, "writer-distinct reviewer confirmed (model and provider differ)"
 
 
 def build_prompt(packet: dict, diff_text: str) -> list[dict]:

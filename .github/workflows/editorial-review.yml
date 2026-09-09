@@ -2,18 +2,16 @@ name: Editorial Review
 
 # 계약: froguin/multi-agent-stack@3113cfc §Review, approval and budget enforcement
 #
-# 흐름: (1) 저렴한 검증(패킷 스키마·분류) → (2) B/C면 독립 LLM 리뷰(공식 근거·문체·로케일).
-#   - A: LLM 리뷰 불필요(결정론적 5개 필수 체크로 충분). B/C: writer-distinct LLM 리뷰.
-#   - outage/미설정/예산초과/unknown은 pass로 변환하지 않는다(비승인).
+# 흐름: 패킷 취득(API 데이터)→검증→분류→(B/C)독립 LLM 리뷰. 오케스트레이터
+#   .editorial/run_review_gate.py 하나가 수행하고, 워크플로우는 데이터만 넘긴다.
 #
 # 보안(계약 §4):
-#   - 이 잡은 신뢰된 base-branch 코드만 실행한다(checkout ref=default branch).
-#   - PR 텍스트/문서 diff는 데이터로만 프롬프트에 담는다(명령 아님).
-#   - LLM 키는 '이 리뷰 잡에만' 최소 권한으로 주입. build/린트 잡에는 주지 않는다.
-#   - PR head 코드를 실행하지 않는다(스크립트 실행·도구 호출 없음).
+#   - 신뢰된 base-branch 코드만 실행(checkout ref=default branch).
+#   - PR head 코드를 절대 실행/체크아웃하지 않는다. 패킷·diff는 GitHub API로 데이터 취득.
+#   - LLM 키는 이 리뷰 잡에만 최소 권한 주입. build/lint 잡에는 없음.
+#   - 실패/미설정/outage/보류는 success로 변환하지 않는다(commit status에 정확 반영).
 #
-# 이 워크플로우가 기록하는 status: 'editorial-review'.
-# 실제 required 등록은 검증 후 versioned script로 별도 적용한다.
+# 기록 status: 'editorial-review'. required 등록은 검증 후 versioned GHA로 별도.
 
 on:
   pull_request:
@@ -30,7 +28,6 @@ concurrency:
 
 jobs:
   review:
-    # draft PR은 리뷰 지출 안 함(ready_for_review에서 수행).
     if: github.event.pull_request.draft == false
     runs-on: ubuntu-latest
     steps:
@@ -43,25 +40,35 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Install validator deps
-        run: pip install --quiet jsonschema
+      - name: Bootstrap guard + deps
+        id: guard
+        run: |
+          # 게이트 스크립트가 신뢰된 base에 아직 없으면(도입 PR) 승인으로 변환하지 않는다.
+          if [ ! -f .editorial/run_review_gate.py ]; then
+            echo "bootstrap=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "bootstrap=false" >> "$GITHUB_OUTPUT"
+            pip install --quiet jsonschema
+          fi
 
-      # PR head SHA와 변경 파일/패킷을 '데이터'로 가져온다(코드 실행 아님).
-      - name: Collect PR metadata (data only)
-        id: meta
+      # PR head의 변경목록·패킷·diff를 GitHub API로 '데이터'로만 취득(코드 실행/체크아웃 없음).
+      - name: Collect PR data (API only)
+        id: data
         uses: actions/github-script@v7
         with:
           script: |
+            const fs = require('fs');
             const prNumber = context.payload.pull_request.number;
             const { data: fresh } = await github.rest.pulls.get({
               owner: context.repo.owner, repo: context.repo.repo, pull_number: prNumber,
             });
-            core.setOutput('head_sha', fresh.head.sha);
-            core.setOutput('base_sha', fresh.base.sha);
+            const headSha = fresh.head.sha, baseSha = fresh.base.sha;
+            core.setOutput('head_sha', headSha);
+            core.setOutput('base_sha', baseSha);
+
             const files = await github.paginate(github.rest.pulls.listFiles, {
               owner: context.repo.owner, repo: context.repo.repo, pull_number: prNumber, per_page: 100,
             });
-            const fs = require('fs');
             const numstat = files.map(f => `${f.additions}\t${f.deletions}\t${f.filename}`).join('\n');
             const smap = { added:'A', removed:'D', modified:'M', renamed:'R', changed:'M' };
             const nameStatus = files.map(f => f.status === 'renamed'
@@ -69,93 +76,88 @@ jobs:
               : `${smap[f.status]||'M'}\t${f.filename}`).join('\n');
             fs.writeFileSync('/tmp/numstat.txt', numstat + '\n');
             fs.writeFileSync('/tmp/name_status.txt', nameStatus + '\n');
-            // 패킷(있으면) 텍스트를 데이터로만 저장. 실행하지 않는다.
-            const packetFile = files.find(f => /^\.editorial\/packets\/.+\.json$/.test(f.filename));
-            core.setOutput('has_packet', packetFile ? 'true' : 'false');
-            if (packetFile) core.setOutput('packet_path', packetFile.filename);
 
-      - name: Classify change (deterministic, no LLM)
-        id: classify
-        run: |
-          # 신뢰된 base(master)에 스크립트가 아직 없으면(부트스트랩 도입 PR) 승인으로
-          # 변환하지 않고 tier=bootstrap으로 표시(아래에서 pending status 기록).
-          if [ ! -f .editorial/classify_change.py ]; then
-            echo "::warning::classify script not on trusted base yet (bootstrap)"
-            echo "tier=bootstrap" >> "$GITHUB_OUTPUT"
-            exit 0
-          fi
-          TIER=$(python3 .editorial/classify_change.py /tmp/numstat.txt /tmp/name_status.txt | python3 -c "import sys,json;print(json.load(sys.stdin)['tier'])")
-          echo "tier=$TIER" >> "$GITHUB_OUTPUT"
-          echo "Classified tier: $TIER"
+            // 단일 패킷 파일만 허용(다중이면 스코프 예외 불가 → 데이터 미취득, 게이트가 보류 판정).
+            const packets = files.filter(f => /^\.editorial\/packets\/[^/]+\.json$/.test(f.filename));
+            let packetPath = 'none';
+            if (packets.length === 1) {
+              // head SHA의 콘텐츠를 API로 데이터 취득(코드 실행 아님).
+              const { data: blob } = await github.rest.repos.getContent({
+                owner: context.repo.owner, repo: context.repo.repo,
+                path: packets[0].filename, ref: headSha,
+              });
+              const content = Buffer.from(blob.content, blob.encoding).toString('utf8');
+              fs.writeFileSync('/tmp/packet.json', content);
+              packetPath = '/tmp/packet.json';
+            } else if (packets.length > 1) {
+              core.warning(`multiple packet files (${packets.length}); not eligible for scope exception`);
+            }
+            core.setOutput('packet', packetPath);
+
+            // diff 텍스트(데이터)를 compare API로 취득 — PR head를 체크아웃하지 않는다.
+            const { data: cmp } = await github.rest.repos.compareCommitsWithBasehead({
+              owner: context.repo.owner, repo: context.repo.repo,
+              basehead: `${baseSha}...${headSha}`,
+            });
+            const diffText = (cmp.files || []).map(f =>
+              `--- ${f.filename}\n${f.patch || '(no textual patch)'}`).join('\n');
+            fs.writeFileSync('/tmp/diff.txt', diffText);
 
       - name: Record bootstrap pending
-        if: steps.classify.outputs.tier == 'bootstrap'
+        if: steps.guard.outputs.bootstrap == 'true'
         uses: actions/github-script@v7
         with:
           script: |
             await github.rest.repos.createCommitStatus({
               owner: context.repo.owner, repo: context.repo.repo,
-              sha: '${{ steps.meta.outputs.head_sha }}',
+              sha: '${{ steps.data.outputs.head_sha }}',
               state: 'pending', context: 'editorial-review',
               description: 'review scripts not yet on base branch (bootstrap) — not an approval',
             });
 
-      # A: LLM 리뷰 불필요 → editorial-review success(결정론적 게이트가 담당).
-      - name: Record A pass
-        if: steps.classify.outputs.tier == 'A'
-        uses: actions/github-script@v7
-        with:
-          script: |
-            await github.rest.repos.createCommitStatus({
-              owner: context.repo.owner, repo: context.repo.repo,
-              sha: '${{ steps.meta.outputs.head_sha }}',
-              state: 'success', context: 'editorial-review',
-              description: 'tier A: deterministic checks only, no LLM review required',
-            });
-
-      # B/C: 독립 LLM 리뷰. LiteLLM 키는 이 스텝에만 주입.
-      - name: Run independent LLM review (B/C)
-        if: steps.classify.outputs.tier == 'B' || steps.classify.outputs.tier == 'C'
-        id: llm
+      # 오케스트레이터 실행. exit code가 곧 결과(0=success,1=failure,2=pending/hold).
+      # LLM 키는 이 스텝에만 주입.
+      - name: Run editorial review gate
+        if: steps.guard.outputs.bootstrap == 'false'
+        id: gate
+        continue-on-error: true
         env:
           LITELLM_BASE_URL: ${{ secrets.LITELLM_BASE_URL }}
           LITELLM_API_KEY: ${{ secrets.LITELLM_API_KEY }}
           LITELLM_REVIEWER_MODEL: ${{ vars.LITELLM_REVIEWER_MODEL }}
           LITELLM_REVIEWER_PROVIDER: ${{ vars.LITELLM_REVIEWER_PROVIDER }}
         run: |
-          # 패킷/diff를 데이터 파일로만 전달. 없으면 검증 실패(비승인).
-          if [ "${{ steps.meta.outputs.has_packet }}" != "true" ]; then
-            echo "::warning::no evidence packet for B/C change"
-          fi
-          # diff 텍스트(데이터)
-          git fetch origin "${{ steps.meta.outputs.head_sha }}" --depth=1 || true
-          git diff "${{ steps.meta.outputs.base_sha }}" "${{ steps.meta.outputs.head_sha }}" > /tmp/diff.txt || echo "(diff unavailable)" > /tmp/diff.txt
-          # 패킷 파일: PR head에서 데이터로만 취득(체크아웃 없이 API 경유는 생략, 없으면 빈 객체)
-          echo '{}' > /tmp/packet.json
-          set +e
-          python3 .editorial/review_runner.py /tmp/packet.json /tmp/diff.txt > /tmp/verdict.json
-          RC=$?
-          set -e
-          cat /tmp/verdict.json
-          echo "rc=$RC" >> "$GITHUB_OUTPUT"
+          python3 .editorial/run_review_gate.py \
+            --numstat /tmp/numstat.txt --name-status /tmp/name_status.txt \
+            --diff /tmp/diff.txt --packet '${{ steps.data.outputs.packet }}' \
+            --repo '${{ github.repository }}' --pr '${{ github.event.pull_request.number }}' \
+            --base-sha '${{ steps.data.outputs.base_sha }}' \
+            --head-sha '${{ steps.data.outputs.head_sha }}' \
+            --now "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
+            --expires "$(date -u -d '+7 days' +%Y-%m-%dT%H:%M:%SZ 2>/dev/null || date -u -v+7d +%Y-%m-%dT%H:%M:%SZ)" \
+            > /tmp/gate.json
+          echo "exit_code=$?" >> "$GITHUB_OUTPUT"
+          cat /tmp/gate.json
 
-      - name: Record B/C review status
-        if: steps.classify.outputs.tier == 'B' || steps.classify.outputs.tier == 'C'
+      # 게이트 결과를 head SHA의 commit status로 정확히 기록(fail을 녹색으로 마감하지 않음).
+      - name: Record review status
+        if: steps.guard.outputs.bootstrap == 'false'
         uses: actions/github-script@v7
         with:
           script: |
             const fs = require('fs');
-            let verdict = 'error', reasons = ['no verdict'];
-            try {
-              const v = JSON.parse(fs.readFileSync('/tmp/verdict.json', 'utf8'));
-              verdict = v.verdict; reasons = v.reasons || [];
-            } catch (e) { core.warning('verdict parse failed: ' + e.message); }
-            // approve만 success. changes_requested/error/skipped-unconfigured는 non-pass.
-            const state = verdict === 'approve' ? 'success'
-              : (verdict === 'changes_requested' ? 'failure' : 'pending');
+            let out = null;
+            try { out = JSON.parse(fs.readFileSync('/tmp/gate.json', 'utf8')); }
+            catch (e) { core.warning('gate output parse failed: ' + e.message); }
+            // 출력이 없거나 파싱 실패면 승인 아님(pending).
+            const state = out && (out.state === 'success' || out.state === 'failure')
+              ? out.state : 'pending';
+            const desc = out
+              ? `tier=${out.tier} verdict=${out.verdict}: ${(out.reasons && out.reasons[0]) || ''}`
+              : 'gate produced no parseable result — not an approval';
             await github.rest.repos.createCommitStatus({
               owner: context.repo.owner, repo: context.repo.repo,
-              sha: '${{ steps.meta.outputs.head_sha }}',
-              state, context: 'editorial-review',
-              description: `${verdict}: ${(reasons[0]||'').slice(0,100)}`.slice(0,140),
+              sha: '${{ steps.data.outputs.head_sha }}',
+              state, context: 'editorial-review', description: desc.slice(0, 140),
             });
+            core.info(`[editorial-review] state=${state} — ${desc}`);

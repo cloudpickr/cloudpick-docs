@@ -11,6 +11,14 @@
  *    작성자·봇·에이전트 제외. dismissed/stale/이전 SHA 승인은 무효.
  *  - A/B: 이 게이트는 success로 명시 통과(자동 병합은 결정론적 5개 필수 체크가 담당).
  *  - 분류 실패/미설정/판정 불가 = 승인 아님(pending 또는 failure).
+ *
+ * 적용 맥락(중요):
+ *  - 이 게이트는 '봇/에이전트가 작성한 핸드오프 PR'에 대해 사람(froguin)의 발행 승인을
+ *    요구하는 것이 주 용도다. 사람(froguin)이 직접 작성한 PR은 GitHub이 자기승인을
+ *    막고 이 게이트도 author 제외로 자가승인을 불허한다(allowlist에 있어도 무효).
+ *    즉 froguin 작성 C PR은 다른 allowlisted 사람이 없으면 통과 불가 — 이는 의도된
+ *    보수적 동작이다. 실제 스택 PR actor(봇/에이전트)의 신원 독립성 확인은 Grok 담당.
+ *  - allowlist 임의 추가/자가승인 완화 금지.
  */
 
 const CONTEXT_NAME = 'editorial-c-approval';
@@ -106,8 +114,8 @@ async function main({ github, context, core, exec }) {
     tier = null; // 실패는 승인 아님
   }
 
-  // 리뷰 조회 → 최신·유효만
-  const { data: rawReviews } = await github.rest.pulls.listReviews({
+  // 리뷰 조회(100개 초과도 pagination으로 모두) → 최신·유효만
+  const rawReviews = await github.paginate(github.rest.pulls.listReviews, {
     owner: context.repo.owner, repo: context.repo.repo, pull_number: prNumber, per_page: 100,
   });
   const reviews = latestReviewsPerUser(rawReviews);

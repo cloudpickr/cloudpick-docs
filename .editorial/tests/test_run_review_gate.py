@@ -87,10 +87,10 @@ class TestGate(unittest.TestCase):
 
     def test_BC_valid_packet_approve(self):
         # 유효 패킷 + LLM approve (writer-distinct 설정 주입) → success
-        os.environ["LITELLM_BASE_URL"] = "https://litellm.internal"
-        os.environ["LITELLM_API_KEY"] = "k"
-        os.environ["LITELLM_REVIEWER_MODEL"] = "reviewer-model"
-        os.environ["LITELLM_REVIEWER_PROVIDER"] = "provider-b"
+        os.environ["AI_GATEWAY_BASE_URL"] = "https://gateway.example"
+        os.environ["AI_GATEWAY_TOKEN"] = "k"
+        os.environ["REVIEWER_MODEL"] = "reviewer-model"
+        os.environ["REVIEWER_PROVIDER"] = "provider-b"
         orig = rr.run_review
         orig_fetch = g._fetch_sources
         try:
@@ -108,7 +108,7 @@ class TestGate(unittest.TestCase):
         finally:
             rr.run_review = orig
             g._fetch_sources = orig_fetch
-            for k in ("LITELLM_BASE_URL", "LITELLM_API_KEY", "LITELLM_REVIEWER_MODEL", "LITELLM_REVIEWER_PROVIDER"):
+            for k in ("AI_GATEWAY_BASE_URL", "AI_GATEWAY_TOKEN", "REVIEWER_MODEL", "REVIEWER_PROVIDER"):
                 os.environ.pop(k, None)
 
     def test_BC_valid_packet_unconfigured_llm_holds(self):
@@ -138,10 +138,10 @@ class TestGate(unittest.TestCase):
     def test_blocker1_packet_new_file_does_not_force_C(self):
         # #1: 패킷 신규파일(.editorial/packets/*.json 추가 A)이 있어도, 검증된 패킷은
         #     scope 예외라 B 문서변경이 C로 강등되지 않는다.
-        os.environ["LITELLM_BASE_URL"] = "https://litellm.internal"
-        os.environ["LITELLM_API_KEY"] = "k"
-        os.environ["LITELLM_REVIEWER_MODEL"] = "reviewer-model"
-        os.environ["LITELLM_REVIEWER_PROVIDER"] = "provider-b"
+        os.environ["AI_GATEWAY_BASE_URL"] = "https://gateway.example"
+        os.environ["AI_GATEWAY_TOKEN"] = "k"
+        os.environ["REVIEWER_MODEL"] = "reviewer-model"
+        os.environ["REVIEWER_PROVIDER"] = "provider-b"
         orig, orig_fetch = rr.run_review, g._fetch_sources
         try:
             rr.run_review = lambda cfg, pkt, diff, **k: rr.ReviewResult("approve", ["ok"], 1, True)
@@ -162,15 +162,15 @@ class TestGate(unittest.TestCase):
             self.assertEqual(out["state"], "success")
         finally:
             rr.run_review = orig; g._fetch_sources = orig_fetch
-            for k in ("LITELLM_BASE_URL", "LITELLM_API_KEY", "LITELLM_REVIEWER_MODEL", "LITELLM_REVIEWER_PROVIDER"):
+            for k in ("AI_GATEWAY_BASE_URL", "AI_GATEWAY_TOKEN", "REVIEWER_MODEL", "REVIEWER_PROVIDER"):
                 os.environ.pop(k, None)
 
     def test_blocker2_source_fetch_block_is_non_pass(self):
         # #2: 독립 출처 fetch가 SSRF 차단/실패면 리뷰 진행 전 non-pass(hold).
-        os.environ["LITELLM_BASE_URL"] = "https://litellm.internal"
-        os.environ["LITELLM_API_KEY"] = "k"
-        os.environ["LITELLM_REVIEWER_MODEL"] = "reviewer-model"
-        os.environ["LITELLM_REVIEWER_PROVIDER"] = "provider-b"
+        os.environ["AI_GATEWAY_BASE_URL"] = "https://gateway.example"
+        os.environ["AI_GATEWAY_TOKEN"] = "k"
+        os.environ["REVIEWER_MODEL"] = "reviewer-model"
+        os.environ["REVIEWER_PROVIDER"] = "provider-b"
         orig, orig_fetch = rr.run_review, g._fetch_sources
         try:
             # 리뷰가 approve해도, fetch가 None(차단)이면 리뷰까지 안 가고 hold여야 함
@@ -185,7 +185,7 @@ class TestGate(unittest.TestCase):
             self.assertTrue(any("source fetch" in r for r in out["reasons"]))
         finally:
             rr.run_review = orig; g._fetch_sources = orig_fetch
-            for k in ("LITELLM_BASE_URL", "LITELLM_API_KEY", "LITELLM_REVIEWER_MODEL", "LITELLM_REVIEWER_PROVIDER"):
+            for k in ("AI_GATEWAY_BASE_URL", "AI_GATEWAY_TOKEN", "REVIEWER_MODEL", "REVIEWER_PROVIDER"):
                 os.environ.pop(k, None)
 
     def test_blocker3_filename_mismatch_rejected(self):

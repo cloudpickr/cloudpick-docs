@@ -96,10 +96,10 @@ Grok(스택 측 `runner/editorial_packet.py`)과 저장소 측 스키마가 **�
 
 | 이름 | 종류 | 용도 | 최소 권한/요구 |
 | --- | --- | --- | --- |
-| `LITELLM_BASE_URL` | secret | LiteLLM OpenAI 호환 엔드포인트 | HTTPS. `/chat/completions` 지원. 사설/메타데이터 목적지 금지 |
-| `LITELLM_API_KEY` | secret | 리뷰 전용 스코프 키 | **리뷰(chat completion)만**. merge/write/관리 권한 없음. 마스터키 아님 |
-| `LITELLM_REVIEWER_MODEL` | variable | 리뷰어 모델명 | 패킷 `writer.model`과 **달라야** 함(writer-distinct) |
-| `LITELLM_REVIEWER_PROVIDER` | variable | (선택) 리뷰어 공급자 | writer provider와 구별 확인용 |
+| `AI_GATEWAY_BASE_URL` | variable | Cloudflare AI Gateway OpenAI 호환 엔드포인트 | `https://gateway.ai.cloudflare.com/v1/<account_id>/ai-gateway/compat`. 비민감이라 variable |
+| `AI_GATEWAY_TOKEN` | **secret** | 리뷰 호출용 Cloudflare API 토큰 | **AI Gateway Run 권한만**. 계정 마스터/글로벌 키 아님. merge/write 권한 없음 |
+| `REVIEWER_MODEL` | variable | 리뷰어 모델 (`{provider}/{model}`) | 패킷 `writer.model`과 **달라야** 함(writer-distinct) |
+| `REVIEWER_PROVIDER` | variable | 리뷰어 공급자 | writer provider와 **달라야** 함(같은 provider면 독립 아님) |
 | `EDITORIAL_C_APPROVAL_ALLOWLIST` | variable | C 승인 허용 GitHub 로그인(콤마구분) | 사용자 승인값 `froguin` (미설정 시 워크플로우 기본값 `froguin`) |
 
 - 키 미설정 시 LLM 리뷰는 `skipped-unconfigured`(non-pass)로 동작하며 결정론적 5개

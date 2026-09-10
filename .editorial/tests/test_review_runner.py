@@ -22,7 +22,7 @@ PACKET = {
 DIFF = "--- a/x.md\n+++ b/x.md\n@@ -1 +1 @@\n-old\n+new\n"
 
 
-def cfg(model="reviewer-model", provider="provider-b", base="https://litellm.internal",
+def cfg(model="reviewer-model", provider="provider-b", base="https://gateway.example",
         key="k"):
     return rr.ReviewConfig(base_url=base, api_key=key, reviewer_model=model,
                            reviewer_provider=provider)
@@ -98,7 +98,7 @@ class TestVerdicts(unittest.TestCase):
 class TestOutageNotApproval(unittest.TestCase):
     def test_exception_is_error_not_pass(self):
         def boom(*a, **k):
-            raise TimeoutError("litellm down")
+            raise TimeoutError("gateway down")
         r = rr.run_review(cfg(), PACKET, DIFF, call_fn=boom)
         self.assertEqual(r.verdict, "error")
         self.assertFalse(r.cacheable)

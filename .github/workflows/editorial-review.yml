@@ -126,10 +126,10 @@ jobs:
         id: gate
         continue-on-error: true
         env:
-          LITELLM_BASE_URL: ${{ secrets.LITELLM_BASE_URL }}
-          LITELLM_API_KEY: ${{ secrets.LITELLM_API_KEY }}
-          LITELLM_REVIEWER_MODEL: ${{ vars.LITELLM_REVIEWER_MODEL }}
-          LITELLM_REVIEWER_PROVIDER: ${{ vars.LITELLM_REVIEWER_PROVIDER }}
+          AI_GATEWAY_BASE_URL: ${{ vars.AI_GATEWAY_BASE_URL }}
+          AI_GATEWAY_TOKEN: ${{ secrets.AI_GATEWAY_TOKEN }}
+          REVIEWER_MODEL: ${{ vars.REVIEWER_MODEL }}
+          REVIEWER_PROVIDER: ${{ vars.REVIEWER_PROVIDER }}
         run: |
           set -o pipefail
           python3 .editorial/run_review_gate.py \

@@ -33,8 +33,10 @@ user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTM
 
 # ── rate-limit·연결 실패 완화 ──
 # 호스트당 동시 요청을 낮춰 cloud.google.com 등의 대량 요청 차단을 회피.
+# timeout: 느린 정부·기관 사이트(예: oag.state.va.us의 대용량 PDF)가 CI에서 간헐
+#          timeout으로 오탐되는 것을 줄이기 위해 45초로 상향(재시도 3회와 병행).
 max_concurrency = 8
-timeout = 30
+timeout = 45
 max_retries = 3
 retry_wait_time = 2
 

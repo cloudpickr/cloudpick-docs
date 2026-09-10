@@ -134,31 +134,47 @@ async function main({ github, context, core, exec }) {
   core.info(`[${CONTEXT_NAME}] tier=${tier} state=${result.state} — ${result.description}`);
 }
 
-/** diff를 받아 classify_change.py로 tier 계산. */
+/** diff를 받아 tier 계산. 검증된 단일 패킷만 scope 예외로 인정하기 위해
+ *  run_review_gate.py(패킷 검증·filename 확인·scope 예외 통일)에 위임하고 tier만 읽는다.
+ *  LLM 미설정이어도 출력 JSON의 tier는 유효(승인 여부는 별도). */
 async function computeTier({ github, context, exec, prNumber, headSha, core }) {
-  // PR 변경 파일 목록(데이터). 코드 실행 아님.
   const files = await github.paginate(github.rest.pulls.listFiles, {
     owner: context.repo.owner, repo: context.repo.repo, pull_number: prNumber, per_page: 100,
   });
-  // numstat / name-status 형식으로 변환해 base 스크립트에 전달.
   const numstat = files.map((f) => `${f.additions}\t${f.deletions}\t${f.filename}`).join('\n');
-  const statusMap = { added: 'A', removed: 'D', modified: 'M', renamed: 'R', changed: 'M' };
-  const nameStatus = files.map((f) => {
-    const code = statusMap[f.status] || 'M';
-    if (f.status === 'renamed') return `R100\t${f.previous_filename}\t${f.filename}`;
-    return `${code}\t${f.filename}`;
-  }).join('\n');
+  const smap = { added: 'A', removed: 'D', modified: 'M', renamed: 'R', changed: 'M' };
+  const nameStatus = files.map((f) => f.status === 'renamed'
+    ? `R100\t${f.previous_filename}\t${f.filename}`
+    : `${smap[f.status] || 'M'}\t${f.filename}`).join('\n');
 
   const fs = require('fs');
-  fs.writeFileSync('/tmp/numstat.txt', numstat + '\n');
-  fs.writeFileSync('/tmp/name_status.txt', nameStatus + '\n');
+  fs.writeFileSync('/tmp/ca_numstat.txt', numstat + '\n');
+  fs.writeFileSync('/tmp/ca_name_status.txt', nameStatus + '\n');
 
+  // 단일 패킷 파일이면 head SHA 콘텐츠를 데이터로 취득하고 실제 경로를 검증기에 전달.
+  const packets = files.filter((f) => /^\.editorial\/packets\/[^/]+\.json$/.test(f.filename));
+  let packetArg = 'none';
+  let packetRepoPath = '';
+  if (packets.length === 1) {
+    const { data: blob } = await github.rest.repos.getContent({
+      owner: context.repo.owner, repo: context.repo.repo, path: packets[0].filename, ref: headSha,
+    });
+    fs.writeFileSync('/tmp/ca_packet.json', Buffer.from(blob.content, blob.encoding).toString('utf8'));
+    packetArg = '/tmp/ca_packet.json';
+    packetRepoPath = packets[0].filename;
+  }
+
+  const base = context.payload.pull_request?.base?.sha || '';
   let out = '';
-  await exec.exec('python3', ['.editorial/classify_change.py', '/tmp/numstat.txt', '/tmp/name_status.txt'], {
-    listeners: { stdout: (d) => { out += d.toString(); } },
-  });
-  const parsed = JSON.parse(out);
-  return parsed.tier;
+  await exec.exec('python3', [
+    '.editorial/run_review_gate.py',
+    '--numstat', '/tmp/ca_numstat.txt', '--name-status', '/tmp/ca_name_status.txt',
+    '--diff', '/tmp/ca_name_status.txt', // diff는 tier 판정에 무관(리뷰 단계 전 tier만 사용)
+    '--packet', packetArg, '--packet-repo-path', packetRepoPath,
+    '--repo', `${context.repo.owner}/${context.repo.repo}`, '--pr', String(prNumber),
+    '--base-sha', base, '--head-sha', headSha,
+  ], { ignoreReturnCode: true, listeners: { stdout: (d) => { out += d.toString(); } } });
+  return JSON.parse(out).tier;
 }
 
 module.exports = main;

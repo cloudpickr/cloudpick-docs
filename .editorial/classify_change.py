@@ -94,9 +94,22 @@ def classify(
     has_regulatory_claim: bool = False,
     human_hold: bool = False,
     scope_unknown: bool = False,
+    packet_scope_exempt: list[str] | None = None,
 ) -> Classification:
-    """실제 diff + 패킷으로 A/B/C 재판정. 불명확/이견은 상향."""
+    """실제 diff + 패킷으로 A/B/C 재판정. 불명확/이견은 상향.
+
+    packet_scope_exempt: 검증된 '단일 패킷 파일'의 실제 저장소 경로 목록. 이 경로의
+      변경은 문서 스코프 판정(구조/라인수)에서 제외한다. 이렇게 해야 패킷 신규파일
+      (.editorial/packets/*.json 추가)이 모든 B를 C로 만들지 않는다. 호출부는 '검증
+      통과한' 경로만 넘겨야 하며, invalid/unrelated metadata는 넘기지 않는다(제외 금지).
+    """
     reasons: list[str] = []
+    exempt = set(packet_scope_exempt or [])
+
+    # 스코프 예외: 검증된 패킷 파일만 판정 대상에서 제외. 나머지는 그대로 판정.
+    scoped = [c for c in changes if c.path not in exempt]
+    if exempt:
+        reasons.append(f"scope-exempt validated packet file(s): {sorted(exempt)}")
 
     # C 확정 사유(고위험) ---------------------------------------------------
     if human_hold:
@@ -104,23 +117,23 @@ def classify(
     if scope_unknown:
         return Classification("C", ["unknown scope"])
 
-    structural = _is_structural(changes)
-    non_doc = _touches_astro_config_or_sidebar(changes)
+    structural = _is_structural(scoped)
+    non_doc = _touches_astro_config_or_sidebar(scoped)
     if structural:
-        return Classification("C", structural)
+        return Classification("C", structural + reasons)
     if non_doc:
         # 문서 외 변경(카테고리/네비/설정)은 구조 영향 가능 → C escalate.
-        return Classification("C", non_doc)
+        return Classification("C", non_doc + reasons)
     if has_regulatory_claim:
-        return Classification("C", ["legal/regulatory/compliance claim"])
+        return Classification("C", ["legal/regulatory/compliance claim"] + reasons)
 
     # 국가/거버넌스 경로는 위험 신호 — 사실 변경과 결합 시 최소 B, 순수 오타는 아래 로직.
-    risk_paths = _country_or_regulatory(changes)
+    risk_paths = _country_or_regulatory(scoped)
 
     # tier_hint는 참고만. LLM 생성/신뢰불가 writer는 최소 B.
     generated_by_llm = bool(packet and packet.get("generated_by_llm"))
     has_claims = bool(packet and packet.get("claim_ledger"))
-    total = _total_lines(changes)
+    total = _total_lines(scoped)
 
     # A 자격: 순수 기계적, 합산 20줄 이하, 사실/구조 변경 없음, LLM 생성 아님.
     a_blockers = []

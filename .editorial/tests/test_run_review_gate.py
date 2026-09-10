@@ -38,6 +38,7 @@ class Args:
         self.base_sha = "b" * 40; self.head_sha = "h" * 40
         self.now = "2026-09-10T00:00:00Z"; self.expires = "2026-09-17T00:00:00Z"
         self.numstat = self.name_status = self.diff = self.packet = "none"
+        self.packet_repo_path = ""
         for k, v in kw.items():
             setattr(self, k, v)
 
@@ -90,30 +91,40 @@ class TestGate(unittest.TestCase):
         os.environ["LITELLM_API_KEY"] = "k"
         os.environ["LITELLM_REVIEWER_MODEL"] = "reviewer-model"
         os.environ["LITELLM_REVIEWER_PROVIDER"] = "provider-b"
+        orig = rr.run_review
+        orig_fetch = g._fetch_sources
         try:
-            # review_runner의 실제 호출을 mock으로 대체
-            orig = rr.run_review
+            # review_runner·source fetch를 mock (SSRF 실호출 없이 통합 경로 검증)
             rr.run_review = lambda cfg, pkt, diff, **k: rr.ReviewResult("approve", ["ok"], 1, True)
+            g._fetch_sources = lambda pkt: ({"https://docs.aws.amazon.com/x": {"status": 200}}, [])
             numstat = write(self.tmp, "n3.txt", "40\t5\tsrc/content/docs/ko/compute/serverless.md\n")
             pkt = self._packet_file(VALID_PACKET)
-            a = Args(numstat=numstat, name_status=self.name_status, diff=self.diff, packet=pkt)
+            a = Args(numstat=numstat, name_status=self.name_status, diff=self.diff, packet=pkt,
+                     packet_repo_path=".editorial/packets/CLPKDOC-123.json")
             out = g.run(a)
             self.assertEqual(out["state"], "success")
             self.assertEqual(out["verdict"], "approve")
             self.assertRegex(out["envelope_key"], r"^[0-9a-f]{64}$")
         finally:
             rr.run_review = orig
+            g._fetch_sources = orig_fetch
             for k in ("LITELLM_BASE_URL", "LITELLM_API_KEY", "LITELLM_REVIEWER_MODEL", "LITELLM_REVIEWER_PROVIDER"):
                 os.environ.pop(k, None)
 
     def test_BC_valid_packet_unconfigured_llm_holds(self):
         # 유효 패킷이나 LLM 미설정 → skipped-unconfigured → pending(비승인, A아님)
-        pkt = self._packet_file(VALID_PACKET)
-        numstat = write(self.tmp, "n4.txt", "40\t5\tsrc/content/docs/ko/compute/serverless.md\n")
-        a = Args(numstat=numstat, name_status=self.name_status, diff=self.diff, packet=pkt)
-        out = g.run(a)
-        self.assertEqual(out["state"], "pending")
-        self.assertNotEqual(out["state"], "success")
+        orig_fetch = g._fetch_sources
+        try:
+            g._fetch_sources = lambda pkt: ({}, [])  # 출처 fetch는 통과
+            pkt = self._packet_file(VALID_PACKET)
+            numstat = write(self.tmp, "n4.txt", "40\t5\tsrc/content/docs/ko/compute/serverless.md\n")
+            a = Args(numstat=numstat, name_status=self.name_status, diff=self.diff, packet=pkt,
+                     packet_repo_path=".editorial/packets/CLPKDOC-123.json")
+            out = g.run(a)
+            self.assertEqual(out["state"], "pending")
+            self.assertNotEqual(out["state"], "success")
+        finally:
+            g._fetch_sources = orig_fetch
 
     def test_structural_new_file_is_C(self):
         numstat = write(self.tmp, "n5.txt", "10\t0\tsrc/content/docs/ko/compute/new.md\n")
@@ -121,6 +132,80 @@ class TestGate(unittest.TestCase):
         a = Args(numstat=numstat, name_status=name_status, diff=self.diff, packet="none")
         out = g.run(a)
         self.assertEqual(out["tier"], "C")
+        self.assertNotEqual(out["state"], "success")
+
+    # ── AGY BLOCKER 회귀 테스트 ──────────────────────────────────────────
+    def test_blocker1_packet_new_file_does_not_force_C(self):
+        # #1: 패킷 신규파일(.editorial/packets/*.json 추가 A)이 있어도, 검증된 패킷은
+        #     scope 예외라 B 문서변경이 C로 강등되지 않는다.
+        os.environ["LITELLM_BASE_URL"] = "https://litellm.internal"
+        os.environ["LITELLM_API_KEY"] = "k"
+        os.environ["LITELLM_REVIEWER_MODEL"] = "reviewer-model"
+        os.environ["LITELLM_REVIEWER_PROVIDER"] = "provider-b"
+        orig, orig_fetch = rr.run_review, g._fetch_sources
+        try:
+            rr.run_review = lambda cfg, pkt, diff, **k: rr.ReviewResult("approve", ["ok"], 1, True)
+            g._fetch_sources = lambda pkt: ({}, [])
+            # 문서 수정(M, B급 40줄) + 패킷 신규파일(A) 함께 변경
+            numstat = write(self.tmp, "n6.txt",
+                            "40\t5\tsrc/content/docs/ko/compute/serverless.md\n"
+                            "12\t0\t.editorial/packets/CLPKDOC-123.json\n")
+            name_status = write(self.tmp, "ns6.txt",
+                                "M\tsrc/content/docs/ko/compute/serverless.md\n"
+                                "A\t.editorial/packets/CLPKDOC-123.json\n")
+            pkt = self._packet_file(VALID_PACKET)
+            a = Args(numstat=numstat, name_status=name_status, diff=self.diff, packet=pkt,
+                     packet_repo_path=".editorial/packets/CLPKDOC-123.json")
+            out = g.run(a)
+            # 패킷 신규파일 때문에 C가 되면 안 됨 → B로 판정되어 리뷰 approve → success
+            self.assertEqual(out["tier"], "B")
+            self.assertEqual(out["state"], "success")
+        finally:
+            rr.run_review = orig; g._fetch_sources = orig_fetch
+            for k in ("LITELLM_BASE_URL", "LITELLM_API_KEY", "LITELLM_REVIEWER_MODEL", "LITELLM_REVIEWER_PROVIDER"):
+                os.environ.pop(k, None)
+
+    def test_blocker2_source_fetch_block_is_non_pass(self):
+        # #2: 독립 출처 fetch가 SSRF 차단/실패면 리뷰 진행 전 non-pass(hold).
+        os.environ["LITELLM_BASE_URL"] = "https://litellm.internal"
+        os.environ["LITELLM_API_KEY"] = "k"
+        os.environ["LITELLM_REVIEWER_MODEL"] = "reviewer-model"
+        os.environ["LITELLM_REVIEWER_PROVIDER"] = "provider-b"
+        orig, orig_fetch = rr.run_review, g._fetch_sources
+        try:
+            # 리뷰가 approve해도, fetch가 None(차단)이면 리뷰까지 안 가고 hold여야 함
+            rr.run_review = lambda cfg, pkt, diff, **k: rr.ReviewResult("approve", ["ok"], 1, True)
+            g._fetch_sources = lambda pkt: (None, ["source fetch blocked: SSRF"])
+            numstat = write(self.tmp, "n7.txt", "40\t5\tsrc/content/docs/ko/compute/serverless.md\n")
+            pkt = self._packet_file(VALID_PACKET)
+            a = Args(numstat=numstat, name_status=self.name_status, diff=self.diff, packet=pkt,
+                     packet_repo_path=".editorial/packets/CLPKDOC-123.json")
+            out = g.run(a)
+            self.assertNotEqual(out["state"], "success")
+            self.assertTrue(any("source fetch" in r for r in out["reasons"]))
+        finally:
+            rr.run_review = orig; g._fetch_sources = orig_fetch
+            for k in ("LITELLM_BASE_URL", "LITELLM_API_KEY", "LITELLM_REVIEWER_MODEL", "LITELLM_REVIEWER_PROVIDER"):
+                os.environ.pop(k, None)
+
+    def test_blocker3_filename_mismatch_rejected(self):
+        # #3: 실제 저장소 경로(파일명)와 packet의 jira_key가 불일치하면 검증 실패 → 승인 아님.
+        pkt = self._packet_file(VALID_PACKET)  # jira_key=CLPKDOC-123
+        numstat = write(self.tmp, "n8.txt", "3\t2\tsrc/content/docs/ko/compute/serverless.md\n")
+        # 실제 경로를 다른 이름으로 넘김(위조 시나리오)
+        a = Args(numstat=numstat, name_status=self.name_status, diff=self.diff, packet=pkt,
+                 packet_repo_path=".editorial/packets/WRONG-999.json")
+        out = g.run(a)
+        self.assertNotEqual(out["state"], "success")
+        self.assertTrue(any("packet invalid" in r or "filename" in r for r in out["reasons"]))
+
+    def test_blocker3_missing_repo_path_rejected(self):
+        # #3: 실제 경로 미제공이면 파일명 검증 불가 → 유효 처리 안 함.
+        pkt = self._packet_file(VALID_PACKET)
+        numstat = write(self.tmp, "n9.txt", "3\t2\tsrc/content/docs/ko/compute/serverless.md\n")
+        a = Args(numstat=numstat, name_status=self.name_status, diff=self.diff, packet=pkt,
+                 packet_repo_path="")
+        out = g.run(a)
         self.assertNotEqual(out["state"], "success")
 
 

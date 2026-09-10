@@ -80,6 +80,7 @@ jobs:
             // 단일 패킷 파일만 허용(다중이면 스코프 예외 불가 → 데이터 미취득, 게이트가 보류 판정).
             const packets = files.filter(f => /^\.editorial\/packets\/[^/]+\.json$/.test(f.filename));
             let packetPath = 'none';
+            let packetRepoPath = '';
             if (packets.length === 1) {
               // head SHA의 콘텐츠를 API로 데이터 취득(코드 실행 아님).
               const { data: blob } = await github.rest.repos.getContent({
@@ -89,10 +90,12 @@ jobs:
               const content = Buffer.from(blob.content, blob.encoding).toString('utf8');
               fs.writeFileSync('/tmp/packet.json', content);
               packetPath = '/tmp/packet.json';
+              packetRepoPath = packets[0].filename;  // 실제 저장소 경로(파일명 검증용, #3)
             } else if (packets.length > 1) {
               core.warning(`multiple packet files (${packets.length}); not eligible for scope exception`);
             }
             core.setOutput('packet', packetPath);
+            core.setOutput('packet_repo_path', packetRepoPath);
 
             // diff 텍스트(데이터)를 compare API로 취득 — PR head를 체크아웃하지 않는다.
             const { data: cmp } = await github.rest.repos.compareCommitsWithBasehead({
@@ -116,7 +119,8 @@ jobs:
             });
 
       # 오케스트레이터 실행. exit code가 곧 결과(0=success,1=failure,2=pending/hold).
-      # LLM 키는 이 스텝에만 주입.
+      # LLM 키는 이 스텝에만 주입. continue-on-error로 status 기록 스텝까지 진행하되,
+      # 최종 job 성공 여부는 아래 'Fail job on non-success'가 게이트 결과로 결정한다.
       - name: Run editorial review gate
         if: steps.guard.outputs.bootstrap == 'false'
         id: gate
@@ -127,16 +131,18 @@ jobs:
           LITELLM_REVIEWER_MODEL: ${{ vars.LITELLM_REVIEWER_MODEL }}
           LITELLM_REVIEWER_PROVIDER: ${{ vars.LITELLM_REVIEWER_PROVIDER }}
         run: |
+          set -o pipefail
           python3 .editorial/run_review_gate.py \
             --numstat /tmp/numstat.txt --name-status /tmp/name_status.txt \
             --diff /tmp/diff.txt --packet '${{ steps.data.outputs.packet }}' \
+            --packet-repo-path '${{ steps.data.outputs.packet_repo_path }}' \
             --repo '${{ github.repository }}' --pr '${{ github.event.pull_request.number }}' \
             --base-sha '${{ steps.data.outputs.base_sha }}' \
             --head-sha '${{ steps.data.outputs.head_sha }}' \
             --now "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
             --expires "$(date -u -d '+7 days' +%Y-%m-%dT%H:%M:%SZ 2>/dev/null || date -u -v+7d +%Y-%m-%dT%H:%M:%SZ)" \
             > /tmp/gate.json
-          echo "exit_code=$?" >> "$GITHUB_OUTPUT"
+          echo "gate_exit=$?" >> "$GITHUB_OUTPUT"
           cat /tmp/gate.json
 
       # 게이트 결과를 head SHA의 commit status로 정확히 기록(fail을 녹색으로 마감하지 않음).
@@ -161,3 +167,25 @@ jobs:
               state, context: 'editorial-review', description: desc.slice(0, 140),
             });
             core.info(`[editorial-review] state=${state} — ${desc}`);
+
+      # envelope/리뷰 리포트를 아티팩트로 저장(감사·재검증 근거).
+      - name: Upload review report artifact
+        if: steps.guard.outputs.bootstrap == 'false' && always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: editorial-review-report-${{ steps.data.outputs.head_sha }}
+          path: /tmp/gate.json
+          if-no-files-found: warn
+          retention-days: 30
+
+      # 게이트가 success가 아니면 job 자체를 실패시킨다(status만 기록하고 job green 금지).
+      - name: Fail job on non-success
+        if: steps.guard.outputs.bootstrap == 'false'
+        run: |
+          out=$(cat /tmp/gate.json 2>/dev/null || echo '{}')
+          state=$(printf '%s' "$out" | python3 -c "import sys,json;print(json.load(sys.stdin).get('state','pending'))" 2>/dev/null || echo pending)
+          echo "gate state=$state"
+          if [ "$state" != "success" ]; then
+            echo "::error::editorial review gate not approved (state=$state) — job fails; not an approval"
+            exit 1
+          fi

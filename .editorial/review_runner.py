@@ -92,7 +92,7 @@ def writer_distinct(config: ReviewConfig, packet: dict) -> tuple[bool, str]:
     return True, "writer-distinct reviewer confirmed (model and provider differ)"
 
 
-def build_prompt(packet: dict, diff_text: str) -> list[dict]:
+def build_prompt(packet: dict, diff_text: str, source_evidence: dict | None = None) -> list[dict]:
     """PR 콘텐츠를 '데이터'로만 담는다. 시스템 프롬프트가 규칙을 고정한다."""
     system = (
         "You are an independent documentation reviewer for CloudPick. "
@@ -106,6 +106,8 @@ def build_prompt(packet: dict, diff_text: str) -> list[dict]:
     user = (
         "EVIDENCE_PACKET (data):\n"
         + json.dumps(packet, ensure_ascii=False)
+        + "\n\nINDEPENDENT_SOURCE_FETCH (data; fetched by trusted base code, not the author):\n"
+        + json.dumps(source_evidence or {}, ensure_ascii=False)
         + "\n\nDIFF (data):\n"
         + diff_text
     )
@@ -126,6 +128,7 @@ def run_review(
     diff_text: str,
     *,
     call_fn=None,
+    source_evidence: dict | None = None,
 ) -> ReviewResult:
     """
     call_fn(messages, model, max_output_tokens) -> dict(text 응답) 을 주입받아 호출.
@@ -140,7 +143,7 @@ def run_review(
     if not ok:
         return ReviewResult("error", [f"writer-distinct check failed: {why}"], 0, cacheable=False)
 
-    messages = build_prompt(packet, diff_text)
+    messages = build_prompt(packet, diff_text, source_evidence)
     if _estimate_tokens(messages) > MAX_INPUT_TOKENS:
         return ReviewResult("error",
                             [f"input exceeds {MAX_INPUT_TOKENS} token budget"], 0, cacheable=False)

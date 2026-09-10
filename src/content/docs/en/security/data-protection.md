@@ -120,7 +120,7 @@ For a vendor comparison of network firewalls (Security Groups/NSG/Firewall Rules
 
 #### OWASP and WAF Rules
 
-The [OWASP Top 10](https://owasp.org/www-project-top-ten/) is an industry-standard summary of the most common web application security threats. Each vendor's WAF provides **managed rule sets** that address these threats.
+The [OWASP Top 10](https://owasp.org/Top10/) is an industry-standard summary of the most common web application security threats. Each vendor's WAF provides **managed rule sets** that address these threats.
 
 Below is an excerpt of OWASP Top 10 items that **can be mitigated with WAF rules**:
 

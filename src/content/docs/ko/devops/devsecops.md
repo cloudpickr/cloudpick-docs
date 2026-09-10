@@ -179,7 +179,7 @@ graph LR
 
 ### 표준 및 커뮤니티
 
-- [OWASP DevSecOps Guideline](https://owasp.org/www-project-devsecops-guideline/)
+- [OWASP DevSecOps Guideline](https://devsecops.owasp.org/)
 - [NIST SP 800-218 (Secure Software Development Framework)](https://csrc.nist.gov/publications/detail/sp/800-218/final)
 - [CIS Software Supply Chain Security Guide](https://www.cisecurity.org/cis-benchmarks)
 - [SLSA (Supply-chain Levels for Software Artifacts)](https://slsa.dev/)

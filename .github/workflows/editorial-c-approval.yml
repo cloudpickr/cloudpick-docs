@@ -1,12 +1,15 @@
 name: Editorial C-Approval Gate
 
-# 계약: froguin/multi-agent-stack@3113cfc §Review, approval and budget enforcement (5)
+# 계약: froguin/multi-agent-stack@4d60805 §Review, approval and budget enforcement (5)
 #
-# 목적: 편집 핸드오프의 위험 등급 재판정 + C 등급의 allowlisted human exact-SHA 승인 강제.
+# 목적: 편집 핸드오프의 위험 등급 재판정 + C 등급의 allowlisted human packet SHA-256 확인.
 #   - A/B (독립 재분류 성공): 이 게이트는 명시적으로 success 기록(자동 병합은 결정론적
 #     5개 필수 체크가 담당). classify 실패/skip은 승인이 아니다.
-#   - C: allowlisted human(작성자·봇·에이전트 아님)이 '현재 head SHA'를 승인해야 success.
-#     새 커밋은 승인 무효. stale/철회/위조 방지. head를 이벤트마다 재확인.
+#   - feature-only PR(문서 변경 없음 + 유효 패킷 없음): 편집 C scope 밖 → 명시적 통과.
+#   - C: allowlisted human(봇·에이전트 아님)이 '현재 packet SHA-256'을 코멘트로 confirm해야
+#     success. 형식: 코멘트에 `/approve <64-hex packet_sha256>`. GitHub PR Approve는 C
+#     신호가 아니다. 무관한 커밋(CI/feature/merge)이 packet·문서 바이트를 바꾸지 않으면
+#     C를 리셋하지 않는다(같은 packet hash를 계속 confirm하므로).
 #
 # 안전:
 #   - trusted base-branch 코드만 실행(actions/checkout은 base ref). PR 코드/텍스트는 데이터.
@@ -19,15 +22,14 @@ name: Editorial C-Approval Gate
 on:
   pull_request:
     types: [opened, synchronize, reopened, edited]
-  pull_request_review:
-    types: [submitted, dismissed]
   issue_comment:
-    types: [created]
+    types: [created, edited]
 
 permissions:
   contents: read
   statuses: write
   pull-requests: read
+  issues: read
 
 concurrency:
   group: c-approval-${{ github.event.pull_request.number || github.event.issue.number }}

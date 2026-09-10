@@ -29,8 +29,11 @@
 
 관련 워크플로/스크립트(저장소 루트):
 - `.github/workflows/editorial-c-approval.yml` — C 승인 게이트(status `editorial-c-approval`).
-- `.github/scripts/c_approval_gate.cjs` (+`.test.cjs`) — A/B는 명시 pass, C는 allowlisted
-  human의 exact-SHA 승인(작성자/봇/stale/철회/비allowlist 거부, head 이벤트마다 재확인).
+- `.github/scripts/c_approval_gate.cjs` (+`.test.cjs`) — A/B는 명시 pass, feature-only PR
+  (문서 변경 없음 + 유효 패킷 없음)은 편집 scope 밖으로 명시 pass, C는 allowlisted human
+  (봇/에이전트 제외)이 **현재 packet SHA-256을 코멘트로 confirm**해야 pass. 형식:
+  `/approve <64-hex packet_sha256>`. GitHub PR Approve는 C 신호가 아니다. 무관한 커밋
+  (CI/feature/merge)이 packet·문서 바이트를 바꾸지 않으면 C를 리셋하지 않는다.
   `EDITORIAL_C_APPROVAL_ALLOWLIST` 변수 미설정 시 C는 승인 불가(임의 승인자 없음).
 
 ## 공통 크기 상한 (스택·저장소 양측 동일 적용)

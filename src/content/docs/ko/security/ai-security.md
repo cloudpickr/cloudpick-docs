@@ -192,5 +192,5 @@ AI 코딩 에이전트(Claude Code, Copilot, Codex)가 CI/CD 파이프라인에 
 
 ### 표준 및 커뮤니티
 
-- [OWASP Top 10 for LLM Applications](https://owasp.org/www-project-top-10-for-large-language-model-applications/)
+- [OWASP Top 10 for LLM Applications](https://genai.owasp.org/llm-top-10/)
 - [NIST AI Risk Management Framework](https://www.nist.gov/artificial-intelligence/executive-order-safe-secure-and-trustworthy-artificial-intelligence)

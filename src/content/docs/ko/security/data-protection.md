@@ -120,7 +120,7 @@ Security Groups/NSG/Firewall Rules 등 네트워크 방화벽의 벤더별 비�
 
 #### OWASP와 WAF 규칙
 
-[OWASP Top 10](https://owasp.org/www-project-top-ten/)은 웹 애플리케이션의 가장 흔한 보안 위협을 정리한 업계 표준입니다. 각 벤더의 WAF는 이 위협에 대응하는 **관리형 규칙 세트**를 제공합니다.
+[OWASP Top 10](https://owasp.org/Top10/)은 웹 애플리케이션의 가장 흔한 보안 위협을 정리한 업계 표준입니다. 각 벤더의 WAF는 이 위협에 대응하는 **관리형 규칙 세트**를 제공합니다.
 
 아래는 OWASP Top 10 중 **WAF 규칙으로 완화 가능한 주요 항목**을 발췌한 것입니다:
 

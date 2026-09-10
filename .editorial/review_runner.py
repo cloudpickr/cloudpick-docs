@@ -195,6 +195,9 @@ def _default_gateway_call(messages, model, max_output_tokens):
         headers={
             "Content-Type": "application/json",
             "Authorization": f"Bearer {config.api_key}",
+            # Cloudflare WAF는 User-Agent 없는 요청을 봇으로 보고 1010으로 차단한다.
+            "User-Agent": "cloudpick-editorial-review/1",
+            "Accept": "application/json",
         },
         method="POST",
     )

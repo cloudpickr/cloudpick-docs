@@ -45,10 +45,10 @@ class ReviewConfig:
     def from_env(cls, env=None) -> "ReviewConfig":
         env = env or os.environ
         return cls(
-            base_url=(env.get("LITELLM_BASE_URL") or "").strip() or None,
-            api_key=(env.get("LITELLM_API_KEY") or "").strip() or None,
-            reviewer_model=(env.get("LITELLM_REVIEWER_MODEL") or "").strip() or None,
-            reviewer_provider=(env.get("LITELLM_REVIEWER_PROVIDER") or "").strip() or None,
+            base_url=(env.get("AI_GATEWAY_BASE_URL") or "").strip() or None,
+            api_key=(env.get("AI_GATEWAY_TOKEN") or "").strip() or None,
+            reviewer_model=(env.get("REVIEWER_MODEL") or "").strip() or None,
+            reviewer_provider=(env.get("REVIEWER_PROVIDER") or "").strip() or None,
         )
 
     def is_configured(self) -> bool:
@@ -148,7 +148,7 @@ def run_review(
         return ReviewResult("error",
                             [f"input exceeds {MAX_INPUT_TOKENS} token budget"], 0, cacheable=False)
 
-    call_fn = call_fn or _default_litellm_call
+    call_fn = call_fn or _default_gateway_call
     calls = 0
     for _round in range(MAX_REPAIR_ROUNDS + 1):
         if calls >= MAX_CALLS:
@@ -178,7 +178,7 @@ def run_review(
                         calls, cacheable=False)
 
 
-def _default_litellm_call(messages, model, max_output_tokens):
+def _default_gateway_call(messages, model, max_output_tokens):
     """실제 LiteLLM(OpenAI 호환) 호출. 표준 라이브러리만 사용(신규 의존성 없음)."""
     import urllib.request
 

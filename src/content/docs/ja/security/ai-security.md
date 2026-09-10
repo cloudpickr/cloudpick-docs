@@ -192,5 +192,5 @@ AIコーディングエージェント(Claude Code、Copilot、Codex)がCI/CDパ
 
 ### 標準とコミュニティ
 
-- [OWASP Top 10 for LLM Applications](https://owasp.org/www-project-top-10-for-large-language-model-applications/)
+- [OWASP Top 10 for LLM Applications](https://genai.owasp.org/llm-top-10/)
 - [NIST AI Risk Management Framework](https://www.nist.gov/artificial-intelligence/executive-order-safe-secure-and-trustworthy-artificial-intelligence)

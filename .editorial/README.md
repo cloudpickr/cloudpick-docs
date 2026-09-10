@@ -16,7 +16,22 @@
 
 - `packet.schema.json` — 근거 패킷(evidence packet) **형식 검증** 스키마(JSON Schema 2020-12).
   계약 §Evidence packet의 최소 필드를 반영합니다.
+- `validate_packet.py` — 패킷 **trusted validator**(형식+파서/파일 레벨: 경로 정규화·128KiB·
+  중복 JSON 키·trailing newline·BOM·checked_at RFC3339·target∈changed·파일명 일치).
+- `classify_change.py` — 실제 diff+패킷으로 **A/B/C 재판정**(tier_hint는 입력일 뿐,
+  LLM 생성 최소 B, 신규/삭제/이동/문서외/규제=C, 근거 없는 비기계적 변경은 C로 상향).
+- `review_runner.py` — B/C **독립 LLM 리뷰**(LiteLLM 재사용, writer-distinct 강제, 예산·
+  호출·토큰 상한, outage/미설정은 non-pass, PR 내용은 데이터). 미설정 시 shadow(non-pass).
+- `envelope.py` — 리뷰 결과를 repo/PR/base_sha/head_sha/packet-SHA256/policy/reviewer-config
+  튜플에 **바인딩**. 하나라도 바뀌면 이전 결과 무효(캐시 미스). freshness 만료 포함.
+- `tests/` — 위 4개의 실제 단위 테스트(unittest).
 - 패킷 실제 파일 위치(계약 제안): `.editorial/packets/<jira_key>.json` (draft PR에 포함).
+
+관련 워크플로/스크립트(저장소 루트):
+- `.github/workflows/editorial-c-approval.yml` — C 승인 게이트(status `editorial-c-approval`).
+- `.github/scripts/c_approval_gate.cjs` (+`.test.cjs`) — A/B는 명시 pass, C는 allowlisted
+  human의 exact-SHA 승인(작성자/봇/stale/철회/비allowlist 거부, head 이벤트마다 재확인).
+  `EDITORIAL_C_APPROVAL_ALLOWLIST` 변수 미설정 시 C는 승인 불가(임의 승인자 없음).
 
 ## 공통 크기 상한 (스택·저장소 양측 동일 적용)
 
@@ -74,3 +89,27 @@ Grok(스택 측 `runner/editorial_packet.py`)과 저장소 측 스키마가 **�
 
 - 운영 cutover, 기존 게이트 해제, 브랜치 보호 설정 변경, 유료 추론 서비스 추가.
 - admin/bot 우회 차단 정책 확정 — cutover 전 별도로 정합니다.
+
+## 필요한 Secret / Variable (부모가 값 설정 — 코드는 값 안 읽음/안 만듦)
+
+리뷰/게이트 워크플로우가 참조하는 이름. 실제 값은 스택 측이 발급·등록한다.
+
+| 이름 | 종류 | 용도 | 최소 권한/요구 |
+| --- | --- | --- | --- |
+| `LITELLM_BASE_URL` | secret | LiteLLM OpenAI 호환 엔드포인트 | HTTPS. `/chat/completions` 지원. 사설/메타데이터 목적지 금지 |
+| `LITELLM_API_KEY` | secret | 리뷰 전용 스코프 키 | **리뷰(chat completion)만**. merge/write/관리 권한 없음. 마스터키 아님 |
+| `LITELLM_REVIEWER_MODEL` | variable | 리뷰어 모델명 | 패킷 `writer.model`과 **달라야** 함(writer-distinct) |
+| `LITELLM_REVIEWER_PROVIDER` | variable | (선택) 리뷰어 공급자 | writer provider와 구별 확인용 |
+| `EDITORIAL_C_APPROVAL_ALLOWLIST` | variable | C 승인 허용 GitHub 로그인(콤마구분) | 사용자 승인값 `froguin` (미설정 시 워크플로우 기본값 `froguin`) |
+
+- 키 미설정 시 LLM 리뷰는 `skipped-unconfigured`(non-pass)로 동작하며 결정론적 5개
+  게이트는 그대로 필수다. outage/quota/timeout도 절대 pass로 변환하지 않는다.
+- 엔드포인트 fetcher는 사설/메타데이터 주소·불안전 리다이렉트를 거부하고 바이트·시간
+  상한을 적용한다(계약 §Evidence). 리뷰 잡은 base 코드만 실행하고 PR은 데이터로만 쓴다.
+
+## 실제 enforce(required 등록) 전환 절차 (검증 후)
+
+기존 필수 5개(`build`·`link-check`·`mermaid-lint`·`strikethrough-lint`·
+`docs-consistency-lint`)에 더해 `editorial-review`·`editorial-c-approval`를 required로
+등록하는 것은 **versioned script + rollback 기록**으로 검증 후 적용한다. 이 저장소는
+아직 등록하지 않았다(shadow-ready). admin/bot 우회 방침 확정도 전환 선행 조건이다.

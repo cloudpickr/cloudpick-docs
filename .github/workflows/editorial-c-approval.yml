@@ -1,0 +1,81 @@
+name: Editorial C-Approval Gate
+
+# 계약: froguin/multi-agent-stack@3113cfc §Review, approval and budget enforcement (5)
+#
+# 목적: 편집 핸드오프의 위험 등급 재판정 + C 등급의 allowlisted human exact-SHA 승인 강제.
+#   - A/B (독립 재분류 성공): 이 게이트는 명시적으로 success 기록(자동 병합은 결정론적
+#     5개 필수 체크가 담당). classify 실패/skip은 승인이 아니다.
+#   - C: allowlisted human(작성자·봇·에이전트 아님)이 '현재 head SHA'를 승인해야 success.
+#     새 커밋은 승인 무효. stale/철회/위조 방지. head를 이벤트마다 재확인.
+#
+# 안전:
+#   - trusted base-branch 코드만 실행(actions/checkout은 base ref). PR 코드/텍스트는 데이터.
+#   - 이 잡에는 LLM 키·병합 크레덴셜을 주지 않는다. 커밋 status만 기록.
+#   - outage/미설정/알수없음은 success로 변환하지 않는다.
+#
+# 활성화: 이 워크플로우는 status 컨텍스트 'editorial-c-approval'를 기록한다.
+#   실제 enforce(required check 등록)는 검증 후 versioned script로 별도 적용한다.
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, edited]
+  pull_request_review:
+    types: [submitted, dismissed]
+  issue_comment:
+    types: [created]
+
+permissions:
+  contents: read
+  statuses: write
+  pull-requests: read
+
+concurrency:
+  group: c-approval-${{ github.event.pull_request.number || github.event.issue.number }}
+  cancel-in-progress: false
+
+jobs:
+  gate:
+    runs-on: ubuntu-latest
+    steps:
+      # base-branch(신뢰) 코드 체크아웃 — PR head 코드를 실행하지 않는다.
+      - name: Checkout base (trusted)
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Evaluate C-approval gate
+        uses: actions/github-script@v7
+        env:
+          # C 승인 allowlist(콤마구분 GitHub 로그인). 사용자 명시 승인으로 froguin 지정.
+          # 리포 변수 EDITORIAL_C_APPROVAL_ALLOWLIST가 설정되면 그것을 우선 사용하고,
+          # 미설정 시 승인된 기본값 'froguin'을 쓴다(임의 추가가 아니라 명시 승인된 신원).
+          C_APPROVAL_ALLOWLIST: ${{ vars.EDITORIAL_C_APPROVAL_ALLOWLIST || 'froguin' }}
+        with:
+          script: |
+            const fs = require('fs');
+            const path = '.github/scripts/c_approval_gate.cjs';
+            // 신뢰된 base 브랜치에 게이트 스크립트가 아직 없으면(부트스트랩 PR),
+            // 승인으로 변환하지 않고 pending status를 기록한다(데드락·오승인 방지).
+            if (!fs.existsSync(path)) {
+              core.warning(`gate script not present on trusted base yet: ${path}`);
+              const pr = context.payload.pull_request
+                || (context.payload.issue && context.payload.issue.pull_request ? context.payload.issue : null);
+              if (pr) {
+                const prNumber = context.payload.pull_request?.number || context.payload.issue?.number;
+                const { data: fresh } = await github.rest.pulls.get({
+                  owner: context.repo.owner, repo: context.repo.repo, pull_number: prNumber,
+                });
+                await github.rest.repos.createCommitStatus({
+                  owner: context.repo.owner, repo: context.repo.repo, sha: fresh.head.sha,
+                  state: 'pending', context: 'editorial-c-approval',
+                  description: 'gate script not yet on base branch (bootstrap) — not an approval',
+                });
+              }
+              return;
+            }
+            const script = require(`${process.cwd()}/${path}`);
+            await script({ github, context, core, exec });

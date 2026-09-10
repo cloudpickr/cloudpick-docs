@@ -117,7 +117,13 @@ h1[data-page-title] {
  * Pin the footer, let only the nav tree scroll, and use a fixed listbox.
  */
 @media (max-width: 49.999rem) {
-	.sidebar-pane {
+	/*
+	 * Starlight 0.42+: 모바일 사이드바는 네이티브 popover(<sl-sidebar-pane popover>).
+	 * 닫힘은 UA 규칙 [popover]:not(:popover-open){display:none}에 의존한다.
+	 * 따라서 flex 레이아웃(푸터 고정용)은 '열렸을 때'만 적용해야 하며, 무조건
+	 * display:flex를 걸면 닫힘 상태의 display:none을 덮어써 사이드바가 닫히지 않는다.
+	 */
+	.sidebar-pane:popover-open {
 		display: flex;
 		flex-direction: column;
 		overflow: hidden;

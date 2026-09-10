@@ -53,9 +53,12 @@ export default defineConfig({
 					attrs: { src: '/mobile-select-menu.js', defer: true },
 				},
 				// ─── .netlify.app → docs.cloudpick.kr 리디렉트 ───
+				// 프로덕션 미러(정확히 cloudpick-docs.netlify.app)에서만 정규 도메인으로 보낸다.
+				// deploy-preview-*·branch-deploy 등 다른 *.netlify.app 서브도메인(PR 프리뷰)은
+				// 제외해야 미리보기가 프로덕션으로 튕기지 않는다.
 				{
 					tag: 'script',
-					content: `if(location.hostname.endsWith('.netlify.app')){location.replace('https://docs.cloudpick.kr'+location.pathname+location.search);}`,
+					content: `if(location.hostname==='cloudpick-docs.netlify.app'){location.replace('https://docs.cloudpick.kr'+location.pathname+location.search);}`,
 				},
 				// ─── Google Analytics (GA4) ───
 				...(process.env.PUBLIC_GA_ID ? [

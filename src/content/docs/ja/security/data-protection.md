@@ -120,7 +120,7 @@ Security Groups/NSG/Firewall Rulesなどネットワークファイアウォー�
 
 #### OWASPとWAFルール
 
-[OWASP Top 10](https://owasp.org/www-project-top-ten/)は、Webアプリケーションで最も一般的なセキュリティ脅威をまとめた業界標準です。各ベンダーのWAFは、これらの脅威に対応する**マネージドルールセット**を提供しています。
+[OWASP Top 10](https://owasp.org/Top10/)は、Webアプリケーションで最も一般的なセキュリティ脅威をまとめた業界標準です。各ベンダーのWAFは、これらの脅威に対応する**マネージドルールセット**を提供しています。
 
 以下は、OWASP Top 10のうち**WAFルールで緩和可能な主要項目**を抜粋したものです:
 

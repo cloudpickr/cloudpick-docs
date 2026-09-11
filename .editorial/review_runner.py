@@ -2,7 +2,7 @@
 """
 LLM 리뷰 러너 — B/C 대상 독립 사실/문체/로케일 리뷰(저장소 측, 신뢰된 base 코드).
 
-계약: froguin/multi-agent-stack@3113cfc §Review, approval and budget enforcement
+계약: froguin/multi-agent-stack@53618d6 §Review, approval and budget enforcement
 
 원칙(엄수):
   - 기존 LiteLLM 재사용. OpenAI 호환 /chat/completions. 신규 유료 서비스 없음.

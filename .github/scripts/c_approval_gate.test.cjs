@@ -1,7 +1,7 @@
 'use strict';
 /**
  * c_approval_gate.cjs 순수 로직 테스트 — node --test로 실행(외부 의존성 없음).
- * 계약 §5(4d60805): C는 allowlisted human이 '현재 packet SHA-256'을 코멘트로 confirm.
+ * 계약 §5(53618d6): C는 allowlisted human이 '현재 packet SHA-256'을 코멘트로 confirm.
  *   - GitHub PR Approve는 C 신호가 아니다.
  *   - 무관한 커밋으로 head가 바뀌어도 packet hash가 같으면 confirm 유효.
  *   - 봇/에이전트 코멘트, 잘못된/오래된 hash, allowlist 밖 사람은 무효.

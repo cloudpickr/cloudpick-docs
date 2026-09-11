@@ -1,6 +1,6 @@
 <!--
 CloudPick 문서 PR 템플릿.
-편집 핸드오프 계약(froguin/multi-agent-stack@3113cfc docs/architecture/editorial-actions-contract.md)
+편집 핸드오프 계약(froguin/multi-agent-stack@53618d6 docs/architecture/editorial-actions-contract.md)
 및 저장소 측 참조(.editorial/README.md)를 따릅니다. 운영 cutover 전이며, 기존 발행 게이트가 유효합니다.
 -->
 

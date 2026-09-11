@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://docs.cloudpick.kr/schemas/editorial-packet-v1.json",
   "title": "CloudPick editorial evidence packet (v1)",
-  "description": "Draft PR에 첨부되는 근거 패킷의 형식 검증 스키마. 계약 원본(신뢰 기준): froguin/multi-agent-stack@3113cfc docs/architecture/editorial-actions-contract.md. 주의: 이 스키마는 형식(모양)만 검증한다. 형식 통과는 근거 '내용'의 신뢰를 뜻하지 않는다 — tier 판정과 사실 검증은 신뢰된 base-branch 정책(Actions)이 실제 diff·근거로 독립 수행한다. tier_hint·generated_by_llm·writer는 입력 신호일 뿐 최종 판정이 아니며, 이 필드만으로 승인/자동병합/작성자-리뷰어 독립성을 인정하지 않는다. 아래 정규식은 최선의 방어일 뿐이며, 경로 정규화(../ 제거, 심볼릭/제어문자 차단)와 claim 출처 필수 검증은 trusted validator가 최종 담당한다.",
+  "description": "Draft PR에 첨부되는 근거 패킷의 형식 검증 스키마. 계약 원본(신뢰 기준): froguin/multi-agent-stack@53618d6 docs/architecture/editorial-actions-contract.md. 주의: 이 스키마는 형식(모양)만 검증한다. 형식 통과는 근거 '내용'의 신뢰를 뜻하지 않는다 — tier 판정과 사실 검증은 신뢰된 base-branch 정책(Actions)이 실제 diff·근거로 독립 수행한다. tier_hint·generated_by_llm·writer는 입력 신호일 뿐 최종 판정이 아니며, 이 필드만으로 승인/자동병합/작성자-리뷰어 독립성을 인정하지 않는다. 아래 정규식은 최선의 방어일 뿐이며, 경로 정규화(../ 제거, 심볼릭/제어문자 차단)와 claim 출처 필수 검증은 trusted validator가 최종 담당한다.",
   "type": "object",
   "additionalProperties": false,
   "required": [

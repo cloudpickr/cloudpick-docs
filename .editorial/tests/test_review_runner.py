@@ -2,7 +2,7 @@
 """
 review_runner.py 테스트 — 실제 네트워크 없이 call_fn mock 주입.
 
-계약(3113cfc) §Review 원칙 검증:
+계약(53618d6) §Review 원칙 검증:
   - writer-distinct 강제, outage/unknown은 pass로 변환 금지, 미설정=shadow(non-pass),
     성공만 캐시 가능, 예산 상한.
 """

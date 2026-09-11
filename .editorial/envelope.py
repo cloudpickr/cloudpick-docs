@@ -2,7 +2,7 @@
 """
 리뷰 envelope — 리뷰/승인 결과를 정확한 맥락 튜플에 바인딩.
 
-계약: froguin/multi-agent-stack@3113cfc §Evidence packet
+계약: froguin/multi-agent-stack@53618d6 §Evidence packet
   "Actions builds an envelope from GitHub's trusted repository/PR identity,
    base_sha, head_sha, packet SHA-256, policy version and reviewer/model
    configuration version. A changed head, relevant base, packet or policy
@@ -22,7 +22,7 @@ import json
 from dataclasses import dataclass, asdict
 
 
-POLICY_VERSION = "editorial-contract-3113cfc"
+POLICY_VERSION = "editorial-contract-53618d6"
 
 
 @dataclass(frozen=True)

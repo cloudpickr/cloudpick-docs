@@ -2,7 +2,7 @@
 """
 근거 패킷(evidence packet) trusted validator — 저장소 측(문서 Actions) 검증기.
 
-계약: froguin/multi-agent-stack@3113cfc docs/architecture/editorial-actions-contract.md
+계약: froguin/multi-agent-stack@53618d6 docs/architecture/editorial-actions-contract.md
 스키마: .editorial/packet.schema.json
 
 이 검증기는 신뢰된 base-branch 코드로 실행된다(PR 코드/텍스트는 데이터로만 취급).

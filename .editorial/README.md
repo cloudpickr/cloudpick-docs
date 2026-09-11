@@ -7,10 +7,11 @@
 
 계약 본문은 이 저장소에 **사본을 두지 않습니다.** 아래 핀 커밋 링크를 단일 기준으로 참조합니다.
 
-- **정규 계약(pinned):** `froguin/multi-agent-stack` 커밋 `3113cfc`
+- **정규 계약(pinned):** `froguin/multi-agent-stack` 커밋 `53618d6`
   `docs/architecture/editorial-actions-contract.md`
 - 계약의 명확화 반영 및 핀 갱신은 **스택 측 책임**입니다. 여기의 핀만 따라 갱신합니다.
-- 이전 핀: `e0dbbdc` (동일 본문 + 합의 명확화가 `3113cfc`에 반영됨).
+- 핀 이력: `e0dbbdc` → `3113cfc` → `4d60805`(문서 신원 = packet SHA-256) →
+  `53618d6`(편집 리뷰 scope by file path only 문안 동기화).
 
 ## 이 디렉터리의 내용
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # 편집 리뷰 게이트의 required status check 등록/롤백 (versioned, idempotent).
 #
-# 계약: froguin/multi-agent-stack@3113cfc §Review(5), §Cutover.
+# 계약: froguin/multi-agent-stack@53618d6 §Review(5), §Cutover.
 # 목적: 검증 후에만 editorial-review·editorial-c-approval을 required로 추가한다.
 #   실제 적용은 부모 검증 후. 이 스크립트는 최소 diff·rollback을 기록·재현 가능하게 한다.
 #

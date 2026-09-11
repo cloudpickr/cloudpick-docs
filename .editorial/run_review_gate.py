@@ -43,10 +43,26 @@ def _state_from_verdict(verdict: str) -> str:
     return "pending"  # error / skipped-unconfigured / boundary holds
 
 
+DOC_ROOT = "src/content/docs/"
+
+
 def run(args) -> dict:
     numstat = Path(args.numstat).read_text(encoding="utf-8")
     name_status = Path(args.name_status).read_text(encoding="utf-8")
-    changes = cc.parse_numstat_and_status(numstat, name_status)
+    all_changes = cc.parse_numstat_and_status(numstat, name_status)
+
+    # 파일 경로 기준 스코프(scope by file path only) ---------------------------
+    # editorial-review는 CloudPick '문서'(src/content/docs/**)만 평가한다. 관리/인프라
+    # 코드, 워크플로우, .editorial/ 도구, 루트 문서 등 비문서 파일은 편집 리뷰 범위 밖이며
+    # C로 escalate하지 않는다. 혼합 PR이라도 비문서 파일은 무시하고 문서 변경만 분류·리뷰한다.
+    #   - 문서 변경이 하나도 없으면(비문서 전용 PR 포함) 편집 scope 밖 → 명시적 통과.
+    #   - 문서 변경이 있으면 그 하위집합만 A/B/C 판정. 비문서 파일은 분류 입력에서 제외.
+    changes = [c for c in all_changes if c.path.startswith(DOC_ROOT)]
+    if not changes:
+        return _out("feature-only", "approve",
+                    ["no src/content/docs/** changes — out of editorial LLM/C scope "
+                     "(non-document files are not editorially reviewed)"],
+                    args, "")
 
     # 패킷 취득·검증 -----------------------------------------------------------
     packet = None

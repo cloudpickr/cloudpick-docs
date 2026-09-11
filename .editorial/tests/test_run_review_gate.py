@@ -208,6 +208,57 @@ class TestGate(unittest.TestCase):
         out = g.run(a)
         self.assertNotEqual(out["state"], "success")
 
+    # ── scope by file path only 회귀 ────────────────────────────────────
+    def test_non_document_only_pr_is_out_of_scope_pass(self):
+        # 비문서 전용 PR(.github/**, .editorial/**) → 문서 변경 0 → 편집 scope 밖 → 통과.
+        numstat = write(self.tmp, "nf.txt", "5\t2\t.github/workflows/x.yml\n"
+                                            "3\t0\t.editorial/README.md\n")
+        name_status = write(self.tmp, "nsf.txt", "M\t.github/workflows/x.yml\n"
+                                                 "M\t.editorial/README.md\n")
+        a = Args(numstat=numstat, name_status=name_status, diff=self.diff, packet="none")
+        out = g.run(a)
+        self.assertEqual(out["tier"], "feature-only")
+        self.assertEqual(out["state"], "success")
+
+    def test_non_document_only_pr_out_of_scope_even_with_packet(self):
+        # 파일 경로 스코프: 문서 변경이 없으면 패킷이 붙어도 리뷰할 문서가 없으므로 scope 밖.
+        pkt = self._packet_file(VALID_PACKET)
+        numstat = write(self.tmp, "nf2.txt", "5\t2\t.github/workflows/x.yml\n")
+        name_status = write(self.tmp, "nsf2.txt", "M\t.github/workflows/x.yml\n")
+        a = Args(numstat=numstat, name_status=name_status, diff=self.diff, packet=pkt,
+                 packet_repo_path=".editorial/packets/CLPKDOC-123.json")
+        out = g.run(a)
+        self.assertEqual(out["tier"], "feature-only")
+        self.assertEqual(out["state"], "success")
+
+    def test_mixed_pr_reviews_only_document_files(self):
+        # 혼합 PR(문서 + 비문서): 비문서 파일은 무시하고 문서 변경만 분류. 비문서로 인한 C 없음.
+        # 여기선 작은 문서 수정 + 워크플로우 변경 → 문서만 보면 A → 통과.
+        numstat = write(self.tmp, "nm.txt",
+                        "3\t2\tsrc/content/docs/ko/compute/serverless.md\n"
+                        "30\t4\t.github/workflows/x.yml\n")
+        name_status = write(self.tmp, "nsm.txt",
+                            "M\tsrc/content/docs/ko/compute/serverless.md\n"
+                            "M\t.github/workflows/x.yml\n")
+        a = Args(numstat=numstat, name_status=name_status, diff=self.diff, packet="none")
+        out = g.run(a)
+        # 비문서 워크플로우 변경(구/로직에선 C escalate)이 더 이상 tier에 영향 없음.
+        self.assertEqual(out["tier"], "A")
+        self.assertEqual(out["state"], "success")
+
+    def test_mixed_pr_document_new_file_still_C(self):
+        # 혼합 PR이라도 '문서' 신규 생성은 여전히 구조 변경 → C(비문서는 무시하되 문서 규칙 유지).
+        numstat = write(self.tmp, "nmc.txt",
+                        "10\t0\tsrc/content/docs/ko/compute/new.md\n"
+                        "2\t2\t.github/workflows/x.yml\n")
+        name_status = write(self.tmp, "nsmc.txt",
+                            "A\tsrc/content/docs/ko/compute/new.md\n"
+                            "M\t.github/workflows/x.yml\n")
+        a = Args(numstat=numstat, name_status=name_status, diff=self.diff, packet="none")
+        out = g.run(a)
+        self.assertEqual(out["tier"], "C")
+        self.assertNotEqual(out["state"], "success")
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)

@@ -170,6 +170,8 @@ As of 2026, how FDEs work is changing.
 - Humans (FDEs) focus on discovery, governance, and go-live decisions
 - AWS's AI-Driven Development Lifecycle formalizes this pattern
 
+For agent architecture patterns and the specific deployment/operations considerations (tool permissions, guardrails, human-in-the-loop), see [AI Agents](../../ai/agents/) for more detail.
+
 **What doesn't change**: Resolving ambiguity in the customer environment, persuading stakeholders, and production ownership — these are not automated.
 
 ---

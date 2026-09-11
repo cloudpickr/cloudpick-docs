@@ -59,6 +59,10 @@ graph LR
 - **Inference Architecture** — Configure serverless API endpoints, containerized high-throughput inference engines (vLLM, TensorRT-LLM), or edge on-device runtimes.
 - **Traffic Governance** — Implement canary deployments, blue/green rollouts, rate limiting, and token quota controls.
 
+:::note[Integration with Field Deployment (FDE)]
+For one execution model that embeds production code into a customer's network-isolated or air-gapped infrastructure and complex legacy environments, see [Field Deployment](../../about-cloud/field-deployment/).
+:::
+
 ### 7. Continual Operations & Observability
 - **Continuous Monitoring** — Track token consumption, P99 latency, and user feedback (thumbs up/down) in real time.
 - **Feedback Loops** — Ingest production edge cases into regression eval suites to continually refine prompt templates and knowledge bases.

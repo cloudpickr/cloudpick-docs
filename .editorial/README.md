@@ -20,7 +20,10 @@
   중복 JSON 키·trailing newline·BOM·checked_at RFC3339·target∈changed·파일명 일치).
 - `classify_change.py` — 실제 diff+패킷으로 **A/B/C 재판정**(tier_hint는 입력일 뿐,
   LLM 생성 최소 B, 신규/삭제/이동/문서외/규제=C, 근거 없는 비기계적 변경은 C로 상향).
-  문서 미변경 + 유효 패킷 없음(feature-only)은 오케스트레이터가 편집 scope 밖으로 통과시킨다.
+  파일 경로 기준 스코프: `src/content/docs/**` 문서 변경만 A/B/C 판정하며, 비문서 파일
+  (관리/인프라 코드·워크플로우·`.editorial/` 도구·루트 문서)은 편집 리뷰 대상이 아니다.
+  문서 변경이 하나도 없으면 오케스트레이터가 편집 scope 밖으로 통과시킨다(혼합 PR은 문서
+  하위집합만 리뷰).
 - `review_runner.py` — B/C **독립 LLM 리뷰**(LiteLLM 재사용, writer-distinct 강제, 예산·
   호출·토큰 상한, outage/미설정은 non-pass, PR 내용은 데이터). 미설정 시 shadow(non-pass).
 - `envelope.py` — 리뷰 결과를 repo/PR/base_sha/head_sha/packet-SHA256/policy/reviewer-config
@@ -30,8 +33,8 @@
 
 관련 워크플로/스크립트(저장소 루트):
 - `.github/workflows/editorial-c-approval.yml` — C 승인 게이트(status `editorial-c-approval`).
-- `.github/scripts/c_approval_gate.cjs` (+`.test.cjs`) — A/B는 명시 pass, feature-only PR
-  (문서 변경 없음 + 유효 패킷 없음)은 편집 scope 밖으로 명시 pass, C는 allowlisted human
+- `.github/scripts/c_approval_gate.cjs` (+`.test.cjs`) — A/B는 명시 pass, 문서 변경이 없는
+  PR(비문서 전용 — 파일 경로 기준 스코프)은 편집 scope 밖으로 명시 pass, C는 allowlisted human
   (봇/에이전트 제외)이 **현재 packet SHA-256을 코멘트로 confirm**해야 pass. 형식:
   `/approve <64-hex packet_sha256>`. GitHub PR Approve는 C 신호가 아니다. 무관한 커밋
   (CI/feature/merge)이 packet·문서 바이트를 바꾸지 않으면 C를 리셋하지 않는다.

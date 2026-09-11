@@ -58,11 +58,12 @@ function evaluateApproval(input) {
   if (!tier) {
     return { state: 'failure', description: 'classification failed or unavailable (not an approval)' };
   }
-  // Feature-only PR: src/content/docs/** 변경 없음 + 유효 패킷 없음 → 편집 C scope 밖.
-  // 계약 §5: "A required conditional C-approval check may explicitly pass for
-  //           independently classified A/B" + feature-only는 out of editorial scope.
+  // Out-of-scope PR: src/content/docs/** 변경이 하나도 없음 → 편집 리뷰/C scope 밖.
+  // 파일 경로 기준 스코프(scope by file path only): 관리/인프라 코드·워크플로우·
+  // .editorial/ 도구·루트 문서 등 비문서 파일은 편집적으로 리뷰하지 않는다. 혼합 PR은
+  // run_review_gate.py가 문서 하위집합만 분류하므로 여기서는 그 tier를 그대로 받는다.
   if (tier === 'feature-only') {
-    return { state: 'success', description: 'feature-only PR: out of editorial LLM/C scope' };
+    return { state: 'success', description: 'no document changes: out of editorial LLM/C scope' };
   }
   if (tier === 'A' || tier === 'B') {
     // 독립 재분류가 A/B로 성공 → 이 게이트는 통과. 병합 자체는 필수 체크가 최종 결정.

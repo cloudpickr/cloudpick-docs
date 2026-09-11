@@ -2,7 +2,7 @@
 """
 리뷰 게이트 오케스트레이터 — 패킷검증→분류→(B/C)독립리뷰를 하나로 묶어 verdict 산출.
 
-계약: froguin/multi-agent-stack@3113cfc §Review
+계약: froguin/multi-agent-stack@53618d6 §Review
 
 입력(모두 신뢰된 base 코드가 데이터로 취급; PR head 코드 실행 없음):
   --numstat FILE        git diff --numstat (워크플로우가 GitHub API로 생성)

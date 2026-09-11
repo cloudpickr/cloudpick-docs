@@ -1,7 +1,7 @@
 'use strict';
 /**
  * Editorial C-Approval Gate 로직.
- * 계약: froguin/multi-agent-stack@4d60805 §Review, approval and budget enforcement (5).
+ * 계약: froguin/multi-agent-stack@53618d6 §Review, approval and budget enforcement (5).
  *
  * 순수 판정 함수(evaluateApproval)는 테스트 가능하게 분리하고, main(github,...)은
  * GitHub API 연동(현재 packet SHA-256 계산·코멘트 조회·commit status 기록)만 담당한다.

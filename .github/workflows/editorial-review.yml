@@ -1,6 +1,6 @@
 name: Editorial Review
 
-# 계약: froguin/multi-agent-stack@3113cfc §Review, approval and budget enforcement
+# 계약: froguin/multi-agent-stack@53618d6 §Review, approval and budget enforcement
 #
 # 흐름: 패킷 취득(API 데이터)→검증→분류→(B/C)독립 LLM 리뷰. 오케스트레이터
 #   .editorial/run_review_gate.py 하나가 수행하고, 워크플로우는 데이터만 넘긴다.

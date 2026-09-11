@@ -2,7 +2,7 @@
 """
 공식 근거(source) 독립 fetch — SSRF 방어 포함.
 
-계약: froguin/multi-agent-stack@3113cfc §Evidence packet
+계약: froguin/multi-agent-stack@53618d6 §Evidence packet
   "The fetcher must reject private/metadata destinations and unsafe redirects,
    and cap bytes/time."
 

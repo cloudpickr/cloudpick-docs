@@ -2,7 +2,7 @@
 """
 classify_change.py 테스트 — 실제 실행.
 
-계약(3113cfc) §Risk tiers의 A/B/C 판정과 '조용한 하향 금지·불명확은 상향' 원칙 검증.
+계약(53618d6) §Risk tiers의 A/B/C 판정과 '조용한 하향 금지·불명확은 상향' 원칙 검증.
 """
 import sys
 import unittest

@@ -1,6 +1,6 @@
 name: Editorial C-Approval Gate
 
-# 계약: froguin/multi-agent-stack@4d60805 §Review, approval and budget enforcement (5)
+# 계약: froguin/multi-agent-stack@53618d6 §Review, approval and budget enforcement (5)
 #
 # 목적: 편집 핸드오프의 위험 등급 재판정 + C 등급의 allowlisted human packet SHA-256 확인.
 #   - A/B (독립 재분류 성공): 이 게이트는 명시적으로 success 기록(자동 병합은 결정론적

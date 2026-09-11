@@ -2,7 +2,7 @@
 """
 변경 분류기(classify) — 저장소 측 신뢰된 재판정.
 
-계약: froguin/multi-agent-stack@3113cfc §Risk tiers
+계약: froguin/multi-agent-stack@53618d6 §Risk tiers
   A: 순수 기계적 오타/형식/링크/렌더 변경. 로케일 피어 포함 '한 논리 문서',
      추가+삭제 20줄 이하(전 로케일 합산), 사실/변동/구조 변경 없음.
   B: 기존 문서의 제한된 갱신(공식 근거 기반 사실 갱신·번역 포함). 명시적 범위+근거+독립 리뷰.

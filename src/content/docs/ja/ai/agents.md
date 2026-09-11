@@ -168,6 +168,7 @@ AgentCore GatewayおよびClaude製品群ですでにサポート中。
 - [LLMOps](../../ai/llmops/) — エージェントの可観測性、評価、コスト
 - [AIセキュリティ](../../security/ai-security/) — ガードレール、プロンプトインジェクション
 - [LLMチャネル選定ガイド](../../ai/1p-vs-3p/) — Seat vs API、チャネルパターン
+- [現場デプロイ (Field Deployment)](../../about-cloud/field-deployment/) — 顧客環境でエージェントを本番に定着させ、ゴーライブ・Human-in-the-Loopを判断する役割
 
 ## 参考資料
 

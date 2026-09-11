@@ -166,6 +166,7 @@ Already supported by AgentCore Gateway and Claude products.
 - [LLMOps](../../ai/llmops/) — agent observability, evaluation, cost
 - [AI Security](../../security/ai-security/) — guardrails, prompt injection
 - [LLM Channel Selection Guide](../../ai/1p-vs-3p/) — seat vs. API, channel patterns
+- [Field Deployment](../../about-cloud/field-deployment/) — the role that lands agents in production in a customer environment and makes go-live / human-in-the-loop decisions
 
 ## References
 

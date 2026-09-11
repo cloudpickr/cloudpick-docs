@@ -36,6 +36,8 @@ Timelines vary by org size, regulatory environment, and data readiness. Below is
 **Embed governance from the pilot stage.** Adding governance after adoption makes it far harder to control already-spread shadow AI.
 :::
 
+If internal teams cannot resolve complex legacy integrations on their own during an enterprise rollout, organizations can use the [Field Deployment (FDE)](../../about-cloud/field-deployment/) collaboration model, in which model-provider or solution-vendor engineers embed directly in the customer environment and co-own the initial production code.
+
 ### Pilot Target Selection Criteria
 
 - Repetitive, time-consuming workflows (report writing, data cleanup, internal inquiries)
@@ -117,6 +119,7 @@ Don't try to cover all roles with one tool. Work agents and coding agents differ
 - [LLM Channel Selection Guide](../../ai/1p-vs-3p/) — Seat vs API, channel patterns
 - [AI Security](../../security/ai-security/) — Guardrails, prompt injection
 - [FinOps](../../governance/finops/) — Cost governance
+- [Field Deployment](../../about-cloud/field-deployment/) — Customer environment embedding, production code ownership, agentic delivery
 
 ## References
 

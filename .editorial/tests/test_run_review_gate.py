@@ -208,6 +208,29 @@ class TestGate(unittest.TestCase):
         out = g.run(a)
         self.assertNotEqual(out["state"], "success")
 
+    # ── 계약 §5 feature-only 회귀 ────────────────────────────────────────
+    def test_feature_only_pr_is_out_of_scope_pass(self):
+        # 문서 미변경(.github/**만) + 패킷 없음 → feature-only, 편집 C scope 밖 → 명시 통과.
+        numstat = write(self.tmp, "nf.txt", "5\t2\t.github/workflows/x.yml\n"
+                                            "3\t0\t.editorial/README.md\n")
+        name_status = write(self.tmp, "nsf.txt", "M\t.github/workflows/x.yml\n"
+                                                 "M\t.editorial/README.md\n")
+        a = Args(numstat=numstat, name_status=name_status, diff=self.diff, packet="none")
+        out = g.run(a)
+        self.assertEqual(out["tier"], "feature-only")
+        self.assertEqual(out["state"], "success")
+
+    def test_feature_only_not_applied_when_packet_attached(self):
+        # 문서 미변경이라도 패킷이 첨부되면 정규 검증 경로(유효 패킷 없으면 비승인).
+        pkt = self._packet_file({"schema_version": 1})  # 무효 패킷
+        numstat = write(self.tmp, "nf2.txt", "5\t2\t.github/workflows/x.yml\n")
+        name_status = write(self.tmp, "nsf2.txt", "M\t.github/workflows/x.yml\n")
+        a = Args(numstat=numstat, name_status=name_status, diff=self.diff, packet=pkt,
+                 packet_repo_path=".editorial/packets/CLPKDOC-123.json")
+        out = g.run(a)
+        self.assertNotEqual(out["tier"], "feature-only")
+        self.assertNotEqual(out["state"], "success")
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)

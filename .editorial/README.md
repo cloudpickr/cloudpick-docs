@@ -20,6 +20,7 @@
   중복 JSON 키·trailing newline·BOM·checked_at RFC3339·target∈changed·파일명 일치).
 - `classify_change.py` — 실제 diff+패킷으로 **A/B/C 재판정**(tier_hint는 입력일 뿐,
   LLM 생성 최소 B, 신규/삭제/이동/문서외/규제=C, 근거 없는 비기계적 변경은 C로 상향).
+  문서 미변경 + 유효 패킷 없음(feature-only)은 오케스트레이터가 편집 scope 밖으로 통과시킨다.
 - `review_runner.py` — B/C **독립 LLM 리뷰**(LiteLLM 재사용, writer-distinct 강제, 예산·
   호출·토큰 상한, outage/미설정은 non-pass, PR 내용은 데이터). 미설정 시 shadow(non-pass).
 - `envelope.py` — 리뷰 결과를 repo/PR/base_sha/head_sha/packet-SHA256/policy/reviewer-config

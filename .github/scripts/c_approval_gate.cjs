@@ -183,10 +183,8 @@ async function computeTierAndPacketSha({ github, context, exec, prNumber, headSh
     packetRepoPath = packets[0].filename;
   }
 
-  // Feature-only 판정: src/content/docs/** 변경 없음 + 유효 패킷 파일 없음.
-  const touchesDocs = files.some((f) => /^src\/content\/docs\//.test(f.filename));
-  const hasPacketFile = packets.length >= 1;
-
+  // Feature-only 판정은 run_review_gate.py가 tier='feature-only'로 내려준다.
+  // (문서 미변경 + 유효 패킷 없음 → 편집 C scope 밖. 저장소 단일 진실원천으로 통일.)
   const base = context.payload.pull_request?.base?.sha || '';
   let out = '';
   await exec.exec('python3', [
@@ -206,10 +204,6 @@ async function computeTierAndPacketSha({ github, context, exec, prNumber, headSh
     if (ps && ps !== '0'.repeat(64)) packetSha256 = String(ps).toLowerCase();
   } catch (_) { /* 무시: 없으면 빈 문자열 */ }
 
-  // 문서 미변경 + 패킷 파일 없음 → feature-only(편집 C scope 밖).
-  if (!touchesDocs && !hasPacketFile) {
-    return { tier: 'feature-only', packetSha256: '' };
-  }
   return { tier: parsed.tier, packetSha256 };
 }
 

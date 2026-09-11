@@ -48,6 +48,19 @@ def run(args) -> dict:
     name_status = Path(args.name_status).read_text(encoding="utf-8")
     changes = cc.parse_numstat_and_status(numstat, name_status)
 
+    # Feature-only PR 판정(계약 §5) --------------------------------------------
+    # "Feature-only PRs (no src/content/docs/** and no validated
+    #  .editorial/packets/<jira_key>.json) are out of editorial LLM/C scope."
+    # 문서를 건드리지 않고 유효 패킷도 없으면 편집 리뷰/C 범위 밖 → 명시적 통과.
+    # (packet 인자가 주어지면 문서 변경 여부와 무관하게 아래 정규 경로로 검증한다.)
+    touches_docs = any(c.path.startswith("src/content/docs/") for c in changes)
+    packet_attached = bool(args.packet and args.packet != "none" and Path(args.packet).is_file())
+    if not touches_docs and not packet_attached:
+        return _out("feature-only", "approve",
+                    ["feature-only PR: no src/content/docs/** and no evidence packet "
+                     "— out of editorial LLM/C scope"],
+                    args, "")
+
     # 패킷 취득·검증 -----------------------------------------------------------
     packet = None
     packet_valid = False

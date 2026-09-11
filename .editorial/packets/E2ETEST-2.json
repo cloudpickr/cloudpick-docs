@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "jira_key": "E2ETEST-2",
+  "policy_action": "create",
+  "tier_hint": "C",
+  "tier_reasons": ["new document creation is a structural change (Tier C)"],
+  "target_path": "src/content/docs/ko/compute/e2e-c-scenario.md",
+  "changed_paths": [
+    "src/content/docs/ko/compute/e2e-c-scenario.md",
+    "src/content/docs/en/compute/e2e-c-scenario.md",
+    "src/content/docs/ja/compute/e2e-c-scenario.md"
+  ],
+  "generated_by_llm": true,
+  "writer": { "model": "docs-writer", "provider": "anthropic" },
+  "claim_ledger": [
+    {
+      "claim": "AWS Lambda functions support a configurable timeout up to 900 seconds.",
+      "source_url": "https://docs.aws.amazon.com/lambda/latest/dg/configuration-timeout.html",
+      "quote": "up to 900 seconds (15 minutes)",
+      "checked_at": "2026-09-11T00:00:00Z",
+      "volatile": false,
+      "status": "verified"
+    }
+  ]
+}

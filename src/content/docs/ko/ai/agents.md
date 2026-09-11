@@ -169,6 +169,7 @@ AgentCore Gateway, Claude 제품군에서 이미 지원 중입니다.
 - [LLMOps](../../ai/llmops/) — 에이전트 관측, 평가, 비용
 - [AI 보안](../../security/ai-security/) — 가드레일, 프롬프트 인젝션
 - [LLM 채널 선택 가이드](../../ai/1p-vs-3p/) — Seat vs API, 채널 패턴
+- [현장 배포 (Field Deployment)](../../about-cloud/field-deployment/) — 고객 환경에서 에이전트를 프로덕션에 안착시키고 고라이브·Human-in-the-Loop를 판단하는 역할
 
 ## 참고하기
 

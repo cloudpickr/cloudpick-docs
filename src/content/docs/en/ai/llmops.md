@@ -147,6 +147,7 @@ AI agents have **multi-step trajectories** (plan → tool call → observe → r
 - [LLM Channel Selection Guide](../../ai/1p-vs-3p/) — differences between consuming the same FM 1P (direct) vs 3P (via cloud)
 - [AI Platforms and Model Comparison](../../ai/ai-ml/) — model catalog, inference unit-cost optimization (caching, batch, routing)
 - [FinOps](../../governance/finops/) — cloud cost governance overall
+- [Field Deployment](../../about-cloud/field-deployment/) — the role that owns this operations/observability practice as production code in a customer environment
 
 ## References
 

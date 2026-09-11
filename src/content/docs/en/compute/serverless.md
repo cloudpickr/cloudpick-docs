@@ -19,6 +19,11 @@ VMs and containers automated server creation and deployment, but you still have 
 
 ## Why serverless?
 
+:::note
+FaaS functions have a maximum execution time. For example, the maximum execution time of an AWS Lambda function is 900 seconds (15 minutes). Long-running work is typically split out into workflow orchestration or containers.
+:::
+
+
 - **Cost** — Cost is zero with no traffic. You're billed only for what you use (based on GB-seconds or request count).
 - **Operations** — The vendor handles OS patching, security updates, and scaling entirely.
 - **Speed** — Deploy code with no infrastructure setup and it runs immediately.

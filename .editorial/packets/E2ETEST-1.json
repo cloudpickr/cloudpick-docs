@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "jira_key": "E2ETEST-1",
+  "policy_action": "update",
+  "tier_hint": "B",
+  "tier_reasons": ["bounded factual note added to an existing document with official source"],
+  "target_path": "src/content/docs/ko/compute/serverless.md",
+  "changed_paths": [
+    "src/content/docs/ko/compute/serverless.md",
+    "src/content/docs/en/compute/serverless.md",
+    "src/content/docs/ja/compute/serverless.md"
+  ],
+  "generated_by_llm": true,
+  "writer": { "model": "docs-writer", "provider": "anthropic" },
+  "claim_ledger": [
+    {
+      "claim": "The maximum execution time of an AWS Lambda function is 900 seconds (15 minutes).",
+      "source_url": "https://docs.aws.amazon.com/lambda/latest/dg/configuration-timeout.html",
+      "quote": "You can configure the maximum amount of time that a Lambda function can run, up to 900 seconds (15 minutes).",
+      "checked_at": "2026-09-11T00:00:00Z",
+      "volatile": false,
+      "status": "verified"
+    }
+  ]
+}

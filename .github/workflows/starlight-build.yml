@@ -13,6 +13,10 @@ on:
       # PR 경로 범위에 포함 — paths 필터 미포함으로 인한 required check 무한 pending 방지.
       - ".editorial/**"
       - ".github/PULL_REQUEST_TEMPLATE.md"
+      # 루트 문서만 바뀐 PR도 build(required) 체크가 돌도록 포함 — 무한 pending 방지.
+      - "README*.md"
+      - "CONTRIBUTING.md"
+      - "AGENTS.md"
   push:
     branches: [master, main]
     paths:

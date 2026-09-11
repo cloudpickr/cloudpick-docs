@@ -116,11 +116,53 @@ class TestOutageNotApproval(unittest.TestCase):
 
 
 class TestBudget(unittest.TestCase):
-    def test_input_over_budget_is_error(self):
-        big_diff = "x" * (rr.MAX_INPUT_TOKENS * 4 + 100)
+    def test_oversized_diff_truncated_blocks_approve(self):
+        # 변경분 압축(condense_diff)으로 큰 diff도 예산 내로 줄이되, 절단이 발생하면
+        # LLM이 approve해도 fail-closed로 changes_requested로 강제된다(자동 머지 우회 차단).
+        big_diff = "--- big.md\n" + ("+x\n" * 30_000)  # 파일당 상한 초과 → 절단 발생
         r = rr.run_review(cfg(), PACKET, big_diff, call_fn=lambda *a, **k: '{"verdict":"approve"}')
-        self.assertEqual(r.verdict, "error")
+        self.assertEqual(r.verdict, "changes_requested")
         self.assertFalse(r.cacheable)
+        self.assertTrue(any("truncat" in x.lower() or "budget" in x.lower() for x in r.reasons))
+
+    def test_within_budget_diff_can_approve(self):
+        # 절단이 없으면 정상적으로 approve가 유지된다(정상 크기 회귀 방지).
+        small_diff = "--- a.md\n@@ -1 +1 @@\n-old\n+new\n"
+        r = rr.run_review(cfg(), PACKET, small_diff, call_fn=lambda *a, **k: '{"verdict":"approve"}')
+        self.assertEqual(r.verdict, "approve")
+
+
+class TestCondenseDiff(unittest.TestCase):
+    def test_small_diff_unchanged(self):
+        d = "--- a.md\n@@ -1 +1 @@\n-old\n+new\n"
+        out, truncated = rr.condense_diff(d)
+        self.assertEqual(out, d)
+        self.assertFalse(truncated)
+
+    def test_total_cap_truncates_and_marks(self):
+        # 여러 파일로 전체 상한을 넘기면 뒷부분 파일은 생략하고 마커 + truncated=True.
+        seg = "--- f{n}.md\n" + ("+line\n" * 200)
+        many = "\n".join(seg.replace("{n}", str(i)) for i in range(50))
+        out, truncated = rr.condense_diff(many, max_total=5_000, max_per_file=1_000)
+        self.assertTrue(truncated)
+        self.assertLessEqual(len(out), 5_400)  # 상한 + 라인경계/마커 여유
+        self.assertIn("truncated", out)
+
+    def test_per_file_cap_truncates_each(self):
+        one_big = "--- big.md\n" + ("+x\n" * 5_000)
+        out, truncated = rr.condense_diff(one_big, max_total=1_000_000, max_per_file=2_000)
+        self.assertTrue(truncated)
+        self.assertLessEqual(len(out), 2_200)
+        self.assertIn("per-file limit", out)
+
+    def test_cut_on_line_boundary(self):
+        # 라인 경계에서 절단(라인 중간 절단 금지).
+        one_big = "--- big.md\n" + ("+abcdefghij\n" * 500)  # 각 줄 12자
+        out, truncated = rr.condense_diff(one_big, max_total=1_000_000, max_per_file=300)
+        self.assertTrue(truncated)
+        body = out.split("… [truncated")[0]
+        # 마커 앞 본문은 완전한 줄로 끝나야 함(줄 중간 절단 아님)
+        self.assertTrue(body.endswith("\n") or body.endswith("+abcdefghij"))
 
 
 class TestPromptDataFraming(unittest.TestCase):

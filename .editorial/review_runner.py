@@ -33,6 +33,54 @@ MAX_INPUT_TOKENS = 60_000
 MAX_OUTPUT_TOKENS = 4_000
 MAX_REPAIR_ROUNDS = 1
 
+# 변경분 문맥만 리뷰에 담기 위한 diff 압축 상한(문자 기준).
+# GitHub API의 patch는 이미 변경 hunk + 주변 문맥만 포함하지만, 파일이 많은 PR에서
+# 토큰이 폭증해 리뷰가 예산 초과로 보류되는 것을 막는다. 파일당 상한으로 한 파일이
+# 예산을 독식하지 못하게 하고, 전체 상한으로 프롬프트 크기를 예측 가능하게 유지한다.
+MAX_DIFF_CHARS = 48_000          # diff 전체(≈12K 토큰) — MAX_INPUT_TOKENS 여유 내
+MAX_DIFF_CHARS_PER_FILE = 8_000  # 파일당(≈2K 토큰)
+
+
+def condense_diff(diff_text: str, *, max_total: int = MAX_DIFF_CHARS,
+                  max_per_file: int = MAX_DIFF_CHARS_PER_FILE) -> tuple[str, bool]:
+    """변경분 문맥만 유지하도록 diff를 압축한다. (압축된_텍스트, 절단됨?) 튜플 반환.
+
+    입력은 워크플로가 GitHub compare API의 파일별 patch를 '--- <파일명>\\n<patch>'로
+    이어 붙인 텍스트다(이미 변경 hunk + 문맥 3줄만 포함). 파일별로 max_per_file까지만
+    남기고, 전체가 max_total을 넘으면 거기서 멈춘다. 절단은 라인 경계에서 수행하고
+    명시적 마커를 남긴다.
+
+    was_truncated=True이면 diff의 일부가 리뷰어에게 전달되지 않은 것이므로, 호출부는
+    이를 자동 승인으로 이어지지 않게 fail-closed 처리해야 한다(잘린 diff 승인 금지).
+    """
+    def _cut_on_line(s: str, limit: int) -> str:
+        # 라인 경계에서 자른다(마크다운/단어 중간 절단으로 인한 오판 방지).
+        if len(s) <= limit:
+            return s
+        head = s[:limit]
+        nl = head.rfind("\n")
+        return head[:nl] if nl > 0 else head
+
+    segments = diff_text.split("\n--- ")
+    truncated = False
+    out: list[str] = []
+    used = 0
+    for i, seg in enumerate(segments):
+        # split로 사라진 구분자 복원(첫 조각 제외).
+        seg = seg if i == 0 else "--- " + seg
+        if len(seg) > max_per_file:
+            seg = _cut_on_line(seg, max_per_file) + \
+                "\n… [truncated: file diff exceeds per-file limit]"
+            truncated = True
+        if used + len(seg) > max_total:
+            out.append("\n… [truncated: total diff exceeds review budget; "
+                       "remaining files omitted]")
+            truncated = True
+            break
+        out.append(seg)
+        used += len(seg)
+    return "\n".join(out), truncated
+
 
 @dataclass
 class ReviewConfig:
@@ -143,7 +191,10 @@ def run_review(
     if not ok:
         return ReviewResult("error", [f"writer-distinct check failed: {why}"], 0, cacheable=False)
 
-    messages = build_prompt(packet, diff_text, source_evidence)
+    # 변경분 문맥만 리뷰에 담되, 절단이 발생했는지 추적한다. 절단된 diff는 리뷰어가
+    # 전체 변경을 보지 못한 것이므로 자동 승인(approve)으로 이어지면 안 된다(fail-closed).
+    condensed, was_truncated = condense_diff(diff_text)
+    messages = build_prompt(packet, condensed, source_evidence)
     if _estimate_tokens(messages) > MAX_INPUT_TOKENS:
         return ReviewResult("error",
                             [f"input exceeds {MAX_INPUT_TOKENS} token budget"], 0, cacheable=False)
@@ -169,6 +220,13 @@ def run_review(
                 "Return ONLY the compact JSON object requested."}]
             continue
         if verdict == "approve":
+            if was_truncated:
+                # 잘린 diff로는 전체 변경을 검증할 수 없다 → 자동 승인 금지(fail-closed).
+                return ReviewResult(
+                    "changes_requested",
+                    ["PR diff exceeds automated review budget and was truncated — "
+                     "split the PR into smaller changes or route to human (Tier C) review."],
+                    calls, cacheable=False)
             return ReviewResult("approve", reasons, calls, cacheable=True)
         if verdict == "changes_requested":
             return ReviewResult("changes_requested", reasons, calls, cacheable=True)

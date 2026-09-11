@@ -104,6 +104,29 @@ Vector search is weak at exact string matching (product codes like `SKU-12345`, 
 | Google Cloud | Vertex AI Search (auto hybrid) | [Vertex AI Search](https://cloud.google.com/enterprise-search) |
 | OCI | OCI AI Vector Search with SQL combination | [OCI AI Vector Search](https://docs.oracle.com/en-us/iaas/autonomous-database-serverless/doc/oracle-ai-vector-search-autonomous-database.html) |
 
+## Enterprise Access Control (ACL-aware Retrieval)
+
+A commonly overlooked point when running RAG in a customer environment is **document access permissions**. Source documents (SharePoint, file shares, databases) carry per-user and per-group access control lists (ACLs); ignoring them and putting everything into a single index can expose confidential content to users who lack permission.
+
+The pattern that vendor official guides commonly present has three steps.
+
+- **Sync permissions at ingestion** — store the source ACLs (allowed/denied users and groups) or metadata (department, classification level, etc.) in the index alongside the document body and embeddings.
+- **Filter by identity at query time** — the application passes the authenticated user identity (including groups and roles) with the search request, and the retrieval layer returns only the documents that user is permitted to access.
+- **The application owns authentication** — this filter only **assists** access control; it is not authentication or authorization itself. User authentication and identity verification must be handled by the upstream application, and the retrieval layer's ACL filter must not be treated as the sole security boundary.
+
+| Vendor | Document-level access control | Reference |
+| --- | --- | --- |
+| AWS | Bedrock Managed Knowledge Base — ACL-aware retrieval (pre-retrieval filter + real-time verification), metadata filtering | [ACL-aware retrieval](https://docs.aws.amazon.com/bedrock/latest/userguide/kb-managed-acl.html) |
+| Azure | Azure AI Search — Entra-based ACL/RBAC indexing (preview) and a string-based security-trimming filter (GA) | [Document-level access control](https://learn.microsoft.com/azure/search/search-document-level-access-overview) |
+| Google Cloud | Gemini Enterprise — matches data-source `acl_info` against the authenticated principal for query-time access checks | [Configure access controls](https://docs.cloud.google.com/gemini/enterprise/docs/identity) |
+| OCI | Generative AI Agents RAG — access enforced at the database layer (mTLS and DB authentication by default), policy applied before retrieved evidence reaches the model | [OCI Generative AI Agents RAG](https://docs.oracle.com/en-us/iaas/Content/generative-ai-agents/oracle-db-guidelines.htm) |
+
+:::caution
+A retrieval-layer ACL filter does not replace authentication. AWS explicitly warns that "ACL awareness is not authorization," and the other vendors' access controls are likewise designed on the assumption that the upstream application authenticates the user and passes a verified identity. Do not rely on the search filter alone to guarantee authorization.
+:::
+
+For the delivery perspective of landing this pattern as production code in network-isolated/air-gapped or customer-specific permission environments, see [Field Deployment](../../about-cloud/field-deployment/).
+
 ## Query Expansion and Transformation
 
 When user queries are short or ambiguous, use an LLM to rewrite or expand the query.

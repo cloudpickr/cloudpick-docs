@@ -104,6 +104,29 @@ graph LR
 | Google Cloud | Vertex AI Search(自動ハイブリッド) | [Vertex AI Search](https://cloud.google.com/enterprise-search) |
 | OCI | OCI AI Vector SearchでSQLにより組み合わせ | [OCI AI Vector Search](https://docs.oracle.com/en-us/iaas/autonomous-database-serverless/doc/oracle-ai-vector-search-autonomous-database.html) |
 
+## エンタープライズアクセス制御(ACL-aware検索)
+
+顧客環境でRAGを運用する際に見落としがちなのが**文書のアクセス権限**です。元の文書(SharePoint、ファイル共有、DB)にはユーザー・グループごとのアクセス権限(ACL)があり、これを無視して全体を単一のインデックスに入れると、権限のないユーザーに機密文書の内容が露出する可能性があります。
+
+ベンダー公式ガイドが共通して示すパターンは3段階です。
+
+- **インジェスト時に権限を同期** — 文書本文・エンベディングとともに、元のACL(許可/拒否のユーザー・グループ)やメタデータ(部署、分類レベルなど)をインデックスに保存します。
+- **クエリ時に identity ベースでフィルタ** — アプリケーションが認証したユーザー identity(グループ・ロールを含む)を検索リクエストに渡し、検索レイヤーがそのユーザーがアクセス可能な文書のみを返します。
+- **認証はアプリケーションの責任** — このフィルタはアクセス制御を**補助**するだけで、認証・認可そのものではありません。ユーザー認証と identity 検証は上位アプリケーションが担い、検索レイヤーのACLフィルタを唯一のセキュリティ境界としてはなりません。
+
+| ベンダー | 文書レベルのアクセス制御 | 参考 |
+| --- | --- | --- |
+| AWS | Bedrock Managed Knowledge Base — ACL-aware retrieval(事前フィルタ + リアルタイム検証)、メタデータフィルタリング | [ACL-aware retrieval](https://docs.aws.amazon.com/bedrock/latest/userguide/kb-managed-acl.html) |
+| Azure | Azure AI Search — Entra ベースのACL/RBACインデックス(プレビュー)と文字列ベースの security trimming フィルタ(GA) | [Document-level access control](https://learn.microsoft.com/azure/search/search-document-level-access-overview) |
+| Google Cloud | Gemini Enterprise — データソースの `acl_info` を認証プリンシパルと照合しクエリ時にアクセス検査 | [Configure access controls](https://docs.cloud.google.com/gemini/enterprise/docs/identity) |
+| OCI | Generative AI Agents RAG — DB層でアクセスを強制(mTLS・DB認証がデフォルト)、検索した根拠がモデルに届く前にポリシーを適用 | [OCI Generative AI Agents RAG](https://docs.oracle.com/en-us/iaas/Content/generative-ai-agents/oracle-db-guidelines.htm) |
+
+:::caution
+検索レイヤーのACLフィルタは認証(authentication)の代わりにはなりません。AWSは「ACL awareness is not authorization」と明示的に警告しており、他のベンダーのアクセス制御も上位アプリケーションがユーザーを認証し検証済みの identity を渡すことを前提に設計されています。検索フィルタのみで認可を保証しないでください。
+:::
+
+閉域網・エアギャップや顧客固有の権限体系が絡む環境で、このパターンを実際の本番コードとして定着させるデリバリーの観点は[現場デプロイ (Field Deployment)](../../about-cloud/field-deployment/)を参照してください。
+
 ## クエリ拡張と変換
 
 ユーザーの質問が短い、または曖昧な場合に、LLMで質問を書き換えたり拡張したりします。

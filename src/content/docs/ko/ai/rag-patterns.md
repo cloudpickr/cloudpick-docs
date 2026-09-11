@@ -104,6 +104,29 @@ graph LR
 | Google Cloud | Vertex AI Search (자동 하이브리드) | [Vertex AI Search](https://cloud.google.com/enterprise-search) |
 | OCI | OCI AI Vector Search에서 SQL로 조합 | [OCI AI Vector Search](https://docs.oracle.com/en-us/iaas/autonomous-database-serverless/doc/oracle-ai-vector-search-autonomous-database.html) |
 
+## 엔터프라이즈 접근 제어(ACL-aware 검색)
+
+고객 환경에서 RAG를 운영할 때 흔히 놓치는 지점은 **문서 접근 권한**입니다. 원본 문서(SharePoint, 파일 공유, DB)에는 사용자·그룹별 접근 권한(ACL)이 있는데, 이를 무시하고 전체를 하나의 인덱스에 넣으면 권한이 없는 사용자에게 기밀 문서 내용이 노출될 수 있습니다.
+
+벤더 공식 가이드가 공통으로 제시하는 패턴은 세 단계입니다.
+
+- **인제스트 시 권한 동기화** — 문서 본문·임베딩과 함께 원본의 ACL(허용/거부 사용자·그룹)이나 메타데이터(부서, 분류 등급 등)를 인덱스에 저장합니다.
+- **쿼리 시 신원 기반 필터** — 애플리케이션이 인증한 사용자 신원(그룹·역할 포함)을 검색 요청에 전달하고, 검색 계층이 그 사용자가 접근 가능한 문서만 반환합니다.
+- **애플리케이션이 인증을 책임** — 이 필터는 접근 제어를 **보조**할 뿐 인증/인가 그 자체가 아닙니다. 사용자 인증과 신원 검증은 상위 애플리케이션이 담당해야 하며, 검색 계층의 ACL 필터를 유일한 보안 경계로 삼아서는 안 됩니다.
+
+| 벤더 | 문서 수준 접근 제어 방식 | 참고 |
+| --- | --- | --- |
+| AWS | Bedrock Managed Knowledge Base — ACL-aware retrieval(사전 필터 + 실시간 검증), 메타데이터 필터링 | [ACL-aware retrieval](https://docs.aws.amazon.com/bedrock/latest/userguide/kb-managed-acl.html) |
+| Azure | Azure AI Search — Entra 기반 ACL/RBAC 인덱싱(프리뷰)과 문자열 기반 security trimming 필터(GA) | [Document-level access control](https://learn.microsoft.com/azure/search/search-document-level-access-overview) |
+| Google Cloud | Gemini Enterprise — 데이터 소스 `acl_info`를 인증 주체와 매칭하여 쿼리 시 접근 검사 | [Configure access controls](https://docs.cloud.google.com/gemini/enterprise/docs/identity) |
+| OCI | Generative AI Agents RAG — DB 계층에서 접근을 강제(mTLS·DB 인증 기본), 검색 근거가 모델에 닿기 전 정책 적용 | [OCI Generative AI Agents RAG](https://docs.oracle.com/en-us/iaas/Content/generative-ai-agents/oracle-db-guidelines.htm) |
+
+:::caution
+검색 계층의 ACL 필터는 인증(authentication)을 대신하지 않습니다. AWS는 "ACL awareness is not authorization"이라고 명시적으로 경고하며, 다른 벤더의 접근 제어도 상위 애플리케이션이 사용자를 인증하고 검증된 신원을 전달하는 것을 전제로 설계되어 있습니다. 검색 필터만으로 인가를 보장하지 마세요.
+:::
+
+망분리·폐쇄망이나 고객별 권한 체계가 얽힌 환경에서 이 패턴을 실제 프로덕션 코드로 안착시키는 딜리버리 관점은 [현장 배포 (Field Deployment)](../../about-cloud/field-deployment/)를 참고하세요.
+
 ## 쿼리 확장과 변환
 
 사용자 질문이 짧거나 모호할 때 LLM으로 질문을 재작성하거나 확장합니다.

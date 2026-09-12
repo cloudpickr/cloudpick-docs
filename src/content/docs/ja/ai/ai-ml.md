@@ -55,7 +55,7 @@ description: "ベンダー別のAIプラットフォーム、モデルカタロ�
 
 | モデル提供社 | 主要モデル | 1P (直接) | 3P (クラウド提供) |
 | --- | --- | --- | --- |
-| **OpenAI** | GPT-5.6 (Sol/Terra/Luna), GPT-5.5, oシリーズ | [api.openai.com](https://platform.openai.com/) | Azure Foundry, Bedrock |
+| **OpenAI** | GPT-6 Astra(フラッグシップ、2026.9)、GPT-5.6 (Sol/Terra/Luna)、oシリーズ | [api.openai.com](https://platform.openai.com/) | Azure Foundry, Bedrock |
 | **Anthropic** | Claude Fable 5, Opus 5, Sonnet 5, Haiku 4.5 | [api.anthropic.com](https://platform.claude.com/) | Bedrock, Vertex AI |
 | **Google** | Gemini 3.x世代 (Pro/Flash — 世代・バリアント・Preview/GAは[公式文書](https://ai.google.dev/)で確認)、Gemini Omni | [Gemini API](https://ai.google.dev/) | Vertex AI (ネイティブ) |
 | **SpaceXAI (旧xAI)** | Grok 4.6, Grok Imagine | [x.ai/api](https://x.ai/api) | OCI, Vertex AI, Bedrock, Azure |
@@ -120,9 +120,9 @@ description: "ベンダー別のAIプラットフォーム、モデルカタロ�
 
 **Amazon Bedrock** — 自社開発の**Amazon Nova**モデル(第1世代Premier/Pro/Lite/Micro/Sonic等と**Nova 2** Lite/Pro等 — [公式モデル一覧](https://aws.amazon.com/nova/models/)で世代・提供状況を確認)と、Anthropic Claude、OpenAI GPTシリーズなど多様な提供社のモデルに単一APIでアクセスできます。モデル選択の幅が広く、AIエージェント構築のためのAgentCoreなどの運用体系が強みです。
 
-**Microsoft Foundry** — 旧Azure AI Foundryがブランドを統合した上位プラットフォームです。OpenAI GPT-5.5/5.4シリーズをエンタープライズ環境で利用できる主要な経路であり、Anthropic、Metaなど他社モデルも幅広く提供します。自社の**MAIモデル群**(Image-2.5, Voice-1, Transcribe-1)と**Foundry Local**(ローカル/閉域網実行)が追加されました。Microsoft 365、GitHub、Power Platformなど既存のMicrosoftエコシステムとの深い統合が最大の強みです。
+**Microsoft Foundry** — 旧Azure AI Foundryがブランドを統合した上位プラットフォームです。OpenAIモデル(GPT-6 Astra、GPT-5.6系列)をエンタープライズ環境で利用できる主要な経路であり、Anthropic、Metaなど他社モデルも幅広く提供します。自社の**MAIモデル群**(Image-2.5, Voice-1, Transcribe-1)と**Foundry Local**(ローカル/閉域網実行)が追加されました。Microsoft 365、GitHub、Power Platformなど既存のMicrosoftエコシステムとの深い統合が最大の強みです。
 
-**Gemini Enterprise Agent Platform** — 旧Vertex AIがエージェント中心に全面刷新されたプラットフォームです。Google自社の**Gemini 3.x/2.5**シリーズ(3.5 Pro/3.5 Flash/3.1 Pro等 — 各バリエーションのPreview/GA・上限は[公式文書](https://cloud.google.com/vertex-ai/generative-ai/docs)で確認)のネイティブなマルチモーダル能力とTPUインフラが強みです。長文コンテキスト・推論モード・**Gemini Omni**(マルチモーダル)や、Agent Studioを通じたローコードエージェント開発、Google Search/BigQueryとの連携が差別化ポイントです。
+**Gemini Enterprise Agent Platform** — 旧Vertex AIがエージェント中心に全面刷新されたプラットフォームです。Google自社の**Gemini 3.x世代**シリーズ(Pro/Flash — 各バリエーションの世代・Preview/GA・上限は[公式文書](https://cloud.google.com/vertex-ai/generative-ai/docs)で確認)のネイティブなマルチモーダル能力とTPUインフラが強みです。長文コンテキスト・推論モード・**Gemini Omni**(マルチモーダル)や、Agent Studioを通じたローコードエージェント開発、Google Search/BigQueryとの連携が差別化ポイントです。
 
 **OCI Enterprise AI** — 旧OCI Generative AIが拡張されたプラットフォームです。Cohere、Meta Llama、SpaceXAI Grok、Google GeminiなどのモデルをOCIインフラでホスティングし、専用AIクラスター(Dedicated AI Cluster)とRDMAベースのBare Metal GPUで高性能ワークロードを支援します。**AI Guardrails**(コンテンツモデレーション、PII検出、プロンプトインジェクション防御)と**Enterprise AI Agents**(GA)が追加されました。OpenAIとのパートナーシップにより、OpenAIモデル(API)およびCodexをOCI MarketplaceでOracle Universal Creditsとして利用でき、Oracle Database/アプリケーションとのネイティブ統合が強みです。
 

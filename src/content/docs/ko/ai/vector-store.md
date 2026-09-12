@@ -130,6 +130,7 @@ graph LR
 | 벤더 | 모델 | 차원 | 특징 |
 | --- | --- | --- | --- |
 | AWS | Titan Embeddings V2 | 256–1024 | 가변 차원, Bedrock 네이티브 |
+| AWS | TwelveLabs Marengo 3.0 | 512 | 멀티모달(비디오·오디오·이미지), Bedrock Managed KB, 세그먼트 타임스탬프 반환 |
 | Azure | text-embedding-3-large | 256–3072 | OpenAI, 가변 차원 |
 | Google | Gemini Embedding 2 | 3072 (MRL 768/1536 축소) | Vertex AI 네이티브 |
 | Cohere | Embed 4 | 1024 | 멀티모달, 다국어, OCI/Bedrock |

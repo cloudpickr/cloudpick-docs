@@ -125,6 +125,7 @@ Simple calculation: 1,000,000 × 1536 dimensions × 4 bytes = **~6GB**
 | Vendor | Model | Dimensions | Characteristics |
 | --- | --- | --- | --- |
 | AWS | Titan Embeddings V2 | 256–1024 | Variable dimension, Bedrock native |
+| AWS | TwelveLabs Marengo 3.0 | 512 | Multimodal (video/audio/image), Bedrock Managed KB, returns segment timestamps |
 | Azure | text-embedding-3-large | 256–3072 | OpenAI, variable dimension |
 | Google | Gemini Embedding 2 | 3072 (MRL 768/1536 reducible) | Vertex AI native |
 | Cohere | Embed 4 | 1024 | Multimodal, multilingual, OCI/Bedrock |

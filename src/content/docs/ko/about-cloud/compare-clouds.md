@@ -11,14 +11,14 @@ description: "주요 벤더의 특징, 강점, 멀티클라우드 연동 서비�
 | --- | --- | --- | --- | --- |
 | **운영사** | Amazon | Microsoft | Google | Oracle |
 | **출시** | 2006년 | 2010년 | 2008년 | 2016년 (Gen2) |
-| **시장 점유율** | 28% | 21% | 14% | 비공개 |
+| **시장 점유율** | 28% | 20% | 15% | 비공개 |
 | **서비스 포트폴리오** | 매우 넓음 | 매우 넓음 | 넓음 | 핵심 집중 |
 | **리전 수** | [39개](https://aws.amazon.com/about-aws/global-infrastructure/regions_az/) | [70+](https://azure.microsoft.com/explore/global-infrastructure/geographies) | [43개](https://cloud.google.com/about/locations) | [50+](https://www.oracle.com/cloud/public-cloud-regions/) |
 | **강점** | 넓은 서비스 포트폴리오 | 엔터프라이즈 통합 (M365, AD) | AI/ML과 데이터 분석 | 데이터베이스와 가격 경쟁력 |
 | **콘솔** | [Console](https://console.aws.amazon.com) | [Portal](https://portal.azure.com) | [Console](https://console.cloud.google.com) | [Console](https://cloud.oracle.com) |
 
 :::note
-시장 점유율 출처: [Synergy Research Group — Q4 2025](https://www.srgresearch.com/articles/genai-helps-drive-quarterly-cloud-revenues-to-119-billion-as-growth-rate-jumped-yet-again-in-q4). 리전 수, 서비스 수 등은 빠르게 변하므로 각 벤더 공식 페이지에서 최신 현황을 확인하세요. 국가별 로컬 리전은 [한국](../../korea/), [미국](../../us/), [EU](../../eu/), [일본](../../japan/), [싱가포르](../../singapore/) 가이드를 참고하세요.
+시장 점유율 출처: [Synergy Research Group — Q2 2026](https://www.srgresearch.com/articles/q2-cloud-market-passes-143-billion-highest-growth-rate-in-eight-years) (AWS 28%, Azure 20%, Google Cloud 15%). 리전 수, 서비스 수 등은 빠르게 변하므로 각 벤더 공식 페이지에서 최신 현황을 확인하세요. 국가별 로컬 리전은 [한국](../../korea/), [미국](../../us/), [EU](../../eu/), [일본](../../japan/), [싱가포르](../../singapore/) 가이드를 참고하세요.
 :::
 
 ## 주요 서비스 매핑

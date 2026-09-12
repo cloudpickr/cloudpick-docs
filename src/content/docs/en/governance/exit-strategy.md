@@ -67,7 +67,7 @@ IaC is the foundation of portability. Terraform can manage multi-cloud definitio
 | [Crossplane](https://www.crossplane.io/) | Kubernetes-based abstraction | High |
 | AWS CloudFormation | AWS only | Low |
 | Azure Bicep / ARM | Azure only | Low |
-| Google Cloud Deployment Manager | Google Cloud only | Low |
+| Google Cloud Infrastructure Manager | Google Cloud only (Terraform-based) | Medium |
 | OCI Resource Manager | OCI only (Terraform-based) | Medium |
 
 :::note

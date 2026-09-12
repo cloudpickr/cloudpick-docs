@@ -67,7 +67,7 @@ IaC는 포터빌리티의 기반입니다. Terraform은 멀티클라우드 정�
 | [Crossplane](https://www.crossplane.io/) | Kubernetes 기반 추상화 | 높음 |
 | AWS CloudFormation | AWS 전용 | 낮음 |
 | Azure Bicep / ARM | Azure 전용 | 낮음 |
-| Google Cloud Deployment Manager | Google Cloud 전용 | 낮음 |
+| Google Cloud Infrastructure Manager | Google Cloud 전용 (Terraform 기반) | 중간 |
 | OCI Resource Manager | OCI 전용 (Terraform 기반) | 중간 |
 
 :::note

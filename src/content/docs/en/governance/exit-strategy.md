@@ -3,7 +3,7 @@ title: "Vendor Lock-in and Exit Strategy"
 description: "Explains cloud vendor lock-in and strategies for securing portability of data, applications, and processes."
 ---
 
-> Last reviewed: August 2026
+> Last reviewed: September 2026
 
 ## Why an Exit Strategy Matters
 

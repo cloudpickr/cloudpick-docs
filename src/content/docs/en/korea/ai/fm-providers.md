@@ -3,19 +3,19 @@ title: "Domestic Foundation Model Provider Comparison"
 description: "Compares the models, licenses, and delivery channels of domestic FM providers in Korea, including Naver, LG AI Research, Kakao, KT, Upstage, NC AI, and SKT."
 ---
 
-> Last reviewed: August 2026
+> Last reviewed: September 2026
 
 ## Overview
 
 Korea has a large number of foundation model (FM) providers, ranging from conglomerate affiliates to startups. This document summarizes the latest models, licensing structures, and delivery channels of the major providers, and covers what to consider when choosing a domestic model over a global one.
 
 :::note
-Model versions and license terms change quickly. The table below reflects the state as of August 2026 — reconfirm the latest terms in each provider's official documentation before adoption.
+Model versions and license terms change quickly. The table below reflects the state as of September 2026 — reconfirm the latest terms in each provider's official documentation before adoption.
 :::
 
 ## Provider Landscape
 
-| Provider | Flagship model | Latest version (as of Aug 2026) | License | Key delivery channels |
+| Provider | Flagship model | Latest version (as of Sep 2026) | License | Key delivery channels |
 | --- | --- | --- | --- | --- |
 | Naver (Cloud) | HyperCLOVA X | SEED (lightweight/open), THINK (reasoning-focused), and DASH (lightweight, high-speed) lineups. SEED 32B THINK/8B Omni released Dec 2025; SEED 4B omni-modal (defense-specialized) released H1 2026 | Some SEED-series models (0.5B–3B class) are open-sourced; higher-tier models are API-only | Naver Cloud CLOVA Studio API (Basic/Exclusive/Neurocloud plans) |
 | LG AI Research | EXAONE | EXAONE 4.0 (hybrid reasoning), EXAONE 4.5 (multimodal) | Free for research/education use; **commercial use requires a separate license agreement with LG AI Research** | Published on Hugging Face, LG AI Research's own API, expanding licensing for educational institutions |

@@ -3,7 +3,7 @@ title: "Object Storage"
 description: "Compares object storage services, storage classes, and the evolution of lakehouse architecture across vendors."
 ---
 
-> Last reviewed: August 2026
+> Last reviewed: September 2026
 
 ## Overview
 

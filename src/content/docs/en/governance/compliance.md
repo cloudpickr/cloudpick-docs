@@ -3,7 +3,7 @@ title: "Compliance"
 description: "A vendor-by-vendor guide to global cloud compliance certifications such as ISO 27001 and SOC 2, and how to operate compliance in practice."
 ---
 
-> Last reviewed: August 2026
+> Last reviewed: September 2026
 
 ## Overview
 

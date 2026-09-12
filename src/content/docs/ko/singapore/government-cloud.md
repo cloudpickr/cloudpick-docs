@@ -3,7 +3,7 @@ title: "정부 클라우드 (GCC·IM8·SGTS)"
 description: "싱가포르 정부 클라우드 체계 — GCC(Government Commercial Cloud)의 구조와 GCC+, IM8 보안 정책 개혁, SG Tech Stack, 정부 조달 참여 요건을 정리합니다."
 ---
 
-> 문서 기준: 2026년 8월
+> 문서 기준: 2026년 9월
 
 ## 개요
 
@@ -66,7 +66,7 @@ GovTech가 2025년 3월 7일 기준으로 공개한 수치에 따르면, GCC에�
 - 시스템 소유 기관(digital system owner)에게 자사의 업무·기술 맥락에 맞춰 보안 계획을 스스로 조정할 수 있는 **재량권 확대**
 
 :::caution
-IM8 개혁은 2026년 8월 시점 **진행형 정책 전환**입니다. 저위험 SaaS의 GCC 외부 호스팅 허용 범위, 통제 카탈로그의 최종 확정 시점 등 세부 사항은 GovTech의 공식 정책 포털(info.standards.tech.gov.sg)에서 계속 갱신되고 있으므로, 실제 조달·컴플라이언스 대응 시에는 최신 공고를 직접 확인해야 합니다.
+IM8 개혁은 2026년 9월 시점 **진행형 정책 전환**입니다. 저위험 SaaS의 GCC 외부 호스팅 허용 범위, 통제 카탈로그의 최종 확정 시점 등 세부 사항은 GovTech의 공식 정책 포털(info.standards.tech.gov.sg)에서 계속 갱신되고 있으므로, 실제 조달·컴플라이언스 대응 시에는 최신 공고를 직접 확인해야 합니다.
 :::
 
 ## SGTS(Singapore Government Tech Stack)

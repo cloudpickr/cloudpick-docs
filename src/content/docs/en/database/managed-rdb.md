@@ -3,7 +3,7 @@ title: "Managed RDB"
 description: "Compares the difference between managed RDB and cloud-native DB, HA configuration, and PITR across vendors."
 ---
 
-> Last reviewed: August 2026
+> Last reviewed: September 2026
 
 ## Overview
 

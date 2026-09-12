@@ -3,14 +3,14 @@ title: "AI Governance"
 description: "Covers Singapore's AI governance framework — the NAIS 2.0 national AI strategy, the Model AI Governance Framework, AI Verify, IMDA's tools-first approach, the relationship with the PDPA, and ASEAN/Southeast Asia connections."
 ---
 
-> Last reviewed: August 2026
+> Last reviewed: September 2026
 
 ## Overview
 
 Singapore's approach to AI governance is designed **not around a single comprehensive AI law, but around layering a voluntary-compliance framework and practical tools on top of existing legislation (such as the PDPA)**. The Infocomm Media Development Authority (IMDA) and the Personal Data Protection Commission (PDPC) jointly lead policy, with three complementary layers working together: a national strategy (NAIS), a governance framework (the Model AI Governance Framework), and a testing tool (AI Verify).
 
 :::note
-Rather than imposing legal obligations tiered by risk level as the EU AI Act does, Singapore champions "tools over regulation." As of August 2026, there is no single law governing AI itself — the existing PDPA and sector-specific laws (such as financial regulation) apply to AI use instead.
+Rather than imposing legal obligations tiered by risk level as the EU AI Act does, Singapore champions "tools over regulation." As of September 2026, there is no single law governing AI itself — the existing PDPA and sector-specific laws (such as financial regulation) apply to AI use instead.
 :::
 
 ## NAIS and NAIS 2.0 — The National AI Strategy
@@ -48,7 +48,7 @@ The framework is presented as an **early-stage implementation** step that can be
 
 ## The Model AI Governance Framework — The Agentic AI Edition (2026)
 
-In response to the growing spread of agentic AI following the release of the generative AI edition, IMDA published a new framework specific to agentic AI, the **Model AI Governance Framework for Agentic AI**, on **January 22, 2026**. It addresses governance issues around accountability, delegation of authority, and monitoring that arise in agentic workflows — where AI systems plan and execute actions on their own — and it complements the existing generative AI edition of the framework. As of this document's August 2026 review date, organizations seeking the most current governance framework should consult both the generative AI edition and the agentic AI edition together.
+In response to the growing spread of agentic AI following the release of the generative AI edition, IMDA published a new framework specific to agentic AI, the **Model AI Governance Framework for Agentic AI**, on **January 22, 2026**. It addresses governance issues around accountability, delegation of authority, and monitoring that arise in agentic workflows — where AI systems plan and execute actions on their own — and it complements the existing generative AI edition of the framework. As of this document's September 2026 review date, organizations seeking the most current governance framework should consult both the generative AI edition and the agentic AI edition together.
 
 ## AI Verify — A Testing Framework and Foundation
 

@@ -3,7 +3,7 @@ title: Agent Adoption Guide
 description: Enterprise adoption strategy, rollout stages, tool selection, and governance for Desktop/Coding/Autonomous agents.
 ---
 
-> Last reviewed: August 2026
+> Last reviewed: September 2026
 
 ## Overview
 

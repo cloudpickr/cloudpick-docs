@@ -31,8 +31,9 @@ Manage the background server with `astro dev stop`, `astro dev status`, and `ast
 
 ## 문서 기준 및 사실 검증 원칙
 
-- **기준 시점: 2026년 8월**:
-  - 모든 문서는 `> 문서 기준: 2026년 8월` 기준 최신 정보를 반영합니다. (en: `> Last reviewed: August 2026`, ja: `> 文書基準: 2026年8月`)
+- **기준 시점: 2026년 9월**:
+  - 모든 문서는 `> 문서 기준: 2026년 9월` 기준 최신 정보를 반영합니다. (en: `> Last reviewed: September 2026`, ja: `> 文書基準: 2026年9月`)
+  - 기준 시점은 월 단위로 표기하며, 정기 리뷰(월 1–3회)를 거쳐 최신 월로 승격합니다.
   - 과거 시점(2024~2025년 및 2026년 상반기)의 출시/발효 일정이 "예정"으로 남아있지 않도록 현행화합니다.
   - 랜딩·웰컴 페이지(`index.mdx`, `introduction.mdx`)를 제외한 모든 문서는 이 기준 마커를 포함해야 하며, `python3 scripts/lint-docs-consistency.py` 린터(마커 존재 검사)를 통과해야 합니다.
 - **공식 출처 기반 & 교차검증(Cross-check)**:

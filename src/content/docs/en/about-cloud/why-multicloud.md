@@ -3,7 +3,7 @@ title: "Understanding Multicloud"
 description: "Explains the definition of multicloud, motivations for adoption, current adoption rates, and key challenges."
 ---
 
-> Last reviewed: August 2026
+> Last reviewed: September 2026
 
 ## What is multicloud
 

@@ -3,7 +3,7 @@ title: "Comparing Vendors"
 description: "Compares the characteristics, strengths, and multicloud interoperability services of major vendors."
 ---
 
-> Last reviewed: August 2026
+> Last reviewed: September 2026
 
 ## At a Glance
 

@@ -3,7 +3,7 @@ title: "멀티클라우드 네트워크 아키텍처"
 description: "Hub-and-Spoke 등 트랜짓 아키텍처, Cross-Cloud Interconnect, 이그레스 비용 최적화, 멀티클라우드 DNS 통합 전략을 설명합니다."
 ---
 
-> 문서 기준: 2026년 8월
+> 문서 기준: 2026년 9월
 
 :::note[선행 지식 및 연결 문서]
 연결 방식 개요와 CIDR 설계 등 기초는 [멀티클라우드 네트워크 설계 기초](../../networking/multicloud-networking/)를 먼저 참고하세요. 이 문서는 그 위에서 Hub-and-Spoke·트랜짓 아키텍처, Cross-Cloud Interconnect, 이그레스 비용 최적화 등 심화 설계에 초점을 둡니다.
@@ -46,7 +46,7 @@ flowchart TD
 
 2025년 12월 AWS re:Invent에서 AWS와 Google Cloud가 **오픈 상호운용 스펙** 기반의 공동 멀티클라우드 인터커넥트를 발표했습니다. Microsoft Azure도 이 스펙에 참여를 확인했으며, Oracle도 연동을 발표(2026.04)했습니다. 이 흐름은 단일 벤더의 이니셔티브가 아니라, 업계 전반의 멀티클라우드 상호운용 표준화 움직임입니다.
 
-| 서비스 | 연결 구간 | 상태 (2026년 8월 기준) |
+| 서비스 | 연결 구간 | 상태 (2026년 9월 기준) |
 | --- | --- | --- |
 | [**AWS Interconnect – multicloud**](https://aws.amazon.com/interconnect/multicloud/) | AWS ↔ Google Cloud / OCI | GA. Google Cloud(2026.04), OCI(2026.07, us-east-1). Azure는 2026년 내 예정 |
 | [**Google Cross-Cloud Interconnect**](https://cloud.google.com/network-connectivity/docs/interconnect/concepts/cross-cloud-overview) | Google Cloud ↔ AWS/Azure/OCI | GA. 오픈 상호운용 스펙 기반 |

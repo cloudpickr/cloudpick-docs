@@ -3,7 +3,7 @@ title: "AI 에이전트 연동 (MCP)"
 description: "CloudPick 문서를 AI 코딩 에이전트에서 검색·참조하는 방법 — MCP 서버 연결 설정과 사용 예시"
 ---
 
-> 문서 기준: 2026년 8월
+> 문서 기준: 2026년 9월
 
 CloudPick 문서 사이트는 [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) 서버를 제공합니다. AI 코딩 에이전트(Kiro, Claude Desktop, Cursor 등)에 연결하면 대화 중에 문서를 검색하고 전체 내용을 참조할 수 있습니다.
 

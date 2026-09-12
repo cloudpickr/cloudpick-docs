@@ -3,7 +3,7 @@ title: "Container Services"
 description: "Compares managed Kubernetes, serverless containers, and container registries across vendors, and explains control/data plane concepts."
 ---
 
-> Last reviewed: August 2026
+> Last reviewed: September 2026
 
 ## Overview
 

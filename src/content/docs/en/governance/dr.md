@@ -3,7 +3,7 @@ title: "Disaster Recovery (DR)"
 description: "Compares RPO/RTO, BIA, DR strategy types (Backup & Restore through Active-Active), and vendor-specific DR services."
 ---
 
-> Last reviewed: August 2026
+> Last reviewed: September 2026
 
 ## What Is DR
 

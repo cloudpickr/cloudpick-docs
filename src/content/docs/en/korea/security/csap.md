@@ -3,7 +3,7 @@ title: "CSAP (Cloud Security Assurance Program)"
 description: "An overview of Korea's CSAP (Cloud Security Assurance Program), its tier system, and vendor-by-vendor certification status."
 ---
 
-> Last reviewed: August 2026
+> Last reviewed: September 2026
 
 ## Overview
 
@@ -12,7 +12,7 @@ CSAP (Cloud Security Assurance Program, 클라우드 서비스 보안인증제) 
 Certification is categorized by service type — IaaS, SaaS (standard/simplified), and DaaS — and is valid for five years. Since February 2024, a **three-tier High/Medium/Low system** has fully replaced the prior single-standard scheme, with requirements now varying by system criticality.
 
 :::caution
-In April 2026, the Ministry of Science and ICT (MSIT) and the National Intelligence Service (NIS) jointly announced that they would restructure the CSAP system into a unified, NIS-led verification framework. The tier system and certification status described below reflect this document's review date (August 2026); procedures will change following the restructuring, planned to take effect in July 2027. See [2026 Restructuring — Toward a Unified NIS Verification System](#2026-restructuring--toward-a-unified-nis-verification-system) for details.
+In April 2026, the Ministry of Science and ICT (MSIT) and the National Intelligence Service (NIS) jointly announced that they would restructure the CSAP system into a unified, NIS-led verification framework. The tier system and certification status described below reflect this document's review date (September 2026); procedures will change following the restructuring, planned to take effect in July 2027. See [2026 Restructuring — Toward a Unified NIS Verification System](#2026-restructuring--toward-a-unified-nis-verification-system) for details.
 :::
 
 ## Tier System (High/Medium/Low)

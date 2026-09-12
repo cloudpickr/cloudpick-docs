@@ -3,7 +3,7 @@ title: "Message Queues and Event Streaming"
 description: "Compares the concept of message queues and event streaming, vendor services, and selection criteria."
 ---
 
-> Last reviewed: August 2026
+> Last reviewed: September 2026
 
 ## Overview
 

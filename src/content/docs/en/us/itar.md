@@ -3,7 +3,7 @@ title: "ITAR/EAR"
 description: "What ITAR/EAR, the export control regulations for defense/aerospace technical data, mean for cloud architecture, and how they differ from FedRAMP."
 ---
 
-> Last reviewed: August 2026
+> Last reviewed: September 2026
 
 ## Overview
 

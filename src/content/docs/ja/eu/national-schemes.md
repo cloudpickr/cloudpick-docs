@@ -3,7 +3,7 @@ title: "EU加盟国別クラウドセキュリティスキーム"
 description: "ドイツBSI C5、フランスANSSI SecNumCloud、スペインENS、イタリアACNなどEU加盟国のクラウドセキュリティ認証・調達スキームとハイパースケーラーの対応状況を整理します。"
 ---
 
-> 文書基準: 2026年8月
+> 文書基準: 2026年9月
 
 ## 概要
 
@@ -43,7 +43,7 @@ SecNumCloud 3.2が他の国別スキームと最も大きく異なる点は、**
 | パートナーシップ | ベンダー | 状況 |
 | --- | --- | --- |
 | **S3NS** (Thales × Google Cloud 合弁会社) | Google Cloud | **2025年12月17日にSecNumCloud 3.2資格を取得** — PREMI3NSサービスでIaaS・CaaS・PaaSの20以上のサービスを同時に認証取得した最初の事例。2026年上半期中にCloud Run・Cloud Build・Cloud Spanner・Bigtableなどを含む第2次拡張審査を実施中 |
-| **Bleu** (Capgemini × Orange 合弁会社) | Microsoft Azure/M365 | 審査第1段階(J0、申請受理)を通過し、2026年上半期の資格取得を目標に審査を進行中。**2026年8月時点で完全なSecNumCloud 3.2資格はまだ取得していない** |
+| **Bleu** (Capgemini × Orange 合弁会社) | Microsoft Azure/M365 | 審査第1段階(J0、申請受理)を通過し、2026年上半期の資格取得を目標に審査を進行中。**2026年9月時点で完全なSecNumCloud 3.2資格はまだ取得していない** |
 
 全体として2026年7月時点で**9～10社**(OVHcloud、3DS Outscale、Cloud Temple、Orange Business、Cegedim.cloud、Worldline、Oodrive、Whaller、S3NSなど — 集計基準によって異なり、ANSSI公式カタログのサービス種別ごとの集計では10社の事業者名まで確認されている)がSecNumCloud 3.2資格を保有しており、Bleu・Scaleway・NumSpotなど**12社**が審査中です。
 
@@ -71,7 +71,7 @@ SecNumCloud 3.2が他の国別スキームと最も大きく異なる点は、**
 
 - C5:2020は、EUCS Substantial等級要件の設計基礎資料として既に反映されています。
 - EUCSの作業は、最高等級(High+)の「主権性要件」を含めるかどうかをめぐる加盟国間の意見対立で数年間停滞していましたが、2026年1月20日に発表された**Cybersecurity Act 2(CSA2)** 改正の流れの中で再開されつつあります。
-- **2026年8月現在、EUCSは依然として確定しておらず、主権性要件を含めるかどうかは議論が続いています。**(詳しい経緯は[GDPRとデータ主権 — EUCS認証スキームの流動性](../gdpr-sovereignty/#eucs認証スキームの流動性)を参照)
+- **2026年9月現在、EUCSは依然として確定しておらず、主権性要件を含めるかどうかは議論が続いています。**(詳しい経緯は[GDPRとデータ主権 — EUCS認証スキームの流動性](../gdpr-sovereignty/#eucs認証スキームの流動性)を参照)
 
 それまでの間、国別スキームは「暫定的だが市場で信頼される証跡」として機能しており、特にBSI C5とSecNumCloudはEUCS移行期の事実上の基準として参照されています。
 

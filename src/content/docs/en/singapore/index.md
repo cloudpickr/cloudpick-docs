@@ -3,7 +3,7 @@ title: "Singapore Overview"
 description: "A Singapore market-specific guide covering the MTCS cloud security standard and the PDPA data protection law"
 ---
 
-> Last reviewed: August 2026
+> Last reviewed: September 2026
 
 ## Overview
 

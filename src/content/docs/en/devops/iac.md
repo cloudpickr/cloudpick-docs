@@ -3,7 +3,7 @@ title: "Infrastructure as Code (IaC)"
 description: "Covers IaC concepts, comparisons of vendor-native and multicloud tools, and Terraform state management and module design."
 ---
 
-> Last reviewed: August 2026
+> Last reviewed: September 2026
 
 ## Overview
 

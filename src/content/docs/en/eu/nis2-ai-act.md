@@ -3,7 +3,7 @@ title: "NIS2 + EU AI Act"
 description: "Covers NIS2's cybersecurity and incident-reporting obligations, the EU AI Act implementation timeline, the Article 50 transparency obligations that took effect on 2026-08-02, and the Digital Omnibus deferral of high-risk AI obligations."
 ---
 
-> Last reviewed: August 2026
+> Last reviewed: September 2026
 
 ## Overview
 
@@ -62,7 +62,7 @@ In the first half of 2026, EU lawmakers reached a provisional agreement on the *
 - New provisions added: prohibitions on non-consensual AI-generated sexual imagery ("nudifier" apps) and child sexual abuse material (CSAM) were added to the Article 5 list of prohibited practices
 
 :::note
-As of August 9, 2026, this deferral is **already a settled legal fact** (not "still under debate"). However, the GPAI obligations (which took effect in August 2025) are not subject to this deferral and are already in force — only the Commission's power to sanction GPAI violations takes effect from 2026.8.2. Do not confuse the two dates.
+This deferral is **already a settled legal fact** (not "still under debate"). However, the GPAI obligations (which took effect in August 2025) are not subject to this deferral and are already in force — only the Commission's power to sanction GPAI violations takes effect from 2026.8.2. Do not confuse the two dates.
 :::
 
 ### Article 50 Transparency Obligations Take Effect (2026.8.2)

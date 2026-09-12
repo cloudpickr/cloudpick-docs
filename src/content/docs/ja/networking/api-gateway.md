@@ -3,7 +3,7 @@ title: "API Gateway"
 description: "API Gatewayの役割、認証連携、デプロイ戦略をベンダー別に比較します。"
 ---
 
-> 文書基準: 2026年8月
+> 文書基準: 2026年9月
 
 ## 概要
 

@@ -3,7 +3,7 @@ title: "Application Modernization"
 description: "Explains modernization strategies and key patterns for transforming legacy applications into cloud-native ones, based on official vendor guidance."
 ---
 
-> Last reviewed: August 2026
+> Last reviewed: September 2026
 
 ## What is modernization
 

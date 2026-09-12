@@ -3,7 +3,7 @@ title: "APPI (Japan's Act on the Protection of Personal Information)"
 description: "Covers cross-border transfer requirements under Japan's Act on the Protection of Personal Information (APPI), adequacy recognition status across jurisdictions, cloud region selection impact, handling of My Number, and 2025–2026 revision trends."
 ---
 
-> Last reviewed: August 2026
+> Last reviewed: September 2026
 
 ## Overview
 
@@ -29,7 +29,7 @@ To transfer data without consent, the transferring party must ensure — through
 
 ### 3. Countries Designated by Rule
 
-Transfers to a country or region designated by PPC rule as having "a personal information protection framework equivalent to that of Japan" are permitted without the above procedures. As of August 2026, the **EU and the United Kingdom** are the only jurisdictions to have received this designation, and the designation requirements include regulation comparable to that applying to personal information handlers, the existence of an independent supervisory authority, and the possibility of mutual cooperation.
+Transfers to a country or region designated by PPC rule as having "a personal information protection framework equivalent to that of Japan" are permitted without the above procedures. As of September 2026, the **EU and the United Kingdom** are the only jurisdictions to have received this designation, and the designation requirements include regulation comparable to that applying to personal information handlers, the existence of an independent supervisory authority, and the possibility of mutual cooperation.
 
 :::caution
 Jurisdictions outside the EU and the UK — such as the United States, Korea, and Singapore — are not included on this list of "countries designated by rule." Therefore, when transferring personal data from Japan to these jurisdictions, the country-level blanket exemption does not apply, and either ① individual consent or ② a compliant-framework route must be established individually.
@@ -37,7 +37,7 @@ Jurisdictions outside the EU and the UK — such as the United States, Korea, an
 
 ## Cross-Border Data Transfers and Adequacy Recognition Status
 
-As of August 2026, the **EU (and EEA) and the United Kingdom** are the only jurisdictions officially designated under Article 28 of Japan's APPI as having an equivalent level of data protection.
+As of September 2026, the **EU (and EEA) and the United Kingdom** are the only jurisdictions officially designated under Article 28 of Japan's APPI as having an equivalent level of data protection.
 
 - **Requirements for transfers to non-designated countries**: To transfer personal data to cloud regions or overseas offices in non-designated countries (such as the US or Asia-Pacific nations including Korea and Singapore), organizations must obtain advance individual consent or implement contractual safety measures (such as SCC-equivalent compliant frameworks).
 - **Leveraging APEC CBPR**: Between Japan and other APEC member economies (such as the US, Korea, and Singapore), certification under the APEC Cross-Border Privacy Rules (CBPR) system can be utilized as a recognized compliant framework.

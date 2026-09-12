@@ -3,7 +3,7 @@ title: "Security Posture Management"
 description: "Compares Cloud Security Posture Management (CSPM), Cloud Workload Protection (CWPP), threat detection, automated response, and CIS Benchmarks across vendors."
 ---
 
-> Last reviewed: August 2026
+> Last reviewed: September 2026
 
 ## Overview
 

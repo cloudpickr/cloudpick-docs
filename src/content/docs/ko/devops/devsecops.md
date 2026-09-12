@@ -3,7 +3,7 @@ title: "DevSecOps"
 description: "DevSecOps 원칙과 보안을 CI/CD 파이프라인에 내장하는 방법을 벤더별로 비교합니다."
 ---
 
-> 문서 기준: 2026년 8월
+> 문서 기준: 2026년 9월
 
 ## 개요
 

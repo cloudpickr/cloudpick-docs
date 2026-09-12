@@ -3,7 +3,7 @@ title: "Zero Trust"
 description: "Compares the principles of the Zero Trust security model with vendor-specific implementation services."
 ---
 
-> Last reviewed: August 2026
+> Last reviewed: September 2026
 
 ## Overview
 

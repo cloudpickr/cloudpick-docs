@@ -3,7 +3,7 @@ title: "United States Overview"
 description: "A guide to the regulatory landscape for entering and operating in the US market — FedRAMP, HIPAA, and ITAR/EAR — with links to detailed documentation."
 ---
 
-> Last reviewed: August 2026
+> Last reviewed: September 2026
 
 ## Overview
 

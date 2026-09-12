@@ -3,7 +3,7 @@ title: "프롬프트 엔지니어링"
 description: "프롬프트 엔지니어링의 핵심 패턴(Few-shot, Chain-of-Thought, ReAct)과 벤더 공식 가이드를 연결합니다."
 ---
 
-> 문서 기준: 2026년 8월
+> 문서 기준: 2026년 9월
 
 :::note
 LLM/프롬프트가 처음이라면 [AI 시작하기](../../ai/getting-started/)를 먼저 읽어보세요.

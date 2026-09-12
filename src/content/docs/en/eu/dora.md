@@ -3,7 +3,7 @@ title: "DORA (Digital Operational Resilience Act)"
 description: "Covers DORA's scope of application, the status of CTPP designations, and ICT risk management, concentration risk, and exit strategy requirements."
 ---
 
-> Last reviewed: August 2026
+> Last reviewed: September 2026
 
 ## Overview
 

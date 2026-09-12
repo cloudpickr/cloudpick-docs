@@ -3,7 +3,7 @@ title: "GDPR and Data Sovereignty"
 description: "Covers the GDPR cross-border transfer framework, the EU Data Boundary, a comparison of sovereign cloud options, and the state of the EUCS certification scheme."
 ---
 
-> Last reviewed: August 2026
+> Last reviewed: September 2026
 
 ## Overview
 
@@ -62,7 +62,7 @@ In response to demand to keep not just data storage location but also **operatin
 **EUCS (European Cybersecurity Certification Scheme for Cloud Services)** is a common security certification framework for cloud services led by ENISA, originally intended to standardize cloud vendors' security levels into EU-wide, mutually recognized tiers (Basic/Substantial/High).
 
 :::caution
-**As of August 2026, EUCS's "sovereignty requirements" remain unsettled and under debate.**
+**As of September 2026, EUCS's "sovereignty requirements" remain unsettled and under debate.**
 
 - Early drafts included an immunity requirement excluding non-EU ownership and governance for the highest tier (High+) certification.
 - The 2023 revised draft relaxed this, requiring data localization only for the High+ tier and leaving open the possibility of certifying "trusted non-EU cloud providers."

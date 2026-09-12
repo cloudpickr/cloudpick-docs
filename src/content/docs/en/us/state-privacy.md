@@ -3,7 +3,7 @@ title: "The State Privacy Law Landscape"
 description: "Covers the absence of a federal comprehensive privacy law in the US, the common requirements shared across 20-plus state privacy laws, and multi-state compliance architecture."
 ---
 
-> Last reviewed: August 2026
+> Last reviewed: September 2026
 
 ## Overview
 
@@ -16,13 +16,13 @@ Several attempts have been made to enact a federal comprehensive privacy law, bu
 - **ADPPA (American Data Privacy and Protection Act, H.R.8152, introduced in the 117th Congress in 2022)**: passed the House Energy and Commerce Committee by a vote of 53–2 but was never brought to a floor vote, and died with the end of the 117th Congress.
 - **APRA (American Privacy Rights Act, H.R.8818, introduced in the 118th Congress in 2024)**: a joint House-Senate draft was introduced, and a House Energy and Commerce subcommittee reviewed a discussion draft, but amid disagreement over whether it would preempt strong state laws like California's and over the scope of any private right of action, it never reached a formal committee vote or passage and remains pending.
 
-As of August 2026, no new federal legislation has been enacted to replace these efforts, and state legislation and enforcement by state Attorneys General effectively remain the center of US privacy regulation.
+As of September 2026, no new federal legislation has been enacted to replace these efforts, and state legislation and enforcement by state Attorneys General effectively remain the center of US privacy regulation.
 
 :::note
 The absence of a federal comprehensive law does not mean a regulatory vacuum. Sector-specific federal laws — healthcare ([HIPAA](../hipaa/)), finance (GLBA), children's online information (COPPA), and credit information (FCRA) — remain in effect and apply alongside state laws.
 :::
 
-## Status of State Privacy Laws in Effect (as of August 2026)
+## Status of State Privacy Laws in Effect (as of September 2026)
 
 As of the first half of 2026, **roughly 20 states** have comprehensive consumer privacy laws in effect, with several additional states having enacted laws whose effective dates have not yet arrived. The states confirmed to be in effect are as follows.
 
@@ -101,7 +101,7 @@ For organizations operating in multiple states simultaneously, it is more practi
 
 ## Practical Implications
 
-- **Don't design around the assumption of eventual federal legislation**: both ADPPA and APRA have repeatedly failed, and as of August 2026 there is still no finalized bill, only renewed discussion. Architecture should be designed on the premise that the state-level patchwork will persist for the foreseeable future.
+- **Don't design around the assumption of eventual federal legislation**: both ADPPA and APRA have repeatedly failed, and as of September 2026 there is still no finalized bill, only renewed discussion. Architecture should be designed on the premise that the state-level patchwork will persist for the foreseeable future.
 - **Treat the California baseline as a de facto floor**: given the CPPA's aggressive enforcement posture and CPRA's broad requirements (ADMT, risk assessments, neural data, and more), designing to meet California's requirements often satisfies most other states' requirements as well.
 - **Handling UOOM/GPC signals is a legal requirement in many states, not an option**: since 12 or more states require it, a banner-based consent UI alone is insufficient — a technical implementation that automatically recognizes browser signals is necessary.
 - **HIPAA compliance alone is not enough for health and biometric data**: MHMDA-type state laws were enacted specifically to target gaps HIPAA does not cover, so health and wellness services require separate review.

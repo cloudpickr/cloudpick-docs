@@ -3,7 +3,7 @@ title: "Glossary"
 description: "A vendor-neutral glossary of terms commonly used across the cloud documentation."
 ---
 
-> Last reviewed: August 2026
+> Last reviewed: September 2026
 
 A vendor-neutral glossary of terms commonly used across the cloud documentation.
 

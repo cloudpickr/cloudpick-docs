@@ -3,7 +3,7 @@ title: AI Agents
 description: Concepts, architecture, protocols, vendor platforms, and comparison of coding/desktop/autonomous operations agents.
 ---
 
-> Last reviewed: August 2026
+> Last reviewed: September 2026
 
 ## From Prompting to Agents
 

@@ -3,7 +3,7 @@ title: "CI/CD"
 description: "Explains CI/CD pipelines, vendor product comparisons, deployment strategies, and approval process design."
 ---
 
-> Last reviewed: August 2026
+> Last reviewed: September 2026
 
 ## Overview
 

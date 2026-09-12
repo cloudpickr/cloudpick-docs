@@ -3,7 +3,7 @@ title: "Landing Zone"
 description: "Explains the components of a landing zone — the foundational setup for a multi-account cloud environment — with vendor comparisons and an adoption sequence."
 ---
 
-> Last reviewed: August 2026
+> Last reviewed: September 2026
 
 ## What Is a Landing Zone
 

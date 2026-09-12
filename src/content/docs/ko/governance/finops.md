@@ -3,7 +3,7 @@ title: "FinOps"
 description: "FinOps 라이프사이클, 비용 관리 도구, 실무 적용 순서, FOCUS 스펙을 벤더별로 비교합니다."
 ---
 
-> 문서 기준: 2026년 8월
+> 문서 기준: 2026년 9월
 
 ## FinOps란
 

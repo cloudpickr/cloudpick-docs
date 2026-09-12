@@ -3,7 +3,7 @@ title: "Network Separation and Isolation (Korea)"
 description: "Covers network separation (mang-bunri) regulation in Korea's financial and public sectors, and cloud network isolation strategy."
 ---
 
-> Last reviewed: August 2026
+> Last reviewed: September 2026
 
 ## Overview
 

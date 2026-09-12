@@ -55,7 +55,7 @@ AI workloads (LLM API calls, GPU training/inference) have a **fundamentally diff
 **Practical responses:**
 
 - **Per-task token budgets** — set maximum token limits per agent/API call
-- **Model tiering** — use lightweight models (GPT-5.4 mini, Haiku) for simple classification, high-performance models for complex reasoning
+- **Model tiering** — use lightweight models (GPT-5.6 Luna, Haiku) for simple classification, high-performance models for complex reasoning
 - **Prompt caching** — cache recurring system prompts to reduce input token cost
 - **Cost tags** — track AI workloads separately with dedicated tags (`ai:true`, `model:claude-fable-5`)
 

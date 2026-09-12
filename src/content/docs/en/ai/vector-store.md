@@ -85,7 +85,7 @@ Add vector capability to your current database. Start without extra infrastructu
 | Vendor | Product | Characteristics |
 | --- | --- | --- |
 | AWS | [Bedrock Knowledge Bases](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html) | Document → embedding → store → RAG automatic |
-| Azure | [Azure AI Search + OpenAI "On Your Data"](https://learn.microsoft.com/azure/ai-services/openai/concepts/use-your-data) | Fastest RAG setup |
+| Azure | [Azure AI Search + Foundry Agent Service (Foundry IQ)](https://learn.microsoft.com/azure/ai-foundry/) | Managed RAG (legacy OpenAI "On Your Data" retires 2026-10-14; migrate to Foundry Agent Service) |
 | Google Cloud | [Vertex AI RAG Engine](https://cloud.google.com/vertex-ai/generative-ai/docs/rag-overview) | Document → embedding → retrieval unified |
 | OCI | [OCI Enterprise AI Agents](https://www.oracle.com/artificial-intelligence/generative-ai/agents/) | OCI Search integrated RAG |
 
@@ -126,7 +126,7 @@ Simple calculation: 1,000,000 × 1536 dimensions × 4 bytes = **~6GB**
 | --- | --- | --- | --- |
 | AWS | Titan Embeddings V2 | 256–1024 | Variable dimension, Bedrock native |
 | Azure | text-embedding-3-large | 256–3072 | OpenAI, variable dimension |
-| Google | Gemini Embedding 2 | 768 | Vertex AI native |
+| Google | Gemini Embedding 2 | 3072 (MRL 768/1536 reducible) | Vertex AI native |
 | Cohere | Embed 4 | 1024 | Multimodal, multilingual, OCI/Bedrock |
 | Open-source | BGE-M3, E5, etc. | 768–1024 | Self-hostable |
 
@@ -161,7 +161,7 @@ For details on vendor-specific support, implementation patterns, and the RRF alg
 
 ### Azure
 - [Azure AI Search Vector Search](https://learn.microsoft.com/azure/search/vector-search-overview)
-- [Microsoft Foundry On Your Data](https://learn.microsoft.com/azure/ai-services/openai/concepts/use-your-data)
+- [Microsoft Foundry Agent Service (Foundry IQ)](https://learn.microsoft.com/azure/ai-foundry/)
 
 ### Google Cloud
 - [Vertex AI Vector Search](https://cloud.google.com/vertex-ai/docs/vector-search/overview)

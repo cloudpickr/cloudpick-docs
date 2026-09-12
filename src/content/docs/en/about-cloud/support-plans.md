@@ -49,7 +49,7 @@ A TAM serves as a channel into the vendor's internal organization. For large-sca
 
 The biggest difference between paid plans is the response time during incidents.
 
-| Severity | Description | AWS Business Support+ | Azure Professional Direct | Google Cloud Enhanced | OCI Premier |
+| Severity | Description | AWS Enterprise | Azure Professional Direct | Google Cloud Enhanced | OCI Premier |
 | --- | --- | --- | --- | --- | --- |
 | **Critical** | Production down | < 15 min | < 1 hour | < 1 hour | < 1 hour |
 | **Urgent** | Partial production impact | < 4 hours | < 4 hours | < 4 hours | < 2 hours |

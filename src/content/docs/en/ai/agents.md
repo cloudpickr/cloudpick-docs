@@ -70,15 +70,14 @@ Enterprise Desktop Agent satisfaction depends more on **IT's data source connect
 
 ---
 
-## Agent Protocols — MCP, A2A, ACP
+## Agent Protocols — MCP, A2A
 
 | Protocol | Role | Key Points |
 | --- | --- | --- |
 | [MCP](https://modelcontextprotocol.io/) | Agent → Tools/Data | **2026-07-28 spec**: stateless core, Extensions framework, Tasks, MCP Apps. 400M+ monthly SDK downloads |
-| [A2A](https://github.com/google-a2a/A2A) | Agent → Agent (cross-vendor) | v1.0 (March 2026 GA). Multi-protocol bindings, signed Agent Cards, 150+ participating orgs |
-| [ACP](https://agentcommunicationprotocol.dev/) | Agent → Agent (internal peers) | REST-native, no SDK required |
+| [A2A](https://github.com/google-a2a/A2A) | Agent → Agent (cross-vendor) | v1.0 (March 2026 GA). Multi-protocol bindings, signed Agent Cards, 150+ participating orgs. IBM's ACP merged into A2A in August 2025 (Linux Foundation) |
 
-All three protocols are under [AAIF (Linux Foundation)](https://www.linuxfoundation.org/press/linux-foundation-announces-the-formation-of-the-agentic-ai-foundation) governance.
+All protocols are under [AAIF (Linux Foundation)](https://www.linuxfoundation.org/press/linux-foundation-announces-the-formation-of-the-agentic-ai-foundation) governance.
 
 ### MCP 2026-07-28 Key Changes
 
@@ -177,5 +176,5 @@ Claude Code supports a 1M-token context window (GA in March 2026). On the Max, T
 - [Bedrock AgentCore](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/)
 - [Microsoft Foundry Agents](https://learn.microsoft.com/azure/ai-foundry/agents/)
 - [Gemini Agent Platform](https://cloud.google.com/products/agent-builder)
-- [MCP](https://modelcontextprotocol.io/) · [MCP 2026-07-28 Changelog](https://modelcontextprotocol.io/specification/2026-07-28/changelog) · [A2A](https://github.com/google-a2a/A2A) · [ACP](https://agentcommunicationprotocol.dev/)
+- [MCP](https://modelcontextprotocol.io/) · [MCP 2026-07-28 Changelog](https://modelcontextprotocol.io/specification/2026-07-28/changelog) · [A2A](https://github.com/google-a2a/A2A)
 - [Kiro](https://kiro.dev/) · [Claude Code](https://github.com/anthropics/claude-code) · [Codex](https://openai.com/codex/)

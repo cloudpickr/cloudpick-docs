@@ -72,15 +72,14 @@ LLM 채팅은 브라우저 안에 갇혀 있었습니다. Desktop Agent는 로�
 
 ---
 
-## 에이전트 프로토콜 — MCP, A2A, ACP
+## 에이전트 프로토콜 — MCP, A2A
 
 | 프로토콜 | 역할 | 핵심 |
 | --- | --- | --- |
 | [MCP](https://modelcontextprotocol.io/) | 에이전트 → 도구/데이터 | **2026-07-28 스펙**: 스테이트리스 코어, Extensions 프레임워크, Tasks, MCP Apps. 월 4억+ SDK 다운로드 |
-| [A2A](https://github.com/google-a2a/A2A) | 에이전트 → 에이전트 (크로스 벤더) | v1.0 (2026.03 GA). 멀티프로토콜 바인딩, 서명된 Agent Card, 150+ 참여 조직 |
-| [ACP](https://agentcommunicationprotocol.dev/) | 에이전트 → 에이전트 (사내 피어) | REST 네이티브, SDK 불필요 |
+| [A2A](https://github.com/google-a2a/A2A) | 에이전트 → 에이전트 (크로스 벤더) | v1.0 (2026.03 GA). 멀티프로토콜 바인딩, 서명된 Agent Card, 150+ 참여 조직. IBM의 ACP가 2025년 8월 A2A로 통합됨(Linux Foundation) |
 
-세 프로토콜 모두 [AAIF (Linux Foundation)](https://www.linuxfoundation.org/press/linux-foundation-announces-the-formation-of-the-agentic-ai-foundation) 거버넌스 하에 있습니다.
+두 프로토콜 모두 [AAIF (Linux Foundation)](https://www.linuxfoundation.org/press/linux-foundation-announces-the-formation-of-the-agentic-ai-foundation) 거버넌스 하에 있습니다.
 
 ### MCP 2026-07-28 주요 변경
 
@@ -180,5 +179,5 @@ Claude Code는 100만(1M) 토큰 컨텍스트를 지원합니다(2026년 3월 GA
 - [Bedrock AgentCore](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/)
 - [Microsoft Foundry Agents](https://learn.microsoft.com/azure/ai-foundry/agents/)
 - [Gemini Agent Platform](https://cloud.google.com/products/agent-builder)
-- [MCP](https://modelcontextprotocol.io/) · [MCP 2026-07-28 Changelog](https://modelcontextprotocol.io/specification/2026-07-28/changelog) · [A2A](https://github.com/google-a2a/A2A) · [ACP](https://agentcommunicationprotocol.dev/)
+- [MCP](https://modelcontextprotocol.io/) · [MCP 2026-07-28 Changelog](https://modelcontextprotocol.io/specification/2026-07-28/changelog) · [A2A](https://github.com/google-a2a/A2A)
 - [Kiro](https://kiro.dev/) · [Claude Code](https://github.com/anthropics/claude-code) · [Codex](https://openai.com/codex/)

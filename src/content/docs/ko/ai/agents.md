@@ -42,7 +42,7 @@ LLM 채팅은 브라우저 안에 갇혀 있었습니다. Desktop Agent는 로�
 | 데이터 통제 | 로컬 제어 (조직 정책 적용 어려움) | DLP, 커넥터 허용 목록, 감사 로그 |
 | 장점 | 프라이버시, 커스터마이징 | 거버넌스, 프론티어 모델, 기업 도구 통합 |
 
-**Claude Cowork 현황 (2026.09):** macOS/Windows GA(4월) → 웹·iOS·Android + 클라우드 리모트 세션(7월). Chrome 사이드 패널 통합, 디바이스 간 세션 연속성 지원.
+**Claude Cowork 현황 (2026.09):** macOS/Windows GA(4월) → 웹·iOS·Android + 클라우드 리모트 세션(7월) → 데스크톱 앱 사이드 패널 내장 브라우저(8월 말 발표, Pro/Max/Team 순차 롤아웃). 디바이스 간 세션 연속성과 Artifacts 공유 지원.
 
 :::note
 엔터프라이즈 Desktop Agent의 만족도는 **모델 성능보다 IT의 데이터소스 연결 범위**에 좌우됩니다. 이 세팅을 조직 단위로 체계적으로 하는 것이 AX입니다 — [에이전트 도입 가이드](../../ai/agent-adoption/) 참고.

@@ -107,14 +107,7 @@ description: "ベンダー別のAIプラットフォーム、モデルカタロ�
 
 ### GPU / AIアクセラレータ
 
-以下はベンダー別のGPUインスタンス製品一覧です。GPU世代別(H100/H200/B200/GB200)のスペック・性能比較とリージョン可用性は[マルチクラウドAI — GPU可用性](../../ai/multicloud-ai/#gpu可用性)を参照してください。
-
-| ベンダー | 製品 | 備考 |
-| --- | --- | --- |
-| AWS | P6 (NVIDIA B200), P6e (GB200 UltraServer), P5 (H100), Trn2 (Trainium), Inf2 (Inferentia) | Blackwell: P6-B200(8×B200)、P6e-GB200(最大72 GPU NVLink)。学習: Trainium、推論: Inferentiaでコスト最適化 |
-| Azure | ND GB200-v6, ND H200 v5, ND H100 v5 | GB200-v6: Blackwellフラッグシップ。DL学習/生成AI/HPC |
-| Google Cloud | A4X (GB200 NVL72), A4 (B200), A3 (H100), TPU v5p/v6e/Ironwood | A4: Blackwell単一GPU、A4X: GB200 NVL72ラックスケール提供。TPU: Google自社AIアクセラレータ（Ironwood最新） |
-| OCI | GPU Instances (B200, H100, A100) | NVIDIA Blackwell + Bare Metal + RDMAクラスター対応 |
+モデルの学習・推論に使うベンダー別GPUインスタンス（Blackwell B200/GB200、Hopper H100/H200、A100）、自社AIチップ（AWS Trainium/Inferentia、Azure Maia、Google TPU）、予約・スポットオプションは、[マルチクラウドAI — GPU可用性](../../ai/multicloud-ai/#gpu可用性)に世代別スペック・性能・リージョン可用性とあわせて一元的に整理しています。
 
 ## 主な違い
 

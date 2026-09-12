@@ -141,6 +141,29 @@ Sources:
 - [AWS — Tool Use with Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/tool-use.html)
 - [Anthropic — Tool use](https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/overview)
 
+## Choosing the Right Technique
+
+Knowing the patterns matters less than judging **which technique to use when**. Consider the situation, model characteristics, and cost together.
+
+| Situation | Recommended technique | Why / caution |
+| --- | --- | --- |
+| Simple classification/extraction/transformation | Zero-shot | Sufficient without examples; minimizes token waste |
+| Tricky output format or tone | Few-shot | "Show" the format with 2–5 examples; avoid biased examples |
+| Multi-step reasoning, math, logic | Chain-of-Thought | Elicits intermediate reasoning. **But reasoning-specialized models (o-series, reasoning modes) build in CoT, so explicit CoT is unnecessary or even counterproductive** |
+| Structured output (JSON, etc.) required | Output-format enforcement + schema | **Native structured-output / function-calling APIs** (where supported) are more reliable than prompt instructions |
+| Combined with external tools/search | ReAct / tool calling | Agentic workflow; needs loop-cost and infinite-loop safeguards |
+| Consistent role/policy | System Prompt / Persona | Fixed across the session; must not be overridden by user input |
+
+**By model type:**
+
+- **General models (GPT-5.6, Claude Sonnet, etc.)**: Few-shot and CoT meaningfully improve quality.
+- **Reasoning-specialized models (o-series, Claude reasoning mode, etc.)**: They reason internally, so "think step by step" instructions are unnecessary, and excessive CoT can hurt performance and cost.
+- **Cost angle**: Few-shot examples and CoT increase input tokens. On high-frequency paths, minimize example count / reasoning length or use prompt caching.
+
+:::note
+Which technique is actually better must be **confirmed by evaluation**. A/B-measure accuracy, format-adherence, and token cost on a representative input set, then continue with the [improvement loop](#prompt-improvement-loop) below.
+:::
+
 ## Vendor-Specific Best Practices
 
 | Vendor | Key Recommendation | Reference |

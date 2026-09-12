@@ -49,7 +49,7 @@ TAMはベンダー内部組織との連携チャネルとしての役割を果�
 
 有料プランの最も大きな違いは、障害発生時の応答時間です。
 
-| 深刻度 | 説明 | AWS Business Support+ | Azure Professional Direct | Google Cloud Enhanced | OCI Premier |
+| 深刻度 | 説明 | AWS Enterprise | Azure Professional Direct | Google Cloud Enhanced | OCI Premier |
 | --- | --- | --- | --- | --- | --- |
 | **重大 (Critical)** | 本番停止 | < 15分 | < 1時間 | < 1時間 | < 1時間 |
 | **緊急 (Urgent)** | 本番の一部影響 | < 4時間 | < 4時間 | < 4時間 | < 2時間 |

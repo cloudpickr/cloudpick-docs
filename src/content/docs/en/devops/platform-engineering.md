@@ -15,6 +15,24 @@ If [DevOps](../../devops/getting-started/) is "collaboration between development
 
 Instead of a developer opening a Jira ticket to request something from the infrastructure team, they provision their own environment by following the Golden Path the platform provides.
 
+## Adoption gate — when and how
+
+Platform engineering is not something every organization needs. Before picking tools, first decide **whether to adopt it, when, and at what scope**.
+
+| Decision axis | Signals that support adoption | Signals it is still too early |
+| --- | --- | --- |
+| **Organization size** | Many development teams (roughly 5+ teams / 50+ people); infrastructure requests become a bottleneck as the number of services grows | A few teams can handle infrastructure themselves |
+| **Repetitive work** | Environment provisioning and deployment requests recur, and ticket queues grow longer | Requests are infrequent and standardization pays off little |
+| **Self-service demand** | Developers want to deploy without knowing infrastructure details; a Golden Path is needed | Team requirements diverge so much that agreeing on a standard path is hard |
+| **Operating staff** | You can secure a dedicated team to run and improve the platform like a product | You have people to build the platform but no one to maintain it (risk of it being abandoned after adoption) |
+
+**Build vs. buy:**
+
+- **Buy/assemble (recommended starting point)** — A combination of mature OSS and managed services such as Backstage (portal) + Crossplane/Terraform (provisioning) + Argo CD (delivery). Most organizations do not need to build their own framework from scratch.
+- **Build your own** — Only when regulatory, security, or scale requirements cannot be met by off-the-shelf tools. You must be able to bear the maintenance cost of the platform itself.
+
+**Centralization scope:** Rather than forcing a single company-wide platform, a realistic compromise is to **centralize the common foundation (authentication, policy, observability, cost tagging) while delegating areas that need team autonomy (choice of language and framework)**. Starting narrowly with the one or two most repetitive Golden Paths and expanding incrementally carries lower failure risk.
+
 ## IDP (Internal Developer Platform)
 
 | Component | Role | Key tools |

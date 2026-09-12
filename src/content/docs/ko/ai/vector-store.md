@@ -88,7 +88,7 @@ graph LR
 | 벤더 | 제품 | 특징 |
 | --- | --- | --- |
 | AWS | [Bedrock Knowledge Bases](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html) | 문서 → 임베딩 → 저장 → RAG 자동 |
-| Azure | [Azure AI Search + OpenAI "On Your Data"](https://learn.microsoft.com/azure/ai-services/openai/concepts/use-your-data) | 가장 빠른 RAG 구성 |
+| Azure | [Azure AI Search + Foundry Agent Service (Foundry IQ)](https://learn.microsoft.com/azure/ai-foundry/) | Managed RAG (기존 OpenAI "On Your Data"는 2026-10-14 폐기 예정, Foundry Agent Service로 이전) |
 | Google Cloud | [Vertex AI RAG Engine](https://cloud.google.com/vertex-ai/generative-ai/docs/rag-overview) | 문서 → 임베딩 → 검색 통합 |
 | OCI | [OCI Enterprise AI Agents](https://www.oracle.com/artificial-intelligence/generative-ai/agents/) | OCI Search 연동 RAG |
 
@@ -131,7 +131,7 @@ graph LR
 | --- | --- | --- | --- |
 | AWS | Titan Embeddings V2 | 256–1024 | 가변 차원, Bedrock 네이티브 |
 | Azure | text-embedding-3-large | 256–3072 | OpenAI, 가변 차원 |
-| Google | Gemini Embedding 2 | 768 | Vertex AI 네이티브 |
+| Google | Gemini Embedding 2 | 3072 (MRL 768/1536 축소) | Vertex AI 네이티브 |
 | Cohere | Embed 4 | 1024 | 멀티모달, 다국어, OCI/Bedrock |
 | 오픈소스 | BGE-M3, E5 등 | 768–1024 | 셀프호스팅 가능 |
 
@@ -168,7 +168,7 @@ graph LR
 ### Azure
 
 - [Azure AI Search 벡터 검색](https://learn.microsoft.com/ko-kr/azure/search/vector-search-overview)
-- [Microsoft Foundry On Your Data](https://learn.microsoft.com/ko-kr/azure/ai-services/openai/concepts/use-your-data)
+- [Microsoft Foundry Agent Service (Foundry IQ)](https://learn.microsoft.com/azure/ai-foundry/)
 
 ### Google Cloud
 

@@ -88,7 +88,7 @@ graph LR
 | ベンダー | 製品 | 特徴 |
 | --- | --- | --- |
 | AWS | [Bedrock Knowledge Bases](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html) | 文書 → エンベディング → 保存 → RAGを自動化 |
-| Azure | [Azure AI Search + OpenAI "On Your Data"](https://learn.microsoft.com/azure/ai-services/openai/concepts/use-your-data) | 最速のRAG構成 |
+| Azure | [Azure AI Search + Foundry Agent Service (Foundry IQ)](https://learn.microsoft.com/azure/ai-foundry/) | マネージドRAG（旧OpenAI "On Your Data" は2026-10-14に廃止予定、Foundry Agent Serviceへ移行） |
 | Google Cloud | [Vertex AI RAG Engine](https://cloud.google.com/vertex-ai/generative-ai/docs/rag-overview) | 文書 → エンベディング → 検索を統合 |
 | OCI | [OCI Enterprise AI Agents](https://www.oracle.com/artificial-intelligence/generative-ai/agents/) | OCI Search連携RAG |
 
@@ -131,7 +131,7 @@ graph LR
 | --- | --- | --- | --- |
 | AWS | Titan Embeddings V2 | 256–1024 | 可変次元、Bedrockネイティブ |
 | Azure | text-embedding-3-large | 256–3072 | OpenAI、可変次元 |
-| Google | Gemini Embedding 2 | 768 | Vertex AIネイティブ |
+| Google | Gemini Embedding 2 | 3072（MRL 768/1536に縮小可） | Vertex AIネイティブ |
 | Cohere | Embed 4 | 1024 | マルチモーダル、多言語、OCI/Bedrock |
 | オープンソース | BGE-M3, E5など | 768–1024 | セルフホスティング可能 |
 
@@ -168,7 +168,7 @@ graph LR
 ### Azure
 
 - [Azure AI Search ベクトル検索](https://learn.microsoft.com/ko-kr/azure/search/vector-search-overview)
-- [Microsoft Foundry On Your Data](https://learn.microsoft.com/ko-kr/azure/ai-services/openai/concepts/use-your-data)
+- [Microsoft Foundry Agent Service (Foundry IQ)](https://learn.microsoft.com/azure/ai-foundry/)
 
 ### Google Cloud
 

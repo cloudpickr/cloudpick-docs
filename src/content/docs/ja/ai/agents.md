@@ -72,15 +72,14 @@ LLMチャットはブラウザの中に閉じ込められていました。Deskt
 
 ---
 
-## エージェントプロトコル — MCP、A2A、ACP
+## エージェントプロトコル — MCP、A2A
 
 | プロトコル | 役割 | 要点 |
 | --- | --- | --- |
 | [MCP](https://modelcontextprotocol.io/) | エージェント → ツール/データ | **2026-07-28スペック**: ステートレスコア、Extensionsフレームワーク、Tasks、MCP Apps。月4億+SDKダウンロード |
-| [A2A](https://github.com/google-a2a/A2A) | エージェント → エージェント(クロスベンダー) | v1.0(2026年3月GA)。マルチプロトコルバインディング、署名付きAgent Card、150+参加組織 |
-| [ACP](https://agentcommunicationprotocol.dev/) | エージェント → エージェント(社内ピア) | RESTネイティブ、SDK不要 |
+| [A2A](https://github.com/google-a2a/A2A) | エージェント → エージェント(クロスベンダー) | v1.0(2026年3月GA)。マルチプロトコルバインディング、署名付きAgent Card、150+参加組織。IBMのACPは2025年8月にA2Aへ統合(Linux Foundation) |
 
-3つのプロトコルはいずれも[AAIF (Linux Foundation)](https://www.linuxfoundation.org/press/linux-foundation-announces-the-formation-of-the-agentic-ai-foundation)のガバナンス下にあります。
+2つのプロトコルはいずれも[AAIF (Linux Foundation)](https://www.linuxfoundation.org/press/linux-foundation-announces-the-formation-of-the-agentic-ai-foundation)のガバナンス下にあります。
 
 ### MCP 2026-07-28の主な変更
 
@@ -179,5 +178,5 @@ Claude Codeは100万（1M）トークンのコンテキストをサポートし�
 - [Bedrock AgentCore](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/)
 - [Microsoft Foundry Agents](https://learn.microsoft.com/azure/ai-foundry/agents/)
 - [Gemini Agent Platform](https://cloud.google.com/products/agent-builder)
-- [MCP](https://modelcontextprotocol.io/) · [MCP 2026-07-28 Changelog](https://modelcontextprotocol.io/specification/2026-07-28/changelog) · [A2A](https://github.com/google-a2a/A2A) · [ACP](https://agentcommunicationprotocol.dev/)
+- [MCP](https://modelcontextprotocol.io/) · [MCP 2026-07-28 Changelog](https://modelcontextprotocol.io/specification/2026-07-28/changelog) · [A2A](https://github.com/google-a2a/A2A)
 - [Kiro](https://kiro.dev/) · [Claude Code](https://github.com/anthropics/claude-code) · [Codex](https://openai.com/codex/)

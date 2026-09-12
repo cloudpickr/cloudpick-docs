@@ -46,15 +46,7 @@ The assumption that "we did network segregation, so we're safe" is dangerous. If
 
 Cloud logical isolation (VPC, private subnets, security groups) is, from the start, a model that **explicitly designs "controlled connections."** It defines in code which traffic can go where, logs all communication, and detects policy violations in real time.
 
-Comparing this against the combination of on-premises physical network segregation plus VDI/inter-network connectivity solutions:
-
-| Aspect | Physical segregation + inter-network connectivity solutions | Cloud logical isolation |
-| --- | --- | --- |
-| Boundary definition | Implicit separation via physical equipment, with exceptions created by add-on solutions | Explicit definition in code (Security Group, NACL, IAM) |
-| Visibility | Depends on inter-network connectivity solution logs | End-to-end logging (VPC Flow Logs, CloudTrail, etc.) |
-| Policy changes | Equipment configuration changes, days to weeks | Code change + deployment, minutes |
-| Drift detection | Manual inspection | Automated detection (Config Rules, Policy, CSPM) |
-| Audit trail | Separate logs per solution | Unified audit logging |
+On-premises physical network segregation (plus VDI/inter-network connectivity solutions) and cloud logical isolation differ fundamentally in boundary definition, visibility, policy changes, and audit trails (see the [side-by-side operational comparison](#side-by-side-operational-comparison) below).
 
 The key question is not the "separation vs. connection" dichotomy, but rather: **how explicitly are the allowed paths defined, is everything else blocked, and can violations be detected in real time?**
 

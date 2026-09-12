@@ -40,7 +40,7 @@ description: "ベンダー別のAIプラットフォーム、モデルカタロ�
 
 | 種類 | 入力 → 出力 | 代表的サービス | ユースケース |
 | --- | --- | --- | --- |
-| **テキスト (LLM)** | テキスト → テキスト | GPT-5.6, Claude Fable 5, Gemini 3.5 | チャットボット、要約、コード生成 |
+| **テキスト (LLM)** | テキスト → テキスト | GPT-5.6, Claude Fable 5, Gemini 3 Pro系 | チャットボット、要約、コード生成 |
 | **画像生成** | テキスト → 画像 | DALL-E, MAI-Image, Imagen, Titan Image | マーケティング、デザイン |
 | **音声 (TTS/STT)** | テキスト ↔ 音声 | Polly, MAI-Voice, Azure Speech, Cloud TTS | 議事録、ARS、アクセシビリティ |
 | **動画生成** | テキスト → 動画 | Nova Reel, Veo 3.1, Gemini Omni | 広告、ショート動画 |

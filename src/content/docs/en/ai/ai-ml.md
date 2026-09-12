@@ -38,7 +38,7 @@ On-premises AI/ML requires purchasing GPU servers, installing frameworks, and bu
 
 | Type | Input → Output | Representative Services | Use Cases |
 | --- | --- | --- | --- |
-| **Text (LLM)** | Text → Text | GPT-5.6, Claude Fable 5, Gemini 3.5 | Chatbots, summarization, code generation |
+| **Text (LLM)** | Text → Text | GPT-5.6, Claude Fable 5, Gemini 3 Pro class | Chatbots, summarization, code generation |
 | **Image Generation** | Text → Image | DALL-E, MAI-Image, Imagen, Titan Image | Marketing, design |
 | **Speech (TTS/STT)** | Text ↔ Speech | Polly, MAI-Voice, Azure Speech, Cloud TTS | Transcription, IVR, accessibility |
 | **Video Generation** | Text → Video | Nova Reel, Veo 3.1, Gemini Omni | Ads, short-form content |

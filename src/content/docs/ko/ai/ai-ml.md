@@ -40,7 +40,7 @@ description: "벤더별 AI 플랫폼, 모델 카탈로그, GPU/AI 칩, Applied A
 
 | 유형 | 입력 → 출력 | 대표 서비스 | 사용 사례 |
 | --- | --- | --- | --- |
-| **텍스트 (LLM)** | 텍스트 → 텍스트 | GPT-5.6, Claude Fable 5, Gemini 3.5 | 챗봇, 요약, 코드 생성 |
+| **텍스트 (LLM)** | 텍스트 → 텍스트 | GPT-5.6, Claude Fable 5, Gemini 3 Pro 계열 | 챗봇, 요약, 코드 생성 |
 | **이미지 생성** | 텍스트 → 이미지 | DALL-E, MAI-Image, Imagen, Titan Image | 마케팅, 디자인 |
 | **음성 (TTS/STT)** | 텍스트 ↔ 음성 | Polly, MAI-Voice, Azure Speech, Cloud TTS | 회의록, ARS, 접근성 |
 | **비디오 생성** | 텍스트 → 비디오 | Nova Reel, Veo 3.1, Gemini Omni | 광고, 숏폼 |

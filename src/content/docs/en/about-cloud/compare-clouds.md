@@ -11,14 +11,14 @@ description: "Compares the characteristics, strengths, and multicloud interopera
 | --- | --- | --- | --- | --- |
 | **Operator** | Amazon | Microsoft | Google | Oracle |
 | **Launched** | 2006 | 2010 | 2008 | 2016 (Gen2) |
-| **Market share** | 28% | 21% | 14% | Not disclosed |
+| **Market share** | 28% | 20% | 15% | Not disclosed |
 | **Service portfolio** | Very broad | Very broad | Broad | Focused on core areas |
 | **Number of regions** | [39](https://aws.amazon.com/about-aws/global-infrastructure/regions_az/) | [70+](https://azure.microsoft.com/explore/global-infrastructure/geographies) | [43](https://cloud.google.com/about/locations) | [50+](https://www.oracle.com/cloud/public-cloud-regions/) |
 | **Strengths** | Broad service portfolio | Enterprise integration (M365, AD) | AI/ML and data analytics | Databases and price competitiveness |
 | **Console** | [Console](https://console.aws.amazon.com) | [Portal](https://portal.azure.com) | [Console](https://console.cloud.google.com) | [Console](https://cloud.oracle.com) |
 
 :::note
-Market share source: [Synergy Research Group — Q4 2025](https://www.srgresearch.com/articles/genai-helps-drive-quarterly-cloud-revenues-to-119-billion-as-growth-rate-jumped-yet-again-in-q4). Region counts, service counts, and similar figures change quickly, so check each vendor's official page for the latest status. For local regions by country, see the [Korea](../../korea/), [United States](../../us/), [EU](../../eu/), [Japan](../../japan/), and [Singapore](../../singapore/) guides.
+Market share source: [Synergy Research Group — Q2 2026](https://www.srgresearch.com/articles/q2-cloud-market-passes-143-billion-highest-growth-rate-in-eight-years) (AWS 28%, Azure 20%, Google Cloud 15%). Region counts, service counts, and similar figures change quickly, so check each vendor's official page for the latest status. For local regions by country, see the [Korea](../../korea/), [United States](../../us/), [EU](../../eu/), [Japan](../../japan/), and [Singapore](../../singapore/) guides.
 :::
 
 ## Key Service Mapping

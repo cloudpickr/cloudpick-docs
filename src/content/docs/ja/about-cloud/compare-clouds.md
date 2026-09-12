@@ -11,14 +11,14 @@ description: "主要ベンダーの特徴、強み、マルチクラウド連携
 | --- | --- | --- | --- | --- |
 | **運営会社** | Amazon | Microsoft | Google | Oracle |
 | **リリース** | 2006年 | 2010年 | 2008年 | 2016年（Gen2） |
-| **市場シェア** | 28% | 21% | 14% | 非公開 |
+| **市場シェア** | 28% | 20% | 15% | 非公開 |
 | **サービスポートフォリオ** | 非常に広い | 非常に広い | 広い | コア領域に集中 |
 | **リージョン数** | [39](https://aws.amazon.com/about-aws/global-infrastructure/regions_az/) | [70+](https://azure.microsoft.com/explore/global-infrastructure/geographies) | [43](https://cloud.google.com/about/locations) | [50+](https://www.oracle.com/cloud/public-cloud-regions/) |
 | **強み** | 広いサービスポートフォリオ | エンタープライズ統合（M365、AD） | AI/MLとデータ分析 | データベースと価格競争力 |
 | **コンソール** | [Console](https://console.aws.amazon.com) | [Portal](https://portal.azure.com) | [Console](https://console.cloud.google.com) | [Console](https://cloud.oracle.com) |
 
 :::note
-市場シェアの出典: [Synergy Research Group — Q4 2025](https://www.srgresearch.com/articles/genai-helps-drive-quarterly-cloud-revenues-to-119-billion-as-growth-rate-jumped-yet-again-in-q4)。リージョン数、サービス数などは急速に変化するため、各ベンダーの公式ページで最新状況を確認してください。国別のローカルリージョンは[韓国](../../korea/)、[米国](../../us/)、[EU](../../eu/)、[日本](../../japan/)、[シンガポール](../../singapore/)ガイドを参照してください。
+市場シェアの出典: [Synergy Research Group — Q2 2026](https://www.srgresearch.com/articles/q2-cloud-market-passes-143-billion-highest-growth-rate-in-eight-years)（AWS 28%、Azure 20%、Google Cloud 15%）。リージョン数、サービス数などは急速に変化するため、各ベンダーの公式ページで最新状況を確認してください。国別のローカルリージョンは[韓国](../../korea/)、[米国](../../us/)、[EU](../../eu/)、[日本](../../japan/)、[シンガポール](../../singapore/)ガイドを参照してください。
 :::
 
 ## 主要サービスマッピング

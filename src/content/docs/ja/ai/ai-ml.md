@@ -124,7 +124,7 @@ description: "ベンダー別のAIプラットフォーム、モデルカタロ�
 
 **Gemini Enterprise Agent Platform** — 旧Vertex AIがエージェント中心に全面刷新されたプラットフォームです。Google自社の**Gemini 3.x/2.5**シリーズ(3.5 Pro/3.5 Flash/3.1 Pro等 — 各バリエーションのPreview/GA・上限は[公式文書](https://cloud.google.com/vertex-ai/generative-ai/docs)で確認)のネイティブなマルチモーダル能力とTPUインフラが強みです。長文コンテキスト・推論モード・**Gemini Omni**(マルチモーダル)や、Agent Studioを通じたローコードエージェント開発、Google Search/BigQueryとの連携が差別化ポイントです。
 
-**OCI Enterprise AI** — 旧OCI Generative AIが拡張されたプラットフォームです。Cohere、Meta Llama、SpaceXAI Grok、Google GeminiなどのモデルをOCIインフラでホスティングし、専用AIクラスター(Dedicated AI Cluster)とRDMAベースのBare Metal GPUで高性能ワークロードを支援します。**AI Guardrails**(コンテンツモデレーション、PII検出、プロンプトインジェクション防御)と**Enterprise AI Agents**(GA)が追加されました。OpenAIとのパートナーシップにより、GPT-5.5/5.4およびCodexをOCI MarketplaceでOracle Universal Creditsとして利用できるようになる予定であり、Oracle Database/アプリケーションとのネイティブ統合が強みです。
+**OCI Enterprise AI** — 旧OCI Generative AIが拡張されたプラットフォームです。Cohere、Meta Llama、SpaceXAI Grok、Google GeminiなどのモデルをOCIインフラでホスティングし、専用AIクラスター(Dedicated AI Cluster)とRDMAベースのBare Metal GPUで高性能ワークロードを支援します。**AI Guardrails**(コンテンツモデレーション、PII検出、プロンプトインジェクション防御)と**Enterprise AI Agents**(GA)が追加されました。OpenAIとのパートナーシップにより、OpenAIモデル(API)およびCodexをOCI MarketplaceでOracle Universal Creditsとして利用でき(2026年8月)、Oracle Database/アプリケーションとのネイティブ統合が強みです。
 
 :::tip[AIシステムライフサイクルとエンタープライズ導入マトリクス]
 AIシステムの7段階エンドツーエンドライフサイクル(AI System Life Cycle)、対象ペルソナおよび責任境界別4-Tier導入マトリクス、技術タスク別選択ガイド、そしてMLOps vs LLMOpsの運用体系は、[AIシステムライフサイクルとエンジニアリング](../../ai/lifecycle/)で独立して詳しく解説しています。

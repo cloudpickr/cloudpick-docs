@@ -17,7 +17,8 @@ Seat (per-user) and API (per-token) are separate billing models. Most enterprise
 
 | Plan | Price | Audience | Difference from Business |
 | --- | --- | --- | --- |
-| **Business** (formerly Team) | ~$25/seat/mo | Small teams (2+) | — |
+| **Business** (formerly Team) — Standard seat | ~$25/seat/mo ($20 billed annually) | Small teams (2+) | — |
+| **Business** — Premium seat | ~$125/seat/mo ($100 billed annually) | High-usage users | 5x the usage of Standard, no 5-hour usage limit; seat types can be mixed within one workspace |
 | **Enterprise** | ~$45–75/seat/mo (negotiated, 150+) | Large orgs | SSO/SCIM, RBAC, audit logs, EKM, data residency, custom SLA, HIPAA eligible |
 
 **When to upgrade Business → Enterprise:**

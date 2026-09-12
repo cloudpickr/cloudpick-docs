@@ -185,7 +185,7 @@ For column definitions and vendor export support coverage, refer to the [FOCUS s
 | AWS | [Data Exports — FOCUS 1.2 with AWS columns](https://docs.aws.amazon.com/cur/latest/userguide/table-columns-cur2.html) (a separate export from CUR 2.0) |
 | Azure | [Cost Management FOCUS export](https://learn.microsoft.com/en-us/azure/cost-management-billing/) |
 | Google Cloud | [BigQuery cost export (FOCUS-compatible)](https://cloud.google.com/billing/docs/how-to/export-data-bigquery-tables) |
-| OCI | [Cost Report (FOCUS support in progress)](https://docs.oracle.com/en-us/iaas/Content/Billing/Concepts/costanalysisoverview.htm) |
+| OCI | [Cost Report (FOCUS supported)](https://docs.oracle.com/en-us/iaas/Content/Billing/Concepts/costanalysisoverview.htm) |
 
 ---
 

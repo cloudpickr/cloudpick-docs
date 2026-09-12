@@ -184,7 +184,7 @@ Showback/Chargebackを行うには、コストを正確に帰属させられる�
 | AWS | [Data Exports — FOCUS 1.2 with AWS columns](https://docs.aws.amazon.com/cur/latest/userguide/table-columns-cur2.html)（CUR 2.0とは別のエクスポート） |
 | Azure | [Cost Management FOCUS export](https://learn.microsoft.com/en-us/azure/cost-management-billing/) |
 | Google Cloud | [BigQuery コストエクスポート（FOCUS互換）](https://cloud.google.com/billing/docs/how-to/export-data-bigquery-tables) |
-| OCI | [Cost Report（FOCUS対応進行中）](https://docs.oracle.com/en-us/iaas/Content/Billing/Concepts/costanalysisoverview.htm) |
+| OCI | [Cost Report（FOCUS対応）](https://docs.oracle.com/en-us/iaas/Content/Billing/Concepts/costanalysisoverview.htm) |
 
 ---
 

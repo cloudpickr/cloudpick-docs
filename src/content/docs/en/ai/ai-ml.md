@@ -38,11 +38,11 @@ On-premises AI/ML requires purchasing GPU servers, installing frameworks, and bu
 
 | Type | Input → Output | Representative Services | Use Cases |
 | --- | --- | --- | --- |
-| **Text (LLM)** | Text → Text | GPT-5.6, Claude Fable 5, Gemini 3.5 | Chatbots, summarization, code generation |
+| **Text (LLM)** | Text → Text | GPT-5.6, Claude Fable 5, Gemini 3 Pro class | Chatbots, summarization, code generation |
 | **Image Generation** | Text → Image | DALL-E, MAI-Image, Imagen, Titan Image | Marketing, design |
 | **Speech (TTS/STT)** | Text ↔ Speech | Polly, MAI-Voice, Azure Speech, Cloud TTS | Transcription, IVR, accessibility |
 | **Video Generation** | Text → Video | Nova Reel, Veo 3.1, Gemini Omni | Ads, short-form content |
-| **Multimodal** | Text+Image+Speech → Text | GPT-5.6, Gemini 3.5 Pro, Claude Fable 5 | Document understanding, image analysis |
+| **Multimodal** | Text+Image+Speech → Text | GPT-5.6, Gemini 3 Pro class, Claude Fable 5 | Document understanding, image analysis |
 | **Embeddings** | Text/Image → Vector | Titan Embeddings, Gemini Embedding, Cohere Embed | RAG, similarity search |
 
 ## Generative AI Services
@@ -52,11 +52,11 @@ On-premises AI/ML requires purchasing GPU servers, installing frameworks, and bu
 | Provider | Key Models | 1P (Direct) | 3P (Cloud-hosted) |
 | --- | --- | --- | --- |
 | **OpenAI** | GPT-5.6, GPT-5.5, o-series | [api.openai.com](https://platform.openai.com/) | Azure Foundry, Bedrock |
-| **Anthropic** | Claude Fable 5, Opus 5, Opus 4.8, Sonnet 5, Haiku | [api.anthropic.com](https://platform.claude.com/) | Bedrock, Vertex AI |
-| **Google** | Gemini 3.5 Pro/Flash, 3.1 Pro, Gemini Omni (check [official docs](https://ai.google.dev/) for Preview/GA status) | [Gemini API](https://ai.google.dev/) | Vertex AI (native) |
-| **SpaceXAI (formerly xAI)** | Grok 4.6, Grok 4.3, Grok Imagine | [x.ai/api](https://x.ai/api) | OCI, Vertex AI, Bedrock, Azure |
+| **Anthropic** | Claude Fable 5, Opus 5, Sonnet 5, Haiku 4.5 | [api.anthropic.com](https://platform.claude.com/) | Bedrock, Vertex AI |
+| **Google** | Gemini 3.x generation (Pro/Flash — check [official docs](https://ai.google.dev/) for generation/variant and Preview/GA status), Gemini Omni | [Gemini API](https://ai.google.dev/) | Vertex AI (native) |
+| **SpaceXAI (formerly xAI)** | Grok 4.6, Grok Imagine | [x.ai/api](https://x.ai/api) | OCI, Vertex AI, Bedrock, Azure |
 | **Meta** | Llama 4 (open-weight) | [llama.com](https://www.llama.com/) | Bedrock, Vertex, Azure, OCI |
-| **Amazon** | Nova 1 (Premier/Pro/Lite/Micro/Sonic, etc.) + **Nova 2** (Lite, Pro, etc. — generational distinction) | — (Bedrock only) | Bedrock |
+| **Amazon** | Nova 1 (Premier/Pro/Lite/Micro/Sonic, etc.) + **Nova 2** (Lite GA, Pro Preview) | — (Bedrock only) | Bedrock |
 | **Microsoft** | MAI (Image/Voice/Transcribe) | — (Foundry only) | Azure Foundry |
 | **Mistral** | Large, Small, Codestral | [api.mistral.ai](https://docs.mistral.ai/) | Bedrock, Azure, Vertex |
 
@@ -153,7 +153,7 @@ Physical AI — connecting AI to the physical world of sensors, robots, and equi
 | **Flex/Batch Inference** | Process latency-tolerant workloads at lower priority | Bedrock Flex, Azure Batch API, Vertex Batch Predictions |
 | **Model Routing** | Route simple queries to lightweight models, complex ones to frontier models | Bedrock IntelligentPromptRouter, custom |
 | **Prompt Caching** | Cache repeated system prompts/context to reduce token costs | Anthropic Prompt Caching, OpenAI Cached Tokens, Gemini Context Caching |
-| **Long Context vs RAG** | Extended context windows (1–2M+ tokens) may eliminate RAG need | Gemini 3.5 Pro, Claude Opus |
+| **Long Context vs RAG** | Extended context windows (1–2M+ tokens) may eliminate RAG need | Gemini 3 Pro class, Claude Opus |
 | **GPU Price Competition** | Hyperscaler GPU instance pricing trending downward | AWS, Azure, GCP competitive pricing |
 
 :::note

@@ -47,7 +47,7 @@ For exact per-model RPM/TPM limits, see the [Organization Limits page](https://p
 
 | Plan | Price | Audience | Difference from Team |
 | --- | --- | --- | --- |
-| **Team Standard** | ~$25/seat/mo ([official pricing](https://claude.com/pricing)) | Small teams (minimum seats/caps per official page) | — |
+| **Team Standard** | ~$25/seat/mo ([official pricing](https://claude.com/pricing)) | Small teams (2–150 seats) | — |
 | **Team Premium** | ~$125/seat/mo ([official pricing](https://claude.com/pricing)) | High-usage teams | Higher usage allowance |
 | **Enterprise** | Contract-based — seats + API usage, etc. ([official info](https://claude.com/pricing)) | Large orgs | SCIM, audit logs, Compliance API, CMEK, HIPAA/BAA, org-level spend caps |
 

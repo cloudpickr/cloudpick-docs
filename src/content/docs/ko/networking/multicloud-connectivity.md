@@ -48,7 +48,7 @@ flowchart TD
 
 | 서비스 | 연결 구간 | 상태 (2026년 9월 기준) |
 | --- | --- | --- |
-| [**AWS Interconnect – multicloud**](https://aws.amazon.com/interconnect/multicloud/) | AWS ↔ Google Cloud / OCI | GA. Google Cloud(2026.04), OCI(2026.07, us-east-1). Azure는 2026년 내 예정 |
+| [**AWS Interconnect – multicloud**](https://aws.amazon.com/interconnect/multicloud/) | AWS ↔ Google Cloud / OCI / Azure | GA. Google Cloud(2026.04), OCI(2026.07, us-east-1). Azure는 프리뷰(2026.08) |
 | [**Google Cross-Cloud Interconnect**](https://cloud.google.com/network-connectivity/docs/interconnect/concepts/cross-cloud-overview) | Google Cloud ↔ AWS/Azure/OCI | GA. 오픈 상호운용 스펙 기반 |
 | [**Oracle Interconnect for Azure**](https://docs.oracle.com/iaas/Content/multicloud/interconnect-azure.htm) | OCI ↔ Azure | GA. 크로스 클라우드 데이터 전송 무료 |
 | [**Oracle Interconnect for AWS**](https://docs.oracle.com/iaas/Content/multicloud/interconnect-aws.htm) | OCI ↔ AWS | GA (2026.07). us-east-1 대응. 크로스 클라우드 데이터 전송 무료 |
@@ -56,12 +56,12 @@ flowchart TD
 
 ### 가용 구간 매트릭스
 
-> ✅ GA = 정식 출시, 예정 = 미출시
+> ✅ GA = 정식 출시, 🔶 프리뷰 = 미리보기, 예정 = 미출시
 
 | | AWS | Azure | Google Cloud | OCI |
 | --- | --- | --- | --- | --- |
-| **AWS** | — | 예정 (2026) | ✅ GA | ✅ GA |
-| **Azure** | 예정 (2026) | — | ✅ GA | ✅ GA |
+| **AWS** | — | 🔶 프리뷰 (2026.08) | ✅ GA | ✅ GA |
+| **Azure** | 🔶 프리뷰 (2026.08) | — | ✅ GA | ✅ GA |
 | **Google Cloud** | ✅ GA | ✅ GA | — | ✅ GA |
 | **OCI** | ✅ GA | ✅ GA | ✅ GA | — |
 

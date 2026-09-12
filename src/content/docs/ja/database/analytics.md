@@ -40,7 +40,7 @@ description: "データウェアハウス、データレイクハウス、分析
 
 ### 主な違い
 
-**BigQuery(Google Cloud)** — 完全サーバーレスでクラスタ管理が不要です。クエリスキャンデータ量に基づく課金であり、BigQuery MLによりSQLベースのML学習をサポートします。Gemini 3.1 Flash Lite / 3.5 Flashモデルが生成AI関数でGA利用可能となり、Conversational Analytics（プレビュー）で自然言語データ分析が可能です。MCP（Model Context Protocol）統合でエージェントベースの分析ワークフローを構築できます。
+**BigQuery(Google Cloud)** — 完全サーバーレスでクラスタ管理が不要です。クエリスキャンデータ量に基づく課金であり、BigQuery MLによりSQLベースのML学習をサポートします。Geminiモデルを生成AI関数で直接利用でき（対応モデルは[公式文書](https://docs.cloud.google.com/bigquery/docs/generative-ai-overview)で確認）、Conversational Analytics（GA）で自然言語データ分析が可能です。MCP（Model Context Protocol）統合でエージェントベースの分析ワークフローを構築できます。
 
 **Redshift(AWS)** — クラスタベースとServerlessオプションの両方を提供します。S3のデータをRedshift Spectrumで直接クエリでき、データレイクとの統合が容易です。ServerlessではAI駆動の自動スケーリングが新規ワークグループのデフォルトとなりました（2026.04）。3年予約（Serverless Reservations）でコスト削減が可能です。スナップショット復元時にzero-ETL/S3イベント統合が自動保持されます（2026.07）。
 

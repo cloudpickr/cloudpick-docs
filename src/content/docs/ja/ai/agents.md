@@ -54,7 +54,7 @@ LLMチャットはブラウザの中に閉じ込められていました。Deskt
 
 | ドメイン | AWS | Microsoft | Google Cloud |
 | --- | --- | --- | --- |
-| セキュリティ | Security Agent (GA) | Security Copilot Agents (GA) | Security Operations Agents (プレビュー) |
+| セキュリティ | Security Agent (GA) | Security Copilot Agents (GA) | Security Operations Agents (一部GA・新規は一部プレビュー) |
 | DevOps/SRE | DevOps Agent (GA) | Azure Copilot | — |
 | FinOps | FinOps Agent (プレビュー) | Azure Copilot コスト最適化 | — |
 | コーディング | Kiro (IDE/CLI/Web) | GitHub Copilot | Antigravity |
@@ -128,6 +128,10 @@ AgentCore GatewayおよびClaude製品群ですでにサポート中。
 | [GitHub Copilot](https://github.com/features/copilot) | Microsoft | Agent Mode、Agent Merge、Cloud Sessions |
 | [Antigravity](https://antigravity.google/) | Google | Agent-first IDE、Managed Agents |
 | [OpenCode](https://opencode.ai/) | Anomaly | オープンソース、モデル非依存 |
+
+:::note
+Claude Codeは100万（1M）トークンのコンテキストをサポートします（2026年3月GA）。Max・Team・Enterpriseプランでは大規模コードベース全体を1セッションで扱うのに活用でき、対応モデル・条件は[公式文書](https://claude.com/blog/1m-context-ga)で確認してください。
+:::
 
 ---
 

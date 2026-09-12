@@ -40,7 +40,7 @@ description: "데이터 웨어하우스, 데이터 레이크하우스, 분석 �
 
 ### 핵심 차이점
 
-**BigQuery (Google Cloud)** — 완전 서버리스로 클러스터 관리가 불필요합니다. 쿼리 스캔 데이터량 기반 과금이며, BigQuery ML로 SQL 기반 ML 학습을 지원합니다. Gemini 3.1 Flash Lite / 3.5 Flash 모델이 GA되어 생성형 AI 함수에서 직접 사용할 수 있으며, Conversational Analytics(프리뷰)로 자연어 기반 데이터 분석이 가능합니다. MCP(Model Context Protocol) 통합으로 에이전트 기반 분석 워크플로우를 구축할 수 있습니다.
+**BigQuery (Google Cloud)** — 완전 서버리스로 클러스터 관리가 불필요합니다. 쿼리 스캔 데이터량 기반 과금이며, BigQuery ML로 SQL 기반 ML 학습을 지원합니다. Gemini 모델을 생성형 AI 함수에서 직접 사용할 수 있고(지원 모델은 [공식 문서](https://docs.cloud.google.com/bigquery/docs/generative-ai-overview) 확인), Conversational Analytics(GA)로 자연어 기반 데이터 분석이 가능합니다. MCP(Model Context Protocol) 통합으로 에이전트 기반 분석 워크플로우를 구축할 수 있습니다.
 
 **Redshift (AWS)** — 클러스터 기반과 Serverless 옵션을 모두 제공합니다. S3의 데이터를 Redshift Spectrum으로 직접 쿼리할 수 있어 데이터 레이크와 통합이 용이합니다. Serverless에서 AI 기반 자동 스케일링이 신규 워크그룹의 기본값으로 적용됩니다(2026.04). 3년 예약(Serverless Reservations)으로 비용을 추가 절감할 수 있습니다. 스냅샷 복원 시 zero-ETL/S3 이벤트 통합이 자동 보존됩니다(2026.07).
 

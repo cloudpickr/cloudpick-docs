@@ -48,7 +48,7 @@ At AWS re:Invent in December 2025, AWS and Google Cloud announced a joint multic
 
 | Service | Connection segment | Status (as of September 2026) |
 | --- | --- | --- |
-| [**AWS Interconnect – multicloud**](https://aws.amazon.com/interconnect/multicloud/) | AWS ↔ Google Cloud / OCI | GA. Google Cloud (April 2026), OCI (July 2026, us-east-1). Azure planned within 2026 |
+| [**AWS Interconnect – multicloud**](https://aws.amazon.com/interconnect/multicloud/) | AWS ↔ Google Cloud / OCI / Azure | GA. Google Cloud (April 2026), OCI (July 2026, us-east-1). Azure in preview (Aug 2026) |
 | [**Google Cross-Cloud Interconnect**](https://cloud.google.com/network-connectivity/docs/interconnect/concepts/cross-cloud-overview) | Google Cloud ↔ AWS/Azure/OCI | GA. Based on the open interoperability spec |
 | [**Oracle Interconnect for Azure**](https://docs.oracle.com/iaas/Content/multicloud/interconnect-azure.htm) | OCI ↔ Azure | GA. Cross-cloud data transfer is free |
 | [**Oracle Interconnect for AWS**](https://docs.oracle.com/iaas/Content/multicloud/interconnect-aws.htm) | OCI ↔ AWS | GA (July 2026). us-east-1. Cross-cloud data transfer is free |
@@ -56,12 +56,12 @@ At AWS re:Invent in December 2025, AWS and Google Cloud announced a joint multic
 
 ### Availability Matrix
 
-> ✅ GA = Generally Available, Planned = not yet released
+> ✅ GA = Generally Available, 🔶 Preview = in preview, Planned = not yet released
 
 | | AWS | Azure | Google Cloud | OCI |
 | --- | --- | --- | --- | --- |
-| **AWS** | — | Planned (2026) | ✅ GA | ✅ GA |
-| **Azure** | Planned (2026) | — | ✅ GA | ✅ GA |
+| **AWS** | — | 🔶 Preview (Aug 2026) | ✅ GA | ✅ GA |
+| **Azure** | 🔶 Preview (Aug 2026) | — | ✅ GA | ✅ GA |
 | **Google Cloud** | ✅ GA | ✅ GA | — | ✅ GA |
 | **OCI** | ✅ GA | ✅ GA | ✅ GA | — |
 

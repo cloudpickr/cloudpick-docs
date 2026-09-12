@@ -51,7 +51,7 @@ EU 집행위원회는 일본(2019), 한국(2021년 12월), 영국, 스위스, �
 | **AWS** | European Sovereign Cloud | 독립 리전(물리·논리적으로 기존 AWS 리전과 분리) | 2026년 1월 15일 정식 출시(GA), 독일 브란덴부르크가 첫 리전. 장기 78억 유로 투자 발표, 벨기에·네덜란드·포르투갈에 소버린 Local Zone 확장 예정 |
 | **Microsoft** | Bleu (프랑스) / Delos Cloud (독일) | 파트너 운영 소버린 클라우드 (내셔널 파트너 클라우드) | Bleu는 Orange·Capgemini 합작사(SecNumCloud 인증 목표), Delos Cloud는 SAP 자회사. 2025년 11월 상호 지원 협약 체결, Delos-Microsoft 간 MoU로 비상 시(타국 정부의 서비스 제한 등) Delos가 Microsoft 클라우드 코드에 접근할 법적 권리 확보 |
 | **OCI** | EU Sovereign Cloud | 물리적으로 분리된 EU 전용 리전 | 2023년 6월부터 운영 중, 프랑크푸르트·마드리드 리전. EU 법인·EU 거주 인력만 운영, 상용 OCI 대비 추가 요금 없음 |
-| **Google Cloud** | 주권 파트너십 (T-Systems·Thales/S3NS·Proximus) | 파트너사 운영 리전 | 독일은 T-Systems, 프랑스는 Thales 자회사 S3NS(SecNumCloud 목표), 벨기에·룩셈부르크는 Proximus와 협력. 2026년 5월 Thales-Google Cloud가 독일 신규 소버린 클라우드 파트너십 발표 |
+| **Google Cloud** | 주권 파트너십 (T-Systems·Thales/S3NS·Proximus) | 파트너사 운영 리전 | 독일은 T-Systems, 프랑스는 Thales 자회사 S3NS(SecNumCloud 3.2 취득, 2025.12), 벨기에·룩셈부르크는 Proximus와 협력. 2026년 5월 Thales-Google Cloud가 독일 신규 소버린 클라우드 파트너십 발표 |
 
 :::note
 "소버린 클라우드"는 벤더마다 정의와 범위가 다릅니다 — 데이터 저장 위치만 보장하는 수준부터, 운영 인력·키 관리·비상 시 법적 접근권까지 포함하는 수준까지 폭이 넓습니다. 도입 전 각 벤더가 구체적으로 무엇을 EU 역내로 제한하는지(저장 vs 처리 vs 운영 접근 vs 지배구조)를 계약 문서에서 확인해야 합니다.

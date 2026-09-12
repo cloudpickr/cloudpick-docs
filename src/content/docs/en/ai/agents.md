@@ -52,7 +52,7 @@ Enterprise Desktop Agent satisfaction depends more on **IT's data source connect
 
 | Domain | AWS | Microsoft | Google Cloud |
 | --- | --- | --- | --- |
-| Security | Security Agent (GA) | Security Copilot Agents (GA) | Security Operations Agents (Preview) |
+| Security | Security Agent (GA) | Security Copilot Agents (GA) | Security Operations Agents (some GA, newer ones in Preview) |
 | DevOps/SRE | DevOps Agent (GA) | Azure Copilot | — |
 | FinOps | FinOps Agent (Preview) | Azure Copilot Cost Optimization | — |
 | Coding | Kiro (IDE/CLI/Web) | GitHub Copilot | Antigravity |
@@ -126,6 +126,10 @@ Already supported by AgentCore Gateway and Claude products.
 | [GitHub Copilot](https://github.com/features/copilot) | Microsoft | Agent Mode, Agent Merge, Cloud Sessions |
 | [Antigravity](https://antigravity.google/) | Google | Agent-first IDE, Managed Agents |
 | [OpenCode](https://opencode.ai/) | Anomaly | Open-source, model-agnostic |
+
+:::note
+Claude Code supports a 1M-token context window (GA in March 2026). On the Max, Team, and Enterprise plans it can work across an entire large codebase in a single session; check the [official docs](https://claude.com/blog/1m-context-ga) for supported models and conditions.
+:::
 
 ---
 

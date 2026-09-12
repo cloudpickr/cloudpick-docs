@@ -46,24 +46,24 @@ Major CSPs, despite being competitors, provide dedicated inter-vendor networks i
 
 At AWS re:Invent in December 2025, AWS and Google Cloud announced a joint multicloud interconnect based on an **open interoperability spec**. Microsoft Azure has also confirmed participation in this spec, and Oracle announced integration as well (April 2026). This is not a single vendor's initiative — it's an industry-wide movement toward standardizing multicloud interoperability.
 
-| Service | Connection segment | Status (as of June 2026) |
+| Service | Connection segment | Status (as of August 2026) |
 | --- | --- | --- |
-| [**AWS Interconnect – multicloud**](https://aws.amazon.com/interconnect/multicloud/) | AWS ↔ Google Cloud | GA (April 2026). Azure, OCI to be added within 2026 |
+| [**AWS Interconnect – multicloud**](https://aws.amazon.com/interconnect/multicloud/) | AWS ↔ Google Cloud / OCI | GA. Google Cloud (April 2026), OCI (July 2026, us-east-1). Azure planned within 2026 |
 | [**Google Cross-Cloud Interconnect**](https://cloud.google.com/network-connectivity/docs/interconnect/concepts/cross-cloud-overview) | Google Cloud ↔ AWS/Azure/OCI | GA. Based on the open interoperability spec |
 | [**Oracle Interconnect for Azure**](https://docs.oracle.com/iaas/Content/multicloud/interconnect-azure.htm) | OCI ↔ Azure | GA. Cross-cloud data transfer is free |
-| [**Oracle Interconnect for AWS**](https://docs.oracle.com/iaas/Content/multicloud/interconnect-aws.htm) | OCI ↔ AWS | LA (Limited Availability, May 2026). Single us-east-1 region. Expansion planned at GA |
+| [**Oracle Interconnect for AWS**](https://docs.oracle.com/iaas/Content/multicloud/interconnect-aws.htm) | OCI ↔ AWS | GA (July 2026). us-east-1. Cross-cloud data transfer is free |
 | [**Oracle Interconnect for Google Cloud**](https://docs.oracle.com/iaas/Content/Network/Concepts/access-to-google-cloud-platform.htm) | OCI ↔ Google Cloud | GA. Cross-cloud data transfer is free |
 
 ### Availability Matrix
 
-> ✅ GA = Generally Available, 🔶 LA = Limited Availability (restricted regions), Planned = not yet released
+> ✅ GA = Generally Available, Planned = not yet released
 
 | | AWS | Azure | Google Cloud | OCI |
 | --- | --- | --- | --- | --- |
-| **AWS** | — | Planned (2026) | ✅ GA | 🔶 LA |
+| **AWS** | — | Planned (2026) | ✅ GA | ✅ GA |
 | **Azure** | Planned (2026) | — | ✅ GA | ✅ GA |
 | **Google Cloud** | ✅ GA | ✅ GA | — | ✅ GA |
-| **OCI** | 🔶 LA | ✅ GA | ✅ GA | — |
+| **OCI** | ✅ GA | ✅ GA | ✅ GA | — |
 
 ### Cross-Cloud Interconnect vs Dedicated Connection + IX
 

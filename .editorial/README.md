@@ -95,8 +95,18 @@ Grok(스택 측 `runner/editorial_packet.py`)과 저장소 측 스키마가 **�
 
 ## 아직 하지 않은 것 (전환 전 금지)
 
-- 운영 cutover, 기존 게이트 해제, 브랜치 보호 설정 변경, 유료 추론 서비스 추가.
-- admin/bot 우회 차단 정책 확정 — cutover 전 별도로 정합니다.
+- 운영 cutover, 기존 게이트 해제, 유료 추론 서비스 추가.
+
+## 방침 결정: enforce 보류(shadow 유지)
+
+**결정(froguin, 2026년 8월 기준):**
+
+- `editorial-review` · `editorial-c-approval`은 **shadow(비필수) 상태로 유지**한다. cutover 전까지 required로 등록하지 않는다. 두 체크는 PR에 판정 신호만 제공하고 병합을 강제하지 않는다.
+- `enforce_admins=false`를 유지한다(관리자 비상 우회 허용). 계약 §Review(5)가 지적하듯 우회가 열려 있는 동안에는 이 게이트가 '엄격히 강제되는 발행 게이트'가 아니며, 이는 의도된 상태다.
+- 근거: 아직 스택 draft-only cutover가 이루어지지 않았고(문서는 사람+AI가 직접 작성), 매 PR은 크로스 에이전트 리뷰로 품질을 담보한다. required 강제가 부과하는 매-PR 근거 패킷 작성 비용이 현시점의 실익을 초과한다. shadow 상태로도 "근거 패킷 없는 문서 변경"은 fail-closed 신호로 그대로 노출된다.
+- 재검토 시점: 스택이 실제 자동 핸드오프(draft-only)를 시작하는 cutover 시점에 admin 우회 방침과 함께 다시 판단한다.
+
+기술 선행조건은 이미 실증되어 있어(아래 절차 참고), 재검토 시 `enforce_required_checks.sh apply-enforce` 한 번으로 전환할 수 있다.
 
 ## 필요한 Secret / Variable (부모가 값 설정 — 코드는 값 안 읽음/안 만듦)
 
@@ -115,9 +125,21 @@ Grok(스택 측 `runner/editorial_packet.py`)과 저장소 측 스키마가 **�
 - 엔드포인트 fetcher는 사설/메타데이터 주소·불안전 리다이렉트를 거부하고 바이트·시간
   상한을 적용한다(계약 §Evidence). 리뷰 잡은 base 코드만 실행하고 PR은 데이터로만 쓴다.
 
-## 실제 enforce(required 등록) 전환 절차 (검증 후)
+## 실제 enforce(required 등록) 전환 절차 (cutover 시)
 
 기존 필수 5개(`build`·`link-check`·`mermaid-lint`·`strikethrough-lint`·
 `docs-consistency-lint`)에 더해 `editorial-review`·`editorial-c-approval`를 required로
-등록하는 것은 **versioned script + rollback 기록**으로 검증 후 적용한다. 이 저장소는
-아직 등록하지 않았다(shadow-ready). admin/bot 우회 방침 확정도 전환 선행 조건이다.
+등록하는 것은 **versioned script + rollback 기록**으로 적용한다(`enforce_required_checks.sh`).
+현재는 위 방침대로 **등록하지 않는다(shadow 유지)**.
+
+기술 선행조건은 실증 완료 상태다(재검토 시 재확인만 하면 됨):
+
+- A/B/C/feature-only 판정, C 차단→packet SHA-256 확인 후 통과, 무관 커밋이 C를 리셋하지
+  않음, provider outage 시 non-pass 보류(pass로 변환 안 함) — shadow E2E로 실제 GitHub
+  Actions·AI Gateway에서 확인.
+- 스택↔저장소 **패킷 상호운용성** — 스택 `runner/editorial_packet.py`가 만든 패킷이 이
+  저장소 `validate_packet.py`를 통과하고 packet SHA-256이 양측 동일함을 확인.
+
+전환 시 순서: (0) 이 README의 방침 갱신 → (1) `apply-rollback` 리허설 → (2) `apply-enforce`
+→ (3) 전환 시점에 열려 있던 PR의 shadow 체크 상태 reconcile. `enforce_admins` 등 다른
+브랜치 보호 설정은 이 스크립트가 건드리지 않는다.

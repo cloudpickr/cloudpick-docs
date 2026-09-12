@@ -130,6 +130,7 @@ graph LR
 | ベンダー | モデル | 次元 | 特徴 |
 | --- | --- | --- | --- |
 | AWS | Titan Embeddings V2 | 256–1024 | 可変次元、Bedrockネイティブ |
+| AWS | TwelveLabs Marengo 3.0 | 512 | マルチモーダル（動画・音声・画像）、Bedrock Managed KB、セグメントのタイムスタンプを返却 |
 | Azure | text-embedding-3-large | 256–3072 | OpenAI、可変次元 |
 | Google | Gemini Embedding 2 | 3072（MRL 768/1536に縮小可） | Vertex AIネイティブ |
 | Cohere | Embed 4 | 1024 | マルチモーダル、多言語、OCI/Bedrock |

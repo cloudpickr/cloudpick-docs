@@ -79,7 +79,7 @@ GPU 인스턴스 가격은 리전, 약정 기간, 가용성에 따라 크게 달
 RAG(Retrieval-Augmented Generation) 파이프라인은 Vector DB, Embedding 모델, LLM, 오케스트레이션의 조합으로 구성됩니다. 각 벤더별 주요 서비스:
 
 - **AWS** — OpenSearch Serverless + Titan Embeddings + Bedrock Knowledge Bases
-- **Azure** — AI Search + Microsoft Foundry + Azure AI Studio
+- **Azure** — AI Search + Microsoft Foundry
 - **Google Cloud** — Vertex AI Vector Search + Gemini Embedding + RAG Engine
 - **OCI** — OCI Search/Oracle 23ai + Cohere Embed + Enterprise AI Agents
 

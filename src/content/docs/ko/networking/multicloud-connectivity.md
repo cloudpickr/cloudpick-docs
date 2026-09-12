@@ -46,24 +46,24 @@ flowchart TD
 
 2025년 12월 AWS re:Invent에서 AWS와 Google Cloud가 **오픈 상호운용 스펙** 기반의 공동 멀티클라우드 인터커넥트를 발표했습니다. Microsoft Azure도 이 스펙에 참여를 확인했으며, Oracle도 연동을 발표(2026.04)했습니다. 이 흐름은 단일 벤더의 이니셔티브가 아니라, 업계 전반의 멀티클라우드 상호운용 표준화 움직임입니다.
 
-| 서비스 | 연결 구간 | 상태 (2026년 6월 기준) |
+| 서비스 | 연결 구간 | 상태 (2026년 8월 기준) |
 | --- | --- | --- |
-| [**AWS Interconnect – multicloud**](https://aws.amazon.com/interconnect/multicloud/) | AWS ↔ Google Cloud | GA (2026.04). Azure, OCI는 2026년 내 추가 예정 |
+| [**AWS Interconnect – multicloud**](https://aws.amazon.com/interconnect/multicloud/) | AWS ↔ Google Cloud / OCI | GA. Google Cloud(2026.04), OCI(2026.07, us-east-1). Azure는 2026년 내 예정 |
 | [**Google Cross-Cloud Interconnect**](https://cloud.google.com/network-connectivity/docs/interconnect/concepts/cross-cloud-overview) | Google Cloud ↔ AWS/Azure/OCI | GA. 오픈 상호운용 스펙 기반 |
 | [**Oracle Interconnect for Azure**](https://docs.oracle.com/iaas/Content/multicloud/interconnect-azure.htm) | OCI ↔ Azure | GA. 크로스 클라우드 데이터 전송 무료 |
-| [**Oracle Interconnect for AWS**](https://docs.oracle.com/iaas/Content/multicloud/interconnect-aws.htm) | OCI ↔ AWS | LA (Limited Availability, 2026.05). us-east-1 단일 리전. GA 시 확장 예정 |
+| [**Oracle Interconnect for AWS**](https://docs.oracle.com/iaas/Content/multicloud/interconnect-aws.htm) | OCI ↔ AWS | GA (2026.07). us-east-1 대응. 크로스 클라우드 데이터 전송 무료 |
 | [**Oracle Interconnect for Google Cloud**](https://docs.oracle.com/iaas/Content/Network/Concepts/access-to-google-cloud-platform.htm) | OCI ↔ Google Cloud | GA. 크로스 클라우드 데이터 전송 무료 |
 
 ### 가용 구간 매트릭스
 
-> ✅ GA = 정식 출시, 🔶 LA = Limited Availability (제한 리전), 예정 = 미출시
+> ✅ GA = 정식 출시, 예정 = 미출시
 
 | | AWS | Azure | Google Cloud | OCI |
 | --- | --- | --- | --- | --- |
-| **AWS** | — | 예정 (2026) | ✅ GA | 🔶 LA |
+| **AWS** | — | 예정 (2026) | ✅ GA | ✅ GA |
 | **Azure** | 예정 (2026) | — | ✅ GA | ✅ GA |
 | **Google Cloud** | ✅ GA | ✅ GA | — | ✅ GA |
-| **OCI** | 🔶 LA | ✅ GA | ✅ GA | — |
+| **OCI** | ✅ GA | ✅ GA | ✅ GA | — |
 
 ### Cross-Cloud Interconnect vs 전용 연결 + IX
 

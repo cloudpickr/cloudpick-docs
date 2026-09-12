@@ -79,7 +79,7 @@ GPUインスタンスの価格はリージョン、コミット期間、可用�
 RAG(Retrieval-Augmented Generation)パイプラインは、Vector DB、Embeddingモデル、LLM、オーケストレーションの組み合わせで構成されます。各ベンダーの主要サービス:
 
 - **AWS** — OpenSearch Serverless + Titan Embeddings + Bedrock Knowledge Bases
-- **Azure** — AI Search + Microsoft Foundry + Azure AI Studio
+- **Azure** — AI Search + Microsoft Foundry
 - **Google Cloud** — Vertex AI Vector Search + Gemini Embedding + RAG Engine
 - **OCI** — OCI Search/Oracle 23ai + Cohere Embed + Enterprise AI Agents
 

@@ -46,24 +46,24 @@ flowchart TD
 
 2025年12月のAWS re:Inventで、AWSとGoogle Cloudが**オープン相互運用仕様**に基づく共同マルチクラウドインターコネクトを発表しました。Microsoft Azureもこの仕様への参加を確認しており、Oracleも連携を発表しました（2026年4月）。この流れは単一ベンダーのイニシアチブではなく、業界全体でのマルチクラウド相互運用標準化の動きです。
 
-| サービス | 接続区間 | ステータス（2026年6月時点） |
+| サービス | 接続区間 | ステータス（2026年8月時点） |
 | --- | --- | --- |
-| [**AWS Interconnect – multicloud**](https://aws.amazon.com/interconnect/multicloud/) | AWS ↔ Google Cloud | GA（2026年4月）。Azure、OCIは2026年内に追加予定 |
+| [**AWS Interconnect – multicloud**](https://aws.amazon.com/interconnect/multicloud/) | AWS ↔ Google Cloud / OCI | GA。Google Cloud（2026年4月）、OCI（2026年7月、us-east-1）。Azureは2026年内に予定 |
 | [**Google Cross-Cloud Interconnect**](https://cloud.google.com/network-connectivity/docs/interconnect/concepts/cross-cloud-overview) | Google Cloud ↔ AWS/Azure/OCI | GA。オープン相互運用仕様ベース |
 | [**Oracle Interconnect for Azure**](https://docs.oracle.com/iaas/Content/multicloud/interconnect-azure.htm) | OCI ↔ Azure | GA。クロスクラウドデータ転送は無料 |
-| [**Oracle Interconnect for AWS**](https://docs.oracle.com/iaas/Content/multicloud/interconnect-aws.htm) | OCI ↔ AWS | LA（Limited Availability、2026年5月）。us-east-1単一リージョン。GA時に拡大予定 |
+| [**Oracle Interconnect for AWS**](https://docs.oracle.com/iaas/Content/multicloud/interconnect-aws.htm) | OCI ↔ AWS | GA（2026年7月）。us-east-1対応。クロスクラウドデータ転送は無料 |
 | [**Oracle Interconnect for Google Cloud**](https://docs.oracle.com/iaas/Content/Network/Concepts/access-to-google-cloud-platform.htm) | OCI ↔ Google Cloud | GA。クロスクラウドデータ転送は無料 |
 
 ### 利用可能区間マトリクス
 
-> ✅ GA = 正式リリース、🔶 LA = Limited Availability（限定リージョン）、予定 = 未リリース
+> ✅ GA = 正式リリース、予定 = 未リリース
 
 | | AWS | Azure | Google Cloud | OCI |
 | --- | --- | --- | --- | --- |
-| **AWS** | — | 予定（2026） | ✅ GA | 🔶 LA |
+| **AWS** | — | 予定（2026） | ✅ GA | ✅ GA |
 | **Azure** | 予定（2026） | — | ✅ GA | ✅ GA |
 | **Google Cloud** | ✅ GA | ✅ GA | — | ✅ GA |
-| **OCI** | 🔶 LA | ✅ GA | ✅ GA | — |
+| **OCI** | ✅ GA | ✅ GA | ✅ GA | — |
 
 ### Cross-Cloud Interconnect vs 専用接続 + IX
 

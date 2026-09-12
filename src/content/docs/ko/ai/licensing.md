@@ -47,7 +47,7 @@ API는 누적 지출액에 따라 자동 승급됩니다. ([공식 Rate Limits �
 
 | 플랜 | 가격 | 대상 | Team과의 차이 |
 | --- | --- | --- | --- |
-| **Team Standard** | ~$25/석/월 ([공식 가격](https://claude.com/pricing)) | 소규모 팀 (최소 좌석·상한은 공식 페이지 확인) | — |
+| **Team Standard** | ~$25/석/월 ([공식 가격](https://claude.com/pricing)) | 소규모 팀 (2–150석) | — |
 | **Team Premium** | ~$125/석/월 ([공식 가격](https://claude.com/pricing)) | 고사용량 팀 | 더 높은 사용량 허용 |
 | **Enterprise** | 좌석 + API 사용량 등 계약형 ([공식 안내](https://claude.com/pricing)) | 대규모 조직 | SCIM, 감사 로그, Compliance API, CMEK, HIPAA/BAA, 조직별 지출 한도 |
 

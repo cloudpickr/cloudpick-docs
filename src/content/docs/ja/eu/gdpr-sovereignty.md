@@ -51,7 +51,7 @@ EU欧州委員会は日本（2019年）、韓国（2021年12月）、英国、�
 | **AWS** | European Sovereign Cloud | 独立リージョン（物理的・論理的に既存のAWSリージョンと分離） | 2026年1月15日に正式リリース（GA）、ドイツ・ブランデンブルクが最初のリージョン。長期78億ユーロの投資を発表、ベルギー・オランダ・ポルトガルにソブリンLocal Zoneを拡張予定 |
 | **Microsoft** | Bleu（フランス）/ Delos Cloud（ドイツ） | パートナー運用ソブリンクラウド（ナショナルパートナークラウド） | BleuはOrange・Capgeminiの合弁会社（SecNumCloud認証を目標）、Delos CloudはSAPの子会社。2025年11月に相互支援協定を締結、Delos-Microsoft間のMoUにより緊急時（他国政府によるサービス制限など）にDelosがMicrosoftクラウドのコードにアクセスできる法的権利を確保 |
 | **OCI** | EU Sovereign Cloud | 物理的に分離されたEU専用リージョン | 2023年6月から運用中、フランクフルト・マドリードリージョン。EU法人・EU居住スタッフのみが運用、商用OCIと比べ追加料金なし |
-| **Google Cloud** | 主権パートナーシップ（T-Systems・Thales/S3NS・Proximus） | パートナー企業運用リージョン | ドイツはT-Systems、フランスはThales子会社S3NS（SecNumCloud目標）、ベルギー・ルクセンブルクはProximusと協力。2026年5月にThales-Google Cloudがドイツで新たなソブリンクラウドパートナーシップを発表 |
+| **Google Cloud** | 主権パートナーシップ（T-Systems・Thales/S3NS・Proximus） | パートナー企業運用リージョン | ドイツはT-Systems、フランスはThales子会社S3NS（SecNumCloud 3.2取得、2025年12月）、ベルギー・ルクセンブルクはProximusと協力。2026年5月にThales-Google Cloudがドイツで新たなソブリンクラウドパートナーシップを発表 |
 
 :::note
 「ソブリンクラウド」はベンダーごとに定義と範囲が異なります — データ保存場所のみを保証する水準から、運用要員・鍵管理・緊急時の法的アクセス権まで含む水準まで幅広くあります。導入前に、各ベンダーが具体的に何をEU域内に制限しているのか（保存 vs 処理 vs 運用アクセス vs ガバナンス）を契約文書で確認する必要があります。

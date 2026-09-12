@@ -43,7 +43,8 @@ Inference throughput (tokens/sec, etc.) varies widely by model, precision, batch
 
 **Selection guide:**
 - **H100/H200** — Relatively wide region availability. Suited to mid-scale training, fine-tuning, and general inference. H200 shares the same architecture family as H100 but has more memory and bandwidth, favoring long-context inference.
-- **B200** — A leading candidate for the 2026 flagship generation. Greater memory and bandwidth than H100, with native FP4 support tending to improve quantized-inference efficiency. Actual throughput should be measured per workload.
+- **B200 / B300 (Blackwell, Blackwell Ultra)** — The flagship generation actually offered on cloud in 2026. B300 (Blackwell Ultra) is GA via AWS EC2 P6-B300 and expanding across regions, with larger memory (~288GB class) and better quantized-inference efficiency than B200. Native FP4 support tends to improve inference efficiency, but actual throughput should be measured per workload.
+- **Next generation (Vera Rubin, VR200, etc.)** — Partner supply begins in H2 2026, but real availability is limited by allocation (expected to broaden through 2027). Confirm region and commitment availability in official docs before adopting the newest generation.
 - **GB200 NVL72** — Combines Grace CPU + B200 GPU into a Superchip. Links many GPUs in a single NVLink domain for training extremely large models. Region availability and commitment capacity can be limited.
 
 :::note

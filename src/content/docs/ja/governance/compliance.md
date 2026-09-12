@@ -67,7 +67,7 @@ AICPA（米国公認会計士協会）に基づく監査報告書です。エン
 | **公共（EU）** | C5（ドイツ）、ENS（スペイン）等 | EU | |
 | **個人情報（EU）** | GDPR | EU | |
 | **AI（EU）** | EU AI Act | EU | GPAI義務は2025.8.2適用、制裁権限・第50条の透明性義務は2026.8.2発効（合成コンテンツの表示は既存の市場投入済みシステムについて2026.12.2まで猶予）。高リスクAIはDigital Omnibusにより延期 — 独立型2027.12.2、製品内蔵2028.8.2。[EU AI Act全文](https://artificialintelligenceact.eu/) |
-| **金融（EU）** | DORA | EU | 2025年1月17日適用開始。CTPP（Critical Third-Party Provider）指定手続きが進行中。[詳細](../../governance/landing-zone/) |
+| **金融（EU）** | DORA | EU | 2025年1月17日適用開始。2025年11月18日、ESAsが最初のCTPP（Critical Third-Party Provider）19社を指定（AWS・Google Cloud・Microsoftなど）。[詳細](../../eu/dora/) |
 
 各ベンダーの該当認証状況は、**AWS Compliance Programs**、**Azure Trust Center**、**Google Cloud Compliance**、**Oracle Cloud Compliance**の各ページで確認します。
 

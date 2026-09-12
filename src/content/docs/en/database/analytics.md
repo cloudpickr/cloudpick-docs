@@ -40,7 +40,7 @@ Running large aggregation queries against an operational DB causes:
 
 ### Key differences
 
-**BigQuery (Google Cloud)** — Fully serverless, requiring no cluster management. Billed based on the amount of data scanned per query, and BigQuery ML supports SQL-based ML training. Gemini 3.1 Flash Lite / 3.5 Flash models are now GA for generative AI functions. Conversational Analytics (preview) enables natural-language data analysis. MCP (Model Context Protocol) integration allows building agent-based analytics workflows.
+**BigQuery (Google Cloud)** — Fully serverless, requiring no cluster management. Billed based on the amount of data scanned per query, and BigQuery ML supports SQL-based ML training. Gemini models can be used directly in generative AI functions (see the [official docs](https://docs.cloud.google.com/bigquery/docs/generative-ai-overview) for supported models), and Conversational Analytics (GA) enables natural-language data analysis. MCP (Model Context Protocol) integration allows building agent-based analytics workflows.
 
 **Redshift (AWS)** — Offers both cluster-based and Serverless options. Data in S3 can be queried directly via Redshift Spectrum, making integration with a data lake straightforward. AI-driven scaling is now the default for new Serverless workgroups (Apr 2026). Three-year Serverless Reservations are available for cost savings. Snapshot restores now automatically preserve zero-ETL and S3 event integrations (Jul 2026).
 

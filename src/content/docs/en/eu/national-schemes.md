@@ -38,14 +38,14 @@ The single biggest difference between SecNumCloud 3.2 and other national schemes
 Because of this requirement, **US-headquartered hyperscalers such as AWS, Microsoft, and Google cannot obtain SecNumCloud qualification directly under their own name.** Instead, they pursue an indirect path through joint ventures with French partners, with progress varying by vendor (see "Status of Partnership Certifications" below).
 :::
 
-### Status of Partnership Certifications (as of July 2026)
+### Status of Partnership Certifications (as of September 2026)
 
 | Partnership | Vendor | Status |
 | --- | --- | --- |
-| **S3NS** (a Thales × Google Cloud joint venture) | Google Cloud | **Obtained SecNumCloud 3.2 qualification on December 17, 2025** — the first case of simultaneously certifying more than 20 IaaS, CaaS, and PaaS services under its PREMI3NS offering. A second-phase expansion review covering services such as Cloud Run, Cloud Build, Cloud Spanner, and Bigtable is underway in the first half of 2026 |
-| **Bleu** (a Capgemini × Orange joint venture) | Microsoft Azure/M365 | Passed the first review stage (J0, application acceptance) and is undergoing review with a target of obtaining qualification in the first half of 2026. **As of September 2026, it has not yet obtained full SecNumCloud 3.2 qualification** |
+| **S3NS** (a Thales × Google Cloud joint venture) | Google Cloud | **Obtained SecNumCloud 3.2 qualification on December 17, 2025** — the first case of simultaneously certifying more than 20 IaaS, CaaS, and PaaS services under its PREMI3NS offering. A second-phase expansion review covering services such as Cloud Run, Cloud Build, Cloud Spanner, and Bigtable is underway |
+| **Bleu** (a Capgemini × Orange joint venture) | Microsoft Azure/M365 | Passed the first review stage (J0, application acceptance); its original target of qualification in the first half of 2026 has passed, and **as of September 2026 it has not yet obtained full SecNumCloud 3.2 qualification** (review continues into H2 2026–2027) |
 
-Overall, as of July 2026, **nine to ten providers** (OVHcloud, 3DS Outscale, Cloud Temple, Orange Business, Cegedim.cloud, Worldline, Oodrive, Whaller, S3NS, and others — the count varies depending on the aggregation basis; ANSSI's official catalogue, tallied by service type, confirms up to 10 provider names) hold SecNumCloud 3.2 qualification, and **12 providers** — including Bleu, Scaleway, and NumSpot — are undergoing review.
+Overall, as of September 2026, **nine to ten providers** (OVHcloud, 3DS Outscale, Cloud Temple, Orange Business, Cegedim.cloud, Worldline, Oodrive, Whaller, S3NS, and others — the count varies depending on the aggregation basis; ANSSI's official catalogue, tallied by service type, confirms up to 10 provider names) hold SecNumCloud 3.2 qualification, and **12 providers** — including Bleu, Scaleway, and NumSpot — are undergoing review.
 
 ## Spain — ENS
 

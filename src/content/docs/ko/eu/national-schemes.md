@@ -38,14 +38,14 @@ SecNumCloud 3.2가 다른 국가 스킴과 가장 크게 다른 지점은 **자�
 이 요건 때문에 **AWS·Microsoft·Google 등 미국계 하이퍼스케일러는 자사 명의로는 SecNumCloud 자격을 직접 취득할 수 없습니다.** 대신 이들은 프랑스 파트너와의 합작법인을 통해 우회 경로를 취하고 있으며, 그 진행 상황은 벤더마다 다릅니다(아래 "파트너십 인증 취득 현황" 참고).
 :::
 
-### 파트너십 인증 취득 현황 (2026년 7월 기준)
+### 파트너십 인증 취득 현황 (2026년 9월 기준)
 
 | 파트너십 | 벤더 | 현황 |
 | --- | --- | --- |
-| **S3NS** (Thales × Google Cloud 합작사) | Google Cloud | **2025년 12월 17일 SecNumCloud 3.2 자격 취득** — PREMI3NS 서비스로 IaaS·CaaS·PaaS 20여 개 서비스를 동시에 인증받은 최초 사례. 2026년 상반기 중 Cloud Run·Cloud Build·Cloud Spanner·Bigtable 등을 포함한 2차 확장 심사 진행 중 |
-| **Bleu** (Capgemini × Orange 합작사) | Microsoft Azure/M365 | 심사 1단계(J0, 신청 접수)를 통과했으며 2026년 상반기 자격 취득을 목표로 심사 진행 중. **2026년 9월 현재 완전한 SecNumCloud 3.2 자격은 아직 취득하지 않음** |
+| **S3NS** (Thales × Google Cloud 합작사) | Google Cloud | **2025년 12월 17일 SecNumCloud 3.2 자격 취득** — PREMI3NS 서비스로 IaaS·CaaS·PaaS 20여 개 서비스를 동시에 인증받은 최초 사례. Cloud Run·Cloud Build·Cloud Spanner·Bigtable 등을 포함한 2차 확장 심사 진행 중 |
+| **Bleu** (Capgemini × Orange 합작사) | Microsoft Azure/M365 | 심사 1단계(J0, 신청 접수)를 통과했으며 당초 2026년 상반기 자격 취득을 목표로 했으나 그 시점은 경과했고, **2026년 9월 현재 완전한 SecNumCloud 3.2 자격은 아직 취득하지 않음**(하반기–2027년 심사 지속) |
 
-전체적으로 2026년 7월 기준 자격 보유 사업자는 **9–10개**(OVHcloud, 3DS Outscale, Cloud Temple, Orange Business, Cegedim.cloud, Worldline, Oodrive, Whaller, S3NS 등 — ANSSI 공식 카탈로그의 서비스 유형별 집계 기준으로는 10개 사업자명까지 확인됨)이며, Bleu·Scaleway·NumSpot 등 **12개 사업자**가 심사 진행 중입니다.
+전체적으로 2026년 9월 기준 자격 보유 사업자는 **9–10개**(OVHcloud, 3DS Outscale, Cloud Temple, Orange Business, Cegedim.cloud, Worldline, Oodrive, Whaller, S3NS 등 — ANSSI 공식 카탈로그의 서비스 유형별 집계 기준으로는 10개 사업자명까지 확인됨)이며, Bleu·Scaleway·NumSpot 등 **12개 사업자**가 심사 진행 중입니다.
 
 ## 스페인 — ENS
 

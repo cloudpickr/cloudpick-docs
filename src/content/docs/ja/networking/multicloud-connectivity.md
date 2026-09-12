@@ -48,7 +48,7 @@ flowchart TD
 
 | サービス | 接続区間 | ステータス（2026年9月時点） |
 | --- | --- | --- |
-| [**AWS Interconnect – multicloud**](https://aws.amazon.com/interconnect/multicloud/) | AWS ↔ Google Cloud / OCI | GA。Google Cloud（2026年4月）、OCI（2026年7月、us-east-1）。Azureは2026年内に予定 |
+| [**AWS Interconnect – multicloud**](https://aws.amazon.com/interconnect/multicloud/) | AWS ↔ Google Cloud / OCI / Azure | GA。Google Cloud（2026年4月）、OCI（2026年7月、us-east-1）。Azureはプレビュー（2026年8月） |
 | [**Google Cross-Cloud Interconnect**](https://cloud.google.com/network-connectivity/docs/interconnect/concepts/cross-cloud-overview) | Google Cloud ↔ AWS/Azure/OCI | GA。オープン相互運用仕様ベース |
 | [**Oracle Interconnect for Azure**](https://docs.oracle.com/iaas/Content/multicloud/interconnect-azure.htm) | OCI ↔ Azure | GA。クロスクラウドデータ転送は無料 |
 | [**Oracle Interconnect for AWS**](https://docs.oracle.com/iaas/Content/multicloud/interconnect-aws.htm) | OCI ↔ AWS | GA（2026年7月）。us-east-1対応。クロスクラウドデータ転送は無料 |
@@ -56,12 +56,12 @@ flowchart TD
 
 ### 利用可能区間マトリクス
 
-> ✅ GA = 正式リリース、予定 = 未リリース
+> ✅ GA = 正式リリース、🔶 プレビュー = プレビュー中、予定 = 未リリース
 
 | | AWS | Azure | Google Cloud | OCI |
 | --- | --- | --- | --- | --- |
-| **AWS** | — | 予定（2026） | ✅ GA | ✅ GA |
-| **Azure** | 予定（2026） | — | ✅ GA | ✅ GA |
+| **AWS** | — | 🔶 プレビュー（2026年8月） | ✅ GA | ✅ GA |
+| **Azure** | 🔶 プレビュー（2026年8月） | — | ✅ GA | ✅ GA |
 | **Google Cloud** | ✅ GA | ✅ GA | — | ✅ GA |
 | **OCI** | ✅ GA | ✅ GA | ✅ GA | — |
 

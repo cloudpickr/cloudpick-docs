@@ -7,6 +7,10 @@ description: "Explains the 7-stage AI system lifecycle based on NIST AI RMF and 
 
 ## Overview
 
+:::tip[This document is the AI adoption journey map]
+It spans the full cycle: "why AI → what to buy → how to build → how to operate & govern → deploy to the field." Pick a role-based quick entry point in [Getting Started with AI](../../ai/getting-started/), then use the [4-Tier Adoption Matrix](#4-tier-enterprise-adoption-matrix) here to find the path that fits your role and maturity.
+:::
+
 Just as software engineering follows the **SDLC (Software Development Life Cycle)** from requirements analysis to maintenance, AI systems also follow a systematic lifecycle.
 
 However, AI systems have fundamental differences compared to traditional software:
@@ -83,6 +87,17 @@ Selecting an AI delivery model depends not only on the technical task, but funda
 :::note[Essence of Tiers: Responsibility and Control Trade-off, Not a Maturity Ladder]
 These 4 Tiers are not a mandatory sequential maturity ladder. Instead, they represent **the trade-off axis between operational burden (TCO) and necessary control (IP protection, precision tuning)**. Most global enterprises deploy Tier 1/2 for broad enterprise productivity while simultaneously focusing Tier 3/4 on core differentiated business capabilities.
 :::
+
+### Next steps by role
+
+Once you have settled on your tier and role, move to the next practical document.
+
+- **Executives / decision-makers (Tier 1–2 decision)** — narrow candidates in [AI platforms and model comparison](../../ai/ai-ml/), then choose a procurement path via [LLM channel selection](../../ai/1p-vs-3p/) and [Licensing and cost](../../ai/licensing/).
+- **Architects (Tier 2–3 design)** — set the model/control boundary here, then take deployment architecture to [Multi-cloud AI](../../ai/multicloud-ai/) and the security boundary to [AI security](../../security/ai-security/).
+- **Developers (Tier 3 build)** — implement in order: [Prompt engineering](../../ai/prompt-engineering/) → [RAG patterns](../../ai/rag-patterns/) → [AI agents](../../ai/agents/).
+- **Operators / platform (Tier 3–4 operations)** — build evaluation, cost, and observability with [LLMOps](../../ai/llmops/).
+- **Governance** — pair this document's [problem framing & governance](#1-problem-framing--governance) stage with the rollout/governance framework in the [Agent adoption guide](../../ai/agent-adoption/).
+- **Field deployment (FDE)** — for landing the designed system as production code in customer network-isolated/legacy environments, see [Field deployment](../../about-cloud/field-deployment/).
 
 ---
 

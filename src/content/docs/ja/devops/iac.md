@@ -39,7 +39,7 @@ description: "IaCの概念、ベンダーネイティブ/マルチクラウド�
 
 | 製品 | 言語 | 備考 |
 | --- | --- | --- |
-| Terraform / OpenTofu | HCL（HashiCorp Configuration Language） | 最も広く使用。全ベンダー対応。Terraform 1.16 / OpenTofu 1.13（2026年基準） |
+| Terraform / OpenTofu | HCL（HashiCorp Configuration Language） | 最も広く使用。全ベンダー対応。Terraform 1.16 / OpenTofu 1.12（2026年基準） |
 | Pulumi | TypeScript、Python、Go、C#、Java | 一般的なプログラミング言語を使用。テストが容易。Pulumi Neo（エージェントインフラ）リリース |
 | Crossplane | Kubernetes YAML | K8sクラスタからクラウドリソースを管理 |
 
@@ -64,7 +64,7 @@ AWS Cloud Control APIは、Terraformが新しいAWSリソースをサポート�
 
 **Terraform** — マルチクラウド環境で事実上の標準です。一つの言語（HCL）でAWS、Azure、Google Cloudをすべて管理できます。状態ファイル（State）の管理が必要です。最新安定版は1.16系で、動的モジュールソース（変数でsource/versionを指定）、variable/outputのdeprecation機構、インラインの型変換関数などが提供されます。
 
-**OpenTofu** — TerraformのMPL-2.0オープンソースフォークで、CNCF Sandboxプロジェクト（2025.04加入）です。最新安定版は1.13で、状態ファイル暗号化、早期変数評価（early variable evaluation）、エフェメラル値（ephemeral values）などTerraformと差別化される機能を独自に開発しています。Terraform HCLとの高い互換性を維持しています。
+**OpenTofu** — TerraformのMPL-2.0オープンソースフォークで、CNCF Sandboxプロジェクト（2025.04加入）です。最新安定版は1.12で、状態ファイル暗号化、早期変数評価（early variable evaluation）、エフェメラル値（ephemeral values）などTerraformと差別化される機能を独自に開発しています。Terraform HCLとの高い互換性を維持しています。
 
 **OCI Resource Manager** — Terraformベースの管理型IaCサービスで、状態ファイル管理とリソースプロビジョニングをOCIコンソールで統合運用できます。
 

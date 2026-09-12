@@ -3,7 +3,7 @@ title: "GDPR과 데이터 주권"
 description: "GDPR 역외이전 체계, EU Data Boundary, 소버린 클라우드 옵션 비교와 EUCS 인증 스킴 동향을 정리합니다."
 ---
 
-> 문서 기준: 2026년 8월
+> 문서 기준: 2026년 9월
 
 ## 개요
 
@@ -62,7 +62,7 @@ EU 집행위원회는 일본(2019), 한국(2021년 12월), 영국, 스위스, �
 **EUCS(European Cybersecurity Certification Scheme for Cloud Services)** 는 ENISA가 주도하는 클라우드 서비스 공통 보안 인증 체계로, 원래 클라우드 벤더의 보안 수준을 EU 전역에서 상호 인정 가능한 등급(Basic/Substantial/High)으로 표준화하려는 목적이었습니다.
 
 :::caution
-**EUCS의 "주권성(Sovereignty) 요건"은 2026년 8월 현재까지 확정되지 않고 논쟁이 진행 중입니다.**
+**EUCS의 "주권성(Sovereignty) 요건"은 2026년 9월 현재까지 확정되지 않고 논쟁이 진행 중입니다.**
 
 - 초기 초안은 최고 등급(High+) 인증에 EU 역외 기업의 지분·지배구조 배제(immunity) 요건을 포함했습니다.
 - 2023년 개정 초안은 이를 완화해 High+ 등급에서만 데이터 현지화를 요구하고, "신뢰할 수 있는 역외 클라우드 제공자" 인증 가능성을 열어두었습니다.

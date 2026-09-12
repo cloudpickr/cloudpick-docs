@@ -3,7 +3,7 @@ title: AI Agents
 description: Concepts, architecture, protocols, vendor platforms, and comparison of coding/desktop/autonomous operations agents.
 ---
 
-> Last reviewed: August 2026
+> Last reviewed: September 2026
 
 ## From Prompting to Agents
 
@@ -42,7 +42,7 @@ LLM chat was confined to the browser. Desktop Agents break this limit with local
 | Data control | Local control (hard to enforce org policy) | DLP, connector allowlists, audit logs |
 | Advantage | Privacy, customization | Governance, frontier models, enterprise tool integration |
 
-**Claude Cowork status (2026.08):** macOS/Windows GA (April) → web, iOS, Android + cloud remote sessions (July). Chrome side panel integration, cross-device session continuity.
+**Claude Cowork status (2026.09):** macOS/Windows GA (April) → web, iOS, Android + cloud remote sessions (July). Chrome side panel integration, cross-device session continuity.
 
 :::note
 Enterprise Desktop Agent satisfaction depends more on **IT's data source connectivity scope** than model performance. Systematically setting this up org-wide is AX — see [Agent Adoption Guide](../../ai/agent-adoption/).

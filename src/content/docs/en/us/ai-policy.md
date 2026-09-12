@@ -3,7 +3,7 @@ title: "AI Policy and Governance"
 description: "Covers the trajectory of US federal AI executive orders, the state-federal preemption conflict, the NIST AI RMF, federal procurement AI requirements, and practical implications for cloud AI workloads."
 ---
 
-> Last reviewed: August 2026
+> Last reviewed: September 2026
 
 ## Overview
 
@@ -35,7 +35,7 @@ Since 2025, the federal executive branch has pursued both legislative and execut
 - **The executive-order path**: **EO 14365**, signed December 11, 2025, directed the establishment of an "AI Litigation Task Force" within the Department of Justice, which was **established on January 9, 2026**, to bring lawsuits in federal court arguing that state AI laws unduly burden interstate commerce or are preempted by federal regulation. A confirmed instance of actual intervention is the Department of Justice's participation, on April 24, 2026, in xAI's (now SpaceXAI) lawsuit challenging the Colorado AI Act. It also directed the Department of Commerce to publish, by March 11, 2026, a list of state AI laws deemed "unduly burdensome," and imposed a condition tying eligibility review of the **as-yet-unallocated remaining funds** within the BEAD (broadband infrastructure, $42 billion total) program to the repeal of "burdensome state AI regulation" (funds already allocated or disbursed, and the program's full $42 billion, were not made conditional across the board).
 
 :::caution
-**As of August 2026, no federal law invalidating state AI laws has been enacted.** Litigation and administrative action under EO 14365 are underway, but the executive order itself cannot directly invalidate state laws — that requires a court ruling (see the Colorado case below). Because this matter continues to shift on both the litigation and legislative fronts, the latest status should be reconfirmed through official White House and DOJ announcements.
+**As of September 2026, no federal law invalidating state AI laws has been enacted.** Litigation and administrative action under EO 14365 are underway, but the executive order itself cannot directly invalidate state laws — that requires a court ruling (see the Colorado case below). Because this matter continues to shift on both the litigation and legislative fronts, the latest status should be reconfirmed through official White House and DOJ announcements.
 :::
 
 ## NIST AI Risk Management Framework (AI RMF) 1.0 + the Generative AI Profile
@@ -44,7 +44,7 @@ Since 2025, the federal executive branch has pursued both legislative and execut
 
 **NIST AI 600-1 (the Generative AI Profile)**, published July 26, 2024, extends the AI RMF specifically for generative AI, identifying **12 risk categories unique to, or exacerbated by, generative AI** — confabulation/hallucination, data poisoning, prompt injection, intellectual property infringement, over-reliance, and more — and prescribing response measures.
 
-- Risks related to supply-chain vulnerabilities and third-party model evaluation are already included in the original document published July 26, 2024. Some media outlets have reported an update around March 2025, but as of August 2026 the latest official version confirmed on NIST's official site remains the version published 2024-07-26 (whether an official revision exists should be reconfirmed via NIST announcements).
+- Risks related to supply-chain vulnerabilities and third-party model evaluation are already included in the original document published July 26, 2024. Some media outlets have reported an update around March 2025, but as of September 2026 the latest official version confirmed on NIST's official site remains the version published 2024-07-26 (whether an official revision exists should be reconfirmed via NIST announcements).
 - In December 2025, a draft **Cyber AI Profile (NIST IR 8596)** was published, connecting the AI RMF with the Cybersecurity Framework (CSF) 2.0 and extending its scope to managing the cybersecurity risk of AI systems themselves.
 
 ## AI Requirements in Federal Procurement — OMB Memoranda
@@ -62,7 +62,7 @@ Neither memo explicitly mandates the NIST AI RMF or AI 600-1, but in practice, v
 
 Contrary to the federal deregulatory stance, state-level AI legislation has continued to grow through 2026.
 
-| State | Law | Status (as of August 2026) |
+| State | Law | Status (as of September 2026) |
 | --- | --- | --- |
 | Colorado | Colorado AI Act (SB 24-205) | Original effective date of 2/1/2026 → delayed to 6/30/2026 by an August 2025 amendment → **repealed and replaced by SB 189 on 5/14/2026**, scaling back from comprehensive high-risk AI regulation to a disclosure-and-rights framework centered on Automated Decision-Making Technology (ADMT), with the effective date reset to **1/1/2027**. Separately, on 4/27/2026 a federal district court approved a stipulated stay agreed between the parties in the xAI lawsuit (with DOJ intervention in support), staying enforcement of the original act (SB 24-205) until 14 days after a merits ruling — a **procedural standstill**, not a ruling on the law's constitutionality |
 | Texas | TRAIGA (Texas Responsible AI Governance Act, HB 149) | Effective 1/1/2026. Rather than Colorado-style comprehensive high-risk AI regulation, takes a narrower approach centered on **enumerated prohibited conduct** — AI that encourages suicide or crime, child sexual abuse material, non-consensual deepfakes, government social scoring, and the like — **plus a state-government AI-use disclosure requirement** |

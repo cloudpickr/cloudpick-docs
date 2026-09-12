@@ -3,7 +3,7 @@ title: "Database Migration"
 description: "Compares DB migration strategies (Rehost/Replatform/Refactor) and downtime-minimization techniques across vendors."
 ---
 
-> Last reviewed: August 2026
+> Last reviewed: September 2026
 
 ## Overview
 

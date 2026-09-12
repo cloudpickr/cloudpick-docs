@@ -3,7 +3,7 @@ title: "NoSQL"
 description: "Compares key-value, document, wide-column, and graph NoSQL types across vendors and explains key design patterns."
 ---
 
-> Last reviewed: August 2026
+> Last reviewed: September 2026
 
 ## Overview
 

@@ -3,7 +3,7 @@ title: "Government Cloud (GCC, IM8, SGTS)"
 description: "Covers Singapore's government cloud framework — the structure of the Government Commercial Cloud (GCC) and GCC+, the IM8 security policy reform, SG Tech Stack, and requirements for participating in government procurement."
 ---
 
-> Last reviewed: August 2026
+> Last reviewed: September 2026
 
 ## Overview
 
@@ -66,7 +66,7 @@ The reform's stated goal is officially described as "simplifying ICT&SS policy s
 - **Expanded discretion** for digital system owners to tailor their security plans to their own operational and technical context
 
 :::caution
-As of August 2026, the IM8 reform remains an **ongoing policy transition**. Details such as the scope of permission for hosting low-risk SaaS outside GCC and the final confirmation date for the reorganized Control Catalog continue to be updated on GovTech's official policy portal (info.standards.tech.gov.sg), so the latest notices should be checked directly for actual procurement and compliance work.
+As of September 2026, the IM8 reform remains an **ongoing policy transition**. Details such as the scope of permission for hosting low-risk SaaS outside GCC and the final confirmation date for the reorganized Control Catalog continue to be updated on GovTech's official policy portal (info.standards.tech.gov.sg), so the latest notices should be checked directly for actual procurement and compliance work.
 :::
 
 ## SGTS (Singapore Government Tech Stack)

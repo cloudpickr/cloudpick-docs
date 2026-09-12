@@ -3,7 +3,7 @@ title: "災害復旧（DR）"
 description: "RPO/RTO、BIA、DR戦略のタイプ（Backup&Restore〜Active-Active）、ベンダー別DRサービスを比較します。"
 ---
 
-> 文書基準: 2026年8月
+> 文書基準: 2026年9月
 
 ## DRとは
 

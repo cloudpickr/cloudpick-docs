@@ -3,13 +3,13 @@ title: "Sovereign AI and Independent Foundation Model Policy"
 description: "Covers the Korean government's sovereign AI policy, the selection process for its independent AI foundation model project, and implications for enterprise architects."
 ---
 
-> Last reviewed: August 2026 (second phase evaluation results reflected)
+> Last reviewed: September 2026 (second phase evaluation results reflected)
 
 ## Overview
 
 Sovereign AI refers to a country securing, through its own technology, AI models and infrastructure optimized for its own data, language, culture, and industrial context. Concerned about technological, economic, and cultural dependence on global AI models, the Korean government has made "becoming one of the world's top three AI powers" a core national goal, pursuing the development of an independent foundation model alongside the buildout of national AI infrastructure.
 
-This document covers the progress of that policy initiative as of August 2026, and the implications for enterprise architects to consider.
+This document covers the progress of that policy initiative as of September 2026, and the implications for enterprise architects to consider.
 
 ## The Independent AI Foundation Model Project
 
@@ -53,7 +53,7 @@ Separately from the independent model development effort, the government is buil
 
 - The government has announced a roadmap targeting **more than 50,000 GPUs**, supplying them to K-LLM development teams on a lease basis.
 - On August 3, 2026, a groundbreaking ceremony for the **National AI Computing Center** was held at the Solasido Data Center Park site in Haenam County, South Jeolla Province, formally starting construction. The first-phase buildout is reported at roughly 15,000 chips.
-- As of August 2026, the GPU model has reportedly not yet been finalized ("B200 not confirmed"), with the latest AI chips under consideration.
+- As of September 2026, the GPU model has reportedly not yet been finalized ("B200 not confirmed"), with the latest AI chips under consideration.
 - In February 2026, the government codified sovereign-AI-related policy as a pillar of national AI strategy through the "AI Basic Plan (2026–2028)."
 
 ## Implications for Enterprise Architects
@@ -63,14 +63,14 @@ Separately from the independent model development effort, the government is buil
 - **Connection to public-sector and regulated procurement**: models from vendors selected as elite teams are likely to be prioritized as "domestic sovereign model" candidates in public-sector and regulated-industry procurement. Organizations targeting the public sector should factor the eventual surviving team(s) into their procurement roadmap.
 - **Frontier AI strategy shift**: The government recognizes the limits of the distributed competition model and is exploring resource concentration through mechanisms such as SPCs (special-purpose companies). This suggests the domestic FM ecosystem may shift from a multi-party competition to a concentrated, few-player structure.
 - **Interaction with sovereignty requirements**: sovereign AI policy moves in tandem with other regulatory tracks such as [CSAP](../../security/csap/) and [network separation easing](../../security/network-isolation/). Workloads handling sensitive data should anticipate being required to use a domestic sovereign model instead of a global one.
-- **Timing of GPU infrastructure availability**: the National AI Computing Center is still at the groundbreaking stage as of August 2026, and real service availability will take time. Organizations looking to adopt a domestic FM in the near term should take the more practical approach of accessing models through the vendor API/cloud delivery channels covered in [FM Provider Comparison](../fm-providers/).
+- **Timing of GPU infrastructure availability**: the National AI Computing Center is in the early construction stage following its August 2026 groundbreaking, and real service availability will take time. Organizations looking to adopt a domestic FM in the near term should take the more practical approach of accessing models through the vendor API/cloud delivery channels covered in [FM Provider Comparison](../fm-providers/).
 - **Performance baseline**: the government has set the goal for the independent model at "95% or more of the performance of top-tier global models." Organizations evaluating adoption should treat this figure as a benchmark and separately validate performance on their own actual business tasks.
 
 ## Common Mistakes
 
-- **Signing long-term contracts on the assumption that the final surviving teams are already settled** — as of August 2026, the third phase evaluation (among Upstage, SK Telecom, and LG AI Research) will determine the final two teams, and the government's frontier AI strategy restructuring may change the program structure entirely. Fully subordinating procurement to a specific team's roadmap is risky.
+- **Signing long-term contracts on the assumption that the final surviving teams are already settled** — as of September 2026, the third phase evaluation (among Upstage, SK Telecom, and LG AI Research) will determine the final two teams, and the government's frontier AI strategy restructuring may change the program structure entirely. Fully subordinating procurement to a specific team's roadmap is risky.
 - **Oversimplifying "sovereign AI" as "domestic models, no exceptions"** — sovereign AI policy exists to secure alternatives for certain sensitive workloads (public sector, national security, regulated data), not to mandate converting every workload to a domestic model. Judge requirements on a per-workload basis.
-- **Overestimating how soon the National AI Computing Center will be available** — as of August 2026 it is still at the groundbreaking stage, and actual service delivery will take considerable time. It's safer not to factor it into near-term adoption plans.
+- **Overestimating how soon the National AI Computing Center will be available** — as of September 2026 it is in the early construction stage, and actual service delivery will take considerable time. It's safer not to factor it into near-term adoption plans.
 
 ## References
 

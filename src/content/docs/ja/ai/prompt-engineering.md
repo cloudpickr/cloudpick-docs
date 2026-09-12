@@ -3,7 +3,7 @@ title: "プロンプトエンジニアリング"
 description: "プロンプトエンジニアリングの主要パターン(Few-shot、Chain-of-Thought、ReAct)とベンダー公式ガイドを結び付けます。"
 ---
 
-> 文書基準: 2026年8月
+> 文書基準: 2026年9月
 
 :::note
 LLM/プロンプトが初めての方は、まず[AI入門](../../ai/getting-started/)をお読みください。

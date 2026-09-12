@@ -3,7 +3,7 @@ title: "AI Security"
 description: "Compares AI service security threats (prompt injection, sensitive data exposure, agent permissions) and vendor guardrails."
 ---
 
-> Last reviewed: August 2026 | This is a fast-moving area subject to quarterly review.
+> Last reviewed: September 2026 | This is a fast-moving area subject to quarterly review.
 
 ## Overview
 

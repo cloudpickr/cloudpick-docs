@@ -3,7 +3,7 @@ title: "Japan Government Cloud (ガバメントクラウド)"
 description: "Covers the registration status of providers on Japan's Digital Agency-led shared government/local-government cloud platform, its relationship with ISMAP, and the progress of local government system standardization."
 ---
 
-> Last reviewed: August 2026
+> Last reviewed: September 2026
 
 ## Overview
 
@@ -17,7 +17,7 @@ Government Cloud shares a similar purpose with public-sector cloud migration pol
 
 Government Cloud provider selection began in 2020–2021, targeting the four hyperscalers AWS, Google Cloud, Microsoft Azure, and OCI, and the scope of eligible services has expanded through an annual open call each year since. In November 2023, Sakura Internet became the first Japan-based domestic provider to be conditionally adopted, and it received full accreditation in March 2026, completing the current five-provider lineup.
 
-## Registered Provider Status (as of August 2026)
+## Registered Provider Status (as of September 2026)
 
 The following five providers are designated as eligible Government Cloud services for fiscal year 2026.
 

@@ -3,7 +3,7 @@ title: "Data Analytics Platforms"
 description: "Compares data warehouses, data lakehouses, and analytics platforms across vendors."
 ---
 
-> Last reviewed: August 2026
+> Last reviewed: September 2026
 
 ## Overview
 

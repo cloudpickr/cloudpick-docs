@@ -3,7 +3,7 @@ title: "Sustainability and GreenOps"
 description: "Cloud sustainability (GreenOps) — comparing carbon emissions tracking, low-carbon design principles, and vendor-specific tools."
 ---
 
-> Last reviewed: August 2026
+> Last reviewed: September 2026
 
 ## Overview
 

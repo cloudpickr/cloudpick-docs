@@ -3,7 +3,7 @@ title: "Data Protection and Workload Security"
 description: "Compares encryption in transit/at rest, WAF, and network security across vendors."
 ---
 
-> Last reviewed: August 2026
+> Last reviewed: September 2026
 
 ## Overview
 

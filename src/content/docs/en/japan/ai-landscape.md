@@ -3,13 +3,13 @@ title: "Japan's AI Policy and Domestic Model Landscape"
 description: "Covers Japan's AI Act (AI推進法) and AI Basic Plan, the Ministry of Economy, Trade and Industry's GENIAC program, the domestic LLM landscape (NTT tsuzumi, NEC cotomi, PFN PLaMo, and others), and the government procurement channel Gennai (源内)."
 ---
 
-> Last reviewed: August 2026
+> Last reviewed: September 2026
 
 ## Overview
 
 On May 28, 2025, Japan enacted the "Act on the Promotion of Research, Development, and Utilization of AI-Related Technologies" (commonly known as the **AI Act**, AI推進法 or AI新法), promulgating it on June 4 and bringing it into full effect on September 1. Based on this Act, the **AI Strategy Headquarters (人工知能戦略本部)** was established on that same September 1, elevated to a statutory body chaired by the Prime Minister with the full Cabinet participating, taking over the role previously played by the advisory AI Strategy Council (AI戦略会議).
 
-At the AI Strategy Headquarters' first meeting on September 12, Prime Minister Ishiba directed that an AI Basic Plan be developed around four pillars — ① using AI (使う), ② creating AI (創る), ③ increasing AI's trustworthiness (信頼性を高める), and ④ collaborating with AI (協働する) — and on December 23, 2025, the Cabinet adopted the "AI Basic Plan — 'Japan's Resurgence' through 'Trustworthy AI'" (人工知能基本計画 ～「信頼できるAI」による「日本再起」～). This plan was updated with a revised edition on July 14, 2026, and as of this document's August 2026 reference date, the revised edition is the version currently in effect.
+At the AI Strategy Headquarters' first meeting on September 12, Prime Minister Ishiba directed that an AI Basic Plan be developed around four pillars — ① using AI (使う), ② creating AI (創る), ③ increasing AI's trustworthiness (信頼性を高める), and ④ collaborating with AI (協働する) — and on December 23, 2025, the Cabinet adopted the "AI Basic Plan — 'Japan's Resurgence' through 'Trustworthy AI'" (人工知能基本計画 ～「信頼できるAI」による「日本再起」～). This plan was updated with a revised edition on July 14, 2026, and as of this document's September 2026 reference date, the revised edition is the version currently in effect.
 
 :::note
 Rather than centering on ex-ante regulation like the EU AI Act, Japan's AI policy makes clear its **promotion-first** stance: promote adoption first, then investigate and respond to problems after the fact. The AI Act itself places more weight on establishing a national strategy and promotion framework than on direct penalty provisions targeting businesses.
@@ -17,7 +17,7 @@ Rather than centering on ex-ante regulation like the EU AI Act, Japan's AI polic
 
 ## GENIAC — METI's Program to Strengthen Generative AI Development Capacity
 
-**GENIAC** (Generative AI Accelerator Challenge) is a program jointly operated by the Ministry of Economy, Trade and Industry (METI) and NEDO (New Energy and Industrial Technology Development Organization), aimed at cultivating the foundation-model development capacity of Japanese companies and research institutions. As of August 2026, GENIAC consists of the following tracks.
+**GENIAC** (Generative AI Accelerator Challenge) is a program jointly operated by the Ministry of Economy, Trade and Industry (METI) and NEDO (New Energy and Industrial Technology Development Organization), aimed at cultivating the foundation-model development capacity of Japanese companies and research institutions. As of September 2026, GENIAC consists of the following tracks.
 
 - Foundation model development projects
 - Data utilization demonstration projects
@@ -28,7 +28,7 @@ Rather than centering on ex-ante regulation like the EU AI Act, Japan's AI polic
 
 Rather than concentrating investment in one or two companies, GENIAC distributes GPU computing resources and data across a large number of company and university consortia to promote competition. Many of the major domestic model developers discussed below — NTT, NEC, PFN, Sakana AI, ELYZA, and others — have received GENIAC support or participated in related consortia at some point.
 
-## Landscape of Domestic Foundation Models (as of August 2026)
+## Landscape of Domestic Foundation Models (as of September 2026)
 
 | Company/Model | Developer | Characteristics |
 | --- | --- | --- |
@@ -71,7 +71,7 @@ Most domestic models are distributed through (1) the developer's own API/platfor
 - **A distributed rather than a concentrated competitive structure**: rather than concentrating resources on one or two national-champion models, Japan's approach is closer to supporting a large number of companies and consortia through GENIAC and letting them compete in the real-world government usage channel of Gennai, with strong models identified after the fact. Rather than designing for long-term lock-in to a single vendor, **a gateway/abstraction layer that treats the FM as a swappable component** is advantageous for risk management.
 - **Gennai as a public procurement signal**: the results of Gennai's trials and procurement (expected in 2027) are likely to become a de facto authoritative indicator of which domestic models have been validated at government-scale workloads. Organizations targeting Japan's public sector or regulated industries should factor this timeline into their procurement roadmap.
 - **The rise of industry-specific models**: with a growing number of industry-specific collaborations — Sarashina (finance), ELYZA (insurance, local government) — regulated-industry workloads may increasingly call for industry-specific domestic models rather than general-purpose ones.
-- **Comparison with Korea's sovereign FM policy**: Korea, led by the Ministry of Science and ICT, takes a **top-down approach** through its [Independent AI Foundation Model Project](../../korea/ai/sovereign-fm-policy/), narrowing down to a small elite group of teams (four teams as of August 2026) through a six-month tournament cycle with concentrated GPU and budget support, whereas Japan is closer to a **bottom-up approach**, providing broad, distributed support through GENIAC and letting the market select strong models after the fact through real-world competition in Gennai. Both approaches ultimately share the goal of cultivating sovereign models tied to public procurement, but they carry different practical implications for the fluidity of the vendor ecosystem and the predictability of procurement timing.
+- **Comparison with Korea's sovereign FM policy**: Korea, led by the Ministry of Science and ICT, takes a **top-down approach** through its [Independent AI Foundation Model Project](../../korea/ai/sovereign-fm-policy/), narrowing down to a small elite group of teams (four teams as of September 2026) through a six-month tournament cycle with concentrated GPU and budget support, whereas Japan is closer to a **bottom-up approach**, providing broad, distributed support through GENIAC and letting the market select strong models after the fact through real-world competition in Gennai. Both approaches ultimately share the goal of cultivating sovereign models tied to public procurement, but they carry different practical implications for the fluidity of the vendor ecosystem and the predictability of procurement timing.
 
 ## References
 

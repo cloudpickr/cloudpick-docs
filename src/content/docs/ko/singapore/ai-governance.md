@@ -3,14 +3,14 @@ title: "AI 거버넌스"
 description: "싱가포르 AI 거버넌스 체계 — NAIS 2.0 국가 AI 전략, Model AI Governance Framework, AI Verify, IMDA의 도구 중심 접근, PDPA와의 관계, 아세안·동남아 연계를 정리합니다."
 ---
 
-> 문서 기준: 2026년 8월
+> 문서 기준: 2026년 9월
 
 ## 개요
 
 싱가포르의 AI 거버넌스는 **하나의 포괄적 AI 법률을 제정하는 대신, 기존 법제(PDPA 등) 위에 자율 준수형 프레임워크와 실무 도구를 얹는 방식**으로 설계되어 있습니다. 정보통신미디어개발청(Infocomm Media Development Authority, IMDA)과 개인정보보호위원회(PDPC)가 공동으로 정책을 주도하며, 국가 전략(NAIS)·거버넌스 프레임워크(Model AI Governance Framework)·테스팅 도구(AI Verify) 3단계가 상호 보완적으로 작동합니다.
 
 :::note
-싱가포르는 EU AI Act처럼 위험 등급별 법적 의무를 부과하는 방식이 아니라, "규제보다 도구(tools over regulation)"를 표방합니다. AI 자체를 규율하는 단일 법률은 2026년 8월 기준 존재하지 않으며, 기존 PDPA·부문별 법률(금융 규제 등)이 AI 활용에도 적용되는 구조입니다.
+싱가포르는 EU AI Act처럼 위험 등급별 법적 의무를 부과하는 방식이 아니라, "규제보다 도구(tools over regulation)"를 표방합니다. AI 자체를 규율하는 단일 법률은 2026년 9월 기준 존재하지 않으며, 기존 PDPA·부문별 법률(금융 규제 등)이 AI 활용에도 적용되는 구조입니다.
 :::
 
 ## NAIS·NAIS 2.0 — 국가 AI 전략
@@ -48,7 +48,7 @@ IMDA·PDPC는 2019년 **Model AI Governance Framework**(전통적 AI 대상, 민
 
 ## Model AI Governance Framework — 에이전틱 AI판(2026)
 
-생성형 AI판 발표 이후 에이전틱(Agentic) AI의 확산에 대응해, IMDA는 **2026년 1월 22일** 에이전틱 AI에 특화된 **Model AI Governance Framework for Agentic AI**를 새로 발표했습니다. 이는 AI 시스템이 스스로 계획을 세우고 행동을 실행하는 에이전틱 워크플로에서 발생하는 책임 소재·권한 위임·모니터링 관련 거버넌스 이슈를 다루며, 기존 생성형 AI판 프레임워크를 보완합니다. 2026년 8월 문서 기준일 현재 최신 거버넌스 프레임워크를 확인하려는 조직은 생성형 AI판과 에이전틱 AI판을 함께 참고해야 합니다.
+생성형 AI판 발표 이후 에이전틱(Agentic) AI의 확산에 대응해, IMDA는 **2026년 1월 22일** 에이전틱 AI에 특화된 **Model AI Governance Framework for Agentic AI**를 새로 발표했습니다. 이는 AI 시스템이 스스로 계획을 세우고 행동을 실행하는 에이전틱 워크플로에서 발생하는 책임 소재·권한 위임·모니터링 관련 거버넌스 이슈를 다루며, 기존 생성형 AI판 프레임워크를 보완합니다. 2026년 9월 문서 기준일 현재 최신 거버넌스 프레임워크를 확인하려는 조직은 생성형 AI판과 에이전틱 AI판을 함께 참고해야 합니다.
 
 ## AI Verify — 테스팅 프레임워크와 재단
 

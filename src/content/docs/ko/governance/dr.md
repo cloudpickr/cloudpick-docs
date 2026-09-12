@@ -3,7 +3,7 @@ title: "재해복구 (DR)"
 description: "RPO/RTO, BIA, DR 전략 유형(Backup&Restore–Active-Active), 벤더별 DR 서비스를 비교합니다."
 ---
 
-> 문서 기준: 2026년 8월
+> 문서 기준: 2026년 9월
 
 ## DR이란
 

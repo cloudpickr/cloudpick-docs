@@ -3,7 +3,7 @@ title: "Search and Log Analytics"
 description: "Compares full-text search, vector search, and log analytics services across vendors."
 ---
 
-> Last reviewed: August 2026
+> Last reviewed: September 2026
 
 ## Overview
 

@@ -3,7 +3,7 @@ title: "EU Overview"
 description: "A regulatory guide to GDPR, DORA, NIS2, and the EU AI Act for enterprise architects evaluating market entry and operations in the EU."
 ---
 
-> Last reviewed: August 2026
+> Last reviewed: September 2026
 
 ## Overview
 

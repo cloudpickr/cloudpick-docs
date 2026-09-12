@@ -3,7 +3,7 @@ title: "ISMAP (Japan Government Cloud Procurement Certification)"
 description: "Covers the overview, registration process, the distinction between ISMAP and ISMAP-LIU, hyperscaler registration status, and implications for foreign companies of Japan's cloud security assessment program for government information systems (ISMAP)."
 ---
 
-> Last reviewed: August 2026
+> Last reviewed: September 2026
 
 ## Overview
 
@@ -43,7 +43,7 @@ Out of concern that requiring the full ISMAP-level review even for SaaS handling
 As of April 1, 2025, the ISMAP-LIU pre-application (事前申請) procedure was abolished. Responsibility for confirming low-impact status has now shifted to the government procuring agency at the time of procurement, and the registration procedure itself is now operated in a manner largely similar to standard ISMAP. Check the [ISMAP Portal](https://www.ismap.go.jp/) for the latest operating details.
 :::
 
-## Registration Status of Hyperscalers and Major Providers (as of August 2026)
+## Registration Status of Hyperscalers and Major Providers (as of September 2026)
 
 | Provider | Registration status | Notes |
 | --- | --- | --- |

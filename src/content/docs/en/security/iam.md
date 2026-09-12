@@ -3,7 +3,7 @@ title: "IAM Practical Design and Security Operations"
 description: "Compares IAM practical design, authentication methods, permission models, least-privilege tools, and long-term credential risks across vendors."
 ---
 
-> Last reviewed: August 2026
+> Last reviewed: September 2026
 
 ## Overview
 

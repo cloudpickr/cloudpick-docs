@@ -3,7 +3,7 @@ title: "AI System Lifecycle and Engineering"
 description: "Explains the 7-stage AI system lifecycle based on NIST AI RMF and ISO/IEC 5338, the 4-Tier enterprise adoption matrix, and MLOps vs LLMOps operational frameworks."
 ---
 
-> Last reviewed: August 2026
+> Last reviewed: September 2026
 
 ## Overview
 

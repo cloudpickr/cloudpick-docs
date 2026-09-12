@@ -3,7 +3,7 @@ title: "FinOps"
 description: "A vendor-by-vendor comparison of the FinOps lifecycle, cost management tools, practical rollout order, and the FOCUS spec."
 ---
 
-> Last reviewed: August 2026
+> Last reviewed: September 2026
 
 ## What Is FinOps
 

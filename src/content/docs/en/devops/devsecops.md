@@ -3,7 +3,7 @@ title: "DevSecOps"
 description: "Compares DevSecOps principles and how to embed security into the CI/CD pipeline across vendors."
 ---
 
-> Last reviewed: August 2026
+> Last reviewed: September 2026
 
 ## Overview
 

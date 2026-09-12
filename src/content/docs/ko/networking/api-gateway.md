@@ -3,7 +3,7 @@ title: "API Gateway"
 description: "API Gateway의 역할, 인증 연동, 배포 전략을 벤더별로 비교합니다."
 ---
 
-> 문서 기준: 2026년 8월
+> 문서 기준: 2026년 9월
 
 ## 개요
 

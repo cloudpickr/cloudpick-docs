@@ -3,7 +3,7 @@ title: "Virtual Machines"
 description: "Compares general-purpose, Arm, and GPU virtual machine products and images (OS templates) across vendors."
 ---
 
-> Last reviewed: August 2026
+> Last reviewed: September 2026
 
 ## Overview
 

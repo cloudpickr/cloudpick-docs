@@ -3,7 +3,7 @@ title: "EU 회원국별 클라우드 보안 스킴"
 description: "독일 BSI C5, 프랑스 ANSSI SecNumCloud, 스페인 ENS, 이탈리아 ACN 등 EU 회원국 클라우드 보안 인증·조달 스킴과 하이퍼스케일러 대응 현황을 정리합니다."
 ---
 
-> 문서 기준: 2026년 8월
+> 문서 기준: 2026년 9월
 
 ## 개요
 
@@ -43,7 +43,7 @@ SecNumCloud 3.2가 다른 국가 스킴과 가장 크게 다른 지점은 **자�
 | 파트너십 | 벤더 | 현황 |
 | --- | --- | --- |
 | **S3NS** (Thales × Google Cloud 합작사) | Google Cloud | **2025년 12월 17일 SecNumCloud 3.2 자격 취득** — PREMI3NS 서비스로 IaaS·CaaS·PaaS 20여 개 서비스를 동시에 인증받은 최초 사례. 2026년 상반기 중 Cloud Run·Cloud Build·Cloud Spanner·Bigtable 등을 포함한 2차 확장 심사 진행 중 |
-| **Bleu** (Capgemini × Orange 합작사) | Microsoft Azure/M365 | 심사 1단계(J0, 신청 접수)를 통과했으며 2026년 상반기 자격 취득을 목표로 심사 진행 중. **2026년 8월 현재 완전한 SecNumCloud 3.2 자격은 아직 취득하지 않음** |
+| **Bleu** (Capgemini × Orange 합작사) | Microsoft Azure/M365 | 심사 1단계(J0, 신청 접수)를 통과했으며 2026년 상반기 자격 취득을 목표로 심사 진행 중. **2026년 9월 현재 완전한 SecNumCloud 3.2 자격은 아직 취득하지 않음** |
 
 전체적으로 2026년 7월 기준 자격 보유 사업자는 **9–10개**(OVHcloud, 3DS Outscale, Cloud Temple, Orange Business, Cegedim.cloud, Worldline, Oodrive, Whaller, S3NS 등 — ANSSI 공식 카탈로그의 서비스 유형별 집계 기준으로는 10개 사업자명까지 확인됨)이며, Bleu·Scaleway·NumSpot 등 **12개 사업자**가 심사 진행 중입니다.
 
@@ -71,7 +71,7 @@ SecNumCloud 3.2가 다른 국가 스킴과 가장 크게 다른 지점은 **자�
 
 - C5:2020은 EUCS Substantial 등급 요건 설계의 기초 자료로 이미 반영되었습니다.
 - EUCS 작업은 최고 등급(High+)의 "주권성 요건" 포함 여부를 둘러싼 회원국 간 이견으로 수년간 정체되었다가, 2026년 1월 20일 발표된 **Cybersecurity Act 2(CSA2)** 개정 흐름 속에서 재개되는 중입니다.
-- **2026년 8월 현재 EUCS는 여전히 확정되지 않았고, 주권성 요건 포함 여부는 논쟁이 진행 중입니다.** (자세한 경과는 [GDPR과 데이터 주권 — EUCS 인증 스킴의 유동성](../../eu/gdpr-sovereignty/#eucs-인증-스킴의-유동성) 참고)
+- **2026년 9월 현재 EUCS는 여전히 확정되지 않았고, 주권성 요건 포함 여부는 논쟁이 진행 중입니다.** (자세한 경과는 [GDPR과 데이터 주권 — EUCS 인증 스킴의 유동성](../../eu/gdpr-sovereignty/#eucs-인증-스킴의-유동성) 참고)
 
 그때까지 국가 스킴은 "잠정적이지만 시장에서 신뢰받는 증빙"으로 기능하며, 특히 BSI C5와 SecNumCloud는 EUCS 전환기의 사실상 기준으로 참조되고 있습니다.
 

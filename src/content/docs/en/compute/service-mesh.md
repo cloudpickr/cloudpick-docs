@@ -3,7 +3,7 @@ title: "Service Mesh"
 description: "Compares the concept of a service mesh, the sidecar vs. sidecarless models, and vendor-managed services."
 ---
 
-> Last reviewed: August 2026
+> Last reviewed: September 2026
 
 ## Overview
 

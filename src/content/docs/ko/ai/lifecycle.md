@@ -3,7 +3,7 @@ title: "AI 시스템 수명주기와 엔지니어링"
 description: "NIST AI RMF와 ISO/IEC 5338 기반의 AI 시스템 수명주기 7단계, 4-Tier 도입 매트릭스, MLOps와 LLMOps 운영 체계를 설명합니다."
 ---
 
-> 문서 기준: 2026년 8월
+> 문서 기준: 2026년 9월
 
 ## 개요
 

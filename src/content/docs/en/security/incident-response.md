@@ -3,7 +3,7 @@ title: "Security Incident Response"
 description: "Explains security incident response procedures in cloud environments, vendor-specific tools, and automation patterns."
 ---
 
-> Last reviewed: August 2026
+> Last reviewed: September 2026
 
 ## Overview
 

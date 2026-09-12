@@ -3,7 +3,7 @@ title: "Europe's Sovereign AI and Model Landscape"
 description: "Covers the EU AI Continent Action Plan and AI Factories, European foundation model providers such as Mistral AI and Aleph Alpha, and the scope of AI services offered by hyperscaler sovereign clouds."
 ---
 
-> Last reviewed: August 2026
+> Last reviewed: September 2026
 
 ## Overview
 
@@ -11,7 +11,7 @@ description: "Covers the EU AI Continent Action Plan and AI Factories, European 
 For EU cloud regulation overall, see the [EU Guide](../../eu/); for GDPR and data sovereignty background, see [GDPR and Data Sovereignty](../../eu/gdpr-sovereignty/) first. This document focuses on the EU's AI sovereignty policy and the European FM ecosystem.
 :::
 
-Beyond data sovereignty for cloud infrastructure, the EU has made **securing AI models and compute capacity themselves within the region** an explicit policy goal. This push to reduce dependence on US- and China-based foundation models (FMs) and to cultivate a European AI ecosystem combines government-led infrastructure investment (AI Factories/Gigafactories) with the cultivation of private FM providers (Mistral AI, Aleph Alpha, and others). This document summarizes the state of the EU's AI strategy, the European FM ecosystem, and the scope of AI services offered by hyperscaler sovereign clouds as of August 2026.
+Beyond data sovereignty for cloud infrastructure, the EU has made **securing AI models and compute capacity themselves within the region** an explicit policy goal. This push to reduce dependence on US- and China-based foundation models (FMs) and to cultivate a European AI ecosystem combines government-led infrastructure investment (AI Factories/Gigafactories) with the cultivation of private FM providers (Mistral AI, Aleph Alpha, and others). This document summarizes the state of the EU's AI strategy, the European FM ecosystem, and the scope of AI services offered by hyperscaler sovereign clouds as of September 2026.
 
 ## The EU AI Strategy — the AI Continent Action Plan
 
@@ -32,7 +32,7 @@ AI Factories, operated by the **EuroHPC Joint Undertaking**, are hubs that open 
 | December 2024 | First round: 7 AI Factories selected (Finland, Germany, Greece, Italy, Luxembourg, Spain, Sweden) |
 | March 2025 | Second round: 6 more added (Austria, Bulgaria, France, Germany, Poland, Slovenia) |
 | October 2025 | Third round: 6 more added, plus 13 new AI Factory Antennas |
-| As of August 2026 | **19 AI Factories plus 13 Antennas** operating across 15 or more member and associated states |
+| As of September 2026 | **19 AI Factories plus 13 Antennas** operating across 15 or more member and associated states |
 
 EuroHPC plans to procure at least nine new AI-specialized supercomputers between 2025 and 2026, expanding its existing AI compute capacity more than threefold, and the EU and participating countries have jointly invested more than €2.6 billion in AI Factories and Antennas.
 
@@ -58,7 +58,7 @@ Headquartered in Paris, Mistral AI is widely regarded as Europe's most advanced 
 Headquartered in Heidelberg, Germany, Aleph Alpha (founded 2019) grew into a flagship "sovereign AI" company with the goal of enabling European governments and regulators to operate high-performance AI without ceding data control to US big tech. Its PhariaAI platform is used in classified-level work environments within German federal ministries.
 
 :::caution
-**In April 2026, Canadian AI company Cohere and Aleph Alpha announced a deal to "join forces."** As of August 2026, official materials still describe this as a planned transaction rather than a completed acquisition, and the widely reported figure of roughly $20 billion is understood to be the combined enterprise value following the deal rather than a disclosed acquisition price. Digital ministers from both Germany and Canada attended the announcement event, and the deal was reported as having the backing of both governments, following on from the **Germany-Canada Sovereign Technology Alliance** launched around the Munich Security Conference in early 2026. Germany's digital ministry characterized the deal as holding "geopolitically and economically significant value."
+**In April 2026, Canadian AI company Cohere and Aleph Alpha announced a deal to "join forces."** As of September 2026, official materials still describe this as a planned transaction rather than a completed acquisition, and the widely reported figure of roughly $20 billion is understood to be the combined enterprise value following the deal rather than a disclosed acquisition price. Digital ministers from both Germany and Canada attended the announcement event, and the deal was reported as having the backing of both governments, following on from the **Germany-Canada Sovereign Technology Alliance** launched around the Munich Security Conference in early 2026. Germany's digital ministry characterized the deal as holding "geopolitically and economically significant value."
 
 However, this case also **shows that the definition of "European sovereign AI" itself is fluid.** Aleph Alpha still maintains its headquarters and workforce in Germany and continues to serve government workloads, but in governance terms it has become part of a merged entity with a Canadian company. Whether "sovereign" refers to the geographic location of data processing or extends to capital and governance structure varies by country, just as it does for France's SecNumCloud (see [EU Member-State Cloud Security Schemes](../national-schemes/)), and as the Aleph Alpha case shows, that boundary continues to be redefined by market conditions.
 :::
@@ -68,7 +68,7 @@ However, this case also **shows that the definition of "European sovereign AI" i
 Separate from private commercial models, the EU also supports **open FM projects** in which academia, industry, and EuroHPC centers jointly participate.
 
 - **OpenEuroLLM**: a €37.4 million project led by Charles University in Prague (Jan Hajič), co-led by AMD Silo AI, with a 20-institution consortium participating. It aims to develop a fully open (data, code, and weights published) LLM family supporting all official EU languages, jointly curating training data on EuroHPC supercomputers such as LUMI, Leonardo, and MareNostrum.
-- According to the Year 1 progress report published in March 2026, the plan is to release an 8-billion-parameter model **during summer 2026**, with larger models to follow in sequence afterward. **Whether this timeline was actually achieved needs to be separately confirmed through the project's official announcements as of the time this document was written (August 2026).**
+- According to the Year 1 progress report published in March 2026, the plan is to release an 8-billion-parameter model **during summer 2026**, with larger models to follow in sequence afterward. **Whether this timeline was actually achieved needs to be separately confirmed through the project's official announcements as of the time this document was written (September 2026).**
 - A key differentiator from commercial models is that EU AI Act compliance and accessibility for European SMEs and startups are explicitly written into the project's design goals.
 
 ## The Scope of AI Services on Hyperscaler EU Sovereign Clouds

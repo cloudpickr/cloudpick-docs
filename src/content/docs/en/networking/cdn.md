@@ -3,7 +3,7 @@ title: "CDN"
 description: "Compares CDN concepts, caching strategies, global network accelerators, and edge computing across vendors."
 ---
 
-> Last reviewed: August 2026
+> Last reviewed: September 2026
 
 ## Overview
 

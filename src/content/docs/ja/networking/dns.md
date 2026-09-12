@@ -3,7 +3,7 @@ title: "DNS"
 description: "マネージドDNS、ルーティングポリシー、DNSSEC、Private DNSをベンダー別に比較します。"
 ---
 
-> 文書基準: 2026年8月
+> 文書基準: 2026年9月
 
 ## 概要
 

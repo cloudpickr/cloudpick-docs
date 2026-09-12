@@ -3,7 +3,7 @@ title: Getting Started with AI
 description: "How to get started with AI on the cloud, organized by the three ways people use AI (conversational apps, coding tools, API/SDK)."
 ---
 
-> Last reviewed: August 2026
+> Last reviewed: September 2026
 
 :::note[Where to start, by role]
 AI adoption needs different information and depth depending on your role. These are quick entry points; for the full role × maturity (adoption stage) paths, see the adoption journey map in [AI system lifecycle](../../ai/lifecycle/).

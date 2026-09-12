@@ -3,7 +3,7 @@ title: "Platform Engineering"
 description: "Explains the concepts, tools, and multicloud standardization of platform engineering and the IDP (Internal Developer Platform)."
 ---
 
-> Last reviewed: August 2026
+> Last reviewed: September 2026
 
 ## Overview
 

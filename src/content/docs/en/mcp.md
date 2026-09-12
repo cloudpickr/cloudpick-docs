@@ -3,7 +3,7 @@ title: "AI Agent Integration (MCP)"
 description: "How to search and reference CloudPick docs from AI coding agents — MCP server connection setup and usage examples"
 ---
 
-> Last reviewed: August 2026
+> Last reviewed: September 2026
 
 The CloudPick documentation site provides a [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) server. Connect it to your AI coding agent (Kiro, Claude Desktop, Cursor, etc.) to search and reference documentation during conversations.
 

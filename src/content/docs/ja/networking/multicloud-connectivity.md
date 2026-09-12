@@ -3,7 +3,7 @@ title: "マルチクラウドネットワークアーキテクチャ"
 description: "Hub-and-Spokeなどのトランジットアーキテクチャ、Cross-Cloud Interconnect、Egressコスト最適化、マルチクラウドDNS統合戦略について説明します。"
 ---
 
-> 文書基準: 2026年8月
+> 文書基準: 2026年9月
 
 :::note[前提知識と関連ドキュメント]
 接続方式の概要とCIDR設計などの基礎は、[マルチクラウドネットワーク設計の基礎](../../networking/multicloud-networking/)を先に参照してください。本ドキュメントは、その上でHub-and-Spoke・トランジットアーキテクチャ、Cross-Cloud Interconnect、エグレスコスト最適化などの発展的な設計に焦点を当てます。
@@ -46,7 +46,7 @@ flowchart TD
 
 2025年12月のAWS re:Inventで、AWSとGoogle Cloudが**オープン相互運用仕様**に基づく共同マルチクラウドインターコネクトを発表しました。Microsoft Azureもこの仕様への参加を確認しており、Oracleも連携を発表しました（2026年4月）。この流れは単一ベンダーのイニシアチブではなく、業界全体でのマルチクラウド相互運用標準化の動きです。
 
-| サービス | 接続区間 | ステータス（2026年8月時点） |
+| サービス | 接続区間 | ステータス（2026年9月時点） |
 | --- | --- | --- |
 | [**AWS Interconnect – multicloud**](https://aws.amazon.com/interconnect/multicloud/) | AWS ↔ Google Cloud / OCI | GA。Google Cloud（2026年4月）、OCI（2026年7月、us-east-1）。Azureは2026年内に予定 |
 | [**Google Cross-Cloud Interconnect**](https://cloud.google.com/network-connectivity/docs/interconnect/concepts/cross-cloud-overview) | Google Cloud ↔ AWS/Azure/OCI | GA。オープン相互運用仕様ベース |

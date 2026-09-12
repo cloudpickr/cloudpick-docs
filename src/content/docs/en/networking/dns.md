@@ -3,7 +3,7 @@ title: "DNS"
 description: "Compares managed DNS, routing policies, DNSSEC, and Private DNS across vendors."
 ---
 
-> Last reviewed: August 2026
+> Last reviewed: September 2026
 
 ## Overview
 

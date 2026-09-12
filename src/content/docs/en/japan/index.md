@@ -3,7 +3,7 @@ title: "Japan Overview"
 description: "A cloud regulatory guide for entering and operating in the Japanese market — ISMAP (government cloud procurement certification) and APPI (Act on the Protection of Personal Information)"
 ---
 
-> Last reviewed: August 2026
+> Last reviewed: September 2026
 
 ## Overview
 

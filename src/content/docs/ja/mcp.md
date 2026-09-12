@@ -3,7 +3,7 @@ title: "AIエージェント連携 (MCP)"
 description: "CloudPickドキュメントをAIコーディングエージェントから検索・参照する方法 — MCPサーバー接続設定と使用例"
 ---
 
-> 文書基準: 2026年8月
+> 文書基準: 2026年9月
 
 CloudPickドキュメントサイトは[Model Context Protocol (MCP)](https://modelcontextprotocol.io/)サーバーを提供しています。AIコーディングエージェント（Kiro、Claude Desktop、Cursorなど）に接続すると、会話中にドキュメントを検索し、全文を参照できます。
 

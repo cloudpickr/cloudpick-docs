@@ -3,7 +3,7 @@ title: "MTCS (Multi-Tier Cloud Security Standard)"
 description: "Covers the tier system, operating bodies, hyperscaler certification status, and additional financial-sector requirements of Singapore's MTCS (SS 584) cloud security standard."
 ---
 
-> Last reviewed: August 2026
+> Last reviewed: September 2026
 
 ## Overview
 
@@ -34,7 +34,7 @@ All three levels can have separate certification scopes by service type (IaaS/Pa
 - After certification, vendors must maintain their status through a **3-year renewal cycle plus annual surveillance audits**; failing an audit can lead to suspension or revocation of certification.
 - IMDA publishes a list of MTCS-certified cloud services and certificates (including QR codes) on its official website so procurement staff can verify them.
 
-## Hyperscaler Certification Status (as of August 2026)
+## Hyperscaler Certification Status (as of September 2026)
 
 | Vendor | Certified level | Notes |
 | --- | --- | --- |

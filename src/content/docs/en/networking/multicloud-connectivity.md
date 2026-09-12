@@ -3,7 +3,7 @@ title: "Multicloud Network Architecture"
 description: "Explains transit architectures such as Hub-and-Spoke, Cross-Cloud Interconnect, egress cost optimization, and multicloud DNS integration strategy."
 ---
 
-> Last reviewed: August 2026
+> Last reviewed: September 2026
 
 :::note[Prerequisites and related documents]
 For an overview of connectivity methods and CIDR design, read [Multicloud Network Design Fundamentals](../../networking/multicloud-networking/) first. Building on that, this document focuses on advanced design such as hub-and-spoke and transit architectures, Cross-Cloud Interconnect, and egress cost optimization.
@@ -46,7 +46,7 @@ Major CSPs, despite being competitors, provide dedicated inter-vendor networks i
 
 At AWS re:Invent in December 2025, AWS and Google Cloud announced a joint multicloud interconnect based on an **open interoperability spec**. Microsoft Azure has also confirmed participation in this spec, and Oracle announced integration as well (April 2026). This is not a single vendor's initiative — it's an industry-wide movement toward standardizing multicloud interoperability.
 
-| Service | Connection segment | Status (as of August 2026) |
+| Service | Connection segment | Status (as of September 2026) |
 | --- | --- | --- |
 | [**AWS Interconnect – multicloud**](https://aws.amazon.com/interconnect/multicloud/) | AWS ↔ Google Cloud / OCI | GA. Google Cloud (April 2026), OCI (July 2026, us-east-1). Azure planned within 2026 |
 | [**Google Cross-Cloud Interconnect**](https://cloud.google.com/network-connectivity/docs/interconnect/concepts/cross-cloud-overview) | Google Cloud ↔ AWS/Azure/OCI | GA. Based on the open interoperability spec |

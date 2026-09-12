@@ -3,7 +3,7 @@ title: "Backup and Recovery"
 description: "Compares integrated backup services, RPO/RTO trade-offs, the 3-2-1 rule, and ransomware preparedness across vendors."
 ---
 
-> Last reviewed: August 2026
+> Last reviewed: September 2026
 
 ## Overview
 

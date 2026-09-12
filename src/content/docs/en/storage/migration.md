@@ -3,7 +3,7 @@ title: "Storage Migration"
 description: "Compares online/offline transfer methods and tools for moving large-scale data to the cloud across vendors."
 ---
 
-> Last reviewed: August 2026
+> Last reviewed: September 2026
 
 ## Overview
 

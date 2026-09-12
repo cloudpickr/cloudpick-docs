@@ -3,7 +3,7 @@ title: "Physical AI"
 description: "Compares the building blocks of Physical AI — which connects AI to the physical world of sensors, robots, and equipment — across edge inference, digital twins and simulation, and robotics foundation models from a vendor-neutral perspective."
 ---
 
-> Last reviewed: August 2026 | This document covers a fast-moving area and is subject to quarterly review.
+> Last reviewed: September 2026 | This document covers a fast-moving area and is subject to quarterly review.
 
 ## What Is Physical AI
 
@@ -68,7 +68,7 @@ Just as LLMs generalized language, **robot foundation models** are emerging to g
 | National policy | Japan adopted robotics foundation model development as a national project under GENIAC (see [Japan's AI Landscape](../../japan/ai-landscape/)) |
 
 :::caution
-Robot foundation models and **world models** are an early, fast-moving area as of August 2026. Model names, versions, and performance figures change significantly with each vendor announcement, so this document covers only what can be compared with reasonable maturity and defers detailed figures to official source links.
+Robot foundation models and **world models** are an early, fast-moving area as of September 2026. Model names, versions, and performance figures change significantly with each vendor announcement, so this document covers only what can be compared with reasonable maturity and defers detailed figures to official source links.
 :::
 
 ## Safety Layer — Autonomous Driving and Robotics

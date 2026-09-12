@@ -3,7 +3,7 @@ title: "Korea Overview"
 description: "Guides specific to the Korean market — CSAP, network separation, sovereign AI policy, and domestic FM providers"
 ---
 
-> Last reviewed: August 2026
+> Last reviewed: September 2026
 
 ## Overview
 

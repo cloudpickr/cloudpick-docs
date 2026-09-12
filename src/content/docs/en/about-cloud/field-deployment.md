@@ -3,7 +3,7 @@ title: "Field Deployment"
 description: "Summarizes the role of Forward Deployed Engineers (FDE), the skills they need, and practical knowledge for multicloud environments."
 ---
 
-> Last reviewed: August 2026
+> Last reviewed: September 2026
 
 A Forward Deployed Engineer (FDE) is embedded directly in a customer's environment to land the product in production. Rather than design or advisory work, they write and own real production code.
 

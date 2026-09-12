@@ -3,7 +3,7 @@ title: "API Gateway"
 description: "Compares the role of API Gateway, authentication integration, and deployment strategies across vendors."
 ---
 
-> Last reviewed: August 2026
+> Last reviewed: September 2026
 
 ## Overview
 

@@ -3,7 +3,7 @@ title: "Block and File Storage"
 description: "Compares block/file storage differences, volume types, AZ dependency, and anti-patterns across vendors."
 ---
 
-> Last reviewed: August 2026
+> Last reviewed: September 2026
 
 ## Overview
 

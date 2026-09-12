@@ -3,7 +3,7 @@ title: "PDPA (Personal Data Protection Act)"
 description: "Covers the overview of Singapore's PDPA, the Transfer Limitation Obligation and the April 2026 guide revision, implications for ASEAN region design, and practical considerations such as DNC."
 ---
 
-> Last reviewed: August 2026
+> Last reviewed: September 2026
 
 ## Overview
 

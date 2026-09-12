@@ -78,7 +78,7 @@ flowchart LR
 
 | 벤더 | 제품 | 비고 |
 | --- | --- | --- |
-| AWS | CodeCommit | 2024년 신규 생성 중단. GitHub/GitLab 사용 권장 |
+| AWS | CodeCommit | 2025년 11월 신규 가입 재개(GA 복귀). 기존 Git 호스팅 |
 | Azure | Azure Repos | Git 기반. Azure DevOps에 포함 |
 | Google Cloud | Cloud Source Repositories | 2024년 신규 생성 중단. Secure Source Manager 또는 GitHub/GitLab 사용 권장 |
 | OCI | OCI DevOps Code Repositories | Git 기반. OCI DevOps에 포함 |
@@ -94,7 +94,7 @@ flowchart LR
 
 ## 핵심 차이점
 
-**AWS** — CodeBuild/CodeDeploy/CodePipeline으로 풀 파이프라인을 구성할 수 있지만, 실무에서는 GitHub Actions + CodeDeploy 조합이 많이 사용됩니다. CodeCommit은 신규 생성이 중단되었습니다.
+**AWS** — CodeBuild/CodeDeploy/CodePipeline으로 풀 파이프라인을 구성할 수 있지만, 실무에서는 GitHub Actions + CodeDeploy 조합이 많이 사용됩니다. CodeCommit은 2025년 11월 신규 가입을 재개했습니다.
 
 **Azure** — Azure DevOps가 소스 관리, CI/CD, 보드(이슈 트래킹), 테스트를 하나의 플랫폼으로 통합합니다. GitHub Actions와도 긴밀히 연동됩니다.
 

@@ -39,7 +39,7 @@ Creating infrastructure with console clicks is fast, but it's not reproducible a
 
 | Product | Language | Notes |
 | --- | --- | --- |
-| Terraform / OpenTofu | HCL (HashiCorp Configuration Language) | Most widely used. Supports every vendor. Terraform 1.15 / OpenTofu 1.13 (as of 2026) |
+| Terraform / OpenTofu | HCL (HashiCorp Configuration Language) | Most widely used. Supports every vendor. Terraform 1.16 / OpenTofu 1.13 (as of 2026) |
 | Pulumi | TypeScript, Python, Go, C#, Java | Uses general-purpose programming languages. Easy to test. Pulumi Neo (agentic infrastructure) launched |
 | Crossplane | Kubernetes YAML | Manages cloud resources from a K8s cluster |
 
@@ -62,7 +62,7 @@ Because Terraform can use Cloud Control API as the backend for new AWS resources
 
 **Azure Bicep** — Replaces the complex JSON of ARM Templates with a concise DSL. The VS Code extension provides autocomplete and validation.
 
-**Terraform** — The de facto standard in multicloud environments. A single language (HCL) can manage AWS, Azure, and Google Cloud all at once. Requires state file management. The latest stable version is 1.15, adding dynamic module sources (variables in source/version fields), a formal variable/output deprecation mechanism, inline type conversion functions, and Windows ARM64 support.
+**Terraform** — The de facto standard in multicloud environments. A single language (HCL) can manage AWS, Azure, and Google Cloud all at once. Requires state file management. The latest stable version is the 1.16 series, providing dynamic module sources (variables in source/version fields), a formal variable/output deprecation mechanism, and inline type conversion functions.
 
 **OpenTofu** — An MPL-2.0 open-source fork of Terraform and CNCF Sandbox project (joined Apr 2025). The latest stable version is 1.13. It independently develops differentiating features such as state file encryption, early variable evaluation, and ephemeral values, while maintaining high compatibility with Terraform HCL.
 

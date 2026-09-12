@@ -82,7 +82,7 @@ DR 목표를 설정하기 전에 다음을 먼저 정의해야 합니다:
 graph LR
     A["🗄️ Backup & Restore<br/>RPO: 시간 단위<br/>RTO: 시간 단위<br/>비용: 낮음"]
     B["💡 Pilot Light<br/>RPO: 분 단위<br/>RTO: 수십 분<br/>비용: 중간"]
-    C["🔆 Warm Standby<br/>RPO: 초~분<br/>RTO: 분 단위<br/>비용: 높음"]
+    C["🔆 Warm Standby<br/>RPO: 초–분<br/>RTO: 분 단위<br/>비용: 높음"]
     D["⚡ Active-Active<br/>RPO: 0<br/>RTO: 거의 0<br/>비용: 매우 높음"]
 
     A -->|복구 목표 높임| B -->|복구 목표 높임| C -->|복구 목표 높임| D

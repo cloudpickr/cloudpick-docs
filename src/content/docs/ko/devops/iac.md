@@ -39,7 +39,7 @@ description: "IaC 개념, 벤더 네이티브/멀티클라우드 도구 비교, 
 
 | 제품 | 언어 | 비고 |
 | --- | --- | --- |
-| Terraform / OpenTofu | HCL (HashiCorp Configuration Language) | 가장 널리 사용. 모든 벤더 지원. Terraform 1.15 / OpenTofu 1.13 (2026년 기준) |
+| Terraform / OpenTofu | HCL (HashiCorp Configuration Language) | 가장 널리 사용. 모든 벤더 지원. Terraform 1.16 / OpenTofu 1.13 (2026년 기준) |
 | Pulumi | TypeScript, Python, Go, C#, Java | 일반 프로그래밍 언어 사용. 테스트 용이. Pulumi Neo(에이전트 인프라) 출시 |
 | Crossplane | Kubernetes YAML | K8s 클러스터에서 클라우드 리소스 관리 |
 
@@ -62,7 +62,7 @@ AWS Cloud Control API는 Terraform이 새 AWS 리소스를 지원할 때 개별 
 
 **Azure Bicep** — ARM Template의 복잡한 JSON을 간결한 DSL로 대체합니다. VS Code 확장으로 자동 완성과 검증을 제공합니다.
 
-**Terraform** — 멀티클라우드 환경에서 사실상 표준입니다. 하나의 언어(HCL)로 AWS, Azure, Google Cloud를 모두 관리할 수 있습니다. 상태 파일(State) 관리가 필요합니다. 최신 안정 버전은 1.15로, 동적 모듈 소스(변수로 source/version 지정), variable/output deprecation 메커니즘, 인라인 타입 변환 함수, Windows ARM64 지원이 추가되었습니다.
+**Terraform** — 멀티클라우드 환경에서 사실상 표준입니다. 하나의 언어(HCL)로 AWS, Azure, Google Cloud를 모두 관리할 수 있습니다. 상태 파일(State) 관리가 필요합니다. 최신 안정 버전은 1.16 계열로, 동적 모듈 소스(변수로 source/version 지정), variable/output deprecation 메커니즘, 인라인 타입 변환 함수 등이 제공됩니다.
 
 **OpenTofu** — Terraform의 MPL-2.0 오픈소스 포크로 CNCF Sandbox 프로젝트(2025.04 가입)입니다. 최신 안정 버전은 1.13이며, 상태 파일 암호화, 조기 변수 평가(early variable evaluation), 에페메럴 값(ephemeral values) 등 Terraform과 차별화되는 기능을 독자적으로 개발하고 있습니다. Terraform HCL과 높은 호환성을 유지합니다.
 

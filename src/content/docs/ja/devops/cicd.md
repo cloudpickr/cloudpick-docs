@@ -78,7 +78,7 @@ flowchart LR
 
 | ベンダー | 製品 | 備考 |
 | --- | --- | --- |
-| AWS | CodeCommit | 2024年に新規作成を停止。GitHub/GitLabの使用を推奨 |
+| AWS | CodeCommit | 2025年11月に新規登録を再開（GA復帰）。既存のGitホスティング |
 | Azure | Azure Repos | Gitベース。Azure DevOpsに含まれる |
 | Google Cloud | Cloud Source Repositories | 2024年に新規作成を停止。Secure Source ManagerまたはGitHub/GitLabの使用を推奨 |
 | OCI | OCI DevOps Code Repositories | Gitベース。OCI DevOpsに含まれる |
@@ -94,7 +94,7 @@ flowchart LR
 
 ## 主な違い
 
-**AWS** — CodeBuild/CodeDeploy/CodePipelineでフルパイプラインを構成できますが、実務ではGitHub Actions + CodeDeployの組み合わせがよく使われます。CodeCommitは新規作成が停止されています。
+**AWS** — CodeBuild/CodeDeploy/CodePipelineでフルパイプラインを構成できますが、実務ではGitHub Actions + CodeDeployの組み合わせがよく使われます。CodeCommitは2025年11月に新規登録を再開しました。
 
 **Azure** — Azure DevOpsがソース管理、CI/CD、ボード（課題トラッキング）、テストを一つのプラットフォームに統合しています。GitHub Actionsとも緊密に連携します。
 

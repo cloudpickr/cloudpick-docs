@@ -287,18 +287,20 @@ export default defineConfig({
 					translations: { ko: 'AI', ja: 'AI' },
 					items: [
 						{
-							label: '시작하기',
-							translations: { en: 'Start here', ja: 'はじめに' },
+							label: '시작하기·여정',
+							translations: { en: 'Start & journey', ja: 'はじめに・導入の道筋' },
 							items: [
 								{ slug: 'ai/getting-started' },
+								{ slug: 'ai/lifecycle' },
 							],
 						},
 						{
-							label: '에이전트·도입',
-							translations: { en: 'Agents & adoption', ja: 'エージェントと導入' },
+							label: '평가·선택',
+							translations: { en: 'Evaluate & choose', ja: '評価・選択' },
 							items: [
-								{ slug: 'ai/agents' },
-								{ slug: 'ai/agent-adoption' },
+								{ slug: 'ai/ai-ml' },
+								{ slug: 'ai/1p-vs-3p' },
+								{ slug: 'ai/licensing' },
 							],
 						},
 						{
@@ -311,20 +313,24 @@ export default defineConfig({
 							],
 						},
 						{
-							label: '운영·채널·비용',
-							translations: { en: 'Ops, channel & cost', ja: '運用・チャネル・コスト' },
+							label: '에이전트·도입',
+							translations: { en: 'Agents & adoption', ja: 'エージェントと導入' },
 							items: [
-								{ slug: 'ai/1p-vs-3p' },
-								{ slug: 'ai/licensing' },
+								{ slug: 'ai/agents' },
+								{ slug: 'ai/agent-adoption' },
+							],
+						},
+						{
+							label: '운영·거버넌스',
+							translations: { en: 'Ops & governance', ja: '運用・ガバナンス' },
+							items: [
 								{ slug: 'ai/llmops' },
 							],
 						},
 						{
-							label: '참조',
-							translations: { en: 'Reference', ja: '参照' },
+							label: '심화·특수',
+							translations: { en: 'Advanced & specialized', ja: '応用・特殊' },
 							items: [
-								{ slug: 'ai/ai-ml' },
-								{ slug: 'ai/lifecycle' },
 								{ slug: 'ai/multicloud-ai' },
 								{ slug: 'ai/physical-ai' },
 							],

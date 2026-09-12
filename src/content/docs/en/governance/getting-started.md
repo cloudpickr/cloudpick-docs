@@ -25,6 +25,10 @@ Governance is not about "slowing things down." Well-designed governance lets tea
 | **[Disaster Recovery (DR)](../../governance/dr/)** | How quickly can we recover from an outage? | Prolonged service disruption during a regional outage |
 | **[Vendor Lock-in and Exit Strategy](../../governance/exit-strategy/)** | Can you leave when you need to switch vendors? | Loss of negotiating power, exposure to price hikes |
 
+:::note[AI governance is a separate axis]
+AI systems add risks absent from traditional governance — hallucination, bias, PII leakage, and prompt injection. The governance entry point for AI adoption is the [problem framing & governance](../../ai/lifecycle/#1-problem-framing--governance) stage of the [AI system lifecycle](../../ai/lifecycle/); organizational rollout control is covered in the [Agent adoption guide](../../ai/agent-adoption/), and the technical security boundary in [AI security](../../security/ai-security/).
+:::
+
 ## Where to Start
 
 Trying to build governance perfectly all at once delays adoption. A realistic approach is to expand incrementally in the following order.

@@ -5,6 +5,18 @@ description: "How to get started with AI on the cloud, organized by the three wa
 
 > Last reviewed: August 2026
 
+:::note[Where to start, by role]
+AI adoption needs different information and depth depending on your role. These are quick entry points; for the full role × maturity (adoption stage) paths, see the adoption journey map in [AI system lifecycle](../../ai/lifecycle/).
+
+- **Executives / decision-makers** — [AI platforms and model comparison](../../ai/ai-ml/), [AI system lifecycle](../../ai/lifecycle/) (what & why)
+- **Architects** — [AI system lifecycle](../../ai/lifecycle/), [Multi-cloud AI](../../ai/multicloud-ai/)
+- **Developers** — [Prompt engineering](../../ai/prompt-engineering/), [RAG patterns](../../ai/rag-patterns/), [AI agents](../../ai/agents/)
+- **Operators / platform** — [LLMOps](../../ai/llmops/), [AI security](../../security/ai-security/)
+- **Procurement / FinOps** — [LLM channel selection](../../ai/1p-vs-3p/), [Licensing and cost](../../ai/licensing/)
+- **Governance** — [Agent adoption guide](../../ai/agent-adoption/), the lifecycle's [problem framing & governance](../../ai/lifecycle/#1-problem-framing--governance)
+- **Field deployment (FDE)** — [Field deployment](../../about-cloud/field-deployment/) (production delivery in customer environments)
+:::
+
 ## Decide First: Is AI the Right Fit for This Problem?
 
 Before choosing an interface or a model, confirm **whether this is even an AI problem**. Generative AI is strong at producing plausible text, code, and images, but it is **not a source of verified facts, up-to-date internal data, or deterministic calculation.** Use these four questions to filter.

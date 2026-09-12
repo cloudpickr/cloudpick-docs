@@ -107,14 +107,7 @@ description: "벤더별 AI 플랫폼, 모델 카탈로그, GPU/AI 칩, Applied A
 
 ### GPU / AI 가속기
 
-아래는 벤더별 GPU 인스턴스 제품 목록입니다. GPU 세대별(H100/H200/B200/GB200) 스펙·성능 비교와 리전 가용성은 [멀티클라우드 AI — GPU 가용성](../../ai/multicloud-ai/#gpu-가용성)을 참고하세요.
-
-| 벤더 | 제품 | 비고 |
-| --- | --- | --- |
-| AWS | P6 (NVIDIA B200), P6e (GB200 UltraServer), P5 (H100), Trn2 (Trainium), Inf2 (Inferentia) | Blackwell: P6-B200(8×B200), P6e-GB200(최대 72 GPU NVLink). 학습: Trainium, 추론: Inferentia로 비용 최적화 |
-| Azure | ND GB200-v6, ND H200 v5, ND H100 v5 | GB200-v6: Blackwell 플래그십. DL 학습/생성형 AI/HPC |
-| Google Cloud | A4X (GB200 NVL72), A4 (B200), A3 (H100), TPU v5p/v6e/Ironwood | A4: Blackwell 단일 GPU, A4X: GB200 NVL72 랙스케일 제공. TPU: Google 자체 AI 가속기(Ironwood 최신) |
-| OCI | GPU Instances (B200, H100, A100) | NVIDIA Blackwell + Bare Metal + RDMA 클러스터 지원 |
+모델 학습·추론에 쓰는 벤더별 GPU 인스턴스(Blackwell B200/GB200, Hopper H100/H200, A100)와 자체 AI 칩(AWS Trainium/Inferentia, Azure Maia, Google TPU), 예약·스팟 옵션은 [멀티클라우드 AI — GPU 가용성](../../ai/multicloud-ai/#gpu-가용성)에서 세대별 스펙·성능·리전 가용성과 함께 한곳에 정리했습니다.
 
 ## 핵심 차이점
 

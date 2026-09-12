@@ -99,14 +99,7 @@ For organizations that need to train and deploy their own models.
 
 ### GPU / AI Accelerators
 
-The table below lists GPU instance products by vendor. For per-generation GPU (H100/H200/B200/GB200) spec/performance comparison and regional availability, see [Multicloud AI — GPU Availability](../../ai/multicloud-ai/#gpu-availability).
-
-| Vendor | Products | Notes |
-| --- | --- | --- |
-| AWS | P6 (B200), P6e (GB200 UltraServer), P5 (H100), Trn2 (Trainium), Inf2 (Inferentia) | Blackwell: P6-B200 (8×B200), P6e-GB200 (up to 72 GPU NVLink). Training: Trainium, Inference: Inferentia |
-| Azure | ND GB200-v6, ND H200 v5, ND H100 v5 | GB200-v6: Blackwell flagship for DL training/GenAI/HPC |
-| Google Cloud | A4X (GB200 NVL72), A4 (B200), A3 (H100), TPU v5p/v6e/Ironwood | A4X: rack-scale GB200 NVL72. TPU: Google's custom AI accelerator (Ironwood latest) |
-| OCI | GPU Instances (B200, H100, A100) | NVIDIA Blackwell + Bare Metal + RDMA cluster support |
+Vendor GPU instances for model training/inference (Blackwell B200/GB200, Hopper H100/H200, A100), custom AI chips (AWS Trainium/Inferentia, Azure Maia, Google TPU), and reserved/spot options are consolidated — together with per-generation spec/performance and regional availability — in [Multicloud AI — GPU Availability](../../ai/multicloud-ai/#gpu-availability).
 
 ## Key Differences
 

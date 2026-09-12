@@ -44,7 +44,7 @@ description: "ベンダー別のAIプラットフォーム、モデルカタロ�
 | **画像生成** | テキスト → 画像 | DALL-E, MAI-Image, Imagen, Titan Image | マーケティング、デザイン |
 | **音声 (TTS/STT)** | テキスト ↔ 音声 | Polly, MAI-Voice, Azure Speech, Cloud TTS | 議事録、ARS、アクセシビリティ |
 | **動画生成** | テキスト → 動画 | Nova Reel, Veo 3.1, Gemini Omni | 広告、ショート動画 |
-| **マルチモーダル** | テキスト+画像+音声 → テキスト | GPT-5.6, Gemini 3.5 Pro, Claude Fable 5 | 文書理解、画像分析 |
+| **マルチモーダル** | テキスト+画像+音声 → テキスト | GPT-5.6, Gemini 3 Pro系, Claude Fable 5 | 文書理解、画像分析 |
 | **エンベディング** | テキスト/画像 → ベクトル | Titan Embeddings, Gemini Embedding, Cohere Embed | RAG、類似度検索 |
 
 ## 生成AIサービス
@@ -56,11 +56,11 @@ description: "ベンダー別のAIプラットフォーム、モデルカタロ�
 | モデル提供社 | 主要モデル | 1P (直接) | 3P (クラウド提供) |
 | --- | --- | --- | --- |
 | **OpenAI** | GPT-5.6 (Sol/Terra/Luna), GPT-5.5, oシリーズ | [api.openai.com](https://platform.openai.com/) | Azure Foundry, Bedrock |
-| **Anthropic** | Claude Fable 5, Opus 5, Opus 4.8, Sonnet 5, Haiku | [api.anthropic.com](https://platform.claude.com/) | Bedrock, Vertex AI |
-| **Google** | Gemini 3.5 Pro/Flash, 3.1 Pro, Gemini Omni (Preview/GAは[公式文書](https://ai.google.dev/)で確認) | [Gemini API](https://ai.google.dev/) | Vertex AI (ネイティブ) |
-| **SpaceXAI (旧xAI)** | Grok 4.6, Grok 4.3, Grok Imagine | [x.ai/api](https://x.ai/api) | OCI, Vertex AI, Bedrock, Azure |
+| **Anthropic** | Claude Fable 5, Opus 5, Sonnet 5, Haiku 4.5 | [api.anthropic.com](https://platform.claude.com/) | Bedrock, Vertex AI |
+| **Google** | Gemini 3.x世代 (Pro/Flash — 世代・バリアント・Preview/GAは[公式文書](https://ai.google.dev/)で確認)、Gemini Omni | [Gemini API](https://ai.google.dev/) | Vertex AI (ネイティブ) |
+| **SpaceXAI (旧xAI)** | Grok 4.6, Grok Imagine | [x.ai/api](https://x.ai/api) | OCI, Vertex AI, Bedrock, Azure |
 | **Meta** | Llama 4 (オープンウェイト) | [llama.com](https://www.llama.com/) | Bedrock, Vertex, Azure, OCI (ホスティング) |
-| **Amazon** | Nova 1(Premier/Pro/Lite/Micro/Sonic等) + **Nova 2**(Lite, Pro等 — 世代区分) | — (Bedrock専用) | Bedrock |
+| **Amazon** | Nova 1(Premier/Pro/Lite/Micro/Sonic等) + **Nova 2**(Lite GA、Pro Preview) | — (Bedrock専用) | Bedrock |
 | **Microsoft** | MAI (Image/Voice/Transcribe) | — (Foundry専用) | Azure Foundry |
 | **Mistral** | Large, Small, Codestral | [api.mistral.ai](https://docs.mistral.ai/) | Bedrock, Azure, Vertex |
 | **Upstage** | Solar Pro 3/2/Mini | [console.upstage.ai](https://console.upstage.ai/) | AWS/Azure Marketplace |
@@ -171,7 +171,7 @@ AIシステムの7段階エンドツーエンドライフサイクル(AI System 
 | **Flex/バッチ推論** | レイテンシに敏感でないワークロードを低優先度で処理してコスト削減 | Bedrock Flex Inference, Azure Batch API, Vertex Batch Predictions |
 | **モデルルーティング** | 単純なクエリは軽量モデル(Flash/Haiku/mini)、複雑なクエリのみ高性能モデルに分岐 | Bedrock IntelligentPromptRouter, 自社構築 |
 | **プロンプトキャッシング** | 同一のシステムプロンプト/コンテキストをキャッシュして繰り返しトークンのコストを削減 | Anthropic Prompt Caching, OpenAI Cached Tokens, Gemini Context Caching |
-| **長期コンテキスト vs RAG** | モデルのコンテキストウィンドウ拡張(1～2M+トークン)によりRAGなしでも十分な場合が発生 | Gemini 3.5 Pro, Claude Opus系 |
+| **長期コンテキスト vs RAG** | モデルのコンテキストウィンドウ拡張(1～2M+トークン)によりRAGなしでも十分な場合が発生 | Gemini 3 Pro系, Claude Opus系 |
 | **GPU価格競争** | ハイパースケーラー間でのGPUインスタンス価格引き下げ傾向 | AWS, Azure, GCP競争的値下げ |
 
 :::note

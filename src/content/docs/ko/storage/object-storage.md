@@ -130,7 +130,7 @@ AWS S3 Intelligent-Tiering과 Google Cloud Autoclass, OCI Auto-Tiering은 접근
 | **데이터 레이크** | S3 + Lake Formation | Data Lake Storage Gen2 + Fabric | Cloud Storage + BigLake | OCI Object Storage + Data Lake |
 | **테이블 저장 (Iceberg)** | S3 Tables | Data Lake Storage + Synapse | BigLake (Iceberg 네이티브) | — |
 | **메타데이터 자동 관리** | S3 Metadata | Blob Index Tags | — | — |
-| **벡터 저장/검색** | S3 Vectors (Preview) | AI Search + Blob 연동 | BigQuery Vector Index | AI Vector Search (Autonomous DB) |
+| **벡터 저장/검색** | S3 Vectors (GA) | AI Search + Blob 연동 | BigQuery Vector Index | AI Vector Search (Autonomous DB) |
 | **SQL 직접 쿼리** | S3 Select, Athena | Query Acceleration, Synapse | BigQuery External Tables | OCI Data Flow (Spark) |
 
 :::note

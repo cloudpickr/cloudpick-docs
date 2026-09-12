@@ -61,7 +61,7 @@ Purpose-built for vector search. Use for large-scale/high-performance needs.
 | Vendor | Product | Characteristics |
 | --- | --- | --- |
 | AWS | [OpenSearch Serverless Vector Engine](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-vector-search.html) | Large-scale vector search |
-| AWS | [S3 Vectors (Preview)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-vectors.html) | S3 durability + low cost |
+| AWS | [S3 Vectors](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-vectors.html) | S3 durability + low cost (GA 2025.12; broad regional coverage — see [official region list](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-vectors-regions-quotas.html)) |
 | Azure | [Azure AI Search](https://learn.microsoft.com/azure/search/vector-search-overview) | Vector + keyword + semantic ranking integrated |
 | Google Cloud | [Vertex AI Vector Search](https://cloud.google.com/vertex-ai/docs/vector-search/overview) | Google ScaNN algorithm, high performance |
 | OCI | [OCI AI Vector Search](https://docs.oracle.com/en-us/iaas/autonomous-database-serverless/doc/oracle-ai-vector-search-autonomous-database.html) | Built into Autonomous Database, SQL-based |

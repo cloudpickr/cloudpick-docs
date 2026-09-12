@@ -101,7 +101,7 @@ graph LR
 
 - **표준 포맷** — Parquet, Avro, JSON, CSV
 - **정기 백업을 중립 위치에 저장** — 다른 리전/벤더/온프레미스
-- **이그레스 비용 인지** — 페타바이트급 데이터는 이그레스 비용이 수만–수십만 달러(USD)에 달할 수 있습니다. 단, Google Cloud는 2024년 1월부터 벤더 전환 시 이그레스 무료화를 시행했고, 2025년 9월에는 EU/UK 멀티클라우드 환경에서 Data Transfer Essentials를 통해 이그레스 비용을 면제하고 있음 (EU Data Act 대응)
+- **이그레스 비용 인지** — 페타바이트급 데이터는 이그레스 비용이 수만–수십만 달러(USD)에 달할 수 있습니다. 단, AWS·Azure·Google Cloud 모두 다른 클라우드/온프레미스로 완전히 전환하는 경우 이그레스 비용을 면제합니다(AWS·Azure 2024년 3월, Google Cloud 2024년 1월). Google Cloud는 2025년 9월 EU/UK 멀티클라우드 환경에서 Data Transfer Essentials로 상시 이그레스 비용도 면제(EU Data Act 대응)
 - **오프라인 전송 활용** — [스토리지 마이그레이션](../../storage/migration/) 참고
 
 ## Exit 실행 계획

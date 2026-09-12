@@ -78,7 +78,7 @@ When environments are separated:
 
 | Vendor | Product | Notes |
 | --- | --- | --- |
-| AWS | CodeCommit | New repository creation discontinued in 2024. GitHub/GitLab recommended |
+| AWS | CodeCommit | Reopened to new customers in Nov 2025 (returned to GA). Existing Git hosting |
 | Azure | Azure Repos | Git-based. Included in Azure DevOps |
 | Google Cloud | Cloud Source Repositories | New repository creation discontinued in 2024. Secure Source Manager or GitHub/GitLab recommended |
 | OCI | OCI DevOps Code Repositories | Git-based. Included in OCI DevOps |
@@ -94,7 +94,7 @@ When environments are separated:
 
 ## Key Differences
 
-**AWS** — You can build a full pipeline with CodeBuild/CodeDeploy/CodePipeline, but in practice the GitHub Actions + CodeDeploy combination is widely used. CodeCommit no longer accepts new repository creation.
+**AWS** — You can build a full pipeline with CodeBuild/CodeDeploy/CodePipeline, but in practice the GitHub Actions + CodeDeploy combination is widely used. CodeCommit reopened to new customers in November 2025.
 
 **Azure** — Azure DevOps unifies source control, CI/CD, boards (issue tracking), and testing into a single platform. It also integrates closely with GitHub Actions.
 

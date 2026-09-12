@@ -150,12 +150,6 @@ Things to verify when considering compliance in a multi-cloud environment:
 - **Aligning controls only at audit time and letting drift accumulate otherwise** — cleaning up only right before the annual review lets compliance violations accumulate in daily operations
 - **Applying uniform security levels to all data without classification** — over-protection drives costs up, while under-protection creates regulatory violations
 
-## Checklist
-
-- [ ] Have you completed sensitivity classification (personal information, financial information, confidential information) of the data you process/store?
-- [ ] Are you running continuous compliance with real-time policy violation detection via AWS Config, Azure Policy, or similar tools?
-- [ ] Are certification renewal schedules (ISO 27001 surveillance audits and country-specific certifications) registered and managed on a calendar?
-
 ## References
 
 Country regulators and local certification links live in the [Korea](../../korea/governance/compliance/), [United States](../../us/), [EU](../../eu/), [Japan](../../japan/), and [Singapore](../../singapore/) guides.

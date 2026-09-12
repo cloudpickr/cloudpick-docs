@@ -130,7 +130,7 @@ Object uploads trigger events that automatically run transformation/analysis.
 | **Data lake** | S3 + Lake Formation | Data Lake Storage Gen2 + Fabric | Cloud Storage + BigLake | OCI Object Storage + Data Lake |
 | **Table storage (Iceberg)** | S3 Tables | Data Lake Storage + Synapse | BigLake (native Iceberg) | — |
 | **Automatic metadata management** | S3 Metadata | Blob Index Tags | — | — |
-| **Vector storage/search** | S3 Vectors (Preview) | AI Search + Blob integration | BigQuery Vector Index | AI Vector Search (Autonomous DB) |
+| **Vector storage/search** | S3 Vectors (GA) | AI Search + Blob integration | BigQuery Vector Index | AI Vector Search (Autonomous DB) |
 | **Direct SQL query** | S3 Select, Athena | Query Acceleration, Synapse | BigQuery External Tables | OCI Data Flow (Spark) |
 
 :::note

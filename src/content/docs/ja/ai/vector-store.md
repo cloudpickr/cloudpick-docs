@@ -64,7 +64,7 @@ graph LR
 | ベンダー | 製品 | 特徴 |
 | --- | --- | --- |
 | AWS | [OpenSearch Serverless ベクトルエンジン](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-vector-search.html) | 大規模ベクトル検索 |
-| AWS | [S3 Vectors (Preview)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-vectors.html) | S3の耐久性 + 低コスト |
+| AWS | [S3 Vectors](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-vectors.html) | S3の耐久性 + 低コスト(GA 2025.12、多数のリージョンに対応 — [公式リージョン一覧](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-vectors-regions-quotas.html)) |
 | Azure | [Azure AI Search](https://learn.microsoft.com/azure/search/vector-search-overview) | ベクトル + キーワード + セマンティックランキング統合 |
 | Google Cloud | [Vertex AI Vector Search](https://cloud.google.com/vertex-ai/docs/vector-search/overview) | Google ScaNNアルゴリズムによる高性能 |
 | OCI | [OCI AI Vector Search](https://docs.oracle.com/en-us/iaas/autonomous-database-serverless/doc/oracle-ai-vector-search-autonomous-database.html) | Autonomous Database内蔵、SQLベース |

@@ -37,7 +37,7 @@ Tracking unit economics lets you verify whether costs scale linearly with traffi
 
 | Item | AWS | Azure | Google Cloud | OCI |
 | --- | --- | --- | --- | --- |
-| Cost analysis | [AWS Cost Explorer](https://aws.amazon.com/aws-cost-management/aws-cost-explorer/) | [Microsoft Cost Management](https://azure.microsoft.com/en-us/products/cost-management) | [Cloud Billing Reports](https://cloud.google.com/billing/docs/reports) | [OCI Cost Analysis](https://docs.oracle.com/iaas/Content/Billing/Concepts/costanalysisoverview.htm) |
+| Cost analysis | [AWS Cost Explorer](https://aws.amazon.com/aws-cost-management/aws-cost-explorer/) | [Microsoft Cost Management](https://azure.microsoft.com/en-us/products/cost-management) | [Cloud Billing Reports](https://cloud.google.com/billing/docs/reports) | [OCI Cost Analysis](https://docs.oracle.com/iaas/Content/Billing/Concepts/costusagereportsoverview.htm) |
 | Budgets/alerts | [AWS Budgets](https://aws.amazon.com/aws-cost-management/aws-budgets/) | [Azure Budgets](https://learn.microsoft.com/en-us/azure/cost-management-billing/costs/tutorial-acm-create-budgets) | [Budget Alerts](https://cloud.google.com/billing/docs/how-to/budgets) | [OCI Budgets](https://docs.oracle.com/en-us/iaas/Content/Billing/Concepts/budgetsoverview.htm) |
 | Recommendations/advisor | [AWS Cost Optimization Hub](https://aws.amazon.com/aws-cost-management/cost-optimization-hub/) | [Azure Advisor](https://azure.microsoft.com/en-us/products/advisor) | [Recommender](https://cloud.google.com/recommender/docs/overview) | [Cloud Advisor](https://docs.oracle.com/en-us/iaas/Content/CloudAdvisor/Concepts/cloudadvisoroverview.htm) |
 | Cost allocation | Cost Allocation Tags | Cost Allocation (Tags + Subscriptions) | Labels + Billing Account | Cost Tracking Tags + Compartments |
@@ -185,7 +185,7 @@ For column definitions and vendor export support coverage, refer to the [FOCUS s
 | AWS | [Data Exports — FOCUS 1.2 with AWS columns](https://docs.aws.amazon.com/cur/latest/userguide/table-columns-cur2.html) (a separate export from CUR 2.0) |
 | Azure | [Cost Management FOCUS export](https://learn.microsoft.com/en-us/azure/cost-management-billing/) |
 | Google Cloud | [BigQuery cost export (FOCUS-compatible)](https://cloud.google.com/billing/docs/how-to/export-data-bigquery-tables) |
-| OCI | [Cost Report (FOCUS supported)](https://docs.oracle.com/en-us/iaas/Content/Billing/Concepts/costanalysisoverview.htm) |
+| OCI | [Cost Report (FOCUS supported)](https://docs.oracle.com/en-us/iaas/Content/Billing/Concepts/costusagereportsoverview.htm) |
 
 ---
 

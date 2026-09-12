@@ -82,7 +82,7 @@ Before setting DR targets, you first need to define the following:
 graph LR
     A["🗄️ Backup & Restore<br/>RPO: hours<br/>RTO: hours<br/>Cost: low"]
     B["💡 Pilot Light<br/>RPO: minutes<br/>RTO: tens of minutes<br/>Cost: medium"]
-    C["🔆 Warm Standby<br/>RPO: seconds-minutes<br/>RTO: minutes<br/>Cost: high"]
+    C["🔆 Warm Standby<br/>RPO: seconds–minutes<br/>RTO: minutes<br/>Cost: high"]
     D["⚡ Active-Active<br/>RPO: 0<br/>RTO: near 0<br/>Cost: very high"]
 
     A -->|raise recovery target| B -->|raise recovery target| C -->|raise recovery target| D

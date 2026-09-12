@@ -67,7 +67,7 @@ IaCはポータビリティの基盤です。Terraformはマルチクラウド�
 | [Crossplane](https://www.crossplane.io/) | Kubernetesベースの抽象化 | 高い |
 | AWS CloudFormation | AWS専用 | 低い |
 | Azure Bicep / ARM | Azure専用 | 低い |
-| Google Cloud Deployment Manager | Google Cloud専用 | 低い |
+| Google Cloud Infrastructure Manager | Google Cloud専用（Terraformベース） | 中程度 |
 | OCI Resource Manager | OCI専用（Terraformベース） | 中程度 |
 
 :::note

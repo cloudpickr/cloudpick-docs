@@ -14,6 +14,15 @@
 # _redirects 파일은 netlify.toml redirects를 오버라이드하므로 사용하지 않음.
 # netlify.toml에서는 :placeholder.md 패턴이 정상 동작함.
 
+# ─── 구 도메인(docs.cloudpick.co.kr) → 신 도메인(docs.cloudpick.kr) ───
+# 경로를 그대로 보존한 채 호스트만 신 도메인으로 301 리다이렉트한다.
+# 다른 경로 규칙보다 먼저 평가되도록 최상단에 배치한다.
+[[redirects]]
+  from = "https://docs.cloudpick.co.kr/*"
+  to = "https://docs.cloudpick.kr/:splat"
+  status = 301
+  force = true
+
 # ─── LLMs.txt 접근 제어 (llms.txt 공개, full/small은 MCP 전용) ───
 [[redirects]]
   from = "/llms-full.txt"

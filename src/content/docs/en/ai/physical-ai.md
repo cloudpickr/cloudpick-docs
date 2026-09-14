@@ -54,7 +54,7 @@ Training robots and vehicles solely in the real world is costly, risky, and slow
 :::
 
 :::note
-The digital twin and robot simulation layer is **effectively dominated by the NVIDIA Omniverse/Isaac ecosystem.** All three major clouds support running this stack on top of GPU instances, so rather than depending on any one cloud's dedicated managed product, first check **whether the stack is portable across clouds** — that is the way to reduce lock-in.
+The digital twin and robot simulation layer is **widely served by the NVIDIA Omniverse/Isaac ecosystem.** All three major clouds support running this stack on top of GPU instances, so rather than depending on any one cloud's dedicated managed product, first check **whether the stack is portable across clouds** — that is the way to reduce lock-in.
 :::
 
 ## Layer 3 — Robotics Foundation Models
@@ -67,22 +67,62 @@ Just as LLMs generalized language, **robot foundation models** are emerging to g
 | The three major clouds | Native general-purpose robot foundation models are still limited — they generally run the NVIDIA stack on GPU infrastructure or offer it via partnerships |
 | National policy | Japan adopted robotics foundation model development as a national project under GENIAC (see [Japan's AI Landscape](../../japan/ai-landscape/)) |
 
+### Connecting Agents to the Physical World
+
+If robot foundation models handle perception, planning, and motion, agents are the autonomous-execution layer on top that **takes a goal, plans the steps itself, and calls tools, sensors, and actuators to carry it out**. Unlike digital agents, in Physical AI an agent's actions are **immediately reflected in the physical world**, so the connection method and permission boundaries are directly tied to safety.
+
+- **Edge agent ↔ cloud orchestration** — Real-time decision and control loops typically run autonomously at the edge, while long-horizon planning, multi-robot coordination, and model updates are handled in the cloud. Even if the network drops, the edge agent must be able to keep operating safely or come to a safe stop.
+- **Tool/actuator connection (MCP, etc.)** — For an agent to read sensor values and issue higher-level tasks, it needs a standardized connection layer. However, a protocol like MCP is a **high-level task-instruction / tool-calling layer**; real-time actuator control (motors, joints, etc.) is handled by a **separate deterministic low-level control layer** (fieldbus, robot middleware, etc.) where latency and safety are guaranteed. The two must not be conflated. For general autonomous-execution and tool-calling concepts, see [AI Agents](../../ai/agents/); for the agent-to-tool integration protocol, see [AI Agent Integration (MCP)](../../mcp/).
+
+:::caution
+When you let an agent directly call physical actuators (motors, valves, vehicle control, etc.), **explicitly restrict its permission scope (action space)** and require human approval or safety-layer pre-verification for risky actions. A digital agent's wrong tool call ends in a retry, but a physical agent's malfunction can lead to irreversible harm.
+:::
+
 :::caution
 Robot foundation models and **world models** are an early, fast-moving area as of September 2026. Model names, versions, and performance figures change significantly with each vendor announcement, so this document covers only what can be compared with reasonable maturity and defers detailed figures to official source links.
 :::
 
 ## Safety Layer — Autonomous Driving and Robotics
 
-AI that moves in the physical world is directly tied to human life and equipment, making **functional safety certification** central. In this area, NVIDIA provides the **Halos** safety system.
+AI that moves in the physical world is directly tied to human life and equipment, making **functional safety** central. Autonomous driving is governed by [ISO 26262](https://www.iso.org/standard/68383.html), and industrial machinery and robots by [ISO 13849](https://www.iso.org/standard/73481.html), IEC 61508, and other domain-specific safety standards and certification schemes. The principle is to provide an **independent safety layer** (safe stop, hardware interlocks, safety PLCs, etc.) that operates regardless of the AI model's decisions.
+
+Each vendor/supplier offers a commercial stack that implements this. For example, NVIDIA provides the **Halos** safety system.
 
 - **Autonomous vehicles (AVs)**: the [DRIVE](https://www.nvidia.com/en-us/solutions/autonomous-vehicles/) platform (AGX, Hyperion) with the Halos safety system (end-to-end from cloud to car, aligned with ISO 26262), using Omniverse/Cosmos for simulation.
 - **Robotics**: in June 2026, NVIDIA announced **[Halos for Robotics](https://developer.nvidia.com/blog/inside-nvidia-halos-for-robotics-a-full-stack-functional-safety-system-for-physical-ai/)** (IGX Thor, Holoscan Sensor Bridge, Halos OS, AI Systems Inspection Lab), extending its AV safety foundation to industrial robots, humanoids, and AMRs.
 
 :::note
-Halos is a **safety system, not a foundation model**. The foundation model that handles a robot's perception, planning, and motion is [Isaac GR00T](https://developer.nvidia.com/isaac/gr00t); Halos is the layer on top that handles functional safety — different roles. Halos began in autonomous driving and expanded its scope to robotics in 2026.
+A safety layer is a **separate safety system, not a foundation model**. A robot's perception, planning, and motion are handled by a foundation model (e.g., [Isaac GR00T](https://developer.nvidia.com/isaac/gr00t)), while the layer on top that handles functional safety plays a different role. The safety layer acts as a final gate that **blocks or limits any action — even one planned by an agent or model — that falls outside the allowed action space**. Halos above is a commercial implementation example of this safety layer; it began in autonomous driving and expanded its scope to robotics in 2026.
 :::
 
 ## Multicloud and Edge Architecture Considerations
+
+### What to Put at the Edge vs. in the Cloud
+
+The starting point of Physical AI design is deciding where each task belongs — the edge or the cloud. The criteria are latency sensitivity, data volume (bandwidth), safety requirements, and behavior when the network is severed.
+
+| Task | Primary location | Why |
+| --- | --- | --- |
+| Real-time perception/control loop | Edge | Latency-sensitive; must not stop even if the network drops |
+| Safe stop / emergency shutdown | Edge | Cannot tolerate a cloud round-trip delay |
+| First-pass sensor filtering/aggregation | Edge | Sending all raw data up is excessive bandwidth/cost |
+| Model training/retraining | Cloud | Needs large-scale GPUs and datasets (see [GPU Infrastructure](../gpu-infra/workload-and-architecture/)) |
+| Synthetic data generation / simulation | Cloud | Digital twins and simulators need large-scale compute |
+| Multi-robot/fleet coordination, long-horizon planning | Cloud | Global coordination beyond an individual edge's view |
+| Model version management / deployment (OTA) | Cloud → Edge | Managed centrally and deployed to the field |
+
+### Closed-Loop Operating Cycle
+
+Physical AI is not deploy-once-and-done; it operates as a loop in which field data returns to the model. Each stage of the flow diagram above maps to the following operating cycle.
+
+1. **Edge inference** (`Edge inference`) — Perceive, decide, and control in real time in the field, selecting only meaningful events/anomalous data.
+2. **Telemetry collection** (`telemetry`) — Send the selected data and driving/operation logs to the cloud.
+3. **Cloud retraining/simulation** (`Cloud training · model mgmt` ↔ `Simulation · digital twin`) — Improve the model with the collected data and validate new scenarios in the digital twin/simulation.
+4. **OTA deployment** (`deploy` → `Edge inference`) — Deploy the validated models/policies back to the edge. For general patterns like signing and rollback against failed/regressed deployments, see [Hybrid and Edge Computing](../../compute/hybrid-and-edge/).
+
+:::note
+When the network is severed, stages 2–4 of this cycle pause, but stage 1 (edge inference/control) **must continue autonomously offline**. Assume disconnection is one of the normal states, not an exception, and design the edge to operate independently and safely.
+:::
 
 - **Data gravity and latency** — Sensor data is voluminous and latency-sensitive, so a design that splits edge inference and cloud training is the default. Decide first what to process at the edge and what to send up.
 - **Simulator portability** — If your digital twin and simulation are tied to one cloud's dedicated service, migration is hard. Prioritizing a stack that runs anywhere with GPUs (like NVIDIA Omniverse/Isaac) reduces lock-in.
@@ -96,10 +136,13 @@ Halos is a **safety system, not a foundation model**. The foundation model that 
 - **Using EOL products in new designs** — Do not adopt discontinued services like RoboMaker or Percept based only on old material.
 - **Locking into a single vendor's simulator** — Tying your training pipeline to one cloud's dedicated simulation makes migration and comparison difficult.
 - **Bolting on safety later** — For AVs and robots, safety must be designed from the start ("built-in," not "bolt-on").
+- **Granting unlimited permissions to a physical agent** — Letting an autonomous agent call actuators without constraints turns a malfunction into physical harm. Action-space limits and safety-layer verification are essential.
 
 ## Checklist
 
 - [ ] Have you separated inference to run at the edge from data to send to the cloud?
+- [ ] Does the edge operate autonomously and safely offline when the network is severed?
+- [ ] If an agent calls physical actuators, have you restricted its action space and added safety-layer verification?
 - [ ] Is your digital twin / simulation stack portable to other clouds (lock-in check)?
 - [ ] Are the IoT / robotics services you plan to use under current support (EOL check)?
 - [ ] For AVs or industrial robots, have you factored functional-safety certification requirements into the design?
@@ -109,6 +152,8 @@ Halos is a **safety system, not a foundation model**. The foundation model that 
 
 - [Hybrid and Edge Computing](../../compute/hybrid-and-edge/) — general edge infrastructure patterns
 - [AI Agents](../../ai/agents/) — autonomous planning and execution concepts
+- [AI Agent Integration (MCP)](../../mcp/) — agent-to-tool/system integration protocol
+- [GPU Infrastructure](../gpu-infra/workload-and-architecture/) — GPU clusters for cloud training/simulation
 - [AI Platforms and Model Comparison](../../ai/ai-ml/) — model catalog and inference costs
 - [Japan's AI Landscape](../../japan/ai-landscape/) — robotics foundation model national project (GENIAC)
 

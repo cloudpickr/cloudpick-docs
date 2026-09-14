@@ -6,7 +6,7 @@ description: "GPU 노드풀·device plugin, MIG/time-slicing 공유, ResourceQuo
 > 문서 기준: 2026년 9월 | 이 문서는 변동이 빠른 영역으로 분기별 리뷰 대상입니다.
 
 :::note
-이 문서는 쿠버네티스 위에서 GPU를 스케줄링·공유·통제하는 방법을 다룹니다. 클러스터 업그레이드·노드 관리 등 일반적인 쿠버네티스 운영은 [쿠버네티스 운영](../../devops/kubernetes-operations/)에서, GPU 클러스터 통신·배치는 [GPU 워크로드 특성과 레퍼런스 아키텍처](../../ai/gpu-infra/workload-and-architecture/)에서 다룹니다.
+이 문서는 쿠버네티스 위에서 GPU를 스케줄링·공유·통제하는 방법을 다룹니다. 클러스터 업그레이드·노드 관리 등 일반적인 쿠버네티스 운영은 [쿠버네티스 운영](../../../devops/kubernetes-operations/)에서, GPU 클러스터 통신·배치는 [GPU 워크로드 특성과 레퍼런스 아키텍처](../workload-and-architecture/)에서 다룹니다.
 :::
 
 ## 개요
@@ -16,14 +16,14 @@ GPU는 비싸고 귀합니다. 그래서 보통 한 팀이 독차지하지 않�
 쿠버네티스(컨테이너를 자동 배치·관리하는 표준 도구)는 GPU를 특별한 자원으로 다룹니다. 어려운 점은 성격이 정반대인 두 작업을 한 클러스터에서 함께 받아야 한다는 것입니다 — **학습 작업**은 "필요한 GPU를 한꺼번에 다 줘야" 시작되고, **추론 작업**은 "적은 GPU를 오래 붙잡고" 돌아갑니다.
 
 :::note
-쿠버네티스 자체가 처음이라면 [컨테이너 서비스](../../compute/containers/)와 [쿠버네티스 운영](../../devops/kubernetes-operations/)을 먼저 보는 것을 권합니다. 이 문서는 그 위에서 **GPU에 특화된** 부분만 다룹니다.
+쿠버네티스 자체가 처음이라면 [컨테이너 서비스](../../../compute/containers/)와 [쿠버네티스 운영](../../../devops/kubernetes-operations/)을 먼저 보는 것을 권합니다. 이 문서는 그 위에서 **GPU에 특화된** 부분만 다룹니다.
 :::
 
 ## GPU 노드풀과 device plugin
 
 쿠버네티스는 기본적으로 GPU를 인식하지 못하므로, 벤더 device plugin과 드라이버·오퍼레이터를 설치해 GPU를 스케줄링 가능한 리소스로 노출합니다.
 
-- **GPU 노드풀** — 범용 노드와 분리된 GPU 전용 노드풀을 구성합니다. ([노드 풀 구성](../../compute/containers/#노드-풀-구성) 참고)
+- **GPU 노드풀** — 범용 노드와 분리된 GPU 전용 노드풀을 구성합니다. ([노드 풀 구성](../../../compute/containers/#노드-풀-구성) 참고)
 - **device plugin / 오퍼레이터** — [NVIDIA GPU Operator](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/index.html)가 드라이버·device plugin·DCGM을 일괄 배포하는 사실상 표준입니다.
 - **taint/toleration** — GPU 노드에 taint를 걸어 비 GPU 워크로드가 값비싼 GPU 노드를 점유하지 못하게 합니다.
 
@@ -83,14 +83,14 @@ GPU 클러스터는 CPU 중심 관측성만으로는 병목을 진단할 수 없
 
 - **핵심 지표** — GPU 활용률(단순 점유율이 아닌 실제 연산 활용), 메모리 사용량, 패브릭 대역폭, 전력·온도
 - **활용률의 함정** — "GPU가 할당됨"과 "GPU가 실제로 계산 중"은 다릅니다. 낮은 실효 활용률은 데이터 로딩·통신 병목의 신호입니다.
-- **SLO 연계** — 수집한 GPU 메트릭을 [SLO](../../devops/slo/)·[관측성](../../devops/observability/) 체계에 통합해 학습 처리량·추론 지연을 지속 관리합니다.
+- **SLO 연계** — 수집한 GPU 메트릭을 [SLO](../../../devops/slo/)·[관측성](../../../devops/observability/) 체계에 통합해 학습 처리량·추론 지연을 지속 관리합니다.
 
 ## 관련 문서
 
-- **일반 쿠버네티스 운영(업그레이드·노드 관리)** — [쿠버네티스 운영](../../devops/kubernetes-operations/)
-- **클러스터 통신·배치·매니지드 클러스터** — [GPU 워크로드 특성과 레퍼런스 아키텍처](../../ai/gpu-infra/workload-and-architecture/)
-- **병렬화 전략(TP/PP/DP)** — [분산 학습 표준 아키텍처](../../ai/gpu-infra/distributed-training/)
-- **용량 운영·비용** — [추론 서빙·안정성·비용 최적화](../../ai/gpu-infra/serving-reliability-cost/)
+- **다음: 추론 서빙·장애·용량·비용** — [추론 서빙·안정성·비용 최적화](../serving-reliability-cost/)
+- **일반 쿠버네티스 운영(업그레이드·노드 관리)** — [쿠버네티스 운영](../../../devops/kubernetes-operations/)
+- **클러스터 통신·배치·매니지드 클러스터** — [GPU 워크로드 특성과 레퍼런스 아키텍처](../workload-and-architecture/)
+- **병렬화 전략(TP/PP/DP)** — [분산 학습 표준 아키텍처](../distributed-training/)
 
 ## 자주 하는 실수
 

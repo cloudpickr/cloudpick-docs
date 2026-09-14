@@ -6,7 +6,7 @@ description: "Covers GPU node pools/device plugins, MIG/time-slicing sharing, Re
 > Last reviewed: September 2026 | This is a fast-moving area subject to quarterly review.
 
 :::note
-This document covers how to schedule, share, and govern GPUs on Kubernetes. General Kubernetes operations such as cluster upgrades and node management are in [Kubernetes Operations](../../devops/kubernetes-operations/); GPU cluster communication and placement are in [GPU Workload Characteristics and Reference Architecture](../../ai/gpu-infra/workload-and-architecture/).
+This document covers how to schedule, share, and govern GPUs on Kubernetes. General Kubernetes operations such as cluster upgrades and node management are in [Kubernetes Operations](../../../devops/kubernetes-operations/); GPU cluster communication and placement are in [GPU Workload Characteristics and Reference Architecture](../workload-and-architecture/).
 :::
 
 ## Overview
@@ -16,14 +16,14 @@ GPUs are expensive and scarce. So rather than one team monopolizing them, multip
 Kubernetes (the standard tool for automatically placing and managing containers) treats GPUs as a special resource. The hard part is that one cluster must accept two jobs of opposite nature — a **training job** starts only when it gets "all the GPUs it needs at once," while an **inference job** runs by "holding a few GPUs for a long time."
 
 :::note
-If Kubernetes itself is new to you, we recommend reading [Container Services](../../compute/containers/) and [Kubernetes Operations](../../devops/kubernetes-operations/) first. This document covers only the **GPU-specific** parts on top of that.
+If Kubernetes itself is new to you, we recommend reading [Container Services](../../../compute/containers/) and [Kubernetes Operations](../../../devops/kubernetes-operations/) first. This document covers only the **GPU-specific** parts on top of that.
 :::
 
 ## GPU Node Pools and Device Plugins
 
 Kubernetes does not recognize GPUs by default, so you install a vendor device plugin along with drivers/operators to expose GPUs as schedulable resources.
 
-- **GPU node pool** — Configure a dedicated GPU node pool separate from general-purpose nodes. (See [Node pool composition](../../compute/containers/#node-pool-composition).)
+- **GPU node pool** — Configure a dedicated GPU node pool separate from general-purpose nodes. (See [Node pool composition](../../../compute/containers/#node-pool-composition).)
 - **Device plugin / operator** — The [NVIDIA GPU Operator](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/index.html), which deploys drivers, device plugin, and DCGM together, is the de facto standard.
 - **taint/toleration** — Taint GPU nodes so non-GPU workloads do not occupy expensive GPU nodes.
 
@@ -83,14 +83,14 @@ GPU clusters cannot be diagnosed for bottlenecks with CPU-centric observability 
 
 - **Key metrics** — GPU utilization (actual compute utilization, not mere allocation), memory usage, fabric bandwidth, power/temperature
 - **The utilization trap** — "A GPU is allocated" and "a GPU is actually computing" are different. Low effective utilization is a sign of a data-loading or communication bottleneck.
-- **SLO linkage** — Integrate collected GPU metrics into your [SLO](../../devops/slo/) and [Observability](../../devops/observability/) systems to continuously manage training throughput and inference latency.
+- **SLO linkage** — Integrate collected GPU metrics into your [SLO](../../../devops/slo/) and [Observability](../../../devops/observability/) systems to continuously manage training throughput and inference latency.
 
 ## Related Documents
 
-- **General Kubernetes operations (upgrades, node management)** — [Kubernetes Operations](../../devops/kubernetes-operations/)
-- **Cluster communication, placement, managed clusters** — [GPU Workload Characteristics and Reference Architecture](../../ai/gpu-infra/workload-and-architecture/)
-- **Parallelism strategies (TP/PP/DP)** — [Distributed Training Standard Architecture](../../ai/gpu-infra/distributed-training/)
-- **Capacity operations, cost** — [Inference Serving, Reliability, and Cost](../../ai/gpu-infra/serving-reliability-cost/)
+- **Next: Inference serving, failures, capacity, cost** — [Inference Serving, Reliability, and Cost](../serving-reliability-cost/)
+- **General Kubernetes operations (upgrades, node management)** — [Kubernetes Operations](../../../devops/kubernetes-operations/)
+- **Cluster communication, placement, managed clusters** — [GPU Workload Characteristics and Reference Architecture](../workload-and-architecture/)
+- **Parallelism strategies (TP/PP/DP)** — [Distributed Training Standard Architecture](../distributed-training/)
 
 ## Common Mistakes
 

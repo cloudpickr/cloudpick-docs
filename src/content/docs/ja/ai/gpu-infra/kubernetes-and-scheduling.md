@@ -6,7 +6,7 @@ description: "GPUノードプール・device plugin、MIG/time-slicing共有、R
 > 文書基準: 2026年9月 | この文書は変化の速い領域であり、四半期ごとのレビュー対象です。
 
 :::note
-この文書はKubernetes上でGPUをスケジューリング・共有・統制する方法を扱います。クラスターのアップグレードやノード管理など一般的なKubernetes運用は[Kubernetes運用](../../devops/kubernetes-operations/)で、GPUクラスターの通信・配置は[GPUワークロードの特性とリファレンスアーキテクチャ](../../ai/gpu-infra/workload-and-architecture/)で扱います。
+この文書はKubernetes上でGPUをスケジューリング・共有・統制する方法を扱います。クラスターのアップグレードやノード管理など一般的なKubernetes運用は[Kubernetes運用](../../../devops/kubernetes-operations/)で、GPUクラスターの通信・配置は[GPUワークロードの特性とリファレンスアーキテクチャ](../workload-and-architecture/)で扱います。
 :::
 
 ## 概要
@@ -16,14 +16,14 @@ GPUは高価で希少です。そのため通常は1チームが独占せず、�
 Kubernetes（コンテナを自動配置・管理する標準ツール）はGPUを特別な資源として扱います。難しいのは、性格が正反対の2つのジョブを一つのクラスターで一緒に受け入れなければならない点です — **学習ジョブ**は「必要なGPUを一度に全部渡さないと」始まらず、**推論ジョブ**は「少ないGPUを長く握って」動きます。
 
 :::note
-Kubernetes自体が初めてなら、[コンテナサービス](../../compute/containers/)と[Kubernetes運用](../../devops/kubernetes-operations/)を先に読むことを勧めます。この文書はその上で**GPUに特化した**部分だけを扱います。
+Kubernetes自体が初めてなら、[コンテナサービス](../../../compute/containers/)と[Kubernetes運用](../../../devops/kubernetes-operations/)を先に読むことを勧めます。この文書はその上で**GPUに特化した**部分だけを扱います。
 :::
 
 ## GPUノードプールとdevice plugin
 
 Kubernetesは既定でGPUを認識しないため、ベンダーのdevice pluginとドライバ・オペレータをインストールして、GPUをスケジューリング可能なリソースとして公開します。
 
-- **GPUノードプール** — 汎用ノードと分離したGPU専用ノードプールを構成します。（[ノードプール構成](../../compute/containers/#ノードプール構成)を参照）
+- **GPUノードプール** — 汎用ノードと分離したGPU専用ノードプールを構成します。（[ノードプール構成](../../../compute/containers/#ノードプール構成)を参照）
 - **device plugin / オペレータ** — ドライバ・device plugin・DCGMを一括デプロイする[NVIDIA GPU Operator](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/index.html)が事実上の標準です。
 - **taint/toleration** — GPUノードにtaintをかけ、非GPUワークロードが高価なGPUノードを占有しないようにします。
 
@@ -83,14 +83,14 @@ GPUクラスターはCPU中心の可観測性だけではボトルネックを�
 
 - **主要指標** — GPU利用率（単なる占有率ではなく実際の演算利用）、メモリ使用量、ファブリック帯域、電力・温度
 - **利用率の落とし穴** — 「GPUが割り当てられている」と「GPUが実際に計算中である」は異なります。低い実効利用率は、データロード・通信ボトルネックのサインです。
-- **SLO連携** — 収集したGPUメトリクスを[SLO](../../devops/slo/)・[可観測性](../../devops/observability/)の体系に統合し、学習スループット・推論遅延を継続的に管理します。
+- **SLO連携** — 収集したGPUメトリクスを[SLO](../../../devops/slo/)・[可観測性](../../../devops/observability/)の体系に統合し、学習スループット・推論遅延を継続的に管理します。
 
 ## 関連文書
 
-- **一般的なKubernetes運用（アップグレード・ノード管理）** — [Kubernetes運用](../../devops/kubernetes-operations/)
-- **クラスターの通信・配置・マネージドクラスター** — [GPUワークロードの特性とリファレンスアーキテクチャ](../../ai/gpu-infra/workload-and-architecture/)
-- **並列化戦略（TP/PP/DP）** — [分散学習の標準アーキテクチャ](../../ai/gpu-infra/distributed-training/)
-- **容量運用・コスト** — [推論サービング・信頼性・コスト最適化](../../ai/gpu-infra/serving-reliability-cost/)
+- **次: 推論サービング・障害・容量・コスト** — [推論サービング・信頼性・コスト最適化](../serving-reliability-cost/)
+- **一般的なKubernetes運用（アップグレード・ノード管理）** — [Kubernetes運用](../../../devops/kubernetes-operations/)
+- **クラスターの通信・配置・マネージドクラスター** — [GPUワークロードの特性とリファレンスアーキテクチャ](../workload-and-architecture/)
+- **並列化戦略（TP/PP/DP）** — [分散学習の標準アーキテクチャ](../distributed-training/)
 
 ## よくある間違い
 

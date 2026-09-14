@@ -115,4 +115,4 @@ GPU clusters cannot be diagnosed for bottlenecks with CPU-centric observability 
 - [AWS — EKS GPU workloads](https://docs.aws.amazon.com/eks/latest/userguide/eks-optimized-ami.html)
 - [Azure — AKS GPU node pools](https://learn.microsoft.com/azure/aks/gpu-cluster)
 - [Google Cloud — GKE GPUs](https://cloud.google.com/kubernetes-engine/docs/how-to/gpus)
-- [OCI — OKE GPU nodes](https://docs.oracle.com/en-us/iaas/Content/ContEng/Tasks/contengusinggpus.htm)
+- [OCI — OKE GPU nodes](https://docs.oracle.com/en-us/iaas/Content/ContEng/Tasks/contengrunninggpunodes.htm)

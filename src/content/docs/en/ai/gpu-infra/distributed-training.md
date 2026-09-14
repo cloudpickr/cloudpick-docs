@@ -112,4 +112,4 @@ Large-scale training runs for hours to weeks, so checkpointing to withstand node
 - [AWS — SageMaker distributed training](https://docs.aws.amazon.com/sagemaker/latest/dg/distributed-training.html)
 - [Azure — Azure ML distributed training](https://learn.microsoft.com/azure/machine-learning/concept-distributed-training)
 - [Google Cloud — Vertex AI distributed training](https://cloud.google.com/vertex-ai/docs/training/distributed-training)
-- [OCI — Data Science distributed training](https://docs.oracle.com/en-us/iaas/data-science/using/distributed-training.htm)
+- [OCI — Data Science distributed training](https://docs.oracle.com/en-us/iaas/Content/data-science/using/jobs-distributed-jobs.htm)

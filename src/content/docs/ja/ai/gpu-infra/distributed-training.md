@@ -112,4 +112,4 @@ description: "データ・テンソル・パイプライン並列化（DP/TP/PP�
 - [AWS — SageMaker 分散学習](https://docs.aws.amazon.com/sagemaker/latest/dg/distributed-training.html)
 - [Azure — Azure ML 分散学習](https://learn.microsoft.com/azure/machine-learning/concept-distributed-training)
 - [Google Cloud — Vertex AI 分散学習](https://cloud.google.com/vertex-ai/docs/training/distributed-training)
-- [OCI — Data Science 分散学習](https://docs.oracle.com/en-us/iaas/data-science/using/distributed-training.htm)
+- [OCI — Data Science 分散学習](https://docs.oracle.com/en-us/iaas/Content/data-science/using/jobs-distributed-jobs.htm)

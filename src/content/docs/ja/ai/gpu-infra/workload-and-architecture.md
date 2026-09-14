@@ -56,7 +56,7 @@ graph TB
 
 | 層 | AWS | Azure | Google Cloud | OCI |
 | --- | --- | --- | --- | --- |
-| **ノード間ファブリック** | [EFA (Elastic Fabric Adapter)](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html) | [InfiniBand](https://learn.microsoft.com/azure/virtual-machines/sizes/gpu-accelerated/) (NDシリーズ) | [GPUDirect-TCPX / RDMA](https://cloud.google.com/compute/docs/gpus) | [RDMA Cluster Network](https://docs.oracle.com/en-us/iaas/Content/Compute/Tasks/managingclusternetworks.htm) |
+| **ノード間ファブリック** | [EFA (Elastic Fabric Adapter)](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html) | [InfiniBand](https://learn.microsoft.com/azure/virtual-machines/sizes/overview) (NDシリーズ) | [GPUDirect-TCPX / RDMA](https://cloud.google.com/compute/docs/gpus) | [RDMA Cluster Network](https://docs.oracle.com/en-us/iaas/Content/Compute/Tasks/managingclusternetworks.htm) |
 | **通信ライブラリ** | NCCL | NCCL | NCCL | NCCL |
 | **同一概念か** | 近似対応 — 名称・実装・性能特性が相違 | 近似対応 | 近似対応 | 近似対応 |
 
@@ -126,7 +126,7 @@ OCIの**Dedicated AI Cluster**は上記の学習インフラとは異なる層�
 
 ### Azure
 
-- [GPU最適化VMサイズ](https://learn.microsoft.com/azure/virtual-machines/sizes/gpu-accelerated/)
+- [GPU最適化VMサイズ](https://learn.microsoft.com/azure/virtual-machines/sizes/overview)
 - [Azure CycleCloud](https://learn.microsoft.com/azure/cyclecloud/)
 
 ### Google Cloud

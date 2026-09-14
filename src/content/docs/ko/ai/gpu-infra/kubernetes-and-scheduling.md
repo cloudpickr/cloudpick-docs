@@ -115,4 +115,4 @@ GPU 클러스터는 CPU 중심 관측성만으로는 병목을 진단할 수 없
 - [AWS — EKS GPU 워크로드](https://docs.aws.amazon.com/eks/latest/userguide/eks-optimized-ami.html)
 - [Azure — AKS GPU 노드 풀](https://learn.microsoft.com/azure/aks/gpu-cluster)
 - [Google Cloud — GKE GPU](https://cloud.google.com/kubernetes-engine/docs/how-to/gpus)
-- [OCI — OKE GPU 노드](https://docs.oracle.com/en-us/iaas/Content/ContEng/Tasks/contengusinggpus.htm)
+- [OCI — OKE GPU 노드](https://docs.oracle.com/en-us/iaas/Content/ContEng/Tasks/contengrunninggpunodes.htm)

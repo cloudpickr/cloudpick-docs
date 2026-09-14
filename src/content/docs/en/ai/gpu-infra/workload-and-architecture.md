@@ -56,7 +56,7 @@ graph TB
 
 | Tier | AWS | Azure | Google Cloud | OCI |
 | --- | --- | --- | --- | --- |
-| **Inter-node fabric** | [EFA (Elastic Fabric Adapter)](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html) | [InfiniBand](https://learn.microsoft.com/azure/virtual-machines/sizes/gpu-accelerated/) (ND series) | [GPUDirect-TCPX / RDMA](https://cloud.google.com/compute/docs/gpus) | [RDMA Cluster Network](https://docs.oracle.com/en-us/iaas/Content/Compute/Tasks/managingclusternetworks.htm) |
+| **Inter-node fabric** | [EFA (Elastic Fabric Adapter)](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html) | [InfiniBand](https://learn.microsoft.com/azure/virtual-machines/sizes/overview) (ND series) | [GPUDirect-TCPX / RDMA](https://cloud.google.com/compute/docs/gpus) | [RDMA Cluster Network](https://docs.oracle.com/en-us/iaas/Content/Compute/Tasks/managingclusternetworks.htm) |
 | **Communication library** | NCCL | NCCL | NCCL | NCCL |
 | **Same concept?** | Approximate — name, implementation, and performance characteristics differ | Approximate | Approximate | Approximate |
 
@@ -126,7 +126,7 @@ Managed clusters greatly reduce initial assembly and operational burden but incr
 
 ### Azure
 
-- [GPU-optimized VM sizes](https://learn.microsoft.com/azure/virtual-machines/sizes/gpu-accelerated/)
+- [GPU-optimized VM sizes](https://learn.microsoft.com/azure/virtual-machines/sizes/overview)
 - [Azure CycleCloud](https://learn.microsoft.com/azure/cyclecloud/)
 
 ### Google Cloud

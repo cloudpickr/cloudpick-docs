@@ -115,4 +115,4 @@ GPUクラスターはCPU中心の可観測性だけではボトルネックを�
 - [AWS — EKS GPUワークロード](https://docs.aws.amazon.com/eks/latest/userguide/eks-optimized-ami.html)
 - [Azure — AKS GPUノードプール](https://learn.microsoft.com/azure/aks/gpu-cluster)
 - [Google Cloud — GKE GPU](https://cloud.google.com/kubernetes-engine/docs/how-to/gpus)
-- [OCI — OKE GPUノード](https://docs.oracle.com/en-us/iaas/Content/ContEng/Tasks/contengusinggpus.htm)
+- [OCI — OKE GPUノード](https://docs.oracle.com/en-us/iaas/Content/ContEng/Tasks/contengrunninggpunodes.htm)

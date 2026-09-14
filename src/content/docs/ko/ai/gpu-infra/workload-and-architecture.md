@@ -56,7 +56,7 @@ graph TB
 
 | 계층 | AWS | Azure | Google Cloud | OCI |
 | --- | --- | --- | --- | --- |
-| **노드 간 패브릭** | [EFA (Elastic Fabric Adapter)](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html) | [InfiniBand](https://learn.microsoft.com/azure/virtual-machines/sizes/gpu-accelerated/) (ND 시리즈) | [GPUDirect-TCPX / RDMA](https://cloud.google.com/compute/docs/gpus) | [RDMA Cluster Network](https://docs.oracle.com/en-us/iaas/Content/Compute/Tasks/managingclusternetworks.htm) |
+| **노드 간 패브릭** | [EFA (Elastic Fabric Adapter)](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html) | [InfiniBand](https://learn.microsoft.com/azure/virtual-machines/sizes/overview) (ND 시리즈) | [GPUDirect-TCPX / RDMA](https://cloud.google.com/compute/docs/gpus) | [RDMA Cluster Network](https://docs.oracle.com/en-us/iaas/Content/Compute/Tasks/managingclusternetworks.htm) |
 | **통신 라이브러리** | NCCL | NCCL | NCCL | NCCL |
 | **동일 개념 여부** | 근사 대응 — 이름·구현·성능 특성이 상이 | 근사 대응 | 근사 대응 | 근사 대응 |
 
@@ -126,7 +126,7 @@ OCI의 **Dedicated AI Cluster**는 위 학습 인프라와 다른 계층입니�
 
 ### Azure
 
-- [GPU 최적화 VM 크기](https://learn.microsoft.com/azure/virtual-machines/sizes/gpu-accelerated/)
+- [GPU 최적화 VM 크기](https://learn.microsoft.com/azure/virtual-machines/sizes/overview)
 - [Azure CycleCloud](https://learn.microsoft.com/azure/cyclecloud/)
 
 ### Google Cloud

@@ -112,4 +112,4 @@ description: "데이터·텐서·파이프라인 병렬화(DP/TP/PP)와 3D 하�
 - [AWS — SageMaker 분산 학습](https://docs.aws.amazon.com/sagemaker/latest/dg/distributed-training.html)
 - [Azure — Azure ML 분산 학습](https://learn.microsoft.com/azure/machine-learning/concept-distributed-training)
 - [Google Cloud — Vertex AI 분산 학습](https://cloud.google.com/vertex-ai/docs/training/distributed-training)
-- [OCI — Data Science 분산 학습](https://docs.oracle.com/en-us/iaas/data-science/using/distributed-training.htm)
+- [OCI — Data Science 분산 학습](https://docs.oracle.com/en-us/iaas/Content/data-science/using/jobs-distributed-jobs.htm)

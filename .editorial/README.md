@@ -97,9 +97,28 @@ Grok(스택 측 `runner/editorial_packet.py`)과 저장소 측 스키마가 **�
 
 - 운영 cutover, 기존 게이트 해제, 유료 추론 서비스 추가.
 
-## 방침 결정: enforce 보류(shadow 유지)
+## 방침 결정: shadow 워크플로 제거 (2026년 9월 갱신)
 
-**결정(froguin, 2026년 8월 기준):**
+**결정(froguin, 2026년 9월 기준) — 두 워크플로 제거:**
+
+- `editorial-review.yml` · `editorial-c-approval.yml` 워크플로를 **제거**한다. 두 체크는
+  required가 아닌 shadow 상태였고 병합을 강제하지 않았으나, 모든 PR에 fail/pending status를
+  띄우는 **노이즈**만 발생시켰다.
+- 근거: C 승인 방식(allowlisted human이 64-hex packet SHA-256을 `/approve` 코멘트로 확인)이
+  **사람이 실제로 수행하기 어려운 마찰**이며, "승인을 어렵게 만드는 것"은 게이트가 될 수 없다.
+  마찰은 고무도장(rubber stamp)화·게이트 비활성화를 유발할 뿐, 권한·책임·바인딩이라는 게이트의
+  실질을 만들지 못한다. 실제로 이 게이트는 도입 후 한 번도 required로 승격되지 못한 채 노이즈로만
+  남았다.
+- 상위 계약(`froguin/multi-agent-stack` editorial-actions-contract §Review(5))의 C 승인 정의
+  개정 요청을 이슈로 전달했다: `froguin/multi-agent-stack#139`. 사람의 몫을 "해시 복붙"이
+  아니라 "판단 한 번"으로 바꾸는 방향(CI가 검토 요약 + 복사용 승인 문구 자동 코멘트) 또는 C의
+  사람 승인 단계 제거 중 계약 SOT가 방향을 정하면 그에 맞춰 재도입한다.
+- **`.editorial/` 도구(validator·classifier·review_runner·envelope·스키마·테스트)와
+  `enforce_required_checks.sh`는 보존**한다. 재도입 시 재사용하기 위함이며, 이번 변경은
+  워크플로 트리거(노이즈원)만 제거한다. 결정론적 5개 필수 게이트(`build`·`link-check`·
+  `mermaid-lint`·`strikethrough-lint`·`docs-consistency-lint`)는 불변이다.
+
+### 이전 방침 (2026년 8월, 히스토리 보존)
 
 - `editorial-review` · `editorial-c-approval`은 **shadow(비필수) 상태로 유지**한다. cutover 전까지 required로 등록하지 않는다. 두 체크는 PR에 판정 신호만 제공하고 병합을 강제하지 않는다.
 - `enforce_admins=false`를 유지한다(관리자 비상 우회 허용). 계약 §Review(5)가 지적하듯 우회가 열려 있는 동안에는 이 게이트가 '엄격히 강제되는 발행 게이트'가 아니며, 이는 의도된 상태다.

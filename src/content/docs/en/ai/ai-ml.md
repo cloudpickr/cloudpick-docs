@@ -101,6 +101,8 @@ For organizations that need to train and deploy their own models.
 
 Vendor GPU instances for model training/inference (Blackwell B200/GB200, Hopper H100/H200, A100), custom AI chips (AWS Trainium/Inferentia, Azure Maia, Google TPU), and reserved/spot options are consolidated — together with per-generation spec/performance and regional availability — in [Multicloud AI — GPU Availability](../../ai/multicloud-ai/#gpu-availability).
 
+Once you have chosen GPU instances, how to combine them into a cluster for training/inference (network, placement, distributed training, Kubernetes, capacity, cost) is covered in the [GPU Infrastructure](../../ai/gpu-infra/workload-and-architecture/) document set.
+
 ## Key Differences
 
 **Amazon Bedrock** — Provides access to a wide range of provider models — including its own **Amazon Nova** models (1st-generation Premier/Pro/Lite/Micro/Sonic, etc., and **Nova 2** Lite/Pro, etc. — check the [official model list](https://aws.amazon.com/nova/models/) for generation and availability status) as well as Anthropic Claude, the OpenAI GPT series, and more — through a single API. It offers a broad model selection, and its strength lies in operational capabilities such as AgentCore for building AI agents.

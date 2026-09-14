@@ -109,6 +109,8 @@ description: "벤더별 AI 플랫폼, 모델 카탈로그, GPU/AI 칩, Applied A
 
 모델 학습·추론에 쓰는 벤더별 GPU 인스턴스(Blackwell B200/GB200, Hopper H100/H200, A100)와 자체 AI 칩(AWS Trainium/Inferentia, Azure Maia, Google TPU), 예약·스팟 옵션은 [멀티클라우드 AI — GPU 가용성](../../ai/multicloud-ai/#gpu-가용성)에서 세대별 스펙·성능·리전 가용성과 함께 한곳에 정리했습니다.
 
+GPU 인스턴스를 골랐다면, 이를 어떻게 클러스터로 묶어 학습·추론하는지(통신망·배치·분산 학습·쿠버네티스·용량·비용)는 [GPU 인프라](../../ai/gpu-infra/workload-and-architecture/) 문서군에서 다룹니다.
+
 ## 핵심 차이점
 
 **Amazon Bedrock** — 자체 개발 **Amazon Nova** 모델(1세대 Premier/Pro/Lite/Micro/Sonic 등과 **Nova 2** Lite/Pro 등 — [공식 모델 목록](https://aws.amazon.com/nova/models/)에서 세대·가용 상태 확인)과 Anthropic Claude, OpenAI GPT 시리즈 등 다양한 제공사 모델을 하나의 API로 접근할 수 있습니다. 모델 선택 폭이 넓으며, AI 에이전트 구축을 위한 AgentCore 등 운영 체계가 강점입니다.

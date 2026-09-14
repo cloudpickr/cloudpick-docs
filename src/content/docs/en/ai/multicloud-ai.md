@@ -72,6 +72,10 @@ GPU instance pricing varies significantly by region, commitment term, and availa
 **Confidential AI inference:** If model IP or sensitive input data must be protected even while being processed, **confidential computing GPUs** (Azure NCC H100 v5, GCP A3 Confidential VM) are an option. For a vendor comparison of confidential computing, see [Data Protection — Confidential Computing](../../security/data-protection/#confidential-computing).
 :::
 
+:::note
+This section is a catalog/comparison of "which GPUs exist." Designing and operating a cluster that combines multiple GPUs for training/inference (network, placement, distributed training, Kubernetes, capacity, cost) is covered in the [GPU Infrastructure](../../ai/gpu-infra/workload-and-architecture/) document set.
+:::
+
 ## RAG Pipeline Services
 
 | Vendor | Vector Search | Embedding | Managed RAG |

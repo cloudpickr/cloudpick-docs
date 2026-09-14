@@ -75,6 +75,10 @@ GPUインスタンスの価格はリージョン、コミット期間、可用�
 **機密AI推論:** モデルIPや機密性の高い入力データを処理中も保護する必要がある場合は、**機密コンピューティングGPU**(Azure NCC H100 v5, GCP A3 Confidential VM)を使用できます。ベンダー別の機密コンピューティング比較は[データ保護 — 機密コンピューティング](../../security/data-protection/#機密コンピューティング-confidential-computing)を参照してください。
 :::
 
+:::note
+このセクションは「どのGPUがあるか」のカタログ・比較です。複数のGPUを一つのクラスターにまとめて学習・推論する設計・運用（通信網・配置・分散学習・Kubernetes・容量・コスト）は[GPUインフラ](../../ai/gpu-infra/workload-and-architecture/)の文書群で扱います。
+:::
+
 ## RAGパイプライン
 
 RAG(Retrieval-Augmented Generation)パイプラインは、Vector DB、Embeddingモデル、LLM、オーケストレーションの組み合わせで構成されます。各ベンダーの主要サービス:

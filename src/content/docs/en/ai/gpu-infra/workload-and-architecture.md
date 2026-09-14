@@ -11,14 +11,25 @@ This document covers advanced GPU infrastructure design. GPU instance specs by g
 
 ## Overview
 
-Workloads that a single GPU cannot handle must combine multiple GPUs and multiple nodes into one cluster. What determines performance here is not the compute power of an individual GPU, but the **communication bandwidth and latency between GPUs and between nodes**, along with the **storage throughput that feeds data to the GPUs**. This document first classifies workload characteristics, then compares cluster architectures across vendors in three tiers.
+If one GPU is enough for the job, you don't need this document. But when you train a large model that doesn't fit on a single GPU, or reach a scale one server can't handle, you have to **combine multiple GPUs and multiple servers into one**, splitting the work across them.
 
-### Portability baseline and scope of this document
+A common misconception here is "faster GPUs and more of them makes it that much faster." It doesn't work that way. For multiple GPUs to collaborate, they must constantly exchange calculation results — and if the **speed of that exchange (GPU-to-GPU and server-to-server communication) and the speed of feeding data to the GPUs (storage)** become the bottleneck, adding GPUs only increases idle time. As an analogy: gathering 100 cooks (GPUs) doesn't make you 100x faster if the kitchen is cramped and the aisles for carrying ingredients are jammed.
 
-This document treats **CUDA + NCCL as the portability baseline**. Most distributed training and inference stacks run on top of this combination, and switching clouds is generally portable at the application-code level. In contrast, **high-speed communication fabrics, placement groups, and managed cluster products differ in name and implementation across vendors and do not map one-to-one.**
+So GPU infrastructure design is less about "which GPU" and more about **"how you connect the GPUs and how you move the data."** This document first classifies what kind of workload you have (training vs. inference, etc.), then compares four vendors across a connection structure split into three tiers: **intra-node → inter-node → storage**.
+
+:::note
+In this document, a **node** means one server with several GPUs installed, and a **cluster** means several such nodes grouped together.
+:::
+
+### What stays the same across clouds, and what differs per vendor
+
+Sorting out what carries over versus what you must relearn when switching clouds makes the rest easier.
+
+- **What carries over (portability baseline)** — Training/inference code mostly runs on the common foundation of **CUDA and NCCL**. (CUDA = NVIDIA's standard software for running computation on GPUs; NCCL = the library that lets multiple GPUs exchange results.) Code written on top of these two generally ports across clouds.
+- **What differs per vendor** — The **high-speed network physically connecting the GPUs, the way servers are placed close together, and the fully managed cluster products** differ in name and implementation by vendor, and cannot be swapped one-to-one.
 
 :::caution
-Detailed settings for vendor-specific implementations (e.g., EFA queue counts for a specific instance, InfiniBand partition keys) are out of scope. This document focuses on normalizing and comparing concepts across vendors, delegating vendor-specific detailed tuning to each vendor's official documentation. Performance figures depend heavily on instance, driver, NCCL version, storage, and topology, so measure with real workloads before adoption.
+The fine-grained settings of vendor-specific implementations (e.g., communication queue counts for a specific instance, partition keys) are out of scope. This document focuses on comparing concepts across vendors side by side, delegating detailed tuning to each vendor's official documentation. Performance figures also depend heavily on instance, driver, library version, storage, and placement, so measure with real workloads before adoption.
 :::
 
 ## Three GPU Workload Classes
@@ -27,7 +38,7 @@ Because the bottleneck resource differs per workload, the starting point of infr
 
 | Workload | Dominant bottleneck | Communication needs | Storage needs | Representative infrastructure traits |
 | --- | --- | --- | --- | --- |
-| **Pre-training** | Compute + inter-node communication | Very high (cluster-wide collectives) | High (streaming large datasets) | Many nodes, high-speed fabric required, checkpoint bandwidth critical |
+| **Pre-training** | Compute + inter-node communication | Very high (all nodes communicate together) | High (streaming large datasets) | Many nodes, high-speed network required, checkpoint bandwidth critical |
 | **Fine-tuning** | Compute + memory | Medium (often within a few nodes) | Medium | Small-to-medium cluster, often feasible on a single node |
 | **Inference** | Memory bandwidth + latency | Low (only when model-parallel) | Low (weights resident after load) | Latency/throughput balance, autoscaling-centric |
 
@@ -37,7 +48,7 @@ Most enterprise workloads concentrate on fine-tuning and inference, and these tw
 
 ## Reference Architecture — Three-Tier Communication Model
 
-Data movement in a GPU cluster is divided into three tiers. Each tier is handled by different technology, and these tiers must not be conflated when comparing vendors.
+There are roughly three kinds of paths data travels in a GPU cluster. Each path is built with different technology and differs in both speed and role. When comparing vendors, mixing these three tiers leads to wrong comparisons, so always separate them.
 
 ```mermaid
 graph TB
@@ -48,9 +59,9 @@ graph TB
     Node -->|"Parallel filesystem / object storage<br/>(data & checkpoints)"| Storage["Storage tier"]
 ```
 
-- **Intra-node** — GPUs within one server are connected by NVLink/NVSwitch. Bandwidth is highest here and is determined by NVIDIA platform characteristics regardless of vendor.
-- **Inter-node backend fabric** — Servers are connected to each other by an RDMA-based high-speed fabric. **This tier is implemented differently by each vendor and governs large-scale training performance.**
-- **Storage I/O** — Used for training-data streaming and checkpoint save/restore. In large-scale training, insufficient checkpoint bandwidth leaves GPUs idle and waiting.
+- **Intra-node (within one server)** — GPUs inside one server are joined by ultra-fast dedicated links called NVLink/NVSwitch. This is the fastest of the three tiers and is determined by NVIDIA hardware characteristics regardless of vendor.
+- **Inter-node (server to server)** — Servers are connected by a **high-speed fabric**. Here, a fabric means "a dedicated high-speed network that tightly weaves servers together," and RDMA (Remote Direct Memory Access) is the technology that "exchanges data directly between server memories without going through the CPU." **This tier is implemented differently by each vendor and governs large-scale training performance.**
+- **Storage (data store)** — The path for reading training data and writing/reloading intermediate saves (checkpoints). If this path is slow, GPUs sit idle waiting for data.
 
 ### Inter-node High-Speed Fabric — Vendor Mapping
 
@@ -66,7 +77,7 @@ The four fabrics above are **different technologies that play the same role**; t
 
 ### Placement & Topology — Physical Proximity and NUMA
 
-To realize inter-node communication performance, GPU nodes must be **placed physically close together**, and within a node the GPU and network interface (NIC) must be aligned in the **same NUMA domain**.
+Two things must line up to realize inter-node communication performance. First, the GPU servers must be **physically close** within the data center (if scattered far apart, the round trip takes longer). Second, within one server, the GPU and the network card (NIC) it uses must sit in the **same zone**. Here, NUMA (Non-Uniform Memory Access) refers to "a structure where even within one server the CPU/memory is split into zones, so same-zone access is fast and crossing to another zone is slow."
 
 | Item | AWS | Azure | Google Cloud | OCI |
 | --- | --- | --- | --- | --- |

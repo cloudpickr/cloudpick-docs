@@ -59,6 +59,10 @@ AIワークロード（LLM API呼び出し、GPU学習/推論）は、従来の�
 - **プロンプトキャッシング** — 繰り返されるシステムプロンプトをキャッシュして入力トークンを削減
 - **コストタグ** — AIワークロードを別タグ（`ai:true`、`model:claude-fable-5`）で分離追跡
 
+:::note
+GPU学習/推論インフラに特化したコスト最適化（容量予約・スポット・right-sizing・アイドル回収・GPU時間の配分）は[GPUインフラ — 推論サービング・信頼性・コスト最適化](../../ai/gpu-infra/serving-reliability-cost/#コスト最適化)を参照してください。
+:::
+
 ### AWS FinOps Agent [Preview]
 
 2026年6月のFinOps Xで発表された[AWS FinOps Agent](https://siliconangle.com/2026/06/11/aws-launches-finops-agent-bring-ai-cost-governance-cloud-spend-finopsx/)(Feature Preview)は、コストの異常をAIが自動検知し、根本原因を分析して担当チームにSlack/Jiraでルーティングします。

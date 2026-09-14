@@ -52,7 +52,7 @@ graph LR
 ### 4. Application Engineering & Pipelines
 - **Prompt & RAG Pipelines** — Implement few-shot prompting, ReAct frameworks, semantic routing, and hybrid retrieval. See [Advanced RAG Patterns](../../ai/rag-patterns/).
 - **Tool Integration & Agent Design** — Connect function calling, backend REST APIs, and database connectors to build autonomous execution agents. See [AI Agents](../../ai/agents/).
-- **Training Pipelines** — Build distributed training and fine-tuning pipelines when training custom model weights.
+- **Training Pipelines** — Build distributed training and fine-tuning pipelines when training custom model weights. For parallelism strategies (TP/PP/DP) and GPU cluster setup, see [GPU Infrastructure — Distributed Training Standard Architecture](../../ai/gpu-infra/distributed-training/).
 
 ### 5. Multi-Dimensional Evaluation & Verification
 - **Offline Benchmarks (Golden Sets)** — Measure ground-truth accuracy, recall, and precision against curated test sets.
@@ -148,7 +148,7 @@ For detailed LLMOps architectures and tracing techniques, see [LLMOps](../../ai/
 AI systems do not operate in isolation; they integrate directly with enterprise DevOps and platform engineering practices:
 
 - **CI/CD Integration** — Integrate prompt regression testing and RAG evaluation stages into application delivery pipelines ([CI/CD](../../devops/cicd/)) to catch degradation before release.
-- **Infrastructure as Code (IaC)** — Provision vector databases, GPU node pools, and serving endpoints with [IaC](../../devops/iac/) for reproducible environments.
+- **Infrastructure as Code (IaC)** — Provision vector databases, GPU node pools, and serving endpoints with [IaC](../../devops/iac/) for reproducible environments. For scheduling, quotas, and sharing of GPU node pools, see [GPU Infrastructure — GPU Kubernetes and Scheduling](../../ai/gpu-infra/kubernetes-and-scheduling/).
 - **Unified Observability** — Correlate traditional infrastructure metrics (CPU, GPU, memory) with AI application metrics (token spend, hallucination rate, user satisfaction) in a single pane of glass ([Observability](../../devops/observability/)).
 
 ---

@@ -11,7 +11,13 @@ This document covers how to schedule, share, and govern GPUs on Kubernetes. Gene
 
 ## Overview
 
-When multiple teams and multiple jobs share one GPU cluster, how the scheduler allocates GPUs determines utilization and fairness. Kubernetes treats GPUs as extended resources and must accommodate the opposing demands of training jobs (needing many GPUs all-or-nothing) and inference jobs (continuously holding a small number of GPUs).
+GPUs are expensive and scarce. So rather than one team monopolizing them, multiple teams and jobs usually **share one GPU cluster.** What decides "who gets how many GPUs, and when" is the scheduler, and a bad allocation leaves costly GPUs idle or lets one team monopolize them.
+
+Kubernetes (the standard tool for automatically placing and managing containers) treats GPUs as a special resource. The hard part is that one cluster must accept two jobs of opposite nature — a **training job** starts only when it gets "all the GPUs it needs at once," while an **inference job** runs by "holding a few GPUs for a long time."
+
+:::note
+If Kubernetes itself is new to you, we recommend reading [Container Services](../../compute/containers/) and [Kubernetes Operations](../../devops/kubernetes-operations/) first. This document covers only the **GPU-specific** parts on top of that.
+:::
 
 ## GPU Node Pools and Device Plugins
 
@@ -39,16 +45,16 @@ Time-slicing does not isolate memory or compute, so one job's OOM or runaway aff
 
 ## Quotas, Fairness, and Anti-Hoarding
 
-The core problem of a shared cluster is **one team hoarding GPUs** and starving other jobs.
+The headache of a shared cluster is when **one team grabs GPUs and won't let go (monopoly, hoarding)**. Then other jobs can't get GPUs and keep starving. The mechanisms that prevent this:
 
-- **ResourceQuota** — Set an upper bound on GPUs available per namespace (team) to control totals.
-- **Priority/preemption** — Set job priority with PriorityClass and preempt lower-priority jobs to yield GPUs to higher-priority ones.
-- **Anti-hoarding** — Apply fair-share/reclaim policies of a queue-based scheduler to reclaim GPUs held idle but unused.
-- **Queue-based allocation** — Manage per-team allotments and waiting queues at the gang-scheduling tier below.
+- **ResourceQuota (total cap)** — Set an upper bound on the number of GPUs each team (namespace) can use.
+- **Priority/preemption** — Rank jobs by priority (PriorityClass), and when an urgent job arrives, briefly push aside (preempt) a less urgent one to yield GPUs.
+- **Reclaiming idle GPUs (anti-hoarding)** — A queue-based scheduler uses fair-share and reclaim rules to take back GPUs that are held but not actually used, and give them to other jobs.
+- **Queue-based allocation** — The gang-scheduling tier below manages per-team shares and waiting lines.
 
 ## Gang Scheduling
 
-Distributed training can only start once it acquires **all** the GPUs it needs at the same time. Acquiring only some while waiting for the rest ties up the acquired GPUs idle, wasting resources and risking deadlock. Gang scheduling schedules jobs all-or-nothing.
+Distributed training can only start once it secures **all** the GPUs it needs **at once**. For example, if a job needs 16 GPUs but grabs only 10 and waits for the other 6, those 10 do nothing and just tie up resources (in the worst case, a deadlock where jobs wait on each other). Gang scheduling prevents this by scheduling **"start only if all needed are secured, otherwise don't start at all (all-or-nothing)."** It means grabbing the whole "gang" together.
 
 | Tool | Characteristics |
 | --- | --- |
@@ -73,7 +79,7 @@ GPU sharing, gang scheduling, and operators mostly run at the open-source tier, 
 
 ## Observability — DCGM and GPU Metrics
 
-GPU clusters cannot be diagnosed for bottlenecks with CPU-centric observability alone. Collect GPU utilization, memory, temperature, and NVLink/fabric traffic with [NVIDIA DCGM](https://docs.nvidia.com/datacenter/dcgm/latest/index.html).
+GPU clusters cannot be diagnosed for bottlenecks with CPU-centric observability alone. Collect GPU utilization, memory, temperature, and network traffic with [NVIDIA DCGM](https://docs.nvidia.com/datacenter/dcgm/latest/index.html) (Data Center GPU Manager, the standard tool for collecting GPU status and performance).
 
 - **Key metrics** — GPU utilization (actual compute utilization, not mere allocation), memory usage, fabric bandwidth, power/temperature
 - **The utilization trap** — "A GPU is allocated" and "a GPU is actually computing" are different. Low effective utilization is a sign of a data-loading or communication bottleneck.

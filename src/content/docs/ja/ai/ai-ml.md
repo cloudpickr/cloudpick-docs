@@ -109,6 +109,8 @@ description: "ベンダー別のAIプラットフォーム、モデルカタロ�
 
 モデルの学習・推論に使うベンダー別GPUインスタンス（Blackwell B200/GB200、Hopper H100/H200、A100）、自社AIチップ（AWS Trainium/Inferentia、Azure Maia、Google TPU）、予約・スポットオプションは、[マルチクラウドAI — GPU可用性](../../ai/multicloud-ai/#gpu可用性)に世代別スペック・性能・リージョン可用性とあわせて一元的に整理しています。
 
+GPUインスタンスを選んだら、それらをどうクラスターにまとめて学習・推論するか（通信網・配置・分散学習・Kubernetes・容量・コスト）は[GPUインフラ](../../ai/gpu-infra/workload-and-architecture/)の文書群で扱います。
+
 ## 主な違い
 
 **Amazon Bedrock** — 自社開発の**Amazon Nova**モデル(第1世代Premier/Pro/Lite/Micro/Sonic等と**Nova 2** Lite/Pro等 — [公式モデル一覧](https://aws.amazon.com/nova/models/)で世代・提供状況を確認)と、Anthropic Claude、OpenAI GPTシリーズなど多様な提供社のモデルに単一APIでアクセスできます。モデル選択の幅が広く、AIエージェント構築のためのAgentCoreなどの運用体系が強みです。

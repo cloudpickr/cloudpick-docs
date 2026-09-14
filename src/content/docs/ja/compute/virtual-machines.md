@@ -42,6 +42,10 @@ description: "汎用、Arm、GPU仮想マシン製品とイメージ(OSテンプ
 | Google Cloud | A3、A2、G2シリーズ + TPU (v5p/v6e/Ironwood) | NVIDIA H100 + 自社TPU (第7世代Ironwood/TPU7x最新) |
 | OCI | GPU Instances (A10、A100、H100) | NVIDIA GPU。Bare Metalオプション提供 |
 
+:::note
+複数のGPUインスタンスを一つのクラスターにまとめて大規模な学習・推論を回すには、通信網・配置・分散学習・容量確保の設計が必要です。[GPUインフラ](../../ai/gpu-infra/workload-and-architecture/)の文書群を参照してください。
+:::
+
 ### イメージ (OSテンプレート)
 
 | ベンダー | 製品 | 備考 |

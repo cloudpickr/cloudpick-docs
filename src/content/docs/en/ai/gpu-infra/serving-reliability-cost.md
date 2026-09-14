@@ -11,25 +11,27 @@ This document covers the operational stage of GPU infrastructure (inference serv
 
 ## Overview
 
-For GPU infrastructure, cost and reliability are decided more in operations than in construction. Inference serving has entirely different characteristics from training (latency-sensitive, autoscaling), and large-scale training needs automatic resume to withstand node failures. And as of 2026, the biggest enterprise constraint is not performance but **securing GPU capacity**.
+For GPU infrastructure, cost and reliability are decided more in **running it** than in building it. This document covers three operational topics: inference serving (providing the trained model as a service), failure handling (keeping training going even when servers die), and the biggest concern as of 2026 — **securing GPU capacity** (whether you can actually get GPUs when you want them) and cost.
+
+Inference and training are very different in nature. Training is a long, large, one-shot job, whereas inference must **respond quickly** whenever a user request arrives and **scale up and down automatically** with request volume.
 
 ## Inference Serving
 
 Inference has an operational profile opposite to training. Training is long-running, communication-heavy, and batch-oriented, whereas inference is **latency-sensitive, request-based, and autoscaling-oriented**.
 
-- **Latency vs throughput** — Real-time serving targets low latency; batch inference targets high throughput. Balance the two with dynamic batching.
-- **Autoscaling** — Increase and decrease GPU replicas with request volume. GPUs have a long cold start (weight loading), so scaling reacts more slowly than CPUs; keep a minimum number of replicas or pre-warm.
+- **Latency vs throughput** — Real-time serving targets low latency (fast response); batch inference targets high throughput (many at once). Balance the two with dynamic batching (gathering requests that arrive within a short window and processing them together).
+- **Autoscaling** — Increase and decrease GPU replicas with request volume. But GPUs have a long time to load model weights into memory when starting up (cold start), so they react more slowly than CPUs. Keep at least a few always on, or pre-warm them.
 - **Model-parallel serving** — Large models that do not fit on a single GPU use tensor parallelism even for inference. (See [parallelism strategies](../../ai/gpu-infra/distributed-training/).)
 - **Per-token cost and routing** — Token cost, prompt caching, and model routing for foundation-model APIs are covered in [LLMOps](../../ai/llmops/) and [AI Platforms and Model Comparison — Inference Cost Optimization](../../ai/ai-ml/#inference-cost-optimization).
 
 ## Reliability and Failure Handling
 
-The more nodes, the higher the probability of hardware failure during training. At scales of hundreds of GPUs, failure is routine, not an exception.
+The more nodes, the higher the chance of hardware failure during training. At scales of hundreds of GPUs, failure is routine, not an exception. So plan on the premise that "failures will happen."
 
-- **Failure detection** — Isolate faulty nodes early with node health checks and GPU status checks (Xid errors, ECC errors, fabric link down).
-- **Checkpoint-based resume** — Resume training from the last [checkpoint](../../ai/gpu-infra/distributed-training/#checkpoint-strategy). Replace the failed node while the remaining nodes wait and then synchronize.
-- **Straggler handling** — If some nodes slow down (network, thermal throttling), the entire collective is bound to that speed. Detect and isolate/replace stragglers.
-- **Managed cluster auto-recovery** — [Managed GPU clusters](../../ai/gpu-infra/workload-and-architecture/#managed-gpu-clusters) (e.g., SageMaker HyperPod) provide integrated node health checks, auto-replacement, and checkpoint resume to reduce this burden.
+- **Failure detection** — Find and isolate faulty nodes quickly with node health checks and GPU error signals (Xid errors = GPU error codes reported by the NVIDIA driver, memory errors, communication link drops).
+- **Resume from checkpoint** — Restart from the last saved point ([checkpoint](../../ai/gpu-infra/distributed-training/#checkpoint-strategy)). Replace the failed node while the rest wait briefly and then re-sync.
+- **Straggler handling** — If even one node slows down (network trouble or heat-induced slowdown), the whole job waits on it and slows together. Detect such stragglers and isolate/replace them.
+- **Managed cluster auto-recovery** — [Managed GPU clusters](../../ai/gpu-infra/workload-and-architecture/#managed-gpu-clusters) (e.g., SageMaker HyperPod) provide failure detection, auto-replacement, and checkpoint resume as a package to ease this burden.
 
 ## Capacity Operations
 

@@ -59,6 +59,10 @@ AI workloads (LLM API calls, GPU training/inference) have a **fundamentally diff
 - **Prompt caching** — cache recurring system prompts to reduce input token cost
 - **Cost tags** — track AI workloads separately with dedicated tags (`ai:true`, `model:claude-fable-5`)
 
+:::note
+Cost optimization specific to GPU training/inference infrastructure (capacity reservations, spot, right-sizing, idle reclamation, GPU-hour allocation) is covered in [GPU Infrastructure — Inference Serving, Reliability, and Cost](../../ai/gpu-infra/serving-reliability-cost/#cost-optimization).
+:::
+
 ### AWS FinOps Agent [Preview]
 
 The [AWS FinOps Agent](https://siliconangle.com/2026/06/11/aws-launches-finops-agent-bring-ai-cost-governance-cloud-spend-finopsx/) (Feature Preview), announced at FinOps X in June 2026, uses AI to automatically detect cost anomalies, analyze root causes, and route them to the responsible team via Slack/Jira.

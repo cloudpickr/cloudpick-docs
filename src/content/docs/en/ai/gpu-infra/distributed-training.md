@@ -6,7 +6,7 @@ description: "Summarizes data/tensor/pipeline parallelism (DP/TP/PP), 3D hybrid 
 > Last reviewed: September 2026 | This is a fast-moving area subject to quarterly review.
 
 :::note
-This document covers parallelism strategies for distributed training. For the cluster communication tier, placement, and fabric, see [GPU Workload Characteristics and Reference Architecture](../../ai/gpu-infra/workload-and-architecture/); for scheduling on Kubernetes, see [GPU Kubernetes and Scheduling](../../ai/gpu-infra/kubernetes-and-scheduling/).
+This document covers parallelism strategies for distributed training. For the cluster communication tier, placement, and fabric, see [GPU Workload Characteristics and Reference Architecture](../workload-and-architecture/); for scheduling on Kubernetes, see [GPU Kubernetes and Scheduling](../kubernetes-and-scheduling/).
 :::
 
 ## Overview
@@ -22,31 +22,29 @@ An analogy of several cooks sharing a large cooking job makes this easy to grasp
 Large-scale training layers all three together (3D parallelism), and each method trades off differently on "how often they must communicate / how much memory they save / how complex they are to implement."
 
 :::note
-The parallelism methods and frameworks here (DeepSpeed, Megatron-LM, PyTorch FSDP) run on top of CUDA/NCCL and are not vendor-bound — so switching clouds generally keeps the strategy portable. Actual speed, however, depends on [inter-node network performance](../../ai/gpu-infra/workload-and-architecture/#inter-node-high-speed-fabric--vendor-mapping).
+The parallelism methods and frameworks here (DeepSpeed, Megatron-LM, PyTorch FSDP) run on top of CUDA/NCCL and are not vendor-bound — so switching clouds generally keeps the strategy portable. Actual speed, however, depends on [inter-node network performance](../workload-and-architecture/#inter-node-high-speed-fabric--vendor-mapping).
 :::
 
 ## Data Parallelism (DP)
 
-Keep an identical copy of the whole model on each GPU, split only the data batch so each processes its share, then reconcile the results (gradients). It's the simplest approach and the standard when the model fits on a single GPU.
+Replicate the whole model on each GPU, split only the data for processing, then synchronize the results (gradients) via all-reduce. It's the simplest approach and the standard when the model fits on a single GPU. (Analogy: each cook holds a copy of the same recipe and only the customers are divided among them, then results are reconciled.)
 
-- **Communication** — Every training step, all GPUs combine their results. (all-reduce = a collective that gathers and sums every GPU's value, then distributes the result back to all.)
+- **Communication** — Every training step, all GPUs combine their gradients. (all-reduce = a collective that gathers and sums every GPU's value, then distributes the result back to all.)
 - **Limitation** — If the model itself exceeds a single GPU's memory, this alone isn't enough.
 - **Saving memory (FSDP/ZeRO)** — Shard the model's parameters and intermediate state into small pieces spread across GPUs. This keeps data parallelism while training larger models beyond a single GPU's limit.
 
 ## Tensor Parallelism (TP)
 
-Several GPUs share the computation of one layer (a computational layer that makes up the model) at the same time. Used when a single layer is too big to fit on one GPU.
+Several GPUs shard the weights of a single layer (a computational layer that makes up the model) and compute it at the same time. Used when a single layer is too big to fit on one GPU.
 
-- **Communication** — GPUs exchange very frequently inside a layer, so it is extremely sensitive to latency (response speed).
-- **Applicability** — Because communication is so frequent, it is mostly used **within one server** (GPUs joined by NVLink).
-- **Effect** — Essential when a single layer exceeds GPU memory.
+- **Communication** — GPUs exchange very frequently inside a layer, making it extremely latency-sensitive. So it is mostly used **within one server** (GPUs joined by NVLink).
+- **Effect** — Essential when a single layer exceeds GPU memory. Because communication is so frequent, extending it across nodes can cause throughput to collapse.
 
 ## Pipeline Parallelism (PP)
 
 Divide the model's layers into a few stages placed on different GPU groups, and stream the data as small pieces (micro-batches) through them like a relay.
 
-- **Communication** — Results are passed only at the boundary where one stage meets the next, so communication volume is relatively low.
-- **Applicability** — Low communication makes it easy to **spread across multiple servers**.
+- **Communication** — Results are passed only at the boundary between stages, so communication volume is low. This makes it easy to **spread across multiple servers**.
 - **Limitation** — By its relay nature, idle gaps appear while waiting for the previous stage (pipeline bubbles); mitigate by increasing the number of data pieces.
 
 ## 3D Hybrid Parallelism
@@ -80,16 +78,16 @@ Framework choice is vendor-neutral. However, each cloud's managed training platf
 Large-scale training runs for hours to weeks, so checkpointing to withstand node failures is essential. Checkpoint design is a matter of **balancing save frequency against storage bandwidth**.
 
 - **Frequency** — Too frequent, and save overhead leaves GPUs idle; too infrequent, and the compute lost on failure grows.
-- **Storage bandwidth** — Writing hundreds of GB to several TB of checkpoints in a short time makes [storage-tier](../../ai/gpu-infra/workload-and-architecture/#reference-architecture--three-tier-communication-model) throughput a bottleneck.
+- **Storage bandwidth** — Writing hundreds of GB to several TB of checkpoints in a short time makes [storage-tier](../workload-and-architecture/#reference-architecture--three-tier-communication-model) throughput a bottleneck.
 - **Asynchronous/distributed saving** — Save in the background without stopping training, or have each GPU save only its own shard in parallel to cut time.
-- **Automatic resume** — The flow of resuming from the last checkpoint after failure detection is covered in [Inference Serving, Reliability, and Cost — Reliability and Failure Handling](../../ai/gpu-infra/serving-reliability-cost/#reliability-and-failure-handling).
+- **Automatic resume** — The flow of resuming from the last checkpoint after failure detection is covered in [Inference Serving, Reliability, and Cost — Reliability and Failure Handling](../serving-reliability-cost/#reliability-and-failure-handling).
 
 ## Related Documents
 
-- **Cluster communication tier, fabric, placement** — [GPU Workload Characteristics and Reference Architecture](../../ai/gpu-infra/workload-and-architecture/)
-- **Gang scheduling, quotas** — [GPU Kubernetes and Scheduling](../../ai/gpu-infra/kubernetes-and-scheduling/)
-- **Automatic failure resume, capacity operations** — [Inference Serving, Reliability, and Cost](../../ai/gpu-infra/serving-reliability-cost/)
-- **Training pipeline within the AI system lifecycle** — [AI System Lifecycle and Engineering](../../ai/lifecycle/)
+- **Next: Kubernetes, scheduling, gang scheduling** — [GPU Kubernetes and Scheduling](../kubernetes-and-scheduling/)
+- **Cluster communication tier, fabric, placement** — [GPU Workload Characteristics and Reference Architecture](../workload-and-architecture/)
+- **Automatic failure resume, capacity operations** — [Inference Serving, Reliability, and Cost](../serving-reliability-cost/)
+- **Training pipeline within the AI system lifecycle** — [AI System Lifecycle and Engineering](../../../ai/lifecycle/)
 
 ## Common Mistakes
 

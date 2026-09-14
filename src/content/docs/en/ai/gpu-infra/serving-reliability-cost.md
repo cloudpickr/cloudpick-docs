@@ -6,14 +6,14 @@ description: "Covers GPU inference serving operations, automatic node-failure re
 > Last reviewed: September 2026 | This is a fast-moving area subject to quarterly review.
 
 :::note
-This document covers the operational stage of GPU infrastructure (inference serving, failure handling, capacity, cost). For training parallelism, see [Distributed Training Standard Architecture](../../ai/gpu-infra/distributed-training/); for cluster architecture, see [GPU Workload Characteristics and Reference Architecture](../../ai/gpu-infra/workload-and-architecture/).
+This document covers the operational stage of GPU infrastructure (inference serving, failure handling, capacity, cost). For training parallelism, see [Distributed Training Standard Architecture](../distributed-training/); for cluster architecture, see [GPU Workload Characteristics and Reference Architecture](../workload-and-architecture/).
 :::
 
 ## Overview
 
-For GPU infrastructure, cost and reliability are decided more in **running it** than in building it. This document covers three operational topics: inference serving (providing the trained model as a service), failure handling (keeping training going even when servers die), and the biggest concern as of 2026 — **securing GPU capacity** (whether you can actually get GPUs when you want them) and cost.
+For GPU infrastructure, cost and reliability are decided in the operational stage after you build it. This document covers inference serving (latency, autoscaling), failure recovery (checkpoints, node re-insertion), and GPU capacity assurance and cost optimization (commitments, spot, capacity reservations). In particular, as of 2026 the biggest constraint is not performance but **whether you can actually secure GPUs when you want them**.
 
-Inference and training are very different in nature. Training is a long, large, one-shot job, whereas inference must **respond quickly** whenever a user request arrives and **scale up and down automatically** with request volume.
+Inference and training differ in nature. Training is a long, large, one-shot job, whereas inference must **respond quickly** whenever a user request arrives and **scale up and down automatically** with request volume.
 
 ## Inference Serving
 
@@ -21,17 +21,17 @@ Inference has an operational profile opposite to training. Training is long-runn
 
 - **Latency vs throughput** — Real-time serving targets low latency (fast response); batch inference targets high throughput (many at once). Balance the two with dynamic batching (gathering requests that arrive within a short window and processing them together).
 - **Autoscaling** — Increase and decrease GPU replicas with request volume. But GPUs have a long time to load model weights into memory when starting up (cold start), so they react more slowly than CPUs. Keep at least a few always on, or pre-warm them.
-- **Model-parallel serving** — Large models that do not fit on a single GPU use tensor parallelism even for inference. (See [parallelism strategies](../../ai/gpu-infra/distributed-training/).)
-- **Per-token cost and routing** — Token cost, prompt caching, and model routing for foundation-model APIs are covered in [LLMOps](../../ai/llmops/) and [AI Platforms and Model Comparison — Inference Cost Optimization](../../ai/ai-ml/#inference-cost-optimization).
+- **Model-parallel serving** — Large models that do not fit on a single GPU use tensor parallelism even for inference. (See [parallelism strategies](../distributed-training/).)
+- **Per-token cost and routing** — Token cost, prompt caching, and model routing for foundation-model APIs are covered in [LLMOps](../../../ai/llmops/) and [AI Platforms and Model Comparison — Inference Cost Optimization](../../../ai/ai-ml/#inference-cost-optimization).
 
 ## Reliability and Failure Handling
 
 The more nodes, the higher the chance of hardware failure during training. At scales of hundreds of GPUs, failure is routine, not an exception. So plan on the premise that "failures will happen."
 
 - **Failure detection** — Find and isolate faulty nodes quickly with node health checks and GPU error signals (Xid errors = GPU error codes reported by the NVIDIA driver, memory errors, communication link drops).
-- **Resume from checkpoint** — Restart from the last saved point ([checkpoint](../../ai/gpu-infra/distributed-training/#checkpoint-strategy)). Replace the failed node while the rest wait briefly and then re-sync.
+- **Resume from checkpoint** — Restart from the last saved point ([checkpoint](../distributed-training/#checkpoint-strategy)). Replace the failed node while the rest wait briefly and then re-sync.
 - **Straggler handling** — If even one node slows down (network trouble or heat-induced slowdown), the whole job waits on it and slows together. Detect such stragglers and isolate/replace them.
-- **Managed cluster auto-recovery** — [Managed GPU clusters](../../ai/gpu-infra/workload-and-architecture/#managed-gpu-clusters) (e.g., SageMaker HyperPod) provide failure detection, auto-replacement, and checkpoint resume as a package to ease this burden.
+- **Managed cluster auto-recovery** — [Managed GPU clusters](../workload-and-architecture/#managed-gpu-clusters) (e.g., SageMaker HyperPod) provide failure detection, auto-replacement, and checkpoint resume as a package to ease this burden.
 
 ## Capacity Operations
 
@@ -60,18 +60,20 @@ The columns above are different in nature. **Capacity reservation** (Capacity Bl
 GPUs are the most expensive resource in the cloud, so utilization and purchasing method govern cost.
 
 - **Purchasing mix** — Allocate steady workloads to committed discounts (Savings Plans/CUD/RI), training/batch to preemptible (Spot), and predictable large-scale training to capacity reservations.
-- **Preemptible + checkpoint** — Preemptible can be cheaper by tens of percent but may be interrupted, so combine it with [checkpoints](../../ai/gpu-infra/distributed-training/#checkpoint-strategy) to resume on interruption.
+- **Preemptible + checkpoint** — Preemptible can be cheaper by tens of percent but may be interrupted, so combine it with [checkpoints](../distributed-training/#checkpoint-strategy) to resume on interruption.
 - **Right-sizing** — Do not use an excessive GPU generation for the workload. Inference/fine-tuning often does not need the top generation.
-- **Idle reclamation** — Reduce waste with [GPU sharing (MIG/time-slicing)](../../ai/gpu-infra/kubernetes-and-scheduling/#gpu-sharing--mig-and-time-slicing) and idle-node scale-down.
-- **GPU-hour FinOps** — A system to allocate/track GPU per-hour cost and utilization per team is covered in [FinOps](../../governance/finops/), and model licenses/usage fees in [AI Licensing](../../ai/licensing/).
+- **Idle reclamation** — Reduce waste with [GPU sharing (MIG/time-slicing)](../kubernetes-and-scheduling/#gpu-sharing--mig-and-time-slicing) and idle-node scale-down.
+- **GPU-hour FinOps** — A system to allocate/track GPU per-hour cost and utilization per team is covered in [FinOps](../../../governance/finops/), and model licenses/usage fees in [AI Licensing](../../../ai/licensing/).
 
 ## Related Documents
 
-- **Cluster architecture, managed clusters** — [GPU Workload Characteristics and Reference Architecture](../../ai/gpu-infra/workload-and-architecture/)
-- **Parallelism, checkpoints** — [Distributed Training Standard Architecture](../../ai/gpu-infra/distributed-training/)
-- **Scheduling, GPU sharing, observability** — [GPU Kubernetes and Scheduling](../../ai/gpu-infra/kubernetes-and-scheduling/)
-- **Cost allocation, budgets** — [FinOps](../../governance/finops/)
-- **Token/prompt cost** — [LLMOps](../../ai/llmops/)
+This is the final part (Part 4) of the GPU infrastructure series. The series starts at [GPU Workload Characteristics and Reference Architecture](../workload-and-architecture/).
+
+- **Cluster architecture, managed clusters** — [GPU Workload Characteristics and Reference Architecture](../workload-and-architecture/)
+- **Parallelism, checkpoints** — [Distributed Training Standard Architecture](../distributed-training/)
+- **Scheduling, GPU sharing, observability** — [GPU Kubernetes and Scheduling](../kubernetes-and-scheduling/)
+- **Cost allocation, budgets** — [FinOps](../../../governance/finops/)
+- **Token/prompt cost** — [LLMOps](../../../ai/llmops/)
 
 ## Common Mistakes
 

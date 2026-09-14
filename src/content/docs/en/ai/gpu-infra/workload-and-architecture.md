@@ -5,15 +5,26 @@ description: "Compares GPU workload characteristics (pre-training/fine-tuning/in
 
 > Last reviewed: September 2026 | This is a fast-moving area subject to quarterly review.
 
+:::tip[GPU Infrastructure series — reading order]
+This is Part 1 of a four-part GPU infrastructure series.
+
+1. **GPU Workload Characteristics and Reference Architecture** (this document) — workload classes, the three communication tiers, placement
+2. [Distributed Training Standard Architecture](../distributed-training/) — parallelism (TP/PP/DP), checkpoints
+3. [GPU Kubernetes and Scheduling](../kubernetes-and-scheduling/) — node pools, quotas, gang scheduling
+4. [Inference Serving, Reliability, and Cost](../serving-reliability-cost/) — serving, failures, capacity, cost
+
+Reading in order is recommended, but if you are **already running training, start at Part 2**, and if you are in **cluster operations/SRE, start at Parts 3–4**.
+:::
+
 :::note
-This document covers advanced GPU infrastructure design. GPU instance specs by generation, regional availability, and reserved/spot options are in [Multicloud AI — GPU Availability](../../ai/multicloud-ai/#gpu-availability); AI platform and model selection is in [AI Platforms and Model Comparison](../../ai/ai-ml/). This document focuses on "how to combine multiple GPUs into a single cluster for training and inference."
+This document covers advanced GPU infrastructure design. GPU instance specs by generation, regional availability, and reserved/spot options are in [Multicloud AI — GPU Availability](../../../ai/multicloud-ai/#gpu-availability); AI platform and model selection is in [AI Platforms and Model Comparison](../../../ai/ai-ml/). This document focuses on "how to combine multiple GPUs into a single cluster for training and inference."
 :::
 
 ## Overview
 
-If one GPU is enough for the job, you don't need this document. But when you train a large model that doesn't fit on a single GPU, or reach a scale one server can't handle, you have to **combine multiple GPUs and multiple servers into one**, splitting the work across them.
+You need this document when a model or its data exceeds the capacity of a single GPU (or a single server). In that case, you have to combine multiple GPUs and multiple servers into one and split the work across them.
 
-A common misconception here is "faster GPUs and more of them makes it that much faster." It doesn't work that way. For multiple GPUs to collaborate, they must constantly exchange calculation results — and if the **speed of that exchange** (GPU-to-GPU and server-to-server communication) and the **speed of feeding data to the GPUs** (storage) become the bottleneck, adding GPUs only increases idle time. As an analogy: gathering 100 cooks (GPUs) doesn't make you 100x faster if the kitchen is cramped and the aisles for carrying ingredients are jammed.
+A common misconception here is "faster GPUs and more of them makes it that much faster." It doesn't work that way. For multiple GPUs to collaborate, they must constantly exchange calculation results, and **if you add GPUs without also increasing inter-node communication bandwidth and storage throughput, only GPU idle time grows and performance does not scale linearly.** (Just as adding cooks doesn't speed things up if the kitchen is cramped and the aisles for carrying ingredients are jammed.)
 
 So GPU infrastructure design is less about "which GPU" and more about **how you connect the GPUs and how you move the data**. This document first classifies what kind of workload you have (training vs. inference, etc.), then compares four vendors across a connection structure split into three tiers: **intra-node → inter-node → storage**.
 
@@ -103,15 +114,15 @@ OCI's **Dedicated AI Cluster** is a different tier from the training infrastruct
 :::
 
 :::note
-Managed clusters greatly reduce initial assembly and operational burden but increase vendor lock-in. Building on pure Kubernetes raises portability but makes you responsible for topology, health checks, and gang scheduling yourself. Judge the portability-vs-operational-convenience trade-off by workload scale and team capability. For Kubernetes-based configuration, see [GPU Kubernetes and Scheduling](../../ai/gpu-infra/kubernetes-and-scheduling/).
+Managed clusters greatly reduce initial assembly and operational burden but increase vendor lock-in. Building on pure Kubernetes raises portability but makes you responsible for topology, health checks, and gang scheduling yourself. Judge the portability-vs-operational-convenience trade-off by workload scale and team capability. For Kubernetes-based configuration, see [GPU Kubernetes and Scheduling](../kubernetes-and-scheduling/).
 :::
 
 ## Related Documents
 
-- **Distributed training parallelism (TP/PP/DP)** — [Distributed Training Standard Architecture](../../ai/gpu-infra/distributed-training/)
-- **Kubernetes, scheduling, quotas** — [GPU Kubernetes and Scheduling](../../ai/gpu-infra/kubernetes-and-scheduling/)
-- **Inference serving, failures, capacity, cost** — [Inference Serving, Reliability, and Cost](../../ai/gpu-infra/serving-reliability-cost/)
-- **Confidential GPU computing** — [Data Protection — Confidential Computing](../../security/data-protection/#confidential-computing)
+- **Next: Distributed training parallelism (TP/PP/DP)** — [Distributed Training Standard Architecture](../distributed-training/)
+- **Kubernetes, scheduling, quotas** — [GPU Kubernetes and Scheduling](../kubernetes-and-scheduling/)
+- **Inference serving, failures, capacity, cost** — [Inference Serving, Reliability, and Cost](../serving-reliability-cost/)
+- **Confidential GPU computing** — [Data Protection — Confidential Computing](../../../security/data-protection/#confidential-computing)
 
 ## Common Mistakes
 

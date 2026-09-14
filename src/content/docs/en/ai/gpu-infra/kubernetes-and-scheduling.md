@@ -45,7 +45,7 @@ Time-slicing does not isolate memory or compute, so one job's OOM or runaway aff
 
 ## Quotas, Fairness, and Anti-Hoarding
 
-The headache of a shared cluster is when **one team grabs GPUs and won't let go (monopoly, hoarding)**. Then other jobs can't get GPUs and keep starving. The mechanisms that prevent this:
+The headache of a shared cluster is when **one team grabs GPUs and won't let go** (monopoly, hoarding). Then other jobs can't get GPUs and keep starving. The mechanisms that prevent this:
 
 - **ResourceQuota (total cap)** — Set an upper bound on the number of GPUs each team (namespace) can use.
 - **Priority/preemption** — Rank jobs by priority (PriorityClass), and when an urgent job arrives, briefly push aside (preempt) a less urgent one to yield GPUs.

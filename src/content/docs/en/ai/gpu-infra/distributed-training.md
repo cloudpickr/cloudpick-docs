@@ -38,7 +38,7 @@ Keep an identical copy of the whole model on each GPU, split only the data batch
 Several GPUs share the computation of one layer (a computational layer that makes up the model) at the same time. Used when a single layer is too big to fit on one GPU.
 
 - **Communication** — GPUs exchange very frequently inside a layer, so it is extremely sensitive to latency (response speed).
-- **Applicability** — Because communication is so frequent, it is mostly used **within one server (GPUs joined by NVLink)**.
+- **Applicability** — Because communication is so frequent, it is mostly used **within one server** (GPUs joined by NVLink).
 - **Effect** — Essential when a single layer exceeds GPU memory.
 
 ## Pipeline Parallelism (PP)

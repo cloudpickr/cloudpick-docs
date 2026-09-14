@@ -59,6 +59,10 @@ AI 워크로드(LLM API 호출, GPU 학습/추론)는 전통적 클라우드 비
 - **프롬프트 캐싱** — 반복되는 시스템 프롬프트를 캐싱하여 입력 토큰 절감
 - **비용 태그** — AI 워크로드를 별도 태그(`ai:true`, `model:claude-fable-5`)로 분리 추적
 
+:::note
+GPU 학습/추론 인프라에 특화된 비용 최적화(용량 예약·스팟·right-sizing·유휴 회수·GPU-시간 배분)는 [GPU 인프라 — 추론 서빙·안정성·비용 최적화](../../ai/gpu-infra/serving-reliability-cost/#비용-최적화)를 참고하세요.
+:::
+
 ### AWS FinOps Agent [Preview]
 
 2026년 6월 FinOps X에서 발표된 [AWS FinOps Agent](https://siliconangle.com/2026/06/11/aws-launches-finops-agent-bring-ai-cost-governance-cloud-spend-finopsx/)(Feature Preview)는 비용 이상을 AI가 자동 탐지하고, 근본 원인을 분석하여 담당 팀에 Slack/Jira로 라우팅합니다.

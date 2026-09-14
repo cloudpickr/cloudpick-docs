@@ -11,35 +11,43 @@ This document covers parallelism strategies for distributed training. For the cl
 
 ## Overview
 
-When a model and its data do not fit in a single GPU's memory, training must be split across multiple GPUs. The ways to split are broadly **data parallelism (DP)**, **tensor parallelism (TP)**, and **pipeline parallelism (PP)**; large-scale training combines these into **3D parallelism**. Each approach has different trade-offs in communication volume, memory savings, and implementation complexity.
+If the model and data fit on a single GPU, there's nothing to worry about. The problem is that modern models far exceed a single GPU's memory. So we **split** the work across multiple GPUs to train, and there are three main ways to split.
+
+An analogy of several cooks sharing a large cooking job makes this easy to grasp.
+
+- **Data parallelism (DP)** — Each cook keeps a full copy of the recipe (the whole model) and only the customers (data) are divided; each cooks their share, then they reconcile the results.
+- **Tensor parallelism (TP)** — When one dish is too big for a single cook, several cooks make that one plate together at the same time.
+- **Pipeline parallelism (PP)** — Split the cooking stages so cook A preps, B grills, C plates — a relay-style hand-off.
+
+Large-scale training layers all three together (3D parallelism), and each method trades off differently on "how often they must communicate / how much memory they save / how complex they are to implement."
 
 :::note
-The parallelism concepts and frameworks in this document (DeepSpeed, Megatron-LM, PyTorch FSDP) run on top of CUDA/NCCL and are not vendor-bound. Switching clouds generally keeps the parallelism strategy portable. Actual performance depends on [inter-node fabric performance](../../ai/gpu-infra/workload-and-architecture/#inter-node-high-speed-fabric--vendor-mapping).
+The parallelism methods and frameworks here (DeepSpeed, Megatron-LM, PyTorch FSDP) run on top of CUDA/NCCL and are not vendor-bound — so switching clouds generally keeps the strategy portable. Actual speed, however, depends on [inter-node network performance](../../ai/gpu-infra/workload-and-architecture/#inter-node-high-speed-fabric--vendor-mapping).
 :::
 
 ## Data Parallelism (DP)
 
-Replicate the entire model on each GPU, split the data batch for processing, then synchronize gradients. It is the simplest approach and the standard when the model fits on a single GPU.
+Keep an identical copy of the whole model on each GPU, split only the data batch so each processes its share, then reconcile the results (gradients). It's the simplest approach and the standard when the model fits on a single GPU.
 
-- **Communication pattern** — Gradient all-reduce every step (cluster-wide collective)
-- **Limitation** — Cannot be used if the model itself exceeds a single GPU's memory
-- **Memory optimization (FSDP/ZeRO)** — Shard model parameters, gradients, and optimizer states across GPUs to train larger models beyond single-GPU memory limits while keeping data parallelism
+- **Communication** — Every training step, all GPUs combine their results. (all-reduce = a collective that gathers and sums every GPU's value, then distributes the result back to all.)
+- **Limitation** — If the model itself exceeds a single GPU's memory, this alone isn't enough.
+- **Saving memory (FSDP/ZeRO)** — Shard the model's parameters and intermediate state into small pieces spread across GPUs. This keeps data parallelism while training larger models beyond a single GPU's limit.
 
 ## Tensor Parallelism (TP)
 
-Split the matrix operations of an individual layer across multiple GPUs. Several GPUs compute one layer simultaneously.
+Several GPUs share the computation of one layer (a computational layer that makes up the model) at the same time. Used when a single layer is too big to fit on one GPU.
 
-- **Communication pattern** — Frequent collective communication within a layer (very latency-sensitive)
-- **Applicability** — Because communication is frequent, it is mainly used between GPUs connected by **intra-node NVLink**
-- **Effect** — Essential when a single layer exceeds GPU memory
+- **Communication** — GPUs exchange very frequently inside a layer, so it is extremely sensitive to latency (response speed).
+- **Applicability** — Because communication is so frequent, it is mostly used **within one server (GPUs joined by NVLink)**.
+- **Effect** — Essential when a single layer exceeds GPU memory.
 
 ## Pipeline Parallelism (PP)
 
-Divide the model's layers into stages, place them on different GPU groups, and stream micro-batches through the pipeline.
+Divide the model's layers into a few stages placed on different GPU groups, and stream the data as small pieces (micro-batches) through them like a relay.
 
-- **Communication pattern** — Passes activations only at stage boundaries (relatively low communication volume)
-- **Applicability** — Because communication is low, it is easy to scale **across nodes**
-- **Limitation** — Pipeline bubbles (idle periods) occur; mitigate with the number of micro-batches
+- **Communication** — Results are passed only at the boundary where one stage meets the next, so communication volume is relatively low.
+- **Applicability** — Low communication makes it easy to **spread across multiple servers**.
+- **Limitation** — By its relay nature, idle gaps appear while waiting for the previous stage (pipeline bubbles); mitigate by increasing the number of data pieces.
 
 ## 3D Hybrid Parallelism
 

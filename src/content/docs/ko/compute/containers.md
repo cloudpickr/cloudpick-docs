@@ -117,6 +117,10 @@ flowchart TD
 - **Spot/Preemptible 노드 풀** — 배치 작업, CI
 - **ARM 노드 풀** — 비용 최적화 (Graviton, Cobalt, Ampere, Axion)
 
+:::note
+GPU 노드 풀의 device plugin·GPU 공유(MIG/MPS/time-slicing)·쿼터·gang scheduling·관측성은 [GPU 인프라 — GPU 쿠버네티스와 스케줄링](../../ai/gpu-infra/kubernetes-and-scheduling/)에서 자세히 다룹니다.
+:::
+
 ## 컨테이너 런타임 전환
 
 Kubernetes 1.24에서 Dockershim이 제거된 이후 **containerd**가 사실상 표준 런타임입니다. 2025년 8월 containerd 1.6 EOL을 기점으로 **containerd 2.x** 전환이 본격화되었습니다.

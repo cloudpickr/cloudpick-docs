@@ -42,6 +42,10 @@ However, with VMs users must still manage OS patching, security configuration, a
 | Google Cloud | A3, A2, G2 series + TPU (v5p/v6e/Ironwood) | NVIDIA H100 + in-house TPU (latest 7th-gen Ironwood/TPU7x) |
 | OCI | GPU Instances (A10, A100, H100) | NVIDIA GPU. Bare Metal option available |
 
+:::note
+To combine multiple GPU instances into one cluster for large-scale training/inference, you need to design the network, placement, distributed training, and capacity. See the [GPU Infrastructure](../../ai/gpu-infra/workload-and-architecture/) document set.
+:::
+
 ### Images (OS templates)
 
 | Vendor | Product | Notes |

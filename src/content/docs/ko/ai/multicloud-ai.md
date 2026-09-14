@@ -75,6 +75,10 @@ GPU 인스턴스 가격은 리전, 약정 기간, 가용성에 따라 크게 달
 **기밀 AI 추론:** 모델 IP나 민감 입력 데이터를 처리 중에도 보호해야 한다면 **기밀 컴퓨팅 GPU**(Azure NCC H100 v5, GCP A3 Confidential VM)를 사용할 수 있습니다. 벤더별 기밀 컴퓨팅 비교는 [데이터 보호 — 기밀 컴퓨팅](../../security/data-protection/#기밀-컴퓨팅-confidential-computing)을 참고하세요.
 :::
 
+:::note
+이 섹션은 "어떤 GPU가 있는가"의 카탈로그·비교입니다. 여러 GPU를 하나의 클러스터로 묶어 학습·추론하는 설계·운영(통신망·배치·분산 학습·쿠버네티스·용량·비용)은 [GPU 인프라](../../ai/gpu-infra/workload-and-architecture/) 문서군에서 다룹니다.
+:::
+
 ## RAG 파이프라인
 
 RAG(Retrieval-Augmented Generation) 파이프라인은 Vector DB, Embedding 모델, LLM, 오케스트레이션의 조합으로 구성됩니다. 각 벤더별 주요 서비스:

@@ -117,6 +117,10 @@ Rather than a single workload type, multiple node pools are configured for varyi
 - **Spot/Preemptible node pool** — batch jobs, CI
 - **ARM node pool** — cost optimization (Graviton, Cobalt, Ampere, Axion)
 
+:::note
+Device plugins, GPU sharing (MIG/MPS/time-slicing), quotas, gang scheduling, and observability for GPU node pools are covered in detail in [GPU Infrastructure — GPU Kubernetes and Scheduling](../../ai/gpu-infra/kubernetes-and-scheduling/).
+:::
+
 ## Container runtime transition
 
 Since Dockershim was removed in Kubernetes 1.24, **containerd** has become the de facto standard runtime. Following the containerd 1.6 EOL in August 2025, the shift to **containerd 2.x** has accelerated in earnest.

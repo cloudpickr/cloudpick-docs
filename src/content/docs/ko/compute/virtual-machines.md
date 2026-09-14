@@ -42,6 +42,10 @@ description: "범용, Arm, GPU 가상머신 제품과 이미지(OS 템플릿)를
 | Google Cloud | A3, A2, G2 시리즈 + TPU (v5p/v6e/Ironwood) | NVIDIA H100 + 자체 TPU (7세대 Ironwood/TPU7x 최신) |
 | OCI | GPU Instances (A10, A100, H100) | NVIDIA GPU. Bare Metal 옵션 제공 |
 
+:::note
+여러 GPU 인스턴스를 하나의 클러스터로 묶어 대규모 학습·추론을 돌리려면, 통신망·배치·분산 학습·용량 확보 설계가 필요합니다. [GPU 인프라](../../ai/gpu-infra/workload-and-architecture/) 문서군을 참고하세요.
+:::
+
 ### 이미지 (OS 템플릿)
 
 | 벤더 | 제품 | 비고 |

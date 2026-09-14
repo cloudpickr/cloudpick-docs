@@ -117,6 +117,10 @@ flowchart TD
 - **Spot/Preemptibleノードプール** — バッチジョブ、CI
 - **ARMノードプール** — コスト最適化 (Graviton、Cobalt、Ampere、Axion)
 
+:::note
+GPUノードプールのdevice plugin・GPU共有（MIG/MPS/time-slicing）・クォータ・gang scheduling・可観測性は[GPUインフラ — GPU Kubernetesとスケジューリング](../../ai/gpu-infra/kubernetes-and-scheduling/)で詳しく扱います。
+:::
+
 ## コンテナランタイムの移行
 
 Kubernetes 1.24でDockershimが削除されて以降、**containerd**が事実上の標準ランタイムです。2025年8月のcontainerd 1.6 EOLを機に**containerd 2.x**への移行が本格化しました。

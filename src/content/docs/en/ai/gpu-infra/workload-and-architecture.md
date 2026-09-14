@@ -13,9 +13,9 @@ This document covers advanced GPU infrastructure design. GPU instance specs by g
 
 If one GPU is enough for the job, you don't need this document. But when you train a large model that doesn't fit on a single GPU, or reach a scale one server can't handle, you have to **combine multiple GPUs and multiple servers into one**, splitting the work across them.
 
-A common misconception here is "faster GPUs and more of them makes it that much faster." It doesn't work that way. For multiple GPUs to collaborate, they must constantly exchange calculation results — and if the **speed of that exchange (GPU-to-GPU and server-to-server communication) and the speed of feeding data to the GPUs (storage)** become the bottleneck, adding GPUs only increases idle time. As an analogy: gathering 100 cooks (GPUs) doesn't make you 100x faster if the kitchen is cramped and the aisles for carrying ingredients are jammed.
+A common misconception here is "faster GPUs and more of them makes it that much faster." It doesn't work that way. For multiple GPUs to collaborate, they must constantly exchange calculation results — and if the **speed of that exchange** (GPU-to-GPU and server-to-server communication) and the **speed of feeding data to the GPUs** (storage) become the bottleneck, adding GPUs only increases idle time. As an analogy: gathering 100 cooks (GPUs) doesn't make you 100x faster if the kitchen is cramped and the aisles for carrying ingredients are jammed.
 
-So GPU infrastructure design is less about "which GPU" and more about **"how you connect the GPUs and how you move the data."** This document first classifies what kind of workload you have (training vs. inference, etc.), then compares four vendors across a connection structure split into three tiers: **intra-node → inter-node → storage**.
+So GPU infrastructure design is less about "which GPU" and more about **how you connect the GPUs and how you move the data**. This document first classifies what kind of workload you have (training vs. inference, etc.), then compares four vendors across a connection structure split into three tiers: **intra-node → inter-node → storage**.
 
 :::note
 In this document, a **node** means one server with several GPUs installed, and a **cluster** means several such nodes grouped together.

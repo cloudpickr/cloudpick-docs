@@ -335,6 +335,16 @@ export default defineConfig({
 								{ slug: 'ai/physical-ai' },
 							],
 						},
+						{
+							label: 'GPU 인프라',
+							translations: { en: 'GPU Infrastructure', ja: 'GPUインフラ' },
+							items: [
+								{ slug: 'ai/gpu-infra/workload-and-architecture' },
+								{ slug: 'ai/gpu-infra/distributed-training' },
+								{ slug: 'ai/gpu-infra/kubernetes-and-scheduling' },
+								{ slug: 'ai/gpu-infra/serving-reliability-cost' },
+							],
+						},
 					],
 				},
 				{

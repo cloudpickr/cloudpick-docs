@@ -64,6 +64,19 @@ GPU 학습에서 병목은 연산이 아니라 **데이터 로딩과 체크포�
 
 로봇·차량을 실제 세계에서만 학습시키면 비용·위험·시간이 큽니다. 그래서 물리 환경을 가상으로 복제한 **디지털 트윈**과 **시뮬레이션**에서 대량의 시나리오를 생성·학습한 뒤 현실로 옮기는 sim-to-real 접근이 자리 잡았습니다.
 
+| 항목 | AWS | Azure | Google Cloud | OCI | 크로스벤더 |
+| --- | --- | --- | --- | --- | --- |
+| 디지털 트윈 | [IoT TwinMaker](https://aws.amazon.com/iot-twinmaker/) | [Azure Digital Twins](https://learn.microsoft.com/azure/digital-twins/) | — (Spanner Graph·BigQuery 등으로 자체 구성) | — | [NVIDIA Omniverse](https://www.nvidia.com/en-us/omniverse/) |
+| 로봇·물리 시뮬레이션 | — (RoboMaker 지원 종료, 자체 구성) | — (파트너·자체 구성) | — (파트너·자체 구성) | — | [NVIDIA Isaac Sim / Isaac Lab](https://developer.nvidia.com/isaac/sim) |
+
+:::caution
+**AWS RoboMaker는 2025년 9월 10일 지원이 종료**되었습니다. 현재 AWS에서 로봇 시뮬레이션은 전용 관리형 서비스 없이 GPU 인스턴스 + 오픈소스(Isaac Sim, Gazebo 등)로 직접 구성합니다. EOL(지원 종료)된 서비스를 신규 설계에 넣지 않도록 주의하세요.
+:::
+
+:::note
+디지털 트윈·로봇 시뮬레이션 계층은 **NVIDIA Omniverse·Isaac 생태계가 널리 활용되고 있습니다.** 클라우드 3사 모두 이 스택을 GPU 인스턴스 위에서 실행하는 형태로 지원하며, 특정 클라우드의 전용 관리형 제품에 의존하기보다 **어느 클라우드에서도 옮겨 실행할 수 있는지(이식성)** 를 먼저 확인하는 것이 락인을 줄이는 길입니다.
+:::
+
 ### 학습 데이터는 왜 부족한가
 
 시뮬레이션이 선택이 아니라 전제가 되는 이유는 **데이터 희소성** 때문입니다. 언어 모델은 인터넷 텍스트라는 사실상 무한한 사전학습 데이터에서 출발했지만, "로봇이 실제로 물건을 집어 옮긴" 데이터는 자릿수가 다르게 적습니다. Physical AI 학습은 값싸고 많은 데이터로 부족한 부분을 메우는 설계에서 시작합니다.
@@ -78,19 +91,6 @@ GPU 학습에서 병목은 연산이 아니라 **데이터 로딩과 체크포�
 
 :::note
 클라우드 비용 산정 관점에서 이 구조는 **GPU 비용과 별개의 축이 존재한다**는 뜻입니다. 데이터 수집(장비·인건비), 저장·전송, 라벨링 비용이 학습 연산 비용과 독립적으로 발생하므로, GPU 시간만으로 TCO를 추정하면 크게 빗나갑니다.
-:::
-
-| 항목 | AWS | Azure | Google Cloud | OCI | 크로스벤더 |
-| --- | --- | --- | --- | --- | --- |
-| 디지털 트윈 | [IoT TwinMaker](https://aws.amazon.com/iot-twinmaker/) | [Azure Digital Twins](https://learn.microsoft.com/azure/digital-twins/) | — (Spanner Graph·BigQuery 등으로 자체 구성) | — | [NVIDIA Omniverse](https://www.nvidia.com/en-us/omniverse/) |
-| 로봇·물리 시뮬레이션 | — (RoboMaker 지원 종료, 자체 구성) | — (파트너·자체 구성) | — (파트너·자체 구성) | — | [NVIDIA Isaac Sim / Isaac Lab](https://developer.nvidia.com/isaac/sim) |
-
-:::caution
-**AWS RoboMaker는 2025년 9월 10일 지원이 종료**되었습니다. 현재 AWS에서 로봇 시뮬레이션은 전용 관리형 서비스 없이 GPU 인스턴스 + 오픈소스(Isaac Sim, Gazebo 등)로 직접 구성합니다. EOL(지원 종료)된 서비스를 신규 설계에 넣지 않도록 주의하세요.
-:::
-
-:::note
-디지털 트윈·로봇 시뮬레이션 계층은 **NVIDIA Omniverse·Isaac 생태계가 널리 활용되고 있습니다.** 클라우드 3사 모두 이 스택을 GPU 인스턴스 위에서 실행하는 형태로 지원하며, 특정 클라우드의 전용 관리형 제품에 의존하기보다 **어느 클라우드에서도 옮겨 실행할 수 있는지(이식성)** 를 먼저 확인하는 것이 락인을 줄이는 길입니다.
 :::
 
 ### Sim-to-Real Gap

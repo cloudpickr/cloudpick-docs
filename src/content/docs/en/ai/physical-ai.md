@@ -64,6 +64,19 @@ In GPU training, the bottleneck is often not computation but **data loading and 
 
 Training robots and vehicles only in the real world is costly, risky, and slow. This is why the sim-to-real approach took hold: generate and train on large volumes of scenarios in a **digital twin** and **simulation** that virtually replicate the physical environment, then transfer to reality.
 
+| Item | AWS | Azure | Google Cloud | OCI | Cross-vendor |
+| --- | --- | --- | --- | --- | --- |
+| Digital twin | [IoT TwinMaker](https://aws.amazon.com/iot-twinmaker/) | [Azure Digital Twins](https://learn.microsoft.com/azure/digital-twins/) | — (self-built with Spanner Graph, BigQuery, etc.) | — | [NVIDIA Omniverse](https://www.nvidia.com/en-us/omniverse/) |
+| Robot and physics simulation | — (RoboMaker end of support; self-built) | — (partner or self-built) | — (partner or self-built) | — | [NVIDIA Isaac Sim / Isaac Lab](https://developer.nvidia.com/isaac/sim) |
+
+:::caution
+**AWS RoboMaker reached end of support on September 10, 2025.** Robot simulation on AWS is now assembled directly from GPU instances plus open source (Isaac Sim, Gazebo, and so on) with no dedicated managed service. Be careful not to place EOL services into new designs.
+:::
+
+:::note
+In the digital twin and robot simulation layer, **the NVIDIA Omniverse and Isaac ecosystem is widely used.** All three major clouds support running this stack on GPU instances, and rather than depending on one cloud's proprietary managed product, checking **whether the stack can be moved and run on any cloud (portability)** first is the way to reduce lock-in.
+:::
+
 ### Why Training Data Is Scarce
 
 Simulation is a premise rather than an option because of **data scarcity**. Language models started from effectively unlimited pre-training data in the form of internet text, but data of "a robot actually picking up and moving an object" is orders of magnitude smaller. Physical AI training starts from a design that fills the gap with cheaper, more plentiful data.
@@ -78,19 +91,6 @@ Simulation is a premise rather than an option because of **data scarcity**. Lang
 
 :::note
 For cloud cost estimation, this structure means **a cost axis exists separately from GPUs**. Data collection (equipment and labor), storage and transfer, and labeling costs arise independently of training compute, so estimating TCO from GPU hours alone will be far off.
-:::
-
-| Item | AWS | Azure | Google Cloud | OCI | Cross-vendor |
-| --- | --- | --- | --- | --- | --- |
-| Digital twin | [IoT TwinMaker](https://aws.amazon.com/iot-twinmaker/) | [Azure Digital Twins](https://learn.microsoft.com/azure/digital-twins/) | — (self-built with Spanner Graph, BigQuery, etc.) | — | [NVIDIA Omniverse](https://www.nvidia.com/en-us/omniverse/) |
-| Robot and physics simulation | — (RoboMaker end of support; self-built) | — (partner or self-built) | — (partner or self-built) | — | [NVIDIA Isaac Sim / Isaac Lab](https://developer.nvidia.com/isaac/sim) |
-
-:::caution
-**AWS RoboMaker reached end of support on September 10, 2025.** Robot simulation on AWS is now assembled directly from GPU instances plus open source (Isaac Sim, Gazebo, and so on) with no dedicated managed service. Be careful not to place EOL services into new designs.
-:::
-
-:::note
-In the digital twin and robot simulation layer, **the NVIDIA Omniverse and Isaac ecosystem is widely used.** All three major clouds support running this stack on GPU instances, and rather than depending on one cloud's proprietary managed product, checking **whether the stack can be moved and run on any cloud (portability)** first is the way to reduce lock-in.
 :::
 
 ### Sim-to-Real Gap

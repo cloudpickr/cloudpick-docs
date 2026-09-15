@@ -64,6 +64,19 @@ GPU学習のボトルネックは演算ではなく**データロードとチェ
 
 ロボット・車両を実世界だけで学習させると、コスト・リスク・時間が大きくなります。そのため物理環境を仮想に複製した**デジタルツイン**と**シミュレーション**で大量のシナリオを生成・学習し、現実へ移すsim-to-realのアプローチが定着しました。
 
+| 項目 | AWS | Azure | Google Cloud | OCI | クロスベンダー |
+| --- | --- | --- | --- | --- | --- |
+| デジタルツイン | [IoT TwinMaker](https://aws.amazon.com/iot-twinmaker/) | [Azure Digital Twins](https://learn.microsoft.com/azure/digital-twins/) | — (Spanner Graph・BigQueryなどで自前構成) | — | [NVIDIA Omniverse](https://www.nvidia.com/en-us/omniverse/) |
+| ロボット・物理シミュレーション | — (RoboMakerサポート終了、自前構成) | — (パートナー・自前構成) | — (パートナー・自前構成) | — | [NVIDIA Isaac Sim / Isaac Lab](https://developer.nvidia.com/isaac/sim) |
+
+:::caution
+**AWS RoboMakerは2025年9月10日にサポートが終了**しました。現在AWSでのロボットシミュレーションは、専用のマネージドサービスなしにGPUインスタンス + OSS(Isaac Sim、Gazeboなど)で自前構成します。EOL(サポート終了)のサービスを新規設計に入れないよう注意してください。
+:::
+
+:::note
+デジタルツイン・ロボットシミュレーション層は**NVIDIA Omniverse・Isaacエコシステムが広く活用されています。** クラウド3社ともこのスタックをGPUインスタンス上で実行する形で対応しており、特定クラウド専用のマネージド製品に依存するよりも、**どのクラウドでも移して実行できるか(可搬性)** を先に確認することがロックイン低減につながります。
+:::
+
 ### 学習データはなぜ不足するのか
 
 シミュレーションが選択肢ではなく前提になる理由は**データ希少性**にあります。言語モデルはインターネット上のテキストという事実上無限の事前学習データから出発しましたが、「ロボットが実際に物を掴んで運んだ」データは桁違いに少ないのが実情です。Physical AIの学習は、安価で豊富なデータで不足を補う設計から始まります。
@@ -78,19 +91,6 @@ GPU学習のボトルネックは演算ではなく**データロードとチェ
 
 :::note
 クラウドのコスト算定の観点では、この構造は**GPUコストとは別の軸が存在する**ことを意味します。データ収集(機材・人件費)、保存・転送、ラベリングのコストが学習演算コストとは独立に発生するため、GPU時間だけでTCOを見積もると大きく外れます。
-:::
-
-| 項目 | AWS | Azure | Google Cloud | OCI | クロスベンダー |
-| --- | --- | --- | --- | --- | --- |
-| デジタルツイン | [IoT TwinMaker](https://aws.amazon.com/iot-twinmaker/) | [Azure Digital Twins](https://learn.microsoft.com/azure/digital-twins/) | — (Spanner Graph・BigQueryなどで自前構成) | — | [NVIDIA Omniverse](https://www.nvidia.com/en-us/omniverse/) |
-| ロボット・物理シミュレーション | — (RoboMakerサポート終了、自前構成) | — (パートナー・自前構成) | — (パートナー・自前構成) | — | [NVIDIA Isaac Sim / Isaac Lab](https://developer.nvidia.com/isaac/sim) |
-
-:::caution
-**AWS RoboMakerは2025年9月10日にサポートが終了**しました。現在AWSでのロボットシミュレーションは、専用のマネージドサービスなしにGPUインスタンス + OSS(Isaac Sim、Gazeboなど)で自前構成します。EOL(サポート終了)のサービスを新規設計に入れないよう注意してください。
-:::
-
-:::note
-デジタルツイン・ロボットシミュレーション層は**NVIDIA Omniverse・Isaacエコシステムが広く活用されています。** クラウド3社ともこのスタックをGPUインスタンス上で実行する形で対応しており、特定クラウド専用のマネージド製品に依存するよりも、**どのクラウドでも移して実行できるか(可搬性)** を先に確認することがロックイン低減につながります。
 :::
 
 ### Sim-to-Real Gap

@@ -304,33 +304,21 @@ export default defineConfig({
 							],
 						},
 						{
-							label: '프롬프트·RAG',
-							translations: { en: 'Prompt & RAG', ja: 'プロンプトとRAG' },
+							label: '프롬프트·RAG·에이전트',
+							translations: { en: 'Prompt, RAG & agents', ja: 'プロンプト・RAG・エージェント' },
 							items: [
 								{ slug: 'ai/prompt-engineering' },
 								{ slug: 'ai/rag-patterns' },
 								{ slug: 'ai/vector-store' },
-							],
-						},
-						{
-							label: '에이전트·도입',
-							translations: { en: 'Agents & adoption', ja: 'エージェントと導入' },
-							items: [
 								{ slug: 'ai/agents' },
 								{ slug: 'ai/agent-adoption' },
 							],
 						},
 						{
-							label: '운영·거버넌스',
-							translations: { en: 'Ops & governance', ja: '運用・ガバナンス' },
+							label: '운영·심화',
+							translations: { en: 'Operate & advanced', ja: '運用・応用' },
 							items: [
 								{ slug: 'ai/llmops' },
-							],
-						},
-						{
-							label: '심화·특수',
-							translations: { en: 'Advanced & specialized', ja: '応用・特殊' },
-							items: [
 								{ slug: 'ai/multicloud-ai' },
 							],
 						},

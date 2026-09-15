@@ -72,7 +72,7 @@ Data arriving from the edge cannot be used for training as-is. Physical AI data 
 | Labeling | [SageMaker Ground Truth](https://docs.aws.amazon.com/sagemaker/latest/dg/sms.html) (closed to new customers) | [Azure ML data labeling](https://learn.microsoft.com/azure/machine-learning/how-to-label-data) | — (managed service ended; partner or open source) | [OCI Data Labeling](https://www.oracle.com/artificial-intelligence/data-labeling/) |
 
 :::caution
-**Managed labeling services are shrinking rather than growing.** Google Cloud's Vertex AI data labeling has been [deprecated and shut down](https://cloud.google.com/vertex-ai/docs/deprecations), and AWS SageMaker Ground Truth stopped accepting new customers on July 30, 2026 (existing customers may continue to use it, with no new features planned). Ground Truth Plus reached end of support on June 30, 2026. Do not tie labeling to a single cloud's managed service; make a structure **replaceable by open source or partner tooling** your default.
+**Managed labeling services are shrinking rather than growing.** Google Cloud's Vertex AI data labeling was [shut down on October 3, 2024](https://cloud.google.com/vertex-ai/docs/deprecations), and AWS SageMaker Ground Truth stopped accepting new customers on July 30, 2026 (existing customers may continue to use it, with no new features planned). Ground Truth Plus reached end of support on June 30, 2026. Do not tie labeling to a single cloud's managed service; make a structure **replaceable by open source or partner tooling** your default.
 :::
 
 :::note

@@ -72,7 +72,7 @@ flowchart LR
 | ラベリング | [SageMaker Ground Truth](https://docs.aws.amazon.com/sagemaker/latest/dg/sms.html) (新規顧客の受付終了) | [Azure MLデータラベリング](https://learn.microsoft.com/azure/machine-learning/how-to-label-data) | — (マネージドは終了、パートナー・OSS) | [OCI Data Labeling](https://www.oracle.com/artificial-intelligence/data-labeling/) |
 
 :::caution
-**マネージドのラベリングサービスはむしろ減少傾向にあります。** Google CloudのVertex AIデータラベリングは[非推奨(deprecated)となり終了](https://cloud.google.com/vertex-ai/docs/deprecations)しており、AWS SageMaker Ground Truthは2026年7月30日から新規顧客を受け付けません(既存顧客は継続利用可、新機能の追加予定なし)。Ground Truth Plusは2026年6月30日にサポートが終了しました。ラベリングを特定クラウドのマネージドサービスに縛って設計せず、**OSS・パートナーツールで代替可能な構造**を既定にしてください。
+**マネージドのラベリングサービスはむしろ減少傾向にあります。** Google CloudのVertex AIデータラベリングは[2024年10月3日に終了](https://cloud.google.com/vertex-ai/docs/deprecations)しており、AWS SageMaker Ground Truthは2026年7月30日から新規顧客を受け付けません(既存顧客は継続利用可、新機能の追加予定なし)。Ground Truth Plusは2026年6月30日にサポートが終了しました。ラベリングを特定クラウドのマネージドサービスに縛って設計せず、**OSS・パートナーツールで代替可能な構造**を既定にしてください。
 :::
 
 :::note

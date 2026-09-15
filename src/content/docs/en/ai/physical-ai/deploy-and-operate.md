@@ -122,7 +122,7 @@ The criterion must therefore be **the success rate of rollouts carried through t
 Robotics evaluation benchmarks are **less standardized than those for language models.** Vendor-reported success rates vary greatly with task definition, initial conditions, and whether retries are allowed, so check first **whether the measurement conditions are published** rather than focusing on the number itself. If the conditions differ, two models' success rates are not comparable. For general model evaluation, see [LLMOps](../llmops/).
 :::
 
-### Matching Deployment to Fleet Scale — Abort and Rollback Are Different Layers
+### Fleet Deployment — Abort and Rollback Are Different Layers
 
 Loading a model onto one robot and deploying to a fleet of thousands to tens of thousands are different problems. At fleet scale, the design hinges on **how fast a bad model spreads** and **whether it can be reversed once spread**.
 

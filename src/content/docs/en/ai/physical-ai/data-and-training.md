@@ -15,7 +15,7 @@ Data from the physical world is high-volume and real-time, making it impractical
 
 | Item | AWS | Azure | Google Cloud | OCI |
 | --- | --- | --- | --- | --- |
-| Edge runtime | [IoT Greengrass](https://docs.aws.amazon.com/greengrass/v2/developerguide/) | [Azure IoT Operations](https://learn.microsoft.com/azure/iot-operations/) / [IoT Edge](https://learn.microsoft.com/azure/iot-edge/) | [Google Distributed Cloud (Edge)](https://cloud.google.com/distributed-cloud) | [Roving Edge Infrastructure](https://www.oracle.com/cloud/roving-edge-infrastructure/) |
+| Edge runtime | [IoT Greengrass](https://docs.aws.amazon.com/greengrass/v2/developerguide/) | [Azure IoT Operations](https://learn.microsoft.com/azure/iot-operations/) / [IoT Edge](https://learn.microsoft.com/azure/iot-edge/) | [Google Distributed Cloud (Edge)](https://cloud.google.com/distributed-cloud) | [Roving Edge Infrastructure](https://docs.oracle.com/en-us/iaas/Content/Rover/overview.htm) |
 | Edge ML inference | Greengrass ML components (SageMaker AI model deployment) | IoT Edge modules + Azure AI services | Edge TPU / Coral (verify current support status) | Build your own on RED compute |
 | Industrial data ingestion | [IoT SiteWise](https://aws.amazon.com/iot-sitewise/) (OPC UA) | IoT Operations (OPC UA) | — (partner or self-built) | — (self-built) |
 
@@ -199,7 +199,7 @@ The practical implication of this ladder is **do not make large commitments at t
 
 ### OCI
 
-- [Oracle Roving Edge Infrastructure](https://www.oracle.com/cloud/roving-edge-infrastructure/)
+- [Oracle Roving Edge Infrastructure](https://docs.oracle.com/en-us/iaas/Content/Rover/overview.htm)
 - [OCI File Storage with Lustre](https://www.oracle.com/cloud/storage/file-storage-with-lustre/)
 - [OCI Data Labeling](https://www.oracle.com/artificial-intelligence/data-labeling/)
 

@@ -15,7 +15,7 @@ description: "엣지 추론·IoT 하드웨어와 센서 데이터 파이프라�
 
 | 항목 | AWS | Azure | Google Cloud | OCI |
 | --- | --- | --- | --- | --- |
-| 엣지 런타임 | [IoT Greengrass](https://docs.aws.amazon.com/greengrass/v2/developerguide/) | [Azure IoT Operations](https://learn.microsoft.com/azure/iot-operations/) / [IoT Edge](https://learn.microsoft.com/azure/iot-edge/) | [Google Distributed Cloud (Edge)](https://cloud.google.com/distributed-cloud) | [Roving Edge Infrastructure](https://www.oracle.com/cloud/roving-edge-infrastructure/) |
+| 엣지 런타임 | [IoT Greengrass](https://docs.aws.amazon.com/greengrass/v2/developerguide/) | [Azure IoT Operations](https://learn.microsoft.com/azure/iot-operations/) / [IoT Edge](https://learn.microsoft.com/azure/iot-edge/) | [Google Distributed Cloud (Edge)](https://cloud.google.com/distributed-cloud) | [Roving Edge Infrastructure](https://docs.oracle.com/en-us/iaas/Content/Rover/overview.htm) |
 | 엣지 ML 추론 | Greengrass ML 컴포넌트 (SageMaker AI 모델 배포) | IoT Edge 모듈 + Azure AI 서비스 | Edge TPU / Coral (현행 지원 상태 확인 필요) | RED 상의 컴퓨트로 자체 구성 |
 | 산업 데이터 수집 | [IoT SiteWise](https://aws.amazon.com/iot-sitewise/) (OPC UA) | IoT Operations (OPC UA) | — (파트너·자체 구성) | — (자체 구성) |
 
@@ -199,7 +199,7 @@ Physical AI에서 흔한 오해가 "로봇 모델 학습에는 무조건 대형 
 
 ### OCI
 
-- [Oracle Roving Edge Infrastructure](https://www.oracle.com/cloud/roving-edge-infrastructure/)
+- [Oracle Roving Edge Infrastructure](https://docs.oracle.com/en-us/iaas/Content/Rover/overview.htm)
 - [OCI File Storage with Lustre](https://www.oracle.com/cloud/storage/file-storage-with-lustre/)
 - [OCI Data Labeling](https://www.oracle.com/artificial-intelligence/data-labeling/)
 

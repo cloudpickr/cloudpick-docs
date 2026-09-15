@@ -47,7 +47,7 @@ If the edge runtime is the software layer, the choice of **accelerator hardware*
 
 | Family | Characteristics | Considerations |
 | --- | --- | --- |
-| Robotics-oriented edge modules (for example the [NVIDIA Jetson](https://developer.nvidia.com/embedded/jetson-modules) family) | Spans low-power compact modules to high-performance ones, and is effectively the default choice for robotics and VLA inference | Performance and memory differ greatly across generations and modules, with wide price spreads. Confirm first that the target model fits in that module's memory |
+| Robotics-oriented edge modules (for example the [NVIDIA Jetson](https://developer.nvidia.com/embedded/jetson-modules) family) | Spans low-power compact modules to high-performance ones, and is a frequently considered option for on-device robotics VLA inference | Performance and memory differ greatly across generations and modules, with wide price spreads. Confirm first that the target model fits in that module's memory |
 | General-purpose CPUs with integrated NPUs and small accelerators | Sufficient for lightweight vision such as classification and detection, with low power and unit cost | Often short on memory and bandwidth for large multimodal and VLA inference |
 | FPGAs and industrial SoCs | Favorable for equipment where deterministic latency and long-term supply guarantees matter | High development difficulty and significant model porting cost |
 | Cloud provider edge appliances | Extend cloud operational tooling and management to the field | Intended as field servers and gateways; they do not replace real-time control onboard the robot |
@@ -57,7 +57,7 @@ If the edge runtime is the software layer, the choice of **accelerator hardware*
 :::
 
 :::caution
-For edge accelerators, the **lifespan of the software ecosystem** matters as much as hardware lifespan. A product whose driver and runtime updates have stopped cannot support new kernels or new model formats, creating early replacement pressure. For families without clear signals of continued investment — such as Google Edge TPU / Coral in the Layer 1 table above — **verify current support status and driver update history directly** before placing them in a new design. Prices are not fixed either and have been adjusted around generational transitions, so validate large-scale deployment plans with a fresh quote.
+For edge accelerators, the **lifespan of the software ecosystem** matters as much as hardware lifespan. A product whose driver and runtime updates have stopped cannot support new kernels or new model formats, creating early replacement pressure. [Google Edge TPU / Coral](https://developers.google.com/coral/guides/faq) in the Layer 1 table above is one example: with no official product EOL notice, its [runtime and API repositories have been archived](https://github.com/google-coral/edgetpu). The similarly named **Coral NPU is a separate thing — an open source NPU IP for silicon partners** — and is not the official successor to the Edge TPU module family, so do not read it as a continuation of the same product. **Verify current support status and driver update history directly** before placing such families in a new design. Prices are not fixed either and have been adjusted around generational transitions, so validate large-scale deployment plans with a fresh quote.
 :::
 
 ### Sensor Data Pipeline — Ingestion, Storage, Labeling
@@ -118,14 +118,14 @@ Because data scarcity is hard for any single organization to overcome alone, an 
 
 | Category | Representative assets | What it is used for |
 | --- | --- | --- |
-| Cross-robot datasets | [Open X-Embodiment](https://arxiv.org/abs/2310.08864) | A collection consolidating robot data from many institutions. The baseline for cross-embodiment pre-training |
+| Cross-robot datasets | [Open X-Embodiment](https://github.com/google-deepmind/open_x_embodiment) ([paper](https://arxiv.org/abs/2310.08864)) | A collection consolidating robot data from many institutions. The baseline for cross-embodiment pre-training |
 | Large manipulation datasets | [DROID](https://github.com/droid-dataset/droid) | Teleop data collected across diverse environments |
 | Simulation benchmarks | [LIBERO](https://github.com/Lifelong-Robot-Learning/LIBERO), [CALVIN](https://github.com/mees/calvin), [RoboCasa](https://github.com/robocasa/robocasa), [Meta-World](https://github.com/Farama-Foundation/Metaworld) | Compare policies by task success rate on standard task suites |
 | Human task video | [Ego4D](https://ego4d-data.org/) | Egocentric task video. Corresponds to the middle tier of the three data tiers above |
 | Open toolchains | [LeRobot](https://github.com/huggingface/lerobot) | An open source stack bundling data format, training, and evaluation |
 
 :::caution
-Open datasets have **licensing terms that differ per asset.** Some permit research use only or require attribution or disclosure of derivatives, so before using them as training assets in a commercial product, check each dataset's license together with the terms of its subcomponents (the parts contributed by individual institutions).
+Open datasets have **licensing terms that differ per asset.** Some permit research use only or require attribution or disclosure of derivatives, so before using them as training assets in a commercial product, check each dataset's license together with the terms of its subcomponents (the parts contributed by individual institutions). For example, Open X-Embodiment is not under a single license — **terms differ per constituent dataset** — and Ego4D can carry separate terms for commercial use.
 :::
 
 :::note
@@ -396,6 +396,6 @@ These five are intertwined. For example, evaluation must be honest before safety
 
 ### Open Datasets and Toolchains
 
-- [Open X-Embodiment (paper)](https://arxiv.org/abs/2310.08864)
+- [Open X-Embodiment (repository)](https://github.com/google-deepmind/open_x_embodiment) · [paper](https://arxiv.org/abs/2310.08864)
 - [LeRobot (open source robotics toolchain)](https://github.com/huggingface/lerobot)
 - [Ego4D](https://ego4d-data.org/)

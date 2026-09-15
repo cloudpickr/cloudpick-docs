@@ -47,7 +47,7 @@ flowchart LR
 
 | 계열 | 성격 | 유의점 |
 | --- | --- | --- |
-| 로보틱스 특화 엣지 모듈 (예: [NVIDIA Jetson](https://developer.nvidia.com/embedded/jetson-modules) 계열) | 저전력 소형 모듈부터 고성능 모듈까지 폭이 넓고, 로보틱스·VLA 추론에서 사실상 기본 선택지 | 세대·모듈 간 성능과 메모리 차이가 크고 가격대도 크게 벌어집니다. 목표 모델이 해당 모듈 메모리에 올라가는지 먼저 확인하세요 |
+| 로보틱스 특화 엣지 모듈 (예: [NVIDIA Jetson](https://developer.nvidia.com/embedded/jetson-modules) 계열) | 저전력 소형 모듈부터 고성능 모듈까지 폭이 넓어, 로보틱스 VLA 온디바이스 추론에서 자주 검토되는 선택지 | 세대·모듈 간 성능과 메모리 차이가 크고 가격대도 크게 벌어집니다. 목표 모델이 해당 모듈 메모리에 올라가는지 먼저 확인하세요 |
 | 범용 CPU 내장 NPU·소형 가속기 | 분류·검출 같은 경량 비전에 충분하고 전력·단가가 낮음 | 대형 멀티모달·VLA 추론에는 메모리와 대역폭이 부족한 경우가 많습니다 |
 | FPGA·산업용 SoC | 결정론적 지연과 장기 공급 보장이 중요한 설비에 유리 | 개발 난이도가 높고 모델 이식 비용이 큽니다 |
 | 클라우드 사업자 엣지 어플라이언스 | 클라우드 운영 도구·관리 체계를 현장으로 확장 | 현장 서버·게이트웨이 용도이며, 로봇 온보드의 실시간 제어를 대체하지 않습니다 |
@@ -57,7 +57,7 @@ flowchart LR
 :::
 
 :::caution
-엣지 가속기는 **소프트웨어 생태계의 수명**이 하드웨어 수명만큼 중요합니다. 드라이버·런타임 업데이트가 멈춘 제품은 새 커널·새 모델 포맷을 지원하지 못해 조기에 교체 압력이 생깁니다. 위 계층 1 표의 Google Edge TPU / Coral처럼 신규 투자 신호가 뚜렷하지 않은 계열은, 신규 설계에 넣기 전 **현행 지원 상태와 드라이버 업데이트 이력을 직접 확인**하세요. 가격도 고정값이 아니어서 세대 교체 시점에 조정되는 사례가 있으므로, 대량 배포 계획은 견적을 다시 받아 검증해야 합니다.
+엣지 가속기는 **소프트웨어 생태계의 수명**이 하드웨어 수명만큼 중요합니다. 드라이버·런타임 업데이트가 멈춘 제품은 새 커널·새 모델 포맷을 지원하지 못해 조기에 교체 압력이 생깁니다. 위 계층 1 표의 [Google Edge TPU / Coral](https://developers.google.com/coral/guides/faq)이 그 예로, 공식 제품 EOL 공지가 없는 상태에서도 [런타임·API 저장소가 아카이브](https://github.com/google-coral/edgetpu)되었습니다. 이름이 비슷한 **Coral NPU는 실리콘 파트너용 오픈소스 NPU IP로 별개**이며 Edge TPU 모듈 제품군의 공식 후속이 아니므로, 같은 제품의 후속으로 읽지 마세요. 신규 설계에 넣기 전 **현행 지원 상태와 드라이버 업데이트 이력을 직접 확인**하세요. 가격도 고정값이 아니어서 세대 교체 시점에 조정되는 사례가 있으므로, 대량 배포 계획은 견적을 다시 받아 검증해야 합니다.
 :::
 
 ### 센서 데이터 파이프라인 — 수집·저장·라벨링
@@ -118,14 +118,14 @@ GPU 학습에서 병목은 연산이 아니라 **데이터 로딩과 체크포�
 
 | 구분 | 대표 자산 | 무엇에 쓰나 |
 | --- | --- | --- |
-| 교차 로봇 데이터셋 | [Open X-Embodiment](https://arxiv.org/abs/2310.08864) | 여러 기관의 로봇 데이터를 통합한 컬렉션. cross-embodiment 사전학습의 기준선 |
+| 교차 로봇 데이터셋 | [Open X-Embodiment](https://github.com/google-deepmind/open_x_embodiment) ([논문](https://arxiv.org/abs/2310.08864)) | 여러 기관의 로봇 데이터를 통합한 컬렉션. cross-embodiment 사전학습의 기준선 |
 | 대규모 조작 데이터셋 | [DROID](https://github.com/droid-dataset/droid) | 다양한 환경에서 수집한 teleop 데이터 |
 | 시뮬레이션 벤치마크 | [LIBERO](https://github.com/Lifelong-Robot-Learning/LIBERO), [CALVIN](https://github.com/mees/calvin), [RoboCasa](https://github.com/robocasa/robocasa), [Meta-World](https://github.com/Farama-Foundation/Metaworld) | 표준 과제 모음에서 작업 성공률로 정책을 비교 |
 | 사람 작업 영상 | [Ego4D](https://ego4d-data.org/) | 1인칭 작업 영상. 위 데이터 3층의 중간층에 해당 |
 | 오픈 툴체인 | [LeRobot](https://github.com/huggingface/lerobot) | 데이터 포맷·학습·평가를 묶은 오픈소스 스택 |
 
 :::caution
-공개 데이터셋은 **라이선스 조건이 자산마다 다릅니다.** 연구용으로만 허용되거나 출처 표시·파생물 공개를 요구하는 경우가 있어, 상업적 제품에 학습 자산으로 쓰기 전에 각 데이터셋의 라이선스와 하위 구성 요소(개별 기관이 기여한 부분)의 조건을 함께 확인해야 합니다.
+공개 데이터셋은 **라이선스 조건이 자산마다 다릅니다.** 연구용으로만 허용되거나 출처 표시·파생물 공개를 요구하는 경우가 있어, 상업적 제품에 학습 자산으로 쓰기 전에 각 데이터셋의 라이선스와 하위 구성 요소(개별 기관이 기여한 부분)의 조건을 함께 확인해야 합니다. 예를 들어 Open X-Embodiment는 단일 라이선스가 아니라 **구성 데이터셋별로 조건이 다르고**, Ego4D는 상업적 이용에 별도 약관이 적용되는 경우가 있습니다.
 :::
 
 :::note
@@ -396,6 +396,6 @@ Physical AI는 활발한 연구 단계이고, 도입 판단에는 "지금 무엇
 
 ### 공개 데이터셋·툴체인
 
-- [Open X-Embodiment (논문)](https://arxiv.org/abs/2310.08864)
+- [Open X-Embodiment (저장소)](https://github.com/google-deepmind/open_x_embodiment) · [논문](https://arxiv.org/abs/2310.08864)
 - [LeRobot (오픈소스 로보틱스 툴체인)](https://github.com/huggingface/lerobot)
 - [Ego4D](https://ego4d-data.org/)

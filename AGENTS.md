@@ -43,6 +43,7 @@ Manage the background server with `astro dev stop`, `astro dev status`, and `ast
   - **내부 링크**(상대 `../`·root-relative `/ko/..`)는 `npm run build`의 `starlight-links-validator`가 대상 존재 여부를 검증합니다. 깨진 내부 링크·누락 파일이 있으면 빌드가 실패해 머지가 차단됩니다.
   - **외부 링크**(`참고하기`의 공식 문서)는 CI(`External Link Check`, lychee)가 매 커밋 검사하며, 깨진 링크(404/410)는 차단됩니다. 리다이렉트(301/302/307/308)는 유효로 허용합니다. 한국 도메인은 NCP 함수(`scripts/check-korean-links.mjs`)가 전담합니다.
   - 깨진 링크는 발견 즉시 유효한 공식 URL로 대체하거나 제거한 뒤 커밋합니다.
+  - **상대 링크 깊이 함정(문서 이동·분할 시)**: `starlight-links-validator`가 통과해도 `trailingSlash: 'always'` 때문에 브라우저에서는 404가 나는 상대 링크가 있을 수 있습니다. 문서를 하위 디렉터리로 옮기거나 한 문서를 여러 문서로 **분할**하면 상대경로 깊이가 한 단계씩 어긋나므로, 이동·분할한 문서의 모든 `../`·`./` 링크를 새 위치 기준으로 재계산해야 합니다. 검증 방법(빌드 후 `dist` 상대경로를 브라우저 기준으로 풀어 실제 페이지 존재를 대조)은 `CONTRIBUTING.md`의 "상대 링크 깊이 함정"을 참고하세요.
 
 ## 표기 및 문체 규약
 

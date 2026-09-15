@@ -115,12 +115,12 @@ OCI's **Dedicated AI Cluster** is a different tier from the training infrastruct
 
 ### Orchestrator Choice — Slurm vs Kubernetes
 
-A fork you hit when picking a managed GPU cluster is **which orchestrator distributes the work**. There are broadly two paths — Slurm and Kubernetes — and they are not a superior/inferior substitution but **options you pick by workload characteristics**.
+A fork you hit when picking a managed GPU cluster is **which orchestrator distributes the work**. An orchestrator is the manager that decides "whose job runs on which node, and when" and hands out resources. There are broadly two paths — Slurm and Kubernetes — and they come from different lineages; they are not a superior/inferior substitution but **options you pick by workload characteristics**.
 
-- **Slurm** — A batch scheduler long used in HPC (high-performance computing). It has less friction for large-scale pre-training, or when lifting existing on-prem HPC/Slurm jobs as-is. You can reuse submission scripts and recipes.
-- **Kubernetes** — Advantageous when running training, inference, and serving mixed on one cluster over a container standard, or when you need namespace isolation and multi-tenancy. It reuses your existing Kubernetes ecosystem (operators, autoscalers, etc.).
+- **Slurm** — An open-source workload manager (job scheduler) long used in HPC (high-performance computing, the field that binds many nodes together for large-scale computation like supercomputers). A user submits a **batch job ("give me N GPUs for M hours"), and Slurm places it in a priority-ordered queue (partition) and allocates it to nodes as they free up**. Because it centers on batch jobs rather than containers, it has less friction for large-scale pre-training or when lifting existing on-prem HPC/Slurm jobs as-is, and you can reuse submission scripts and recipes.
+- **Kubernetes** — An orchestrator originally built to automatically place and manage containers (the standard unit that packages an application together with its runtime environment). It is stronger at **long-running services (such as inference servers) than at batch jobs**, and is advantageous when running training, inference, and serving mixed on one cluster over a container standard, or when you need namespace isolation and multi-tenancy. It reuses your existing Kubernetes ecosystem (operators, autoscalers, etc.). Note that "acquire all required GPUs at once (gang scheduling)," which distributed training needs, must be added via separate tools.
 
-Most managed clusters offer both orchestrators, and some also support a hybrid approach that bridges the two.
+In short, Slurm starts as a **batch scheduler that queues jobs and allocates them to nodes**, while Kubernetes starts as an **orchestrator that continuously manages containers** — different origins. Most managed clusters offer both orchestrators, and some also support a hybrid approach that bridges the two.
 
 | Orchestrator | AWS | Azure | Google Cloud | OCI |
 | --- | --- | --- | --- | --- |
@@ -191,3 +191,4 @@ Managed clusters greatly reduce initial assembly and operational burden but incr
 ### Common
 
 - [NVIDIA NCCL documentation](https://docs.nvidia.com/deeplearning/nccl/user-guide/docs/index.html)
+- [Slurm Workload Manager overview](https://slurm.schedmd.com/overview.html)

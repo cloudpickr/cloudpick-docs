@@ -47,7 +47,7 @@ flowchart LR
 
 | 段階 | AWS | Azure | Google Cloud | OCI |
 | --- | --- | --- | --- | --- |
-| ストリーム・映像収集 | [Kinesis Data Streams](https://aws.amazon.com/kinesis/data-streams/) / [Kinesis Video Streams](https://aws.amazon.com/kinesis/video-streams/) | [Event Hubs](https://learn.microsoft.com/azure/event-hubs/) + IoT Operations | [Pub/Sub](https://cloud.google.com/pubsub) | [OCI Streaming](https://www.oracle.com/cloud/networking/streaming/) |
+| ストリーム・映像収集 | [Kinesis Data Streams](https://aws.amazon.com/kinesis/data-streams/) / [Kinesis Video Streams](https://aws.amazon.com/kinesis/video-streams/) | [Event Hubs](https://learn.microsoft.com/azure/event-hubs/) + IoT Operations | [Pub/Sub](https://cloud.google.com/pubsub) | [OCI Streaming](https://www.oracle.com/cloud/streaming/) |
 | データレイク | [S3](https://aws.amazon.com/s3/) | [Data Lake Storage](https://learn.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) | [Cloud Storage](https://cloud.google.com/storage) | [Object Storage](https://www.oracle.com/cloud/storage/object-storage/) |
 | 学習用並列ファイルシステム | [FSx for Lustre](https://aws.amazon.com/fsx/lustre/) | [Azure Managed Lustre](https://azure.microsoft.com/products/managed-lustre) | [Managed Lustre](https://cloud.google.com/products/managed-lustre) / [Parallelstore](https://cloud.google.com/parallelstore) | [File Storage with Lustre](https://www.oracle.com/cloud/storage/file-storage-with-lustre/) |
 | ラベリング | [SageMaker Ground Truth](https://docs.aws.amazon.com/sagemaker/latest/dg/sms.html) (新規顧客の受付終了) | [Azure MLデータラベリング](https://learn.microsoft.com/azure/machine-learning/how-to-label-data) | — (マネージドは終了、パートナー・OSS) | [OCI Data Labeling](https://www.oracle.com/artificial-intelligence/data-labeling/) |

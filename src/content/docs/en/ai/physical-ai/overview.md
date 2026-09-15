@@ -31,8 +31,8 @@ This document set focuses on **concepts and vendor-neutral comparison**. For gen
 
 Because the Physical AI pipeline is long, it is split into a data-and-training layer and a deploy-and-operate layer.
 
-- **[Data and Training](./data-and-training/)** — Layer 1 (edge inference, IoT, hardware, sensor data pipeline) and Layer 2 (digital twins, simulation, open datasets, sim-to-real), plus choosing training infrastructure matched to scale.
-- **[Deploy and Operate](./deploy-and-operate/)** — Layer 3 (robotics foundation models, agent connectivity), the safety layer, multicloud and edge architecture, and closed-loop operations and fleet deployment.
+- **[Data and Training](../data-and-training/)** — Layer 1 (edge inference, IoT, hardware, sensor data pipeline) and Layer 2 (digital twins, simulation, open datasets, sim-to-real), plus choosing training infrastructure matched to scale.
+- **[Deploy and Operate](../deploy-and-operate/)** — Layer 3 (robotics foundation models, agent connectivity), the safety layer, multicloud and edge architecture, and closed-loop operations and fleet deployment.
 
 ## Open Problems
 
@@ -52,11 +52,11 @@ These five are intertwined. For example, evaluation must be honest before you ca
 
 ## Related Documents
 
-- [Data and Training](./data-and-training/) — Edge, data pipeline, simulation, training infrastructure
-- [Deploy and Operate](./deploy-and-operate/) — Robotics foundation models, safety, architecture, fleet deployment
+- [Data and Training](../data-and-training/) — Edge, data pipeline, simulation, training infrastructure
+- [Deploy and Operate](../deploy-and-operate/) — Robotics foundation models, safety, architecture, fleet deployment
 - [Hybrid and Edge Computing](../../../compute/hybrid-and-edge/) — General edge infrastructure patterns
 - [AI Agents](../../../ai/agents/) — Autonomous planning and execution concepts
-- [GPU Infrastructure](../gpu-infra/workload-and-architecture/) — GPU clusters for cloud training and simulation
+- [GPU Infrastructure](../../gpu-infra/workload-and-architecture/) — GPU clusters for cloud training and simulation
 - [AI Platform and Model Comparison](../../../ai/ai-ml/) — Model catalogs and inference costs
 
 ## Further Reading

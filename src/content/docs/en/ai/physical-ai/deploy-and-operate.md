@@ -7,7 +7,7 @@ description: "Summarizes robotics foundation models and agent connectivity (Laye
 
 ## Overview
 
-This document covers the back end of the Physical AI pipeline — **from deploying a trained model into the physical world to operating it safely**. For an overview of the full pipeline see [Physical AI Overview](./overview/); for the data and training layers see [Data and Training](./data-and-training/).
+This document covers the back end of the Physical AI pipeline — **from deploying a trained model into the physical world to operating it safely**. For an overview of the full pipeline see [Physical AI Overview](../overview/); for the data and training layers see [Data and Training](../data-and-training/).
 
 ## Layer 3 — Robotics Foundation Models
 
@@ -88,14 +88,14 @@ Physical AI design starts by deciding where each task belongs — edge or cloud.
 | Safety stop and emergency shutdown | Edge | Cannot tolerate a cloud round trip |
 | First-pass sensor data filtering and aggregation | Edge | Uploading all raw data costs too much bandwidth and money |
 | Data storage and labeling | Cloud | Aggregate data from many machines and manage it as a training asset |
-| Model training and retraining | Cloud | Requires large-scale GPUs and datasets (see [GPU Infrastructure](../gpu-infra/workload-and-architecture/)) |
+| Model training and retraining | Cloud | Requires large-scale GPUs and datasets (see [GPU Infrastructure](../../gpu-infra/workload-and-architecture/)) |
 | Synthetic data generation and simulation | Cloud | Digital twins and simulators require large-scale compute |
 | Multi-robot fleet coordination, long-horizon planning | Cloud | Global coordination beyond an individual edge's field of view |
 | Model version management and deployment (OTA) | Cloud → Edge | Managed centrally and distributed to the field |
 
 ### The Closed-Loop Operating Cycle
 
-Physical AI is not deployed once and finished; it operates as a cycle in which field data returns to the model. Each stage of the [pipeline flow diagram in the overview](./overview/#what-physical-ai-is) corresponds to the following operating cycle.
+Physical AI is not deployed once and finished; it operates as a cycle in which field data returns to the model. Each stage of the [pipeline flow diagram in the overview](../overview/#what-physical-ai-is) corresponds to the following operating cycle.
 
 1. **Edge inference** (`Edge Inference` in the diagram) — Perceive, decide, and control in real time on site, selecting only meaningful events and anomalous data.
 2. **Telemetry collection and refinement** (`Telemetry` → `Data Lake, Labeling`) — Upload the selected data and operation logs to the cloud, store them, and refine and label them for training use.
@@ -119,7 +119,7 @@ The criterion must therefore be **the success rate of rollouts carried through t
 | Physical rollouts | Success rate, intervention count, and recovery time on real equipment | Most trustworthy but most expensive |
 
 :::caution
-Robotics evaluation benchmarks are **less standardized than those for language models.** Vendor-reported success rates vary greatly with task definition, initial conditions, and whether retries are allowed, so check first **whether the measurement conditions are published** rather than focusing on the number itself. If the conditions differ, two models' success rates are not comparable. For general model evaluation, see [LLMOps](../llmops/).
+Robotics evaluation benchmarks are **less standardized than those for language models.** Vendor-reported success rates vary greatly with task definition, initial conditions, and whether retries are allowed, so check first **whether the measurement conditions are published** rather than focusing on the number itself. If the conditions differ, two models' success rates are not comparable. For general model evaluation, see [LLMOps](../../llmops/).
 :::
 
 ### Fleet Deployment — Abort and Rollback Are Different Layers
@@ -176,12 +176,12 @@ Fleet deployment services often have **quotas that cannot be adjusted** (targets
 
 ## Related Documents
 
-- [Physical AI Overview](./overview/) — Full pipeline, layered structure, and open problems
-- [Data and Training](./data-and-training/) — Edge, data pipeline, simulation, training infrastructure
+- [Physical AI Overview](../overview/) — Full pipeline, layered structure, and open problems
+- [Data and Training](../data-and-training/) — Edge, data pipeline, simulation, training infrastructure
 - [AI Agents](../../../ai/agents/) — Autonomous planning and execution concepts
 - [AI Agent Integration (MCP)](../../../mcp/) — Agent-to-tool and system integration protocols
-- [GPU Infrastructure](../gpu-infra/workload-and-architecture/) — GPU clusters for cloud training and simulation
-- [LLMOps](../llmops/) — General model evaluation and operations
+- [GPU Infrastructure](../../gpu-infra/workload-and-architecture/) — GPU clusters for cloud training and simulation
+- [LLMOps](../../llmops/) — General model evaluation and operations
 - [Japan AI Landscape](../../../japan/ai-landscape/) — Robotics foundation models as a national project (GENIAC)
 
 ## Further Reading

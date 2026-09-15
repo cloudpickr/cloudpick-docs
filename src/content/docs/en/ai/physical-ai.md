@@ -327,22 +327,33 @@ These five are intertwined. For example, evaluation must be honest before safety
 
 ## Checklist
 
+### Edge and Cloud Placement
+
 - [ ] Have you distinguished inference to process at the edge from data to upload to the cloud?
 - [ ] Does the edge operate autonomously and safely (offline) when the network is severed?
 - [ ] Have you defined how many milliseconds each decision must complete within, and separated the slow planning layer from the fast control layer?
+- [ ] Is the division of roles between on-device inference and cloud training clear?
+
+### Safety and Regulation
+
 - [ ] If agents call physical actuators, have you restricted the action space and added safety-layer validation?
+- [ ] For autonomous driving or industrial robots, have you reflected functional safety certification requirements in the design?
+
+### Data and Cost
+
 - [ ] Have you designed the storage, refinement, and labeling layer for sensor data, and confirmed that labeling tooling is replaceable?
 - [ ] Have you estimated data collection, storage, labeling, and simulation costs separately from GPU cost?
+- [ ] Have you checked the licenses of the open datasets and benchmarks you plan to use, and whether they cover your own embodiment?
+
+### Training, Evaluation, and Deployment
+
 - [ ] Have you defined the model pass criterion as rollout success rate rather than a loss value, with a physical validation gate?
 - [ ] Have you chosen an infrastructure stage matched to your training scale (without over-committing during initial validation)?
 - [ ] Have you designed both a staged rollout and a **rollback path** for fleet deployment (rather than assuming abort is sufficient)?
 - [ ] Does your target fleet size fit within each vendor's non-adjustable service quotas?
 - [ ] Did you select the edge accelerator by measuring the target model rather than by TOPS figures, and confirm the support lifespan of its drivers and runtime?
-- [ ] Have you checked the licenses of the open datasets and benchmarks you plan to use, and whether they cover your own embodiment?
 - [ ] Is the digital twin and simulation stack portable to another cloud (lock-in check)?
 - [ ] Are the IoT and robotics services you plan to use currently supported (EOL check)?
-- [ ] For autonomous driving or industrial robots, have you reflected functional safety certification requirements in the design?
-- [ ] Is the division of roles between on-device inference and cloud training clear?
 
 ## Related Documents
 

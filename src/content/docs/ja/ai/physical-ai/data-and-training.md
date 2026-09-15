@@ -15,7 +15,7 @@ description: "エッジ推論・IoTハードウェアとセンサーデータパ
 
 | 項目 | AWS | Azure | Google Cloud | OCI |
 | --- | --- | --- | --- | --- |
-| エッジランタイム | [IoT Greengrass](https://docs.aws.amazon.com/greengrass/v2/developerguide/) | [Azure IoT Operations](https://learn.microsoft.com/azure/iot-operations/) / [IoT Edge](https://learn.microsoft.com/azure/iot-edge/) | [Google Distributed Cloud (Edge)](https://cloud.google.com/distributed-cloud) | [Roving Edge Infrastructure](https://www.oracle.com/cloud/roving-edge-infrastructure/) |
+| エッジランタイム | [IoT Greengrass](https://docs.aws.amazon.com/greengrass/v2/developerguide/) | [Azure IoT Operations](https://learn.microsoft.com/azure/iot-operations/) / [IoT Edge](https://learn.microsoft.com/azure/iot-edge/) | [Google Distributed Cloud (Edge)](https://cloud.google.com/distributed-cloud) | [Roving Edge Infrastructure](https://docs.oracle.com/en-us/iaas/Content/Rover/overview.htm) |
 | エッジML推論 | Greengrass MLコンポーネント (SageMaker AIモデルのデプロイ) | IoT Edgeモジュール + Azure AIサービス | Edge TPU / Coral (現行サポート状況の確認が必要) | RED上のコンピュートで自前構成 |
 | 産業データ収集 | [IoT SiteWise](https://aws.amazon.com/iot-sitewise/) (OPC UA) | IoT Operations (OPC UA) | — (パートナー・自前構成) | — (自前構成) |
 
@@ -199,7 +199,7 @@ Physical AIでありがちな誤解が「ロボットモデルの学習には必
 
 ### OCI
 
-- [Oracle Roving Edge Infrastructure](https://www.oracle.com/cloud/roving-edge-infrastructure/)
+- [Oracle Roving Edge Infrastructure](https://docs.oracle.com/en-us/iaas/Content/Rover/overview.htm)
 - [OCI File Storage with Lustre](https://www.oracle.com/cloud/storage/file-storage-with-lustre/)
 - [OCI Data Labeling](https://www.oracle.com/artificial-intelligence/data-labeling/)
 

@@ -332,7 +332,15 @@ export default defineConfig({
 							translations: { en: 'Advanced & specialized', ja: '応用・特殊' },
 							items: [
 								{ slug: 'ai/multicloud-ai' },
-								{ slug: 'ai/physical-ai' },
+							],
+						},
+						{
+							label: 'Physical AI',
+							translations: { en: 'Physical AI', ja: 'Physical AI' },
+							items: [
+								{ slug: 'ai/physical-ai/overview' },
+								{ slug: 'ai/physical-ai/data-and-training' },
+								{ slug: 'ai/physical-ai/deploy-and-operate' },
 							],
 						},
 						{

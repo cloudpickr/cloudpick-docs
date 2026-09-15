@@ -130,7 +130,7 @@ The 7-stage end-to-end AI System Life Cycle, 4-Tier adoption matrix with control
 
 ### Physical AI (Connecting to the Physical World)
 
-Physical AI — connecting AI to the physical world of sensors, robots, and equipment (edge inference, digital twins and simulation, robotics foundation models) — is covered in detail from a vendor-neutral perspective in the dedicated [Physical AI](../../ai/physical-ai/) document.
+Physical AI — connecting AI to the physical world of sensors, robots, and equipment (edge inference, digital twins and simulation, robotics foundation models) — is covered in detail from a vendor-neutral perspective in the dedicated [Physical AI](../../ai/physical-ai/overview/) document.
 
 ## Multicloud Model Access (2025–2026)
 

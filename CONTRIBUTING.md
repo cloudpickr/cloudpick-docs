@@ -154,6 +154,36 @@ python3 scripts/lint-strikethrough.py
 - **내부 링크**는 `npm run build`의 `starlight-links-validator`가 대상 존재 여부를 검증합니다(깨진 링크 시 빌드 실패). 상대경로(`../`) 표기 자체는 허용되며, 가리키는 대상이 없을 때만 실패합니다.
 - **외부 링크**는 CI(`External Link Check`, lychee + 한국 도메인은 NCP 함수)가 담당합니다. 로컬에는 lychee가 없어도 되며, CI가 검사합니다.
 
+### 상대 링크 깊이 함정 (문서 이동·분할 시 필수 확인)
+
+`starlight-links-validator`가 통과해도 **브라우저에서는 404가 나는** 상대 링크가 있을 수 있습니다. 실제로 이 리포에서 두 차례 발생한 버그이므로 반드시 숙지하세요.
+
+- **원인:** validator는 대체로 소스 파일 위치 기준으로 대상 존재를 확인하지만, 배포된 사이트는 `trailingSlash: 'always'`라 문서 URL이 디렉터리처럼(`/ko/ai/foo/`) 끝납니다. 브라우저는 이 URL 기준으로 상대경로를 풀기 때문에, 소스 기준과 한 단계 어긋나면 실제로 404가 납니다.
+- **언제 터지나:** 문서를 **하위 디렉터리로 옮기거나 한 문서를 여러 문서로 분할**할 때. 깊이가 한 단계 깊어졌는데 기존 상대경로를 그대로 두면 전부 어긋납니다.
+- **깊이 계산 기준(로케일 루트 = `/ko/` 기준):**
+  - `src/content/docs/ko/ai/foo.md` → URL `/ko/ai/foo/`
+    - 같은 `ai/`의 형제: `../bar/` → `/ko/ai/bar/`
+    - 로케일 루트 하위(`mcp`, `glossary` 등): `../../mcp/` → `/ko/mcp/`
+    - 다른 섹션(`security/…`): `../../security/…/`
+  - `src/content/docs/ko/ai/foo/overview.md` → URL `/ko/ai/foo/overview/` (**한 단계 더 깊음**)
+    - 같은 `foo/`의 형제: `../data/` → `/ko/ai/foo/data/`
+    - 다른 `ai/` 문서(`gpu-infra/…`): `../../gpu-infra/…/`
+    - 로케일 루트 하위(`mcp`): `../../../mcp/`
+- **검증 방법:** `npm run build` 후 `dist`의 HTML에 박힌 상대경로를 **브라우저 기준으로 풀어 실제 `dist/.../index.html`이 있는지 대조**합니다. 예:
+  ```bash
+  # 특정 문서의 상대 링크가 실제 페이지로 연결되는지 확인
+  python3 - <<'PY'
+  from urllib.parse import urljoin, unquote
+  import re, os
+  base='/ko/ai/physical-ai/overview/'   # 검사할 문서 URL
+  html=open('dist'+base+'index.html').read()
+  for rel in sorted(set(re.findall(r'href="(\.\.?/[^"#]*)"', html))):
+      t=unquote(urljoin(base, rel))
+      print('OK ' if os.path.exists('dist'+t+'index.html') else 'MISS', rel, '->', t)
+  PY
+  ```
+  `MISS`가 하나도 없어야 합니다.
+
 ## 외부 링크(참고하기) 관리
 
 - `참고하기`의 외부 공식 링크는 매 커밋(push/PR)마다 CI(`External Link Check`, lychee)가 검사합니다. 한국 도메인(`.go.kr`, `.or.kr`, `.naver.com`, `.ntruss.com` 등)은 해외 CI IP에서 차단이 잦아 lychee에서 제외하고, 한국 리전 NCP 함수(`scripts/check-korean-links.mjs`)가 전담 검증합니다.
@@ -168,6 +198,7 @@ python3 scripts/lint-strikethrough.py
 - [ ] 새로 추가한 기술 사실에는 공식 문서 또는 표준 문서 근거가 있습니다.
 - [ ] 변동성 높은 정보는 공식 링크 중심으로 작성했습니다.
 - [ ] `npm run build`가 성공합니다 (내부 링크 검증 포함 — 깨진 내부 링크·누락 파일 없음).
+- [ ] **문서를 하위 디렉터리로 이동·분할했다면**, 그 문서의 모든 상대 링크(`../`, `./`) 깊이를 새 위치 기준으로 재계산했습니다. (아래 "상대 링크 깊이 함정" 참고 — `starlight-links-validator`는 통과해도 브라우저에서 404가 날 수 있음)
 - [ ] `참고하기`의 외부 링크가 모두 유효합니다 (CI `External Link Check` 통과 — 깨진 링크는 즉시 제거·대체).
 - [ ] `python3 scripts/lint-docs-consistency.py` 통과 (로케일 대칭성 · 문서 기준 마커 · 접이식 `<details>` 금지).
 - [ ] `python3 scripts/lint-mermaid.py` 통과 (Mermaid 파싱 안전성).

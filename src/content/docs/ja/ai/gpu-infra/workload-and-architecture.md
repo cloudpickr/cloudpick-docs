@@ -124,18 +124,18 @@ OCIの**Dedicated AI Cluster**は上記の学習インフラとは異なる層�
 - **Slurm** — HPC（高性能コンピューティング）で長く使われてきたオープンソースのワークロードマネージャ（ジョブスケジューラ）です。ユーザーが「GPUを何枚、何時間使う」という**ジョブを投入すると、Slurmが優先度順の待ち行列（パーティション）に入れ、空いたノードに配分**します。コンテナではなくバッチジョブが中心のため、大規模な事前学習や既存のオンプレHPC・Slurmジョブをそのまま移す場合に摩擦が少なく、投入スクリプトやレシピを再利用できます。
 - **Kubernetes** — コンテナオーケストレーションの標準で、バッチジョブより**常駐するサービス（推論サーバーなど）を扱うのに強い**です。学習・推論・サービングを一つのクラスターに混在させる場合や、名前空間の分離・マルチテナンシーが必要な場合に有利で、既存のKubernetesエコシステムをそのまま活用します。ただし分散学習に必要なgang schedulingは別途ツールで補う必要があります（[GPU Kubernetesとスケジューリング](../kubernetes-and-scheduling/)を参照）。
 
-主要なマネージドクラスターは概ね両方のオーケストレータを提供し、一部は両者を繋ぐハイブリッド方式も支援します。
+クラウドベンダーは製品ポートフォリオ全体としてSlurmとKubernetesの両方の経路を提供することが多いものの、同一のマネージドクラスター内で両者を選択できるかどうかは製品ごとに異なります。一部の製品は両者を繋ぐハイブリッド方式も支援します。
 
 | オーケストレータ | AWS | Azure | Google Cloud | OCI |
 | --- | --- | --- | --- | --- |
-| **Slurm (HPC)** | [HyperPod + Slurm](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-hyperpod-slurm.html) (マネージド) | [CycleCloud Workspace for Slurm](https://learn.microsoft.com/azure/cyclecloud/overview-ccws) (マネージド) | [Cluster Director](https://cloud.google.com/products/cluster-director) (マネージド)・[Cluster Toolkit](https://cloud.google.com/ai-hypercomputer/docs/create/create-self-managed-slurm-cluster) (自己デプロイ) | Supercluster + [HPCスタック](https://www.oracle.com/cloud/hpc/) (自己デプロイ) |
+| **Slurm (HPC)** | [HyperPod + Slurm](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-hyperpod-slurm.html) (マネージド) | [CycleCloud Workspace for Slurm](https://learn.microsoft.com/azure/cyclecloud/overview-ccws) (ソリューションテンプレート・顧客テナントにデプロイ) | [Cluster Director](https://cloud.google.com/products/cluster-director) (マネージド)・[Cluster Toolkit](https://cloud.google.com/ai-hypercomputer/docs/create/create-self-managed-slurm-cluster) (自己デプロイ) | [HPC Cluster Stack + Slurm](https://github.com/oracle-quickstart/oci-hpc) (自己デプロイ・GPUクラスターネットワーク基盤) |
 | **Kubernetes** | HyperPod + EKS / EKS | AKS | GKE | OKE |
 | **ハイブリッド** | — | — | [Cluster Director — Slurm on GKE](https://cloud.google.com/blog/products/compute/cluster-director-is-now-generally-available) (Preview) | — |
 
 :::caution
 上表の項目は**同じ役割を果たす異なる実装**であり、1対1の等価ではありません。読む際は次の3点を区別してください。
 
-- **マネージドか自己デプロイか** — 同じ「Slurm」でも、ベンダーがオーケストレータをマネージドで提供する場合と、テンプレート・ツールキットで自らデプロイして運用責任を負う場合とでは、調達・運用の負担が異なります。
+- **運用モデル** — ベンダーマネージド、顧客テナントにデプロイするソリューションテンプレート、自らデプロイするツールキットでは、調達・更新・障害対応の責任がそれぞれ異なります。
 - **成熟度** — Cluster DirectorのSlurm on GKEは2026年9月時点で**Preview**です。本番の前提とする前に現行のリリース段階を確認してください。
 - **`—`の意味** — 2026年9月時点で当該ベンダーの1st-partyハイブリッドを確認できなかったという意味であり、サードパーティや自己構成まで不可能という意味ではありません。
 
@@ -192,8 +192,7 @@ OCIの**Dedicated AI Cluster**は上記の学習インフラとは異なる層�
 
 ### OCI
 
-- [OCI HPC (Slurmスタックのデプロイ)](https://www.oracle.com/cloud/hpc/)
-
+- [OCI HPC Cluster Stack — Slurmの自己デプロイ](https://github.com/oracle-quickstart/oci-hpc)
 - [Cluster Networks](https://docs.oracle.com/en-us/iaas/Content/Compute/Tasks/managingclusternetworks.htm)
 - [OCI GPU Compute](https://www.oracle.com/cloud/compute/gpu/)
 

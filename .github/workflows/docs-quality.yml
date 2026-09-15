@@ -17,6 +17,9 @@ on:
       - "README*.md"
       - "CONTRIBUTING.md"
       - "AGENTS.md"
+      # 사이드바/사이트 구조(astro.config.mjs)만 바뀐 PR도 required 체크가 돌도록 포함
+      # — 소그룹 재편 등 config-only PR의 required check 무한 pending 방지.
+      - "astro.config.mjs"
   push:
     branches: [master, main]
     paths:

@@ -25,6 +25,8 @@ on:
       - "README*.md"
       - "CONTRIBUTING.md"
       - "AGENTS.md"
+      # 사이드바/사이트 구조(astro.config.mjs)만 바뀐 PR도 required 체크가 돌도록 포함 — 무한 pending 방지.
+      - "astro.config.mjs"
   # 주기 점검 — 콘텐츠 변경이 없어도 외부 링크가 죽는 link-rot을 잡음
   schedule:
     - cron: "0 0 * * 1" # 매주 월요일 UTC 00:00

@@ -193,7 +193,6 @@ Slurm은 이 문서 범위에서 오케스트레이터 선택 축까지만 다�
 ### OCI
 
 - [OCI HPC Cluster Stack — Slurm 자체 배포](https://github.com/oracle-quickstart/oci-hpc)
-
 - [Cluster Networks](https://docs.oracle.com/en-us/iaas/Content/Compute/Tasks/managingclusternetworks.htm)
 - [OCI GPU Compute](https://www.oracle.com/cloud/compute/gpu/)
 

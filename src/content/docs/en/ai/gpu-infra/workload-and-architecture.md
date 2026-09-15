@@ -193,7 +193,6 @@ This document covers Slurm only up to the orchestrator-choice axis, delegating d
 ### OCI
 
 - [OCI HPC Cluster Stack — self-deployed Slurm](https://github.com/oracle-quickstart/oci-hpc)
-
 - [Cluster Networks](https://docs.oracle.com/en-us/iaas/Content/Compute/Tasks/managingclusternetworks.htm)
 - [OCI GPU Compute](https://www.oracle.com/cloud/compute/gpu/)
 

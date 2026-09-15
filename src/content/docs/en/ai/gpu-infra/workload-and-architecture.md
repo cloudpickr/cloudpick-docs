@@ -124,18 +124,18 @@ A fork you hit when picking a managed GPU cluster is **which orchestrator distri
 - **Slurm** — An open-source workload manager (job scheduler) long used in HPC (high-performance computing). A user submits a **job ("give me N GPUs for M hours"), and Slurm places it in a priority-ordered queue (partition) and allocates it to nodes as they free up**. Because it centers on batch jobs rather than containers, it has less friction for large-scale pre-training or when lifting existing on-prem HPC/Slurm jobs as-is, and you can reuse submission scripts and recipes.
 - **Kubernetes** — The container-orchestration standard, stronger at **long-running services (such as inference servers) than at batch jobs**. It is advantageous when running training, inference, and serving mixed on one cluster, or when you need namespace isolation and multi-tenancy, and it reuses your existing Kubernetes ecosystem. Note that gang scheduling, which distributed training needs, must be added via separate tools (see [GPU Kubernetes and Scheduling](../kubernetes-and-scheduling/)).
 
-Most managed clusters offer both orchestrators, and some also support a hybrid approach that bridges the two.
+Cloud vendors often provide both Slurm and Kubernetes paths across their product portfolios, but whether both are available as choices within the same managed cluster varies by product. Some products also support a hybrid approach that bridges the two.
 
 | Orchestrator | AWS | Azure | Google Cloud | OCI |
 | --- | --- | --- | --- | --- |
-| **Slurm (HPC)** | [HyperPod + Slurm](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-hyperpod-slurm.html) (managed) | [CycleCloud Workspace for Slurm](https://learn.microsoft.com/azure/cyclecloud/overview-ccws) (managed) | [Cluster Director](https://cloud.google.com/products/cluster-director) (managed) · [Cluster Toolkit](https://cloud.google.com/ai-hypercomputer/docs/create/create-self-managed-slurm-cluster) (self-deployed) | Supercluster + [HPC stack](https://www.oracle.com/cloud/hpc/) (self-deployed) |
+| **Slurm (HPC)** | [HyperPod + Slurm](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-hyperpod-slurm.html) (managed) | [CycleCloud Workspace for Slurm](https://learn.microsoft.com/azure/cyclecloud/overview-ccws) (solution template deployed in the customer tenant) | [Cluster Director](https://cloud.google.com/products/cluster-director) (managed) · [Cluster Toolkit](https://cloud.google.com/ai-hypercomputer/docs/create/create-self-managed-slurm-cluster) (self-deployed) | [HPC Cluster Stack + Slurm](https://github.com/oracle-quickstart/oci-hpc) (self-deployed on GPU cluster networking) |
 | **Kubernetes** | HyperPod + EKS / EKS | AKS | GKE | OKE |
 | **Hybrid** | — | — | [Cluster Director — Slurm on GKE](https://cloud.google.com/blog/products/compute/cluster-director-is-now-generally-available) (Preview) | — |
 
 :::caution
 The entries above are **different implementations that play the same role**; they are not one-to-one equivalents. Read the table with three distinctions in mind.
 
-- **Managed vs. self-deployed** — Even the same "Slurm" differs in procurement and operational burden between a vendor-managed orchestrator and one you deploy yourself from a template or toolkit and then operate.
+- **Operating model** — Vendor-managed services, solution templates deployed in the customer tenant, and self-deployed toolkits assign procurement, update, and incident-response responsibilities differently.
 - **Maturity** — Cluster Director's Slurm on GKE is in **Preview** as of September 2026. Confirm the current release stage before assuming it for production.
 - **What `—` means** — No first-party hybrid was identified for that vendor as of September 2026. It does not mean a third-party or self-built configuration is impossible.
 
@@ -192,7 +192,7 @@ This document covers Slurm only up to the orchestrator-choice axis, delegating d
 
 ### OCI
 
-- [OCI HPC (Slurm stack deployment)](https://www.oracle.com/cloud/hpc/)
+- [OCI HPC Cluster Stack — self-deployed Slurm](https://github.com/oracle-quickstart/oci-hpc)
 
 - [Cluster Networks](https://docs.oracle.com/en-us/iaas/Content/Compute/Tasks/managingclusternetworks.htm)
 - [OCI GPU Compute](https://www.oracle.com/cloud/compute/gpu/)

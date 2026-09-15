@@ -34,11 +34,30 @@ Data from the physical world is high-volume and real-time, making it impractical
 | Item | AWS | Azure | Google Cloud | OCI |
 | --- | --- | --- | --- | --- |
 | Edge runtime | [IoT Greengrass](https://docs.aws.amazon.com/greengrass/v2/developerguide/) | [Azure IoT Operations](https://learn.microsoft.com/azure/iot-operations/) / [IoT Edge](https://learn.microsoft.com/azure/iot-edge/) | [Google Distributed Cloud (Edge)](https://cloud.google.com/distributed-cloud) | [Roving Edge Infrastructure](https://www.oracle.com/cloud/roving-edge-infrastructure/) |
-| Edge ML inference | Greengrass ML components (SageMaker AI model deployment) | IoT Edge modules + Azure AI services | Edge TPU / Coral | Build your own on RED compute |
+| Edge ML inference | Greengrass ML components (SageMaker AI model deployment) | IoT Edge modules + Azure AI services | Edge TPU / Coral (verify current support status) | Build your own on RED compute |
 | Industrial data ingestion | [IoT SiteWise](https://aws.amazon.com/iot-sitewise/) (OPC UA) | IoT Operations (OPC UA) | — (partner or self-built) | — (self-built) |
 
 :::caution
 **Azure Percept was retired in March 2023.** Even if older material presents Percept as edge AI hardware, comparable capability is now assembled from Azure IoT Edge / IoT Operations plus Azure Certified Device partner hardware (Microsoft did not designate a single official successor product). Do not build architecture assumptions on obsolete product names.
+:::
+
+### Edge Inference Hardware
+
+If the edge runtime is the software layer, the choice of **accelerator hardware** beneath it determines feasibility and TCO. There are four criteria — the **compute performance** to run the target model, the **memory capacity** the model must fit into, the robot's **power and thermal budget**, and the **lifespan of the software ecosystem**.
+
+| Family | Characteristics | Considerations |
+| --- | --- | --- |
+| Robotics-oriented edge modules (for example the [NVIDIA Jetson](https://developer.nvidia.com/embedded/jetson-modules) family) | Spans low-power compact modules to high-performance ones, and is effectively the default choice for robotics and VLA inference | Performance and memory differ greatly across generations and modules, with wide price spreads. Confirm first that the target model fits in that module's memory |
+| General-purpose CPUs with integrated NPUs and small accelerators | Sufficient for lightweight vision such as classification and detection, with low power and unit cost | Often short on memory and bandwidth for large multimodal and VLA inference |
+| FPGAs and industrial SoCs | Favorable for equipment where deterministic latency and long-term supply guarantees matter | High development difficulty and significant model porting cost |
+| Cloud provider edge appliances | Extend cloud operational tooling and management to the field | Intended as field servers and gateways; they do not replace real-time control onboard the robot |
+
+:::caution
+**Do not compare on TOPS figures alone.** Vendor-quoted compute performance uses different baselines depending on precision (INT8, FP4, and so on) and whether sparsity is applied, so placing numbers from different conditions side by side is not a valid comparison. Actual inference speed is often governed by memory capacity and bandwidth and by how well the model fits, so **measuring the target model on the target module** is the reliable approach.
+:::
+
+:::caution
+For edge accelerators, the **lifespan of the software ecosystem** matters as much as hardware lifespan. A product whose driver and runtime updates have stopped cannot support new kernels or new model formats, creating early replacement pressure. For families without clear signals of continued investment — such as Google Edge TPU / Coral in the Layer 1 table above — **verify current support status and driver update history directly** before placing them in a new design. Prices are not fixed either and have been adjusted around generational transitions, so validate large-scale deployment plans with a fresh quote.
 :::
 
 ### Sensor Data Pipeline — Ingestion, Storage, Labeling
@@ -91,6 +110,26 @@ Simulation is a premise rather than an option because of **data scarcity**. Lang
 
 :::note
 For cloud cost estimation, this structure means **a cost axis exists separately from GPUs**. Data collection (equipment and labor), storage and transfer, and labeling costs arise independently of training compute, so estimating TCO from GPU hours alone will be far off.
+:::
+
+### Open Datasets and Benchmark Ecosystem
+
+Because data scarcity is hard for any single organization to overcome alone, an open ecosystem has formed in which multiple institutions pool data and share evaluation tasks. When choosing a stack, **"which open assets can be used as-is on this stack"** becomes a practical criterion for judging lock-in.
+
+| Category | Representative assets | What it is used for |
+| --- | --- | --- |
+| Cross-robot datasets | [Open X-Embodiment](https://arxiv.org/abs/2310.08864) | A collection consolidating robot data from many institutions. The baseline for cross-embodiment pre-training |
+| Large manipulation datasets | [DROID](https://github.com/droid-dataset/droid) | Teleop data collected across diverse environments |
+| Simulation benchmarks | [LIBERO](https://github.com/Lifelong-Robot-Learning/LIBERO), [CALVIN](https://github.com/mees/calvin), [RoboCasa](https://github.com/robocasa/robocasa), [Meta-World](https://github.com/Farama-Foundation/Metaworld) | Compare policies by task success rate on standard task suites |
+| Human task video | [Ego4D](https://ego4d-data.org/) | Egocentric task video. Corresponds to the middle tier of the three data tiers above |
+| Open toolchains | [LeRobot](https://github.com/huggingface/lerobot) | An open source stack bundling data format, training, and evaluation |
+
+:::caution
+Open datasets have **licensing terms that differ per asset.** Some permit research use only or require attribution or disclosure of derivatives, so before using them as training assets in a commercial product, check each dataset's license together with the terms of its subcomponents (the parts contributed by individual institutions).
+:::
+
+:::note
+Using a model pre-trained on open datasets can reduce the volume of initial data collection, but the real benefit depends on **whether your robot's embodiment and target task are represented in that data**. The same applies to benchmark scores: if measurement conditions differ, they are not comparable (see [What Determines Whether a Model Passes](#what-determines-whether-a-model-passes)).
 :::
 
 ### Sim-to-Real Gap
@@ -298,6 +337,8 @@ These five are intertwined. For example, evaluation must be honest before safety
 - [ ] Have you chosen an infrastructure stage matched to your training scale (without over-committing during initial validation)?
 - [ ] Have you designed both a staged rollout and a **rollback path** for fleet deployment (rather than assuming abort is sufficient)?
 - [ ] Does your target fleet size fit within each vendor's non-adjustable service quotas?
+- [ ] Did you select the edge accelerator by measuring the target model rather than by TOPS figures, and confirm the support lifespan of its drivers and runtime?
+- [ ] Have you checked the licenses of the open datasets and benchmarks you plan to use, and whether they cover your own embodiment?
 - [ ] Is the digital twin and simulation stack portable to another cloud (lock-in check)?
 - [ ] Are the IoT and robotics services you plan to use currently supported (EOL check)?
 - [ ] For autonomous driving or industrial robots, have you reflected functional safety certification requirements in the design?
@@ -350,4 +391,11 @@ These five are intertwined. For example, evaluation must be honest before safety
 - [NVIDIA Isaac GR00T (developer page)](https://developer.nvidia.com/isaac/gr00t)
 - [NVIDIA Omniverse](https://www.nvidia.com/en-us/omniverse/)
 - [NVIDIA autonomous vehicle (DRIVE, Halos) solutions](https://www.nvidia.com/en-us/solutions/autonomous-vehicles/)
+- [NVIDIA Jetson module lineup](https://developer.nvidia.com/embedded/jetson-modules)
 - [Anthropic Model Hardware Standard (research preview)](https://www.anthropic.com/news/model-hardware-standard-research-preview)
+
+### Open Datasets and Toolchains
+
+- [Open X-Embodiment (paper)](https://arxiv.org/abs/2310.08864)
+- [LeRobot (open source robotics toolchain)](https://github.com/huggingface/lerobot)
+- [Ego4D](https://ego4d-data.org/)

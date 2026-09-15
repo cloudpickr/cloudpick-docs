@@ -34,11 +34,30 @@ flowchart LR
 | 항목 | AWS | Azure | Google Cloud | OCI |
 | --- | --- | --- | --- | --- |
 | 엣지 런타임 | [IoT Greengrass](https://docs.aws.amazon.com/greengrass/v2/developerguide/) | [Azure IoT Operations](https://learn.microsoft.com/azure/iot-operations/) / [IoT Edge](https://learn.microsoft.com/azure/iot-edge/) | [Google Distributed Cloud (Edge)](https://cloud.google.com/distributed-cloud) | [Roving Edge Infrastructure](https://www.oracle.com/cloud/roving-edge-infrastructure/) |
-| 엣지 ML 추론 | Greengrass ML 컴포넌트 (SageMaker AI 모델 배포) | IoT Edge 모듈 + Azure AI 서비스 | Edge TPU / Coral | RED 상의 컴퓨트로 자체 구성 |
+| 엣지 ML 추론 | Greengrass ML 컴포넌트 (SageMaker AI 모델 배포) | IoT Edge 모듈 + Azure AI 서비스 | Edge TPU / Coral (현행 지원 상태 확인 필요) | RED 상의 컴퓨트로 자체 구성 |
 | 산업 데이터 수집 | [IoT SiteWise](https://aws.amazon.com/iot-sitewise/) (OPC UA) | IoT Operations (OPC UA) | — (파트너·자체 구성) | — (자체 구성) |
 
 :::caution
 **Azure Percept는 2023년 3월 은퇴**했습니다. 과거 자료에서 Percept를 엣지 AI 하드웨어로 소개하더라도, 현재는 Azure IoT Edge / IoT Operations와 Azure Certified Device 파트너 하드웨어로 유사 기능을 구성합니다(Microsoft가 단일 공식 후속 제품을 지정한 것은 아닙니다). 오래된 제품명을 아키텍처 전제로 삼지 마세요.
+:::
+
+### 엣지 추론 하드웨어
+
+엣지 런타임이 소프트웨어 계층이라면, 그 아래에서 실제로 추론을 수행하는 **가속기 하드웨어** 선택이 실현 가능성과 TCO를 좌우합니다. 판단 기준은 네 가지입니다 — 목표 모델을 돌릴 **연산 성능**, 모델이 올라갈 **메모리 용량**, 로봇의 **전력·발열 예산**, 그리고 **소프트웨어 생태계의 수명**입니다.
+
+| 계열 | 성격 | 유의점 |
+| --- | --- | --- |
+| 로보틱스 특화 엣지 모듈 (예: [NVIDIA Jetson](https://developer.nvidia.com/embedded/jetson-modules) 계열) | 저전력 소형 모듈부터 고성능 모듈까지 폭이 넓고, 로보틱스·VLA 추론에서 사실상 기본 선택지 | 세대·모듈 간 성능과 메모리 차이가 크고 가격대도 크게 벌어집니다. 목표 모델이 해당 모듈 메모리에 올라가는지 먼저 확인하세요 |
+| 범용 CPU 내장 NPU·소형 가속기 | 분류·검출 같은 경량 비전에 충분하고 전력·단가가 낮음 | 대형 멀티모달·VLA 추론에는 메모리와 대역폭이 부족한 경우가 많습니다 |
+| FPGA·산업용 SoC | 결정론적 지연과 장기 공급 보장이 중요한 설비에 유리 | 개발 난이도가 높고 모델 이식 비용이 큽니다 |
+| 클라우드 사업자 엣지 어플라이언스 | 클라우드 운영 도구·관리 체계를 현장으로 확장 | 현장 서버·게이트웨이 용도이며, 로봇 온보드의 실시간 제어를 대체하지 않습니다 |
+
+:::caution
+**TOPS 수치만으로 비교하지 마세요.** 벤더가 제시하는 연산 성능은 정밀도(INT8·FP4 등)와 희소성(sparsity) 적용 여부에 따라 기준이 달라, 서로 다른 조건의 숫자를 나란히 놓으면 비교가 성립하지 않습니다. 실제 추론 속도는 메모리 용량·대역폭과 모델의 적합성이 좌우하는 경우가 많으므로, **목표 모델을 대상 모듈에서 실제로 측정**하는 편이 확실합니다.
+:::
+
+:::caution
+엣지 가속기는 **소프트웨어 생태계의 수명**이 하드웨어 수명만큼 중요합니다. 드라이버·런타임 업데이트가 멈춘 제품은 새 커널·새 모델 포맷을 지원하지 못해 조기에 교체 압력이 생깁니다. 위 계층 1 표의 Google Edge TPU / Coral처럼 신규 투자 신호가 뚜렷하지 않은 계열은, 신규 설계에 넣기 전 **현행 지원 상태와 드라이버 업데이트 이력을 직접 확인**하세요. 가격도 고정값이 아니어서 세대 교체 시점에 조정되는 사례가 있으므로, 대량 배포 계획은 견적을 다시 받아 검증해야 합니다.
 :::
 
 ### 센서 데이터 파이프라인 — 수집·저장·라벨링
@@ -91,6 +110,26 @@ GPU 학습에서 병목은 연산이 아니라 **데이터 로딩과 체크포�
 
 :::note
 클라우드 비용 산정 관점에서 이 구조는 **GPU 비용과 별개의 축이 존재한다**는 뜻입니다. 데이터 수집(장비·인건비), 저장·전송, 라벨링 비용이 학습 연산 비용과 독립적으로 발생하므로, GPU 시간만으로 TCO를 추정하면 크게 빗나갑니다.
+:::
+
+### 공개 데이터셋과 벤치마크 생태계
+
+데이터 희소성은 한 조직이 혼자 메우기 어렵기 때문에, 여러 기관이 데이터를 모으고 평가 과제를 공유하는 공개 생태계가 형성되어 있습니다. 스택을 고를 때 **"이 스택에서 어떤 공개 자산을 그대로 쓸 수 있는가"** 는 락인을 판단하는 실질적 기준이 됩니다.
+
+| 구분 | 대표 자산 | 무엇에 쓰나 |
+| --- | --- | --- |
+| 교차 로봇 데이터셋 | [Open X-Embodiment](https://arxiv.org/abs/2310.08864) | 여러 기관의 로봇 데이터를 통합한 컬렉션. cross-embodiment 사전학습의 기준선 |
+| 대규모 조작 데이터셋 | [DROID](https://github.com/droid-dataset/droid) | 다양한 환경에서 수집한 teleop 데이터 |
+| 시뮬레이션 벤치마크 | [LIBERO](https://github.com/Lifelong-Robot-Learning/LIBERO), [CALVIN](https://github.com/mees/calvin), [RoboCasa](https://github.com/robocasa/robocasa), [Meta-World](https://github.com/Farama-Foundation/Metaworld) | 표준 과제 모음에서 작업 성공률로 정책을 비교 |
+| 사람 작업 영상 | [Ego4D](https://ego4d-data.org/) | 1인칭 작업 영상. 위 데이터 3층의 중간층에 해당 |
+| 오픈 툴체인 | [LeRobot](https://github.com/huggingface/lerobot) | 데이터 포맷·학습·평가를 묶은 오픈소스 스택 |
+
+:::caution
+공개 데이터셋은 **라이선스 조건이 자산마다 다릅니다.** 연구용으로만 허용되거나 출처 표시·파생물 공개를 요구하는 경우가 있어, 상업적 제품에 학습 자산으로 쓰기 전에 각 데이터셋의 라이선스와 하위 구성 요소(개별 기관이 기여한 부분)의 조건을 함께 확인해야 합니다.
+:::
+
+:::note
+공개 데이터셋으로 사전학습된 모델을 쓰면 초기 데이터 수집량을 줄일 수 있지만, **자사 로봇의 embodiment와 대상 작업이 그 데이터에 포함되어 있는지**가 실제 효과를 가릅니다. 벤치마크 성적도 마찬가지로, 측정 조건이 다르면 비교 대상이 되지 않습니다([무엇으로 합격을 판정할 것인가](#무엇으로-합격을-판정할-것인가) 참고).
 :::
 
 ### Sim-to-Real Gap
@@ -298,6 +337,8 @@ Physical AI는 활발한 연구 단계이고, 도입 판단에는 "지금 무엇
 - [ ] 학습 규모에 맞는 인프라 단계를 골랐는가(초기 검증에 과도한 약정을 하지 않았는가)?
 - [ ] 플릿 배포에 단계적 롤아웃과 **롤백 경로**를 각각 설계했는가(중단만으로 충분하다고 가정하지 않았는가)?
 - [ ] 목표 플릿 규모가 각 벤더의 조정 불가 서비스 할당량 안에 들어가는가?
+- [ ] 엣지 가속기를 TOPS 수치가 아니라 목표 모델 실측으로 선정하고, 드라이버·런타임의 지원 수명을 확인했는가?
+- [ ] 사용할 공개 데이터셋·벤치마크의 라이선스와 자사 embodiment 커버리지를 확인했는가?
 - [ ] 디지털 트윈·시뮬레이션 스택이 다른 클라우드로 이식 가능한가(락인 점검)?
 - [ ] 사용하려는 IoT·로보틱스 서비스가 현행 지원 상태인가(EOL 확인)?
 - [ ] 자율주행·산업 로봇이라면 기능 안전 인증 요건을 설계에 반영했는가?
@@ -350,4 +391,11 @@ Physical AI는 활발한 연구 단계이고, 도입 판단에는 "지금 무엇
 - [NVIDIA Isaac GR00T (개발자 페이지)](https://developer.nvidia.com/isaac/gr00t)
 - [NVIDIA Omniverse](https://www.nvidia.com/en-us/omniverse/)
 - [NVIDIA 자율주행(DRIVE·Halos) 솔루션](https://www.nvidia.com/en-us/solutions/autonomous-vehicles/)
+- [NVIDIA Jetson 모듈 라인업](https://developer.nvidia.com/embedded/jetson-modules)
 - [Anthropic Model Hardware Standard (리서치 프리뷰)](https://www.anthropic.com/news/model-hardware-standard-research-preview)
+
+### 공개 데이터셋·툴체인
+
+- [Open X-Embodiment (논문)](https://arxiv.org/abs/2310.08864)
+- [LeRobot (오픈소스 로보틱스 툴체인)](https://github.com/huggingface/lerobot)
+- [Ego4D](https://ego4d-data.org/)

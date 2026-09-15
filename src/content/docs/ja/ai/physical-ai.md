@@ -34,11 +34,30 @@ flowchart LR
 | 項目 | AWS | Azure | Google Cloud | OCI |
 | --- | --- | --- | --- | --- |
 | エッジランタイム | [IoT Greengrass](https://docs.aws.amazon.com/greengrass/v2/developerguide/) | [Azure IoT Operations](https://learn.microsoft.com/azure/iot-operations/) / [IoT Edge](https://learn.microsoft.com/azure/iot-edge/) | [Google Distributed Cloud (Edge)](https://cloud.google.com/distributed-cloud) | [Roving Edge Infrastructure](https://www.oracle.com/cloud/roving-edge-infrastructure/) |
-| エッジML推論 | Greengrass MLコンポーネント (SageMaker AIモデルのデプロイ) | IoT Edgeモジュール + Azure AIサービス | Edge TPU / Coral | RED上のコンピュートで自前構成 |
+| エッジML推論 | Greengrass MLコンポーネント (SageMaker AIモデルのデプロイ) | IoT Edgeモジュール + Azure AIサービス | Edge TPU / Coral (現行サポート状況の確認が必要) | RED上のコンピュートで自前構成 |
 | 産業データ収集 | [IoT SiteWise](https://aws.amazon.com/iot-sitewise/) (OPC UA) | IoT Operations (OPC UA) | — (パートナー・自前構成) | — (自前構成) |
 
 :::caution
 **Azure Perceptは2023年3月に提供終了**しました。過去の資料でPerceptがエッジAIハードウェアとして紹介されていても、現在はAzure IoT Edge / IoT OperationsとAzure Certified Deviceパートナーハードウェアで同様の機能を構成します(Microsoftが単一の公式後継製品を指定したわけではありません)。古い製品名をアーキテクチャの前提にしないでください。
+:::
+
+### エッジ推論ハードウェア
+
+エッジランタイムがソフトウェア層だとすれば、その下で実際に推論を実行する**アクセラレータハードウェア**の選択が実現可能性とTCOを左右します。判断基準は4つです — 目標モデルを動かす**演算性能**、モデルが載る**メモリ容量**、ロボットの**電力・発熱予算**、そして**ソフトウェアエコシステムの寿命**です。
+
+| 系統 | 性格 | 留意点 |
+| --- | --- | --- |
+| ロボティクス向けエッジモジュール(例: [NVIDIA Jetson](https://developer.nvidia.com/embedded/jetson-modules)系) | 低電力の小型モジュールから高性能モジュールまで幅が広く、ロボティクス・VLA推論では事実上の既定の選択肢 | 世代・モジュール間で性能とメモリの差が大きく、価格帯も大きく開きます。目標モデルが該当モジュールのメモリに載るかを先に確認してください |
+| 汎用CPU内蔵NPU・小型アクセラレータ | 分類・検出のような軽量ビジョンには十分で、電力・単価が低い | 大規模マルチモーダル・VLA推論にはメモリと帯域が不足する場合が少なくありません |
+| FPGA・産業用SoC | 決定論的な遅延と長期供給の保証が重要な設備に有利 | 開発難度が高く、モデル移植のコストが大きくなります |
+| クラウド事業者のエッジアプライアンス | クラウドの運用ツール・管理体系を現場へ拡張 | 現場サーバー・ゲートウェイ用途であり、ロボット搭載のリアルタイム制御を代替しません |
+
+:::caution
+**TOPSの数値だけで比較しないでください。** ベンダーが示す演算性能は精度(INT8・FP4など)と希薄化(sparsity)適用の有無で基準が変わるため、条件の異なる数値を並べても比較は成立しません。実際の推論速度はメモリ容量・帯域とモデルの適合性に左右されることが多いため、**目標モデルを対象モジュール上で実測する**ほうが確実です。
+:::
+
+:::caution
+エッジアクセラレータでは、**ソフトウェアエコシステムの寿命**がハードウェアの寿命と同じくらい重要です。ドライバ・ランタイムの更新が止まった製品は新しいカーネルや新しいモデルフォーマットに対応できず、早期の置き換え圧力が生じます。上のレイヤー1の表にあるGoogle Edge TPU / Coralのように新規投資のシグナルが明確でない系統は、新規設計に入れる前に**現行のサポート状況とドライバ更新履歴を直接確認**してください。価格も固定値ではなく世代交代の時期に調整された事例があるため、大量展開の計画は見積もりを取り直して検証する必要があります。
 :::
 
 ### センサーデータパイプライン — 収集・保存・ラベリング
@@ -91,6 +110,26 @@ GPU学習のボトルネックは演算ではなく**データロードとチェ
 
 :::note
 クラウドのコスト算定の観点では、この構造は**GPUコストとは別の軸が存在する**ことを意味します。データ収集(機材・人件費)、保存・転送、ラベリングのコストが学習演算コストとは独立に発生するため、GPU時間だけでTCOを見積もると大きく外れます。
+:::
+
+### 公開データセットとベンチマークのエコシステム
+
+データ希少性は一つの組織だけで埋めるのが難しいため、複数の機関がデータを持ち寄り評価課題を共有する公開エコシステムが形成されています。スタックを選ぶ際、**「このスタックでどの公開資産をそのまま使えるか」** はロックインを判断する実質的な基準になります。
+
+| 区分 | 代表的な資産 | 何に使うか |
+| --- | --- | --- |
+| クロスロボットデータセット | [Open X-Embodiment](https://arxiv.org/abs/2310.08864) | 複数機関のロボットデータを統合したコレクション。cross-embodiment事前学習の基準線 |
+| 大規模操作データセット | [DROID](https://github.com/droid-dataset/droid) | 多様な環境で収集したteleopデータ |
+| シミュレーションベンチマーク | [LIBERO](https://github.com/Lifelong-Robot-Learning/LIBERO)、[CALVIN](https://github.com/mees/calvin)、[RoboCasa](https://github.com/robocasa/robocasa)、[Meta-World](https://github.com/Farama-Foundation/Metaworld) | 標準課題セットでの作業成功率によりポリシーを比較 |
+| 人の作業映像 | [Ego4D](https://ego4d-data.org/) | 一人称の作業映像。上記データ3層の中間層に相当 |
+| オープンツールチェーン | [LeRobot](https://github.com/huggingface/lerobot) | データ形式・学習・評価をまとめたOSSスタック |
+
+:::caution
+公開データセットは**ライセンス条件が資産ごとに異なります。** 研究用途のみ許諾される場合や、出典表示・派生物の公開を求める場合があるため、商用製品の学習資産として使う前に、各データセットのライセンスとその構成要素(個々の機関が寄与した部分)の条件を併せて確認する必要があります。
+:::
+
+:::note
+公開データセットで事前学習されたモデルを使えば初期のデータ収集量を減らせますが、**自社ロボットのembodimentと対象作業がそのデータに含まれているか**が実際の効果を分けます。ベンチマークの成績も同様に、測定条件が異なれば比較対象になりません([何をもって合格と判定するか](#何をもって合格と判定するか)参照)。
 :::
 
 ### Sim-to-Real Gap
@@ -298,6 +337,8 @@ Physical AIは活発な研究段階にあり、導入判断には「いま何が
 - [ ] 学習規模に見合うインフラ段階を選んだか(初期検証で過度なコミットをしていないか)?
 - [ ] フリートデプロイに段階的ロールアウトと**ロールバック経路**をそれぞれ設計したか(中断だけで十分と仮定していないか)?
 - [ ] 目標フリート規模が各ベンダーの調整不可なサービスクォータに収まるか?
+- [ ] エッジアクセラレータをTOPSの数値ではなく目標モデルの実測で選定し、ドライバ・ランタイムのサポート寿命を確認したか?
+- [ ] 利用する公開データセット・ベンチマークのライセンスと自社embodimentのカバー範囲を確認したか?
 - [ ] デジタルツイン・シミュレーションスタックが他のクラウドへ移行可能か(ロックイン点検)?
 - [ ] 利用予定のIoT・ロボティクスサービスは現行サポート状態か(EOL確認)?
 - [ ] 自動運転・産業用ロボットであれば、機能安全の認証要件を設計に反映したか?
@@ -350,4 +391,11 @@ Physical AIは活発な研究段階にあり、導入判断には「いま何が
 - [NVIDIA Isaac GR00T (開発者ページ)](https://developer.nvidia.com/isaac/gr00t)
 - [NVIDIA Omniverse](https://www.nvidia.com/en-us/omniverse/)
 - [NVIDIA 自動運転(DRIVE・Halos)ソリューション](https://www.nvidia.com/en-us/solutions/autonomous-vehicles/)
+- [NVIDIA Jetsonモジュールラインナップ](https://developer.nvidia.com/embedded/jetson-modules)
 - [Anthropic Model Hardware Standard (リサーチプレビュー)](https://www.anthropic.com/news/model-hardware-standard-research-preview)
+
+### 公開データセット・ツールチェーン
+
+- [Open X-Embodiment (論文)](https://arxiv.org/abs/2310.08864)
+- [LeRobot (OSSロボティクスツールチェーン)](https://github.com/huggingface/lerobot)
+- [Ego4D](https://ego4d-data.org/)

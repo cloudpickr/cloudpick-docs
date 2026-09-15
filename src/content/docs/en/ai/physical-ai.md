@@ -47,13 +47,13 @@ Data arriving from the edge cannot be used for training as-is. Physical AI data 
 
 | Stage | AWS | Azure | Google Cloud | OCI |
 | --- | --- | --- | --- | --- |
-| Stream and video ingestion | [Kinesis Data Streams](https://aws.amazon.com/kinesis/data-streams/) / [Kinesis Video Streams](https://aws.amazon.com/kinesis/video-streams/) | [Event Hubs](https://learn.microsoft.com/azure/event-hubs/) + IoT Operations | [Pub/Sub](https://cloud.google.com/pubsub) | [OCI Streaming](https://www.oracle.com/cloud/streaming/) |
+| Stream and video ingestion | [IoT Core](https://aws.amazon.com/iot-core/) (edge ingress) / [Kinesis Video Streams](https://aws.amazon.com/kinesis/video-streams/) and [Data Streams](https://aws.amazon.com/kinesis/data-streams/) (downstream landing) | [Event Hubs](https://learn.microsoft.com/azure/event-hubs/) + IoT Operations | [Pub/Sub](https://cloud.google.com/pubsub) | [OCI Streaming](https://www.oracle.com/cloud/streaming/) |
 | Data lake | [S3](https://aws.amazon.com/s3/) | [Data Lake Storage](https://learn.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) | [Cloud Storage](https://cloud.google.com/storage) | [Object Storage](https://www.oracle.com/cloud/storage/object-storage/) |
 | Parallel file system for training | [FSx for Lustre](https://aws.amazon.com/fsx/lustre/) | [Azure Managed Lustre](https://azure.microsoft.com/products/managed-lustre) | [Managed Lustre](https://cloud.google.com/products/managed-lustre) / [Parallelstore](https://cloud.google.com/parallelstore) | [File Storage with Lustre](https://www.oracle.com/cloud/storage/file-storage-with-lustre/) |
 | Labeling | [SageMaker Ground Truth](https://docs.aws.amazon.com/sagemaker/latest/dg/sms.html) (closed to new customers) | [Azure ML data labeling](https://learn.microsoft.com/azure/machine-learning/how-to-label-data) | — (managed service ended; partner or open source) | [OCI Data Labeling](https://www.oracle.com/artificial-intelligence/data-labeling/) |
 
 :::caution
-**Managed labeling services are shrinking rather than growing.** Google Cloud's Vertex AI data labeling has not been available since July 1, 2024, and AWS SageMaker Ground Truth stopped accepting new customers on July 30, 2026 (existing customers may continue to use it, with no new features planned). Ground Truth Plus reached end of support on June 30, 2026. Do not tie labeling to a single cloud's managed service; make a structure **replaceable by open source or partner tooling** your default.
+**Managed labeling services are shrinking rather than growing.** Google Cloud's Vertex AI data labeling has been [deprecated and shut down](https://cloud.google.com/vertex-ai/docs/deprecations), and AWS SageMaker Ground Truth stopped accepting new customers on July 30, 2026 (existing customers may continue to use it, with no new features planned). Ground Truth Plus reached end of support on June 30, 2026. Do not tie labeling to a single cloud's managed service; make a structure **replaceable by open source or partner tooling** your default.
 :::
 
 :::note
@@ -74,7 +74,7 @@ Training robots and vehicles only in the real world is costly, risky, and slow. 
 :::
 
 :::note
-In the digital twin and robot simulation layer, **the NVIDIA Omniverse and Isaac ecosystem is widely used.** All three major clouds support running this stack on GPU instances, and rather than depending on one cloud's proprietary managed product, checking **whether the stack can be moved and run on any cloud (portability)** first is the way to reduce lock-in.
+In the digital twin and robot simulation layer, **the NVIDIA Omniverse and Isaac ecosystem is widely used.** The major clouds all support running this stack on GPU instances, and rather than depending on one cloud's proprietary managed product, checking **whether the stack can be moved and run on any cloud (portability)** first is the way to reduce lock-in.
 :::
 
 ### Why Training Data Is Scarce
@@ -222,7 +222,7 @@ Robotics evaluation benchmarks are **less standardized than those for language m
 
 ### Matching Training Infrastructure to Scale
 
-A common misconception in Physical AI is that "training robot models always requires a large GPU cluster." In practice, most work is **fine-tuning a pre-trained robot foundation model to your own robots and tasks**, and this phase is nothing like LLM pre-training in scale. Fine-tuning a VLA model of a few billion parameters often completes on a single GPU within hours.
+A common misconception in Physical AI is that "training robot models always requires a large GPU cluster." In practice, most work is **fine-tuning a pre-trained robot foundation model to your own robots and tasks**, and this phase is nothing like LLM pre-training in scale. Small-scale PEFT and adapter training often completes as a short job on a single GPU.
 
 | Stage | Nature of the work | Infrastructure pattern | Cost strategy |
 | --- | --- | --- | --- |
@@ -239,7 +239,7 @@ The practical implication of this ladder is **do not make large commitments at t
 Loading a model onto one robot and deploying to a fleet of thousands to tens of thousands are different problems. At fleet scale, the design hinges on **how fast a bad model spreads** and **whether it can be reversed once spread**.
 
 - **Staged rollout** — Deploy to a small group first and expand, halting expansion if the failure rate exceeds a threshold.
-- **Abort** — The mechanism that halts expansion. In most deployment systems, however, abort **cancels only targets that have not yet started**; deployments already in progress run to completion.
+- **Abort** — The mechanism that halts expansion. In many fleet OTA services, however, abort **cancels only targets that have not yet started** and deployments already in progress run to completion, so confirm the scope of your service's abort behavior in the vendor's documentation.
 - **Rollback** — The mechanism that returns devices that already received the new version to their previous state. It is a separate layer from abort and works only if the device side has a recovery path such as **previous-version retention or an A/B partition**.
 
 :::caution

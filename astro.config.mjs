@@ -12,12 +12,6 @@ export default defineConfig({
 	site: 'https://docs.cloudpick.kr',
 	output: 'static',
 	trailingSlash: 'always',
-	// Preserve the former single-page Physical AI URLs after the document split.
-	redirects: {
-		'/ai/physical-ai': '/ai/physical-ai/overview/',
-		'/en/ai/physical-ai': '/en/ai/physical-ai/overview/',
-		'/ja/ai/physical-ai': '/ja/ai/physical-ai/overview/',
-	},
 	integrations: [
 		mermaid({
 			// Starlight 다크모드 연동: html[data-theme] 감지

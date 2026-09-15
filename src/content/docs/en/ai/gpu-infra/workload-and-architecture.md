@@ -121,8 +121,8 @@ Managed clusters greatly reduce initial assembly and operational burden but incr
 
 A fork you hit when picking a managed GPU cluster is **which orchestrator distributes the work**. There are broadly two paths — Slurm and Kubernetes — and they are not a superior/inferior substitution but **options you pick by workload characteristics**.
 
-- **Slurm** — A batch scheduler long used in HPC (high-performance computing). It has less friction for large-scale pre-training, or when lifting existing on-prem HPC/Slurm jobs as-is. You can reuse submission scripts and recipes.
-- **Kubernetes** — Advantageous when running training, inference, and serving mixed on one cluster over a container standard, or when you need namespace isolation and multi-tenancy. It reuses your existing Kubernetes ecosystem (operators, autoscalers, etc.).
+- **Slurm** — An open-source workload manager (job scheduler) long used in HPC (high-performance computing). A user submits a **job ("give me N GPUs for M hours"), and Slurm places it in a priority-ordered queue (partition) and allocates it to nodes as they free up**. Because it centers on batch jobs rather than containers, it has less friction for large-scale pre-training or when lifting existing on-prem HPC/Slurm jobs as-is, and you can reuse submission scripts and recipes.
+- **Kubernetes** — The container-orchestration standard, stronger at **long-running services (such as inference servers) than at batch jobs**. It is advantageous when running training, inference, and serving mixed on one cluster, or when you need namespace isolation and multi-tenancy, and it reuses your existing Kubernetes ecosystem. Note that gang scheduling, which distributed training needs, must be added via separate tools (see [GPU Kubernetes and Scheduling](../kubernetes-and-scheduling/)).
 
 Most managed clusters offer both orchestrators, and some also support a hybrid approach that bridges the two.
 
@@ -200,3 +200,4 @@ This document covers Slurm only up to the orchestrator-choice axis, delegating d
 ### Common
 
 - [NVIDIA NCCL documentation](https://docs.nvidia.com/deeplearning/nccl/user-guide/docs/index.html)
+- [Slurm Workload Manager overview](https://slurm.schedmd.com/overview.html)

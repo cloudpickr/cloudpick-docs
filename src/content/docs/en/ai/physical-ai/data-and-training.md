@@ -7,7 +7,7 @@ description: "Compares edge inference and IoT hardware and the sensor data pipel
 
 ## Overview
 
-This document covers the front end of the Physical AI pipeline — **from data entering the physical world to becoming a training asset**. For an overview of the full pipeline see [Physical AI Overview](./overview/); for the back end that deploys and operates trained models see [Deploy and Operate](./deploy-and-operate/).
+This document covers the front end of the Physical AI pipeline — **from data entering the physical world to becoming a training asset**. For an overview of the full pipeline see [Physical AI Overview](../overview/); for the back end that deploys and operates trained models see [Deploy and Operate](../deploy-and-operate/).
 
 ## Layer 1 — Edge Inference and IoT
 
@@ -58,7 +58,7 @@ Data arriving from the edge cannot be used for training as-is. Physical AI data 
 :::
 
 :::note
-In GPU training, the bottleneck is often not computation but **data loading and checkpoint writes**. Reading directly from object storage leaves GPUs idle, so it is common to place a parallel file system in front of object storage for the training phase. For a general storage-tier comparison see [Block and File Storage](../../../storage/block-and-file/), and for checkpoint strategy see [Distributed Training](../gpu-infra/distributed-training/).
+In GPU training, the bottleneck is often not computation but **data loading and checkpoint writes**. Reading directly from object storage leaves GPUs idle, so it is common to place a parallel file system in front of object storage for the training phase. For a general storage-tier comparison see [Block and File Storage](../../../storage/block-and-file/), and for checkpoint strategy see [Distributed Training](../../gpu-infra/distributed-training/).
 :::
 
 ## Layer 2 — Digital Twins and Simulation
@@ -111,7 +111,7 @@ Open datasets have **licensing terms that differ per asset.** Some permit resear
 :::
 
 :::note
-Using a model pre-trained on open datasets can reduce the volume of initial data collection, but the real benefit depends on **whether your robot's embodiment and target task are represented in that data**. The same applies to benchmark scores: if measurement conditions differ, they are not comparable (see [What Determines Whether a Model Passes](./deploy-and-operate/#what-determines-whether-a-model-passes)).
+Using a model pre-trained on open datasets can reduce the volume of initial data collection, but the real benefit depends on **whether your robot's embodiment and target task are represented in that data**. The same applies to benchmark scores: if measurement conditions differ, they are not comparable (see [What Determines Whether a Model Passes](../deploy-and-operate/#what-determines-whether-a-model-passes)).
 :::
 
 ### Sim-to-Real Gap
@@ -136,10 +136,10 @@ A common misconception in Physical AI is that "training robot models always requ
 | --- | --- | --- | --- |
 | Initial validation | Small demonstration dataset, LoRA/PEFT adapter training | A single GPU instance | Spot/preemptible instances as the default. Interruption costs little to restart |
 | Task specialization | Medium demonstration dataset, full fine-tuning | Single node, multiple GPUs plus a managed training job | A managed training service with automatic checkpoint and resume |
-| Platformization | Many robots and tasks, repeated retraining | Multiple nodes plus a high-speed interconnect | Reserved or committed discounts. Requires automatic node recovery (see [Distributed Training](../gpu-infra/distributed-training/)) |
+| Platformization | Many robots and tasks, repeated retraining | Multiple nodes plus a high-speed interconnect | Reserved or committed discounts. Requires automatic node recovery (see [Distributed Training](../../gpu-infra/distributed-training/)) |
 
 :::note
-The practical implication of this ladder is **do not make large commitments at the first stage**. The initial and task-specialization phases are often well served by spot/preemptible instances and pay-as-you-go, and reservations or commitments can wait until the retraining cadence becomes routine. Conversely, simulation occupies GPUs longer as you increase the number of parallel environments, so simulation frequently dominates cost over training. For vendor mapping of GPU instance families and interconnects, see [GPU Workloads and Architecture](../gpu-infra/workload-and-architecture/).
+The practical implication of this ladder is **do not make large commitments at the first stage**. The initial and task-specialization phases are often well served by spot/preemptible instances and pay-as-you-go, and reservations or commitments can wait until the retraining cadence becomes routine. Conversely, simulation occupies GPUs longer as you increase the number of parallel environments, so simulation frequently dominates cost over training. For vendor mapping of GPU instance families and interconnects, see [GPU Workloads and Architecture](../../gpu-infra/workload-and-architecture/).
 :::
 
 ## Common Mistakes
@@ -167,11 +167,11 @@ The practical implication of this ladder is **do not make large commitments at t
 
 ## Related Documents
 
-- [Physical AI Overview](./overview/) — Full pipeline, layered structure, and open problems
-- [Deploy and Operate](./deploy-and-operate/) — Robotics foundation models, safety, architecture, fleet deployment
+- [Physical AI Overview](../overview/) — Full pipeline, layered structure, and open problems
+- [Deploy and Operate](../deploy-and-operate/) — Robotics foundation models, safety, architecture, fleet deployment
 - [Block and File Storage](../../../storage/block-and-file/) — Parallel file system comparison
-- [GPU Infrastructure](../gpu-infra/workload-and-architecture/) — GPU clusters for cloud training and simulation
-- [Distributed Training](../gpu-infra/distributed-training/) — Multi-node training and checkpoint strategy
+- [GPU Infrastructure](../../gpu-infra/workload-and-architecture/) — GPU clusters for cloud training and simulation
+- [Distributed Training](../../gpu-infra/distributed-training/) — Multi-node training and checkpoint strategy
 
 ## Further Reading
 

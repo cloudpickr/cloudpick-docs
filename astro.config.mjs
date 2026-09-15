@@ -321,16 +321,10 @@ export default defineConfig({
 							],
 						},
 						{
-							label: '운영·거버넌스',
-							translations: { en: 'Ops & governance', ja: '運用・ガバナンス' },
+							label: '운영·심화',
+							translations: { en: 'Operate & advanced', ja: '運用・応用' },
 							items: [
 								{ slug: 'ai/llmops' },
-							],
-						},
-						{
-							label: '심화·특수',
-							translations: { en: 'Advanced & specialized', ja: '応用・特殊' },
-							items: [
 								{ slug: 'ai/multicloud-ai' },
 							],
 						},

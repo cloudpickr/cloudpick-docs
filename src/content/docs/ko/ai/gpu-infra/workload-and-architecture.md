@@ -113,6 +113,10 @@ graph TB
 OCI의 **Dedicated AI Cluster**는 위 학습 인프라와 다른 계층입니다. 이는 OCI Enterprise AI 서비스 안에서 사전학습된 파운데이션 모델을 파인튜닝·호스팅하는 관리형(PaaS) 자원으로, 직접 클러스터를 조립하는 학습 인프라가 아닙니다. 대규모 학습 인프라에 해당하는 것은 Supercluster입니다.
 :::
 
+:::note
+매니지드 클러스터는 초기 조립·운영 부담을 크게 줄이지만 벤더 종속성이 높아집니다. 순수 쿠버네티스로 직접 구성하면 이식성은 높아지지만 토폴로지·헬스체크·gang scheduling을 직접 책임져야 합니다. 이식성과 운영 편의의 트레이드오프는 워크로드 규모와 팀 역량으로 판단하세요. 쿠버네티스 기반 구성은 [GPU 쿠버네티스와 스케줄링](../kubernetes-and-scheduling/)을 참고하세요.
+:::
+
 ### 오케스트레이터 선택 — Slurm과 쿠버네티스
 
 매니지드 GPU 클러스터를 고를 때 마주치는 갈림길이 **작업을 어떤 오케스트레이터로 배분하느냐**입니다. 크게 Slurm과 쿠버네티스 두 갈래가 있는데, 둘은 우열을 가리는 대체 관계가 아니라 **워크로드 성격에 따라 고르는 선택지**입니다.
@@ -124,20 +128,22 @@ OCI의 **Dedicated AI Cluster**는 위 학습 인프라와 다른 계층입니�
 
 | 오케스트레이터 | AWS | Azure | Google Cloud | OCI |
 | --- | --- | --- | --- | --- |
-| **Slurm (HPC)** | [HyperPod + Slurm](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-hyperpod-slurm.html) | [CycleCloud (Workspace for Slurm)](https://learn.microsoft.com/azure/cyclecloud/overview-ccws) | [Cluster Toolkit Slurm](https://cloud.google.com/ai-hypercomputer/docs/create/create-self-managed-slurm-cluster) | Supercluster + Slurm |
+| **Slurm (HPC)** | [HyperPod + Slurm](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-hyperpod-slurm.html) (관리형) | [CycleCloud Workspace for Slurm](https://learn.microsoft.com/azure/cyclecloud/overview-ccws) (관리형) | [Cluster Director](https://cloud.google.com/products/cluster-director) (관리형) · [Cluster Toolkit](https://cloud.google.com/ai-hypercomputer/docs/create/create-self-managed-slurm-cluster) (자체 배포) | Supercluster + [HPC 스택](https://www.oracle.com/cloud/hpc/) (자체 배포) |
 | **쿠버네티스** | HyperPod + EKS / EKS | AKS | GKE | OKE |
-| **하이브리드** | EKS 위 Slurm/Ray 혼용 | — | [Cluster Director (GKE 노드풀→Slurm)](https://cloud.google.com/blog/products/compute/cluster-director-is-now-generally-available) | — |
+| **하이브리드** | — | — | [Cluster Director — Slurm on GKE](https://cloud.google.com/blog/products/compute/cluster-director-is-now-generally-available) (Preview) | — |
 
 :::caution
-위 표의 항목들은 **같은 역할을 하는 서로 다른 구현**이며 1:1 등가가 아닙니다. 같은 "Slurm"이라도 벤더별로 프로비저닝 방식·복원력 기능·통합 수준이 다릅니다. 오케스트레이터 종류(Slurm이냐 쿠버네티스냐)를 결정 축으로 삼되, 실제 기능은 각 벤더 공식 문서로 확인하세요.
+위 표의 항목들은 **같은 역할을 하는 서로 다른 구현**이며 1:1 등가가 아닙니다. 읽을 때 세 가지를 구분하세요.
+
+- **관리형 vs 자체 배포** — 같은 "Slurm"이라도 벤더가 오케스트레이터를 관리형으로 제공하는 경우와, 템플릿·툴킷으로 직접 배포해 운영 책임을 지는 경우는 조달·운영 부담이 다릅니다.
+- **성숙도** — Cluster Director의 Slurm on GKE는 2026년 9월 기준 **Preview**입니다. 프로덕션 전제로 삼기 전에 현행 출시 단계를 확인하세요.
+- **`—`의 의미** — 2026년 9월 기준 해당 벤더의 1st-party 하이브리드를 확인하지 못했다는 뜻이며, 서드파티·자체 구성까지 불가능하다는 의미는 아닙니다.
+
+벤더별 프로비저닝 방식·복원력 기능·통합 수준은 각 공식 문서로 확인하세요.
 :::
 
 :::note
-쿠버네티스를 골랐다면 노드풀·쿼터·gang scheduling 구성은 [GPU 쿠버네티스와 스케줄링](../kubernetes-and-scheduling/)에서 다룹니다. Slurm은 이 문서 범위에서 오케스트레이터 선택 축까지만 다루고, sbatch 스크립트·파티션 설정 등 세부 구성은 각 벤더 공식 문서에 맡깁니다.
-:::
-
-:::note
-매니지드 클러스터는 초기 조립·운영 부담을 크게 줄이지만 벤더 종속성이 높아집니다. 순수 쿠버네티스로 직접 구성하면 이식성은 높아지지만 토폴로지·헬스체크·gang scheduling을 직접 책임져야 합니다. 이식성과 운영 편의의 트레이드오프는 워크로드 규모와 팀 역량으로 판단하세요. 쿠버네티스 기반 구성은 [GPU 쿠버네티스와 스케줄링](../kubernetes-and-scheduling/)을 참고하세요.
+Slurm은 이 문서 범위에서 오케스트레이터 선택 축까지만 다루고, sbatch 스크립트·파티션 설정 등 세부 구성은 각 벤더 공식 문서에 맡깁니다. 쿠버네티스를 골랐다면 노드풀·쿼터·gang scheduling 구성은 위에서 안내한 [GPU 쿠버네티스와 스케줄링](../kubernetes-and-scheduling/)을 참고하세요.
 :::
 
 ## 관련 문서
@@ -181,9 +187,12 @@ OCI의 **Dedicated AI Cluster**는 위 학습 인프라와 다른 계층입니�
 - [Cloud GPUs](https://cloud.google.com/compute/docs/gpus)
 - [AI Hypercomputer](https://cloud.google.com/ai-hypercomputer)
 - [Cluster Toolkit — 자체 관리형 Slurm 클러스터](https://cloud.google.com/ai-hypercomputer/docs/create/create-self-managed-slurm-cluster)
-- [Cluster Director](https://cloud.google.com/blog/products/compute/cluster-director-is-now-generally-available)
+- [Cluster Director (제품 페이지)](https://cloud.google.com/products/cluster-director)
+- [Cluster Director GA 발표 (Slurm on GKE Preview 포함)](https://cloud.google.com/blog/products/compute/cluster-director-is-now-generally-available)
 
 ### OCI
+
+- [OCI HPC (Slurm 스택 배포)](https://www.oracle.com/cloud/hpc/)
 
 - [Cluster Networks](https://docs.oracle.com/en-us/iaas/Content/Compute/Tasks/managingclusternetworks.htm)
 - [OCI GPU Compute](https://www.oracle.com/cloud/compute/gpu/)

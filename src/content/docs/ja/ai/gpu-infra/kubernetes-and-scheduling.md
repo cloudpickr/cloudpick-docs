@@ -65,6 +65,10 @@ Time-slicingはメモリ・演算を分離しないため、あるジョブのOO
 KueueとVolcanoはいずれもベンダー中立のオープンソースであり、どのクラウドのKubernetesでも動作します。マネージド学習プラットフォーム（SageMaker HyperPod、Vertex AIなど）は同様のキューイング・gang schedulingを内蔵で提供するため、自己構成の代わりに活用できます。
 :::
 
+:::note
+この文書はKubernetes上でのスケジューリングを扱います。Kubernetesの代わりにSlurm（HPCバッチスケジューラ）をオーケストレータとして使う方式と、ベンダー別のマッピング（HyperPod+Slurm、CycleCloud、Cluster Toolkitなど）は[GPUワークロードの特性とリファレンスアーキテクチャ — オーケストレータの選択](../workload-and-architecture/#オーケストレータの選択--slurmとkubernetes)で扱います。
+:::
+
 ## ベンダー別マネージドKubernetes GPU対応
 
 | 項目 | AWS (EKS) | Azure (AKS) | Google Cloud (GKE) | OCI (OKE) |

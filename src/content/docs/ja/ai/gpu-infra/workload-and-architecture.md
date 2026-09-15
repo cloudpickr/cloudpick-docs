@@ -113,6 +113,29 @@ graph TB
 OCIの**Dedicated AI Cluster**は上記の学習インフラとは異なる層です。これはOCI Enterprise AIサービス内で、事前学習済みのファウンデーションモデルをファインチューニング・ホスティングするマネージド（PaaS）リソースであり、自ら組み立てる学習インフラではありません。大規模学習インフラに相当するのはSuperclusterです。
 :::
 
+### オーケストレータの選択 — SlurmとKubernetes
+
+マネージドGPUクラスターを選ぶときに突き当たる分かれ道が、**ジョブをどのオーケストレータで配分するか**です。大きくSlurmとKubernetesの2つがあり、両者は優劣を競う代替関係ではなく、**ワークロードの性格に応じて選ぶ選択肢**です。
+
+- **Slurm** — HPC（高性能コンピューティング）で長く使われてきたバッチスケジューラです。大規模な事前学習や、既存のオンプレHPC・Slurmジョブをそのまま移す場合に摩擦が少なく、投入スクリプトやレシピを再利用できます。
+- **Kubernetes** — コンテナ標準の上で学習・推論・サービングを一つのクラスターに混在させる場合や、名前空間の分離・マルチテナンシーが必要な場合に有利です。既存のKubernetesエコシステム（オペレータ、オートスケーラなど）をそのまま活用します。
+
+主要なマネージドクラスターは概ね両方のオーケストレータを提供し、一部は両者を繋ぐハイブリッド方式も支援します。
+
+| オーケストレータ | AWS | Azure | Google Cloud | OCI |
+| --- | --- | --- | --- | --- |
+| **Slurm (HPC)** | [HyperPod + Slurm](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-hyperpod-slurm.html) | [CycleCloud (Workspace for Slurm)](https://learn.microsoft.com/azure/cyclecloud/overview-ccws) | [Cluster Toolkit Slurm](https://cloud.google.com/ai-hypercomputer/docs/create/create-self-managed-slurm-cluster) | Supercluster + Slurm |
+| **Kubernetes** | HyperPod + EKS / EKS | AKS | GKE | OKE |
+| **ハイブリッド** | EKS上でSlurm/Ray混在 | — | [Cluster Director (GKEノードプール→Slurm)](https://cloud.google.com/blog/products/compute/cluster-director-is-now-generally-available) | — |
+
+:::caution
+上表の項目は**同じ役割を果たす異なる実装**であり、1対1の等価ではありません。同じ「Slurm」でもベンダーごとにプロビジョニング方式・回復力機能・統合の深さが異なります。オーケストレータの種類（SlurmかKubernetesか）を判断の軸としつつ、実際の機能は各ベンダーの公式ドキュメントで確認してください。
+:::
+
+:::note
+Kubernetesを選んだ場合、ノードプール・クォータ・gang schedulingの構成は[GPU Kubernetesとスケジューリング](../kubernetes-and-scheduling/)で扱います。この文書はSlurmについてオーケストレータ選択の軸までを扱い、sbatchスクリプトやパーティション設定などの詳細な構成は各ベンダーの公式ドキュメントに委ねます。
+:::
+
 :::note
 マネージドクラスターは初期の組み立て・運用負担を大きく減らしますが、ベンダー依存が高くなります。純粋なKubernetesで自ら構成すると移植性は高くなりますが、トポロジ・ヘルスチェック・gang schedulingを自ら担う必要があります。移植性と運用の容易さのトレードオフは、ワークロード規模とチームの能力で判断してください。Kubernetesベースの構成は[GPU Kubernetesとスケジューリング](../kubernetes-and-scheduling/)を参照してください。
 :::
@@ -145,16 +168,20 @@ OCIの**Dedicated AI Cluster**は上記の学習インフラとは異なる層�
 
 - [Elastic Fabric Adapter (EFA)](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html)
 - [SageMaker HyperPod](https://aws.amazon.com/sagemaker/hyperpod/)
+- [SageMaker HyperPod — Slurmオーケストレーション](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-hyperpod-slurm.html)
 
 ### Azure
 
 - [GPU最適化VMサイズ](https://learn.microsoft.com/azure/virtual-machines/sizes/overview)
 - [Azure CycleCloud](https://learn.microsoft.com/azure/cyclecloud/)
+- [CycleCloud Workspace for Slurm](https://learn.microsoft.com/azure/cyclecloud/overview-ccws)
 
 ### Google Cloud
 
 - [Cloud GPUs](https://cloud.google.com/compute/docs/gpus)
 - [AI Hypercomputer](https://cloud.google.com/ai-hypercomputer)
+- [Cluster Toolkit — セルフマネージドSlurmクラスター](https://cloud.google.com/ai-hypercomputer/docs/create/create-self-managed-slurm-cluster)
+- [Cluster Director](https://cloud.google.com/blog/products/compute/cluster-director-is-now-generally-available)
 
 ### OCI
 

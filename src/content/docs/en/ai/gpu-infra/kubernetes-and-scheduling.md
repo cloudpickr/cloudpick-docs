@@ -65,6 +65,10 @@ Distributed training can only start once it secures **all** the GPUs it needs **
 Kueue and Volcano are both vendor-neutral open source and run on any cloud's Kubernetes. Managed training platforms (SageMaker HyperPod, Vertex AI, etc.) provide similar queuing/gang scheduling built in, so you can use them instead of building your own.
 :::
 
+:::note
+This document covers scheduling on Kubernetes. Using Slurm (an HPC batch scheduler) as the orchestrator instead of Kubernetes, and the per-vendor mapping (HyperPod+Slurm, CycleCloud, Cluster Toolkit, etc.), is covered in [GPU Workload Characteristics and Reference Architecture — Orchestrator Choice](../workload-and-architecture/#orchestrator-choice--slurm-vs-kubernetes).
+:::
+
 ## Vendor Managed Kubernetes GPU Support
 
 | Item | AWS (EKS) | Azure (AKS) | Google Cloud (GKE) | OCI (OKE) |

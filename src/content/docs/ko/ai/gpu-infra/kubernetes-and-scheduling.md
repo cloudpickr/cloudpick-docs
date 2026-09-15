@@ -65,6 +65,10 @@ Time-slicing은 메모리·연산을 격리하지 않으므로 한 작업의 OOM
 Kueue와 Volcano는 모두 벤더 중립 오픈소스이며 어느 클라우드의 쿠버네티스에서도 동작합니다. 매니지드 학습 플랫폼(SageMaker HyperPod, Vertex AI 등)은 유사한 큐잉·gang scheduling을 내장 제공하므로, 직접 구성 대신 활용할 수 있습니다.
 :::
 
+:::note
+이 문서는 쿠버네티스 위에서의 스케줄링을 다룹니다. 쿠버네티스 대신 Slurm(HPC 배치 스케줄러)을 오케스트레이터로 쓰는 방식과 벤더별 매핑(HyperPod+Slurm, CycleCloud, Cluster Toolkit 등)은 [GPU 워크로드 특성과 레퍼런스 아키텍처 — 오케스트레이터 선택](../workload-and-architecture/#오케스트레이터-선택--slurm과-쿠버네티스)에서 다룹니다.
+:::
+
 ## 벤더별 매니지드 쿠버네티스 GPU 지원
 
 | 항목 | AWS (EKS) | Azure (AKS) | Google Cloud (GKE) | OCI (OKE) |

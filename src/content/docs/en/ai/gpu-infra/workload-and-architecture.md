@@ -113,6 +113,29 @@ Instead of assembling nodes, fabric, and scheduler yourself, using a vendor-prov
 OCI's **Dedicated AI Cluster** is a different tier from the training infrastructure above. It is a managed (PaaS) resource within OCI Enterprise AI for fine-tuning and hosting pre-trained foundation models, not training infrastructure you assemble yourself. The equivalent for large-scale training infrastructure is Supercluster.
 :::
 
+### Orchestrator Choice — Slurm vs Kubernetes
+
+A fork you hit when picking a managed GPU cluster is **which orchestrator distributes the work**. There are broadly two paths — Slurm and Kubernetes — and they are not a superior/inferior substitution but **options you pick by workload characteristics**.
+
+- **Slurm** — A batch scheduler long used in HPC (high-performance computing). It has less friction for large-scale pre-training, or when lifting existing on-prem HPC/Slurm jobs as-is. You can reuse submission scripts and recipes.
+- **Kubernetes** — Advantageous when running training, inference, and serving mixed on one cluster over a container standard, or when you need namespace isolation and multi-tenancy. It reuses your existing Kubernetes ecosystem (operators, autoscalers, etc.).
+
+Most managed clusters offer both orchestrators, and some also support a hybrid approach that bridges the two.
+
+| Orchestrator | AWS | Azure | Google Cloud | OCI |
+| --- | --- | --- | --- | --- |
+| **Slurm (HPC)** | [HyperPod + Slurm](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-hyperpod-slurm.html) | [CycleCloud (Workspace for Slurm)](https://learn.microsoft.com/azure/cyclecloud/overview-ccws) | [Cluster Toolkit Slurm](https://cloud.google.com/ai-hypercomputer/docs/create/create-self-managed-slurm-cluster) | Supercluster + Slurm |
+| **Kubernetes** | HyperPod + EKS / EKS | AKS | GKE | OKE |
+| **Hybrid** | Slurm/Ray mixed on EKS | — | [Cluster Director (GKE node pools → Slurm)](https://cloud.google.com/blog/products/compute/cluster-director-is-now-generally-available) | — |
+
+:::caution
+The entries above are **different implementations that play the same role**; they are not one-to-one equivalents. Even the same "Slurm" differs per vendor in provisioning method, resiliency features, and integration depth. Use the orchestrator type (Slurm vs Kubernetes) as your decision axis, but verify the actual features against each vendor's official documentation.
+:::
+
+:::note
+If you choose Kubernetes, node-pool/quota/gang-scheduling configuration is covered in [GPU Kubernetes and Scheduling](../kubernetes-and-scheduling/). This document covers Slurm only up to the orchestrator-choice axis, delegating detailed configuration such as sbatch scripts and partition settings to each vendor's official documentation.
+:::
+
 :::note
 Managed clusters greatly reduce initial assembly and operational burden but increase vendor lock-in. Building on pure Kubernetes raises portability but makes you responsible for topology, health checks, and gang scheduling yourself. Judge the portability-vs-operational-convenience trade-off by workload scale and team capability. For Kubernetes-based configuration, see [GPU Kubernetes and Scheduling](../kubernetes-and-scheduling/).
 :::
@@ -145,16 +168,20 @@ Managed clusters greatly reduce initial assembly and operational burden but incr
 
 - [Elastic Fabric Adapter (EFA)](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html)
 - [SageMaker HyperPod](https://aws.amazon.com/sagemaker/hyperpod/)
+- [SageMaker HyperPod — Slurm orchestration](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-hyperpod-slurm.html)
 
 ### Azure
 
 - [GPU-optimized VM sizes](https://learn.microsoft.com/azure/virtual-machines/sizes/overview)
 - [Azure CycleCloud](https://learn.microsoft.com/azure/cyclecloud/)
+- [CycleCloud Workspace for Slurm](https://learn.microsoft.com/azure/cyclecloud/overview-ccws)
 
 ### Google Cloud
 
 - [Cloud GPUs](https://cloud.google.com/compute/docs/gpus)
 - [AI Hypercomputer](https://cloud.google.com/ai-hypercomputer)
+- [Cluster Toolkit — self-managed Slurm cluster](https://cloud.google.com/ai-hypercomputer/docs/create/create-self-managed-slurm-cluster)
+- [Cluster Director](https://cloud.google.com/blog/products/compute/cluster-director-is-now-generally-available)
 
 ### OCI
 

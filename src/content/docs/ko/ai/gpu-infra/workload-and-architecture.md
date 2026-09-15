@@ -124,18 +124,18 @@ OCI의 **Dedicated AI Cluster**는 위 학습 인프라와 다른 계층입니�
 - **Slurm** — HPC(고성능 컴퓨팅)에서 오래 쓰인 오픈소스 워크로드 매니저(잡 스케줄러)입니다. 사용자가 "GPU 몇 장을 몇 시간 쓰겠다"는 **잡을 제출하면, Slurm이 우선순위 대기 줄(파티션)에 넣고 자리가 나는 노드에 배분**합니다. 컨테이너가 아니라 배치 잡이 중심이라, 대규모 사전학습이나 기존 온프렘 HPC·Slurm 잡을 그대로 옮겨오는 경우에 마찰이 적고 제출 스크립트·레시피를 재사용할 수 있습니다.
 - **쿠버네티스** — 컨테이너 오케스트레이션 표준으로, 배치 잡보다 **상시 서비스(추론 서버 등)에 강합니다.** 학습·추론·서빙을 한 클러스터에 섞어 돌리거나 네임스페이스 격리·멀티테넌시가 필요할 때 유리하고, 기존 쿠버네티스 에코시스템을 그대로 활용합니다. 단, 분산 학습에 필요한 gang scheduling은 별도 도구로 보완해야 합니다([GPU 쿠버네티스와 스케줄링](../kubernetes-and-scheduling/) 참고).
 
-주요 매니지드 클러스터는 대체로 두 오케스트레이터를 모두 제공하며, 일부는 둘을 잇는 하이브리드 방식도 지원합니다.
+클라우드 벤더는 Slurm과 쿠버네티스 경로를 모두 제공하는 경우가 많지만, 동일한 매니지드 클러스터에서 둘 중 하나를 선택할 수 있는지는 제품마다 다릅니다. 일부 제품은 둘을 잇는 하이브리드 방식도 지원합니다.
 
 | 오케스트레이터 | AWS | Azure | Google Cloud | OCI |
 | --- | --- | --- | --- | --- |
-| **Slurm (HPC)** | [HyperPod + Slurm](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-hyperpod-slurm.html) (관리형) | [CycleCloud Workspace for Slurm](https://learn.microsoft.com/azure/cyclecloud/overview-ccws) (관리형) | [Cluster Director](https://cloud.google.com/products/cluster-director) (관리형) · [Cluster Toolkit](https://cloud.google.com/ai-hypercomputer/docs/create/create-self-managed-slurm-cluster) (자체 배포) | Supercluster + [HPC 스택](https://www.oracle.com/cloud/hpc/) (자체 배포) |
+| **Slurm (HPC)** | [HyperPod + Slurm](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-hyperpod-slurm.html) (관리형) | [CycleCloud Workspace for Slurm](https://learn.microsoft.com/azure/cyclecloud/overview-ccws) (솔루션 템플릿·고객 테넌트 배포) | [Cluster Director](https://cloud.google.com/products/cluster-director) (관리형) · [Cluster Toolkit](https://cloud.google.com/ai-hypercomputer/docs/create/create-self-managed-slurm-cluster) (자체 배포) | [HPC Cluster Stack + Slurm](https://github.com/oracle-quickstart/oci-hpc) (자체 배포·GPU 클러스터 네트워크 기반) |
 | **쿠버네티스** | HyperPod + EKS / EKS | AKS | GKE | OKE |
 | **하이브리드** | — | — | [Cluster Director — Slurm on GKE](https://cloud.google.com/blog/products/compute/cluster-director-is-now-generally-available) (Preview) | — |
 
 :::caution
 위 표의 항목들은 **같은 역할을 하는 서로 다른 구현**이며 1:1 등가가 아닙니다. 읽을 때 세 가지를 구분하세요.
 
-- **관리형 vs 자체 배포** — 같은 "Slurm"이라도 벤더가 오케스트레이터를 관리형으로 제공하는 경우와, 템플릿·툴킷으로 직접 배포해 운영 책임을 지는 경우는 조달·운영 부담이 다릅니다.
+- **운영 모델** — 벤더 관리형, 고객 테넌트에 배포되는 솔루션 템플릿, 직접 배포하는 툴킷은 조달·업데이트·장애 대응 책임이 서로 다릅니다.
 - **성숙도** — Cluster Director의 Slurm on GKE는 2026년 9월 기준 **Preview**입니다. 프로덕션 전제로 삼기 전에 현행 출시 단계를 확인하세요.
 - **`—`의 의미** — 2026년 9월 기준 해당 벤더의 1st-party 하이브리드를 확인하지 못했다는 뜻이며, 서드파티·자체 구성까지 불가능하다는 의미는 아닙니다.
 
@@ -192,7 +192,7 @@ Slurm은 이 문서 범위에서 오케스트레이터 선택 축까지만 다�
 
 ### OCI
 
-- [OCI HPC (Slurm 스택 배포)](https://www.oracle.com/cloud/hpc/)
+- [OCI HPC Cluster Stack — Slurm 자체 배포](https://github.com/oracle-quickstart/oci-hpc)
 
 - [Cluster Networks](https://docs.oracle.com/en-us/iaas/Content/Compute/Tasks/managingclusternetworks.htm)
 - [OCI GPU Compute](https://www.oracle.com/cloud/compute/gpu/)

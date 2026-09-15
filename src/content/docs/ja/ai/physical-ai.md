@@ -66,13 +66,13 @@ flowchart LR
 
 | 段階 | AWS | Azure | Google Cloud | OCI |
 | --- | --- | --- | --- | --- |
-| ストリーム・映像収集 | [Kinesis Data Streams](https://aws.amazon.com/kinesis/data-streams/) / [Kinesis Video Streams](https://aws.amazon.com/kinesis/video-streams/) | [Event Hubs](https://learn.microsoft.com/azure/event-hubs/) + IoT Operations | [Pub/Sub](https://cloud.google.com/pubsub) | [OCI Streaming](https://www.oracle.com/cloud/streaming/) |
+| ストリーム・映像収集 | [IoT Core](https://aws.amazon.com/iot-core/) (エッジ入口) / [Kinesis Video Streams](https://aws.amazon.com/kinesis/video-streams/)・[Data Streams](https://aws.amazon.com/kinesis/data-streams/) (ダウンストリーム格納) | [Event Hubs](https://learn.microsoft.com/azure/event-hubs/) + IoT Operations | [Pub/Sub](https://cloud.google.com/pubsub) | [OCI Streaming](https://www.oracle.com/cloud/streaming/) |
 | データレイク | [S3](https://aws.amazon.com/s3/) | [Data Lake Storage](https://learn.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) | [Cloud Storage](https://cloud.google.com/storage) | [Object Storage](https://www.oracle.com/cloud/storage/object-storage/) |
 | 学習用並列ファイルシステム | [FSx for Lustre](https://aws.amazon.com/fsx/lustre/) | [Azure Managed Lustre](https://azure.microsoft.com/products/managed-lustre) | [Managed Lustre](https://cloud.google.com/products/managed-lustre) / [Parallelstore](https://cloud.google.com/parallelstore) | [File Storage with Lustre](https://www.oracle.com/cloud/storage/file-storage-with-lustre/) |
 | ラベリング | [SageMaker Ground Truth](https://docs.aws.amazon.com/sagemaker/latest/dg/sms.html) (新規顧客の受付終了) | [Azure MLデータラベリング](https://learn.microsoft.com/azure/machine-learning/how-to-label-data) | — (マネージドは終了、パートナー・OSS) | [OCI Data Labeling](https://www.oracle.com/artificial-intelligence/data-labeling/) |
 
 :::caution
-**マネージドのラベリングサービスはむしろ減少傾向にあります。** Google CloudのVertex AIデータラベリングは2024年7月1日以降提供されておらず、AWS SageMaker Ground Truthは2026年7月30日から新規顧客を受け付けません(既存顧客は継続利用可、新機能の追加予定なし)。Ground Truth Plusは2026年6月30日にサポートが終了しました。ラベリングを特定クラウドのマネージドサービスに縛って設計せず、**OSS・パートナーツールで代替可能な構造**を既定にしてください。
+**マネージドのラベリングサービスはむしろ減少傾向にあります。** Google CloudのVertex AIデータラベリングは[非推奨(deprecated)となり終了](https://cloud.google.com/vertex-ai/docs/deprecations)しており、AWS SageMaker Ground Truthは2026年7月30日から新規顧客を受け付けません(既存顧客は継続利用可、新機能の追加予定なし)。Ground Truth Plusは2026年6月30日にサポートが終了しました。ラベリングを特定クラウドのマネージドサービスに縛って設計せず、**OSS・パートナーツールで代替可能な構造**を既定にしてください。
 :::
 
 :::note
@@ -93,7 +93,7 @@ GPU学習のボトルネックは演算ではなく**データロードとチェ
 :::
 
 :::note
-デジタルツイン・ロボットシミュレーション層は**NVIDIA Omniverse・Isaacエコシステムが広く活用されています。** クラウド3社ともこのスタックをGPUインスタンス上で実行する形で対応しており、特定クラウド専用のマネージド製品に依存するよりも、**どのクラウドでも移して実行できるか(可搬性)** を先に確認することがロックイン低減につながります。
+デジタルツイン・ロボットシミュレーション層は**NVIDIA Omniverse・Isaacエコシステムが広く活用されています。** 主要クラウドはいずれもこのスタックをGPUインスタンス上で実行する形で対応しており、特定クラウド専用のマネージド製品に依存するよりも、**どのクラウドでも移して実行できるか(可搬性)** を先に確認することがロックイン低減につながります。
 :::
 
 ### 学習データはなぜ不足するのか
@@ -163,7 +163,7 @@ LLMが言語を一般化したように、ロボットの認識・計画・動�
 | 項目 | 現況 |
 | --- | --- |
 | 代表スタック | [NVIDIA Isaac GR00T](https://developer.nvidia.com/isaac/gr00t) — ロボット向けオープン基盤モデル(VLA)、Omniverse・Cosmosベースのシミュレーション・合成データ、Jetson Thorのオンデバイス推論 |
-| クラウド3社 | 自社の汎用ロボット基盤モデルはまだ限定的 — 概ねNVIDIAスタックをGPUインフラ上で実行するか、パートナーシップで提供 |
+| 主要クラウド | 自社の汎用ロボット基盤モデルはまだ限定的 — 概ねNVIDIAスタックをGPUインフラ上で実行するか、パートナーシップで提供 |
 | 国家政策 | 日本はGENIACでロボティクス基盤モデル開発を国家プロジェクトとして採択([日本のAI動向](../../japan/ai-landscape/)参照) |
 
 ### 物理世界とエージェントの接続
@@ -261,7 +261,7 @@ Physical AIは一度デプロイして終わりではなく、現場データが
 
 ### 規模に見合う学習インフラ
 
-Physical AIでありがちな誤解が「ロボットモデルの学習には必ず大規模GPUクラスタが要る」というものです。実際には**事前学習済みのロボット基盤モデルを自社のロボット・作業に合わせるファインチューニング**が大半であり、この区間はLLMの事前学習とは規模がまったく異なります。数十億パラメータ級のVLAモデルのファインチューニングは、単一GPUで数時間のうちに終わることも珍しくありません。
+Physical AIでありがちな誤解が「ロボットモデルの学習には必ず大規模GPUクラスタが要る」というものです。実際には**事前学習済みのロボット基盤モデルを自社のロボット・作業に合わせるファインチューニング**が大半であり、この区間はLLMの事前学習とは規模がまったく異なります。小規模なPEFT・アダプタ学習は、単一GPUの短時間ジョブで終わることが多くあります。
 
 | 段階 | 作業の性格 | インフラパターン | コスト戦略 |
 | --- | --- | --- | --- |
@@ -278,7 +278,7 @@ Physical AIでありがちな誤解が「ロボットモデルの学習には必
 ロボット1台にモデルを載せることと、数千–数万台のフリートへ配信することは別の問題です。フリート規模では、**誤ったモデルがどれだけ速く広がるか**と**広がった後に戻せるか**が設計の核心になります。
 
 - **段階的ロールアウト** — 全体へ一度に配信せず、小規模グループから拡大し、失敗率が基準を超えたら拡散を止めます。
-- **中断(abort)** — 拡散を止める仕組みです。ただし多くのデプロイシステムで中断は**まだ開始していない対象のみをキャンセル**し、すでに進行中のデプロイはそのまま完了します。
+- **中断(abort)** — 拡散を止める仕組みです。ただし多くのフリートOTAサービスで中断は**まだ開始していない対象のみをキャンセル**し、すでに進行中のデプロイはそのまま完了するため、利用するサービスの中断動作の範囲をベンダーのドキュメントで確認する必要があります。
 - **ロールバック(rollback)** — すでに新バージョンを受け取った機器を以前の状態へ戻す仕組みです。中断とは別の層であり、機器側に**旧バージョンの保持やA/Bパーティション**といった復旧経路があってはじめて実際に機能します。
 
 :::caution

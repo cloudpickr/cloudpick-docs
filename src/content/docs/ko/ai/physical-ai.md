@@ -66,13 +66,13 @@ flowchart LR
 
 | 단계 | AWS | Azure | Google Cloud | OCI |
 | --- | --- | --- | --- | --- |
-| 스트림·영상 수집 | [Kinesis Data Streams](https://aws.amazon.com/kinesis/data-streams/) / [Kinesis Video Streams](https://aws.amazon.com/kinesis/video-streams/) | [Event Hubs](https://learn.microsoft.com/azure/event-hubs/) + IoT Operations | [Pub/Sub](https://cloud.google.com/pubsub) | [OCI Streaming](https://www.oracle.com/cloud/streaming/) |
+| 스트림·영상 수집 | [IoT Core](https://aws.amazon.com/iot-core/) (엣지 입구) / [Kinesis Video Streams](https://aws.amazon.com/kinesis/video-streams/)·[Data Streams](https://aws.amazon.com/kinesis/data-streams/) (다운스트림 적재) | [Event Hubs](https://learn.microsoft.com/azure/event-hubs/) + IoT Operations | [Pub/Sub](https://cloud.google.com/pubsub) | [OCI Streaming](https://www.oracle.com/cloud/streaming/) |
 | 데이터 레이크 | [S3](https://aws.amazon.com/s3/) | [Data Lake Storage](https://learn.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) | [Cloud Storage](https://cloud.google.com/storage) | [Object Storage](https://www.oracle.com/cloud/storage/object-storage/) |
 | 학습용 병렬 파일 시스템 | [FSx for Lustre](https://aws.amazon.com/fsx/lustre/) | [Azure Managed Lustre](https://azure.microsoft.com/products/managed-lustre) | [Managed Lustre](https://cloud.google.com/products/managed-lustre) / [Parallelstore](https://cloud.google.com/parallelstore) | [File Storage with Lustre](https://www.oracle.com/cloud/storage/file-storage-with-lustre/) |
 | 라벨링 | [SageMaker Ground Truth](https://docs.aws.amazon.com/sagemaker/latest/dg/sms.html) (신규 고객 접수 종료) | [Azure ML 데이터 라벨링](https://learn.microsoft.com/azure/machine-learning/how-to-label-data) | — (관리형 종료, 파트너·오픈소스) | [OCI Data Labeling](https://www.oracle.com/artificial-intelligence/data-labeling/) |
 
 :::caution
-**관리형 라벨링 서비스는 오히려 줄어드는 추세입니다.** Google Cloud의 Vertex AI 데이터 라벨링은 2024년 7월 1일 이후 제공되지 않고, AWS SageMaker Ground Truth는 2026년 7월 30일부터 신규 고객을 받지 않습니다(기존 고객은 계속 사용, 신규 기능 추가 계획 없음). Ground Truth Plus는 2026년 6월 30일 지원이 종료되었습니다. 라벨링을 특정 클라우드의 관리형 서비스에 묶어 설계하지 말고, **오픈소스·파트너 도구로 대체 가능한 구조**를 기본값으로 두세요.
+**관리형 라벨링 서비스는 오히려 줄어드는 추세입니다.** Google Cloud의 Vertex AI 데이터 라벨링은 [폐기(deprecated)되어 종료](https://cloud.google.com/vertex-ai/docs/deprecations)되었고, AWS SageMaker Ground Truth는 2026년 7월 30일부터 신규 고객을 받지 않습니다(기존 고객은 계속 사용, 신규 기능 추가 계획 없음). Ground Truth Plus는 2026년 6월 30일 지원이 종료되었습니다. 라벨링을 특정 클라우드의 관리형 서비스에 묶어 설계하지 말고, **오픈소스·파트너 도구로 대체 가능한 구조**를 기본값으로 두세요.
 :::
 
 :::note
@@ -93,7 +93,7 @@ GPU 학습에서 병목은 연산이 아니라 **데이터 로딩과 체크포�
 :::
 
 :::note
-디지털 트윈·로봇 시뮬레이션 계층은 **NVIDIA Omniverse·Isaac 생태계가 널리 활용되고 있습니다.** 클라우드 3사 모두 이 스택을 GPU 인스턴스 위에서 실행하는 형태로 지원하며, 특정 클라우드의 전용 관리형 제품에 의존하기보다 **어느 클라우드에서도 옮겨 실행할 수 있는지(이식성)** 를 먼저 확인하는 것이 락인을 줄이는 길입니다.
+디지털 트윈·로봇 시뮬레이션 계층은 **NVIDIA Omniverse·Isaac 생태계가 널리 활용되고 있습니다.** 주요 클라우드 모두 이 스택을 GPU 인스턴스 위에서 실행하는 형태로 지원하며, 특정 클라우드의 전용 관리형 제품에 의존하기보다 **어느 클라우드에서도 옮겨 실행할 수 있는지(이식성)** 를 먼저 확인하는 것이 락인을 줄이는 길입니다.
 :::
 
 ### 학습 데이터는 왜 부족한가
@@ -163,7 +163,7 @@ LLM이 언어를 일반화했듯, 로봇의 인식·계획·동작을 일반화�
 | 항목 | 현황 |
 | --- | --- |
 | 대표 스택 | [NVIDIA Isaac GR00T](https://developer.nvidia.com/isaac/gr00t) — 로봇용 오픈 파운데이션 모델(VLA), Omniverse·Cosmos 기반 시뮬레이션·합성 데이터, Jetson Thor 온디바이스 추론 |
-| 클라우드 3사 | 자체 범용 로봇 파운데이션 모델은 아직 제한적 — 대체로 NVIDIA 스택을 GPU 인프라 위에서 실행하거나 파트너십으로 제공 |
+| 주요 클라우드 | 자체 범용 로봇 파운데이션 모델은 아직 제한적 — 대체로 NVIDIA 스택을 GPU 인프라 위에서 실행하거나 파트너십으로 제공 |
 | 국가 정책 | 일본은 GENIAC에서 로보틱스 파운데이션 모델 개발을 국책 과제로 채택 ([일본 AI 지형](../../japan/ai-landscape/) 참고) |
 
 ### 물리 세계와 에이전트의 연결
@@ -261,7 +261,7 @@ Physical AI는 한 번 배포하고 끝나는 것이 아니라, 현장 데이터
 
 ### 규모에 맞는 학습 인프라
 
-Physical AI에서 흔한 오해가 "로봇 모델 학습에는 무조건 대형 GPU 클러스터가 필요하다"는 것입니다. 실제로는 **사전학습된 로봇 파운데이션 모델을 자사 로봇·작업에 맞추는 미세조정**이 대부분이고, 이 구간은 LLM 사전학습과 규모가 전혀 다릅니다. 파라미터 수십억 급 VLA 모델의 미세조정은 단일 GPU로 몇 시간 안에 끝나는 경우가 흔합니다.
+Physical AI에서 흔한 오해가 "로봇 모델 학습에는 무조건 대형 GPU 클러스터가 필요하다"는 것입니다. 실제로는 **사전학습된 로봇 파운데이션 모델을 자사 로봇·작업에 맞추는 미세조정**이 대부분이고, 이 구간은 LLM 사전학습과 규모가 전혀 다릅니다. 소규모 PEFT·어댑터 학습은 단일 GPU의 단기 작업으로 끝나는 경우가 많습니다.
 
 | 단계 | 작업 성격 | 인프라 패턴 | 비용 전략 |
 | --- | --- | --- | --- |
@@ -278,7 +278,7 @@ Physical AI에서 흔한 오해가 "로봇 모델 학습에는 무조건 대형 
 로봇 한 대에 모델을 올리는 것과 수천–수만 대 플릿에 배포하는 것은 다른 문제입니다. 플릿 규모에서는 **잘못된 모델이 얼마나 빨리 퍼지는가**와 **퍼진 뒤 되돌릴 수 있는가**가 설계의 핵심이 됩니다.
 
 - **단계적 롤아웃** — 전체에 한 번에 배포하지 않고 소규모 그룹부터 확대하며, 실패율이 기준을 넘으면 확산을 멈춥니다.
-- **중단(abort)** — 확산을 멈추는 장치입니다. 다만 대부분의 배포 시스템에서 중단은 **아직 시작하지 않은 대상만 취소**하고, 이미 진행 중인 배포는 그대로 끝납니다.
+- **중단(abort)** — 확산을 멈추는 장치입니다. 다만 많은 플릿 OTA 서비스에서 중단은 **아직 시작하지 않은 대상만 취소**하고 이미 진행 중인 배포는 그대로 끝나므로, 사용할 서비스의 중단 동작 범위를 벤더 문서로 확인해야 합니다.
 - **롤백(rollback)** — 이미 새 버전을 받은 장비를 이전 상태로 되돌리는 장치입니다. 중단과는 별개 계층이며, 장비 쪽에 **이전 버전 보존이나 A/B 파티션** 같은 복구 경로가 있어야 실제로 동작합니다.
 
 :::caution

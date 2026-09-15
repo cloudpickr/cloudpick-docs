@@ -295,12 +295,18 @@ export default defineConfig({
 							],
 						},
 						{
-							label: '모델·앱 구축',
-							translations: { en: 'Build models & apps', ja: 'モデル・アプリ構築' },
+							label: '평가·선택',
+							translations: { en: 'Evaluate & choose', ja: '評価・選択' },
 							items: [
 								{ slug: 'ai/ai-ml' },
 								{ slug: 'ai/1p-vs-3p' },
 								{ slug: 'ai/licensing' },
+							],
+						},
+						{
+							label: '프롬프트·RAG·에이전트',
+							translations: { en: 'Prompt, RAG & agents', ja: 'プロンプト・RAG・エージェント' },
+							items: [
 								{ slug: 'ai/prompt-engineering' },
 								{ slug: 'ai/rag-patterns' },
 								{ slug: 'ai/vector-store' },
@@ -317,16 +323,22 @@ export default defineConfig({
 							],
 						},
 						{
-							label: '인프라·특수',
-							translations: { en: 'Infrastructure & specialized', ja: 'インフラ・特殊' },
+							label: 'Physical AI',
+							translations: { en: 'Physical AI', ja: 'Physical AI' },
+							items: [
+								{ slug: 'ai/physical-ai/overview' },
+								{ slug: 'ai/physical-ai/data-and-training' },
+								{ slug: 'ai/physical-ai/deploy-and-operate' },
+							],
+						},
+						{
+							label: 'GPU 인프라',
+							translations: { en: 'GPU Infrastructure', ja: 'GPUインフラ' },
 							items: [
 								{ slug: 'ai/gpu-infra/workload-and-architecture' },
 								{ slug: 'ai/gpu-infra/distributed-training' },
 								{ slug: 'ai/gpu-infra/kubernetes-and-scheduling' },
 								{ slug: 'ai/gpu-infra/serving-reliability-cost' },
-								{ slug: 'ai/physical-ai/overview' },
-								{ slug: 'ai/physical-ai/data-and-training' },
-								{ slug: 'ai/physical-ai/deploy-and-operate' },
 							],
 						},
 					],

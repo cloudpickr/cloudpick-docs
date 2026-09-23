@@ -63,7 +63,7 @@ In response, NIST has finalized new cryptographic standards, and major cloud ven
 | --- | --- | --- |
 | AWS | KMS supports ML-KEM hybrid TLS. PQ hybrid key exchange being applied to inter-service communication for S3, ACM, and others | [AWS Post-Quantum Cryptography](https://aws.amazon.com/security/post-quantum-cryptography/) |
 | Azure | Microsoft Quantum Safe Program. ML-KEM/ML-DSA implemented in the SymCrypt library. TLS 1.3 hybrid key exchange supported | [Microsoft Quantum Safe](https://www.microsoft.com/en-us/security/blog/2025/08/20/quantum-safe-security-progress-towards-next-generation-cryptography/) |
-| Google Cloud | PQC digital signatures (ML-DSA) in preview in Cloud KMS. ML-KEM hybrid deployment completed in Chrome/BoringSSL | [Google Cloud PQC](https://cloud.google.com/blog/products/identity-security/quantum-safe-digital-signatures-in-cloud-kms) |
+| Google Cloud | Cloud KMS PQC digital signatures (ML-DSA, SLH-DSA) GA and the asymmetric PQC insights dashboard GA. Quantum-safe key import (ML-KEM/X-Wing) in preview. ML-KEM hybrid deployment completed in Chrome/BoringSSL | [Cloud KMS release notes](https://cloud.google.com/kms/docs/release-notes) |
 | OCI | Has announced a PQC algorithm roadmap for OCI Vault and other services. Confirm hybrid TLS mode for Oracle Database and similar items against the official roadmap/release notes (link to be updated once specific product documentation is published) | [Oracle Security](https://www.oracle.com/security/) (general hub; check official documentation for a dedicated PQC page) |
 
 ### PQC Transition Strategy

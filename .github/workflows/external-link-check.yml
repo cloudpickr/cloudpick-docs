@@ -14,6 +14,7 @@ on:
     paths:
       - "src/content/docs/**"
       - ".github/workflows/external-link-check.yml"
+      - ".github/workflows/editorial-c-approval.yml"
       - "scripts/check-korean-links.mjs"
       - "scripts/check-korean-links.test.mjs"
       - "lychee.toml"

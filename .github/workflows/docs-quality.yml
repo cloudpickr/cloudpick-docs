@@ -7,6 +7,9 @@ on:
       - "scripts/lint-mermaid.py"
       - "scripts/lint-strikethrough.py"
       - "scripts/lint-docs-consistency.py"
+      - "scripts/lint-readability.py"
+      - "scripts/lint-duplication.py"
+      - "scripts/lint-taxonomy.py"
       - ".github/workflows/docs-quality.yml"
       - ".github/workflows/editorial-c-approval.yml"
       # 메타데이터/핸드오프 변경도 실제 lint 체크를 수행하도록 PR 경로 범위에 포함
@@ -60,3 +63,33 @@ jobs:
           python-version: "3.12"
       - name: Lint docs consistency (locale parity, review marker, no <details>)
         run: python3 scripts/lint-docs-consistency.py
+
+  # 편집 품질 advisory(비차단) — 가독성·중복·분류. 사람이 육안으로 하던 편집 감사를
+  # 결정적으로 재현한다. 모두 warn-only(exit 0)이며, continue-on-error로 이 잡의 결과가
+  # 머지를 막지 않는다(브랜치 보호 required 아님). 결과는 Step Summary로 노출한다.
+  editorial-advisory:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Readability (long/dense paragraphs & sentences)
+        run: |
+          echo "## 📖 Readability" >> "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
+          python3 scripts/lint-readability.py | tee -a "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
+      - name: Duplication (near-duplicate paragraphs across docs)
+        run: |
+          echo "## 🔁 Duplication" >> "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
+          python3 scripts/lint-duplication.py | tee -a "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
+      - name: Taxonomy (sidebar/path consistency & group size)
+        run: |
+          echo "## 🗂️ Taxonomy" >> "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
+          python3 scripts/lint-taxonomy.py | tee -a "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"

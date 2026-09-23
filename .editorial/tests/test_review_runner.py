@@ -174,6 +174,16 @@ class TestPromptDataFraming(unittest.TestCase):
         # PR 콘텐츠는 user 메시지에 데이터로만
         self.assertIn("DIFF (data)", msgs[1]["content"])
 
+    def test_prompt_includes_reader_difficulty_axis(self):
+        # 루브릭 4번째 축: 독자 난이도(초장문/고밀도 문단)를 검사하도록 지시가 있어야 한다.
+        # 이 축이 빠지면 워크플로가 '너무 어렵게 쓰인 문서'를 놓친다(실측 갭 회귀 방지).
+        sys_prompt = rr.build_prompt(PACKET, DIFF)[0]["content"].lower()
+        self.assertIn("difficulty", sys_prompt)
+        self.assertTrue(
+            "excessively long" in sys_prompt or "dense" in sys_prompt,
+            "reader-difficulty axis must describe long/dense paragraphs",
+        )
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)

@@ -1,0 +1,201 @@
+name: Editorial Review
+
+# 편집 리뷰 게이트 — .editorial 파이프라인을 PR에 연결해 두 개의 commit status를 생성한다.
+#   1) editorial-review    : run_review_gate.py (분류 A/B/C + B/C 독립 LLM 리뷰)
+#   2) editorial-c-approval : c_approval_gate.cjs (C 등급의 allowlisted 사람 packet-hash confirm)
+#
+# 계약: froguin/multi-agent-stack@53618d6 §Review, approval and budget enforcement.
+#
+# 안전 원칙(엄수):
+#   - PR head 코드를 실행하지 않는다. 신뢰된 base(기본 브랜치)의 .editorial/.github 코드만 실행하고,
+#     PR 내용(diff·패킷)은 GitHub API로 '데이터'로만 취득해 파이프라인에 넘긴다.
+#   - 최소 권한: statuses:write(체크 기록) + pull-requests:read + contents:read. 그 이상 없음.
+#   - LLM 게이트웨이 미설정/outage/예산초과는 pass로 변환되지 않는다(run_review_gate.py가 non-pass 처리).
+#   - 이 워크플로가 만드는 두 status는 enforce_required_checks.sh 'apply-enforce' 전까지 비차단(정보용)이다.
+#
+# 트리거:
+#   - pull_request        : 문서/에디토리얼/설정 변경 시 리뷰+분류 실행
+#   - issue_comment       : PR 코멘트의 '/approve <packet_sha256>'로 C 확인 신호 갱신
+#   - workflow_dispatch   : 수동 실행(디버그)
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+    paths:
+      - "src/content/docs/**"
+      - ".editorial/**"
+      - ".github/scripts/c_approval_gate.cjs"
+      - ".github/workflows/editorial-c-approval.yml"
+      - ".github/PULL_REQUEST_TEMPLATE.md"
+      - "README*.md"
+      - "CONTRIBUTING.md"
+      - "AGENTS.md"
+      - "astro.config.mjs"
+  issue_comment:
+    types: [created, edited]
+  workflow_dispatch:
+    inputs:
+      pr_number:
+        description: "PR number to (re)evaluate"
+        required: true
+        type: string
+
+# 동일 PR에 대해 최신 이벤트만 유효(오래된 실행 취소).
+concurrency:
+  group: editorial-review-${{ github.event.pull_request.number || github.event.issue.number || github.event.inputs.pr_number }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  pull-requests: read
+  statuses: write
+
+jobs:
+  # ---------------------------------------------------------------------------
+  # editorial-review: 분류(A/B/C) + B/C 독립 LLM 리뷰. head SHA에 commit status 기록.
+  # issue_comment 이벤트에서는 실행하지 않는다(코멘트는 C 확인용 → c-approval 잡이 처리).
+  # ---------------------------------------------------------------------------
+  editorial-review:
+    if: >-
+      github.event_name == 'pull_request' ||
+      github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      # 신뢰된 base 코드만 체크아웃(PR head 병합본이 아니라 기본 브랜치 도구를 실행).
+      - name: Checkout trusted base tools
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.base.sha || github.ref }}
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Resolve PR number
+        id: pr
+        run: echo "number=${{ github.event.pull_request.number || github.event.inputs.pr_number }}" >> "$GITHUB_OUTPUT"
+
+      # PR 내용을 GitHub API로 '데이터'로만 취득 → numstat/name-status/diff/packet 파일 생성.
+      # PR head 코드를 실행하지 않는다(리뷰 데이터만 추출).
+      - name: Fetch PR data (as data, not code)
+        id: fetch
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const prNumber = Number('${{ steps.pr.outputs.number }}');
+            const { data: pr } = await github.rest.pulls.get({
+              owner: context.repo.owner, repo: context.repo.repo, pull_number: prNumber,
+            });
+            const files = await github.paginate(github.rest.pulls.listFiles, {
+              owner: context.repo.owner, repo: context.repo.repo, pull_number: prNumber, per_page: 100,
+            });
+            const smap = { added: 'A', removed: 'D', modified: 'M', renamed: 'R', changed: 'M' };
+            const numstat = files.map(f => `${f.additions}\t${f.deletions}\t${f.filename}`).join('\n');
+            const nameStatus = files.map(f => f.status === 'renamed'
+              ? `R100\t${f.previous_filename}\t${f.filename}`
+              : `${smap[f.status] || 'M'}\t${f.filename}`).join('\n');
+            // diff는 각 파일 patch(변경 hunk + 문맥)를 '--- <파일>' 구분자로 이어붙인다.
+            // run_review_gate.py / review_runner.condense_diff 가 이 형식을 기대한다.
+            const diff = files.map(f => `--- ${f.filename}\n${f.patch || '(no textual patch)'}`).join('\n');
+            fs.writeFileSync('/tmp/er_numstat.txt', numstat + '\n');
+            fs.writeFileSync('/tmp/er_name_status.txt', nameStatus + '\n');
+            fs.writeFileSync('/tmp/er_diff.txt', diff + '\n');
+            // 단일 evidence packet 파일이면 head SHA 콘텐츠를 데이터로 취득.
+            const packets = files.filter(f => /^\.editorial\/packets\/[^/]+\.json$/.test(f.filename));
+            let packetArg = 'none', packetRepoPath = '';
+            if (packets.length === 1) {
+              const { data: blob } = await github.rest.repos.getContent({
+                owner: context.repo.owner, repo: context.repo.repo, path: packets[0].filename, ref: pr.head.sha,
+              });
+              fs.writeFileSync('/tmp/er_packet.json', Buffer.from(blob.content, blob.encoding).toString('utf8'));
+              packetArg = '/tmp/er_packet.json';
+              packetRepoPath = packets[0].filename;
+            }
+            core.setOutput('packet_arg', packetArg);
+            core.setOutput('packet_repo_path', packetRepoPath);
+            core.setOutput('head_sha', pr.head.sha);
+            core.setOutput('base_sha', pr.base.sha);
+
+      # 게이트 오케스트레이터 실행. verdict→state를 읽어 commit status로 기록.
+      # LLM 미설정/outage/예산초과는 run_review_gate.py가 non-pass(state pending)로 낸다.
+      - name: Run editorial review gate
+        id: gate
+        env:
+          AI_GATEWAY_BASE_URL: ${{ vars.AI_GATEWAY_BASE_URL }}
+          AI_GATEWAY_TOKEN: ${{ secrets.AI_GATEWAY_TOKEN }}
+          REVIEWER_MODEL: ${{ vars.REVIEWER_MODEL }}
+          REVIEWER_PROVIDER: ${{ vars.REVIEWER_PROVIDER }}
+        run: |
+          set +e
+          NOW="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          EXPIRES="$(date -u -d '+7 days' +%Y-%m-%dT%H:%M:%SZ 2>/dev/null || date -u -v+7d +%Y-%m-%dT%H:%M:%SZ)"
+          python3 .editorial/run_review_gate.py \
+            --numstat /tmp/er_numstat.txt \
+            --name-status /tmp/er_name_status.txt \
+            --diff /tmp/er_diff.txt \
+            --packet '${{ steps.fetch.outputs.packet_arg }}' \
+            --packet-repo-path '${{ steps.fetch.outputs.packet_repo_path }}' \
+            --repo '${{ github.repository }}' \
+            --pr '${{ steps.pr.outputs.number }}' \
+            --base-sha '${{ steps.fetch.outputs.base_sha }}' \
+            --head-sha '${{ steps.fetch.outputs.head_sha }}' \
+            --now "$NOW" --expires "$EXPIRES" > /tmp/er_out.json
+          echo "exit=$?" >> "$GITHUB_OUTPUT"
+          cat /tmp/er_out.json
+
+      # verdict → GitHub commit status(editorial-review). fail을 녹색으로 마감하지 않는다.
+      - name: Record editorial-review status
+        if: always()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            let out = {};
+            try { out = JSON.parse(fs.readFileSync('/tmp/er_out.json', 'utf8')); }
+            catch (e) { out = { state: 'error', verdict: 'error', tier: null, reasons: [`gate did not produce output: ${e.message}`] }; }
+            // run_review_gate state: success | failure | pending → GitHub status state.
+            const map = { success: 'success', failure: 'failure', pending: 'pending' };
+            const state = map[out.state] || 'error';
+            const desc = `tier=${out.tier ?? '?'} verdict=${out.verdict ?? '?'}: ${(out.reasons || []).join('; ')}`.slice(0, 140);
+            await github.rest.repos.createCommitStatus({
+              owner: context.repo.owner, repo: context.repo.repo,
+              sha: '${{ steps.fetch.outputs.head_sha }}',
+              state, context: 'editorial-review', description: desc,
+            });
+            core.info(`[editorial-review] ${state} — ${desc}`);
+
+  # ---------------------------------------------------------------------------
+  # editorial-c-approval: C 등급의 allowlisted 사람 packet-hash confirm 게이트.
+  # pull_request(재분류)와 issue_comment('/approve <hash>' 확인) 양쪽에서 실행.
+  # c_approval_gate.cjs가 내부에서 자체적으로 commit status(editorial-c-approval)를 기록한다.
+  # ---------------------------------------------------------------------------
+  editorial-c-approval:
+    # issue_comment는 PR 코멘트에만 반응(일반 이슈 코멘트 무시).
+    if: >-
+      github.event_name == 'pull_request' ||
+      github.event_name == 'workflow_dispatch' ||
+      (github.event_name == 'issue_comment' && github.event.issue.pull_request)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout trusted base tools
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.base.sha || github.ref }}
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Run C-approval gate
+        uses: actions/github-script@v7
+        env:
+          C_APPROVAL_ALLOWLIST: ${{ vars.EDITORIAL_C_APPROVAL_ALLOWLIST }}
+        with:
+          script: |
+            const gate = require('${{ github.workspace }}/.github/scripts/c_approval_gate.cjs');
+            await gate({ github, context, core, exec });

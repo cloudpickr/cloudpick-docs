@@ -42,6 +42,10 @@ NIS2 mandates staged reporting deadlines.
 
 In addition, the **Cybersecurity Act 2 (CSA2)** amendment announced by the European Commission on January 20, 2026, is part of a package that also revisits NIS2, and it includes a move toward simplifying divergent national implementation — meaning NIS2's own requirements may still be adjusted going forward.
 
+:::note
+**Related regulation — CRA reporting obligations in force (2026-09-11)** — The **Cyber Resilience Act (Regulation (EU) 2024/2847)** entered into force on December 10, 2024, and manufacturers' **vulnerability and severe-incident reporting obligations apply from September 11, 2026** (actively exploited vulnerabilities and severe incidents are notified through the ENISA single reporting platform). The Act's main product obligations apply from December 11, 2027. Unlike NIS2, the CRA targets manufacturers of "products with digital elements," so organizations that supply software or devices into cloud workloads must track CRA reporting separately from NIS2 incident reporting. ([EC CRA overview](https://digital-strategy.ec.europa.eu/en/policies/cyber-resilience-act))
+:::
+
 ## EU AI Act Timeline
 
 The **EU AI Act (Regulation (EU) 2024/1689)** entered into force on August 1, 2024, and its provisions apply on a staggered schedule.

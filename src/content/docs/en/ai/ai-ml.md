@@ -60,6 +60,8 @@ On-premises AI/ML requires purchasing GPU servers, installing frameworks, and bu
 | **Amazon** | Nova 1 (Premier/Pro/Lite/Micro/Sonic, etc.) + **Nova 2** (Lite GA, Pro Preview) | — (Bedrock only) | Bedrock |
 | **Microsoft** | MAI (Image/Voice/Transcribe) | — (Foundry only) | Azure Foundry |
 | **Mistral** | Large, Small, Codestral | [api.mistral.ai](https://docs.mistral.ai/) | Bedrock, Azure, Vertex |
+| **Upstage** | Solar Pro 4/3, Solar Mini 4, Solar Open 2 | [console.upstage.ai](https://console.upstage.ai/) | AWS/Azure Marketplace |
+| **LG AI Research** | EXAONE 4.x | Direct contract | Marketplace, self-host |
 
 :::note
 **1P vs 3P difference** — The same model may differ in feature scope, quotas, and billing depending on channel. See [LLM Channel Selection Guide](../../ai/1p-vs-3p/).

@@ -38,11 +38,11 @@ On-premises AI/ML requires purchasing GPU servers, installing frameworks, and bu
 
 | Type | Input → Output | Representative Services | Use Cases |
 | --- | --- | --- | --- |
-| **Text (LLM)** | Text → Text | GPT-5.6, Claude Fable 5, Gemini 3 Pro class | Chatbots, summarization, code generation |
+| **Text (LLM)** | Text → Text | GPT-6 class, Claude Opus 5.5, Gemini 3.x class | Chatbots, summarization, code generation |
 | **Image Generation** | Text → Image | DALL-E, MAI-Image, Imagen, Titan Image | Marketing, design |
 | **Speech (TTS/STT)** | Text ↔ Speech | Polly, MAI-Voice, Azure Speech, Cloud TTS | Transcription, IVR, accessibility |
 | **Video Generation** | Text → Video | Nova Reel, Veo 3.1, Gemini Omni | Ads, short-form content |
-| **Multimodal** | Text+Image+Speech → Text | GPT-5.6, Gemini 3 Pro class, Claude Fable 5 | Document understanding, image analysis |
+| **Multimodal** | Text+Image+Speech → Text | GPT-6 class, Gemini 3.x class, Claude Opus 5.5 | Document understanding, image analysis |
 | **Embeddings** | Text/Image → Vector | Titan Embeddings, Gemini Embedding, Cohere Embed | RAG, similarity search |
 
 ## Generative AI Services
@@ -51,10 +51,11 @@ On-premises AI/ML requires purchasing GPU servers, installing frameworks, and bu
 
 | Provider | Key Models | 1P (Direct) | 3P (Cloud-hosted) |
 | --- | --- | --- | --- |
-| **OpenAI** | GPT-6 Astra (flagship, Sep 2026), GPT-5.6 (Sol/Terra/Luna), o-series | [api.openai.com](https://platform.openai.com/) | Azure Foundry, Bedrock |
-| **Anthropic** | Claude Fable 5, Opus 5, Sonnet 5, Haiku 4.5 | [api.anthropic.com](https://platform.claude.com/) | Bedrock, Vertex AI |
+| **OpenAI** | GPT-6 family (Astra flagship / Sol mid / Luna low-cost), GPT-5.6, o-series | [api.openai.com](https://platform.openai.com/) | Azure Foundry, Bedrock |
+| **Anthropic** | Claude Fable 5.1, Opus 5.5, Sonnet 5, Haiku 4.5 | [api.anthropic.com](https://platform.claude.com/) | Bedrock, Vertex AI |
 | **Google** | Gemini 3.x generation (Pro/Flash — check [official docs](https://ai.google.dev/) for generation/variant and Preview/GA status), Gemini Omni | [Gemini API](https://ai.google.dev/) | Vertex AI (native) |
-| **SpaceXAI (formerly xAI)** | Grok 4.6, Grok Imagine | [x.ai/api](https://x.ai/api) | OCI, Vertex AI, Bedrock, Azure |
+| **SpaceXAI (formerly xAI)** | Grok 4.7, Grok Imagine | [x.ai/api](https://x.ai/api) | OCI, Vertex AI, Bedrock, Azure |
+| **Moonshot AI** | Kimi K3 (open-weight, multimodal) | [platform.moonshot.ai](https://platform.moonshot.ai/) | Bedrock, OCI (import), self-host |
 | **Meta** | Llama 4 (open-weight) | [llama.com](https://www.llama.com/) | Bedrock, Vertex, Azure, OCI |
 | **Amazon** | Nova 1 (Premier/Pro/Lite/Micro/Sonic, etc.) + **Nova 2** (Lite GA, Pro Preview) | — (Bedrock only) | Bedrock |
 | **Microsoft** | MAI (Image/Voice/Transcribe) | — (Foundry only) | Azure Foundry |
@@ -62,6 +63,10 @@ On-premises AI/ML requires purchasing GPU servers, installing frameworks, and bu
 
 :::note
 **1P vs 3P difference** — The same model may differ in feature scope, quotas, and billing depending on channel. See [LLM Channel Selection Guide](../../ai/1p-vs-3p/).
+:::
+
+:::note
+**Anthropic tiers and version numbers** — Claude Fable 5.1 is a higher (harder) tier than Opus 5.5. Tiers revise on different cadences, so a higher tier's minor version can lead a lower one (e.g., Fable 5.1 > Opus 5.5). Don't infer recency from the number alone.
 :::
 
 ### Cloud Platform Strengths
@@ -107,7 +112,7 @@ Once you have chosen GPU instances, how to combine them into a cluster for train
 
 **Amazon Bedrock** — Provides access to a wide range of provider models — including its own **Amazon Nova** models (1st-generation Premier/Pro/Lite/Micro/Sonic, etc., and **Nova 2** Lite/Pro, etc. — check the [official model list](https://aws.amazon.com/nova/models/) for generation and availability status) as well as Anthropic Claude, the OpenAI GPT series, and more — through a single API. It offers a broad model selection, and its strength lies in operational capabilities such as AgentCore for building AI agents.
 
-**Microsoft Foundry** — Formerly Azure AI Foundry, now the unified upper-level platform that consolidated the brand. It is the primary channel for using OpenAI models (GPT-6 Astra, the GPT-5.6 family) in enterprise environments, and it also offers a wide range of third-party models such as Anthropic and Meta. It has added its own **MAI model family** (Image-2.5, Voice-1, Transcribe-1) and **Foundry Local** (for local/air-gapped execution). Its greatest strength is deep integration with the existing Microsoft ecosystem, including Microsoft 365, GitHub, and Power Platform.
+**Microsoft Foundry** — Formerly Azure AI Foundry, now the unified upper-level platform that consolidated the brand. It is the primary channel for using OpenAI models (the GPT-6 family and the GPT-5.6 family) in enterprise environments, and it also offers a wide range of third-party models such as Anthropic and Meta. It has added its own **MAI model family** (Image-2.5, Voice-1, Transcribe-1) and **Foundry Local** (for local/air-gapped execution). Its greatest strength is deep integration with the existing Microsoft ecosystem, including Microsoft 365, GitHub, and Power Platform.
 
 **Gemini Enterprise Agent Platform** — A full agent-centric overhaul of the former Vertex AI. Its strengths are the native multimodal capabilities of Google's own **Gemini 3.x generation** series (Pro/Flash — check the [official documentation](https://cloud.google.com/vertex-ai/generative-ai/docs) for each variant's generation and Preview/GA status and limits) and its TPU infrastructure. Its differentiators are long context, reasoning mode, **Gemini Omni** (multimodal), low-code agent development through Agent Studio, and integration with Google Search/BigQuery.
 
@@ -140,6 +145,7 @@ Physical AI — connecting AI to the physical world of sensors, robots, and equi
 | **OpenAI → Bedrock (2026.04)** | GPT-5.x available on Bedrock post-exclusivity |
 | **SpaceXAI (formerly xAI) Grok multicloud expansion** | Available on Azure, Vertex AI, OCI, Bedrock |
 | **Anthropic Claude channel expansion** | Beyond Bedrock/Vertex to additional channels |
+| **Flagship generation refresh (2026.09)** | OpenAI GPT-6 family (Astra/Sol/Luna) and Anthropic Opus 5.5 rolling out across API, Bedrock, Vertex, and Foundry |
 
 ## Inference Cost Optimization
 

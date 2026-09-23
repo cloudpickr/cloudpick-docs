@@ -40,11 +40,11 @@ description: "ベンダー別のAIプラットフォーム、モデルカタロ�
 
 | 種類 | 入力 → 出力 | 代表的サービス | ユースケース |
 | --- | --- | --- | --- |
-| **テキスト (LLM)** | テキスト → テキスト | GPT-5.6, Claude Fable 5, Gemini 3 Pro系 | チャットボット、要約、コード生成 |
+| **テキスト (LLM)** | テキスト → テキスト | GPT-6系, Claude Opus 5.5, Gemini 3.x系 | チャットボット、要約、コード生成 |
 | **画像生成** | テキスト → 画像 | DALL-E, MAI-Image, Imagen, Titan Image | マーケティング、デザイン |
 | **音声 (TTS/STT)** | テキスト ↔ 音声 | Polly, MAI-Voice, Azure Speech, Cloud TTS | 議事録、ARS、アクセシビリティ |
 | **動画生成** | テキスト → 動画 | Nova Reel, Veo 3.1, Gemini Omni | 広告、ショート動画 |
-| **マルチモーダル** | テキスト+画像+音声 → テキスト | GPT-5.6, Gemini 3 Pro系, Claude Fable 5 | 文書理解、画像分析 |
+| **マルチモーダル** | テキスト+画像+音声 → テキスト | GPT-6系, Gemini 3.x系, Claude Opus 5.5 | 文書理解、画像分析 |
 | **エンベディング** | テキスト/画像 → ベクトル | Titan Embeddings, Gemini Embedding, Cohere Embed | RAG、類似度検索 |
 
 ## 生成AIサービス
@@ -55,10 +55,11 @@ description: "ベンダー別のAIプラットフォーム、モデルカタロ�
 
 | モデル提供社 | 主要モデル | 1P (直接) | 3P (クラウド提供) |
 | --- | --- | --- | --- |
-| **OpenAI** | GPT-6 Astra(フラッグシップ、2026.9)、GPT-5.6 (Sol/Terra/Luna)、oシリーズ | [api.openai.com](https://platform.openai.com/) | Azure Foundry, Bedrock |
-| **Anthropic** | Claude Fable 5, Opus 5, Sonnet 5, Haiku 4.5 | [api.anthropic.com](https://platform.claude.com/) | Bedrock, Vertex AI |
+| **OpenAI** | GPT-6系(Astraフラッグシップ / Sol中級 / Luna低コスト)、GPT-5.6、oシリーズ | [api.openai.com](https://platform.openai.com/) | Azure Foundry, Bedrock |
+| **Anthropic** | Claude Fable 5.1, Opus 5.5, Sonnet 5, Haiku 4.5 | [api.anthropic.com](https://platform.claude.com/) | Bedrock, Vertex AI |
 | **Google** | Gemini 3.x世代 (Pro/Flash — 世代・バリアント・Preview/GAは[公式文書](https://ai.google.dev/)で確認)、Gemini Omni | [Gemini API](https://ai.google.dev/) | Vertex AI (ネイティブ) |
-| **SpaceXAI (旧xAI)** | Grok 4.6, Grok Imagine | [x.ai/api](https://x.ai/api) | OCI, Vertex AI, Bedrock, Azure |
+| **SpaceXAI (旧xAI)** | Grok 4.7, Grok Imagine | [x.ai/api](https://x.ai/api) | OCI, Vertex AI, Bedrock, Azure |
+| **Moonshot AI** | Kimi K3 (オープンウェイト、マルチモーダル) | [platform.moonshot.ai](https://platform.moonshot.ai/) | Bedrock, OCI(インポート), セルフホスティング |
 | **Meta** | Llama 4 (オープンウェイト) | [llama.com](https://www.llama.com/) | Bedrock, Vertex, Azure, OCI (ホスティング) |
 | **Amazon** | Nova 1(Premier/Pro/Lite/Micro/Sonic等) + **Nova 2**(Lite GA、Pro Preview) | — (Bedrock専用) | Bedrock |
 | **Microsoft** | MAI (Image/Voice/Transcribe) | — (Foundry専用) | Azure Foundry |
@@ -68,6 +69,10 @@ description: "ベンダー別のAIプラットフォーム、モデルカタロ�
 
 :::note
 **1P(直接)と3P(クラウド提供)の違い** — 同じモデルでもチャネルによって機能範囲、クォータ、請求方式が異なります。チャネル選択基準は[LLMチャネル選択ガイド](../../ai/1p-vs-3p/)を参照してください。
+:::
+
+:::note
+**Anthropicのティアとバージョン番号** — Claude Fable 5.1はOpus 5.5より上位(高難度)のティアです。ティアごとに改訂周期が異なるため、上位ティアのマイナーバージョンが下位ティアを上回ることがあります(例: Fable 5.1 > Opus 5.5)。数字だけで世代の新旧を判断しないでください。
 :::
 
 ### クラウドプラットフォーム別の特徴
@@ -115,7 +120,7 @@ GPUインスタンスを選んだら、それらをどうクラスターにま�
 
 **Amazon Bedrock** — 自社開発の**Amazon Nova**モデル(第1世代Premier/Pro/Lite/Micro/Sonic等と**Nova 2** Lite/Pro等 — [公式モデル一覧](https://aws.amazon.com/nova/models/)で世代・提供状況を確認)と、Anthropic Claude、OpenAI GPTシリーズなど多様な提供社のモデルに単一APIでアクセスできます。モデル選択の幅が広く、AIエージェント構築のためのAgentCoreなどの運用体系が強みです。
 
-**Microsoft Foundry** — 旧Azure AI Foundryがブランドを統合した上位プラットフォームです。OpenAIモデル(GPT-6 Astra、GPT-5.6系列)をエンタープライズ環境で利用できる主要な経路であり、Anthropic、Metaなど他社モデルも幅広く提供します。自社の**MAIモデル群**(Image-2.5, Voice-1, Transcribe-1)と**Foundry Local**(ローカル/閉域網実行)が追加されました。Microsoft 365、GitHub、Power Platformなど既存のMicrosoftエコシステムとの深い統合が最大の強みです。
+**Microsoft Foundry** — 旧Azure AI Foundryがブランドを統合した上位プラットフォームです。OpenAIモデル(GPT-6系、GPT-5.6系列)をエンタープライズ環境で利用できる主要な経路であり、Anthropic、Metaなど他社モデルも幅広く提供します。自社の**MAIモデル群**(Image-2.5, Voice-1, Transcribe-1)と**Foundry Local**(ローカル/閉域網実行)が追加されました。Microsoft 365、GitHub、Power Platformなど既存のMicrosoftエコシステムとの深い統合が最大の強みです。
 
 **Gemini Enterprise Agent Platform** — 旧Vertex AIがエージェント中心に全面刷新されたプラットフォームです。Google自社の**Gemini 3.x世代**シリーズ(Pro/Flash — 各バリエーションの世代・Preview/GA・上限は[公式文書](https://cloud.google.com/vertex-ai/generative-ai/docs)で確認)のネイティブなマルチモーダル能力とTPUインフラが強みです。長文コンテキスト・推論モード・**Gemini Omni**(マルチモーダル)や、Agent Studioを通じたローコードエージェント開発、Google Search/BigQueryとの連携が差別化ポイントです。
 
@@ -150,6 +155,7 @@ AIシステムの7段階エンドツーエンドライフサイクル(AI System 
 | 2026.04 | **OpenAIモデル → Bedrock提供開始** | 独占終了直後にGPT-5.xがBedrockに登場 |
 | 2025-2026 | **SpaceXAI(旧xAI) Grokのマルチクラウド展開** | Azure AI Foundry(2025.09), Vertex AI, OCI, Bedrock(2026.06 Grok 4.3 GA) |
 | 2025-2026 | **Anthropic Claudeのチャネル強化** | 既存のBedrock/Vertexに加え、OCIなどの追加チャネル |
+| 2026.09 | **フラッグシップ世代刷新の波** | OpenAI GPT-6系(Astra/Sol/Luna)、Anthropic Opus 5.5がAPI・Bedrock・Vertex・Foundryへ展開 |
 
 **運用上の示唆:**
 

@@ -10,6 +10,8 @@ on:
       - "scripts/lint-readability.py"
       - "scripts/lint-duplication.py"
       - "scripts/lint-taxonomy.py"
+      - "scripts/lint-mcp-index.py"
+      - "scripts/build-llms-locales.mjs"
       - ".github/workflows/docs-quality.yml"
       - ".github/workflows/editorial-c-approval.yml"
       # 메타데이터/핸드오프 변경도 실제 lint 체크를 수행하도록 PR 경로 범위에 포함
@@ -92,4 +94,29 @@ jobs:
           echo "## 🗂️ Taxonomy" >> "$GITHUB_STEP_SUMMARY"
           echo '```' >> "$GITHUB_STEP_SUMMARY"
           python3 scripts/lint-taxonomy.py | tee -a "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
+
+  # MCP 인덱스 품질 advisory(비차단) — 빌드 산출물 dist/llms/*의 fence-aware 품질 검사.
+  # dist/llms가 필요하므로 build 후 실행. readability/duplication과 달리 빌드 의존이라 잡 분리.
+  mcp-index-advisory:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install
+        run: npm ci
+      - name: Build (produces dist/llms/*)
+        run: npm run build
+      - name: MCP index quality (fence-aware)
+        run: |
+          echo "## 🧭 MCP Index" >> "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
+          python3 scripts/lint-mcp-index.py | tee -a "$GITHUB_STEP_SUMMARY"
           echo '```' >> "$GITHUB_STEP_SUMMARY"

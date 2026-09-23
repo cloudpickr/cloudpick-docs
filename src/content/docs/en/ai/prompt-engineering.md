@@ -156,7 +156,7 @@ Knowing the patterns matters less than judging **which technique to use when**. 
 
 **By model type:**
 
-- **General models (GPT-5.6, Claude Sonnet, etc.)**: Few-shot and CoT meaningfully improve quality.
+- **General models (GPT-6, Claude Sonnet, etc.)**: Few-shot and CoT meaningfully improve quality.
 - **Reasoning-specialized models (o-series, Claude reasoning mode, etc.)**: They reason internally, so "think step by step" instructions are unnecessary, and excessive CoT can hurt performance and cost.
 - **Cost angle**: Few-shot examples and CoT increase input tokens. On high-frequency paths, minimize example count / reasoning length or use prompt caching.
 

@@ -64,7 +64,7 @@ description: "벤더별 AI 플랫폼, 모델 카탈로그, GPU/AI 칩, Applied A
 | **Amazon** | Nova 1(Premier/Pro/Lite/Micro/Sonic 등) + **Nova 2**(Lite는 GA, Pro는 Preview) | — (Bedrock 전용) | Bedrock |
 | **Microsoft** | MAI (Image/Voice/Transcribe) | — (Foundry 전용) | Azure Foundry |
 | **Mistral** | Large, Small, Codestral | [api.mistral.ai](https://docs.mistral.ai/) | Bedrock, Azure, Vertex |
-| **Upstage** | Solar Pro 3/2/Mini | [console.upstage.ai](https://console.upstage.ai/) | AWS/Azure Marketplace |
+| **Upstage** | Solar Pro 4/3, Solar Mini 4, Solar Open 2 | [console.upstage.ai](https://console.upstage.ai/) | AWS/Azure Marketplace |
 | **LG AI Research** | EXAONE 4.x | 직접 계약 | Marketplace, 셀프호스팅 |
 
 :::note

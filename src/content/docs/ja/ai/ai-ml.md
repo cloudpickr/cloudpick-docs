@@ -64,7 +64,7 @@ description: "ベンダー別のAIプラットフォーム、モデルカタロ�
 | **Amazon** | Nova 1(Premier/Pro/Lite/Micro/Sonic等) + **Nova 2**(Lite GA、Pro Preview) | — (Bedrock専用) | Bedrock |
 | **Microsoft** | MAI (Image/Voice/Transcribe) | — (Foundry専用) | Azure Foundry |
 | **Mistral** | Large, Small, Codestral | [api.mistral.ai](https://docs.mistral.ai/) | Bedrock, Azure, Vertex |
-| **Upstage** | Solar Pro 3/2/Mini | [console.upstage.ai](https://console.upstage.ai/) | AWS/Azure Marketplace |
+| **Upstage** | Solar Pro 4/3, Solar Mini 4, Solar Open 2 | [console.upstage.ai](https://console.upstage.ai/) | AWS/Azure Marketplace |
 | **LG AI Research** | EXAONE 4.x | 直接契約 | Marketplace、セルフホスティング |
 
 :::note

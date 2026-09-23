@@ -15,13 +15,13 @@ description: "ネイバー、LG AI研究院、カカオ、KT、アップステ�
 
 ## 提供社別現況
 
-| 提供社 | 代表モデル | 最新バージョン(2026.8時点) | ライセンス | 主な提供チャネル |
+| 提供社 | 代表モデル | 最新バージョン(2026.9時点) | ライセンス | 主な提供チャネル |
 | --- | --- | --- | --- | --- |
 | ネイバー(クラウド) | HyperCLOVA X | SEED(軽量・オープン)、THINK(推論特化)、DASH(軽量・高速)のラインナップ。2025.12にSEED 32B THINK/8B Omni、2026年上半期にSEED 4Bオムニモーダル(国防特化)を公開 | SEEDシリーズの一部(0.5B～3B級)はオープンソース公開、上位モデルはAPI専用 | ネイバークラウド CLOVA Studio API (Basic/Exclusive/Neurocloud料金プラン) |
 | LG AI研究院 | EXAONE | EXAONE 4.0(ハイブリッド推論)、EXAONE 4.5(マルチモーダル) | 研究・教育目的は無料公開、**商用利用はLG AI Researchとの別途ライセンス契約が必要** | Hugging Faceでのモデル公開、LG AI Research独自API、教育機関向けライセンス拡大 |
 | カカオ | Kanana | Kanana-2シリーズ(2026.1アップデート4種)、Kanana-2軽量SLM 4種(2026.7、1.3B/3B) | Apache 2.0ベースのKanana Open License — **商用利用可** | Hugging Faceでのオープンソース配布。オンデバイス動作最適化 |
 | KT | 믿:음(Mi:dm) | 믿:음 K 2.5 Pro(2026.2、MWC26で公開)。従来のMi:dm K 2.0(2025.7)はBase 11.5B + オンデバイスMini 2.3B構成 | 自社サービス・B2B供給中心(公開ライセンス情報は限定的) | KT独自のエンタープライズAIプラットフォームを通じたB2B・B2G供給(AICC、チャットボット、文書認識、法律・金融特化など) |
-| アップステージ | Solar | Solar Pro 2(31B、ハイブリッドチャット/推論、2025.7正式リリース) | クローズドAPIサービス(オープンソースではない) | Upstage Console API、Amazon Bedrock Marketplace、AWS SageMaker JumpStart、AWS Marketplace |
+| アップステージ | Solar | Solar Pro 4(エージェントワークロード特化、512Kコンテキスト、2026.8発表)が現行フラッグシップ。従来のSolar Pro 3(2026.1)、Solar Pro 2(2025.7)。軽量Solar Mini 4(2026.9)、オープンウェイトSolar Open 2を併行提供 | Pro系はクローズドAPI、Open系はオープンウェイト | Upstage Console API、OpenRouter、Amazon Bedrock Marketplace、AWS SageMaker JumpStart、AWS Marketplace |
 | NC AI | VARCO | VARCO-VISION 2.0(2025.7、マルチモーダル4種オープンソース)、VARCO 3D 2.0、VARCO Voice(多言語音声) | オープンソース公開(モデルごとに異なる) | Hugging Face、AWS SageMakerベースのインフラ。AWS Private Cloudを通じたドメインデータのカスタマイズ対応を予定 |
 | SKテレコム | A.X | A.X 4.0(2025.4.30オープンソース公開)。Qwen2.5ベースに韓国語データを大規模追加学習 | オープンソース公開 | GitHub/Hugging Face、SKT独自サービス('エイダット')との連携 |
 
@@ -54,7 +54,7 @@ description: "ネイバー、LG AI研究院、カカオ、KT、アップステ�
 - **韓国語・ドメイン特化性能**: 一般常識・推論ではグローバルトップクラスのモデルが依然として先行する場合が多いものの、韓国語語彙・敬語・業界用語処理では国内モデルが強みを示す事例が報告されています。必ず自社ベンチマークで検証してください。
 - **ライセンスとカスタマイズ**: カカオKanana、NC AI VARCO、SKT A.Xは商用利用可能なオープンソースであり、自社インフラでのファインチューニング・デプロイが可能です。一方EXAONEは商用利用時に別途契約が必要であり、SolarとHyperCLOVA X上位モデルはAPI利用が基本的な経路です。オンプレミス・VPC閉域網へのデプロイが必要な場合は、ライセンス条件を最優先で確認する必要があります。
 - **ベンダーの持続可能性**: ソブリンAIプロジェクトの段階評価結果に見られるように、国内FMエコシステムはまだ流動的です。特定ベンダーに長期的に依存するアーキテクチャよりも、APIゲートウェイを通じてモデルを交換可能に構成することがリスクを軽減します。
-- **コスト**: アップステージSolar Pro 2は100万トークンあたり0.5ドル水準で公開されるなど、国内モデルが価格競争力を打ち出す場合があります。ただし秒間処理量、コンテキスト長などの条件が異なるため、単純なトークン単価だけで比較しないでください。
+- **コスト**: アップステージSolar Pro 4は100万トークンあたり入力0.30ドル / 出力1.20ドル水準で公開されるなど、国内モデルが価格競争力を打ち出す場合があります。ただし秒間処理量、コンテキスト長などの条件が異なるため、単純なトークン単価だけで比較しないでください。
 - **エージェント型・マルチモーダル対応**: カカオKanana-2、KT믿:음K、NC AI VARCO-VISIONなどは、エージェント型AI・マルチモーダルを別ラインナップとして強化する傾向にあります。単純なテキスト生成を超えるユースケースであれば、該当ラインナップの成熟度を別途確認してください。
 
 ## 導入チェックリスト
@@ -82,6 +82,7 @@ description: "ネイバー、LG AI研究院、カカオ、KT、アップステ�
 - [カカオ、軽量言語モデル4種をオープンソースで公開…「グローバル水準の性能」 — カカオ](https://www.kakaocorp.com/page/detail/12089)
 - [より賢くなったカカオの言語モデルKanana 1.5、商用利用可能なオープンソースとして公開 — tech.kakao.com](https://tech.kakao.com/posts/706)
 - [KT、MWC26で「믿:음 K」を公開…エージェンティックAIパートナーを宣言 — アジュ経済](https://www.ajunews.com/view/20260226085637155)
+- [Solar Pro 4: The Agentic Model That Finishes the Job — Upstage](https://www.upstage.ai/blog/en/solar-pro-4)
 - [Solar Pro 2 — 最先端の推論・ツール活用・多言語性能を備えた310億パラメータLLM — Upstage](https://www.upstage.ai/blog/ko/solar-pro-2-launch)
 - [Upstage Releases Next-Generation "Solar Pro" Generative AI LLM on AWS — AWS Press Center](https://press.aboutamazon.com/aws/2024/12/upstage-releases-next-generation-solar-pro-generative-ai-llm-on-aws)
 - [「国内元祖LLM『バルコ』、より強力で賢いマルチモーダルとして帰ってきた」…NC AI、「VARCO-VISION 2.0」を公開 — 人工知能新聞](https://www.aitimes.kr/news/articleView.html?idxno=35689)

@@ -8,6 +8,7 @@ on:
       - "astro.config.mjs"
       - "package.json"
       - "package-lock.json"
+      - "scripts/**"
       - ".github/workflows/starlight-build.yml"
       - ".github/workflows/editorial-c-approval.yml"
       # 메타데이터/핸드오프 변경도 실제 build 체크(내부 링크 검증 포함)를 수행하도록

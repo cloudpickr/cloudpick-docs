@@ -71,22 +71,64 @@ function parseFrontmatter(raw) {
   return { data, body };
 }
 
-/** MDX 본문 정리: import문·JSX 컴포넌트 태그 제거, LinkCard는 텍스트로 치환 */
+/** MDX 본문 정리: import문·JSX 컴포넌트 태그 제거, LinkCard는 텍스트로 치환.
+ *  FENCE-AWARE: 코드펜스(``` / ~~~) 내부는 코드 예제이므로 어떤 변형도 하지 않는다.
+ *  (펜스 안의 `import ...`·`<Component/>` 같은 코드 라인이 훼손되는 것을 방지) */
 function cleanBody(body) {
-  let s = body;
-  // import 라인 제거
-  s = s.replace(/^import\s.+$/gm, '');
-  // <LinkCard title="X" description="Y" ... /> → [X] Y
-  s = s.replace(/<LinkCard\b([^>]*)\/?>/g, (_, attrs) => {
-    const t = /title=["']([^"']*)["']/.exec(attrs);
-    const d = /description=["']([^"']*)["']/.exec(attrs);
-    return (t ? t[1] : '') + (d ? ` — ${d[1]}` : '');
-  });
-  // <Tabs>/<TabItem>/<CardGrid> 등 여는·닫는 태그 제거(내용은 유지)
-  s = s.replace(/<\/?(?:Tabs|TabItem|CardGrid|Card|Aside|Steps|LinkButton|Badge)\b[^>]*>/g, '');
-  // 남은 self-closing 컴포넌트(<Foo ... />) 제거
-  s = s.replace(/<[A-Z][A-Za-z0-9]*\b[^>]*\/>/g, '');
-  // 3개 이상 연속 빈 줄 → 2개
+  // 코드펜스 경계로 세그먼트를 나눠, 펜스 밖 구간에만 변형을 적용한다.
+  // 여는 펜스는 ``` 또는 ~~~ (3자 이상, 최대 3칸 들여쓰기), 닫는 펜스는 같은 문자·같은 길이 이상.
+  const lines = body.split('\n');
+  const outSegments = [];
+  let plain = [];      // 펜스 밖 라인 버퍼
+  let fenced = [];     // 펜스 안 라인 버퍼(원문 그대로 보존)
+  let inFence = false;
+  let fenceChar = '';
+  let fenceLen = 0;
+
+  const flushPlain = () => {
+    if (!plain.length) return;
+    let s = plain.join('\n');
+    s = s.replace(/^import\s.+$/gm, '');
+    s = s.replace(/<LinkCard\b([^>]*)\/?>/g, (_, attrs) => {
+      const t = /title=["']([^"']*)["']/.exec(attrs);
+      const d = /description=["']([^"']*)["']/.exec(attrs);
+      return (t ? t[1] : '') + (d ? ` — ${d[1]}` : '');
+    });
+    s = s.replace(/<\/?(?:Tabs|TabItem|CardGrid|Card|Aside|Steps|LinkButton|Badge)\b[^>]*>/g, '');
+    s = s.replace(/<[A-Z][A-Za-z0-9]*\b[^>]*\/>/g, '');
+    outSegments.push(s);
+    plain = [];
+  };
+  const flushFenced = () => {
+    if (fenced.length) { outSegments.push(fenced.join('\n')); fenced = []; }
+  };
+
+  for (const line of lines) {
+    const m = /^(\s{0,3})(`{3,}|~{3,})/.exec(line);
+    if (m) {
+      const ch = m[2][0];
+      const len = m[2].length;
+      if (!inFence) {
+        flushPlain();
+        inFence = true; fenceChar = ch; fenceLen = len;
+        fenced.push(line);
+        continue;
+      }
+      if (ch === fenceChar && len >= fenceLen) {
+        fenced.push(line);
+        flushFenced();
+        inFence = false;
+        continue;
+      }
+    }
+    if (inFence) fenced.push(line);
+    else plain.push(line);
+  }
+  flushPlain();
+  flushFenced(); // 닫히지 않은 펜스도 원문 보존
+
+  let s = outSegments.join('\n');
+  // 3개 이상 연속 빈 줄 → 2개 (펜스 밖 정리로 생긴 공백 정돈)
   s = s.replace(/\n{3,}/g, '\n\n');
   return s.trim();
 }

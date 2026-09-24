@@ -40,9 +40,11 @@ on:
         required: true
         type: string
 
-# 동일 PR에 대해 최신 이벤트만 유효(오래된 실행 취소).
+# 동일 PR + 동일 이벤트종류에 대해서만 최신 실행을 유지한다. 이벤트 종류(pull_request vs
+# issue_comment)를 group에 포함하지 않으면 서로 다른 트리거가 상대를 취소해(cancelled)
+# required 체크가 취소 상태로 남아 머지를 막는다. 이벤트별로 group을 분리해 이를 방지한다.
 concurrency:
-  group: editorial-review-${{ github.event.pull_request.number || github.event.issue.number || github.event.inputs.pr_number }}
+  group: editorial-review-${{ github.event_name }}-${{ github.event.pull_request.number || github.event.issue.number || github.event.inputs.pr_number }}
   cancel-in-progress: true
 
 permissions:

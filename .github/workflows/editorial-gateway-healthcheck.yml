@@ -1,0 +1,88 @@
+name: Editorial Gateway Healthcheck
+
+# AI_GATEWAY_TOKEN 만료/게이트웨이 도달성 사전 점검(D — friends 리뷰 채택안).
+# editorial-review가 required + fail-closed이므로, 토큰 만료(가장 흔한 차단 원인)를
+# PR에 닿기 전에 스케줄로 잡아 이슈로 알린다. 리뷰 의미론은 그대로 유지(이 워크플로는 프로브만).
+
+on:
+  schedule:
+    - cron: "0 0 * * *" # 매일 UTC 00:00
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: editorial-gateway-healthcheck
+  cancel-in-progress: true
+
+jobs:
+  healthcheck:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Probe AI Gateway (token validity + reachability)
+        id: probe
+        env:
+          AI_GATEWAY_BASE_URL: ${{ vars.AI_GATEWAY_BASE_URL }}
+          AI_GATEWAY_TOKEN: ${{ secrets.AI_GATEWAY_TOKEN }}
+          REVIEWER_MODEL: ${{ vars.REVIEWER_MODEL }}
+          REVIEWER_PROVIDER: ${{ vars.REVIEWER_PROVIDER }}
+        run: |
+          set +e
+          OUT="$(python3 .editorial/review_runner.py --healthcheck)"
+          CODE=$?
+          echo "$OUT"
+          echo "detail=$(echo "$OUT" | python3 -c 'import sys,json;print(json.load(sys.stdin).get("detail",""))')" >> "$GITHUB_OUTPUT"
+          echo "code=$CODE" >> "$GITHUB_OUTPUT"
+
+      # 실패 시 이슈 생성/갱신(놓치지 않도록 고정 제목으로 중복 방지).
+      - name: Open/update issue on failure
+        if: steps.probe.outputs.code != '0'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const detail = `${{ steps.probe.outputs.detail }}`;
+            const title = "⚠️ Editorial AI Gateway healthcheck failed";
+            const body = [
+              "editorial-review는 **required + fail-closed**입니다. 게이트웨이 프로브가 실패했습니다.",
+              "",
+              "```",
+              detail,
+              "```",
+              "",
+              "조치 가이드:",
+              "- `auth`(401/403): **AI_GATEWAY_TOKEN 교체**. `--admin` 우회 금지(리뷰 없이 통과 위험).",
+              "- `quota`(429): 무료 티어 소진 — 한도 회복 대기.",
+              "- `unreachable`(네트워크/5xx): 프로바이더 장애. 문서 PR이 막히면 관리자가 나머지 6개 체크 초록 확인 후 `gh pr merge <n> --admin` (CONTRIBUTING 런북 참고).",
+              "",
+              `_healthcheck run: ${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}_`,
+            ].join("\n");
+            // 동일 제목의 열린 이슈가 있으면 코멘트 추가, 없으면 생성.
+            const existing = await github.paginate(github.rest.issues.listForRepo, {
+              owner: context.repo.owner, repo: context.repo.repo,
+              state: "open", per_page: 100,
+            });
+            const hit = existing.find((i) => i.title === title && !i.pull_request);
+            if (hit) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner, repo: context.repo.repo,
+                issue_number: hit.number, body,
+              });
+            } else {
+              await github.rest.issues.create({
+                owner: context.repo.owner, repo: context.repo.repo,
+                title, body, labels: ["editorial-gateway"],
+              });
+            }
+
+      - name: Fail the job if unhealthy
+        if: steps.probe.outputs.code != '0'
+        run: |
+          echo "::error::Editorial gateway healthcheck failed — see the opened issue."
+          exit 1

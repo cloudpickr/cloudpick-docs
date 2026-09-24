@@ -212,9 +212,16 @@ def run_review(
         calls += 1
         try:
             raw = call_fn(messages, config.reviewer_model, MAX_OUTPUT_TOKENS)
-        except Exception as exc:  # outage/quota/timeout — non-pass, no cache
-            return ReviewResult("error", [f"LLM call failed (not an approval): {exc}"],
-                                calls, cacheable=False)
+        except Exception as exc:  # outage/quota/timeout/auth — non-pass, no cache (fail-closed)
+            # 에러를 분류해 관리자가 조치를 즉시 판단하게 한다(verdict는 계약대로 'error' 유지):
+            #   auth      → AI_GATEWAY_TOKEN 교체(‘--admin’ 우회 금지, 리뷰 없이 통과 위험)
+            #   unreachable → 게이트웨이/프로바이더 장애(재시도 소진). 필요 시 관리자 --admin 우회
+            #   quota     → 무료 티어 소진. 한도 회복 대기 또는 관리자 우회
+            klass, hint = classify_gateway_error(exc)
+            return ReviewResult(
+                "error",
+                [f"LLM call failed ({klass}, not an approval): {exc}", hint],
+                calls, cacheable=False)
         try:
             parsed = json.loads(raw)
             verdict = parsed["verdict"]
@@ -239,6 +246,36 @@ def run_review(
 
     return ReviewResult("error", ["no parseable verdict after repair round"],
                         calls, cacheable=False)
+
+
+def classify_gateway_error(exc: Exception) -> tuple[str, str]:
+    """게이트웨이 호출 예외를 조치 가능한 클래스로 분류한다. (klass, admin용 hint) 반환.
+
+    verdict 자체는 바꾸지 않는다(항상 'error' = fail-closed). 다만 required 체크 요약에
+    원인과 조치를 노출해, 관리자가 '토큰 교체'인지 '장애 → --admin 우회'인지 즉시 판단하게 한다.
+
+    분류:
+      auth        — HTTP 401/403. 토큰 만료/권한 오류. 가장 흔하고 스스로 낫지 않음.
+                    조치: AI_GATEWAY_TOKEN 교체. (리뷰 없이 --admin 우회 금지 — 무검토 통과 위험)
+      quota       — HTTP 429. 무료 티어 소진. 조치: 한도 회복 대기 또는 관리자 판단.
+      unreachable — 네트워크/DNS/타임아웃/5xx(재시도 소진). 프로바이더 장애/설정 오류.
+                    조치: 장애면 관리자 --admin 우회 가능(나머지 6개 체크 초록 확인 후).
+      other       — 그 외(파싱 등). 조치: 로그 확인.
+    """
+    import urllib.error
+
+    if isinstance(exc, urllib.error.HTTPError):
+        code = exc.code
+        if code in (401, 403):
+            return "auth", "hint: rotate AI_GATEWAY_TOKEN (do NOT --admin bypass; unreviewed merge risk)"
+        if code == 429:
+            return "quota", "hint: free-tier quota exhausted — wait for reset or admin decision"
+        if 500 <= code < 600:
+            return "unreachable", "hint: gateway/provider 5xx after retries — outage; admin --admin allowed after other checks green"
+        return "other", f"hint: unexpected HTTP {code} — inspect logs"
+    if isinstance(exc, (urllib.error.URLError, TimeoutError, ConnectionError)):
+        return "unreachable", "hint: gateway unreachable (network/DNS/timeout) after retries — outage; admin --admin allowed after other checks green"
+    return "other", "hint: non-network error — inspect logs (verdict stays error, fail-closed)"
 
 
 def _default_gateway_call(messages, model, max_output_tokens):
@@ -296,9 +333,33 @@ def _default_gateway_call(messages, model, max_output_tokens):
     return _once()
 
 
+def healthcheck() -> tuple[int, str]:
+    """게이트웨이 토큰/도달성 헬스체크 — 최소 인증 호출 1회. (exit_code, message).
+
+    스케줄 워크플로(D)가 호출한다. 토큰 만료(auth)를 PR에 닿기 전에 잡는 것이 주목적.
+    exit 0=정상, 2=문제(분류 메시지 포함). 리뷰 로직과 무관한 경량 프로브.
+    """
+    config = ReviewConfig.from_env()
+    if not config.is_configured():
+        return 2, "unconfigured: AI_GATEWAY_BASE_URL/TOKEN/REVIEWER_MODEL 미설정"
+    probe = [{"role": "user", "content": "ping"}]
+    try:
+        _default_gateway_call(probe, config.reviewer_model, 8)
+        return 0, f"ok: gateway reachable, token valid (model={config.reviewer_model})"
+    except Exception as exc:  # noqa: BLE001
+        klass, hint = classify_gateway_error(exc)
+        return 2, f"{klass}: {exc} — {hint}"
+
+
 def main(argv: list[str]) -> int:
+    if len(argv) >= 2 and argv[1] == "--healthcheck":
+        code, msg = healthcheck()
+        print(json.dumps({"healthcheck": "ok" if code == 0 else "fail",
+                          "detail": msg}, ensure_ascii=False))
+        return code
     if len(argv) < 3:
-        print("usage: review_runner.py <packet.json> <diff_file>", file=sys.stderr)
+        print("usage: review_runner.py <packet.json> <diff_file> | --healthcheck",
+              file=sys.stderr)
         return 2
     packet = json.loads(Path(argv[1]).read_text(encoding="utf-8"))
     diff_text = Path(argv[2]).read_text(encoding="utf-8")

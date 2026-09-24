@@ -186,6 +186,47 @@ class TestPromptDataFraming(unittest.TestCase):
         )
 
 
+class TestGatewayErrorClassification(unittest.TestCase):
+    """게이트웨이 에러 분류 — verdict는 error 유지하되 원인/조치를 reasons에 노출."""
+
+    def test_auth_error_classified(self):
+        import urllib.error
+        def boom(*a, **k):
+            raise urllib.error.HTTPError("u", 401, "unauthorized", {}, None)
+        r = rr.run_review(cfg(), PACKET, DIFF, call_fn=boom)
+        self.assertEqual(r.verdict, "error")           # fail-closed 유지
+        self.assertFalse(r.cacheable)
+        joined = " ".join(r.reasons).lower()
+        self.assertIn("auth", joined)
+        self.assertIn("token", joined)                  # 토큰 교체 힌트
+
+    def test_unreachable_error_classified(self):
+        import urllib.error
+        def boom(*a, **k):
+            raise urllib.error.URLError("dns fail")
+        r = rr.run_review(cfg(), PACKET, DIFF, call_fn=boom)
+        self.assertEqual(r.verdict, "error")
+        joined = " ".join(r.reasons).lower()
+        self.assertIn("unreachable", joined)
+        self.assertIn("--admin", " ".join(r.reasons))   # 장애 시 우회 가능 힌트
+
+    def test_quota_error_classified(self):
+        import urllib.error
+        def boom(*a, **k):
+            raise urllib.error.HTTPError("u", 429, "too many", {}, None)
+        r = rr.run_review(cfg(), PACKET, DIFF, call_fn=boom)
+        self.assertEqual(r.verdict, "error")
+        self.assertIn("quota", " ".join(r.reasons).lower())
+
+    def test_classify_helper_direct(self):
+        import urllib.error
+        self.assertEqual(rr.classify_gateway_error(
+            urllib.error.HTTPError("u", 403, "x", {}, None))[0], "auth")
+        self.assertEqual(rr.classify_gateway_error(
+            urllib.error.HTTPError("u", 503, "x", {}, None))[0], "unreachable")
+        self.assertEqual(rr.classify_gateway_error(TimeoutError())[0], "unreachable")
+
+
 class TestGatewayRetry(unittest.TestCase):
     """_default_gateway_call의 transient 재시도 — 일시적 에러만 재시도, 영구 에러는 즉시 전파.
 

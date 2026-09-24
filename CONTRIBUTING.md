@@ -218,3 +218,54 @@ python3 scripts/lint-strikethrough.py
 4. **벤더 중립** — 열 순서, 근거 없는 최상급 표현
 5. **변동성 정보** — 가격·리전·SLA는 공식 링크 포함
 6. **독자 접근성** — 신규 섹션 도입 설명, 모호한 표현
+
+
+## 편집 리뷰 게이트와 장애 대응 (required 체크)
+
+`editorial-review`·`editorial-c-approval`은 master 브랜치 보호의 **required 체크**입니다.
+`editorial-review`는 문서(`src/content/docs/**`)를 바꾸는 PR에 대해 Cloudflare AI Gateway
+(Workers AI 무료 티어)로 자동 편집 리뷰를 수행하며, **fail-closed** 설계입니다 — 게이트웨이
+장애/토큰 만료/쿼터 소진은 승인(pass)으로 바뀌지 않고 `error`(비통과)로 남습니다. 이는
+"리뷰가 실제로 일어났다"는 무결성을 보장하기 위함입니다.
+
+- 문서를 바꾸지 않는 PR(코드·워크플로 등)은 `feature-only`로 자동 통과합니다.
+- 일시적 흔들림(429/5xx/타임아웃)은 리뷰어가 짧게 재시도(최대 2회)해 흡수합니다.
+
+### 게이트웨이 장애로 문서 PR이 막힐 때
+
+`editorial-review` 체크 요약의 에러 분류를 먼저 확인하세요:
+
+- **`auth`(401/403 — 토큰 만료/권한 오류)** — **`AI_GATEWAY_TOKEN`을 교체**하고 체크를
+  재실행하세요. 이 경우 관리자 우회(`--admin`)를 **쓰지 마세요**: 리뷰가 실제로 돌지 않은 채
+  문서가 통과됩니다. (스케줄 헬스체크 워크플로가 토큰 만료를 사전에 이슈로 알립니다.)
+- **`quota`(429 — 무료 티어 소진)** — 한도 회복(일일 리셋)을 기다린 뒤 재실행하세요.
+- **`unreachable`(네트워크/DNS/5xx — 프로바이더 장애)** — 아래 관리자 우회 절차를 따릅니다.
+
+### 관리자 우회 절차 (genuine outage 한정)
+
+게이트웨이가 실제로 장애(`unreachable`)이고 문서를 즉시 머지해야 할 때만, 저장소 관리자는
+다음 절차로 우회할 수 있습니다(`enforce_admins=false`이므로 관리자에 한해 가능):
+
+1. **나머지 6개 required 체크(build, docs-consistency-lint, link-check, mermaid-lint,
+   strikethrough-lint, editorial-c-approval)가 모두 초록인지 반드시 확인**하세요.
+   `--admin`은 `editorial-review`뿐 아니라 **7개 체크 전부를 우회**합니다 — 빌드/링크 깨짐이
+   함께 통과되지 않도록 육안 확인이 필수입니다.
+2. 우회 사유를 PR 코멘트로 남기고 `editorial-review-bypassed` 라벨을 답니다.
+3. 머지:
+   ```bash
+   gh pr merge <PR번호> --squash --admin
+   ```
+4. **게이트웨이 복구 후**, 우회로 머지된 문서에 대해 편집 리뷰 워크플로를
+   `workflow_dispatch`로 재실행해 감사 공백을 메웁니다.
+
+`auth`(토큰 만료)에는 이 우회를 쓰지 않습니다 — 토큰을 교체하면 정상 리뷰가 되살아납니다.
+
+### required 체크 임시 롤백 (최후 수단)
+
+게이트웨이 장애가 장기화되어 다수 PR이 막히면, 관리자는 editorial 두 체크를 일시적으로
+required에서 내릴 수 있습니다(장애 해소 후 다시 승격):
+
+```bash
+bash .editorial/enforce_required_checks.sh apply-rollback   # editorial 2개 제거(결정론적 5개 유지)
+bash .editorial/enforce_required_checks.sh apply-enforce    # 복구 후 다시 required 승격
+```

@@ -242,7 +242,16 @@ def run_review(
 
 
 def _default_gateway_call(messages, model, max_output_tokens):
-    """실제 LiteLLM(OpenAI 호환) 호출. 표준 라이브러리만 사용(신규 의존성 없음)."""
+    """실제 LiteLLM(OpenAI 호환) 호출. 표준 라이브러리만 사용(신규 의존성 없음).
+
+    Transient(일시적) 에러 — HTTP 429/5xx, 타임아웃, 연결 오류 — 에 한해 같은 provider로
+    bounded 재시도(지수 backoff)한다. friends 리뷰 결론: 다른 provider 폴백은 writer-distinct
+    감사를 깨고 모델 행동 차이로 CI 오탐을 늘리므로, 같은 provider 재시도가 안전한 완화책.
+    재시도는 '네트워크 호출'만 다시 하며, verdict 파싱/판정 로직에는 관여하지 않는다(fail-closed
+    보존 — 상위 run_review가 응답을 그대로 판정).
+    """
+    import time
+    import urllib.error
     import urllib.request
 
     config = ReviewConfig.from_env()
@@ -252,21 +261,39 @@ def _default_gateway_call(messages, model, max_output_tokens):
         "max_tokens": max_output_tokens,
         "temperature": 0,
     }).encode("utf-8")
-    req = urllib.request.Request(
-        config.base_url.rstrip("/") + "/chat/completions",
-        data=body,
-        headers={
-            "Content-Type": "application/json",
-            "Authorization": f"Bearer {config.api_key}",
-            # Cloudflare WAF는 User-Agent 없는 요청을 봇으로 보고 1010으로 차단한다.
-            "User-Agent": "cloudpick-editorial-review/1",
-            "Accept": "application/json",
-        },
-        method="POST",
-    )
-    with urllib.request.urlopen(req, timeout=60) as resp:  # noqa: S310 (trusted endpoint)
-        payload = json.loads(resp.read().decode("utf-8"))
-    return payload["choices"][0]["message"]["content"]
+
+    def _once():
+        req = urllib.request.Request(
+            config.base_url.rstrip("/") + "/chat/completions",
+            data=body,
+            headers={
+                "Content-Type": "application/json",
+                "Authorization": f"Bearer {config.api_key}",
+                # Cloudflare WAF는 User-Agent 없는 요청을 봇으로 보고 1010으로 차단한다.
+                "User-Agent": "cloudpick-editorial-review/1",
+                "Accept": "application/json",
+            },
+            method="POST",
+        )
+        with urllib.request.urlopen(req, timeout=60) as resp:  # noqa: S310 (trusted endpoint)
+            payload = json.loads(resp.read().decode("utf-8"))
+        return payload["choices"][0]["message"]["content"]
+
+    # 일시적 에러만 재시도(최대 2회 추가 시도). 그 외(4xx 등 영구 오류)는 즉시 전파 → non-pass.
+    max_retries = 2
+    for attempt in range(max_retries + 1):
+        try:
+            return _once()
+        except urllib.error.HTTPError as exc:
+            transient = exc.code == 429 or 500 <= exc.code < 600
+            if not transient or attempt == max_retries:
+                raise
+        except (urllib.error.URLError, TimeoutError):
+            if attempt == max_retries:
+                raise
+        time.sleep(2 ** attempt)  # 1s, 2s backoff
+    # 도달 불가(위 루프가 반환 또는 raise). 방어적으로 마지막 시도.
+    return _once()
 
 
 def main(argv: list[str]) -> int:

@@ -7,6 +7,8 @@ review_runner.py 테스트 — 실제 네트워크 없이 call_fn mock 주입.
     성공만 캐시 가능, 예산 상한.
 """
 import sys
+import os
+import json
 import unittest
 from pathlib import Path
 
@@ -174,8 +176,7 @@ class TestPromptDataFraming(unittest.TestCase):
         # PR 콘텐츠는 user 메시지에 데이터로만
         self.assertIn("DIFF (data)", msgs[1]["content"])
 
-    def test_prompt_includes_reader_difficulty_axis(self):
-        # 루브릭 4번째 축: 독자 난이도(초장문/고밀도 문단)를 검사하도록 지시가 있어야 한다.
+    def test_prompt_includes_reader_difficulty_axis(self):        # 루브릭 4번째 축: 독자 난이도(초장문/고밀도 문단)를 검사하도록 지시가 있어야 한다.
         # 이 축이 빠지면 워크플로가 '너무 어렵게 쓰인 문서'를 놓친다(실측 갭 회귀 방지).
         sys_prompt = rr.build_prompt(PACKET, DIFF)[0]["content"].lower()
         self.assertIn("difficulty", sys_prompt)
@@ -183,6 +184,66 @@ class TestPromptDataFraming(unittest.TestCase):
             "excessively long" in sys_prompt or "dense" in sys_prompt,
             "reader-difficulty axis must describe long/dense paragraphs",
         )
+
+
+class TestGatewayRetry(unittest.TestCase):
+    """_default_gateway_call의 transient 재시도 — 일시적 에러만 재시도, 영구 에러는 즉시 전파.
+
+    friends 리뷰 결론(같은 provider bounded 재시도)을 검증. 재시도는 네트워크 호출만 반복하며
+    verdict 판정에는 관여하지 않는다(fail-closed 보존).
+    """
+
+    def _patch(self, sequence):
+        """urlopen을 sequence의 항목으로 순차 대체. 예외 객체면 raise, 아니면 응답 반환."""
+        import urllib.request
+        calls = {"n": 0}
+
+        class FakeResp:
+            def __init__(self, text):
+                self._t = json.dumps(
+                    {"choices": [{"message": {"content": text}}]}).encode()
+            def read(self):
+                return self._t
+            def __enter__(self):
+                return self
+            def __exit__(self, *a):
+                return False
+
+        def fake_urlopen(req, timeout=60):
+            i = calls["n"]
+            calls["n"] += 1
+            item = sequence[min(i, len(sequence) - 1)]
+            if isinstance(item, Exception):
+                raise item
+            return FakeResp(item)
+
+        self._orig = urllib.request.urlopen
+        urllib.request.urlopen = fake_urlopen
+        self._calls = calls
+        os.environ.setdefault("AI_GATEWAY_BASE_URL", "https://gw.example")
+        os.environ.setdefault("AI_GATEWAY_TOKEN", "k")
+        return calls
+
+    def tearDown(self):
+        import urllib.request
+        if hasattr(self, "_orig"):
+            urllib.request.urlopen = self._orig
+
+    def test_retries_on_5xx_then_succeeds(self):
+        import urllib.error
+        err = urllib.error.HTTPError("u", 503, "busy", {}, None)
+        calls = self._patch([err, '{"verdict":"approve"}'])
+        out = rr._default_gateway_call([{"role": "user", "content": "x"}], "m", 100)
+        self.assertIn("approve", out)
+        self.assertEqual(calls["n"], 2)  # 1 실패 + 1 성공
+
+    def test_permanent_4xx_not_retried(self):
+        import urllib.error
+        err = urllib.error.HTTPError("u", 400, "bad", {}, None)
+        calls = self._patch([err, '{"verdict":"approve"}'])
+        with self.assertRaises(urllib.error.HTTPError):
+            rr._default_gateway_call([{"role": "user", "content": "x"}], "m", 100)
+        self.assertEqual(calls["n"], 1)  # 재시도 없음
 
 
 if __name__ == "__main__":

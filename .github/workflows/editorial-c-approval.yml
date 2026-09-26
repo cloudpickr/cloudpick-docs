@@ -31,6 +31,8 @@ on:
       - "CONTRIBUTING.md"
       - "AGENTS.md"
       - "astro.config.mjs"
+      - "package.json"
+      - "package-lock.json"
   issue_comment:
     types: [created, edited]
   workflow_dispatch:

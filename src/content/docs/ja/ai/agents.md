@@ -100,7 +100,7 @@ AgentCore GatewayおよびClaude製品群ですでにサポート中。
 
 | ベンダー | プラットフォーム | 特徴 |
 | --- | --- | --- |
-| AWS | [Bedrock AgentCore](https://aws.amazon.com/bedrock/agentcore/) | フレームワーク非依存、Harness、Memory、Gateway、MCP |
+| AWS | [Bedrock AgentCore](https://aws.amazon.com/bedrock/agentcore/) | フレームワーク非依存、Harness(マネージド、オープンソースのStrands harnessとは別)、Memory、Gateway、MCP |
 | Azure | [Microsoft Foundry Agents](https://learn.microsoft.com/azure/ai-foundry/agents/) | Responses API、MCP、Agent 365ガバナンス |
 | Google | [Gemini Enterprise Agent Platform](https://cloud.google.com/products/agent-builder) | ADK(オープンソース)、A2Aネイティブ、Agent Runtime |
 | OCI | [OCI Enterprise AI Agents](https://docs.oracle.com/iaas/Content/generative-ai/agents.htm) | RAGエージェント、Oracle DB連携、AI Guardrails |
@@ -111,8 +111,14 @@ AgentCore GatewayおよびClaude製品群ですでにサポート中。
 | --- | --- |
 | [LangGraph](https://github.com/langchain-ai/langgraph) | ステートマシンベースのマルチエージェント |
 | [CrewAI](https://github.com/crewAIInc/crewAI) | 役割ベースの協業 |
-| [Strands Agents](https://strandsagents.com/) | AWSオープンソース、モデル非依存 |
-| [AutoGen](https://github.com/microsoft/autogen) | Microsoft、対話型マルチエージェント |
+| [Strands Agents](https://strandsagents.com/) | AWSオープンソース、モデル非依存。SDK(部品を自ら組み立て)+ harness(組み合わせ層。`create_harness()`で完成形エージェントを返す、公開2026-09-21) |
+| [AG2](https://ag2.ai/)(旧AutoGen) | コミュニティフォーク、オープンソースAgentOS |
+| [Microsoft Agent Framework](https://github.com/microsoft/autogen) | AutoGen後継、2026.04 GA |
+
+:::note
+Strands SDKはエージェントの構成要素を提供し、Strands harnessはSDK上の薄い組み合わせ層として、ツール・コンテキスト・セッション・メモリ・フックとシステムプロンプトを構成した標準のStrands Agentを返します。すべてのデフォルト設定は変更できます。
+Strands harnessはローカルでも任意のクラウドでも実行でき、Bedrock AgentCoreはエージェントをマネージド環境でホストする別のランタイム層です。
+:::
 
 ---
 

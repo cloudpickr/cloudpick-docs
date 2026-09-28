@@ -100,7 +100,7 @@ AgentCore Gateway, Claude 제품군에서 이미 지원 중입니다.
 
 | 벤더 | 플랫폼 | 특징 |
 | --- | --- | --- |
-| AWS | [Bedrock AgentCore](https://aws.amazon.com/bedrock/agentcore/) | 프레임워크 비종속, Harness, Memory, Gateway, MCP |
+| AWS | [Bedrock AgentCore](https://aws.amazon.com/bedrock/agentcore/) | 프레임워크 비종속, Harness(관리형, 오픈소스 Strands harness와 별개), Memory, Gateway, MCP |
 | Azure | [Microsoft Foundry Agents](https://learn.microsoft.com/azure/ai-foundry/agents/) | Responses API, MCP, Agent 365 거버넌스 |
 | Google | [Gemini Enterprise Agent Platform](https://cloud.google.com/products/agent-builder) | ADK(오픈소스), A2A 네이티브, Agent Runtime |
 | OCI | [OCI Enterprise AI Agents](https://docs.oracle.com/iaas/Content/generative-ai/agents.htm) | RAG 에이전트, Oracle DB 연동, AI Guardrails |
@@ -111,9 +111,14 @@ AgentCore Gateway, Claude 제품군에서 이미 지원 중입니다.
 | --- | --- |
 | [LangGraph](https://github.com/langchain-ai/langgraph) | 상태 머신 기반 멀티에이전트 |
 | [CrewAI](https://github.com/crewAIInc/crewAI) | 역할 기반 협업 |
-| [Strands Agents](https://strandsagents.com/) | AWS 오픈소스, 모델 비종속 |
+| [Strands Agents](https://strandsagents.com/) | AWS 오픈소스, 모델 비종속. SDK(부품 직접 조립) + harness(조합 계층, `create_harness()`로 완성형 에이전트 반환, 공개 2026-09-21) |
 | [AG2](https://ag2.ai/) (구 AutoGen) | 커뮤니티 포크, 오픈소스 AgentOS |
 | [Microsoft Agent Framework](https://github.com/microsoft/autogen) | AutoGen 후속, 2026.04 GA |
+
+:::note
+Strands SDK는 에이전트 구성 요소를 제공하고, Strands harness는 SDK 위의 얇은 조합 계층으로 도구·컨텍스트·세션·메모리·훅과 시스템 프롬프트를 구성한 표준 Strands Agent를 반환합니다. 모든 기본 설정은 변경할 수 있습니다.
+Strands harness는 로컬이나 어느 클라우드에서나 실행할 수 있으며, Bedrock AgentCore는 에이전트를 관리형 환경에서 호스팅하는 별도 런타임 계층입니다.
+:::
 
 ---
 

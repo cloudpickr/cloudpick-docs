@@ -33,6 +33,7 @@ jobs:
           AI_GATEWAY_TOKEN: ${{ secrets.AI_GATEWAY_TOKEN }}
           REVIEWER_MODEL: ${{ vars.REVIEWER_MODEL }}
           REVIEWER_PROVIDER: ${{ vars.REVIEWER_PROVIDER }}
+          REVIEWER_POOL: ${{ vars.REVIEWER_POOL }}
         run: |
           set +e
           OUT="$(python3 .editorial/review_runner.py --healthcheck)"

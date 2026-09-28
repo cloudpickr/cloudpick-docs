@@ -17,14 +17,14 @@ import review_runner as rr  # noqa: E402
 
 PACKET = {
     "jira_key": "CLPKDOC-1",
-    "writer": {"model": "docs-writer", "provider": "provider-a"},
+    "writer": {"model": "claude-opus", "provider": "anthropic"},
     "claim_ledger": [{"claim": "x", "source_url": "https://docs.aws.amazon.com/x",
                       "checked_at": "2026-09-10T00:00:00Z", "status": "verified"}],
 }
 DIFF = "--- a/x.md\n+++ b/x.md\n@@ -1 +1 @@\n-old\n+new\n"
 
 
-def cfg(model="reviewer-model", provider="provider-b", base="https://gateway.example",
+def cfg(model="llama-3.3-70b", provider="workers-ai", base="https://gateway.example",
         key="k"):
     return rr.ReviewConfig(base_url=base, api_key=key, reviewer_model=model,
                            reviewer_provider=provider)
@@ -45,21 +45,29 @@ class TestConfig(unittest.TestCase):
 
 class TestWriterDistinct(unittest.TestCase):
     def test_same_model_rejected(self):
-        c = cfg(model="docs-writer")  # writer와 동일
+        c = cfg(model="claude-opus", provider="workers-ai")  # writer와 동일 model
         r = rr.run_review(c, PACKET, DIFF, call_fn=lambda *a, **k: '{"verdict":"approve"}')
         self.assertEqual(r.verdict, "error")
         self.assertFalse(r.cacheable)
 
     def test_same_provider_rejected(self):
         # 다른 model이지만 같은 provider → 독립 아님
-        c = cfg(model="reviewer-model", provider="provider-a")  # writer provider와 동일
+        c = cfg(model="claude-sonnet", provider="anthropic")  # writer provider와 동일
         r = rr.run_review(c, PACKET, DIFF, call_fn=lambda *a, **k: '{"verdict":"approve"}')
         self.assertEqual(r.verdict, "error")
         self.assertFalse(r.cacheable)
 
+    def test_same_vendor_alias_rejected(self):
+        # provider 문자열은 다르지만(hf-inference) 실제 벤더가 anthropic → 별칭 우회 차단.
+        c = cfg(model="claude-3.5", provider="hf-inference")
+        r = rr.run_review(c, PACKET, DIFF, call_fn=lambda *a, **k: '{"verdict":"approve"}')
+        self.assertEqual(r.verdict, "error")
+        joined = " ".join(r.reasons).lower()
+        self.assertIn("vendor", joined)
+
     def test_missing_reviewer_provider_rejected(self):
         c = rr.ReviewConfig(base_url="https://x", api_key="k",
-                            reviewer_model="reviewer-model", reviewer_provider=None)
+                            reviewer_model="llama-3.3-70b", reviewer_provider=None)
         r = rr.run_review(c, PACKET, DIFF, call_fn=lambda *a, **k: '{"verdict":"approve"}')
         self.assertEqual(r.verdict, "error")
 
@@ -72,9 +80,92 @@ class TestWriterDistinct(unittest.TestCase):
         self.assertFalse(r.cacheable)
 
     def test_distinct_model_and_provider_ok(self):
-        c = cfg(model="reviewer-model", provider="provider-b")
+        c = cfg(model="llama-3.3-70b", provider="workers-ai")  # meta/cloudflare vs anthropic
         r = rr.run_review(c, PACKET, DIFF, call_fn=lambda *a, **k: '{"verdict":"approve","reasons":[]}')
         self.assertEqual(r.verdict, "approve")
+
+    def test_writer_vendor_field_takes_precedence(self):
+        # writer가 명시적 vendor를 신고하면 그것으로 정규화(문자열 추론 실패 회피).
+        packet = {**PACKET, "writer": {"model": "custom-x", "provider": "self-hosted",
+                                       "vendor": "anthropic"}}
+        c = cfg(model="claude-opus", provider="workers-ai")  # reviewer vendor=anthropic
+        r = rr.run_review(c, packet, DIFF, call_fn=lambda *a, **k: '{"verdict":"approve"}')
+        self.assertEqual(r.verdict, "error")  # vendor 충돌(anthropic==anthropic)
+
+
+class TestNormalizeVendor(unittest.TestCase):
+    def test_basic_vendors(self):
+        self.assertEqual(rr.normalize_vendor("claude-opus", "anthropic"), "anthropic")
+        self.assertEqual(rr.normalize_vendor("gpt-6", "openai"), "openai")
+        self.assertEqual(rr.normalize_vendor("gemini-3", "google"), "google")
+
+    def test_hosting_provider_defers_to_real_model(self):
+        # workers-ai/huggingface(호스팅) + 실제 모델 벤더 → 실제 벤더 우선.
+        self.assertEqual(rr.normalize_vendor("llama-3.3-70b", "workers-ai"), "meta")
+        self.assertEqual(rr.normalize_vendor("claude-3.5", "hf-inference"), "anthropic")
+
+    def test_hosting_only_returns_hosting(self):
+        # 실제 모델 벤더를 특정 못하고 호스팅만 있으면 그 호스팅 벤더.
+        self.assertEqual(rr.normalize_vendor("some-model", "workers-ai"), "cloudflare")
+
+    def test_unknown_returns_none(self):
+        self.assertIsNone(rr.normalize_vendor("mystery", "provider-x"))
+        self.assertIsNone(rr.normalize_vendor("", ""))
+
+
+class TestReviewerPool(unittest.TestCase):
+    def _pool_cfg(self, pool, base="https://gw", key="k"):
+        return rr.ReviewConfig(base_url=base, api_key=key, reviewer_model=None,
+                               reviewer_provider=None, reviewer_pool=pool)
+
+    def test_pool_selects_first_distinct(self):
+        # 첫 후보가 writer와 vendor 충돌(anthropic), 둘째가 독립(workers-ai/meta) → 둘째 선택.
+        pool = [{"model": "claude-opus", "provider": "anthropic"},
+                {"model": "llama-3.3-70b", "provider": "workers-ai"}]
+        r = rr.run_review(self._pool_cfg(pool), PACKET, DIFF,
+                          call_fn=lambda *a, **k: '{"verdict":"approve","reasons":[]}')
+        self.assertEqual(r.verdict, "approve")
+        self.assertEqual(r.selected_model, "llama-3.3-70b")
+
+    def test_pool_all_conflict_is_error(self):
+        # pool 전량이 writer(anthropic)와 충돌 → error, 전용 사유코드.
+        pool = [{"model": "claude-opus", "provider": "anthropic"},
+                {"model": "claude-3.5", "provider": "hf-inference"}]  # 둘 다 anthropic vendor
+        r = rr.run_review(self._pool_cfg(pool), PACKET, DIFF,
+                          call_fn=lambda *a, **k: '{"verdict":"approve"}')
+        self.assertEqual(r.verdict, "error")
+        self.assertIn("pool-all-conflict", " ".join(r.reasons))
+
+    def test_pool_selection_deterministic(self):
+        # 같은 pool·writer면 항상 같은 후보(배열 순서=우선순위).
+        pool = [{"model": "llama-3.3-70b", "provider": "workers-ai"},
+                {"model": "gemini-3", "provider": "google"}]
+        for _ in range(3):
+            sel, _why = rr.select_reviewer(self._pool_cfg(pool), PACKET)
+            self.assertEqual(sel["model"], "llama-3.3-70b")
+
+    def test_pool_config_error_is_shadow(self):
+        # REVIEWER_POOL JSON 파싱 실패 → 단일로 조용히 되돌아가지 않고 fail-closed.
+        c = rr.ReviewConfig.from_env({"AI_GATEWAY_BASE_URL": "https://gw",
+                                      "AI_GATEWAY_TOKEN": "k",
+                                      "REVIEWER_POOL": "{not a list}"})
+        self.assertIsNotNone(c.pool_error)
+        self.assertFalse(c.is_configured())
+        r = rr.run_review(c, PACKET, DIFF, call_fn=lambda *a, **k: '{"verdict":"approve"}')
+        self.assertEqual(r.verdict, "skipped-unconfigured")
+
+    def test_backward_compat_single_reviewer(self):
+        # pool 미설정 + 단일 REVIEWER_MODEL/PROVIDER → 기존 동작 유지.
+        c = rr.ReviewConfig.from_env({"AI_GATEWAY_BASE_URL": "https://gw",
+                                      "AI_GATEWAY_TOKEN": "k",
+                                      "REVIEWER_MODEL": "llama-3.3-70b",
+                                      "REVIEWER_PROVIDER": "workers-ai"})
+        self.assertIsNone(c.reviewer_pool)
+        self.assertTrue(c.is_configured())
+        r = rr.run_review(c, PACKET, DIFF,
+                          call_fn=lambda *a, **k: '{"verdict":"approve","reasons":[]}')
+        self.assertEqual(r.verdict, "approve")
+        self.assertEqual(r.selected_model, "llama-3.3-70b")
 
 
 class TestVerdicts(unittest.TestCase):

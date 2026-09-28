@@ -82,24 +82,96 @@ def condense_diff(diff_text: str, *, max_total: int = MAX_DIFF_CHARS,
     return "\n".join(out), truncated
 
 
+# vendor 정규화 별칭 — 별칭 우회(같은 실제 모델이 다른 provider/model 문자열로 리뷰어가
+# 되는 것) 차단용. writer-distinct는 provider/model '문자열'만이 아니라 정규화된 '실제 벤더'
+# 로도 판정한다(3 AI 리뷰 만장일치 지적). 아래 토큰이 model/provider 문자열에 부분일치하면
+# 그 vendor로 본다. 결정론적·보수적 매핑(모호하면 정규화 실패 → 호출부에서 error).
+_VENDOR_ALIASES = {
+    "openai": ("openai", "gpt-", "o1", "o3", "o4", "codex"),
+    "anthropic": ("anthropic", "claude"),
+    "google": ("google", "gemini", "vertex"),
+    "meta": ("meta", "llama"),
+    "qwen": ("qwen", "alibaba", "qwq"),
+    "mistral": ("mistral", "mixtral"),
+    "deepseek": ("deepseek",),
+    "xai": ("xai", "grok"),
+    "moonshot": ("moonshot", "kimi"),
+    "cloudflare": ("workers-ai", "cloudflare"),
+    "huggingface": ("huggingface", "hf-inference"),
+}
+
+
+def normalize_vendor(*fields: str | None) -> str | None:
+    """model/provider 문자열들에서 실제 벤더를 정규화. 판정 불가 시 None.
+
+    별칭 우회 차단이 목적이므로 보수적으로 동작한다: 서로 다른 벤더 토큰이 동시에
+    매칭되면(모호) None을 반환해 호출부가 fail-closed(error) 처리하게 한다.
+    'huggingface'/'cloudflare' 같은 '게이트웨이/호스팅' 토큰과 실제 모델 벤더(meta 등)가
+    함께 있으면, 실제 모델 벤더를 우선한다(호스팅 provider로 위장한 우회 차단).
+    """
+    hay = " ".join(f.lower() for f in fields if f).strip()
+    if not hay:
+        return None
+    hosting = {"cloudflare", "huggingface"}
+    matched = set()
+    for vendor, tokens in _VENDOR_ALIASES.items():
+        if any(tok in hay for tok in tokens):
+            matched.add(vendor)
+    if not matched:
+        return None
+    # 실제 모델 벤더가 있으면 호스팅 토큰은 무시(호스팅 provider 뒤에 숨은 실제 모델을 본다).
+    real = matched - hosting
+    if len(real) == 1:
+        return next(iter(real))
+    if len(real) > 1:
+        return None  # 모호 → fail-closed
+    # 실제 모델 벤더를 특정 못하고 호스팅만 매칭된 경우: 단일 호스팅이면 그 값, 복수면 모호.
+    if len(matched) == 1:
+        return next(iter(matched))
+    return None
+
+
 @dataclass
 class ReviewConfig:
     base_url: str | None
     api_key: str | None
     reviewer_model: str | None
     reviewer_provider: str | None
+    reviewer_pool: list[dict] | None = None  # [{model, provider, vendor?}, ...] (선택)
+    pool_error: str | None = None            # pool JSON 파싱 실패 사유(있으면 fail-closed)
 
     @classmethod
     def from_env(cls, env=None) -> "ReviewConfig":
         env = env or os.environ
+        pool = None
+        pool_error = None
+        raw_pool = (env.get("REVIEWER_POOL") or "").strip()
+        if raw_pool:
+            try:
+                parsed = json.loads(raw_pool)
+                if not isinstance(parsed, list) or not parsed:
+                    raise ValueError("REVIEWER_POOL must be a non-empty JSON array")
+                for i, item in enumerate(parsed):
+                    if not isinstance(item, dict) or not item.get("model") \
+                            or not item.get("provider"):
+                        raise ValueError(f"REVIEWER_POOL[{i}] needs model and provider")
+                pool = parsed
+            except Exception as exc:  # noqa: BLE001 — 설정오류는 fail-closed(단일 fallback 금지)
+                pool_error = f"REVIEWER_POOL parse error: {exc}"
         return cls(
             base_url=(env.get("AI_GATEWAY_BASE_URL") or "").strip() or None,
             api_key=(env.get("AI_GATEWAY_TOKEN") or "").strip() or None,
             reviewer_model=(env.get("REVIEWER_MODEL") or "").strip() or None,
             reviewer_provider=(env.get("REVIEWER_PROVIDER") or "").strip() or None,
+            reviewer_pool=pool,
+            pool_error=pool_error,
         )
 
     def is_configured(self) -> bool:
+        if self.pool_error:
+            return False
+        if self.reviewer_pool:
+            return bool(self.base_url and self.api_key)
         return bool(self.base_url and self.api_key and self.reviewer_model)
 
 
@@ -109,19 +181,28 @@ class ReviewResult:
     reasons: list[str] = field(default_factory=list)
     calls_used: int = 0
     cacheable: bool = False  # 성공(approve/changes_requested)만 True
+    selected_model: str | None = None     # 실제 사용된 리뷰어 model(감사 envelope용)
+    selected_provider: str | None = None   # 실제 사용된 리뷰어 provider
 
 
-def writer_distinct(config: ReviewConfig, packet: dict) -> tuple[bool, str]:
-    """리뷰어가 패킷 writer와 독립인지 확인(계약 writer-distinct model/provider).
+def writer_distinct(reviewer_model: str | None, reviewer_provider: str | None,
+                    packet: dict) -> tuple[bool, str]:
+    """리뷰어가 패킷 writer와 독립인지 확인(계약 writer-distinct model/provider + vendor).
+
+    3 AI 리뷰 반영: provider/model '문자열' 비교만으로는 같은 실제 모델이 다른 provider
+    문자열로 리뷰어가 되는 우회를 못 막는다. 정규화된 '실제 벤더'로도 판정한다.
 
     독립으로 인정하지 않는 경우:
       - reviewer model/provider 미설정
-      - writer 정보 누락(자기신고조차 없음) → 독립성 확인 불가 → 보류
+      - writer 정보 누락(자기신고조차 없음) → 확인 불가 → 보류
       - reviewer model == writer model (role name만 다른 동일 모델)
       - reviewer provider == writer provider (같은 공급자면 다른 model이어도 독립 아님)
+      - 정규화된 vendor가 같음(별칭 우회) — 예: writer openai/gpt-6 vs reviewer가
+        다른 provider 문자열이지만 실제로 openai
+      - 어느 한쪽 vendor를 정규화할 수 없음(모호) → fail-closed(독립 확인 불가)
     """
-    r_model = (config.reviewer_model or "").strip().lower()
-    r_provider = (config.reviewer_provider or "").strip().lower()
+    r_model = (reviewer_model or "").strip().lower()
+    r_provider = (reviewer_provider or "").strip().lower()
     if not r_model:
         return False, "reviewer model not configured"
     if not r_provider:
@@ -137,7 +218,44 @@ def writer_distinct(config: ReviewConfig, packet: dict) -> tuple[bool, str]:
         return False, f"reviewer model equals writer model ({r_model}) — not independent"
     if r_provider == w_provider:
         return False, f"reviewer provider equals writer provider ({r_provider}) — not independent"
-    return True, "writer-distinct reviewer confirmed (model and provider differ)"
+    # vendor 정규화(별칭 우회 차단). writer는 신고된 vendor가 있으면 우선 사용.
+    w_vendor = (writer.get("vendor") or "").strip().lower() or \
+        normalize_vendor(w_model, w_provider)
+    r_vendor = normalize_vendor(r_model, r_provider)
+    if w_vendor is None:
+        return False, f"cannot normalize writer vendor ({w_model}/{w_provider}) — hold"
+    if r_vendor is None:
+        return False, f"cannot normalize reviewer vendor ({r_model}/{r_provider}) — hold"
+    if r_vendor == w_vendor:
+        return False, f"reviewer vendor equals writer vendor ({r_vendor}) — not independent (alias bypass blocked)"
+    return True, f"writer-distinct reviewer confirmed (vendor {r_vendor} != {w_vendor})"
+
+
+def select_reviewer(config: ReviewConfig, packet: dict) -> tuple[dict | None, str]:
+    """pool(있으면)에서 writer-distinct를 만족하는 첫 후보를 결정론적으로 선택.
+
+    반환: (선택된 {model, provider} dict | None, 사유 문자열).
+    - pool 미설정: 단일 REVIEWER_MODEL/PROVIDER를 후보로 검사(하위호환).
+    - pool 설정: 배열 순서상 첫 독립 후보. 없으면 (None, 전용 사유코드).
+    - 재현성: 배열 순서가 우선순위이므로 같은 입력이면 항상 같은 후보를 고른다.
+    """
+    if config.pool_error:
+        return None, f"pool-config-error: {config.pool_error}"
+
+    candidates = config.reviewer_pool or (
+        [{"model": config.reviewer_model, "provider": config.reviewer_provider}]
+        if config.reviewer_model else []
+    )
+    if not candidates:
+        return None, "no reviewer configured"
+
+    rejections = []
+    for cand in candidates:
+        ok, why = writer_distinct(cand.get("model"), cand.get("provider"), packet)
+        if ok:
+            return cand, why
+        rejections.append(f"{cand.get('model')}: {why}")
+    return None, "pool-all-conflict: no writer-distinct reviewer in pool — " + "; ".join(rejections)
 
 
 def build_prompt(packet: dict, diff_text: str, source_evidence: dict | None = None) -> list[dict]:
@@ -189,12 +307,16 @@ def run_review(
     outage/예산초과/미설정은 모두 non-pass(error/skipped)로 귀결하며 pass로 변환하지 않는다.
     """
     if not config.is_configured():
-        return ReviewResult("skipped-unconfigured",
-                            ["LiteLLM endpoint/key/model not configured"], 0, cacheable=False)
+        reason = config.pool_error or "LiteLLM endpoint/key/model not configured"
+        return ReviewResult("skipped-unconfigured", [reason], 0, cacheable=False)
 
-    ok, why = writer_distinct(config, packet)
-    if not ok:
-        return ReviewResult("error", [f"writer-distinct check failed: {why}"], 0, cacheable=False)
+    # pool(또는 단일)에서 writer-distinct 리뷰어를 결정론적으로 선택.
+    selected, why = select_reviewer(config, packet)
+    if selected is None:
+        # 전량 비독립/설정오류 → non-pass. admin 우회 hint와 분리된 전용 사유코드.
+        return ReviewResult("error", [f"reviewer selection failed: {why}"], 0, cacheable=False)
+    sel_model = selected.get("model")
+    sel_provider = selected.get("provider")
 
     # 변경분 문맥만 리뷰에 담되, 절단이 발생했는지 추적한다. 절단된 diff는 리뷰어가
     # 전체 변경을 보지 못한 것이므로 자동 승인(approve)으로 이어지면 안 된다(fail-closed).
@@ -202,16 +324,20 @@ def run_review(
     messages = build_prompt(packet, condensed, source_evidence)
     if _estimate_tokens(messages) > MAX_INPUT_TOKENS:
         return ReviewResult("error",
-                            [f"input exceeds {MAX_INPUT_TOKENS} token budget"], 0, cacheable=False)
+                            [f"input exceeds {MAX_INPUT_TOKENS} token budget"], 0,
+                            cacheable=False,
+                            selected_model=sel_model, selected_provider=sel_provider)
 
     call_fn = call_fn or _default_gateway_call
     calls = 0
     for _round in range(MAX_REPAIR_ROUNDS + 1):
         if calls >= MAX_CALLS:
-            return ReviewResult("error", ["call budget exceeded"], calls, cacheable=False)
+            return ReviewResult("error", ["call budget exceeded"], calls, cacheable=False,
+                                selected_model=sel_model, selected_provider=sel_provider)
         calls += 1
         try:
-            raw = call_fn(messages, config.reviewer_model, MAX_OUTPUT_TOKENS)
+            # 선택된 리뷰어 model로 호출(pool 지원 전에는 config.reviewer_model 고정이었음).
+            raw = call_fn(messages, sel_model, MAX_OUTPUT_TOKENS)
         except Exception as exc:  # outage/quota/timeout/auth — non-pass, no cache (fail-closed)
             # 에러를 분류해 관리자가 조치를 즉시 판단하게 한다(verdict는 계약대로 'error' 유지):
             #   auth      → AI_GATEWAY_TOKEN 교체(‘--admin’ 우회 금지, 리뷰 없이 통과 위험)
@@ -221,7 +347,8 @@ def run_review(
             return ReviewResult(
                 "error",
                 [f"LLM call failed ({klass}, not an approval): {exc}", hint],
-                calls, cacheable=False)
+                calls, cacheable=False,
+                selected_model=sel_model, selected_provider=sel_provider)
         try:
             parsed = json.loads(raw)
             verdict = parsed["verdict"]
@@ -238,14 +365,19 @@ def run_review(
                     "changes_requested",
                     ["PR diff exceeds automated review budget and was truncated — "
                      "split the PR into smaller changes or route to human (Tier C) review."],
-                    calls, cacheable=False)
-            return ReviewResult("approve", reasons, calls, cacheable=True)
+                    calls, cacheable=False,
+                    selected_model=sel_model, selected_provider=sel_provider)
+            return ReviewResult("approve", [why] + reasons, calls, cacheable=True,
+                                selected_model=sel_model, selected_provider=sel_provider)
         if verdict == "changes_requested":
-            return ReviewResult("changes_requested", reasons, calls, cacheable=True)
-        return ReviewResult("error", [f"unknown verdict: {verdict!r}"], calls, cacheable=False)
+            return ReviewResult("changes_requested", reasons, calls, cacheable=True,
+                                selected_model=sel_model, selected_provider=sel_provider)
+        return ReviewResult("error", [f"unknown verdict: {verdict!r}"], calls, cacheable=False,
+                            selected_model=sel_model, selected_provider=sel_provider)
 
     return ReviewResult("error", ["no parseable verdict after repair round"],
-                        calls, cacheable=False)
+                        calls, cacheable=False,
+                        selected_model=sel_model, selected_provider=sel_provider)
 
 
 def classify_gateway_error(exc: Exception) -> tuple[str, str]:
@@ -334,21 +466,31 @@ def _default_gateway_call(messages, model, max_output_tokens):
 
 
 def healthcheck() -> tuple[int, str]:
-    """게이트웨이 토큰/도달성 헬스체크 — 최소 인증 호출 1회. (exit_code, message).
+    """게이트웨이 토큰/도달성 헬스체크 — pool 전체(또는 단일)를 최소 인증 호출로 프로브.
 
     스케줄 워크플로(D)가 호출한다. 토큰 만료(auth)를 PR에 닿기 전에 잡는 것이 주목적.
+    pool을 쓰면 각 후보 model을 모두 프로브해야 한다(3 AI 리뷰 지적: 하나만 검사하면
+    다른 후보의 만료/도달불가를 놓친다). 하나라도 실패면 exit 2.
     exit 0=정상, 2=문제(분류 메시지 포함). 리뷰 로직과 무관한 경량 프로브.
     """
     config = ReviewConfig.from_env()
+    if config.pool_error:
+        return 2, f"pool-config-error: {config.pool_error}"
     if not config.is_configured():
-        return 2, "unconfigured: AI_GATEWAY_BASE_URL/TOKEN/REVIEWER_MODEL 미설정"
+        return 2, "unconfigured: AI_GATEWAY_BASE_URL/TOKEN/REVIEWER_MODEL(또는 POOL) 미설정"
+    candidates = config.reviewer_pool or [
+        {"model": config.reviewer_model, "provider": config.reviewer_provider}]
     probe = [{"role": "user", "content": "ping"}]
-    try:
-        _default_gateway_call(probe, config.reviewer_model, 8)
-        return 0, f"ok: gateway reachable, token valid (model={config.reviewer_model})"
-    except Exception as exc:  # noqa: BLE001
-        klass, hint = classify_gateway_error(exc)
-        return 2, f"{klass}: {exc} — {hint}"
+    results = []
+    for cand in candidates:
+        model = cand.get("model")
+        try:
+            _default_gateway_call(probe, model, 8)
+            results.append(f"ok:{model}")
+        except Exception as exc:  # noqa: BLE001
+            klass, hint = classify_gateway_error(exc)
+            return 2, f"{klass}: {model}: {exc} — {hint}"
+    return 0, f"ok: gateway reachable, token valid ({', '.join(results)})"
 
 
 def main(argv: list[str]) -> int:

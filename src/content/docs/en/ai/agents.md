@@ -98,7 +98,7 @@ Already supported by AgentCore Gateway and Claude products.
 
 | Vendor | Platform | Strengths |
 | --- | --- | --- |
-| AWS | [Bedrock AgentCore](https://aws.amazon.com/bedrock/agentcore/) | Framework-agnostic, Harness, Memory, Gateway, MCP |
+| AWS | [Bedrock AgentCore](https://aws.amazon.com/bedrock/agentcore/) | Framework-agnostic, Harness (managed; distinct from the open-source Strands harness), Memory, Gateway, MCP |
 | Azure | [Microsoft Foundry Agents](https://learn.microsoft.com/azure/ai-foundry/agents/) | Responses API, MCP, Agent 365 governance |
 | Google | [Gemini Enterprise Agent Platform](https://cloud.google.com/products/agent-builder) | ADK (open-source), A2A native, Agent Runtime |
 | OCI | [OCI Enterprise AI Agents](https://docs.oracle.com/iaas/Content/generative-ai/agents.htm) | RAG agents, Oracle DB integration, AI Guardrails |
@@ -109,8 +109,17 @@ Already supported by AgentCore Gateway and Claude products.
 | --- | --- |
 | [LangGraph](https://github.com/langchain-ai/langgraph) | State machine-based multi-agent |
 | [CrewAI](https://github.com/crewAIInc/crewAI) | Role-based collaboration |
-| [Strands Agents](https://strandsagents.com/) | AWS open-source, model-agnostic |
-| [AutoGen](https://github.com/microsoft/autogen) | Microsoft, conversational multi-agent |
+| [Strands Agents](https://strandsagents.com/) | AWS open-source, model-agnostic. SDK (assemble parts yourself) + harness (composition layer; `create_harness()` returns a finished agent, released 2026-09-21) |
+| [AG2](https://ag2.ai/) (formerly AutoGen) | Community fork, open-source AgentOS |
+| [Microsoft Agent Framework](https://learn.microsoft.com/agent-framework/) | AutoGen successor, GA 2026.04 |
+
+:::note[The three Strands layers]
+- **SDK** — a library for assembling agent building blocks yourself.
+- **harness** — a thin composition layer on top of the SDK. It returns a standard Strands Agent wired with tools, context, session, memory, hooks, and a system prompt; every default is overridable.
+- **Bedrock AgentCore** — a separate runtime layer that hosts agents in a managed environment.
+
+The harness runs locally or on any cloud.
+:::
 
 ---
 

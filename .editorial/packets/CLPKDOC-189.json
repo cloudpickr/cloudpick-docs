@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "jira_key": "CLPKDOC-189",
+  "policy_action": "update",
+  "tier_hint": "B",
+  "tier_reasons": [
+    "기존 모델 비종속 프레임워크 표(Strands Agents 행)를 SDK/harness 2계층으로 상세화하고 신규 배포물(Strands harness, 2026-09-21)을 반영하는 제한적 사실 업데이트.",
+    "en/ja 오픈소스 프레임워크 표를 ko SOT와 대칭 복원(AutoGen → AG2 + Microsoft Agent Framework).",
+    "LLM 초안 작성이 포함되어 최소 B.",
+    "새 카테고리·사이드바 구조 변경이 아니라 기존 표 행 상세화 + 번역 동기화."
+  ],
+  "target_path": "src/content/docs/ko/ai/agents.md",
+  "changed_paths": [
+    "src/content/docs/ko/ai/agents.md",
+    "src/content/docs/en/ai/agents.md",
+    "src/content/docs/ja/ai/agents.md"
+  ],
+  "generated_by_llm": true,
+  "writer": {
+    "model": "codex + claude (Kiro CLI)",
+    "provider": "openai + anthropic"
+  },
+  "claim_ledger": [
+    {
+      "claim": "Strands harness는 2026-09-21 Apache 2.0로 공개된, 완전히 조립된 범용 에이전트 harness로 Python·TypeScript를 지원하며 한 번의 import(create_harness())로 시작한다.",
+      "source_url": "https://strandsagents.com/docs/user-guide/harness/",
+      "checked_at": "2026-09-28T22:08:10Z",
+      "status": "verified"
+    },
+    {
+      "claim": "Strands harness는 Strands Harness SDK 위에 올라간 얇은 조합 계층이며, 반환값은 도구·컨텍스트관리·세션·메모리·훅과 튜닝된 시스템 프롬프트가 구성된 표준 Strands Agent로 모든 기본값을 override할 수 있다.",
+      "source_url": "https://strandsagents.com/docs/user-guide/harness/",
+      "checked_at": "2026-09-28T22:08:10Z",
+      "status": "verified"
+    },
+    {
+      "claim": "Strands harness는 로컬 또는 임의의 클라우드에서 실행되며 기본 모델은 Amazon Bedrock이고 Anthropic·OpenAI·Google·Ollama로 교체할 수 있다.",
+      "source_url": "https://strandsagents.com/docs/user-guide/harness/",
+      "checked_at": "2026-09-28T22:08:10Z",
+      "status": "verified"
+    },
+    {
+      "claim": "AWS는 Strands Agent Harness SDK를 오픈소스로 공개해 어디서나 에이전트를 만들고 배포할 수 있게 했다.",
+      "source_url": "https://aws.amazon.com/blogs/machine-learning/icymi-what-landed-for-ai-builders-in-august-2026/",
+      "checked_at": "2026-09-28T22:08:10Z",
+      "status": "verified"
+    },
+    {
+      "claim": "AG2는 AutoGen에서 갈라져 나온 커뮤니티 주도 후속 프로젝트로, 오픈소스 Agent Operating System(AgentOS)을 지향한다.",
+      "source_url": "https://www.ag2.ai/compare/autogen",
+      "checked_at": "2026-09-28T22:08:10Z",
+      "status": "verified"
+    },
+    {
+      "claim": "Microsoft Agent Framework은 AutoGen과 Semantic Kernel을 통합한 후속 프레임워크로 2026년 4월 1.0 GA되었다.",
+      "source_url": "https://devblogs.microsoft.com/agent-framework/microsoft-agent-framework-version-1-0/",
+      "checked_at": "2026-09-28T22:08:10Z",
+      "status": "verified"
+    }
+  ]
+}

@@ -46,8 +46,14 @@
       "status": "verified"
     },
     {
-      "claim": "Microsoft Agent Framework은 AutoGen의 후속으로 2026년 4월 GA되었고, AG2는 AutoGen에서 갈라져 나온 커뮤니티 포크(오픈소스 AgentOS)이다.",
-      "source_url": "https://www.morphllm.com/ai-agent-framework",
+      "claim": "AG2는 AutoGen에서 갈라져 나온 커뮤니티 주도 후속 프로젝트로, 오픈소스 Agent Operating System(AgentOS)을 지향한다.",
+      "source_url": "https://www.ag2.ai/compare/autogen",
+      "checked_at": "2026-09-28T22:08:10Z",
+      "status": "verified"
+    },
+    {
+      "claim": "Microsoft Agent Framework은 AutoGen과 Semantic Kernel을 통합한 후속 프레임워크로 2026년 4월 1.0 GA되었다.",
+      "source_url": "https://devblogs.microsoft.com/agent-framework/microsoft-agent-framework-version-1-0/",
       "checked_at": "2026-09-28T22:08:10Z",
       "status": "verified"
     }

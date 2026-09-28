@@ -111,11 +111,14 @@ Already supported by AgentCore Gateway and Claude products.
 | [CrewAI](https://github.com/crewAIInc/crewAI) | Role-based collaboration |
 | [Strands Agents](https://strandsagents.com/) | AWS open-source, model-agnostic. SDK (assemble parts yourself) + harness (composition layer; `create_harness()` returns a finished agent, released 2026-09-21) |
 | [AG2](https://ag2.ai/) (formerly AutoGen) | Community fork, open-source AgentOS |
-| [Microsoft Agent Framework](https://github.com/microsoft/autogen) | AutoGen successor, GA 2026.04 |
+| [Microsoft Agent Framework](https://learn.microsoft.com/agent-framework/) | AutoGen successor, GA 2026.04 |
 
-:::note
-The Strands SDK provides agent building blocks, while the Strands harness is a thin composition layer on top of the SDK: it returns a standard Strands Agent wired with tools, context, session, memory, hooks, and a system prompt. Every default is overridable.
-The Strands harness runs locally or on any cloud, while Bedrock AgentCore is a separate runtime layer that hosts agents in a managed environment.
+:::note[The three Strands layers]
+- **SDK** — a library for assembling agent building blocks yourself.
+- **harness** — a thin composition layer on top of the SDK. It returns a standard Strands Agent wired with tools, context, session, memory, hooks, and a system prompt; every default is overridable.
+- **Bedrock AgentCore** — a separate runtime layer that hosts agents in a managed environment.
+
+The harness runs locally or on any cloud.
 :::
 
 ---

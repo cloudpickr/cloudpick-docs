@@ -113,11 +113,14 @@ AgentCore GatewayおよびClaude製品群ですでにサポート中。
 | [CrewAI](https://github.com/crewAIInc/crewAI) | 役割ベースの協業 |
 | [Strands Agents](https://strandsagents.com/) | AWSオープンソース、モデル非依存。SDK(部品を自ら組み立て)+ harness(組み合わせ層。`create_harness()`で完成形エージェントを返す、公開2026-09-21) |
 | [AG2](https://ag2.ai/)(旧AutoGen) | コミュニティフォーク、オープンソースAgentOS |
-| [Microsoft Agent Framework](https://github.com/microsoft/autogen) | AutoGen後継、2026.04 GA |
+| [Microsoft Agent Framework](https://learn.microsoft.com/agent-framework/) | AutoGen後継、2026.04 GA |
 
-:::note
-Strands SDKはエージェントの構成要素を提供し、Strands harnessはSDK上の薄い組み合わせ層として、ツール・コンテキスト・セッション・メモリ・フックとシステムプロンプトを構成した標準のStrands Agentを返します。すべてのデフォルト設定は変更できます。
-Strands harnessはローカルでも任意のクラウドでも実行でき、Bedrock AgentCoreはエージェントをマネージド環境でホストする別のランタイム層です。
+:::note[Strandsの3層構造]
+- **SDK** — エージェントの構成要素(部品)を自ら組み立てるライブラリ。
+- **harness** — SDK上の薄い組み合わせ層。ツール・コンテキスト・セッション・メモリ・フックとシステムプロンプトを構成した標準のStrands Agentを返し、すべてのデフォルト設定は変更できます。
+- **Bedrock AgentCore** — エージェントをマネージド環境でホストする別のランタイム層。
+
+harnessはローカルでも任意のクラウドでも実行できます。
 :::
 
 ---

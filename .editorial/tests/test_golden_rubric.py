@@ -26,10 +26,10 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 import review_runner as rr  # noqa: E402
 
 CFG = rr.ReviewConfig(base_url="https://gw.example", api_key="k",
-                      reviewer_model="reviewer-model", reviewer_provider="provider-b")
+                      reviewer_model="llama-3.3-70b", reviewer_provider="workers-ai")
 PACKET = {
     "jira_key": "CLPKDOC-9",
-    "writer": {"model": "docs-writer", "provider": "provider-a"},
+    "writer": {"model": "claude-opus", "provider": "anthropic"},
     "claim_ledger": [{"claim": "x", "source_url": "https://docs.aws.amazon.com/x",
                       "checked_at": "2026-09-10T00:00:00Z", "status": "verified"}],
 }

@@ -121,7 +121,9 @@ def run(args) -> dict:
                     args, packet_sha)
     review = rr.run_review(config, packet, diff_text, source_evidence=source_evidence)
     reasons += [f"review:{review.verdict}"] + review.reasons + source_reasons
-    return _out(tier, review.verdict, reasons, args, packet_sha)
+    # 감사 정확성: 실제 선택된 리뷰어 model을 envelope에 기록(단일 고정값 아님).
+    reviewer_cfg = review.selected_model or (config.reviewer_model or "unset")
+    return _out(tier, review.verdict, reasons, args, packet_sha, reviewer_cfg)
 
 
 def _fetch_sources(packet: dict):
@@ -150,13 +152,14 @@ def _fetch_sources(packet: dict):
     return evidence, reasons
 
 
-def _out(tier, verdict, reasons, args, packet_sha) -> dict:
+def _out(tier, verdict, reasons, args, packet_sha, reviewer_cfg=None) -> dict:
     envelope = ev.ReviewEnvelope(
         repo=args.repo, pr_number=int(args.pr),
         base_sha=args.base_sha, head_sha=args.head_sha,
         packet_sha256=packet_sha or ("0" * 64),
         policy_version=ev.POLICY_VERSION,
-        reviewer_config_version=(rr.ReviewConfig.from_env().reviewer_model or "unset"),
+        reviewer_config_version=(reviewer_cfg
+                                 or rr.ReviewConfig.from_env().reviewer_model or "unset"),
         checked_at=args.now or "1970-01-01T00:00:00Z",
         expires_at=args.expires or "1970-01-08T00:00:00Z",
     )

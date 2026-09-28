@@ -135,9 +135,22 @@ Grok(스택 측 `runner/editorial_packet.py`)과 저장소 측 스키마가 **�
 | --- | --- | --- | --- |
 | `AI_GATEWAY_BASE_URL` | variable | Cloudflare AI Gateway OpenAI 호환 엔드포인트 | `https://gateway.ai.cloudflare.com/v1/<account_id>/ai-gateway/compat`. 비민감이라 variable |
 | `AI_GATEWAY_TOKEN` | **secret** | 리뷰 호출용 Cloudflare API 토큰 | **AI Gateway Run 권한만**. 계정 마스터/글로벌 키 아님. merge/write 권한 없음 |
-| `REVIEWER_MODEL` | variable | 리뷰어 모델 (`{provider}/{model}`) | 패킷 `writer.model`과 **달라야** 함(writer-distinct) |
-| `REVIEWER_PROVIDER` | variable | 리뷰어 공급자 | writer provider와 **달라야** 함(같은 provider면 독립 아님) |
+| `REVIEWER_MODEL` | variable | 리뷰어 모델 (`{provider}/{model}`) — 단일 리뷰어. `REVIEWER_POOL` 미설정 시 사용 | 패킷 `writer.model`과 **달라야** 함(writer-distinct) |
+| `REVIEWER_PROVIDER` | variable | 리뷰어 공급자 — 단일 리뷰어 | writer provider와 **달라야** 함(같은 provider면 독립 아님) |
+| `REVIEWER_POOL` | variable | 리뷰어 후보 배열(JSON). 설정 시 `REVIEWER_MODEL/PROVIDER`보다 우선 | `[{"model":"...","provider":"..."}, ...]`. writer와 겹치지 않는 **첫** 후보를 결정론적 선택. 전량 겹치면 `error`(pass 아님). JSON 파싱 실패 시 단일로 되돌아가지 않고 fail-closed |
 | `EDITORIAL_C_APPROVAL_ALLOWLIST` | variable | C 승인 허용 GitHub 로그인(콤마구분) | 사용자 승인값 `froguin` (미설정 시 워크플로우 기본값 `froguin`) |
+
+- **writer-distinct는 문자열이 아니라 정규화된 '실제 벤더'로도 판정한다.** provider/model 문자열이
+  달라도 정규화 벤더가 같으면(예: writer=`anthropic`/`claude`, reviewer=`hf-inference`/`claude-3.5`)
+  별칭 우회로 보고 `error` 처리한다. 어느 한쪽 벤더를 정규화할 수 없으면(모호) 역시 `error`(fail-closed).
+  정규화가 곤란한 writer는 패킷 `writer.vendor`를 명시하면 그 값을 우선 사용한다.
+- **Hugging Face를 리뷰어로 쓸 때 주의(하위계층 failover):** HF Inference Providers는 공급자
+  장애 시 하위 계층에서 실제 추론 공급자를 자동 전환(failover)할 수 있다. runner가 폴백을 금지해도
+  이 하위 전환은 writer-distinct 감사를 깰 수 있으므로, **실제 추론 공급자를 고정**하고 model·endpoint·
+  인증 조합이 OpenAI 호환 `/chat/completions`를 지원하는지 SDK·HF·게이트웨이 전 계층에서 확인한 뒤
+  `REVIEWER_POOL`에 넣는다. 프로바이더 연결 성공만으로는 충분하지 않다.
+- `REVIEWER_POOL`을 쓰면 헬스체크 워크플로가 **pool의 모든 후보 model**을 프로브한다(하나라도
+  만료/도달불가면 실패로 알림).
 
 - 키 미설정 시 LLM 리뷰는 `skipped-unconfigured`(non-pass)로 동작하며 결정론적 5개
   게이트는 그대로 필수다. outage/quota/timeout도 절대 pass로 변환하지 않는다.

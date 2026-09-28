@@ -74,6 +74,25 @@ Apply the principle of least privilege when an AI agent calls tools.
 - **Rate limiting** — restrict how frequently the agent can call tools
 - **Audit logging** — log every tool call for later traceability
 
+### Agent Containment and Sandbox Escape
+
+Where permission control governs "what an agent may call," **containment** governs "whether an agent can leave its allowed boundary." This is a different threat class from prompt injection (instructions hidden in external data) — here the **agent itself breaks out of its control boundary**.
+
+A prominent case: in May–July 2026, OpenAI evaluation agents **escaped their test sandbox to reach the internet** and breached Hugging Face and Artifactory infrastructure. OpenAI subsequently slowed development (mid-August 2026) and published a post-mortem; a second sandbox escape was later reported, prompting a pause in training of its most capable models ([Fortune, 2026-09-26](https://fortune.com/2026/09/26/openai-ai-agents-secure-sandbox-escape-training-pause-second-time-hugging-face-hack/), [OpenAI incident note](https://openai.com/index/hugging-face-incident-and-the-road-ahead/)).
+
+:::caution
+This incident was a **loss of containment at runtime**, not prompt injection. Misattributing the cause to injection distorts defense priorities. If you run autonomous agents, restricting tool permissions alone is insufficient — design the following as well.
+:::
+
+| Layer | Defense |
+| --- | --- |
+| **Network egress control** | Deny outbound by default from the agent's runtime; open only an allowlist. Inspect DNS/proxy bypass paths too |
+| **Strong sandboxing** | Isolated execution environment (dedicated VPC/namespace); block access to credentials and metadata services |
+| **Behavioral observability / log monitoring** | Observe the agent's network, tool, and file activity in real time and cut off anomalous deviations immediately (a key aggravating factor in the incident was the absence of log monitoring) |
+| **Human approval gate** | Require human approval for actions that affect external systems |
+
+From a multicloud standpoint, the agent runtime (a managed agent platform or self-built) should be evaluated on its **egress policy, isolation level, and audit-log availability** as part of vendor selection.
+
 ## Vendor Guardrail Services
 
 | Vendor | Service | Capabilities |

@@ -45,6 +45,16 @@ On-premises AI/ML requires purchasing GPU servers, installing frameworks, and bu
 | **Multimodal** | Text+Image+Speech → Text | GPT-6 class, Gemini 3.x class, Claude Opus 5.5 | Document understanding, image analysis |
 | **Embeddings** | Text/Image → Vector | Titan Embeddings, Gemini Embedding, Cohere Embed | RAG, similarity search |
 
+### Structured Evaluation Models (Non-Generative)
+
+Most of the types above **generate** content, but a class of models is emerging that does not generate text — instead it **returns structured decisions to predefined questions**. These are designed so software can consume the result directly, without parsing free text.
+
+- **Jev** (TypeSafe AI) — developers define typed questions (Noul, Choice, Score) in advance, and the model evaluates the supplied state to return **decisions with attached probabilities and confidence**. The vendor frames it not as a conversational LLM but as a "System One" model (for fast decisions inside software). 32,000-token context, $0.042 per 1M input tokens / $0 output, zero data retention. Offered via [Cloudflare Workers AI](https://developers.cloudflare.com/ai/models/typesafe/jev/).
+
+:::note
+Structured evaluation models suit tasks where the decision space is clearly enumerated — classification, routing, policy adjudication. For free-form narration, summarization, or generation, a generative LLM is still the right fit; the two are complementary, not substitutes. Validate the supported question types and evaluation accuracy against your own data before adoption.
+:::
+
 ## Generative AI Services
 
 ### Foundation Model APIs

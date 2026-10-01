@@ -98,10 +98,37 @@ Already supported by AgentCore Gateway and Claude products.
 
 | Vendor | Platform | Strengths |
 | --- | --- | --- |
-| AWS | [Bedrock AgentCore](https://aws.amazon.com/bedrock/agentcore/) | Framework-agnostic, Harness (managed; distinct from the open-source Strands harness), Memory, Gateway, MCP |
+| AWS | [Bedrock AgentCore](https://aws.amazon.com/bedrock/agentcore/) | Framework-agnostic, Harness (managed; distinct from the open-source Strands harness), Memory, Gateway (tool connect & invoke), MCP |
 | Azure | [Microsoft Foundry Agents](https://learn.microsoft.com/azure/ai-foundry/agents/) | Responses API, MCP, Agent 365 governance |
 | Google | [Gemini Enterprise Agent Platform](https://cloud.google.com/products/agent-builder) | ADK (open-source), A2A native, Agent Runtime |
 | OCI | [OCI Enterprise AI Agents](https://docs.oracle.com/iaas/Content/generative-ai/agents.htm) | RAG agents, Oracle DB integration, AI Guardrails |
+
+### Agent registry and gateway
+
+As agents and tools multiply in an organization, teams rebuild the same capabilities and it gets hard to track who built what. Two layers address this — a **registry** is the catalog for finding what exists, while a **gateway** is the runtime entry point that tool calls actually pass through. They are complementary, not alternatives.
+
+| Aspect | Agent registry | Agent gateway |
+| --- | --- | --- |
+| Role | Discovery, metadata catalog, governance | Tool-call relay, protocol translation, runtime auth |
+| What it holds | Records for agents, tools, skills, MCP servers (owner, protocol, exposed functions, how to invoke) | Converts REST, Lambda, Smithy, MCP into invocable MCP tools |
+| Main work | Search, publish approval (curation), ownership tracking | Ingress/egress auth, routing, audit logging |
+
+:::note
+Registering in a registry identifies "what exists" — it does not grant execution rights. Authorization and isolation at call time are handled separately by the gateway and runtime guardrails. For org-wide agent governance procedures, see the [Agent Adoption Guide](../../ai/agent-adoption/).
+:::
+
+Major vendors offer registry/directory services, and many extend their scope beyond their own platform to third-party and on-premises agents. The emphasis differs by vendor.
+
+| Vendor | Service | Status & focus |
+| --- | --- | --- |
+| AWS | [Agent Registry](https://aws.amazon.com/bedrock/agentcore/) (Bedrock AgentCore) | GA 2026.08. Catalog of agents, tools, skills, MCP servers; curator approval; IAM & OAuth (JWT) |
+| Google Cloud | [Agent Registry](https://docs.cloud.google.com/agent-registry/overview) (Gemini Enterprise Agent Platform) | GA. Catalog of MCP servers, tools, agents; runtime auto-registration (parts in Preview) |
+| Microsoft | [Entra Agent Registry](https://learn.microsoft.com/entra/agent-id/identity-platform/what-is-agent-registry) (Entra Agent ID) | Preview. Identity/directory angle — inventory visibility across third-party builders and multi-platform agents |
+
+:::note[Who it fits]
+- **Agent creators (developers and non-developers)** — search for an existing capability to reuse, and inspect what an agent or tool does from its record before installing. Registering your own makes it a discoverable, reusable asset in the organization. Where curation is on, a publication is reviewed before it appears in search.
+- **IT and platform teams** — operate the inventory and publish-approval process for agents, tools, and MCP servers across the organization, and control access with IAM/OAuth auth, encryption, and audit. Visibility depends on what is registered and collected, so execution control is applied separately through gateway and runtime policies.
+:::
 
 ### Open-Source Frameworks
 
@@ -169,6 +196,7 @@ Claude Code supports a 1M-token context window (GA in March 2026). On the Max, T
 - [ ] Human-in-the-Loop policy defined
 - [ ] Tracing & monitoring (OpenTelemetry)
 - [ ] Cost budgets and circuit breakers
+- [ ] When operating many agents: inventory (registry) of agents, tools, and MCP servers plus a publish-approval process — apply execution control separately via gateway and runtime policies
 - [ ] Adoption strategy per [Agent Adoption Guide](../../ai/agent-adoption/)
 
 ## Related Documents
@@ -183,6 +211,7 @@ Claude Code supports a 1M-token context window (GA in March 2026). On the Max, T
 ## References
 
 - [Bedrock AgentCore](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/)
+- [AWS Agent Registry](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/registry-get-started.html) · [Google Agent Registry](https://docs.cloud.google.com/agent-registry/overview) · [Microsoft Entra Agent Registry](https://learn.microsoft.com/entra/agent-id/identity-platform/what-is-agent-registry)
 - [Microsoft Foundry Agents](https://learn.microsoft.com/azure/ai-foundry/agents/)
 - [Gemini Agent Platform](https://cloud.google.com/products/agent-builder)
 - [MCP](https://modelcontextprotocol.io/) · [MCP 2026-07-28 Changelog](https://modelcontextprotocol.io/specification/2026-07-28/changelog) · [A2A](https://github.com/google-a2a/A2A)

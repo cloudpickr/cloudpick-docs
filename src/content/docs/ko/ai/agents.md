@@ -100,10 +100,37 @@ AgentCore Gateway, Claude 제품군에서 이미 지원 중입니다.
 
 | 벤더 | 플랫폼 | 특징 |
 | --- | --- | --- |
-| AWS | [Bedrock AgentCore](https://aws.amazon.com/bedrock/agentcore/) | 프레임워크 비종속, Harness(관리형, 오픈소스 Strands harness와 별개), Memory, Gateway, MCP |
+| AWS | [Bedrock AgentCore](https://aws.amazon.com/bedrock/agentcore/) | 프레임워크 비종속, Harness(관리형, 오픈소스 Strands harness와 별개), Memory, Gateway(도구 연결·호출), MCP |
 | Azure | [Microsoft Foundry Agents](https://learn.microsoft.com/azure/ai-foundry/agents/) | Responses API, MCP, Agent 365 거버넌스 |
 | Google | [Gemini Enterprise Agent Platform](https://cloud.google.com/products/agent-builder) | ADK(오픈소스), A2A 네이티브, Agent Runtime |
 | OCI | [OCI Enterprise AI Agents](https://docs.oracle.com/iaas/Content/generative-ai/agents.htm) | RAG 에이전트, Oracle DB 연동, AI Guardrails |
+
+### 에이전트 레지스트리와 게이트웨이
+
+조직에서 에이전트와 도구가 늘어나면, 팀마다 같은 기능을 중복 제작하고 "누가 무엇을 만들었는지" 추적하기 어려워집니다. 이를 다루는 두 계층이 등장했습니다 — **레지스트리(Registry)** 는 무엇이 존재하는지 찾는 카탈로그이고, **게이트웨이(Gateway)** 는 도구 호출이 실제로 지나가는 런타임 진입점입니다. 둘은 대체재가 아니라 보완재입니다.
+
+| 구분 | 에이전트 레지스트리 | 에이전트 게이트웨이 |
+| --- | --- | --- |
+| 역할 | 발견·메타데이터 카탈로그·거버넌스 | 도구 호출 중계·프로토콜 변환·런타임 인증 |
+| 다루는 것 | 에이전트·도구·스킬·MCP 서버의 레코드(소유자, 프로토콜, 노출 기능, 호출 방법) | REST·Lambda·Smithy·MCP를 호출 가능한 MCP 도구로 변환 |
+| 주 작업 | 검색, 게시 승인(큐레이션), 소유권 추적 | ingress·egress 인증, 라우팅, 감사 로깅 |
+
+:::note
+레지스트리 등록은 "무엇이 존재하는가"를 식별하는 것이지 실행 권한을 부여하는 것이 아닙니다. 호출 시점의 권한·격리는 게이트웨이와 런타임 가드레일이 별도로 담당합니다. 전사 에이전트 거버넌스 구축 절차는 [에이전트 도입 가이드](../../ai/agent-adoption/)를 참고하세요.
+:::
+
+주요 벤더가 레지스트리/디렉터리 서비스를 제공하며, 다수는 자사뿐 아니라 타 공급자·온프레미스 에이전트까지 등록 범위를 넓히고 있습니다. 다만 강조점은 벤더마다 다릅니다.
+
+| 벤더 | 서비스 | 상태·초점 |
+| --- | --- | --- |
+| AWS | [Agent Registry](https://aws.amazon.com/bedrock/agentcore/) (Bedrock AgentCore) | 2026.08 GA. 에이전트·도구·스킬·MCP 서버 카탈로그, 큐레이터 승인, IAM·OAuth(JWT) |
+| Google Cloud | [Agent Registry](https://docs.cloud.google.com/agent-registry/overview) (Gemini Enterprise Agent Platform) | GA. MCP 서버·도구·에이전트 카탈로그, 런타임 자동 등록(일부 Preview) |
+| Microsoft | [Entra Agent Registry](https://learn.microsoft.com/entra/agent-id/identity-platform/what-is-agent-registry) (Entra Agent ID) | Preview. ID·디렉터리 관점 — 타사 빌더·멀티플랫폼 에이전트 인벤토리 가시성 |
+
+:::note[누구에게 맞나]
+- **에이전트를 만드는 사용자(개발자·비개발자)** — 필요한 기능이 이미 있는지 검색해 재사용하고, 설치 전에 그 에이전트·도구가 무엇을 하는지 레코드로 확인합니다. 자신이 만든 것을 등록하면 조직 내에서 발견·재사용되는 자산이 됩니다. 승인(큐레이션)이 켜진 레지스트리에서는 게시가 검토를 거친 뒤 검색에 노출됩니다.
+- **IT·플랫폼 관리** — 조직 전역 에이전트·도구·MCP 서버의 인벤토리와 게시 승인 절차를 운영하고, IAM·OAuth 인증과 암호화·감사로 접근을 통제합니다. 가시성의 범위는 등록·수집 대상에 따라 달라지므로, 실행 통제는 게이트웨이·런타임 정책으로 별도 적용합니다.
+:::
 
 ### 오픈소스 프레임워크
 
@@ -171,6 +198,7 @@ Claude Code는 100만(1M) 토큰 컨텍스트를 지원합니다(2026년 3월 GA
 - [ ] Human-in-the-Loop 정책
 - [ ] 트레이싱·모니터링 (OpenTelemetry)
 - [ ] 비용 예산 및 서킷 브레이커
+- [ ] 다수 에이전트 운영 시: 에이전트·도구·MCP 서버 인벤토리(레지스트리)와 게시 승인 절차 — 실행 통제는 게이트웨이·런타임 정책으로 별도 적용
 - [ ] 도입 전략은 [에이전트 도입 가이드](../../ai/agent-adoption/) 참고
 
 ## 관련 문서
@@ -185,6 +213,7 @@ Claude Code는 100만(1M) 토큰 컨텍스트를 지원합니다(2026년 3월 GA
 ## 참고하기
 
 - [Bedrock AgentCore](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/)
+- [AWS Agent Registry](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/registry-get-started.html) · [Google Agent Registry](https://docs.cloud.google.com/agent-registry/overview) · [Microsoft Entra Agent Registry](https://learn.microsoft.com/entra/agent-id/identity-platform/what-is-agent-registry)
 - [Microsoft Foundry Agents](https://learn.microsoft.com/azure/ai-foundry/agents/)
 - [Gemini Agent Platform](https://cloud.google.com/products/agent-builder)
 - [MCP](https://modelcontextprotocol.io/) · [MCP 2026-07-28 Changelog](https://modelcontextprotocol.io/specification/2026-07-28/changelog) · [A2A](https://github.com/google-a2a/A2A)

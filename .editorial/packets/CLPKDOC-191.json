@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "jira_key": "CLPKDOC-191",
+  "policy_action": "update",
+  "tier_hint": "B",
+  "tier_reasons": [
+    "기존 '벤더별 에이전트 플랫폼' 섹션 안에 에이전트 레지스트리/게이트웨이 하위섹션(H3)을 추가하는 콘텐츠 현행화. 새 카테고리·사이드바 그룹·문서 신설이나 파일 이동이 아니다.",
+    "AWS·Google·Microsoft의 레지스트리 서비스와 Registry vs Gateway 역할 구분을 벤더 중립으로 서술하는 사실 추가.",
+    "LLM 초안 작성이 포함되어 최소 B.",
+    "ko SOT 작성 후 en·ja 대칭 반영."
+  ],
+  "target_path": "src/content/docs/ko/ai/agents.md",
+  "changed_paths": [
+    "src/content/docs/ko/ai/agents.md",
+    "src/content/docs/en/ai/agents.md",
+    "src/content/docs/ja/ai/agents.md"
+  ],
+  "generated_by_llm": true,
+  "writer": {
+    "model": "claude (Kiro CLI)",
+    "provider": "anthropic"
+  },
+  "claim_ledger": [
+    {
+      "claim": "AWS Agent Registry는 Amazon Bedrock AgentCore의 완전관리형 디스커버리 서비스로, MCP 서버·도구·에이전트·에이전트 스킬·커스텀 리소스를 검색 가능한 레지스트리에 게시하고 승인 워크플로로 접근을 통제하는 중앙 카탈로그이다.",
+      "source_url": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/registry-get-started.html",
+      "checked_at": "2026-10-01T02:04:35Z",
+      "status": "verified"
+    },
+    {
+      "claim": "AWS Agent Registry는 2026년 8월 중앙 집중식 에이전트 발견·거버넌스를 위해 일반 공급(GA)되었다.",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-agent-registry-generally-available/",
+      "checked_at": "2026-10-01T02:04:35Z",
+      "status": "verified"
+    },
+    {
+      "claim": "Google Cloud Agent Registry는 MCP 서버·도구·AI 에이전트를 저장·발견·거버넌스하는 중앙 카탈로그로 Gemini Enterprise Agent Platform의 거버넌스·인벤토리 축이며, 일반 공급(GA) 상태이다.",
+      "source_url": "https://docs.cloud.google.com/agent-registry/overview",
+      "checked_at": "2026-10-01T02:04:35Z",
+      "status": "verified"
+    },
+    {
+      "claim": "Microsoft Entra Agent Registry는 Entra Agent ID의 일부로 현재 프리뷰이며, 비-Microsoft 빌더 플랫폼과 타 IdP의 에이전트까지 포함해 조직 전반의 통합 가시성을 제공하는 ID·디렉터리 관점의 레지스트리이다.",
+      "source_url": "https://learn.microsoft.com/entra/agent-id/identity-platform/what-is-agent-registry",
+      "checked_at": "2026-10-01T02:04:35Z",
+      "status": "verified"
+    },
+    {
+      "claim": "AgentCore Gateway는 REST API·AWS Lambda·Smithy·MCP 서버를 MCP 호환 도구로 변환하고 ingress·egress 인증·라우팅·감사를 처리하는 런타임 도구 연결 계층으로, 레지스트리(발견·거버넌스)와는 역할이 구분된다.",
+      "source_url": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-core-concepts.html",
+      "checked_at": "2026-10-01T02:04:35Z",
+      "status": "verified"
+    }
+  ]
+}

@@ -245,6 +245,22 @@ class TestGate(unittest.TestCase):
         self.assertEqual(out["tier"], "C")
         self.assertNotEqual(out["state"], "success")
 
+    def test_doc_renamed_to_packet_path_not_exempt(self):
+        # 엣지(codex 리뷰): 문서를 .editorial/packets/<key>.json 경로로 rename하고 그 내용이
+        # 유효 패킷이면, old_path가 docs였던 rename이 scope에 들어오지만 packet_scope_exempt가
+        # 목적지 경로만 보고 다시 제외해 tier A로 통과(구조적 문서 이동 우회)하던 틈을 막는다.
+        # 이 경우 면제하지 않으므로 R→C로 판정돼야 한다.
+        pkt_path = ".editorial/packets/CLPKDOC-123.json"
+        numstat = write(self.tmp, "nrp.txt", f"0\t0\t{pkt_path}\n")
+        name_status = write(self.tmp, "nsrp.txt",
+                            f"R100\tsrc/content/docs/ko/compute/serverless.md\t{pkt_path}\n")
+        pkt = self._packet_file(VALID_PACKET)
+        a = Args(numstat=numstat, name_status=name_status, diff=self.diff, packet=pkt,
+                 packet_repo_path=pkt_path)
+        out = g.run(a)
+        self.assertEqual(out["tier"], "C", "문서→패킷 경로 rename은 면제 금지 → 구조 변경 C")
+        self.assertNotEqual(out["state"], "success")
+
     def test_blocker3_filename_mismatch_rejected(self):
         # #3: 실제 저장소 경로(파일명)와 packet의 jira_key가 불일치하면 검증 실패 → 승인 아님.
         pkt = self._packet_file(VALID_PACKET)  # jira_key=CLPKDOC-123

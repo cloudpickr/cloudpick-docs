@@ -100,8 +100,20 @@ def run(args) -> dict:
     #  또한 '검증된 단일 패킷 파일 경로'만 구조판정 scope 예외로 넘긴다(#1). 이렇게 해야
     #  패킷 신규파일(.editorial/packets/*.json 추가)이 모든 B를 C로 만들지 않는다.
     #  invalid/unrelated metadata는 예외에서 제외(예외 경로를 넘기지 않음).
+    #  또한 '문서를 패킷 경로로 rename'한 경우는 면제하지 않는다: old_path가 docs였던
+    #  rename(R)의 목적지가 패킷 경로와 같으면, 이는 standalone 패킷 추가가 아니라 구조적
+    #  '문서 이동'이다. 목적지 경로만 보고 면제하면 그 이동이 scope에서 다시 빠져 tier A로
+    #  통과(리뷰 우회)하므로, 이 경우 면제 대상에서 제외한다(codex 리뷰 지적).
     trusted_packet = packet if packet_valid else None
-    exempt_paths = [packet_repo_path] if (packet_valid and packet_repo_path) else []
+    exempt_paths: list[str] = []
+    if packet_valid and packet_repo_path:
+        packet_is_doc_rename_target = any(
+            c.status == "R" and c.path == packet_repo_path
+            and c.old_path and c.old_path.startswith(DOC_ROOT)
+            for c in changes
+        )
+        if not packet_is_doc_rename_target:
+            exempt_paths = [packet_repo_path]
     result = cc.classify(changes, trusted_packet, packet_scope_exempt=exempt_paths)
     tier = result.tier
     reasons = list(result.reasons) + packet_reasons

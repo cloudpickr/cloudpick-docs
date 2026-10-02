@@ -11,33 +11,11 @@ on:
       - "scripts/check-korean-links.test.mjs"
       - "lychee.toml"
   pull_request:
-    paths:
-      # 스타일·컴포넌트·라우트 등 src 전체를 포함한다. lychee는 PR diff가 아니라
-      # src/content/docs 전체 링크를 검사하므로, 스타일/컴포넌트만 바뀐 PR에서도 전체
-      # 링크를 재검증하며 통과한다. src/content/docs/** 로만 좁히면 CSS/컴포넌트만 바꾸는
-      # PR에서 link-check(required)가 트리거조차 안 돼 무한 pending에 빠진다 — build의
-      # 트리거 범위와 동일하게 맞춘다.
-      - "src/**"
-      - "public/**"
-      - ".github/workflows/external-link-check.yml"
-      - ".github/workflows/editorial-c-approval.yml"
-      - "scripts/check-korean-links.mjs"
-      - "scripts/check-korean-links.test.mjs"
-      - "scripts/build-llms-locales.mjs"
-      - "lychee.toml"
-      # 메타데이터/핸드오프 변경도 실제 link 체크를 수행하도록 PR 경로 범위에 포함
-      # — paths 필터 미포함으로 인한 required check 무한 pending 방지.
-      - ".editorial/**"
-      - ".github/PULL_REQUEST_TEMPLATE.md"
-      # 루트 문서만 바뀐 PR도 link-check(required) 체크가 돌도록 포함 — 무한 pending 방지.
-      - "README*.md"
-      - "CONTRIBUTING.md"
-      - "AGENTS.md"
-      # 사이드바/사이트 구조(astro.config.mjs)만 바뀐 PR도 required 체크가 돌도록 포함 — 무한 pending 방지.
-      - "astro.config.mjs"
-      # 의존성(package-lock)만 바뀐 PR도 required 체크가 돌도록 포함 — 무한 pending 방지.
-      - "package.json"
-      - "package-lock.json"
+  # link-check(required)는 모든 PR에서 실행한다. pull_request.paths 필터를 두면 필터에
+  # 없는 경로만 바꾸는 PR에서 트리거조차 안 돼 required인데 영원히 pending(머지 불가)에
+  # 빠진다. lychee는 PR diff가 아니라 src/content/docs 전체 링크를 검사하므로, 무관한
+  # PR에서 돌아도 전체 링크를 재검증하며 통과한다. 3일 캐시로 반복 요청 비용은 작다.
+  pull_request:
   # 주기 점검 — 콘텐츠 변경이 없어도 외부 링크가 죽는 link-rot을 잡음
   schedule:
     - cron: "0 0 * * 1" # 매주 월요일 UTC 00:00

@@ -12,7 +12,13 @@ on:
       - "lychee.toml"
   pull_request:
     paths:
-      - "src/content/docs/**"
+      # 스타일·컴포넌트·라우트 등 src 전체를 포함한다. lychee는 PR diff가 아니라
+      # src/content/docs 전체 링크를 검사하므로, 스타일/컴포넌트만 바뀐 PR에서도 전체
+      # 링크를 재검증하며 통과한다. src/content/docs/** 로만 좁히면 CSS/컴포넌트만 바꾸는
+      # PR에서 link-check(required)가 트리거조차 안 돼 무한 pending에 빠진다 — build의
+      # 트리거 범위와 동일하게 맞춘다.
+      - "src/**"
+      - "public/**"
       - ".github/workflows/external-link-check.yml"
       - ".github/workflows/editorial-c-approval.yml"
       - "scripts/check-korean-links.mjs"

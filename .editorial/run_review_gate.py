@@ -108,7 +108,7 @@ def run(args) -> dict:
     exempt_paths: list[str] = []
     if packet_valid and packet_repo_path:
         packet_is_doc_rename_target = any(
-            c.status == "R" and c.path == packet_repo_path
+            c.status in ("R", "C") and c.path == packet_repo_path
             and c.old_path and c.old_path.startswith(DOC_ROOT)
             for c in changes
         )

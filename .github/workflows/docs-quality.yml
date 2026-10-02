@@ -1,39 +1,13 @@
 name: Docs Quality
 
 on:
+  # required 체크(docs-consistency-lint·mermaid-lint·strikethrough-lint)는 모든 PR에서
+  # 실행한다. pull_request.paths 필터를 두면, 필터에 없는 경로만 바꾸는 PR에서 이 체크가
+  # 트리거조차 안 돼 required인데 영원히 pending → 머지 불가에 빠진다(실제 발생: 스타일/
+  # 컴포넌트·plugins·config·netlify.toml 등). 린터는 PR diff가 아니라 src/content/docs
+  # 전체를 순회 검사하므로, 무관한 PR에서 돌아도 전체 문서를 재검증하며 빠르게 통과한다
+  # (공허한 승인 아님, fail-closed 유지). 비용은 checkout+python 수십 초 수준.
   pull_request:
-    paths:
-      # 문서뿐 아니라 스타일·컴포넌트·라우트 등 src 전체를 포함한다. 린터는 PR diff가
-      # 아니라 src/content/docs 전체를 순회 검사하므로, 스타일/컴포넌트만 바뀐 PR에서도
-      # 전체 문서를 재검증하며 통과한다(공허한 승인 아님). src/content/docs/** 로만 좁히면
-      # CSS/컴포넌트만 바꾸는 PR에서 required 체크가 트리거조차 안 돼 무한 pending(머지
-      # 불가)에 빠진다 — build(starlight-build.yml)의 트리거 범위와 동일하게 맞춘다.
-      - "src/**"
-      - "public/**"
-      - "scripts/lint-mermaid.py"
-      - "scripts/lint-strikethrough.py"
-      - "scripts/lint-docs-consistency.py"
-      - "scripts/lint-readability.py"
-      - "scripts/lint-duplication.py"
-      - "scripts/lint-taxonomy.py"
-      - "scripts/lint-mcp-index.py"
-      - "scripts/build-llms-locales.mjs"
-      - ".github/workflows/docs-quality.yml"
-      - ".github/workflows/editorial-c-approval.yml"
-      # 메타데이터/핸드오프 변경도 실제 lint 체크를 수행하도록 PR 경로 범위에 포함
-      # — paths 필터 미포함으로 인한 required check 무한 pending 방지(skip=승인 대체 아님).
-      - ".editorial/**"
-      - ".github/PULL_REQUEST_TEMPLATE.md"
-      # 루트 문서(README 다국어·CONTRIBUTING·AGENTS)만 바뀐 PR도 required 체크가 돌도록
-      # 포함 — paths 필터 미포함으로 인한 required check 무한 pending(머지 불가) 방지.
-      - "README*.md"
-      - "CONTRIBUTING.md"
-      - "AGENTS.md"
-      # 사이드바/사이트 구조(astro.config.mjs)만 바뀐 PR도 required 체크가 돌도록 포함
-      # — 소그룹 재편 등 config-only PR의 required check 무한 pending 방지.
-      - "astro.config.mjs"
-      - "package.json"
-      - "package-lock.json"
   push:
     branches: [master, main]
     paths:

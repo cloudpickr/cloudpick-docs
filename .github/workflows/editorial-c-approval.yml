@@ -21,24 +21,11 @@ name: Editorial Review
 on:
   pull_request:
     types: [opened, synchronize, reopened, ready_for_review]
-    paths:
-      # 스타일·컴포넌트·라우트 등 src 전체를 포함한다. editorial-review는 문서 변경이
-      # 없으면 out-of-scope로 approve 처리하므로, 스타일/컴포넌트만 바뀐 PR에서도 정상
-      # 통과한다. src/content/docs/** 로만 좁히면 CSS/컴포넌트만 바꾸는 PR에서
-      # editorial-review·editorial-c-approval(required)이 트리거조차 안 돼 무한 pending에
-      # 빠진다 — build의 트리거 범위와 동일하게 맞춘다.
-      - "src/**"
-      - "public/**"
-      - ".editorial/**"
-      - ".github/scripts/c_approval_gate.cjs"
-      - ".github/workflows/editorial-c-approval.yml"
-      - ".github/PULL_REQUEST_TEMPLATE.md"
-      - "README*.md"
-      - "CONTRIBUTING.md"
-      - "AGENTS.md"
-      - "astro.config.mjs"
-      - "package.json"
-      - "package-lock.json"
+    # editorial-review·editorial-c-approval(required)은 모든 PR에서 실행한다.
+    # pull_request.paths 필터를 두면 필터에 없는 경로만 바꾸는 PR에서 트리거조차 안 돼
+    # required인데 영원히 pending(머지 불가)에 빠진다. editorial-review는 문서(src/content
+    # /docs) 변경이 없으면 LLM 호출 전에 feature-only approve로 반환하므로, 무관한 PR에서
+    # 돌아도 게이트웨이 비용 0에 수십 초로 끝난다(fail-closed 유지).
   issue_comment:
     types: [created, edited]
   workflow_dispatch:

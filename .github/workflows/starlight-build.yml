@@ -1,24 +1,10 @@
 name: Build
 
 on:
+  # build(required)는 모든 PR에서 실행한다. pull_request.paths 필터를 두면 필터에 없는
+  # 경로만 바꾸는 PR에서 트리거조차 안 돼 required인데 영원히 pending(머지 불가)에 빠진다.
+  # build는 사이트 전체를 빌드하고 내부 링크를 검증하므로 무관한 PR에서 돌아도 의미가 있다.
   pull_request:
-    paths:
-      - "src/**"
-      - "public/**"
-      - "astro.config.mjs"
-      - "package.json"
-      - "package-lock.json"
-      - "scripts/**"
-      - ".github/workflows/starlight-build.yml"
-      - ".github/workflows/editorial-c-approval.yml"
-      # 메타데이터/핸드오프 변경도 실제 build 체크(내부 링크 검증 포함)를 수행하도록
-      # PR 경로 범위에 포함 — paths 필터 미포함으로 인한 required check 무한 pending 방지.
-      - ".editorial/**"
-      - ".github/PULL_REQUEST_TEMPLATE.md"
-      # 루트 문서만 바뀐 PR도 build(required) 체크가 돌도록 포함 — 무한 pending 방지.
-      - "README*.md"
-      - "CONTRIBUTING.md"
-      - "AGENTS.md"
   push:
     branches: [master, main]
     paths:

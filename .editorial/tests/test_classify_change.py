@@ -32,6 +32,18 @@ class TestTierC(unittest.TestCase):
         r = cc.classify([FC(f"{DOC}/ko/compute/b.md", "R", 0, 0, old_path=f"{DOC}/ko/compute/a.md")], None)
         self.assertEqual(r.tier, "C")
 
+    def test_copied_file_is_C(self):
+        # git copy detection(C status)은 실질적 '새 파일 생성'이므로 구조 변경 → C.
+        # 현재 _is_structural이 C를 처리 안 하면 조용히 A/B로 통과하는 fail-open이 된다.
+        r = cc.classify([FC(f"{DOC}/ko/compute/copy.md", "C", 0, 0,
+                            old_path=f"{DOC}/ko/compute/orig.md")], None)
+        self.assertEqual(r.tier, "C")
+
+    def test_typechange_is_C(self):
+        # T(typechange: 파일↔심볼릭 등)도 안전하게 구조 변경으로 escalate(알 수 없는 비기계적).
+        r = cc.classify([FC(f"{DOC}/ko/compute/x.md", "T", 0, 0)], None)
+        self.assertEqual(r.tier, "C")
+
     def test_non_document_change_is_C(self):
         r = cc.classify([FC("astro.config.mjs", "M", 3, 1)], None)
         self.assertEqual(r.tier, "C")
@@ -124,6 +136,18 @@ class TestDiffParsing(unittest.TestCase):
         changes = cc.parse_numstat_and_status(numstat, name_status)
         self.assertEqual(changes[0].status, "R")
         self.assertEqual(changes[0].old_path, "src/content/docs/ko/a.md")
+
+    def test_parse_copied(self):
+        # git copy detection: 'C100\told\tnew' 3-필드. new를 path로, old를 old_path로
+        # 보존하고 status는 'C'여야 한다(rename처럼 3-필드 처리). 현재는 C가 2-필드 분기로
+        # 떨어져 old 경로를 path로, status를 'C'로 잘못 넣는다.
+        numstat = "0\t0\tsrc/content/docs/ko/{orig.md => copy.md}\n"
+        name_status = "C100\tsrc/content/docs/ko/orig.md\tsrc/content/docs/ko/copy.md\n"
+        changes = cc.parse_numstat_and_status(numstat, name_status)
+        self.assertEqual(len(changes), 1)
+        self.assertEqual(changes[0].status, "C")
+        self.assertEqual(changes[0].path, "src/content/docs/ko/copy.md")
+        self.assertEqual(changes[0].old_path, "src/content/docs/ko/orig.md")
 
 
 if __name__ == "__main__":

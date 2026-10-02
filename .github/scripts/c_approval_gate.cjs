@@ -162,10 +162,15 @@ async function computeTierAndPacketSha({ github, context, exec, prNumber, headSh
     owner: context.repo.owner, repo: context.repo.repo, pull_number: prNumber, per_page: 100,
   });
   const numstat = files.map((f) => `${f.additions}\t${f.deletions}\t${f.filename}`).join('\n');
-  const smap = { added: 'A', removed: 'D', modified: 'M', renamed: 'R', changed: 'M' };
-  const nameStatus = files.map((f) => f.status === 'renamed'
-    ? `R100\t${f.previous_filename}\t${f.filename}`
-    : `${smap[f.status] || 'M'}\t${f.filename}`).join('\n');
+  // GitHub API f.status → git name-status 코드. renamed·copied는 previous_filename을 보존하는
+  // 3-필드로 만든다. copied(C)는 'C'로 보존(파이썬 분류기가 복사=구조 변경으로 판정). 알 수 없는
+  // status를 'M'으로 폴백하면 구조 변경이 modified로 둔갑해 리뷰를 우회하므로(fail-open), 미지
+  // status는 'X'(미상)로 보내 분류기가 C로 escalate하게 한다.
+  const smap = { added: 'A', removed: 'D', modified: 'M', changed: 'M' };
+  const threeField = (f) => `${f.status === 'copied' ? 'C100' : 'R100'}\t${f.previous_filename}\t${f.filename}`;
+  const nameStatus = files.map((f) => (f.status === 'renamed' || f.status === 'copied')
+    ? threeField(f)
+    : `${smap[f.status] || 'X'}\t${f.filename}`).join('\n');
 
   const fs = require('fs');
   fs.writeFileSync('/tmp/ca_numstat.txt', numstat + '\n');

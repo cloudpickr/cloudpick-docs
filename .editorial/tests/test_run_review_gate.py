@@ -188,6 +188,63 @@ class TestGate(unittest.TestCase):
             for k in ("AI_GATEWAY_BASE_URL", "AI_GATEWAY_TOKEN", "REVIEWER_MODEL", "REVIEWER_PROVIDER"):
                 os.environ.pop(k, None)
 
+    # ── rename 사각지대 회귀 테스트 ─────────────────────────────────────
+    def test_move_out_of_docs_is_not_out_of_scope(self):
+        # 문서를 src/content/docs 밖으로 이동(R)하면, 새 경로만 보면 scope 밖이라
+        # feature-only approve로 조용히 통과하던 사각지대. old_path가 docs였으므로
+        # 실질적 '문서 이동/삭제'다 → scope에 포함되어 구조 변경(C)으로 판정돼야 한다.
+        numstat = write(self.tmp, "nmove.txt",
+                        "0\t0\tdocs-archive/serverless.md\n")
+        name_status = write(self.tmp, "nsmove.txt",
+                            "R100\tsrc/content/docs/ko/compute/serverless.md\tdocs-archive/serverless.md\n")
+        a = Args(numstat=numstat, name_status=name_status, diff=self.diff, packet="none")
+        out = g.run(a)
+        self.assertNotEqual(out["tier"], "feature-only",
+                            "docs 밖으로의 이동은 scope 밖으로 조용히 통과하면 안 됨")
+        self.assertEqual(out["tier"], "C", "문서 이동(R)은 구조 변경 → C")
+        self.assertNotEqual(out["state"], "success")
+
+    def test_move_within_docs_is_structural_C(self):
+        # docs 안에서의 이동(R, old·new 둘 다 docs)도 구조 변경 → C(기존 동작 유지 확인).
+        numstat = write(self.tmp, "nmove2.txt",
+                        "0\t0\tsrc/content/docs/ko/compute/renamed.md\n")
+        name_status = write(self.tmp, "nsmove2.txt",
+                            "R100\tsrc/content/docs/ko/compute/serverless.md\tsrc/content/docs/ko/compute/renamed.md\n")
+        a = Args(numstat=numstat, name_status=name_status, diff=self.diff, packet="none")
+        out = g.run(a)
+        self.assertEqual(out["tier"], "C")
+        self.assertNotEqual(out["state"], "success")
+
+    def test_nondoc_rename_stays_out_of_scope(self):
+        # 문서와 무관한 파일 이동(old·new 둘 다 docs 밖)은 여전히 scope 밖(feature-only).
+        numstat = write(self.tmp, "nmove3.txt", "0\t0\tsrc/components/Renamed.astro\n")
+        name_status = write(self.tmp, "nsmove3.txt",
+                            "R100\tsrc/components/Old.astro\tsrc/components/Renamed.astro\n")
+        a = Args(numstat=numstat, name_status=name_status, diff=self.diff, packet="none")
+        out = g.run(a)
+        self.assertEqual(out["tier"], "feature-only")
+        self.assertEqual(out["state"], "success")
+
+    def test_move_into_docs_is_structural_C(self):
+        # docs 밖 → docs 안으로 들어오는 이동(new가 docs)도 구조 변경 → C.
+        numstat = write(self.tmp, "nmove4.txt",
+                        "0\t0\tsrc/content/docs/ko/compute/imported.md\n")
+        name_status = write(self.tmp, "nsmove4.txt",
+                            "R100\tdrafts/imported.md\tsrc/content/docs/ko/compute/imported.md\n")
+        a = Args(numstat=numstat, name_status=name_status, diff=self.diff, packet="none")
+        out = g.run(a)
+        self.assertEqual(out["tier"], "C")
+        self.assertNotEqual(out["state"], "success")
+
+    def test_delete_doc_is_structural_C(self):
+        # 문서 삭제(D)는 경로가 docs 안이라 scope에 걸리고 구조 변경 → C(사각지대 아님 확인).
+        numstat = write(self.tmp, "ndel.txt", "0\t30\tsrc/content/docs/ko/compute/serverless.md\n")
+        name_status = write(self.tmp, "nsdel.txt", "D\tsrc/content/docs/ko/compute/serverless.md\n")
+        a = Args(numstat=numstat, name_status=name_status, diff=self.diff, packet="none")
+        out = g.run(a)
+        self.assertEqual(out["tier"], "C")
+        self.assertNotEqual(out["state"], "success")
+
     def test_blocker3_filename_mismatch_rejected(self):
         # #3: 실제 저장소 경로(파일명)와 packet의 jira_key가 불일치하면 검증 실패 → 승인 아님.
         pkt = self._packet_file(VALID_PACKET)  # jira_key=CLPKDOC-123

@@ -57,7 +57,18 @@ def run(args) -> dict:
     # C로 escalate하지 않는다. 혼합 PR이라도 비문서 파일은 무시하고 문서 변경만 분류·리뷰한다.
     #   - 문서 변경이 하나도 없으면(비문서 전용 PR 포함) 편집 scope 밖 → 명시적 통과.
     #   - 문서 변경이 있으면 그 하위집합만 A/B/C 판정. 비문서 파일은 분류 입력에서 제외.
-    changes = [c for c in all_changes if c.path.startswith(DOC_ROOT)]
+    # rename(R)은 '새 경로(path)'뿐 아니라 '이전 경로(old_path)'도 본다. 문서를 docs 밖으로
+    # 이동(docs → non-docs)하면 새 경로만 보면 scope를 벗어나 조용히 통과하지만, 이는 실질적
+    # '문서 이동/삭제'이므로 scope에 포함해 구조 변경(C)으로 판정해야 한다(무결성). 반대로
+    # docs 안으로 들어오는 이동(non-docs → docs)도 새 경로가 docs라 당연히 포함된다.
+    def _in_docs_scope(c) -> bool:
+        if c.path.startswith(DOC_ROOT):
+            return True
+        if c.old_path and c.old_path.startswith(DOC_ROOT):
+            return True
+        return False
+
+    changes = [c for c in all_changes if _in_docs_scope(c)]
     if not changes:
         return _out("feature-only", "approve",
                     ["no src/content/docs/** changes — out of editorial LLM/C scope "

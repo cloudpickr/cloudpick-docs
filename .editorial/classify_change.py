@@ -49,7 +49,12 @@ class Classification:
 
 
 def _is_structural(changes: list[FileChange]) -> list[str]:
-    """신규/삭제/이동/병합/분할/카테고리/네비 = 구조 변경 → C."""
+    """신규/삭제/이동/복사/카테고리/네비 등 구조·비기계적 변경 = C.
+
+    A(added)·D(deleted)·R(renamed)·C(copied)는 명시적 구조 변경이다. copied는 실질적
+    '새 파일 생성'이고 rename은 '이동'이므로 둘 다 C로 잡는다. 그 외 M(modified)이 아닌
+    알 수 없는 status(T=typechange, X=미상 등)는 안전하게 C로 escalate한다(조용한 통과 금지).
+    """
     reasons = []
     for c in changes:
         if c.status == "A":
@@ -58,6 +63,11 @@ def _is_structural(changes: list[FileChange]) -> list[str]:
             reasons.append(f"deleted file: {c.path}")
         elif c.status == "R":
             reasons.append(f"moved/renamed: {c.old_path} -> {c.path}")
+        elif c.status == "C":
+            reasons.append(f"copied file (new content): {c.old_path} -> {c.path}")
+        elif c.status != "M":
+            # 알 수 없는/비기계적 status는 fail-closed로 구조 변경 취급.
+            reasons.append(f"unknown change status {c.status!r}: {c.path}")
     return reasons
 
 
@@ -184,14 +194,21 @@ def parse_numstat_and_status(numstat: str, name_status: str) -> list[FileChange]
             continue
         parts = line.split("\t")
         code = parts[0]
-        if code.startswith("R") and len(parts) >= 3:
+        # rename(R)·copied(C)는 'R100/C100\told\tnew' 3-필드. 둘 다 old_path를 보존하고
+        # new를 path로 쓴다. copied는 rename과 달리 원본을 남기므로 status를 'C'로 보존한다
+        # (run_review_gate의 패킷 면제가 status=='R'에 의존하므로 C를 R로 치환하면 안 됨).
+        if (code.startswith("R") or code.startswith("C")) and len(parts) >= 3:
             old, new = parts[1], parts[2]
             a, d = added_deleted.get(new, (0, 0))
-            changes.append(FileChange(new, "R", a, d, old_path=old))
+            changes.append(FileChange(new, code[0], a, d, old_path=old))
         elif len(parts) >= 2:
             path = parts[1]
             a, d = added_deleted.get(path, (0, 0))
             changes.append(FileChange(path, code[0], a, d))
+        else:
+            # 필드가 부족한 행을 조용히 버리면 변경을 놓쳐 fail-open이 된다. 알 수 없는
+            # 형식은 경로 미상의 변경으로 기록해 분류기가 구조 변경(C)으로 escalate하게 한다.
+            changes.append(FileChange(line.strip() or "<unknown>", "X", 0, 0))
     return changes
 
 

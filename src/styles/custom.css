@@ -251,3 +251,57 @@ starlight-lang-select option {
 	background: var(--sl-color-accent-low);
 	color: var(--sl-color-white);
 }
+
+
+/* ───────────────────────────────────────────────────────────────────────────
+ * 검색 로딩 표시
+ *
+ * 검색 모달을 열면 Starlight가 Pagefind UI를 지연 import 하므로, 느린 네트워크에서는
+ * #starlight__search 가 한동안 비어 있다(Svelte UI 미마운트). 이 "빈 모달" 구간에
+ * 로딩 문구를 보여줘, 멈춘 것처럼 보이는 체감을 없앤다.
+ *
+ * 설계 원칙(friends 리뷰 반영):
+ *   - 안정 신호만 사용: body[data-search-modal-open](Starlight가 토글) + :empty.
+ *     svelte 해시 클래스(.svelte-xxxx)에는 의존하지 않는다(빌드마다 바뀜).
+ *   - UI가 마운트되면 :empty 가 해제되어 문구가 자동으로 사라진다(JS 불필요).
+ *   - 200ms 지연 노출: 빠른 회선에서 즉시 마운트되면 깜빡이지 않는다.
+ *   - prefers-reduced-motion: 움직임(pulse)만 끄고, 지연 노출 자체는 유지한다
+ *     (animation을 전부 끄면 opacity:0 에 갇혀 아무것도 안 보이게 되는 함정 회피).
+ * ─────────────────────────────────────────────────────────────────────────── */
+
+body[data-search-modal-open] #starlight__search:empty::before {
+	content: "검색을 불러오는 중…";
+	display: block;
+	padding: 1rem 0.25rem;
+	color: var(--sl-color-gray-3);
+	font-size: var(--sl-text-sm);
+	text-align: center;
+	opacity: 0;
+	animation:
+		cp-search-loading-reveal 0s linear 200ms forwards,
+		cp-search-loading-pulse 1.2s ease-in-out 200ms infinite;
+}
+
+:root[lang|="en"] body[data-search-modal-open] #starlight__search:empty::before {
+	content: "Loading search…";
+}
+
+:root[lang|="ja"] body[data-search-modal-open] #starlight__search:empty::before {
+	content: "検索を読み込み中…";
+}
+
+@keyframes cp-search-loading-reveal {
+	to { opacity: 1; }
+}
+
+@keyframes cp-search-loading-pulse {
+	0%, 100% { opacity: 1; }
+	50% { opacity: 0.45; }
+}
+
+/* 움직임 최소화 설정: pulse(깜빡임)만 끄고, 200ms 지연 노출은 유지한다. */
+@media (prefers-reduced-motion: reduce) {
+	body[data-search-modal-open] #starlight__search:empty::before {
+		animation: cp-search-loading-reveal 0s linear 200ms forwards;
+	}
+}

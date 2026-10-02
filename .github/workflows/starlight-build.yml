@@ -28,3 +28,15 @@ jobs:
         run: npm ci
       - name: Build
         run: npm run build
+      # MCP 인덱스 품질 검사(비차단) — dist/llms/* 산출물의 fence-aware 품질 점검.
+      # 별도 advisory job(mcp-index-advisory)이 같은 사이트를 다시 빌드하던 중복을 없애려
+      # 이미 빌드가 끝난 이 build job의 산출물을 재사용한다. 비차단(continue-on-error)이며
+      # 결과는 Step Summary로 노출한다. 스크립트는 표준 라이브러리만 쓰고 ubuntu-latest는
+      # python3를 기본 탑재하므로 setup-python이 필요 없다.
+      - name: MCP index quality (fence-aware, advisory)
+        continue-on-error: true
+        run: |
+          echo "## 🧭 MCP Index" >> "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
+          python3 scripts/lint-mcp-index.py | tee -a "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"

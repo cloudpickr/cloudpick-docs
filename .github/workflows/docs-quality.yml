@@ -3,7 +3,13 @@ name: Docs Quality
 on:
   pull_request:
     paths:
-      - "src/content/docs/**"
+      # 문서뿐 아니라 스타일·컴포넌트·라우트 등 src 전체를 포함한다. 린터는 PR diff가
+      # 아니라 src/content/docs 전체를 순회 검사하므로, 스타일/컴포넌트만 바뀐 PR에서도
+      # 전체 문서를 재검증하며 통과한다(공허한 승인 아님). src/content/docs/** 로만 좁히면
+      # CSS/컴포넌트만 바꾸는 PR에서 required 체크가 트리거조차 안 돼 무한 pending(머지
+      # 불가)에 빠진다 — build(starlight-build.yml)의 트리거 범위와 동일하게 맞춘다.
+      - "src/**"
+      - "public/**"
       - "scripts/lint-mermaid.py"
       - "scripts/lint-strikethrough.py"
       - "scripts/lint-docs-consistency.py"

@@ -10,7 +10,6 @@ on:
       - "scripts/check-korean-links.mjs"
       - "scripts/check-korean-links.test.mjs"
       - "lychee.toml"
-  pull_request:
   # link-check(required)는 모든 PR에서 실행한다. pull_request.paths 필터를 두면 필터에
   # 없는 경로만 바꾸는 PR에서 트리거조차 안 돼 required인데 영원히 pending(머지 불가)에
   # 빠진다. lychee는 PR diff가 아니라 src/content/docs 전체 링크를 검사하므로, 무관한

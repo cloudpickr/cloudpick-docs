@@ -167,7 +167,8 @@ def main() -> int:
         if not os.path.isfile(path):
             warnings.append(f"[mcp-index] {path} 없음 — 빌드 산출 확인")
             continue
-        text = open(path, encoding="utf-8").read()
+        with open(path, encoding="utf-8") as fh:
+            text = fh.read()
         pages = fence_aware_pages(text)
         titles = [t for t, _ in pages]
         page_counts[loc] = len(titles)
@@ -202,7 +203,8 @@ def main() -> int:
     ri_path = os.path.join(LLMS_DIR, "routing-index.json")
     if os.path.isfile(ri_path):
         try:
-            ri = json.load(open(ri_path, encoding="utf-8"))
+            with open(ri_path, encoding="utf-8") as fh:
+                ri = json.load(fh)
             if not isinstance(ri, dict):
                 warnings.append("[mcp-index] routing-index.json: dict 아님")
             else:

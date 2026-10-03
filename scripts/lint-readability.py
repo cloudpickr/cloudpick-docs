@@ -43,7 +43,7 @@ SENT_MIN_HITS = 3    # 한 문서에서 장문 문장이 이 개수 이상일 �
 LINK_RE = re.compile(r"\[([^\]]*)\]\([^)]*\)")   # [text](url) → text
 INLINE_CODE_RE = re.compile(r"`([^`]*)`")         # `code` → code
 PAREN_RE = re.compile(r"[（(][^（()）]*[)）]")      # (보조구) 제거(전각/반각)
-SENT_SPLIT_RE = re.compile(r"(?<=[.。!?！?])\s+")
+SENT_SPLIT_RE = re.compile(r"(?<=[.。!?！])\s+")
 
 
 def normalize(text: str) -> str:

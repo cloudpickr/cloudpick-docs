@@ -16,13 +16,16 @@ const BLOB_KEY = "llms-full";
 const DOCS_SITE_URL = "https://docs.cloudpick.kr";
 
 export default async function handler(request: Request) {
-  // 간단한 인증 (환경변수로 토큰 확인)
+  // 토큰이 없거나 빈 문자열이면 Blob에 접근하지 않는다.
+  // 토큰이 설정된 경우에만 기존과 같이 Authorization Bearer 일치 여부를 본다.
   const authToken = Netlify.env.get("REINDEX_TOKEN");
-  if (authToken) {
-    const provided = request.headers.get("authorization")?.replace("Bearer ", "");
-    if (provided !== authToken) {
-      return new Response(JSON.stringify({ error: "Unauthorized" }), { status: 401 });
-    }
+  if (authToken == null || authToken === "") {
+    return new Response(JSON.stringify({ error: "Unauthorized" }), { status: 401 });
+  }
+
+  const provided = request.headers.get("authorization")?.replace("Bearer ", "");
+  if (provided !== authToken) {
+    return new Response(JSON.stringify({ error: "Unauthorized" }), { status: 401 });
   }
 
   console.log("[reindex-docs] Starting background reindex...");

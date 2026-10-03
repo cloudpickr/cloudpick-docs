@@ -35,7 +35,6 @@
  */
 
 const CONTEXT_NAME = 'editorial-c-approval';
-const SHA256_RE = /\b([0-9a-f]{64})\b/i;
 const APPROVE_RE = /\/approve\s+([0-9a-f]{64})\b/i;
 
 /**
@@ -174,8 +173,16 @@ async function computeTierAndPacketSha({ github, context, exec, prNumber, headSh
     : `${smap[f.status] || 'X'}\t${f.filename}`).join('\n');
 
   const fs = require('fs');
-  fs.writeFileSync('/tmp/ca_numstat.txt', numstat + '\n');
-  fs.writeFileSync('/tmp/ca_name_status.txt', nameStatus + '\n');
+  const os = require('os');
+  const path = require('path');
+  // 예측 가능한 공유 /tmp 경로(/tmp/ca_*.txt)는 심볼릭·경쟁 공격에 취약하다(CodeQL
+  // js/insecure-temporary-file). 프로세스별 고유 디렉터리를 만들어 그 안에 쓴다.
+  const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'ca-gate-'));
+  const numstatPath = path.join(tmpDir, 'numstat.txt');
+  const nameStatusPath = path.join(tmpDir, 'name_status.txt');
+  const packetPath = path.join(tmpDir, 'packet.json');
+  fs.writeFileSync(numstatPath, numstat + '\n');
+  fs.writeFileSync(nameStatusPath, nameStatus + '\n');
 
   // 단일 패킷 파일이면 head SHA 콘텐츠를 데이터로 취득하고 실제 경로를 검증기에 전달.
   const packets = files.filter((f) => /^\.editorial\/packets\/[^/]+\.json$/.test(f.filename));
@@ -185,8 +192,8 @@ async function computeTierAndPacketSha({ github, context, exec, prNumber, headSh
     const { data: blob } = await github.rest.repos.getContent({
       owner: context.repo.owner, repo: context.repo.repo, path: packets[0].filename, ref: headSha,
     });
-    fs.writeFileSync('/tmp/ca_packet.json', Buffer.from(blob.content, blob.encoding).toString('utf8'));
-    packetArg = '/tmp/ca_packet.json';
+    fs.writeFileSync(packetPath, Buffer.from(blob.content, blob.encoding).toString('utf8'));
+    packetArg = packetPath;
     packetRepoPath = packets[0].filename;
   }
 
@@ -196,8 +203,8 @@ async function computeTierAndPacketSha({ github, context, exec, prNumber, headSh
   let out = '';
   await exec.exec('python3', [
     '.editorial/run_review_gate.py',
-    '--numstat', '/tmp/ca_numstat.txt', '--name-status', '/tmp/ca_name_status.txt',
-    '--diff', '/tmp/ca_name_status.txt', // diff는 tier 판정에 무관(리뷰 단계 전 tier만 사용)
+    '--numstat', numstatPath, '--name-status', nameStatusPath,
+    '--diff', nameStatusPath, // diff는 tier 판정에 무관(리뷰 단계 전 tier만 사용)
     '--packet', packetArg, '--packet-repo-path', packetRepoPath,
     '--repo', `${context.repo.owner}/${context.repo.repo}`, '--pr', String(prNumber),
     '--base-sha', base, '--head-sha', headSha,

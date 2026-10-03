@@ -36,8 +36,10 @@ export default async function handler() {
       console.log(`[healthcheck] OK: Blob "${key}" exists, size ${size} bytes, updated ${metadata.metadata?.updatedAt ?? "unknown"}`);
       results[key] = { ok: true, size, updatedAt: metadata.metadata?.updatedAt as string | undefined };
     } catch (err) {
+      // 상세 에러는 서버 로그에만 남긴다. 응답에는 스택·내부 정보를 노출하지 않는다
+      // (CodeQL js/stack-trace-exposure). 어떤 blob이 실패했는지는 key로 식별된다.
       console.error(`[healthcheck] ERROR for "${key}":`, err);
-      results[key] = { ok: false, size: 0, error: String(err) };
+      results[key] = { ok: false, size: 0, error: "unavailable" };
       critical = true;
     }
   }

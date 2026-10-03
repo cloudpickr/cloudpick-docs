@@ -13,7 +13,6 @@ import { getDeployStore } from "@netlify/blobs";
 
 const BLOB_STORE_NAME = "mcp-docs";
 const BLOB_KEY = "llms-full";
-const DOCS_SITE_URL = "https://docs.cloudpick.kr";
 
 export default async function handler(request: Request) {
   // 간단한 인증 (환경변수로 토큰 확인)
@@ -48,8 +47,10 @@ export default async function handler(request: Request) {
       }));
     }
   } catch (err) {
+    // 에러 상세(스택·내부 정보)는 서버 로그에만 남기고, 응답에는 일반 메시지만 반환한다
+    // (CodeQL js/stack-trace-exposure). String(err)을 클라이언트에 노출하지 않는다.
     console.error("[reindex-docs] Error:", err);
-    return new Response(JSON.stringify({ error: String(err) }), { status: 500 });
+    return new Response(JSON.stringify({ error: "internal error" }), { status: 500 });
   }
 }
 

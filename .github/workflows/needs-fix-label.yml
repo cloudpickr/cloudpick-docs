@@ -13,7 +13,7 @@ jobs:
       (github.event_name == 'pull_request_review' && github.event.review.state == 'changes_requested') ||
       (github.event_name == 'issue_comment' && contains(github.event.comment.body, '/fix'))
     steps:
-      - uses: actions/github-script@v7
+      - uses: actions/github-script@v9
         with:
           script: |
             const prNumber = context.payload.pull_request?.number || context.payload.issue?.number;

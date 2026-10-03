@@ -100,7 +100,8 @@ def main() -> int:
         print(f"⚠️  {CONFIG} 없음 — 분류 검사 건너뜀")
         return 0
 
-    config_text = open(CONFIG, encoding="utf-8").read()
+    with open(CONFIG, encoding="utf-8") as fh:
+        config_text = fh.read()
     referenced = set(sidebar_slugs(config_text))
     docs = doc_slugs()
 

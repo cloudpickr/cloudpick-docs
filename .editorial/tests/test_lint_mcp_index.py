@@ -7,7 +7,6 @@ llms-full 페이지 수가 부풀려져(실측 124 vs 실제 119) 가짜 품질 
 빠지거나 깨지면 이 테스트가 즉시 실패한다.
 """
 import importlib.util
-import sys
 import unittest
 from pathlib import Path
 

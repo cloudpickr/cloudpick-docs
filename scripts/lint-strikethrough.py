@@ -85,7 +85,8 @@ def main():
                 if not f.endswith((".md", ".mdx")):
                     continue
                 path = os.path.join(root, f)
-                content = open(path, encoding="utf-8").read()
+                with open(path, encoding="utf-8") as fh:
+                    content = fh.read()
                 all_issues.extend(find_issues(content, path))
 
     if all_issues:

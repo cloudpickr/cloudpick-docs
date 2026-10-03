@@ -1,0 +1,40 @@
+# Dependabot version updates
+# 정기적으로 의존성 업데이트 PR을 생성한다. (보안 업데이트는 Security & analysis의
+# "Dependabot security updates"가 별도로 담당 — 이 파일은 '정기 버전 업데이트'용.)
+#
+# 생태계: npm(package.json) + github-actions. 파이썬(.editorial·scripts)은 표준
+# 라이브러리만 쓰고 의존성 매니페스트(requirements.txt 등)가 없으므로 pip 생태계는 제외.
+#
+# PR 빈도 조절: 매주(weekly) + open-pull-requests-limit로 상한. editorial required
+# 게이트를 매번 통과해야 하므로 과도한 PR 폭주를 막는다. 마이너·패치는 묶어서(groups)
+# 하나의 PR로 받아 리뷰 부담을 줄인다.
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    open-pull-requests-limit: 5
+    labels:
+      - "dependencies"
+    groups:
+      # 마이너·패치 업데이트는 하나의 PR로 묶는다(메이저는 개별 PR로 분리).
+      npm-minor-patch:
+        update-types:
+          - "minor"
+          - "patch"
+
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    open-pull-requests-limit: 5
+    labels:
+      - "dependencies"
+      - "github-actions"
+    groups:
+      actions-all:
+        patterns:
+          - "*"

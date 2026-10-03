@@ -21,8 +21,8 @@ jobs:
   healthcheck:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
 
@@ -45,7 +45,7 @@ jobs:
       # 실패 시 이슈 생성/갱신(놓치지 않도록 고정 제목으로 중복 방지).
       - name: Open/update issue on failure
         if: steps.probe.outputs.code != '0'
-        uses: actions/github-script@v7
+        uses: actions/github-script@v9
         with:
           script: |
             const detail = `${{ steps.probe.outputs.detail }}`;

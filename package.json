@@ -31,7 +31,7 @@
     "fsevents@2.3.3": true
   },
   "devDependencies": {
-    "@netlify/functions": "^5.3.0",
+    "@netlify/functions": "^6.0.1",
     "@types/node": "^26.6.3"
   }
 }

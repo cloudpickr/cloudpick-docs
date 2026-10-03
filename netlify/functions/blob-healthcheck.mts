@@ -37,7 +37,8 @@ export default async function handler() {
       results[key] = { ok: true, size, updatedAt: metadata.metadata?.updatedAt as string | undefined };
     } catch (err) {
       console.error(`[healthcheck] ERROR for "${key}":`, err);
-      results[key] = { ok: false, size: 0, error: String(err) };
+      // 내부 오류 상세를 응답 본문에 노출하지 않는다(서버 로그로만 진단).
+      results[key] = { ok: false, size: 0, error: "check failed" };
       critical = true;
     }
   }

@@ -117,13 +117,15 @@ def main():
                 if not f.endswith((".md", ".mdx")):
                     continue
                 path = os.path.join(root, f)
-                content = open(path, encoding="utf-8").read()
+                with open(path, encoding="utf-8") as fh:
+                    content = fh.read()
                 issues = find_issues(content, path)
                 all_issues.extend(issues)
 
                 if fix_mode and issues:
                     fixed = auto_fix(content)
-                    open(path, "w", encoding="utf-8").write(fixed)
+                    with open(path, "w", encoding="utf-8") as fh:
+                        fh.write(fixed)
 
     if all_issues:
         print(f"{'🔧 Fixed' if fix_mode else '❌ FAIL'}: {len(all_issues)} mermaid issue(s)\n")

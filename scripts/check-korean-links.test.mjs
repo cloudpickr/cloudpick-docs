@@ -21,7 +21,7 @@ test('extracts only allowlisted Korean links', () => {
 
 test('invocation endpoint cannot exfiltrate the API key', () => {
   assert.equal(validateEndpoint('https://abc.apigw.ntruss.com/link-checker/v1').hostname, 'abc.apigw.ntruss.com');
-  assert.throws(() => validateEndpoint('https://example.com/steal'), /apigw\.ntruss\.com/);
+  assert.throws(() => validateEndpoint('https://example.com/steal'), /NCP endpoint must be hosted under apigw\.ntruss\.com$/);
   assert.throws(() => validateEndpoint('http://abc.apigw.ntruss.com/test'), /HTTPS/);
 });
 

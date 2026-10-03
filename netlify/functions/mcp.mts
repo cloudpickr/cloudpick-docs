@@ -279,7 +279,7 @@ async function callTool(
     const lang = detectLang(title, args.lang);
 
     let resolvedLang = lang;
-    let sections = await loadSections(lang);
+    const sections = await loadSections(lang);
     let exact = sections.find((s) => s.title.toLowerCase() === tl);
     let partial = sections.filter((s) => s.title.toLowerCase().includes(tl));
 
@@ -292,7 +292,6 @@ async function callTool(
         const e = altSections.find((s) => s.title.toLowerCase() === tl);
         const p = altSections.filter((s) => s.title.toLowerCase().includes(tl));
         if (e || p.length > 0) {
-          sections = altSections;
           resolvedLang = alt;
           exact = e;
           partial = p;

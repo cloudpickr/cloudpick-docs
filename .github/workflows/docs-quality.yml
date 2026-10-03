@@ -17,6 +17,9 @@ on:
       - "scripts/lint-docs-consistency.py"
       - ".github/workflows/docs-quality.yml"
 
+permissions:
+  contents: read
+
 jobs:
   mermaid-lint:
     runs-on: ubuntu-latest

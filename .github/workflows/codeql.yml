@@ -1,0 +1,73 @@
+name: CodeQL
+
+# 정적 보안 분석(CodeQL) — 저장소의 실제 코드를 대상으로 한다.
+#   - python: .editorial/ 편집 게이트 도구, scripts/ 린터·빌드 보조
+#   - javascript-typescript: .github/scripts/*.cjs, scripts/*.mjs, src/*.ts(routeData 등), plugins/
+#   - actions: .github/workflows/*.yml (워크플로 자체의 보안 분석)
+# 문서(.md/.mdx)는 분석 대상이 아니다. 결과는 GitHub Security 탭(code-scanning)에 쌓인다.
+#
+# required 체크로 등록하지 않는다(advisory). CodeQL은 분석 시간이 길고, 이 저장소는
+# 문서 위주라 required로 묶으면 모든 PR의 머지를 지연시킨다. 보안 신호는 Security 탭과
+# PR 주석으로 노출되며, 필요 시 나중에 required로 승격할 수 있다(그때는 paths 필터를
+# 제거해 모든 PR에 체크가 생성되도록 해야 한다).
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - "**/*.py"
+      - "**/*.js"
+      - "**/*.cjs"
+      - "**/*.mjs"
+      - "**/*.ts"
+      - ".github/workflows/**"
+      - ".github/workflows/codeql.yml"
+  pull_request:
+    branches: [master]
+    paths:
+      - "**/*.py"
+      - "**/*.js"
+      - "**/*.cjs"
+      - "**/*.mjs"
+      - "**/*.ts"
+      - ".github/workflows/**"
+      - ".github/workflows/codeql.yml"
+  schedule:
+    # 코드 변경이 없어도 새 CodeQL 룰셋으로 주기 재스캔(매주 월요일 UTC 03:00).
+    - cron: "0 3 * * 1"
+
+# 동일 ref의 이전 '중복 PR 실행'만 취소한다. push/schedule(master) 실행은 서로 취소하지
+# 않도록 PR 이벤트에서만 cancel-in-progress를 켠다.
+concurrency:
+  group: codeql-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  analyze:
+    name: Analyze (${{ matrix.language }})
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+    strategy:
+      fail-fast: false
+      matrix:
+        language: ["python", "javascript-typescript", "actions"]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v4
+        with:
+          languages: ${{ matrix.language }}
+          # 인터프리티드 언어(python/js/ts)·actions는 컴파일 빌드가 없으므로 build-mode none.
+          build-mode: none
+          # 보안 중심 + 품질 쿼리까지 포함. 품질 알림 소음이 많으면 security-extended로 조정.
+          queries: security-and-quality
+
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v4
+        with:
+          category: "/language:${{ matrix.language }}"

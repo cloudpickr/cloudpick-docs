@@ -5,7 +5,9 @@
  * 토큰이 있으면 Authorization Bearer 일치 시에만 기존 Blob 조회를 유지한다.
  *
  * 실행:
- *   node --experimental-test-module-mocks --test netlify/functions/reindex-docs.test.mjs
+ *   node --experimental-test-module-mocks --test scripts/reindex-docs.test.mjs
+ *
+ * netlify/functions 안에 두면 Netlify가 테스트 파일을 함수로 번들한다.
  */
 import { mock, test, beforeEach } from 'node:test';
 import assert from 'node:assert/strict';
@@ -47,7 +49,7 @@ globalThis.Netlify = {
   },
 };
 
-const { default: handler } = await import('./reindex-docs.mts');
+const { default: handler } = await import('../netlify/functions/reindex-docs.mts');
 
 function resetBlob() {
   blob.getDeployStoreCalls = 0;

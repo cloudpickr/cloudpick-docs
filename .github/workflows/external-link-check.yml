@@ -20,6 +20,11 @@ on:
     - cron: "0 0 * * 1" # 매주 월요일 UTC 00:00
   workflow_dispatch: # 수동 실행 가능
 
+# 최소 권한(top-level): 기본은 읽기만. 쓰기가 필요한 job(이슈 생성 등)은 job-level
+# permissions에서 필요한 범위만 추가로 선언한다.
+permissions:
+  contents: read
+
 # 동일 ref의 이전 실행은 취소(빠른 피드백)
 concurrency:
   group: link-check-${{ github.ref }}
@@ -53,7 +58,7 @@ jobs:
 
       - name: Check external links
         id: lychee
-        uses: lycheeverse/lychee-action@v2
+        uses: lycheeverse/lychee-action@e7477775783ea5526144ba13e8db5eec57747ce8 # v2
         with:
           # 오탐 완화 설정은 lychee.toml에 통합(User-Agent, host-concurrency,
           # accept 코드, 봇 차단 도메인 제외, cache 등). 로컬 검사와 동일 설정을 공유.
@@ -99,7 +104,7 @@ jobs:
       # 스케줄 실행에서 깨진 링크가 있으면 추적 이슈 생성
       - name: Create issue if broken links found (scheduled)
         if: github.event_name == 'schedule' && steps.lychee.outputs.exit_code != 0
-        uses: peter-evans/create-issue-from-file@v5
+        uses: peter-evans/create-issue-from-file@e8ef132d6df98ed982188e460ebb3b5d4ef3a9cd # v5
         with:
           title: "🔗 외부 링크 점검: 깨진 링크 발견"
           content-filepath: ./lychee/out.md

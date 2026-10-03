@@ -15,6 +15,10 @@ on:
       - "package-lock.json"
       - ".github/workflows/starlight-build.yml"
 
+# 최소 권한: 체크아웃 후 빌드·내부 링크 검증만 하므로 읽기 권한만 필요하다.
+permissions:
+  contents: read
+
 jobs:
   build:
     runs-on: ubuntu-latest

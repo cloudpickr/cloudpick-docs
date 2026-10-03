@@ -17,6 +17,10 @@ on:
       - "scripts/lint-docs-consistency.py"
       - ".github/workflows/docs-quality.yml"
 
+# 최소 권한: 모든 job이 체크아웃 후 린트만 수행하므로 읽기 권한만 필요하다.
+permissions:
+  contents: read
+
 jobs:
   mermaid-lint:
     runs-on: ubuntu-latest

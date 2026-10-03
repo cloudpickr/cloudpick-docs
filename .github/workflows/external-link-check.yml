@@ -33,7 +33,7 @@ jobs:
       id-token: write
       issues: write
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
 
       - name: Test Korean link checker adapter
         run: node --test scripts/check-korean-links.test.mjs
@@ -45,7 +45,7 @@ jobs:
       - name: Restore lychee cache
         id: restore-lychee-cache
         if: github.event_name != 'schedule'
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v6
         with:
           path: .lycheecache
           key: cache-lychee-${{ github.sha }}
@@ -77,7 +77,7 @@ jobs:
       # 캐시 키가 없을 수 있어, 복원 스텝이 실행된 경우에만 저장한다.
       - name: Save lychee cache
         if: always() && steps.restore-lychee-cache.outcome == 'success' && steps.restore-lychee-cache.outputs.cache-hit != 'true'
-        uses: actions/cache/save@v4
+        uses: actions/cache/save@v6
         with:
           path: .lycheecache
           key: ${{ steps.restore-lychee-cache.outputs.cache-primary-key }}
@@ -99,7 +99,7 @@ jobs:
       # 스케줄 실행에서 깨진 링크가 있으면 추적 이슈 생성
       - name: Create issue if broken links found (scheduled)
         if: github.event_name == 'schedule' && steps.lychee.outputs.exit_code != 0
-        uses: peter-evans/create-issue-from-file@v5
+        uses: peter-evans/create-issue-from-file@v6
         with:
           title: "🔗 외부 링크 점검: 깨진 링크 발견"
           content-filepath: ./lychee/out.md

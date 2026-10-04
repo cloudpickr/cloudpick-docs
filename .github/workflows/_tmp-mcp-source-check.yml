@@ -1,0 +1,70 @@
+name: _tmp MCP source check
+
+# 일회성 검증: MCP_TOKEN으로 format=source가 영문 원문을 주는지 확인.
+# 원문 전체는 로그에 노출하지 않고 '필드 존재·언어·길이'만 출력. 검증 후 삭제한다.
+
+on:
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Probe format=source vs summary
+        uses: actions/github-script@v9
+        env:
+          WHATS_NEW_MCP_URL: https://whats-new.kr/mcp
+          MCP_TOKEN: ${{ secrets.MCP_TOKEN }}
+        with:
+          script: |
+            const url = process.env.WHATS_NEW_MCP_URL;
+            const token = process.env.MCP_TOKEN;
+            core.info(`MCP_TOKEN present: ${!!token}`);
+
+            async function call(args, auth) {
+              const headers = { "Content-Type": "application/json", "User-Agent": "cloudpick-src-check" };
+              if (auth && token) headers["Authorization"] = `Bearer ${token}`;
+              const res = await fetch(url, {
+                method: "POST", headers,
+                body: JSON.stringify({ jsonrpc: "2.0", id: 1, method: "tools/call",
+                  params: { name: "search_releases", arguments: args } }),
+              });
+              const data = await res.json();
+              return { http: res.status, data };
+            }
+
+            // 데이터가 확실히 있는 윈도우(days=5)로 1건.
+            // (A) 인증 + format=source → 영문 원문 기대
+            const src = await call({ csp: "aws", format: "source", days: 5, limit: 1 }, true);
+            if (src.data.error) {
+              core.setFailed(`format=source 거부: ${src.data.error.message}`);
+              return;
+            }
+            const srcText = src.data.result?.content?.[0]?.text ?? "";
+            let srcArr = []; try { srcArr = JSON.parse(srcText.match(/\[[\s\S]*\]/)?.[0] ?? "[]"); } catch {}
+            const s = srcArr[0] || {};
+            // 영문 비율 추정(ASCII 알파벳 비율)
+            const asciiRatio = (str) => { if(!str) return 0; const a=(str.match(/[A-Za-z]/g)||[]).length; return +(a/str.length).toFixed(2); };
+            core.info("=== format=source (authed) ===");
+            core.info(`http=${src.http} keys=${JSON.stringify(Object.keys(s))}`);
+            core.info(`title.len=${(s.title||"").length} title.asciiRatio=${asciiRatio(s.title)}  (영문 원문이면 높음)`);
+            core.info(`description.len=${(s.description||"").length} description.asciiRatio=${asciiRatio(s.description)}`);
+            core.info(`url=${s.url || "(none)"}`);
+            core.info(`title.sample(앞40자, 마스킹)=${(s.title||"").slice(0,40)}…`);
+
+            // (B) 대조: 공개 요약(ko)
+            const sum = await call({ csp: "aws", lang: "ko", days: 5, limit: 1 }, false);
+            const sumText = sum.data.result?.content?.[0]?.text ?? "";
+            let sumArr = []; try { sumArr = JSON.parse(sumText.match(/\[[\s\S]*\]/)?.[0] ?? "[]"); } catch {}
+            const k = sumArr[0] || {};
+            core.info("=== summary ko (public) ===");
+            core.info(`title.asciiRatio=${asciiRatio(k.title)} (한국어면 낮음)  original_title.asciiRatio=${asciiRatio(k.original_title)}`);
+
+            // 판정
+            const srcIsEnglish = asciiRatio(s.title) > 0.6 || asciiRatio(s.description) > 0.6;
+            const hasSourceFields = Object.keys(s).includes("description") || Object.keys(s).includes("title");
+            core.info(`\n판정: format=source 인증요구=OK, 응답수신=${src.http===200}, 영문원문추정=${srcIsEnglish}, 필드정상=${hasSourceFields}`);
+            if (!(src.http === 200 && hasSourceFields)) core.setFailed("format=source 응답 비정상");

@@ -3,7 +3,8 @@ name: Monthly Docs Review
 # 월간 문서 현행화 루틴(AGENTS.md "기준 시점: 월 단위 표기, 정기 리뷰로 최신 월 승격").
 # 리듬:
 #   - 매월 초: 그 달 트래킹 이슈를 자동 생성.
-#   - 매일(daily): 새 소식이 있으면 담당 에이전트가 그 달 이슈에 공식 링크와 함께 코멘트로 누적.
+#   - 매일(daily): whats-new.kr MCP로 전날 벤더 새 소식(영문 원문+공식 링크)을 그 달 이슈에
+#     코멘트로 누적한다. 봇은 '제보'만 하고, 쓸만한지 판단·문서 반영은 담당 에이전트/사람의 몫.
 #   - 월중: 현행화 PR은 여러 개가 될 수 있고, 각 PR은 이슈를 `Refs #N`으로 참조만 한다(조기 닫힘 방지).
 #   - 월말: 사이클이 끝나면 담당자가 이슈를 수동으로 닫는다. (이 워크플로는 이슈를 자동으로 닫지 않는다.)
 # 이 워크플로는 "트래킹 이슈"만 관리한다. 실제 현행화(마커 승격·사실 재검증)와 소식의 사실성·공식 링크는
@@ -123,24 +124,117 @@ jobs:
               core.info(`생성: #${created.data.number}`);
             }
 
-      # Daily: 그 달 이슈가 존재하는지 확인만 하고, 담당 에이전트가 새 소식을 코멘트할 수 있게 보장한다.
-      # 봇은 소식을 '지어내지' 않는다 — 사실성과 공식 링크는 담당 에이전트 책임(AGENTS.md 교차검증 원칙).
-      # 그 달 이슈가 없으면(월초 생성 실패 등) 안전하게 생성해 둔다.
-      - name: Daily check-in (ensure monthly issue exists for comments)
+      # Daily: whats-new.kr MCP(format=source, 벤더 영문 원문)로 전날 신규 릴리스를 조회해,
+      # 그 달 이슈에 공식 링크와 함께 코멘트로 누적한다. 봇은 '제보'만 — 사실성 판단·문서 반영은
+      # 담당 에이전트/사람의 몫(AGENTS.md 공식 출처·교차검증 원칙). MCP_TOKEN 미설정이면 안전하게
+      # 건너뛴다(토큰 없이는 format=source 거부됨). 하루 1회만 — 같은 날 코멘트가 이미 있으면 skip.
+      - name: Daily — collect vendor news from whats-new.kr MCP
         if: steps.mode.outputs.action == 'daily'
         uses: actions/github-script@v9
+        env:
+          WHATS_NEW_MCP_URL: https://whats-new.kr/mcp
+          MCP_TOKEN: ${{ secrets.MCP_TOKEN }}
         with:
           script: |
             const year = ${{ steps.mode.outputs.year }};
             const month = ${{ steps.mode.outputs.month }};
+            const dateKst = "${{ steps.mode.outputs.date_kst }}";
             const title = `📅 월간 문서 현행화 — ${year}년 ${month}월`;
-            const existing = await github.paginate(github.rest.issues.listForRepo, {
+
+            // 1) 그 달 이슈 확보(없으면 경고 후 종료 — open 단계가 별도로 생성).
+            const issues = await github.paginate(github.rest.issues.listForRepo, {
               owner: context.repo.owner, repo: context.repo.repo,
               state: "open", labels: "routine:monthly-review", per_page: 100,
             });
-            const hit = existing.find((i) => i.title === title && !i.pull_request);
-            if (hit) {
-              core.info(`daily: 그 달 이슈 존재 #${hit.number} — 담당 에이전트가 새 소식을 코멘트로 누적한다.`);
-            } else {
-              core.warning(`daily: 그 달 이슈 없음 — open 로직으로 보강 생성이 필요할 수 있음(워크플로 수동 open 실행).`);
+            const issue = issues.find((i) => i.title === title && !i.pull_request);
+            if (!issue) {
+              core.warning(`daily: 그 달 이슈 없음(${title}) — 수동 open 실행 필요. 소식 수집 건너뜀.`);
+              return;
             }
+
+            // 2) 토큰 없으면 안전 skip(format=source는 인증 필수).
+            const token = process.env.MCP_TOKEN;
+            if (!token) {
+              core.warning("daily: MCP_TOKEN 미설정 — whats-new 소식 수집 건너뜀(secrets.MCP_TOKEN 설정 필요).");
+              return;
+            }
+
+            // 3) 하루 1회 멱등: 같은 날 daily 마커 코멘트가 이미 있으면 skip.
+            const marker = `<!-- wnk-daily:${dateKst} -->`;
+            const comments = await github.paginate(github.rest.issues.listComments, {
+              owner: context.repo.owner, repo: context.repo.repo,
+              issue_number: issue.number, per_page: 100,
+            });
+            if (comments.some((c) => (c.body || "").includes(marker))) {
+              core.info(`daily: ${dateKst} 코멘트 이미 존재 #${issue.number} — skip.`);
+              return;
+            }
+
+            // 4) whats-new MCP search_releases(format=source, days=1) — csp별 벤더 영문 원문.
+            //    MCP 서버가 사실성·번역·검수를 담당하고, 여기선 '전날 신규 + 공식 링크'만 추출한다.
+            const url = process.env.WHATS_NEW_MCP_URL;
+            async function callMcp(args) {
+              const res = await fetch(url, {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                  "Authorization": `Bearer ${token}`,
+                  "User-Agent": "cloudpick-docs-monthly-review",
+                },
+                body: JSON.stringify({
+                  jsonrpc: "2.0", id: 1, method: "tools/call",
+                  params: { name: "search_releases", arguments: args },
+                }),
+              });
+              if (!res.ok) throw new Error(`MCP HTTP ${res.status}`);
+              const data = await res.json();
+              if (data.error) throw new Error(`MCP error: ${data.error.message || JSON.stringify(data.error)}`);
+              const text = data.result?.content?.[0]?.text ?? "[]";
+              try { return JSON.parse(text); } catch { return []; }
+            }
+
+            const csps = ["aws", "gcp", "azure"];
+            const PER_CSP = 8; // csp당 상한(노이즈 방지)
+            let sections = [];
+            let errors = [];
+            for (const csp of csps) {
+              try {
+                const rows = await callMcp({ csp, format: "source", days: 1, limit: PER_CSP });
+                if (Array.isArray(rows) && rows.length) {
+                  const lines = rows.map((r) => {
+                    const t = (r.title || r.original_title || "(untitled)").replace(/\n/g, " ").trim();
+                    return `- [${t}](${r.url})`;
+                  });
+                  sections.push(`### ${csp.toUpperCase()} (${rows.length})\n${lines.join("\n")}`);
+                }
+              } catch (e) {
+                errors.push(`${csp}: ${e.message}`);
+              }
+            }
+
+            // 5) 결과가 없으면 조용히 종료(빈 코멘트로 이슈를 어지럽히지 않는다).
+            if (!sections.length) {
+              if (errors.length) core.warning(`daily: 수집 실패/빈 결과 — ${errors.join("; ")}`);
+              else core.info(`daily: ${dateKst} 전날 신규 소식 없음 — 코멘트 생략.`);
+              return;
+            }
+
+            // 6) 그 달 이슈에 코멘트. 벤더 영문 원문 + 공식 링크. 판단·반영은 사람/에이전트 몫.
+            const body = [
+              `${marker}`,
+              `## 🔔 ${dateKst} 벤더 새 소식 (whats-new.kr, 전일자)`,
+              ``,
+              `아래는 AWS·GCP·Azure 공식 What's New에서 **전일 신규** 항목입니다(출처: whats-new.kr MCP, 벤더 영문 원문).`,
+              `cloudpick-docs 문서에 영향 있는 항목만 교차검증 후 현행화 PR로 반영하고, 반영한 항목은 상단 "이번 달 수집된 새 소식"에 정리하세요. 전부가 문서 반영 대상은 아닙니다.`,
+              ``,
+              sections.join("\n\n"),
+              errors.length ? `\n> ⚠️ 일부 수집 실패: ${errors.join("; ")}` : ``,
+              ``,
+              `_auto-collected by \`monthly-review.yml\` (daily) — 사실성·관련성 판단은 담당자 몫._`,
+            ].join("\n");
+
+            await github.rest.issues.createComment({
+              owner: context.repo.owner, repo: context.repo.repo,
+              issue_number: issue.number, body,
+            });
+            core.info(`daily: #${issue.number}에 ${sections.length}개 CSP 소식 코멘트 완료.`);

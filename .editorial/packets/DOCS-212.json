@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "jira_key": "DOCS-212",
+  "policy_action": "update",
+  "tier_hint": "C",
+  "tier_reasons": [
+    "기존 'Jev 단일' 서술을 '의사결정 모델(System One)' 범주로 재구성하고 신규 모델(GLiNER2.5-Decide) 사실을 추가하는 비기계적 변경",
+    "벤더·사양·출시시점·라이선스 등 외부 사실 주장을 포함하므로 공식 출처 교차검증 필요"
+  ],
+  "target_path": "src/content/docs/ko/ai/ai-ml.md",
+  "changed_paths": [
+    "src/content/docs/ko/ai/ai-ml.md",
+    "src/content/docs/en/ai/ai-ml.md",
+    "src/content/docs/ja/ai/ai-ml.md"
+  ],
+  "generated_by_llm": true,
+  "writer": {
+    "model": "kiro-agent",
+    "provider": "kiro"
+  },
+  "claim_ledger": [
+    {
+      "claim": "TypeSafe AI가 'System One'으로 이름 붙인 Jev를 2026년 9월 중순 공개했으며, 타입 질문(Noul·Choice·Score)에 확률·신뢰도 판정을 반환한다. 컨텍스트 32,000토큰, 입력 100만 토큰당 $0.042, 출력 과금 없음, zero data retention.",
+      "source_url": "https://developers.cloudflare.com/ai/models/typesafe/jev/",
+      "quote": "Jev returns typed decisions (Noul, Choice, Score) with calibrated confidence; 32,000-token context; $0.042 per 1M input tokens; zero data retention.",
+      "checked_at": "2026-09-23T12:40:00+09:00",
+      "volatile": true,
+      "status": "verified"
+    },
+    {
+      "claim": "Fastino Labs의 GLiNER2.5-Decide는 2026년 9월 말 공개된 Apache 2.0 오픈웨이트 모델로, 모델 카드 기준 340M 파라미터이며 GPU 없이 CPU에서도 실행된다. DeBERTa-v3 인코더 기반으로 라우팅·감성·yes/no 게이트·순위 점수 등 운영 판정에 특화되고, 확률 분포·신뢰도·제약 충족 메타데이터를 반환한다. 오픈소스 GLiNER2 계열의 의사결정 파생이다.",
+      "sources": [
+        {
+          "source_url": "https://huggingface.co/fastino/GLiNER2.5-Decide",
+          "quote": "GLiNER2.5-Decide: 340M, Apache-2.0, DeBERTa-v3-large encoder, runs on CPU or GPU; returns probability distributions, confidence, constraint-feasibility metadata."
+        },
+        {
+          "source_url": "https://github.com/fastino-ai/GLiNER2",
+          "quote": "GLiNER2 open-source family (Fastino)."
+        }
+      ],
+      "checked_at": "2026-09-23T12:40:00+09:00",
+      "volatile": false,
+      "status": "verified"
+    },
+    {
+      "claim": "의사결정 모델(decision model / System One) 범주는 2026년 9월 Jev 공개 직후 오픈소스 재구현을 포함해 빠르게 늘고 있으며, AWS Strands Labs의 Strands Decider 등 후속 모델이 공개되고 있다.",
+      "sources": [
+        {
+          "source_url": "https://strandsagents.com/blog/introducing-strands-decider/",
+          "quote": "Strands Decider 2B is one of a new class of decision models or system one models, a type of model that has been gaining attention since TypeSafe AI's launch of Jev earlier this month."
+        }
+      ],
+      "checked_at": "2026-09-23T12:40:00+09:00",
+      "volatile": false,
+      "status": "verified"
+    }
+  ]
+}

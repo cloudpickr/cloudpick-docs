@@ -45,14 +45,19 @@ On-premises AI/ML requires purchasing GPU servers, installing frameworks, and bu
 | **Multimodal** | Text+Image+Speech → Text | GPT-6 class, Gemini 3.x class, Claude Opus 5.5 | Document understanding, image analysis |
 | **Embeddings** | Text/Image → Vector | Titan Embeddings, Gemini Embedding, Cohere Embed | RAG, similarity search |
 
-### Structured Evaluation Models (Non-Generative)
+### Decision Models (System One, Non-Generative)
 
-Most of the types above **generate** content, but a class of models is emerging that does not generate text — instead it **returns structured decisions to predefined questions**. These are designed so software can consume the result directly, without parsing free text.
+Most of the types above **generate** content, but since September 2026 a class of models that does not generate text — instead **returning structured decisions to predefined questions** — has been forming rapidly. Vendors call these "decision models" or "System One" models. They take a state and typed questions and return choices, scores, or probabilities with **calibrated confidence**, so software can branch on the result directly without parsing free text. In exchange for giving up flexibility, they offer **low latency, high efficiency, and answers always drawn from the enumerated options**; they are unsuited to complex reasoning or generation (coding, summarization, chatbots).
 
-- **Jev** (TypeSafe AI) — developers define typed questions (Noul, Choice, Score) in advance, and the model evaluates the supplied state to return **decisions with attached probabilities and confidence**. The vendor frames it not as a conversational LLM but as a "System One" model (for fast decisions inside software). 32,000-token context, $0.042 per 1M input tokens / $0 output, zero data retention. Offered via [Cloudflare Workers AI](https://developers.cloudflare.com/ai/models/typesafe/jev/).
+| Model | Provider | Form | Notes |
+| --- | --- | --- | --- |
+| **Jev** | TypeSafe AI | Hosted | The model TypeSafe named "System One" and released in mid-September 2026. Typed questions (Noul, Choice, Score) returning probability/confidence decisions. 32,000-token context, $0.042 per 1M input tokens / no output charge, zero data retention. Offered via [Cloudflare Workers AI](https://developers.cloudflare.com/ai/models/typesafe/jev/) |
+| **GLiNER2.5-Decide** | Fastino Labs | Open-weight (Apache 2.0) | Released late September 2026. Per the model card, 340M parameters that **run on a CPU without a GPU**. DeBERTa-v3 encoder-based, specialized for operational decisions such as routing, sentiment, yes/no gates, and ordinal scores. Returns probability distributions, confidence, and constraint-feasibility metadata. A decision derivative of the open-source [GLiNER2](https://github.com/fastino-ai/GLiNER2) family |
+
+The two share a similar input/output contract but differ in **deployment form (hosted vs. open-weight)** and **runtime (managed API vs. local CPU/GPU)**. The selection axes are "where will it run (data-residency constraints, edge or not)" and "required accuracy vs. latency."
 
 :::note
-Structured evaluation models suit tasks where the decision space is clearly enumerated — classification, routing, policy adjudication. For free-form narration, summarization, or generation, a generative LLM is still the right fit; the two are complementary, not substitutes. Validate the supported question types and evaluation accuracy against your own data before adoption.
+Decision models suit tasks where the decision space is clearly enumerated — classification, routing, policy adjudication. For free-form narration, summarization, or generation, a generative LLM is still the right fit; the two are complementary, not substitutes. Since Jev's September 2026 debut this category has grown quickly, including open-source reimplementations (e.g., follow-ups such as AWS Strands Labs' Strands Decider are being released), so validate the supported question types, evaluation accuracy, and calibration quality against your own data before adoption.
 :::
 
 ## Generative AI Services

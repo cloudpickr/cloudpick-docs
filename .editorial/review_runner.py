@@ -96,6 +96,7 @@ _VENDOR_ALIASES = {
     "deepseek": ("deepseek",),
     "xai": ("xai", "grok"),
     "moonshot": ("moonshot", "kimi"),
+    "kiro": ("kiro", "kiro-agent"),
     "cloudflare": ("workers-ai", "cloudflare"),
     "huggingface": ("huggingface", "hf-inference"),
 }

@@ -356,6 +356,8 @@
 # CSP는 실제 사용 리소스에 맞춰 보수적으로 구성:
 #   - script: self + GA(googletagmanager) + 'unsafe-inline'(astro.config head의 인라인
 #     스크립트 2개: netlify.app→정규도메인 리다이렉트, GA 초기화. Starlight 테마 토글도 인라인)
+#     + 'wasm-unsafe-eval'(Pagefind 검색이 WebAssembly 컴파일 — 없으면 검색 UI가 깨짐.
+#     Pagefind 공식 CSP 가이드)
 #   - connect: self + GA 수집 엔드포인트
 #   - style: self + 'unsafe-inline'(Starlight/mermaid 동적 스타일)
 #   - img: self + data:(mermaid·아이콘) + https:(og-image 등)
@@ -370,7 +372,7 @@
     Permissions-Policy = "camera=(), microphone=(), geolocation=(), interest-cohort=()"
     Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
     Cross-Origin-Opener-Policy = "same-origin"
-    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'; upgrade-insecure-requests"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'; upgrade-insecure-requests"
 
 # llms-full.txt 등 평문 산출물은 올바른 콘텐츠 타입으로 제공(선택적 강화).
 [[headers]]

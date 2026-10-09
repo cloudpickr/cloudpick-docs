@@ -30,6 +30,10 @@
     "esbuild@0.28.1": true,
     "fsevents@2.3.3": true
   },
+  "overrides": {
+    "postcss-selector-parser": "^7.1.6",
+    "katex": "^0.18.2"
+  },
   "devDependencies": {
     "@netlify/functions": "^6.0.1",
     "@types/node": "^26.6.3"

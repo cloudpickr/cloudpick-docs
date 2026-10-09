@@ -5,6 +5,9 @@
 
 [build.environment]
   NODE_VERSION = "22"
+  # npm 메이저를 핀해 lock 파일 정합성을 보장한다. node 22 기본 npm(10)과 맞춰,
+  # 로컬에서 다른 npm 메이저로 lock을 재생성해 `npm ci`가 깨지는 사고를 예방한다.
+  NPM_VERSION = "10"
 
 # ─── Build Plugin: llms-full.txt를 Blob에 업로드하고 dist에서 삭제 ───
 [[plugins]]
@@ -347,3 +350,32 @@
   to = "/ko/introduction/"
   status = 302
   force = true
+
+# ─── 보안 응답 헤더 (Netlify 무료 플랜 거버넌스) ───
+# 정적 문서 사이트 기준. clickjacking·MIME sniffing·정보 유출·전송 보안을 기본 방어한다.
+# CSP는 실제 사용 리소스에 맞춰 보수적으로 구성:
+#   - script: self + GA(googletagmanager) + 'unsafe-inline'(astro.config head의 인라인
+#     스크립트 2개: netlify.app→정규도메인 리다이렉트, GA 초기화. Starlight 테마 토글도 인라인)
+#     + 'wasm-unsafe-eval'(Pagefind 검색이 WebAssembly 컴파일 — 없으면 검색 UI가 깨짐.
+#     Pagefind 공식 CSP 가이드)
+#   - connect: self + GA 수집 엔드포인트
+#   - style: self + 'unsafe-inline'(Starlight/mermaid 동적 스타일)
+#   - img: self + data:(mermaid·아이콘) + https:(og-image 등)
+#   - font: self(/fonts/pretendard, @fontsource)
+# GA_ID 미설정 시 GA 소스는 사용되지 않을 뿐 무해하다.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), interest-cohort=()"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+    Cross-Origin-Opener-Policy = "same-origin"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'; upgrade-insecure-requests"
+
+# llms-full.txt 등 평문 산출물은 올바른 콘텐츠 타입으로 제공(선택적 강화).
+[[headers]]
+  for = "/*.txt"
+  [headers.values]
+    Content-Type = "text/plain; charset=utf-8"

@@ -3,7 +3,7 @@ name: Monthly Docs Review
 # 월간 문서 현행화 루틴(AGENTS.md "기준 시점: 월 단위 표기, 정기 리뷰로 최신 월 승격").
 # 리듬:
 #   - 매월 초: 그 달 트래킹 이슈를 자동 생성.
-#   - 매일(daily): whats-new.kr MCP로 전날 벤더 새 소식(영문 원문+공식 링크)을 그 달 이슈에
+#   - 매일(daily): whats-new.cloud MCP로 전날 벤더 새 소식(영문 원문+공식 링크)을 그 달 이슈에
 #     코멘트로 누적한다. 봇은 '제보'만 하고, 쓸만한지 판단·문서 반영은 담당 에이전트/사람의 몫.
 #   - 월중: 현행화 PR은 여러 개가 될 수 있고, 각 PR은 이슈를 `Refs #N`으로 참조만 한다(조기 닫힘 방지).
 #   - 월말: 사이클이 끝나면 담당자가 이슈를 수동으로 닫는다. (이 워크플로는 이슈를 자동으로 닫지 않는다.)
@@ -125,15 +125,15 @@ jobs:
               core.info(`생성: #${created.data.number}`);
             }
 
-      # Daily: whats-new.kr MCP(format=source, 벤더 영문 원문)로 전날 신규 릴리스를 조회해,
+      # Daily: whats-new.cloud MCP(format=source, 벤더 영문 원문)로 전날 신규 릴리스를 조회해,
       # 그 달 이슈에 공식 링크와 함께 코멘트로 누적한다. 봇은 '제보'만 — 사실성 판단·문서 반영은
       # 담당 에이전트/사람의 몫(AGENTS.md 공식 출처·교차검증 원칙). MCP_TOKEN 미설정이면 안전하게
       # 건너뛴다(토큰 없이는 format=source 거부됨). 하루 1회만 — 같은 날 코멘트가 이미 있으면 skip.
-      - name: Daily — collect vendor news from whats-new.kr MCP
+      - name: Daily — collect vendor news from whats-new.cloud MCP
         if: steps.mode.outputs.action == 'daily'
         uses: actions/github-script@v9
         env:
-          WHATS_NEW_MCP_URL: https://whats-new.kr/mcp
+          WHATS_NEW_MCP_URL: https://whats-new.cloud/mcp
           MCP_TOKEN: ${{ secrets.MCP_TOKEN }}
         with:
           script: |
@@ -246,9 +246,9 @@ jobs:
             // 6) 그 달 이슈에 코멘트. 벤더 영문 원문 + 공식 링크. 판단·반영은 사람/에이전트 몫.
             const body = [
               `${marker}`,
-              `## 🔔 벤더 새 소식 — ${d1}~${d0} (UTC) · whats-new.kr`,
+              `## 🔔 벤더 새 소식 — ${d1}~${d0} (UTC) · whats-new.cloud`,
               ``,
-              `아래는 AWS·GCP·Azure·OCI 공식 What's New에서 **UTC 전일~당일** 신규 항목입니다(출처: whats-new.kr MCP, 벤더 영문 원문).`,
+              `아래는 AWS·GCP·Azure·OCI 공식 What's New에서 **UTC 전일~당일** 신규 항목입니다(출처: whats-new.cloud MCP, 벤더 영문 원문).`,
               `cloudpick-docs 문서에 영향 있는 항목만 교차검증 후 현행화 PR로 반영하고, 반영한 항목은 상단 "이번 달 수집된 새 소식"에 정리하세요. 전부가 문서 반영 대상은 아닙니다.`,
               ``,
               sections.join("\n\n"),

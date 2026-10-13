@@ -100,6 +100,50 @@ function detectLang(text: string, explicit?: unknown): Lang {
   return detectScriptLang(text) ?? DEFAULT_LANG;
 }
 
+/**
+ * 브라우저 Accept-Language 헤더로 안내 페이지 로케일을 고른다.
+ * q-value 우선순위를 존중하되, 지원 언어(ko/en/ja)의 1차 서브태그만 본다
+ * (예: "ja-JP" → "ja", "en-US" → "en"). 신호가 없거나 미지원이면 ko(SOT) 폴백.
+ */
+function pickDocLang(acceptLanguage: string | null): Lang {
+  if (!acceptLanguage) return DEFAULT_LANG;
+  const ranked = acceptLanguage
+    .split(",")
+    .map((part) => {
+      const [tag, ...params] = part.trim().split(";");
+      const qParam = params.find((p) => p.trim().startsWith("q="));
+      const q = qParam ? parseFloat(qParam.split("=")[1]) : 1;
+      return { base: tag.trim().toLowerCase().split("-")[0], q: Number.isFinite(q) ? q : 0 };
+    })
+    // q=0 은 "이 언어는 쓰지 말라"는 명시적 거부 → 후보에서 제외한다.
+    .filter((x) => x.base && x.q > 0)
+    .sort((a, b) => b.q - a.q);
+  for (const { base } of ranked) {
+    if ((SUPPORTED_LANGS as readonly string[]).includes(base)) return base as Lang;
+  }
+  return DEFAULT_LANG;
+}
+
+/**
+ * Accept 헤더가 HTML 표현을 실제로 수용하는지 판정한다(브라우저 주소창 방문 감지용).
+ * 단순 부분문자열 검사와 달리 q=0(명시적 거부)을 존중한다: "text/html;q=0"은
+ * HTML을 거부하는 것이므로 false. "text/html" 또는 와일드카드(모든 타입)를 q>0로
+ * 수용하면 true. 이로써 `Accept: text/event-stream, text/html;q=0` 같은 프로토콜 클라이언트가
+ * 브라우저로 오분류되어 리디렉션되는 일을 막는다.
+ */
+function acceptsHtml(accept: string | null): boolean {
+  if (!accept) return false;
+  for (const part of accept.split(",")) {
+    const [typeRaw, ...params] = part.trim().split(";");
+    const type = typeRaw.trim().toLowerCase();
+    if (type !== "text/html" && type !== "*/*" && type !== "text/*") continue;
+    const qParam = params.find((p) => p.trim().startsWith("q="));
+    const q = qParam ? parseFloat(qParam.split("=")[1]) : 1;
+    if (Number.isFinite(q) && q > 0) return true;
+  }
+  return false;
+}
+
 function parseSections(text: string): DocSection[] {
   const sections: DocSection[] = [];
   let current: DocSection | null = null;
@@ -495,8 +539,21 @@ export default async function handler(req: Request): Promise<Response> {
     );
   }
 
-  // GET 은 Streamable HTTP SSE. 이 서버는 stateless 라 미지원 → 405.
+  // GET 처리.
+  // - 사람이 브라우저로 이 엔드포인트를 열면(Accept: text/html) MCP 안내 페이지로 302.
+  //   주소창 방문은 항상 GET이고, MCP 클라이언트는 POST로만 통신하므로 프로토콜과 충돌하지 않는다.
+  //   구 GitBook 엔드포인트(/~gitbook/mcp)로 온 브라우저도 동일하게 안내 페이지로 보낸다.
+  //   리디렉션 대상 로케일은 Accept-Language로 고르되, 미지원/신호 없음은 ko(SOT)로 폴백.
+  // - 그 외 GET(MCP 클라이언트의 Streamable HTTP SSE 시도 등)은 stateless라 미지원 → 405 유지.
   if (req.method === "GET") {
+    const wantsHtml = acceptsHtml(req.headers.get("accept"));
+    if (wantsHtml) {
+      const lang = pickDocLang(req.headers.get("accept-language"));
+      return new Response(null, {
+        status: 302,
+        headers: { ...headers, location: `/${lang}/mcp/` },
+      });
+    }
     return new Response(null, {
       status: 405,
       headers: { ...headers, allow: "POST, DELETE, OPTIONS" },

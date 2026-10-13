@@ -177,7 +177,7 @@ Showback/Chargebackを行うには、コストを正確に帰属させられる�
 [FOCUS（FinOps Open Cost and Usage Specification）](https://focus.finops.org/)は、FinOps Foundationが主導するマルチクラウドコストデータの標準化仕様です。ベンダーごとに異なるコストデータ形式を単一のスキーマに統合し、マルチクラウド環境で一貫したコスト分析を可能にします。
 
 **FOCUS v1.2**（[2025年5月29日批准](https://focus.finops.org/focus-specification/)）では、SaaS/PaaS・仮想通貨（トークン等）・複数通貨の正規化サポートが強化されました。AI/MLのコスト分析に特に関連する変更点は次のとおりです。
-- トークン等の**仮想通貨（virtual currency）**のライフサイクル・単価比較のユースケース（input/outputトークン課金パターンの追跡）
+- トークン等の**仮想通貨**（virtual currency）のライフサイクル・単価比較のユースケース（input/outputトークン課金パターンの追跡）
 - `PricingCurrency`系のカラムで、国の通貨とトークン等の課金単位を正規化
 - コミット・割引関連のカラムで、GPUリザーブド等のコミット割引を追跡可能
 

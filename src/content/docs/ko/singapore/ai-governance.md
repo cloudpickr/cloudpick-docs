@@ -76,7 +76,7 @@ PDPC는 **2024년 3월 1일**, 「AI 추천·의사결정 시스템에서의 개
 
 ## 아세안 AI 거버넌스 가이드와의 연결
 
-싱가포르 IMDA는 **아세안 AI 거버넌스 실무그룹(ASEAN Working Group on AI Governance, WG-AI)** 을 2024년부터 의장국으로서 이끌고 있습니다. 이 실무그룹의 성과물이 **「ASEAN Guide on AI Governance and Ethics」**로, 아세안 회원국이 전통적 AI 기술을 설계·개발·배포할 때 참고할 수 있는 역내 정렬(regional alignment) 프레임워크입니다. 2025년에는 생성형 AI를 포괄하도록 **확장판(Generative AI 부속서)** 이 마련되었습니다.
+싱가포르 IMDA는 **아세안 AI 거버넌스 실무그룹(ASEAN Working Group on AI Governance, WG-AI)** 을 2024년부터 의장국으로서 이끌고 있습니다. 이 실무그룹의 성과물이 **「ASEAN Guide on AI Governance and Ethics」** 이며, 아세안 회원국이 전통적 AI 기술을 설계·개발·배포할 때 참고할 수 있는 역내 정렬(regional alignment) 프레임워크입니다. 2025년에는 생성형 AI를 포괄하도록 **확장판(Generative AI 부속서)** 이 마련되었습니다.
 
 싱가포르의 Model AI Governance Framework가 사실상 아세안 가이드의 원형(prototype) 역할을 했으며, IMDA가 국가 차원 프레임워크를 지역 차원으로 확산시키는 구조입니다. 아세안 역내 다국가에 서비스를 제공하는 기업이라면, 싱가포르 프레임워크를 준수하는 것이 다른 아세안 회원국의 정책 방향과도 상당 부분 정합적일 가능성이 높습니다.
 

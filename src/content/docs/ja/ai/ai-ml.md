@@ -42,7 +42,7 @@ description: "ベンダー別のAIプラットフォーム、モデルカタロ�
 | --- | --- | --- | --- |
 | **テキスト (LLM)** | テキスト → テキスト | GPT-6系, Claude Opus 5.5, Gemini 3.x系 | チャットボット、要約、コード生成 |
 | **画像生成** | テキスト → 画像 | DALL-E, MAI-Image, Imagen, Titan Image | マーケティング、デザイン |
-| **音声 (TTS/STT)** | テキスト ↔ 音声 | Polly, MAI-Voice, Azure Speech, Cloud TTS | 議事録、ARS、アクセシビリティ |
+| **音声 (TTS/STT)** | テキスト ↔ 音声 | Polly, Nova Sonic, MAI-Voice, Azure Speech, Cloud TTS | 議事録、ARS、アクセシビリティ、音声エージェント |
 | **動画生成** | テキスト → 動画 | Nova Reel, Veo 3.1, Gemini Omni | 広告、ショート動画 |
 | **マルチモーダル** | テキスト+画像+音声 → テキスト | GPT-6系, Gemini 3.x系, Claude Opus 5.5 | 文書理解、画像分析 |
 | **エンベディング** | テキスト/画像 → ベクトル | Titan Embeddings, Gemini Embedding, Cohere Embed | RAG、類似度検索 |
@@ -55,11 +55,12 @@ description: "ベンダー別のAIプラットフォーム、モデルカタロ�
 | --- | --- | --- | --- |
 | **Jev** | TypeSafe AI | ホステッド | TypeSafeが「System One」と名付けて2026年9月中旬に公開したモデル。タイプ質問（Noul・Choice・Score）に確率・信頼度の判定を返す。コンテキスト32,000トークン、入力100万トークンあたり$0.042・出力課金なし、zero data retention。[Cloudflare Workers AI](https://developers.cloudflare.com/ai/models/typesafe/jev/)経由で提供 |
 | **GLiNER2.5-Decide** | Fastino Labs | オープンウェイト（Apache 2.0） | 2026年9月下旬公開。モデルカード基準で340Mパラメータ、**GPUなしのCPUでも実行**。DeBERTa-v3エンコーダベースで、ルーティング・感情・yes/noゲート・順位スコアなどの運用判定に特化。確率分布・信頼度・制約充足メタデータを返す。オープンソース[GLiNER2](https://github.com/fastino-ai/GLiNER2)系列の意思決定派生 |
+| **Strands Decider 2B** | Strands Labs | オープンウェイト（Apache 2.0） | 2026年10月初旬公開。Qwen3.5-2Bデコーダから生成ヘッドを除去し、ポインタヘッド（約100万パラメータ）を載せて列挙された選択肢の一つを指す方式。ローカル（CPU・CUDA・MPS・MLX）実行、選択肢分布に基づく信頼度を提供。配布物はアダプタ・ヘッドで、Qwenベース重みは別途ダウンロードが必要。遅延は自社測定基準でタスク・ハードウェアにより大きく変動（例：RTX 3090で全体中央値約115ms）。[ブログ](https://strandsagents.com/blog/introducing-strands-decider/) · [GitHub](https://github.com/strands-labs/strands-decider) |
 
-2モデルは似た入出力規約を共有しつつ、**デプロイ形態（ホステッド ↔ オープンウェイト）**と**実行環境（マネージドAPI ↔ ローカルCPU/GPU）**で分かれます。選択軸は「どこで動かすか（データ移転制約・エッジの有無）」と「要求精度・遅延」です。
+上記のモデルは似た入出力規約を共有しつつ、**デプロイ形態（ホステッド ↔ オープンウェイト）**と**実行環境（マネージドAPI ↔ ローカルCPU/GPU）**で分かれます。選択軸は「どこで動かすか（データ移転制約・エッジの有無）」と「要求精度・遅延」です。
 
 :::note
-意思決定モデルは、分類・ルーティング・ポリシー判定など**決定が明確に列挙されるタスク**に適しています。自由記述・要約・生成が必要な場合は依然として生成型LLMが適しており、両者は代替ではなく用途が異なります。このカテゴリは2026年9月のJev公開直後からオープンソース再実装を含めて急速に増えているため（例：AWS Strands LabsのStrands Deciderなど後続モデルが公開中）、導入前にサポートされる質問タイプ・評価精度・較正品質を自社データで検証してください。
+意思決定モデルは、分類・ルーティング・ポリシー判定など**決定が明確に列挙されるタスク**に適しています。自由記述・要約・生成が必要な場合は依然として生成型LLMが適しており、両者は代替ではなく用途が異なります。このカテゴリは2026年9月のJev公開直後からオープンソース再実装を含めて急速に増えているため、導入前にサポートされる質問タイプ・評価精度・較正品質を自社データで検証してください。公開されているベンチマーク値の多くはベンダー自社測定であるため、独立検証なしに順位・優位の主張をそのまま受け取らないでください。
 :::
 
 ## 生成AIサービス
@@ -71,12 +72,12 @@ description: "ベンダー別のAIプラットフォーム、モデルカタロ�
 | モデル提供社 | 主要モデル | 1P (直接) | 3P (クラウド提供) |
 | --- | --- | --- | --- |
 | **OpenAI** | GPT-6系(Astraフラッグシップ / Sol中級 / Luna低コスト)、GPT-5.6、oシリーズ | [api.openai.com](https://platform.openai.com/) | Azure Foundry, Bedrock |
-| **Anthropic** | Claude Fable 5.1, Opus 5.5, Sonnet 5, Haiku 4.5 | [api.anthropic.com](https://platform.claude.com/) | Bedrock, Vertex AI |
+| **Anthropic** | Claude Fable 5.1, Opus 5.5, Sonnet 5, Haiku 5.5 | [api.anthropic.com](https://platform.claude.com/) | Bedrock, Vertex AI |
 | **Google** | Gemini 3.x世代 (Pro/Flash — 世代・バリアント・Preview/GAは[公式文書](https://ai.google.dev/)で確認)、Gemini Omni | [Gemini API](https://ai.google.dev/) | Vertex AI (ネイティブ) |
 | **SpaceXAI (旧xAI)** | Grok 4.7, Grok Imagine | [x.ai/api](https://x.ai/api) | OCI, Vertex AI, Bedrock, Azure |
 | **Moonshot AI** | Kimi K3 (オープンウェイト、マルチモーダル) | [platform.moonshot.ai](https://platform.moonshot.ai/) | Bedrock, OCI(インポート), セルフホスティング |
 | **Meta** | Llama 4 (オープンウェイト) | [llama.com](https://www.llama.com/) | Bedrock, Vertex, Azure, OCI (ホスティング) |
-| **Amazon** | Nova 1(Premier/Pro/Lite/Micro/Sonic等) + **Nova 2**(Lite GA、Pro Preview) | — (Bedrock専用) | Bedrock |
+| **Amazon** | Nova 1(Premier/Pro/Lite/Micro/Sonic等) + **Nova 2**(Lite GA、Pro Preview、Sonic 2.5は音声GA) | — (Bedrock専用) | Bedrock |
 | **Microsoft** | MAI (Image/Voice/Transcribe) | — (Foundry専用) | Azure Foundry |
 | **Mistral** | Large, Small, Codestral | [api.mistral.ai](https://docs.mistral.ai/) | Bedrock, Azure, Vertex |
 | **Upstage** | Solar Pro 4/3, Solar Mini 4, Solar Open 2 | [console.upstage.ai](https://console.upstage.ai/) | AWS/Azure Marketplace |

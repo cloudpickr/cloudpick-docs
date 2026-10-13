@@ -40,7 +40,7 @@ On-premises AI/ML requires purchasing GPU servers, installing frameworks, and bu
 | --- | --- | --- | --- |
 | **Text (LLM)** | Text → Text | GPT-6 class, Claude Opus 5.5, Gemini 3.x class | Chatbots, summarization, code generation |
 | **Image Generation** | Text → Image | DALL-E, MAI-Image, Imagen, Titan Image | Marketing, design |
-| **Speech (TTS/STT)** | Text ↔ Speech | Polly, MAI-Voice, Azure Speech, Cloud TTS | Transcription, IVR, accessibility |
+| **Speech (TTS/STT)** | Text ↔ Speech | Polly, Nova Sonic, MAI-Voice, Azure Speech, Cloud TTS | Transcription, IVR, accessibility, voice agents |
 | **Video Generation** | Text → Video | Nova Reel, Veo 3.1, Gemini Omni | Ads, short-form content |
 | **Multimodal** | Text+Image+Speech → Text | GPT-6 class, Gemini 3.x class, Claude Opus 5.5 | Document understanding, image analysis |
 | **Embeddings** | Text/Image → Vector | Titan Embeddings, Gemini Embedding, Cohere Embed | RAG, similarity search |
@@ -53,11 +53,12 @@ Most of the types above **generate** content, but since September 2026 a class o
 | --- | --- | --- | --- |
 | **Jev** | TypeSafe AI | Hosted | The model TypeSafe named "System One" and released in mid-September 2026. Typed questions (Noul, Choice, Score) returning probability/confidence decisions. 32,000-token context, $0.042 per 1M input tokens / no output charge, zero data retention. Offered via [Cloudflare Workers AI](https://developers.cloudflare.com/ai/models/typesafe/jev/) |
 | **GLiNER2.5-Decide** | Fastino Labs | Open-weight (Apache 2.0) | Released late September 2026. Per the model card, 340M parameters that **run on a CPU without a GPU**. DeBERTa-v3 encoder-based, specialized for operational decisions such as routing, sentiment, yes/no gates, and ordinal scores. Returns probability distributions, confidence, and constraint-feasibility metadata. A decision derivative of the open-source [GLiNER2](https://github.com/fastino-ai/GLiNER2) family |
+| **Strands Decider 2B** | Strands Labs | Open-weight (Apache 2.0) | Released early October 2026. Removes the generation head from a Qwen3.5-2B decoder and adds a pointer head (~1M parameters) that selects one of the enumerated options. Runs locally (CPU, CUDA, MPS, MLX) and returns confidence from the option distribution. The release ships the adapter and head; the Qwen base weights are downloaded separately. Latency varies widely by task and hardware per the vendor's own measurements (e.g., ~115ms overall median on an RTX 3090). [Blog](https://strandsagents.com/blog/introducing-strands-decider/) · [GitHub](https://github.com/strands-labs/strands-decider) |
 
-The two share a similar input/output contract but differ in **deployment form (hosted vs. open-weight)** and **runtime (managed API vs. local CPU/GPU)**. The selection axes are "where will it run (data-residency constraints, edge or not)" and "required accuracy vs. latency."
+The models above share a similar input/output contract but differ in **deployment form (hosted vs. open-weight)** and **runtime (managed API vs. local CPU/GPU)**. The selection axes are "where will it run (data-residency constraints, edge or not)" and "required accuracy vs. latency."
 
 :::note
-Decision models suit tasks where the decision space is clearly enumerated — classification, routing, policy adjudication. For free-form narration, summarization, or generation, a generative LLM is still the right fit; the two are complementary, not substitutes. Since Jev's September 2026 debut this category has grown quickly, including open-source reimplementations (e.g., follow-ups such as AWS Strands Labs' Strands Decider are being released), so validate the supported question types, evaluation accuracy, and calibration quality against your own data before adoption.
+Decision models suit tasks where the decision space is clearly enumerated — classification, routing, policy adjudication. For free-form narration, summarization, or generation, a generative LLM is still the right fit; the two are complementary, not substitutes. Since Jev's September 2026 debut this category has grown quickly, including open-source reimplementations, so validate the supported question types, evaluation accuracy, and calibration quality against your own data before adoption. Many published benchmark figures are vendor self-measured, so don't take ranking or superiority claims at face value without independent verification.
 :::
 
 ## Generative AI Services
@@ -67,12 +68,12 @@ Decision models suit tasks where the decision space is clearly enumerated — cl
 | Provider | Key Models | 1P (Direct) | 3P (Cloud-hosted) |
 | --- | --- | --- | --- |
 | **OpenAI** | GPT-6 family (Astra flagship / Sol mid / Luna low-cost), GPT-5.6, o-series | [api.openai.com](https://platform.openai.com/) | Azure Foundry, Bedrock |
-| **Anthropic** | Claude Fable 5.1, Opus 5.5, Sonnet 5, Haiku 4.5 | [api.anthropic.com](https://platform.claude.com/) | Bedrock, Vertex AI |
+| **Anthropic** | Claude Fable 5.1, Opus 5.5, Sonnet 5, Haiku 5.5 | [api.anthropic.com](https://platform.claude.com/) | Bedrock, Vertex AI |
 | **Google** | Gemini 3.x generation (Pro/Flash — check [official docs](https://ai.google.dev/) for generation/variant and Preview/GA status), Gemini Omni | [Gemini API](https://ai.google.dev/) | Vertex AI (native) |
 | **SpaceXAI (formerly xAI)** | Grok 4.7, Grok Imagine | [x.ai/api](https://x.ai/api) | OCI, Vertex AI, Bedrock, Azure |
 | **Moonshot AI** | Kimi K3 (open-weight, multimodal) | [platform.moonshot.ai](https://platform.moonshot.ai/) | Bedrock, OCI (import), self-host |
 | **Meta** | Llama 4 (open-weight) | [llama.com](https://www.llama.com/) | Bedrock, Vertex, Azure, OCI |
-| **Amazon** | Nova 1 (Premier/Pro/Lite/Micro/Sonic, etc.) + **Nova 2** (Lite GA, Pro Preview) | — (Bedrock only) | Bedrock |
+| **Amazon** | Nova 1 (Premier/Pro/Lite/Micro/Sonic, etc.) + **Nova 2** (Lite GA, Pro Preview, Sonic 2.5 speech GA) | — (Bedrock only) | Bedrock |
 | **Microsoft** | MAI (Image/Voice/Transcribe) | — (Foundry only) | Azure Foundry |
 | **Mistral** | Large, Small, Codestral | [api.mistral.ai](https://docs.mistral.ai/) | Bedrock, Azure, Vertex |
 | **Upstage** | Solar Pro 4/3, Solar Mini 4, Solar Open 2 | [console.upstage.ai](https://console.upstage.ai/) | AWS/Azure Marketplace |

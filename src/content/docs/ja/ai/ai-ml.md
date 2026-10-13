@@ -77,7 +77,7 @@ description: "ベンダー別のAIプラットフォーム、モデルカタロ�
 | **SpaceXAI (旧xAI)** | Grok 4.7, Grok Imagine | [x.ai/api](https://x.ai/api) | OCI, Vertex AI, Bedrock, Azure |
 | **Moonshot AI** | Kimi K3 (オープンウェイト、マルチモーダル) | [platform.moonshot.ai](https://platform.moonshot.ai/) | Bedrock, OCI(インポート), セルフホスティング |
 | **Meta** | Llama 4 (オープンウェイト) | [llama.com](https://www.llama.com/) | Bedrock, Vertex, Azure, OCI (ホスティング) |
-| **Amazon** | Nova 1(Premier/Pro/Lite/Micro/Sonic等) + **Nova 2**(Lite GA、Pro Preview、Sonic 2.5は音声GA) | — (Bedrock専用) | Bedrock |
+| **Amazon** | Nova 1(Premier/Pro/Lite/Micro/Sonic等) + **Nova 2**(Lite GA、Pro Preview、Nova 2.5 Sonicは音声GA) | — (Bedrock専用) | Bedrock |
 | **Microsoft** | MAI (Image/Voice/Transcribe) | — (Foundry専用) | Azure Foundry |
 | **Mistral** | Large, Small, Codestral | [api.mistral.ai](https://docs.mistral.ai/) | Bedrock, Azure, Vertex |
 | **Upstage** | Solar Pro 4/3, Solar Mini 4, Solar Open 2 | [console.upstage.ai](https://console.upstage.ai/) | AWS/Azure Marketplace |

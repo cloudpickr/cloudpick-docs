@@ -76,7 +76,7 @@ PDPCは**2024年3月1日**、「AI推薦・意思決定システムにおける�
 
 ## ASEAN AIガバナンスガイドとの連携
 
-シンガポールIMDAは、**ASEAN AIガバナンス作業部会(ASEAN Working Group on AI Governance、WG-AI)** を2024年から議長国として率いています。この作業部会の成果物が**「ASEAN Guide on AI Governance and Ethics」**で、ASEAN加盟国が従来型AI技術を設計・開発・展開する際に参考にできる域内整合(regional alignment)フレームワークです。2025年には生成AIを包含するよう**拡張版(Generative AI付属書)** が整備されました。
+シンガポールIMDAは、**ASEAN AIガバナンス作業部会(ASEAN Working Group on AI Governance、WG-AI)** を2024年から議長国として率いています。この作業部会の成果物が**「ASEAN Guide on AI Governance and Ethics」** で、ASEAN加盟国が従来型AI技術を設計・開発・展開する際に参考にできる域内整合(regional alignment)フレームワークです。2025年には生成AIを包含するよう**拡張版(Generative AI付属書)** が整備されました。
 
 シンガポールのModel AI Governance Frameworkが事実上ASEANガイドの原型(prototype)の役割を果たしており、IMDAが国家レベルのフレームワークを地域レベルへ拡散させる構造です。ASEAN域内の多国にサービスを提供する企業であれば、シンガポールのフレームワークを遵守することが他のASEAN加盟国の政策方向とも相当程度整合する可能性が高いといえます。
 

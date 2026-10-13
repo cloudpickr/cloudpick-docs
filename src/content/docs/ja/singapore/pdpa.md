@@ -9,7 +9,7 @@ description: "シンガポールPDPAの概要、国境間移転制限と2026年4
 
 PDPA（Personal Data Protection Act、個人データ保護法）は、2012年に制定されたシンガポールの個人データ保護に関する一般法です。個人データ保護委員会（Personal Data Protection Commission、PDPC）が執行機関としての役割を担っており、法律上はIMDA（情報通信メディア開発庁）がPDPCとして指定され、個人情報保護の機能を遂行する構造です。
 
-PDPAは、同意（Consent）、目的制限（Purpose Limitation）、通知（Notification）、アクセス・訂正（Access & Correction）、正確性（Accuracy）、保護（Protection）、保有期間制限（Retention Limitation）、**移転制限（Transfer Limitation）**、責任性（Accountability）、漏えい通知（Breach Notification）などの義務を規定しています。2020年の改正法で導入された**データポータビリティ義務（Data Portability Obligation、Part 6B）**は、まだ施行細則が整備されておらず発効していない状態のため、現時点では遵守義務の対象ではありません。
+PDPAは、同意（Consent）、目的制限（Purpose Limitation）、通知（Notification）、アクセス・訂正（Access & Correction）、正確性（Accuracy）、保護（Protection）、保有期間制限（Retention Limitation）、**移転制限（Transfer Limitation）**、責任性（Accountability）、漏えい通知（Breach Notification）などの義務を規定しています。2020年の改正法で導入された**データポータビリティ義務**（Data Portability Obligation、Part 6B）は、まだ施行細則が整備されておらず発効していない状態のため、現時点では遵守義務の対象ではありません。
 
 :::note
 漏えい通知義務の届出基準は、(1) 個人に重大な被害（財産上の損失、なりすまし、身体的被害、名誉毀損など）をもたらす、またはもたらす恐れがある場合、(2) 影響を受ける個人が500人以上の場合、のいずれか一方を満たすだけで適用されます。PDPCは、評価完了時点から遅くとも3日以内（営業日ではなく暦日ベース）の届出を期待するとしています。
@@ -64,7 +64,7 @@ DNC照会義務は、B2Cマーケティングキャンペーン、コールセ�
 
 ## 責任性の証明 — DPTM（Data Protection Trustmark）認証
 
-PDPCとIMDAが共同開発した**DPTM（Data Protection Trustmark）**は、組織のPDPA遵守水準と個人データガバナンスの成熟度を第三者が検証する任意の認証制度です。2025年にはシンガポール標準**SS 714:2025**として編入され、国家標準としての位置づけが強化されました。
+PDPCとIMDAが共同開発した**DPTM**（Data Protection Trustmark）は、組織のPDPA遵守水準と個人データガバナンスの成熟度を第三者が検証する任意の認証制度です。2025年にはシンガポール標準**SS 714:2025**として編入され、国家標準としての位置づけが強化されました。
 
 - 法定義務ではありませんが、認証を通じてガバナンス・責任性・顧客対応体制を対外的に証明できるため、**B2B契約や政府調達のベンダーデューデリジェンス段階で加点要素**として機能することが多くあります。
 - シンガポールに現地法人・子会社を置き、消費者向けサービスを運営する海外企業であれば、PDPAの責任性（Accountability）義務を履行する手続きの一つとしてDPTM取得を検討できます。

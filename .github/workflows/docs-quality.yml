@@ -14,6 +14,7 @@ on:
       - "src/content/docs/**"
       - "scripts/lint-mermaid.py"
       - "scripts/lint-strikethrough.py"
+      - "scripts/lint-emphasis.py"
       - "scripts/lint-docs-consistency.py"
       - ".github/workflows/docs-quality.yml"
 
@@ -40,6 +41,16 @@ jobs:
           python-version: "3.12"
       - name: Lint unintended strikethrough (~)
         run: python3 scripts/lint-strikethrough.py
+
+  emphasis-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - name: Lint broken bold boundaries (** before punctuation + CJK)
+        run: python3 scripts/lint-emphasis.py
 
   docs-consistency-lint:
     runs-on: ubuntu-latest

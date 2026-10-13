@@ -42,7 +42,7 @@ description: "벤더별 AI 플랫폼, 모델 카탈로그, GPU/AI 칩, Applied A
 | --- | --- | --- | --- |
 | **텍스트 (LLM)** | 텍스트 → 텍스트 | GPT-6 계열, Claude Opus 5.5, Gemini 3.x 계열 | 챗봇, 요약, 코드 생성 |
 | **이미지 생성** | 텍스트 → 이미지 | DALL-E, MAI-Image, Imagen, Titan Image | 마케팅, 디자인 |
-| **음성 (TTS/STT)** | 텍스트 ↔ 음성 | Polly, MAI-Voice, Azure Speech, Cloud TTS | 회의록, ARS, 접근성 |
+| **음성 (TTS/STT)** | 텍스트 ↔ 음성 | Polly, Nova Sonic, MAI-Voice, Azure Speech, Cloud TTS | 회의록, ARS, 접근성, 음성 에이전트 |
 | **비디오 생성** | 텍스트 → 비디오 | Nova Reel, Veo 3.1, Gemini Omni | 광고, 숏폼 |
 | **멀티모달** | 텍스트+이미지+음성 → 텍스트 | GPT-6 계열, Gemini 3.x 계열, Claude Opus 5.5 | 문서 이해, 이미지 분석 |
 | **임베딩** | 텍스트/이미지 → 벡터 | Titan Embeddings, Gemini Embedding, Cohere Embed | RAG, 유사도 검색 |
@@ -55,11 +55,12 @@ description: "벤더별 AI 플랫폼, 모델 카탈로그, GPU/AI 칩, Applied A
 | --- | --- | --- | --- |
 | **Jev** | TypeSafe AI | 호스티드 | TypeSafe가 "System One"으로 이름 붙여 2026년 9월 중순 공개한 모델. 타입 질문(Noul·Choice·Score)에 확률·신뢰도 판정. 컨텍스트 32,000토큰, 입력 100만 토큰당 $0.042·출력 과금 없음, zero data retention. [Cloudflare Workers AI](https://developers.cloudflare.com/ai/models/typesafe/jev/) 경유 제공 |
 | **GLiNER2.5-Decide** | Fastino Labs | 오픈웨이트(Apache 2.0) | 2026년 9월 말 공개. 모델 카드 기준 340M 파라미터로 **GPU 없이 CPU에서도 실행**. DeBERTa-v3 인코더 기반, 라우팅·감성·yes/no 게이트·순위 점수 등 운영 판정에 특화. 확률 분포·신뢰도·제약 충족 메타데이터 반환. 오픈소스 [GLiNER2](https://github.com/fastino-ai/GLiNER2) 계열의 의사결정 파생 |
+| **Strands Decider 2B** | Strands Labs | 오픈웨이트(Apache 2.0) | 2026년 10월 초 공개. Qwen3.5-2B 디코더에서 생성 헤드를 제거하고 포인터 헤드(약 100만 파라미터)를 얹어 열거된 선택지 중 하나를 가리키는 방식. 로컬(CPU·CUDA·MPS·MLX) 실행, 선택지 분포 기반 신뢰도 제공. 배포물은 어댑터·헤드이며 Qwen 베이스 가중치는 별도로 받아야 함. 지연은 자체 측정 기준으로 과제·하드웨어에 따라 편차가 큼(예: RTX 3090 전체 중앙값 약 115ms). [블로그](https://strandsagents.com/blog/introducing-strands-decider/) · [GitHub](https://github.com/strands-labs/strands-decider) |
 
-두 모델은 비슷한 입출력 규약을 공유하면서도 **배포 형태(호스티드 ↔ 오픈웨이트)**와 **실행 환경(관리형 API ↔ 로컬 CPU/GPU)**이 갈립니다. 선택 축은 "어디서 돌릴 것인가(데이터 반출 제약·엣지 여부)"와 "요구 정확도·지연"입니다.
+위 모델들은 비슷한 입출력 규약을 공유하면서도 **배포 형태(호스티드 ↔ 오픈웨이트)**와 **실행 환경(관리형 API ↔ 로컬 CPU/GPU)**이 갈립니다. 선택 축은 "어디서 돌릴 것인가(데이터 반출 제약·엣지 여부)"와 "요구 정확도·지연"입니다.
 
 :::note
-의사결정 모델은 분류·라우팅·정책 판정 등 **결정이 명확히 열거되는 태스크**에 적합합니다. 자유 서술·요약·생성이 필요하면 여전히 생성형 LLM이 적합하며, 둘은 대체재가 아니라 용도가 다릅니다. 이 범주는 2026년 9월 Jev 공개 직후 오픈소스 재구현을 포함해 벤더·커뮤니티 모델이 빠르게 늘고 있으므로(예: AWS Strands Labs의 Strands Decider 등 후속 모델이 공개 중), 도입 전 지원 질문 유형·평가 정확도·보정 품질을 자사 데이터로 검증하세요.
+의사결정 모델은 분류·라우팅·정책 판정 등 **결정이 명확히 열거되는 태스크**에 적합합니다. 자유 서술·요약·생성이 필요하면 여전히 생성형 LLM이 적합하며, 둘은 대체재가 아니라 용도가 다릅니다. 이 범주는 2026년 9월 Jev 공개 직후 오픈소스 재구현을 포함해 벤더·커뮤니티 모델이 빠르게 늘고 있으므로, 도입 전 지원 질문 유형·평가 정확도·보정 품질을 자사 데이터로 검증하세요. 공개된 벤치마크 수치는 상당수가 벤더 자체 측정이므로 독립 검증 없이는 순위·우위 주장을 그대로 받아들이지 마세요.
 :::
 
 ## 생성형 AI 서비스
@@ -71,12 +72,12 @@ description: "벤더별 AI 플랫폼, 모델 카탈로그, GPU/AI 칩, Applied A
 | 모델 제공사 | 주요 모델 | 1P (직접) | 3P (클라우드 제공) |
 | --- | --- | --- | --- |
 | **OpenAI** | GPT-6 계열(Astra 플래그십 / Sol 중급 / Luna 저비용), GPT-5.6, o-시리즈 | [api.openai.com](https://platform.openai.com/) | Azure Foundry, Bedrock |
-| **Anthropic** | Claude Fable 5.1, Opus 5.5, Sonnet 5, Haiku 4.5 | [api.anthropic.com](https://platform.claude.com/) | Bedrock, Vertex AI |
+| **Anthropic** | Claude Fable 5.1, Opus 5.5, Sonnet 5, Haiku 5.5 | [api.anthropic.com](https://platform.claude.com/) | Bedrock, Vertex AI |
 | **Google** | Gemini 3.x 세대 (Pro/Flash — 세대·변형·Preview/GA는 [공식 문서](https://ai.google.dev/) 확인), Gemini Omni | [Gemini API](https://ai.google.dev/) | Vertex AI (네이티브) |
 | **SpaceXAI (구 xAI)** | Grok 4.7, Grok Imagine | [x.ai/api](https://x.ai/api) | OCI, Vertex AI, Bedrock, Azure |
 | **Moonshot AI** | Kimi K3 (오픈웨이트, 멀티모달) | [platform.moonshot.ai](https://platform.moonshot.ai/) | Bedrock, OCI(임포트), 셀프호스팅 |
 | **Meta** | Llama 4 (오픈웨이트) | [llama.com](https://www.llama.com/) | Bedrock, Vertex, Azure, OCI (호스팅) |
-| **Amazon** | Nova 1(Premier/Pro/Lite/Micro/Sonic 등) + **Nova 2**(Lite는 GA, Pro는 Preview) | — (Bedrock 전용) | Bedrock |
+| **Amazon** | Nova 1(Premier/Pro/Lite/Micro/Sonic 등) + **Nova 2**(Lite는 GA, Pro는 Preview, Nova 2.5 Sonic은 음성 GA) | — (Bedrock 전용) | Bedrock |
 | **Microsoft** | MAI (Image/Voice/Transcribe) | — (Foundry 전용) | Azure Foundry |
 | **Mistral** | Large, Small, Codestral | [api.mistral.ai](https://docs.mistral.ai/) | Bedrock, Azure, Vertex |
 | **Upstage** | Solar Pro 4/3, Solar Mini 4, Solar Open 2 | [console.upstage.ai](https://console.upstage.ai/) | AWS/Azure Marketplace |

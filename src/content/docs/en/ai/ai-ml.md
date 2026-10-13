@@ -42,8 +42,13 @@ On-premises AI/ML requires purchasing GPU servers, installing frameworks, and bu
 | **Image Generation** | Text → Image | DALL-E, MAI-Image, Imagen, Titan Image | Marketing, design |
 | **Speech (TTS/STT)** | Text ↔ Speech | Polly, Nova Sonic, MAI-Voice, Azure Speech, Cloud TTS | Transcription, IVR, accessibility, voice agents |
 | **Video Generation** | Text → Video | Nova Reel, Veo 3.1, Gemini Omni | Ads, short-form content |
+| **Video Understanding** | Video → Text | Bedrock (TwelveLabs Pegasus), Vertex AI (Gemini), Azure AI Content Understanding, OCI Generative AI (Video Understanding) | Video search, scene analysis, captioning/summarization |
 | **Multimodal** | Text+Image+Speech → Text | GPT-6 class, Gemini 3.x class, Claude Opus 5.5 | Document understanding, image analysis |
 | **Embeddings** | Text/Image → Vector | Titan Embeddings, Gemini Embedding, Cohere Embed | RAG, similarity search |
+
+:::note
+**Video understanding** describes, searches, and summarizes video as text — a different role from embeddings that turn video into vectors (e.g., TwelveLabs Marengo). Availability and status vary by cloud: regions or eligible customers may be limited (e.g., Bedrock offers it via cross-region inference only), and Preview/GA stages differ, so check each vendor's official docs for current status before adoption.
+:::
 
 ### Decision Models (System One, Non-Generative)
 

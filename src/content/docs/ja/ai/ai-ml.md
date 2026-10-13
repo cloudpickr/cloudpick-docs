@@ -44,8 +44,13 @@ description: "ベンダー別のAIプラットフォーム、モデルカタロ�
 | **画像生成** | テキスト → 画像 | DALL-E, MAI-Image, Imagen, Titan Image | マーケティング、デザイン |
 | **音声 (TTS/STT)** | テキスト ↔ 音声 | Polly, Nova Sonic, MAI-Voice, Azure Speech, Cloud TTS | 議事録、ARS、アクセシビリティ、音声エージェント |
 | **動画生成** | テキスト → 動画 | Nova Reel, Veo 3.1, Gemini Omni | 広告、ショート動画 |
+| **動画理解** | 動画 → テキスト | Bedrock（TwelveLabs Pegasus）、Vertex AI（Gemini）、Azure AI Content Understanding、OCI Generative AI（Video Understanding） | 動画検索、シーン分析、字幕・要約 |
 | **マルチモーダル** | テキスト+画像+音声 → テキスト | GPT-6系, Gemini 3.x系, Claude Opus 5.5 | 文書理解、画像分析 |
 | **エンベディング** | テキスト/画像 → ベクトル | Titan Embeddings, Gemini Embedding, Cohere Embed | RAG、類似度検索 |
+
+:::note
+**動画理解**は動画を入力として受け取り、テキストで説明・検索・要約する範疇で、動画をベクトルに変換するエンベディング（例：TwelveLabs Marengo）とは役割が異なります。各サービスの提供状況や段階はクラウドごとに異なります — リージョンや対象顧客が限定される場合（例：Bedrockはクロスリージョン推論でのみ提供）や、Preview/GAの段階が分かれる場合があるため、導入前に各ベンダーの公式ドキュメントで最新状況を確認してください。
+:::
 
 ### 意思決定モデル（System One・非生成型）
 

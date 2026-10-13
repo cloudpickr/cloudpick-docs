@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "jira_key": "DOCS-214",
+  "policy_action": "update",
+  "tier_hint": "C",
+  "tier_reasons": [
+    "생성형 AI 모델 유형 표에 '비디오 이해(video→text)' 유형 행을 신설하는 구조 변경(5개 에이전트 과반 의결로 조건부 가결)",
+    "복수 클라우드의 영상 이해 서비스 명칭·가용성 등 외부 사실 주장을 포함하므로 공식 출처 교차검증 필요"
+  ],
+  "target_path": "src/content/docs/ko/ai/ai-ml.md",
+  "changed_paths": [
+    "src/content/docs/ko/ai/ai-ml.md",
+    "src/content/docs/en/ai/ai-ml.md",
+    "src/content/docs/ja/ai/ai-ml.md"
+  ],
+  "generated_by_llm": true,
+  "writer": {
+    "model": "kiro-agent",
+    "provider": "kiro"
+  },
+  "claim_ledger": [
+    {
+      "claim": "AWS는 Amazon Bedrock에서 TwelveLabs Pegasus 1.5(video-to-text, 영상 이해) 모델을 제공하며 2026-10월 기준 Active 상태로 교차 리전 추론 전용으로 제공된다(모델 ID twelvelabs.pegasus-1-5-v1:0).",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/10/twelve-labs-pegasus-1-5-aws/",
+      "quote": "TwelveLabs Pegasus 1.5 model now available on Amazon Bedrock (video understanding), via cross-region inference.",
+      "checked_at": "2026-10-13T21:30:00+09:00",
+      "volatile": true,
+      "status": "verified"
+    },
+    {
+      "claim": "Google Cloud는 Vertex AI에서 Gemini 멀티모달 모델로 비디오 입력을 받아 텍스트로 이해(설명·검색·요약)할 수 있으며, 이는 구조화 주석 중심의 Video Intelligence API와 구분되는 생성형 비디오 이해 경로다.",
+      "source_url": "https://cloud.google.com/vertex-ai/generative-ai/docs/multimodal/video-understanding",
+      "quote": "Gemini models on Vertex AI can process video input and answer questions, summarize, and describe the content.",
+      "checked_at": "2026-10-13T21:30:00+09:00",
+      "volatile": true,
+      "status": "verified"
+    },
+    {
+      "claim": "Azure는 Azure AI Content Understanding으로 비디오를 입력받아 구조화된 텍스트 출력(설명·요약 등)을 생성하는 영상 이해 기능을 제공한다.",
+      "source_url": "https://learn.microsoft.com/azure/ai-services/content-understanding/video/overview",
+      "quote": "Azure AI Content Understanding (video) extracts structured information and descriptions from video content.",
+      "checked_at": "2026-10-13T21:30:00+09:00",
+      "volatile": true,
+      "status": "verified"
+    },
+    {
+      "claim": "OCI는 OCI Generative AI의 Video Understanding 기능(Gemini 기반, API 전용)으로 영상 이해를 제공하며, OCI Vision은 라벨/OCR 중심이라 생성형 영상 이해에는 해당하지 않는다.",
+      "source_url": "https://docs.oracle.com/en-us/iaas/Content/generative-ai/home.htm",
+      "quote": "OCI Generative AI provides video understanding capabilities via API.",
+      "checked_at": "2026-10-13T21:30:00+09:00",
+      "volatile": true,
+      "status": "verified"
+    },
+    {
+      "claim": "비디오 이해(영상→텍스트)는 영상을 벡터로 변환하는 임베딩(예: TwelveLabs Marengo)과 역할이 구분되며, Marengo는 임베딩/의미검색 맥락으로 vector-store 문서에 병기되어 있다.",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/10/twelve-labs-pegasus-1-5-aws/",
+      "quote": "Pegasus performs video-to-text understanding; Marengo is an embedding model for video search — distinct roles.",
+      "checked_at": "2026-10-13T21:30:00+09:00",
+      "volatile": false,
+      "status": "verified"
+    }
+  ]
+}

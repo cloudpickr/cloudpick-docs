@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "jira_key": "DOCS-213",
+  "policy_action": "update",
+  "tier_hint": "C",
+  "tier_reasons": [
+    "10월 벤더 발표를 반영해 모델 비교 표의 사실을 갱신하고 의사결정 모델 표에 신규 모델(Strands Decider 2B)을 추가하는 비기계적 변경",
+    "벤더·사양·출시시점·라이선스·GA 상태 등 외부 사실 주장을 포함하므로 공식 출처 교차검증 필요"
+  ],
+  "target_path": "src/content/docs/ko/ai/ai-ml.md",
+  "changed_paths": [
+    "src/content/docs/ko/ai/ai-ml.md",
+    "src/content/docs/en/ai/ai-ml.md",
+    "src/content/docs/ja/ai/ai-ml.md"
+  ],
+  "generated_by_llm": true,
+  "writer": {
+    "model": "kiro-agent",
+    "provider": "kiro"
+  },
+  "claim_ledger": [
+    {
+      "claim": "Anthropic Claude Haiku 5.5가 2026-10-07 AWS(Amazon Bedrock)에서 사용 가능해졌다. 이에 따라 Anthropic 행의 Haiku 티어 표기를 Haiku 4.5에서 Haiku 5.5로 갱신한다.",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/10/claude-haiku-5-5-aws/",
+      "quote": "Claude Haiku 5.5 is now available on AWS.",
+      "checked_at": "2026-10-13T20:00:00+09:00",
+      "volatile": true,
+      "status": "verified"
+    },
+    {
+      "claim": "Amazon Nova 2.5 Sonic이 2026-10-05 음성 에이전트용 추론을 개선한 speech-to-speech 모델로 발표(GA)되었으며 Nova 2 라인에 속한다. 이를 Amazon 행과 음성(TTS/STT) 유형 표에 반영한다.",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-nova-2.5-sonic/",
+      "quote": "Announcing Amazon Nova 2.5 Sonic with improved reasoning for voice agents.",
+      "checked_at": "2026-10-13T20:00:00+09:00",
+      "volatile": true,
+      "status": "verified"
+    },
+    {
+      "claim": "Strands Decider 2B는 2026년 10월 초 공개된 Apache 2.0 오픈웨이트 의사결정 모델로, 제공 주체는 Strands Labs이다(공식 블로그·리포지토리에 AWS를 단독 제공 주체로 명시한 서술은 없다). Qwen3.5-2B 디코더에서 생성 헤드를 제거하고 포인터 헤드(약 100만 파라미터)를 얹어 열거된 선택지 중 하나를 선택하며, 로컬(CPU·CUDA·MPS·MLX)에서 실행되고 선택지 분포 기반 신뢰도를 제공한다. 배포물은 어댑터·헤드이며 Qwen 베이스 가중치는 별도로 받아야 한다. 지연은 벤더 자체 측정 기준이며 과제·하드웨어에 따라 편차가 크다(예: RTX 3090 전체 중앙값 약 115ms).",
+      "sources": [
+        {
+          "source_url": "https://strandsagents.com/blog/introducing-strands-decider/",
+          "quote": "Strands Decider 2B removes the generation head from a Qwen3.5-2B decoder and adds a small pointer head that selects among enumerated options; runs locally (CPU/CUDA/MPS/MLX)."
+        },
+        {
+          "source_url": "https://github.com/strands-labs/strands-decider",
+          "quote": "strands-labs/strands-decider — Apache-2.0; the release ships the adapter and head; Qwen base weights are downloaded separately."
+        }
+      ],
+      "checked_at": "2026-10-13T20:00:00+09:00",
+      "volatile": false,
+      "status": "verified"
+    }
+  ]
+}

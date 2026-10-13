@@ -44,8 +44,13 @@ description: "벤더별 AI 플랫폼, 모델 카탈로그, GPU/AI 칩, Applied A
 | **이미지 생성** | 텍스트 → 이미지 | DALL-E, MAI-Image, Imagen, Titan Image | 마케팅, 디자인 |
 | **음성 (TTS/STT)** | 텍스트 ↔ 음성 | Polly, Nova Sonic, MAI-Voice, Azure Speech, Cloud TTS | 회의록, ARS, 접근성, 음성 에이전트 |
 | **비디오 생성** | 텍스트 → 비디오 | Nova Reel, Veo 3.1, Gemini Omni | 광고, 숏폼 |
+| **비디오 이해** | 비디오 → 텍스트 | Bedrock(TwelveLabs Pegasus), Vertex AI(Gemini), Azure AI Content Understanding, OCI Generative AI(Video Understanding) | 영상 검색, 장면 분석, 자막·요약 |
 | **멀티모달** | 텍스트+이미지+음성 → 텍스트 | GPT-6 계열, Gemini 3.x 계열, Claude Opus 5.5 | 문서 이해, 이미지 분석 |
 | **임베딩** | 텍스트/이미지 → 벡터 | Titan Embeddings, Gemini Embedding, Cohere Embed | RAG, 유사도 검색 |
+
+:::note
+**비디오 이해**는 영상을 입력받아 텍스트로 설명·검색·요약하는 범주로, 영상을 벡터로 변환하는 임베딩(예: TwelveLabs Marengo)과는 역할이 다릅니다. 각 서비스의 가용성과 상태는 클라우드별로 다릅니다 — 리전·대상 고객이 제한되거나(예: Bedrock의 교차 리전 추론 전용 제공), Preview/GA 단계가 갈릴 수 있으므로 도입 전 각 벤더 공식 문서에서 현재 상태를 확인하세요.
+:::
 
 ### 의사결정 모델 (System One·비생성형)
 

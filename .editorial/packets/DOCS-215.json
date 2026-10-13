@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "jira_key": "DOCS-215",
+  "policy_action": "update",
+  "tier_hint": "B",
+  "tier_reasons": [
+    "사실 내용 변경이 없는 순수 마크다운 표현 교정 — CJK 문맥에서 깨지던 볼드 강조의 범위를 조정(용어만 감싸고 괄호·조사는 밖으로)했을 뿐, 서술·수치·주장·링크는 바꾸지 않음",
+    "변경 유형이 '강조 구분자 위치 이동'이라 외부 사실 재검증 대상 주장이 없음(근거는 CommonMark 강조 flanking 규칙)"
+  ],
+  "target_path": "src/content/docs/ko/ai/lifecycle.md",
+  "changed_paths": [
+    "src/content/docs/ko/ai/ai-ml.md",
+    "src/content/docs/ko/ai/lifecycle.md",
+    "src/content/docs/ko/ai/physical-ai/deploy-and-operate.md",
+    "src/content/docs/ko/eu/nis2-ai-act.md",
+    "src/content/docs/ko/singapore/ai-governance.md",
+    "src/content/docs/en/ai/ai-ml.md",
+    "src/content/docs/ja/ai/ai-ml.md",
+    "src/content/docs/ja/ai/lifecycle.md",
+    "src/content/docs/ja/about-cloud/regions-and-zones.md",
+    "src/content/docs/ja/devops/observability.md",
+    "src/content/docs/ja/eu/gdpr-sovereignty.md",
+    "src/content/docs/ja/eu/nis2-ai-act.md",
+    "src/content/docs/ja/governance/finops.md",
+    "src/content/docs/ja/japan/ai-landscape.md",
+    "src/content/docs/ja/japan/government-cloud.md",
+    "src/content/docs/ja/security/data-protection.md",
+    "src/content/docs/ja/singapore/ai-governance.md",
+    "src/content/docs/ja/singapore/mtcs.md",
+    "src/content/docs/ja/singapore/pdpa.md",
+    "src/content/docs/ja/us/hipaa.md",
+    "src/content/docs/ja/us/itar.md"
+  ],
+  "generated_by_llm": true,
+  "writer": {
+    "model": "kiro-agent",
+    "provider": "kiro"
+  },
+  "claim_ledger": [
+    {
+      "claim": "CommonMark에서 닫는 강조 구분자(**)가 'right-flanking'이면서 바로 앞이 구두점이고 바로 뒤가 영숫자/문자이면 닫는 구분자로 인정되지 않아 강조가 렌더링되지 않는다. 따라서 CJK 문맥의 '**용어(괄호)**조사' 패턴은 '**용어**(괄호)조사'로 교정해야 올바르게 볼드가 적용된다. 본 변경은 이 규칙에 따른 표현 교정이며 문서의 사실·수치·주장·링크는 변경하지 않았다.",
+      "source_url": "https://spec.commonmark.org/0.31.2/#emphasis-and-strong-emphasis",
+      "quote": "A delimiter run is right-flanking if ... (2) either it is not preceded by a punctuation character, or ... closers that are preceded by punctuation and followed by an alphanumeric are not valid.",
+      "checked_at": "2026-10-13T21:50:00+09:00",
+      "volatile": false,
+      "status": "verified"
+    }
+  ]
+}

@@ -4,23 +4,25 @@
 
 배경:
   CommonMark에서 `**`가 닫는 구분자로 인정되려면 "right-flanking"이어야
-  한다. 닫는 `**` 바로 **앞이 구두점이고 바로 뒤가 영숫자/CJK**이면
-  (right-flanking이지만 intraword 조건 불충족) 닫는 구분자로 쓰이지 못해
-  강조가 통째로 깨진다. 한글·일본어에서 조사·전각 구두점이 공백 없이 붙어
-  자주 발생한다.
+  하고, 닫는 `**` 바로 **앞이 구두점이면 바로 뒤는 공백이나 구두점**이어야
+  한다. 앞이 구두점이고 뒤가 '문자(letter/숫자)'면 닫는 구분자로 쓰이지
+  못해 강조가 통째로 깨진다. 한글·일본어에서 괄호·조사·기호가 공백 없이
+  붙어 자주 발생한다.
 
       깨짐:   **배포 형태(호스티드 ↔ 오픈웨이트)**와   ← '**' 앞 ')' + 뒤 '와'
+      깨짐:   **年間シンガポール売上高の10%**の        ← '**' 앞 '%' + 뒤 'の'
       올바름: **배포 형태**(호스티드 ↔ 오픈웨이트)와
 
 정책:
-  강조는 용어만 감싸고 괄호·조사는 밖에 둔다.
+  강조는 용어만 감싸고 괄호·조사·단위기호는 밖에 둔다.
 
 구현 노트(오탐 방지):
-  정규식 하나로 강조 쌍과 flanking을 동시에 보면 인접한 다른 강조의 '**'와
-  잘못 짝지어 오탐이 폭증한다. 그래서 줄에서 코드/표셀을 제거한 뒤 '**'를
-  **왼쪽부터 순서대로 쌍(여는→닫는)으로 토큰화**하고, 각 '닫는 **'에 대해서만
-  flanking 위반을 판정한다. (단일 '*' 이탤릭은 오탐 위험이 커 검사 대상에서
-  제외하고 '**'만 본다.)
+  - '구두점' 판정은 하드코딩 목록이 아니라 Unicode 카테고리(P*, S*)로 한다
+    (예: '%'(Po), ')'(Pe), '）'(Pe), '。'(Po), '」'(Pe) 등 모두 포함).
+  - '뒤 문자' 판정은 공백도 구두점도 아닌 것(= letter/숫자류)로 한다.
+  - 코드 스팬은 가변 길이 백틱(`, ``, ``` ...)을 모두 제거한다.
+  - '**'를 왼쪽부터 쌍으로 토큰화해 '닫는 **'에 대해서만 flanking을 본다
+    (정규식 단독은 인접 강조의 '**'와 오짝지어 오탐이 폭증한다).
 
 사용법:
   python3 scripts/lint-emphasis.py        # 전체 검사 (CI)
@@ -28,43 +30,56 @@
 import re
 import os
 import sys
+import unicodedata
 
 DOCS_DIR = "src/content/docs"
 LOCALES = ["ko", "en", "ja"]
 
 ALLOWLIST = []  # 매치 조각 부분 일치 허용 목록
 
-CJK = "\uac00-\ud7a3\u1100-\u11ff\u3130-\u318f\u3040-\u30ff\u4e00-\u9fff"
-# 닫는 ** 바로 앞 문자가 이 '구두점'이면서 뒤가 영숫자/CJK면 깨진다.
-# (반각/전각 닫는 괄호·따옴표·마침표 등)
-PUNCT_BEFORE = set(")]}>.,!?;:'\"”’）】》」』。")
-# 닫는 ** 바로 뒤가 이 부류(영숫자/CJK)면 intraword로 간주돼 닫힘 실패.
-AFTER_RE = re.compile(f"[0-9A-Za-z{CJK}]")
+# 가변 길이 백틱 코드 스팬 제거: `..`, ``..``, ```..``` 등 균형 쌍.
+CODESPAN = re.compile(r"(`+)(?:.+?)\1")
 
 
 def strip_code(text: str) -> str:
-    return re.sub(r"`[^`]*`", lambda m: " " * len(m.group(0)), text)
+    return CODESPAN.sub(lambda m: " " * len(m.group(0)), text)
+
+
+def is_punct(ch: str) -> bool:
+    """Unicode 구두점/기호 — 닫는 ** 앞에 오면 flanking 판정 대상."""
+    if not ch:
+        return False
+    cat = unicodedata.category(ch)
+    # P* = 구두점, S* = 기호(%,·는 각각 Po/Po지만 통화·수학기호 Sc/Sm 포함).
+    return cat.startswith("P") or cat.startswith("S")
+
+
+def is_letter_like(ch: str) -> bool:
+    """닫는 ** 뒤에 오면 깨짐을 유발하는 '문자'류(공백도 구두점도 아님)."""
+    if not ch:
+        return False
+    if ch.isspace():
+        return False
+    cat = unicodedata.category(ch)
+    # 구두점/기호가 아니면(= 글자·숫자·CJK 등) letter-like로 본다.
+    return not (cat.startswith("P") or cat.startswith("S"))
 
 
 def check_segment(seg: str):
-    """세그먼트(표 셀 또는 비표 줄)에서 깨진 '닫는 **'의 (col, frag) 목록."""
-    # '**' 위치를 모두 찾는다.
+    """세그먼트에서 깨진 '닫는 **'의 (col, frag) 목록."""
     stars = [m.start() for m in re.finditer(r"\*\*", seg)]
     issues = []
-    # 왼쪽부터 쌍으로 소비: [여는, 닫는], [여는, 닫는] ...
     i = 0
     while i + 1 < len(stars):
         open_pos = stars[i]
         close_pos = stars[i + 1]
-        # 닫는 ** 바로 앞 문자와 바로 뒤 문자
         before = seg[close_pos - 1] if close_pos - 1 >= 0 else ""
         after_idx = close_pos + 2
         after = seg[after_idx] if after_idx < len(seg) else ""
-        # right-flanking 위반(= 깨짐): 앞이 구두점 + 뒤가 영숫자/CJK
-        if before in PUNCT_BEFORE and after and AFTER_RE.match(after):
+        # 깨짐: 닫는 ** 앞이 구두점/기호 + 뒤가 문자류(공백·구두점 아님)
+        if is_punct(before) and is_letter_like(after):
             frag = seg[open_pos:min(len(seg), after_idx + 1)]
             issues.append((open_pos, frag[:70]))
-        # 이 쌍을 소비하고 다음 쌍으로
         i += 2
     return issues
 
@@ -108,8 +123,8 @@ def main():
         for iss in all_issues:
             print(f"  {iss['file']}  line#{iss['line']}  {iss['match']!r}")
         print(
-            "\n닫는 '**' 바로 앞이 구두점이고 뒤에 글자가 붙으면 볼드가 렌더링되지 않습니다.\n"
-            "강조는 용어만 감싸고 괄호·조사는 밖에 두세요. 예: **배포 형태**(호스티드)와"
+            "\n닫는 '**' 바로 앞이 구두점/기호이고 뒤에 글자가 붙으면 볼드가 렌더링되지 않습니다.\n"
+            "강조는 용어만 감싸고 괄호·조사·단위기호는 밖에 두세요. 예: **배포 형태**(호스티드)와"
         )
         sys.exit(1)
     print(f"✅ No broken bold boundaries ({DOCS_DIR})")

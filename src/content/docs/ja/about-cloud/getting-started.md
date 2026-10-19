@@ -162,4 +162,4 @@ CloudPickは主要なグローバルクラウドベンダーを中心に、マ�
 
 - [OCIとは?](https://www.oracle.com/kr/cloud/what-is-cloud-computing/)
 - [OCIサービス](https://www.oracle.com/kr/cloud/)
-- [OCIグローバルインフラストラクチャ](https://www.oracle.com/cloud/cloud-regions/)
+- [OCIグローバルインフラストラクチャ](https://www.oracle.com/cloud/public-cloud-regions/)

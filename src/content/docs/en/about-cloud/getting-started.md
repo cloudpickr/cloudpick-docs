@@ -162,4 +162,4 @@ CloudPick aims to help you make sound decisions in a multi-cloud environment, ce
 
 - [What is OCI?](https://www.oracle.com/kr/cloud/what-is-cloud-computing/)
 - [OCI Services](https://www.oracle.com/kr/cloud/)
-- [OCI Global Infrastructure](https://www.oracle.com/cloud/cloud-regions/)
+- [OCI Global Infrastructure](https://www.oracle.com/cloud/public-cloud-regions/)

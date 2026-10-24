@@ -162,4 +162,4 @@ CloudPick은 주요 글로벌 클라우드 벤더를 중심으로, 멀티클라�
 
 - [OCI란?](https://www.oracle.com/kr/cloud/what-is-cloud-computing/)
 - [OCI 서비스](https://www.oracle.com/kr/cloud/)
-- [OCI 글로벌 인프라](https://www.oracle.com/cloud/cloud-regions/)
+- [OCI 글로벌 인프라](https://www.oracle.com/cloud/public-cloud-regions/)

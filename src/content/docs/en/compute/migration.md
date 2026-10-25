@@ -3,7 +3,7 @@ title: "Application Migration"
 description: "Compares workload migration strategies (the 7 Rs), assessment/execution phases, and lift-and-shift vs. refactoring trade-offs across vendors."
 ---
 
-> Last reviewed: September 2026
+> Last reviewed: October 2026
 
 ## Overview
 

@@ -3,7 +3,7 @@ title: "Container Services"
 description: "Compares managed Kubernetes, serverless containers, and container registries across vendors, and explains control/data plane concepts."
 ---
 
-> Last reviewed: September 2026
+> Last reviewed: October 2026
 
 ## Overview
 
@@ -23,9 +23,9 @@ As containers scale into the tens or hundreds, you need orchestration to manage 
 
 | Vendor | Product | Notes |
 | --- | --- | --- |
-| AWS | EKS (Elastic Kubernetes Service) | Control plane is paid. Supports K8s 1.36 (2026.06) |
+| AWS | EKS (Elastic Kubernetes Service) | Control plane is paid. Follows upstream releases up to the latest minor (see [EKS docs](https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html) for supported versions) |
 | Azure | AKS (Azure Kubernetes Service) | Control plane is free |
-| Google Cloud | GKE (Google Kubernetes Engine) | Autopilot mode: no node management, billed per pod. Rapid channel: K8s 1.36 |
+| Google Cloud | GKE (Google Kubernetes Engine) | Autopilot mode: no node management, billed per pod. Rapid channel offers the latest minor |
 | OCI | OKE (Oracle Kubernetes Engine) | Control plane is free. Serverless operation possible via Virtual Nodes |
 
 ### Serverless / simplified container execution

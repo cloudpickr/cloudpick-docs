@@ -3,7 +3,7 @@ title: "GPU Kubernetes and Scheduling"
 description: "Covers GPU node pools/device plugins, MIG/time-slicing sharing, ResourceQuota/anti-hoarding, gang scheduling (Kueue/Volcano), and DCGM observability from a vendor-neutral perspective."
 ---
 
-> Last reviewed: September 2026 | This is a fast-moving area subject to quarterly review.
+> Last reviewed: October 2026 | This is a fast-moving area subject to quarterly review.
 
 :::note
 This document covers how to schedule, share, and govern GPUs on Kubernetes. General Kubernetes operations such as cluster upgrades and node management are in [Kubernetes Operations](../../../devops/kubernetes-operations/); GPU cluster communication and placement are in [GPU Workload Characteristics and Reference Architecture](../workload-and-architecture/).

@@ -3,7 +3,7 @@ title: "Secrets Management"
 description: "Compares secrets management, KMS, and certificate management services across vendors, and explains automated rotation and external tool integration."
 ---
 
-> Last reviewed: September 2026
+> Last reviewed: October 2026
 
 ## Overview
 

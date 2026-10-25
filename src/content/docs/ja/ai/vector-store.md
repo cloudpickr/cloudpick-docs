@@ -3,7 +3,7 @@ title: "ベクトルストアとエンベディング"
 description: "ベクトルストアの概念、ベンダー別比較、エンベディングモデルの選択について整理します。"
 ---
 
-> 文書基準: 2026年9月
+> 文書基準: 2026年10月
 
 ## 概要
 
@@ -88,7 +88,7 @@ graph LR
 | ベンダー | 製品 | 特徴 |
 | --- | --- | --- |
 | AWS | [Bedrock Knowledge Bases](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html) | 文書 → エンベディング → 保存 → RAGを自動化 |
-| Azure | [Azure AI Search + Foundry Agent Service (Foundry IQ)](https://learn.microsoft.com/azure/ai-foundry/) | マネージドRAG（旧OpenAI "On Your Data" は2026-10-14に廃止予定、Foundry Agent Serviceへ移行） |
+| Azure | [Azure AI Search + Foundry Agent Service (Foundry IQ)](https://learn.microsoft.com/azure/ai-foundry/) | マネージドRAG（旧OpenAI "On Your Data" は2026-10-14に廃止済み、Foundry Agent Serviceへ移行） |
 | Google Cloud | [Vertex AI RAG Engine](https://cloud.google.com/vertex-ai/generative-ai/docs/rag-overview) | 文書 → エンベディング → 検索を統合 |
 | OCI | [OCI Enterprise AI Agents](https://www.oracle.com/artificial-intelligence/generative-ai/agents/) | OCI Search連携RAG |
 

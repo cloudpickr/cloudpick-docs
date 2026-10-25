@@ -3,7 +3,7 @@ title: "벡터 스토어와 임베딩"
 description: "벡터 스토어의 개념, 벤더별 비교, 임베딩 모델 선택을 정리합니다."
 ---
 
-> 문서 기준: 2026년 9월
+> 문서 기준: 2026년 10월
 
 ## 개요
 
@@ -88,7 +88,7 @@ graph LR
 | 벤더 | 제품 | 특징 |
 | --- | --- | --- |
 | AWS | [Bedrock Knowledge Bases](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html) | 문서 → 임베딩 → 저장 → RAG 자동 |
-| Azure | [Azure AI Search + Foundry Agent Service (Foundry IQ)](https://learn.microsoft.com/azure/ai-foundry/) | Managed RAG (기존 OpenAI "On Your Data"는 2026-10-14 폐기 예정, Foundry Agent Service로 이전) |
+| Azure | [Azure AI Search + Foundry Agent Service (Foundry IQ)](https://learn.microsoft.com/azure/ai-foundry/) | Managed RAG (기존 OpenAI "On Your Data"는 2026-10-14 폐기 완료, Foundry Agent Service로 이전) |
 | Google Cloud | [Vertex AI RAG Engine](https://cloud.google.com/vertex-ai/generative-ai/docs/rag-overview) | 문서 → 임베딩 → 검색 통합 |
 | OCI | [OCI Enterprise AI Agents](https://www.oracle.com/artificial-intelligence/generative-ai/agents/) | OCI Search 연동 RAG |
 

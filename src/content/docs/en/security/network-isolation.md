@@ -3,7 +3,7 @@ title: "Network Segregation and Isolation"
 description: "Explains physical/logical network segregation concepts, cloud network isolation implementation patterns, and how to meet regulatory requirements."
 ---
 
-> Last reviewed: September 2026
+> Last reviewed: October 2026
 
 ## Overview
 
@@ -222,7 +222,7 @@ However, guardrails **only work once configured.** Most are disabled by default,
 
 ### Regulations/Standards
 
-- [PCI DSS v4.0 (PCI SSC)](https://www.pcisecuritystandards.org/)
+- [PCI DSS v4.0.1 (PCI SSC)](https://www.pcisecuritystandards.org/)
 - For links to Korea's regulations (Electronic Financial Supervisory Regulation, CSAP, N2SF), see [Network Segregation and Isolation (Korea)](../../korea/security/network-isolation/)
 
 ### AWS

@@ -3,7 +3,7 @@ title: "GPU Workload Characteristics and Reference Architecture"
 description: "Compares GPU workload characteristics (pre-training/fine-tuning/inference) and a three-tier reference architecture (intra-node, inter-node, storage) from a vendor-neutral perspective."
 ---
 
-> Last reviewed: September 2026 | This is a fast-moving area subject to quarterly review.
+> Last reviewed: October 2026 | This is a fast-moving area subject to quarterly review.
 
 :::tip[GPU Infrastructure series — reading order]
 This is Part 1 of a four-part GPU infrastructure series.
@@ -136,8 +136,8 @@ Cloud vendors often provide both Slurm and Kubernetes paths across their product
 The entries above are **different implementations that play the same role**; they are not one-to-one equivalents. Read the table with three distinctions in mind.
 
 - **Operating model** — Vendor-managed services, solution templates deployed in the customer tenant, and self-deployed toolkits assign procurement, update, and incident-response responsibilities differently.
-- **Maturity** — Cluster Director's Slurm on GKE is in **Preview** as of September 2026. Confirm the current release stage before assuming it for production.
-- **What `—` means** — No first-party hybrid was identified for that vendor as of September 2026. It does not mean a third-party or self-built configuration is impossible.
+- **Maturity** — Cluster Director's Slurm on GKE is in **Preview** as of October 2026. Confirm the current release stage before assuming it for production.
+- **What `—` means** — No first-party hybrid was identified for that vendor as of October 2026. It does not mean a third-party or self-built configuration is impossible.
 
 Verify per-vendor provisioning method, resiliency features, and integration depth against each vendor's official documentation.
 :::

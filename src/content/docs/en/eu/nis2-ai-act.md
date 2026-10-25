@@ -3,7 +3,7 @@ title: "NIS2 + EU AI Act"
 description: "Covers NIS2's cybersecurity and incident-reporting obligations, the EU AI Act implementation timeline, the Article 50 transparency obligations that took effect on 2026-08-02, and the Digital Omnibus deferral of high-risk AI obligations."
 ---
 
-> Last reviewed: September 2026
+> Last reviewed: October 2026
 
 ## Overview
 

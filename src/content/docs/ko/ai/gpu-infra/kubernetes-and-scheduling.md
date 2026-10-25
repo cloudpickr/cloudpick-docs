@@ -3,7 +3,7 @@ title: "GPU 쿠버네티스와 스케줄링"
 description: "GPU 노드풀·device plugin, MIG/time-slicing 공유, ResourceQuota·anti-hoarding, gang scheduling(Kueue/Volcano), DCGM 관측성을 벤더 중립 관점으로 정리합니다."
 ---
 
-> 문서 기준: 2026년 9월 | 이 문서는 변동이 빠른 영역으로 분기별 리뷰 대상입니다.
+> 문서 기준: 2026년 10월 | 이 문서는 변동이 빠른 영역으로 분기별 리뷰 대상입니다.
 
 :::note
 이 문서는 쿠버네티스 위에서 GPU를 스케줄링·공유·통제하는 방법을 다룹니다. 클러스터 업그레이드·노드 관리 등 일반적인 쿠버네티스 운영은 [쿠버네티스 운영](../../../devops/kubernetes-operations/)에서, GPU 클러스터 통신·배치는 [GPU 워크로드 특성과 레퍼런스 아키텍처](../workload-and-architecture/)에서 다룹니다.

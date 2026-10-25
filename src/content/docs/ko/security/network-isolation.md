@@ -3,7 +3,7 @@ title: "망분리와 네트워크 격리"
 description: "물리적·논리적 망분리 개념, 클라우드에서의 네트워크 격리 구현 패턴, 규제 요건 대응을 설명합니다."
 ---
 
-> 문서 기준: 2026년 9월
+> 문서 기준: 2026년 10월
 
 ## 개요
 
@@ -222,7 +222,7 @@ flowchart TB
 
 ### 규제/표준
 
-- [PCI DSS v4.0 (PCI SSC)](https://www.pcisecuritystandards.org/)
+- [PCI DSS v4.0.1 (PCI SSC)](https://www.pcisecuritystandards.org/)
 - 한국 법령·CSAP·N²SF 링크는 [망분리와 네트워크 격리 (한국)](../../korea/security/network-isolation/)을 참고하세요.
 
 ### AWS

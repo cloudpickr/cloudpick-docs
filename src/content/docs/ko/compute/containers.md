@@ -3,7 +3,7 @@ title: "컨테이너 서비스"
 description: "관리형 Kubernetes, 서버리스 컨테이너, 컨테이너 레지스트리를 벤더별로 비교하고 컨트롤/데이터 플레인을 설명합니다."
 ---
 
-> 문서 기준: 2026년 9월
+> 문서 기준: 2026년 10월
 
 ## 개요
 
@@ -23,9 +23,9 @@ EKS를 아시는 분을 위해: Azure는 AKS, Google Cloud는 GKE, OCI는 OKE입
 
 | 벤더 | 제품 | 비고 |
 | --- | --- | --- |
-| AWS | EKS (Elastic Kubernetes Service) | 컨트롤 플레인 유료. K8s 1.36 지원 (2026.06) |
+| AWS | EKS (Elastic Kubernetes Service) | 컨트롤 플레인 유료. 업스트림 릴리스를 따라 최신 마이너까지 지원(지원 버전은 [EKS 문서](https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html) 확인) |
 | Azure | AKS (Azure Kubernetes Service) | 컨트롤 플레인 무료 |
-| Google Cloud | GKE (Google Kubernetes Engine) | Autopilot 모드: 노드 관리 불필요, Pod 단위 과금. Rapid: K8s 1.36 |
+| Google Cloud | GKE (Google Kubernetes Engine) | Autopilot 모드: 노드 관리 불필요, Pod 단위 과금. Rapid 채널로 최신 마이너 제공 |
 | OCI | OKE (Oracle Kubernetes Engine) | 컨트롤 플레인 무료. Virtual Nodes로 서버리스 운영 가능 |
 
 ### 서버리스 / 간편 컨테이너 실행

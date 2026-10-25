@@ -3,7 +3,7 @@ title: "Physical AI Deploy and Operate"
 description: "Summarizes robotics foundation models and agent connectivity (Layer 3), the functional safety layer, multicloud and edge architecture, and closed-loop operations and fleet deployment from a vendor-neutral perspective."
 ---
 
-> Last reviewed: September 2026 | This area changes quickly and is subject to quarterly review.
+> Last reviewed: October 2026 | This area changes quickly and is subject to quarterly review.
 
 ## Overview
 
@@ -52,7 +52,7 @@ Designs that place a large model directly inside the control loop are a common f
 After MCP established itself as the standard connecting agents to data and software tools, **standards connecting agents to physical equipment** have begun to appear as well. In August 2026 Anthropic published a research preview of the **[Model Hardware Standard (MHS)](https://www.anthropic.com/news/model-hardware-standard-research-preview)**. Instead of building a custom adapter per device, it exposes devices through a common driver so that a single agent can operate multiple devices in parallel. Safety limits are **enforced at the driver level**, below the agent, so a model cannot talk its way past a hard limit.
 
 :::caution
-As of September 2026, MHS is a **research preview**, and its scope centers on scientific research instruments and advanced manufacturing equipment. It does not replace existing standards for industrial robot control (fieldbus, safety PLC, robot middleware), and it is separate from functional safety certification regimes. Rather than treating it as an architectural premise, read it as a signal that **the agent-to-hardware connection layer is moving toward standardization**.
+As of October 2026, MHS is a **research preview**, and its scope centers on scientific research instruments and advanced manufacturing equipment. It does not replace existing standards for industrial robot control (fieldbus, safety PLC, robot middleware), and it is separate from functional safety certification regimes. Rather than treating it as an architectural premise, read it as a signal that **the agent-to-hardware connection layer is moving toward standardization**.
 :::
 
 :::caution
@@ -60,7 +60,7 @@ When allowing an agent to call physical actuators (motors, valves, vehicle contr
 :::
 
 :::caution
-Robot foundation models and **world models** are an early, rapidly developing area as of September 2026. Model names, versions, and performance figures change substantially with each vendor announcement, so this document covers only the range where mature comparison is possible and defers details to official source links.
+Robot foundation models and **world models** are an early, rapidly developing area as of October 2026. Model names, versions, and performance figures change substantially with each vendor announcement, so this document covers only the range where mature comparison is possible and defers details to official source links.
 :::
 
 ## Safety Layer — Autonomous Driving and Robotics

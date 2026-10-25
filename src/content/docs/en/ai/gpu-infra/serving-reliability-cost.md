@@ -3,7 +3,7 @@ title: "Inference Serving, Reliability, and Cost"
 description: "Covers GPU inference serving operations, automatic node-failure resume, capacity operations (Capacity Blocks/reservations/multi-region fallback), and GPU cost optimization from a vendor-neutral perspective."
 ---
 
-> Last reviewed: September 2026 | This is a fast-moving area subject to quarterly review.
+> Last reviewed: October 2026 | This is a fast-moving area subject to quarterly review.
 
 :::note
 This document covers the operational stage of GPU infrastructure (inference serving, failure handling, capacity, cost). For training parallelism, see [Distributed Training Standard Architecture](../distributed-training/); for cluster architecture, see [GPU Workload Characteristics and Reference Architecture](../workload-and-architecture/).

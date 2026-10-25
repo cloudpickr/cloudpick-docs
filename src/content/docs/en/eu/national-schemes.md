@@ -3,7 +3,7 @@ title: "EU Member-State Cloud Security Schemes"
 description: "Covers Germany's BSI C5, France's ANSSI SecNumCloud, Spain's ENS, Italy's ACN, and other EU member-state cloud security certification and procurement schemes, along with hyperscaler compliance status."
 ---
 
-> Last reviewed: September 2026
+> Last reviewed: October 2026
 
 ## Overview
 
@@ -38,14 +38,14 @@ The single biggest difference between SecNumCloud 3.2 and other national schemes
 Because of this requirement, **US-headquartered hyperscalers such as AWS, Microsoft, and Google cannot obtain SecNumCloud qualification directly under their own name.** Instead, they pursue an indirect path through joint ventures with French partners, with progress varying by vendor (see "Status of Partnership Certifications" below).
 :::
 
-### Status of Partnership Certifications (as of September 2026)
+### Status of Partnership Certifications (as of October 2026)
 
 | Partnership | Vendor | Status |
 | --- | --- | --- |
 | **S3NS** (a Thales × Google Cloud joint venture) | Google Cloud | **Obtained SecNumCloud 3.2 qualification on December 17, 2025** — the first case of simultaneously certifying more than 20 IaaS, CaaS, and PaaS services under its PREMI3NS offering. A second-phase expansion review covering services such as Cloud Run, Cloud Build, Cloud Spanner, and Bigtable is underway |
-| **Bleu** (a Capgemini × Orange joint venture) | Microsoft Azure/M365 | Passed the first review stage (J0, application acceptance); its original target of qualification in the first half of 2026 has passed, and **as of September 2026 it has not yet obtained full SecNumCloud 3.2 qualification** (review continues into H2 2026–2027) |
+| **Bleu** (a Capgemini × Orange joint venture) | Microsoft Azure/M365 | Passed the first review stage (J0, application acceptance); its original target of qualification in the first half of 2026 has passed, and **as of October 2026 it has not yet obtained full SecNumCloud 3.2 qualification** (review continues into H2 2026–2027) |
 
-Overall, as of September 2026, **nine to ten providers** (OVHcloud, 3DS Outscale, Cloud Temple, Orange Business, Cegedim.cloud, Worldline, Oodrive, Whaller, S3NS, and others — the count varies depending on the aggregation basis; ANSSI's official catalogue, tallied by service type, confirms up to 10 provider names) hold SecNumCloud 3.2 qualification, and **12 providers** — including Bleu, Scaleway, and NumSpot — are undergoing review.
+Overall, as of October 2026, **nine to ten providers** (OVHcloud, 3DS Outscale, Cloud Temple, Orange Business, Cegedim.cloud, Worldline, Oodrive, Whaller, S3NS, and others — the count varies depending on the aggregation basis; ANSSI's official catalogue, tallied by service type, confirms up to 10 provider names) hold SecNumCloud 3.2 qualification, and **12 providers** — including Bleu, Scaleway, and NumSpot — are undergoing review.
 
 ## Spain — ENS
 
@@ -71,7 +71,7 @@ Although the four national schemes above operate independently, once the EU-wide
 
 - C5:2020 has already been incorporated as foundational material in designing the requirements for the EUCS Substantial tier.
 - Work on EUCS stalled for years amid disagreement among member states over whether to include a "sovereignty requirement" at the highest (High+) tier, but it is being revived within the amendment process for the **Cybersecurity Act 2 (CSA2)**, announced January 20, 2026.
-- **As of September 2026, EUCS remains unfinalized, and whether it will include a sovereignty requirement is still under debate.** (For further detail, see [GDPR and Data Sovereignty — The Fluid State of the EUCS Certification Scheme](../gdpr-sovereignty/#the-fluid-state-of-the-eucs-certification-scheme).)
+- **As of October 2026, EUCS remains unfinalized, and whether it will include a sovereignty requirement is still under debate.** (For further detail, see [GDPR and Data Sovereignty — The Fluid State of the EUCS Certification Scheme](../gdpr-sovereignty/#the-fluid-state-of-the-eucs-certification-scheme).)
 
 Until then, national schemes function as "provisional but market-trusted evidence," with BSI C5 and SecNumCloud in particular serving as the de facto reference points during the transition to EUCS.
 

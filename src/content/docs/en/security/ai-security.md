@@ -3,7 +3,7 @@ title: "AI Security"
 description: "Compares AI service security threats (prompt injection, sensitive data exposure, agent permissions) and vendor guardrails."
 ---
 
-> Last reviewed: September 2026 | This is a fast-moving area subject to quarterly review.
+> Last reviewed: October 2026 | This is a fast-moving area subject to quarterly review.
 
 ## Overview
 
@@ -41,7 +41,7 @@ The threat categories below are a practical summary; for the standard classifica
 - **Output validation** — check whether the response contains the system prompt, PII, or prohibited content
 - **Least privilege** — limit the damage even if an injection succeeds (restrict the agent's tool scope)
 
-### Real-World Incidents (2025)
+### Real-World Incidents (2025–2026)
 
 These incidents show that prompt injection is not a theoretical threat but a **production incident**.
 

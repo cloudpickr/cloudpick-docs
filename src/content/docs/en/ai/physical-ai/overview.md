@@ -3,7 +3,7 @@ title: "Physical AI Overview"
 description: "Overviews the full pipeline and layered structure of Physical AI — which connects AI to the physical world of sensors, robots, and equipment — and summarizes its unsolved problems from a vendor-neutral perspective."
 ---
 
-> Last reviewed: September 2026 | This area changes quickly and is subject to quarterly review.
+> Last reviewed: October 2026 | This area changes quickly and is subject to quarterly review.
 
 ## What Physical AI Is
 

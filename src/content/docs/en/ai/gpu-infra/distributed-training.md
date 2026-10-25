@@ -3,7 +3,7 @@ title: "Distributed Training Standard Architecture"
 description: "Summarizes data/tensor/pipeline parallelism (DP/TP/PP), 3D hybrid parallelism, distributed training frameworks, and checkpoint strategy from a vendor-neutral perspective."
 ---
 
-> Last reviewed: September 2026 | This is a fast-moving area subject to quarterly review.
+> Last reviewed: October 2026 | This is a fast-moving area subject to quarterly review.
 
 :::note
 This document covers parallelism strategies for distributed training. For the cluster communication tier, placement, and fabric, see [GPU Workload Characteristics and Reference Architecture](../workload-and-architecture/); for scheduling on Kubernetes, see [GPU Kubernetes and Scheduling](../kubernetes-and-scheduling/).

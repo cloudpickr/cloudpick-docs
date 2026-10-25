@@ -57,6 +57,36 @@ Enterprise Desktop Agent satisfaction depends more on **IT's data source connect
 | FinOps | FinOps Agent (Preview) | Azure Copilot Cost Optimization | — |
 | Coding | Kiro (IDE/CLI/Web) | GitHub Copilot | Antigravity |
 
+### The shift to always-on proactive agents
+
+Through 2026, the major vendors all moved in the same direction — from **chatbots that answer requests** to **always-on, proactive agents that act on their own**. Here, "always-on" means the agent keeps running in the background even after you close the app, and "proactive" means it suggests and performs work first, without waiting for a command.
+
+These products share four traits.
+
+- **Background execution** — work continues even when you step away.
+- **Dedicated runtime** — each agent runs on its own cloud computer or VM.
+- **Proactive checks** — it periodically checks connected apps (mail, calendar, etc.) and surfaces suggestions first.
+- **Control over sensitive actions** — it supports human approval and an audit trail for actions like sending, paying, or deleting (whether approval is required depends on the product and the organization's settings).
+
+The representative product from each vendor is below. "Category" indicates consumer vs. enterprise.
+
+| Product | Vendor | Released | Category | Governance & security notes |
+| --- | --- | --- | --- | --- |
+| [Muse](https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/) | Meta | 2026.09 | Consumer | Runs on a dedicated Secure VM. A separate Sentinel agent approves outbound traffic, and credentials are used without being exposed |
+| [Scout / Autopilot](https://www.microsoft.com/en-us/copilot/blog/2026/06/02/introducing-microsoft-scout-your-always-on-personal-agent/) | Microsoft | 2026.06–09 | Enterprise | New "Autopilots" category. Per-agent Entra identity, credentials redacted from logs, Purview DLP enforced in the moment. Approval for sensitive actions follows the organization's settings |
+| [Quick always-on agents](https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-quick-always-on-agents-sharper-feed-enterprise-controls/) | AWS | 2026.09 | Enterprise | Scheduled and monitoring agents run always-on in the cloud. Admin controls (MDM, permissions), Purview DLP integration |
+| [Gemini Spark / Daily Brief](https://blog.google/innovation-and-ai/products/gemini-app/next-evolution-gemini-app/) | Google | 2026.05 (I/O) | Consumer | 24/7 proactive, daily brief. The macOS app operates on the local machine |
+| [dots](https://openai.com/devday/2026/) | OpenAI | 2026.09 (DevDay) | Consumer | Always-on agent introduced at DevDay 2026 |
+| [Claude Duet](https://claude.com/resources/articles/claude-duet) | Anthropic | 2026.10 | Consumer/Pro | Built on Opus 5.5, daily brief. Checks with the user before sensitive actions. US Pro/Max research preview (waitlist) |
+
+:::note
+The crux of this shift is not model performance but **action boundaries and governance**. The enterprise products (Scout/Autopilot, Quick) all emphasize governed identity, in-the-moment DLP, and configurable approval for sensitive actions. For the action boundaries, approval policies, and auditing to apply at adoption, see the [Agent Adoption Guide](../../ai/agent-adoption/); for non-human identity management, see the "Agent identity" item in the same document.
+:::
+
+:::caution
+Always-on agents carry two main risks. First, long autonomous execution can **run up costs**. Second, external input can expose them to **cross-app prompt injection**. Apply session budgets and auto-termination, connector allowlists, and an approval gate before sending or paying. For detailed risks, see [Desktop Agent Risks](#desktop-agent-risks) below.
+:::
+
 ---
 
 ## Architecture Patterns
@@ -157,7 +187,7 @@ The harness runs locally or on any cloud.
 | [Kiro](https://kiro.dev/) | AWS | Spec-driven, Hooks, IDE/CLI/Web |
 | [Claude Code](https://github.com/anthropics/claude-code) | Anthropic | Agent Teams, 29 hooks, plugins |
 | [Codex](https://openai.com/codex/) | OpenAI | Parallel agents, Computer Use |
-| [Grok Build](https://x.ai/news/grok-build-cli) | SpaceXAI | 8 parallel sub-agents, Git worktree isolation |
+| [Grok Build](https://x.ai/news/grok-build-cli) | xAI | 8 parallel sub-agents, Git worktree isolation |
 | [GitHub Copilot](https://github.com/features/copilot) | Microsoft | Agent Mode, Agent Merge, Cloud Sessions |
 | [Antigravity](https://antigravity.google/) | Google | Agent-first IDE, Managed Agents |
 | [OpenCode](https://opencode.ai/) | Anomaly | Open-source, model-agnostic |
@@ -216,3 +246,4 @@ Claude Code supports a 1M-token context window (GA in March 2026). On the Max, T
 - [Gemini Agent Platform](https://cloud.google.com/products/agent-builder)
 - [MCP](https://modelcontextprotocol.io/) · [MCP 2026-07-28 Changelog](https://modelcontextprotocol.io/specification/2026-07-28/changelog) · [A2A](https://github.com/google-a2a/A2A)
 - [Kiro](https://kiro.dev/) · [Claude Code](https://github.com/anthropics/claude-code) · [Codex](https://openai.com/codex/)
+- Proactive agents: [Meta Muse](https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/) · [Microsoft Scout](https://www.microsoft.com/en-us/copilot/blog/2026/06/02/introducing-microsoft-scout-your-always-on-personal-agent/) · [Microsoft Copilot (Home, Code, Autopilot)](https://blogs.microsoft.com/blog/2026/09/25/introducing-the-new-copilot-with-home-code-and-autopilot/) · [Amazon Quick](https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-quick-always-on-agents-sharper-feed-enterprise-controls/) · [Gemini Spark](https://blog.google/innovation-and-ai/products/gemini-app/next-evolution-gemini-app/) · [OpenAI DevDay 2026](https://openai.com/devday/2026/) · [Claude Duet](https://claude.com/resources/articles/claude-duet)

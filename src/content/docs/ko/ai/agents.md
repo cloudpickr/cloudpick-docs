@@ -59,6 +59,36 @@ LLM 채팅은 브라우저 안에 갇혀 있었습니다. Desktop Agent는 로�
 | FinOps | FinOps Agent (프리뷰) | Azure Copilot 비용 최적화 | — |
 | 코딩 | Kiro (IDE/CLI/Web) | GitHub Copilot | Antigravity |
 
+### 상시 가동 프로액티브 에이전트로의 전환
+
+2026년 들어 주요 벤더가 일제히 같은 방향으로 제품을 옮겼습니다 — **요청에 응답하는 챗봇**에서, 사용자가 지시하지 않아도 **스스로 먼저 움직이는(프로액티브) 상시 가동(always-on) 에이전트**로의 전환입니다. 여기서 "상시 가동"은 앱을 닫아도 백그라운드에서 계속 실행된다는 뜻이고, "프로액티브"는 사용자의 명령을 기다리지 않고 먼저 할 일을 제안·수행한다는 뜻입니다.
+
+이들 제품은 네 가지 공통 특징을 보입니다.
+
+- **백그라운드 실행** — 사용자가 자리를 비워도 작업을 계속합니다.
+- **전용 실행 환경** — 각 에이전트가 전용 클라우드 컴퓨터나 VM에서 동작합니다.
+- **선제적 점검** — 연결된 앱(메일·캘린더 등)을 주기적으로 확인해 먼저 제안합니다.
+- **민감 행동 통제** — 발송·결제·삭제 같은 행동에 대해 사람의 승인과 감사 추적을 지원합니다(승인을 강제할지는 제품·조직 설정에 따라 다릅니다).
+
+아래는 각 벤더의 대표 제품입니다. "구분"은 소비자용인지 기업용인지를 나타냅니다.
+
+| 제품 | 벤더 | 공개 | 구분 | 거버넌스·보안 특징 |
+| --- | --- | --- | --- | --- |
+| [Muse](https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/) | Meta | 2026.09 | 소비자 | 전용 Secure VM에서 동작. 별도 Sentinel 에이전트가 외부 송신을 승인하고, 자격증명을 노출하지 않고 사용 |
+| [Scout / Autopilot](https://www.microsoft.com/en-us/copilot/blog/2026/06/02/introducing-microsoft-scout-your-always-on-personal-agent/) | Microsoft | 2026.06–09 | 기업 | "Autopilots" 신규 분류. 에이전트별 Entra ID, 자격증명 로그 삭제, Purview DLP 실시간 적용. 민감 행동 승인은 조직 설정에 따름 |
+| [Quick 상시 에이전트](https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-quick-always-on-agents-sharper-feed-enterprise-controls/) | AWS | 2026.09 | 기업 | 스케줄·모니터링 에이전트가 클라우드에서 상시 실행. 관리자 제어(MDM·권한), Purview DLP 연동 |
+| [Gemini Spark / Daily Brief](https://blog.google/innovation-and-ai/products/gemini-app/next-evolution-gemini-app/) | Google | 2026.05 (I/O) | 소비자 | 24/7 프로액티브, 데일리 브리프. macOS 앱이 로컬 머신에서 동작 |
+| [dots](https://openai.com/devday/2026/) | OpenAI | 2026.09 (DevDay) | 소비자 | DevDay 2026에서 공개된 상시 가동 에이전트 |
+| [Claude Duet](https://claude.com/resources/articles/claude-duet) | Anthropic | 2026.10 | 소비자/프로 | Opus 5.5 기반, 데일리 브리프. 민감 행동 전 사용자 확인. 미국 Pro/Max 리서치 프리뷰(웨이트리스트) |
+
+:::note
+이 전환의 핵심은 모델 성능이 아니라 **행동 경계와 거버넌스**입니다. 기업용 제품(Scout/Autopilot, Quick)은 공통적으로 거버넌스 ID, DLP 실시간 적용, 민감 행동 승인 구성을 강조합니다. 조직 도입 시 적용할 행동 경계·승인 정책·감사는 [에이전트 도입 가이드](../../ai/agent-adoption/)를, 비인간 ID 관리는 같은 문서의 "에이전트 ID" 항목을 참고하세요.
+:::
+
+:::caution
+상시 가동 에이전트는 두 가지 리스크가 큽니다. 첫째, 장시간 자율 실행으로 **비용이 급증**할 수 있습니다. 둘째, 외부 입력을 통한 **크로스 앱 프롬프트 인젝션**에 노출될 수 있습니다. 세션 예산·자동 중단, 커넥터 허용 목록, 발송·결제 전 승인 게이트를 함께 적용하세요. 상세 리스크는 아래 [Desktop Agent 고유 리스크](#desktop-agent-고유-리스크)를 참고하세요.
+:::
+
 ---
 
 ## 아키텍처 패턴
@@ -218,3 +248,4 @@ Claude Code는 100만(1M) 토큰 컨텍스트를 지원합니다(2026년 3월 GA
 - [Gemini Agent Platform](https://cloud.google.com/products/agent-builder)
 - [MCP](https://modelcontextprotocol.io/) · [MCP 2026-07-28 Changelog](https://modelcontextprotocol.io/specification/2026-07-28/changelog) · [A2A](https://github.com/google-a2a/A2A)
 - [Kiro](https://kiro.dev/) · [Claude Code](https://github.com/anthropics/claude-code) · [Codex](https://openai.com/codex/)
+- 프로액티브 에이전트: [Meta Muse](https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/) · [Microsoft Scout](https://www.microsoft.com/en-us/copilot/blog/2026/06/02/introducing-microsoft-scout-your-always-on-personal-agent/) · [Microsoft Copilot (Home·Code·Autopilot)](https://blogs.microsoft.com/blog/2026/09/25/introducing-the-new-copilot-with-home-code-and-autopilot/) · [Amazon Quick](https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-quick-always-on-agents-sharper-feed-enterprise-controls/) · [Gemini Spark](https://blog.google/innovation-and-ai/products/gemini-app/next-evolution-gemini-app/) · [OpenAI DevDay 2026](https://openai.com/devday/2026/) · [Claude Duet](https://claude.com/resources/articles/claude-duet)

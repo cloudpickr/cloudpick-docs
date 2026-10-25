@@ -3,7 +3,7 @@ title: "멀티클라우드 네트워크 아키텍처"
 description: "Hub-and-Spoke 등 트랜짓 아키텍처, Cross-Cloud Interconnect, 이그레스 비용 최적화, 멀티클라우드 DNS 통합 전략을 설명합니다."
 ---
 
-> 문서 기준: 2026년 10월
+> 문서 기준: 2026년 9월
 
 :::note[선행 지식 및 연결 문서]
 연결 방식 개요와 CIDR 설계 등 기초는 [멀티클라우드 네트워크 설계 기초](../../networking/multicloud-networking/)를 먼저 참고하세요. 이 문서는 그 위에서 Hub-and-Spoke·트랜짓 아키텍처, Cross-Cloud Interconnect, 이그레스 비용 최적화 등 심화 설계에 초점을 둡니다.

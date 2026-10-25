@@ -3,7 +3,7 @@ title: AI Platforms and Model Comparison
 description: Compare AI platforms, model catalogs, GPU/AI accelerators, and Applied AI services across vendors.
 ---
 
-> Last reviewed: October 2026 | This is a fast-moving area subject to quarterly review.
+> Last reviewed: September 2026 | This is a fast-moving area subject to quarterly review.
 
 ## Overview
 

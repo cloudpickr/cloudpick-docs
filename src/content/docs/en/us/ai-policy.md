@@ -3,7 +3,7 @@ title: "AI Policy and Governance"
 description: "Covers the trajectory of US federal AI executive orders, the state-federal preemption conflict, the NIST AI RMF, federal procurement AI requirements, and practical implications for cloud AI workloads."
 ---
 
-> Last reviewed: October 2026
+> Last reviewed: September 2026
 
 ## Overview
 

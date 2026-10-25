@@ -3,7 +3,7 @@ title: "Europe's Sovereign AI and Model Landscape"
 description: "Covers the EU AI Continent Action Plan and AI Factories, European foundation model providers such as Mistral AI and Aleph Alpha, and the scope of AI services offered by hyperscaler sovereign clouds."
 ---
 
-> Last reviewed: October 2026
+> Last reviewed: September 2026
 
 ## Overview
 

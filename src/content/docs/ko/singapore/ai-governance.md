@@ -3,7 +3,7 @@ title: "AI 거버넌스"
 description: "싱가포르 AI 거버넌스 체계 — NAIS 2.0 국가 AI 전략, Model AI Governance Framework, AI Verify, IMDA의 도구 중심 접근, PDPA와의 관계, 아세안·동남아 연계를 정리합니다."
 ---
 
-> 문서 기준: 2026년 10월
+> 문서 기준: 2026년 9월
 
 ## 개요
 

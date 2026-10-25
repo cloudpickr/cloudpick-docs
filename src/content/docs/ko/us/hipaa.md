@@ -3,7 +3,7 @@ title: "HIPAA/HITECH"
 description: "미국 헬스케어 데이터 보호 규제 HIPAA/HITECH의 PHI 정의, BAA 체결 구조, HITRUST CSF와의 관계, 암호화·감사 로그 요건을 정리합니다."
 ---
 
-> 문서 기준: 2026년 10월
+> 문서 기준: 2026년 9월
 
 ## 개요
 

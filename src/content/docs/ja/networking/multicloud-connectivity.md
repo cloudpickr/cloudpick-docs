@@ -3,7 +3,7 @@ title: "マルチクラウドネットワークアーキテクチャ"
 description: "Hub-and-Spokeなどのトランジットアーキテクチャ、Cross-Cloud Interconnect、Egressコスト最適化、マルチクラウドDNS統合戦略について説明します。"
 ---
 
-> 文書基準: 2026年10月
+> 文書基準: 2026年9月
 
 :::note[前提知識と関連ドキュメント]
 接続方式の概要とCIDR設計などの基礎は、[マルチクラウドネットワーク設計の基礎](../../networking/multicloud-networking/)を先に参照してください。本ドキュメントは、その上でHub-and-Spoke・トランジットアーキテクチャ、Cross-Cloud Interconnect、エグレスコスト最適化などの発展的な設計に焦点を当てます。

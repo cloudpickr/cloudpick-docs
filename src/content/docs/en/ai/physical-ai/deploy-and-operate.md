@@ -3,7 +3,7 @@ title: "Physical AI Deploy and Operate"
 description: "Summarizes robotics foundation models and agent connectivity (Layer 3), the functional safety layer, multicloud and edge architecture, and closed-loop operations and fleet deployment from a vendor-neutral perspective."
 ---
 
-> Last reviewed: October 2026 | This area changes quickly and is subject to quarterly review.
+> Last reviewed: September 2026 | This area changes quickly and is subject to quarterly review.
 
 ## Overview
 

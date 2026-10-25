@@ -3,7 +3,7 @@ title: "FedRAMP"
 description: "미국 연방기관 클라우드 조달을 위한 보안 인가 제도 FedRAMP의 개요, 2026년 FedRAMP 20x 개편 현황, 격리 리전, CMMC·DoD SRG를 정리합니다."
 ---
 
-> 문서 기준: 2026년 10월
+> 문서 기준: 2026년 9월
 
 ## 개요
 

@@ -3,7 +3,7 @@ title: "HIPAA/HITECH"
 description: "An overview of HIPAA/HITECH, the US regulation protecting healthcare data — the definition of PHI, the BAA structure, the relationship with HITRUST CSF, and encryption/audit log requirements."
 ---
 
-> Last reviewed: October 2026
+> Last reviewed: September 2026
 
 ## Overview
 

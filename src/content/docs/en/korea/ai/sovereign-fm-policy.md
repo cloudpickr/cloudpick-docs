@@ -3,7 +3,7 @@ title: "Sovereign AI and Independent Foundation Model Policy"
 description: "Covers the Korean government's sovereign AI policy, the selection process for its independent AI foundation model project, and implications for enterprise architects."
 ---
 
-> Last reviewed: October 2026 (second phase evaluation results reflected)
+> Last reviewed: September 2026 (second phase evaluation results reflected)
 
 ## Overview
 

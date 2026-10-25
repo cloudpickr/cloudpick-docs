@@ -3,7 +3,7 @@ title: "GDPR과 데이터 주권"
 description: "GDPR 역외이전 체계, EU Data Boundary, 소버린 클라우드 옵션 비교와 EUCS 인증 스킴 동향을 정리합니다."
 ---
 
-> 문서 기준: 2026년 10월
+> 문서 기준: 2026년 9월
 
 ## 개요
 

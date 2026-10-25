@@ -3,7 +3,7 @@ title: "Physical AI Data and Training"
 description: "Compares edge inference and IoT hardware and the sensor data pipeline (Layer 1), digital twins, simulation, open datasets, and sim-to-real (Layer 2), and choosing training infrastructure matched to scale, from a vendor-neutral perspective."
 ---
 
-> Last reviewed: October 2026 | This area changes quickly and is subject to quarterly review.
+> Last reviewed: September 2026 | This area changes quickly and is subject to quarterly review.
 
 ## Overview
 

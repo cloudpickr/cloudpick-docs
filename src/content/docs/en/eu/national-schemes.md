@@ -3,7 +3,7 @@ title: "EU Member-State Cloud Security Schemes"
 description: "Covers Germany's BSI C5, France's ANSSI SecNumCloud, Spain's ENS, Italy's ACN, and other EU member-state cloud security certification and procurement schemes, along with hyperscaler compliance status."
 ---
 
-> Last reviewed: October 2026
+> Last reviewed: September 2026
 
 ## Overview
 

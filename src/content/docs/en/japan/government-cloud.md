@@ -3,7 +3,7 @@ title: "Japan Government Cloud (ガバメントクラウド)"
 description: "Covers the registration status of providers on Japan's Digital Agency-led shared government/local-government cloud platform, its relationship with ISMAP, and the progress of local government system standardization."
 ---
 
-> Last reviewed: October 2026
+> Last reviewed: September 2026
 
 ## Overview
 

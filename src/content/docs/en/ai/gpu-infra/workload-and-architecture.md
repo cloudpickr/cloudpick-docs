@@ -3,7 +3,7 @@ title: "GPU Workload Characteristics and Reference Architecture"
 description: "Compares GPU workload characteristics (pre-training/fine-tuning/inference) and a three-tier reference architecture (intra-node, inter-node, storage) from a vendor-neutral perspective."
 ---
 
-> Last reviewed: October 2026 | This is a fast-moving area subject to quarterly review.
+> Last reviewed: September 2026 | This is a fast-moving area subject to quarterly review.
 
 :::tip[GPU Infrastructure series — reading order]
 This is Part 1 of a four-part GPU infrastructure series.

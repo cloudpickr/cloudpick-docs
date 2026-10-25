@@ -3,7 +3,7 @@ title: "APPI (Japan's Act on the Protection of Personal Information)"
 description: "Covers cross-border transfer requirements under Japan's Act on the Protection of Personal Information (APPI), adequacy recognition status across jurisdictions, cloud region selection impact, handling of My Number, and 2025–2026 revision trends."
 ---
 
-> Last reviewed: October 2026
+> Last reviewed: September 2026
 
 ## Overview
 

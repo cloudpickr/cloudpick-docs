@@ -3,7 +3,7 @@ title: "일본 AI 정책과 국산 모델 지형"
 description: "일본 AI법(AI推進法)과 AI기본계획, 경제산업성 GENIAC 프로그램, NTT tsuzumi·NEC cotomi·PFN PLaMo 등 국산 LLM 지형, 정부 조달 경로(源内)를 정리합니다."
 ---
 
-> 문서 기준: 2026년 10월
+> 문서 기준: 2026년 9월
 
 ## 개요
 

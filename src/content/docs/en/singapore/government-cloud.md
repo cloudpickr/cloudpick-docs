@@ -3,7 +3,7 @@ title: "Government Cloud (GCC, IM8, SGTS)"
 description: "Covers Singapore's government cloud framework — the structure of the Government Commercial Cloud (GCC) and GCC+, the IM8 security policy reform, SG Tech Stack, and requirements for participating in government procurement."
 ---
 
-> Last reviewed: October 2026
+> Last reviewed: September 2026
 
 ## Overview
 

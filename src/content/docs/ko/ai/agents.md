@@ -59,6 +59,27 @@ LLM 채팅은 브라우저 안에 갇혀 있었습니다. Desktop Agent는 로�
 | FinOps | FinOps Agent (프리뷰) | Azure Copilot 비용 최적화 | — |
 | 코딩 | Kiro (IDE/CLI/Web) | GitHub Copilot | Antigravity |
 
+### 상시 가동 프로액티브 에이전트로의 전환
+
+2026년 들어 주요 벤더가 일제히 **요청-응답형 챗봇에서 상시 가동(always-on) 프로액티브 에이전트로** 제품 방향을 옮겼습니다. 공통 패턴은 네 가지입니다 — **(1)** 사용자가 자리를 비워도 백그라운드에서 계속 실행, **(2)** 전용 클라우드 컴퓨터/VM에서 동작, **(3)** 연결된 앱(메일·캘린더 등)을 주기적으로 점검해 먼저 제안, **(4)** 발송·결제·삭제 같은 민감 행동 전 **사람의 승인과 감사 추적**.
+
+| 제품 | 벤더 | 공개 | 구분 | 거버넌스·보안 특징 |
+| --- | --- | --- | --- | --- |
+| [Muse](https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/) | Meta | 2026.09 | 소비자 | 전용 Secure VM + 별도 Sentinel 에이전트가 인터넷 송신을 승인, 자격증명을 보지 않고 사용 |
+| [Scout / Autopilot](https://www.microsoft.com/en-us/copilot/blog/2026/06/02/introducing-microsoft-scout-your-always-on-personal-agent/) | Microsoft | 2026.06–09 | 엔터프라이즈 | "Autopilots" 신규 분류. Entra 거버넌스 ID, 자격증명 로그 삭제, Purview DLP 실시간 적용, 민감 행동 사전 승인 |
+| [Quick 상시 에이전트](https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-quick-always-on-agents-sharper-feed-enterprise-controls/) | AWS | 2026.09 | 엔터프라이즈 | 클라우드 상시 실행(스케줄·모니터링), 관리자 제어(MDM·퍼유저 권한), Purview DLP 연동, 스킬 카탈로그 |
+| [Gemini Spark / Daily Brief](https://blog.google/innovation-and-ai/products/gemini-app/next-evolution-gemini-app/) | Google | 2026.05 (I/O) | 소비자 | 24/7 프로액티브, 데일리 브리프, macOS 앱이 로컬 머신에서 동작 |
+| [dots](https://openai.com/devday/2026/) | OpenAI | 2026.09 (DevDay) | 소비자 | GPT-6 Astra 기반, 각 에이전트가 전용 클라우드 컴퓨터·브라우저 보유 |
+| [Claude Duet](https://claude.com/resources/articles/claude-duet) | Anthropic | 2026.10 | 소비자/프로 | Opus 5.5 기반, 데일리 브리프, 민감 행동 전 승인. 미국 Pro/Max 리서치 프리뷰(웨이트리스트) |
+
+:::note
+이 전환의 핵심은 모델 성능이 아니라 **행동 경계와 거버넌스**입니다. 엔터프라이즈 제품(Scout/Autopilot, Quick)은 공통적으로 거버넌스 ID, DLP 실시간 적용, 민감 행동 사전 승인을 전면에 내세웁니다. 조직 도입 시 적용할 행동 경계·승인 정책·감사는 [에이전트 도입 가이드](../../ai/agent-adoption/)를, 비인간 ID 관리는 같은 문서의 "에이전트 ID" 항목을 참고하세요.
+:::
+
+:::caution
+상시 가동 에이전트는 **장시간 자율 실행으로 비용이 급증**하고, 외부 입력을 통한 **크로스 앱 프롬프트 인젝션**에 노출될 수 있습니다. 세션 예산·자동 중단, 커넥터 허용 목록, 발송·결제 전 승인 게이트를 함께 적용해야 합니다. 상세 리스크는 아래 [Desktop Agent 고유 리스크](#desktop-agent-고유-리스크)를 참고하세요.
+:::
+
 ---
 
 ## 아키텍처 패턴
@@ -218,3 +239,4 @@ Claude Code는 100만(1M) 토큰 컨텍스트를 지원합니다(2026년 3월 GA
 - [Gemini Agent Platform](https://cloud.google.com/products/agent-builder)
 - [MCP](https://modelcontextprotocol.io/) · [MCP 2026-07-28 Changelog](https://modelcontextprotocol.io/specification/2026-07-28/changelog) · [A2A](https://github.com/google-a2a/A2A)
 - [Kiro](https://kiro.dev/) · [Claude Code](https://github.com/anthropics/claude-code) · [Codex](https://openai.com/codex/)
+- 프로액티브 에이전트: [Meta Muse](https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/) · [Microsoft Scout](https://www.microsoft.com/en-us/copilot/blog/2026/06/02/introducing-microsoft-scout-your-always-on-personal-agent/) · [Microsoft Copilot (Home·Code·Autopilot)](https://blogs.microsoft.com/blog/2026/09/25/introducing-the-new-copilot-with-home-code-and-autopilot/) · [Amazon Quick](https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-quick-always-on-agents-sharper-feed-enterprise-controls/) · [Gemini Spark](https://blog.google/innovation-and-ai/products/gemini-app/next-evolution-gemini-app/) · [OpenAI DevDay 2026](https://openai.com/devday/2026/) · [Claude Duet](https://claude.com/resources/articles/claude-duet)

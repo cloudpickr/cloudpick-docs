@@ -59,6 +59,27 @@ LLMチャットはブラウザの中に閉じ込められていました。Deskt
 | FinOps | FinOps Agent (プレビュー) | Azure Copilot コスト最適化 | — |
 | コーディング | Kiro (IDE/CLI/Web) | GitHub Copilot | Antigravity |
 
+### 常時稼働プロアクティブエージェントへの移行
+
+2026年に入り、主要ベンダーが一斉に**リクエスト-レスポンス型チャットボットから常時稼働(always-on)のプロアクティブエージェントへ**と製品の方向性を移しました。共通するパターンは4つです — **(1)** ユーザーが離席しても背景で稼働し続ける、**(2)** 専用のクラウドコンピューター/VMで動作する、**(3)** 接続されたアプリ(メール・カレンダーなど)を定期的に点検して先回りで提案する、**(4)** 送信・決済・削除などの機微な操作の前に**人の承認と監査証跡**を要する。
+
+| 製品 | ベンダー | 公開 | 区分 | ガバナンス・セキュリティの特徴 |
+| --- | --- | --- | --- | --- |
+| [Muse](https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/) | Meta | 2026.09 | コンシューマー | 専用Secure VM + 別個のSentinelエージェントが外部送信を承認、認証情報を見ずに利用 |
+| [Scout / Autopilot](https://www.microsoft.com/en-us/copilot/blog/2026/06/02/introducing-microsoft-scout-your-always-on-personal-agent/) | Microsoft | 2026.06～09 | エンタープライズ | 「Autopilots」という新区分。EntraガバナンスドID、認証情報のログからの削除、Purview DLPの即時適用、機微な操作の事前承認 |
+| [Quick 常時稼働エージェント](https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-quick-always-on-agents-sharper-feed-enterprise-controls/) | AWS | 2026.09 | エンタープライズ | クラウド常時実行(スケジュール・モニタリング)、管理者制御(MDM・ユーザー別権限)、Purview DLP連携、スキルカタログ |
+| [Gemini Spark / Daily Brief](https://blog.google/innovation-and-ai/products/gemini-app/next-evolution-gemini-app/) | Google | 2026.05 (I/O) | コンシューマー | 24/7プロアクティブ、デイリーブリーフ、macOSアプリがローカルマシンで動作 |
+| [dots](https://openai.com/devday/2026/) | OpenAI | 2026.09 (DevDay) | コンシューマー | GPT-6 Astraベース、各エージェントが専用のクラウドコンピューター・ブラウザを保有 |
+| [Claude Duet](https://claude.com/resources/articles/claude-duet) | Anthropic | 2026.10 | コンシューマー/プロ | Opus 5.5ベース、デイリーブリーフ、機微な操作の前に承認。米国Pro/Maxのリサーチプレビュー(ウェイトリスト) |
+
+:::note
+この移行の核心はモデル性能ではなく、**行動境界とガバナンス**です。エンタープライズ製品(Scout/Autopilot、Quick)はいずれもガバナンスドID、DLPの即時適用、機微な操作の事前承認を前面に打ち出しています。組織導入時に適用する行動境界・承認ポリシー・監査は[エージェント導入ガイド](../../ai/agent-adoption/)を、非人間IDの管理は同ドキュメントの「エージェントID」項目を参照してください。
+:::
+
+:::caution
+常時稼働エージェントは**長時間の自律実行でコストが急増**し、外部入力を通じた**クロスアプリのプロンプトインジェクション**にさらされる可能性があります。セッション予算・自動停止、コネクタ許可リスト、送信・決済前の承認ゲートを併せて適用してください。詳細なリスクは下記の[Desktop Agent固有のリスク](#desktop-agent固有のリスク)を参照してください。
+:::
+
 ---
 
 ## アーキテクチャパターン
@@ -159,7 +180,7 @@ harnessはローカルでも任意のクラウドでも実行できます。
 | [Kiro](https://kiro.dev/) | AWS | Spec-driven、Hooks、IDE/CLI/Web |
 | [Claude Code](https://github.com/anthropics/claude-code) | Anthropic | Agent Teams、29 hooks、プラグイン |
 | [Codex](https://openai.com/codex/) | OpenAI | 並列エージェント、Computer Use |
-| [Grok Build](https://x.ai/news/grok-build-cli) | SpaceXAI | 8並列サブエージェント、Git worktree分離 |
+| [Grok Build](https://x.ai/news/grok-build-cli) | xAI | 8並列サブエージェント、Git worktree分離 |
 | [GitHub Copilot](https://github.com/features/copilot) | Microsoft | Agent Mode、Agent Merge、Cloud Sessions |
 | [Antigravity](https://antigravity.google/) | Google | Agent-first IDE、Managed Agents |
 | [OpenCode](https://opencode.ai/) | Anomaly | オープンソース、モデル非依存 |
@@ -218,3 +239,4 @@ Claude Codeは100万（1M）トークンのコンテキストをサポートし�
 - [Gemini Agent Platform](https://cloud.google.com/products/agent-builder)
 - [MCP](https://modelcontextprotocol.io/) · [MCP 2026-07-28 Changelog](https://modelcontextprotocol.io/specification/2026-07-28/changelog) · [A2A](https://github.com/google-a2a/A2A)
 - [Kiro](https://kiro.dev/) · [Claude Code](https://github.com/anthropics/claude-code) · [Codex](https://openai.com/codex/)
+- プロアクティブエージェント: [Meta Muse](https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/) · [Microsoft Scout](https://www.microsoft.com/en-us/copilot/blog/2026/06/02/introducing-microsoft-scout-your-always-on-personal-agent/) · [Microsoft Copilot (Home・Code・Autopilot)](https://blogs.microsoft.com/blog/2026/09/25/introducing-the-new-copilot-with-home-code-and-autopilot/) · [Amazon Quick](https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-quick-always-on-agents-sharper-feed-enterprise-controls/) · [Gemini Spark](https://blog.google/innovation-and-ai/products/gemini-app/next-evolution-gemini-app/) · [OpenAI DevDay 2026](https://openai.com/devday/2026/) · [Claude Duet](https://claude.com/resources/articles/claude-duet)

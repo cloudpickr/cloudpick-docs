@@ -174,7 +174,7 @@ AI 시스템의 7단계 전 수명주기(AI System Life Cycle), 대상 페르소
 | --- | --- | --- |
 | 2026.04 | **OpenAI-Microsoft 독점 종료** | OpenAI 모델을 Azure 외 플랫폼에서도 제공 가능 |
 | 2026.04 | **OpenAI 모델 → Bedrock 제공 시작** | 독점 종료 직후 GPT-5.x가 Bedrock에 등장 |
-| 2025-2026 | **SpaceXAI(구 xAI) Grok 멀티클라우드 확산** | Azure AI Foundry(2025.09), Vertex AI, OCI, Bedrock(2026.06 Grok 4.3 GA) |
+| 2025-2026 | **SpaceXAI(구 xAI) Grok 멀티클라우드 확산** | Azure AI Foundry(2025.09), Vertex AI, OCI, Bedrock(Grok 4.7로 확산, GovCloud 포함) |
 | 2025-2026 | **Anthropic Claude 채널 강화** | 기존 Bedrock/Vertex에 더해 OCI 등 추가 채널 |
 | 2026.09 | **플래그십 세대 교체 물결** | OpenAI GPT-6 계열(Astra/Sol/Luna), Anthropic Opus 5.5가 API·Bedrock·Vertex·Foundry로 확산 |
 

@@ -23,9 +23,9 @@ EKS를 아시는 분을 위해: Azure는 AKS, Google Cloud는 GKE, OCI는 OKE입
 
 | 벤더 | 제품 | 비고 |
 | --- | --- | --- |
-| AWS | EKS (Elastic Kubernetes Service) | 컨트롤 플레인 유료. K8s 1.36 지원 (2026.06) |
+| AWS | EKS (Elastic Kubernetes Service) | 컨트롤 플레인 유료. 지원 쿠버네티스 버전은 [EKS 버전 문서](https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html)에서 확인 |
 | Azure | AKS (Azure Kubernetes Service) | 컨트롤 플레인 무료 |
-| Google Cloud | GKE (Google Kubernetes Engine) | Autopilot 모드: 노드 관리 불필요, Pod 단위 과금. Rapid: K8s 1.36 |
+| Google Cloud | GKE (Google Kubernetes Engine) | Autopilot 모드: 노드 관리 불필요, Pod 단위 과금. 지원 버전은 릴리스 채널(Rapid/Regular/Stable)별로 다르므로 [GKE 버전 문서](https://cloud.google.com/kubernetes-engine/versioning) 확인 |
 | OCI | OKE (Oracle Kubernetes Engine) | 컨트롤 플레인 무료. Virtual Nodes로 서버리스 운영 가능 |
 
 ### 서버리스 / 간편 컨테이너 실행

@@ -23,9 +23,9 @@ EKSをご存知の方向け: AzureはAKS、Google CloudはGKE、OCIはOKEです�
 
 | ベンダー | 製品 | 備考 |
 | --- | --- | --- |
-| AWS | EKS (Elastic Kubernetes Service) | コントロールプレーン有料。K8s 1.36対応 (2026.06) |
+| AWS | EKS (Elastic Kubernetes Service) | コントロールプレーン有料。対応するKubernetesバージョンは[EKSバージョンドキュメント](https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html)で確認 |
 | Azure | AKS (Azure Kubernetes Service) | コントロールプレーン無料 |
-| Google Cloud | GKE (Google Kubernetes Engine) | Autopilotモード: ノード管理不要、Pod単位課金。Rapid: K8s 1.36 |
+| Google Cloud | GKE (Google Kubernetes Engine) | Autopilotモード: ノード管理不要、Pod単位課金。対応バージョンはリリースチャネル（Rapid/Regular/Stable）ごとに異なるため[GKEバージョンドキュメント](https://cloud.google.com/kubernetes-engine/versioning)で確認 |
 | OCI | OKE (Oracle Kubernetes Engine) | コントロールプレーン無料。Virtual Nodesでサーバーレス運用が可能 |
 
 ### サーバーレス/簡易コンテナ実行

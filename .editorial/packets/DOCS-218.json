@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "jira_key": "DOCS-218",
+  "policy_action": "update",
+  "tier_hint": "B",
+  "tier_reasons": [
+    "관리형 Kubernetes 표에서 EKS/GKE의 특정 버전 못(K8s 1.36, 2026.06)을 제거하고 공식 버전 문서 참조로 대체하는 유계 수정",
+    "쿠버네티스 지원 버전은 벤더·릴리스 채널마다 다르고 매달 갱신되므로, 특정 버전 고정 대신 공식 캘린더를 참조하도록 중립화"
+  ],
+  "target_path": "src/content/docs/ko/compute/containers.md",
+  "changed_paths": [
+    "src/content/docs/ko/compute/containers.md",
+    "src/content/docs/en/compute/containers.md",
+    "src/content/docs/ja/compute/containers.md"
+  ],
+  "generated_by_llm": true,
+  "writer": {
+    "model": "kiro-agent",
+    "provider": "kiro"
+  },
+  "claim_ledger": [
+    {
+      "claim": "Amazon EKS의 지원 쿠버네티스 버전은 업스트림 릴리스·지원 수명주기에 따라 수시로 갱신되므로, 문서는 특정 버전(예: 1.36)을 고정하지 않고 EKS 공식 버전 문서를 참조하도록 한다.",
+      "source_url": "https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html",
+      "quote": "Amazon EKS follows the upstream release and deprecation cycle for minor versions.",
+      "checked_at": "2026-10-24T20:40:00+09:00",
+      "volatile": true,
+      "status": "verified"
+    },
+    {
+      "claim": "GKE의 지원 버전은 릴리스 채널(Rapid/Regular/Stable)마다 다르므로, 문서는 특정 버전을 고정하지 않고 GKE 공식 버전·업그레이드 문서를 참조하도록 한다.",
+      "source_url": "https://cloud.google.com/kubernetes-engine/versioning",
+      "quote": "GKE release channels (Rapid, Regular, Stable) offer different Kubernetes versions.",
+      "checked_at": "2026-10-24T20:40:00+09:00",
+      "volatile": true,
+      "status": "verified"
+    }
+  ]
+}

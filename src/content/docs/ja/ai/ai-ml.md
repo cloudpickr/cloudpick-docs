@@ -174,7 +174,7 @@ AIシステムの7段階エンドツーエンドライフサイクル(AI System 
 | --- | --- | --- |
 | 2026.04 | **OpenAI-Microsoft独占終了** | OpenAIモデルをAzure以外のプラットフォームでも提供可能に |
 | 2026.04 | **OpenAIモデル → Bedrock提供開始** | 独占終了直後にGPT-5.xがBedrockに登場 |
-| 2025-2026 | **SpaceXAI(旧xAI) Grokのマルチクラウド展開** | Azure AI Foundry(2025.09), Vertex AI, OCI, Bedrock(2026.06 Grok 4.3 GA) |
+| 2025-2026 | **SpaceXAI(旧xAI) Grokのマルチクラウド展開** | Azure AI Foundry(2025.09), Vertex AI, OCI, Bedrock(Grok 4.7、GovCloud 2026.10含む) |
 | 2025-2026 | **Anthropic Claudeのチャネル強化** | 既存のBedrock/Vertexに加え、OCIなどの追加チャネル |
 | 2026.09 | **フラッグシップ世代刷新の波** | OpenAI GPT-6系(Astra/Sol/Luna)、Anthropic Opus 5.5がAPI・Bedrock・Vertex・Foundryへ展開 |
 

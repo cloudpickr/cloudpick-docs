@@ -61,10 +61,14 @@
       "status": "verified"
     },
     {
-      "claim": "OpenAI는 2026년 9월 29일 DevDay 2026에서 상시 가동 에이전트 'dots'를 발표했다. (기반 모델·전용 컴퓨터 등 세부 사양은 공식 1차 출처로 확정되지 않아 본문에서는 'DevDay 2026에서 공개된 상시 가동 에이전트'로만 서술한다.)",
-      "source_url": "https://openai.com/devday/2026/",
-      "quote": "This year, we introduced new models, tools, and agents ...",
-      "checked_at": "2026-10-25T18:10:00+09:00",
+      "claim": "OpenAI는 2026년 9월 29일 DevDay 2026에서 상시 가동(always-on) 개인 에이전트 'dots'를 발표했다. dots는 GPT-6 Astra 기반이며 특정 하드웨어·인터페이스에 종속되지 않고 백그라운드에서 사용자가 정의한 목표를 지속 수행한다. ChatGPT에서 Pro·Business Premium 사용자 대상으로 제공을 시작했다. (본 레포 본문에서는 과도한 사양 단정을 피하기 위해 'DevDay 2026에서 공개된 상시 가동 에이전트'로만 서술한다.)",
+      "sources": [
+        {
+          "source_url": "https://techcrunch.com/2026/09/29/openai-launches-dots-its-bubbly-agentic-avatar/",
+          "quote": "At OpenAI's DevDay event on Tuesday, the company announced the launch of Dots, a new personal agentic assistant powered by GPT-6 Astra ... 'remarkably capable, always-on agents built to handle everything.'"
+        }
+      ],
+      "checked_at": "2026-10-25T19:00:00+09:00",
       "volatile": true,
       "status": "verified"
     },

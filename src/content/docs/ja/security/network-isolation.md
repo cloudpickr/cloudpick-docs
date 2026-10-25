@@ -222,7 +222,7 @@ flowchart TB
 
 ### 規制/標準
 
-- [PCI DSS v4.0 (PCI SSC)](https://www.pcisecuritystandards.org/)
+- [PCI DSS v4.0.1 (PCI SSC)](https://www.pcisecuritystandards.org/)
 - 韓国の法令・CSAP・N²SFのリンクは[網分離とネットワーク隔離 (韓国)](../../korea/security/network-isolation/)を参照してください。
 
 ### AWS

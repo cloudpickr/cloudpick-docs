@@ -41,7 +41,7 @@ The threat categories below are a practical summary; for the standard classifica
 - **Output validation** — check whether the response contains the system prompt, PII, or prohibited content
 - **Least privilege** — limit the damage even if an injection succeeds (restrict the agent's tool scope)
 
-### Real-World Incidents (2025)
+### Real-World Incidents (2025–2026)
 
 These incidents show that prompt injection is not a theoretical threat but a **production incident**.
 

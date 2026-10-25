@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "jira_key": "DOCS-220",
+  "policy_action": "update",
+  "tier_hint": "B",
+  "tier_reasons": [
+    "'실제 사고 사례' 섹션 제목의 연도 범위를 (2025)에서 (2025–2026)으로 맞추는 유계 수정 — 본문이 2026년 사례를 포함하므로 제목-내용 정합",
+    "본문에 인용된 2026년 보안 사고(외부 사실)의 연도 범위를 제목에 반영"
+  ],
+  "target_path": "src/content/docs/ko/security/ai-security.md",
+  "changed_paths": [
+    "src/content/docs/ko/security/ai-security.md",
+    "src/content/docs/en/security/ai-security.md",
+    "src/content/docs/ja/security/ai-security.md"
+  ],
+  "generated_by_llm": true,
+  "writer": {
+    "model": "kiro-agent",
+    "provider": "kiro"
+  },
+  "claim_ledger": [
+    {
+      "claim": "AI 보안 사고 사례 섹션은 2026년에 공개된 사고(Claude Code GitHub Action CI 간접 인젝션 경로, 2026-06 Microsoft 보안 블로그)를 본문에 포함하므로, 섹션 제목의 연도 범위를 (2025)에서 (2025–2026)으로 맞춘다.",
+      "source_url": "https://www.microsoft.com/en-us/security/blog/2026/06/05/securing-ci-cd-in-agentic-world-claude-code-github-action-case/",
+      "quote": "Securing CI/CD in an agentic world: Claude Code GitHub Action case (2026-06).",
+      "checked_at": "2026-10-24T21:00:00+09:00",
+      "volatile": false,
+      "status": "verified"
+    }
+  ]
+}

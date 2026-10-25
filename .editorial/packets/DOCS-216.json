@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "jira_key": "DOCS-216",
+  "policy_action": "update",
+  "tier_hint": "B",
+  "tier_reasons": [
+    "파운데이션 모델 멀티클라우드 표에서 Grok의 Bedrock 가용성 서술을 구버전(2026.06 Grok 4.3 GA)에서 현행(Grok 4.7로 확산, GovCloud 포함)으로 갱신하는 유계 사실 수정",
+    "벤더·모델 버전·가용 리전 등 외부 사실 주장을 포함하므로 공식 출처 교차검증 필요"
+  ],
+  "target_path": "src/content/docs/ko/ai/ai-ml.md",
+  "changed_paths": [
+    "src/content/docs/ko/ai/ai-ml.md",
+    "src/content/docs/en/ai/ai-ml.md",
+    "src/content/docs/ja/ai/ai-ml.md"
+  ],
+  "generated_by_llm": true,
+  "writer": {
+    "model": "kiro-agent",
+    "provider": "kiro"
+  },
+  "claim_ledger": [
+    {
+      "claim": "SpaceXAI(구 xAI)의 Grok 4.7이 Amazon Bedrock에서 제공되며 AWS GovCloud(US)까지 확산되었다. 이에 따라 멀티클라우드 확산 표의 Bedrock 관련 서술을 구버전 '2026.06 Grok 4.3 GA'에서 'Grok 4.7로 확산(GovCloud 포함)'으로 현행화한다.",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-bedrock-grok-4-7-govcloud/",
+      "quote": "Grok 4.7 is now available on Amazon Bedrock in AWS GovCloud (US).",
+      "checked_at": "2026-10-24T20:00:00+09:00",
+      "volatile": true,
+      "status": "verified"
+    }
+  ]
+}

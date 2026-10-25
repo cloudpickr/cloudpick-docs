@@ -166,7 +166,7 @@ Physical AI — connecting AI to the physical world of sensors, robots, and equi
 | --- | --- |
 | **OpenAI-Microsoft exclusivity ended (2026.04)** | OpenAI models available on non-Azure platforms |
 | **OpenAI → Bedrock (2026.04)** | GPT-5.x available on Bedrock post-exclusivity |
-| **SpaceXAI (formerly xAI) Grok multicloud expansion** | Available on Azure, Vertex AI, OCI, Bedrock |
+| **SpaceXAI (formerly xAI) Grok multicloud expansion** | Available on Azure, Vertex AI, OCI, Bedrock (Grok 4.7, including GovCloud in 2026.10) |
 | **Anthropic Claude channel expansion** | Beyond Bedrock/Vertex to additional channels |
 | **Flagship generation refresh (2026.09)** | OpenAI GPT-6 family (Astra/Sol/Luna) and Anthropic Opus 5.5 rolling out across API, Bedrock, Vertex, and Foundry |
 

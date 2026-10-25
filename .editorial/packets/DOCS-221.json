@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "jira_key": "DOCS-221",
+  "policy_action": "update",
+  "tier_hint": "C",
+  "tier_reasons": [
+    "소버린 랜딩존 절에서 ESAs의 Critical ICT TPP 지정을 미래형('지정하면서 강화될 것으로 예상')에서 확정 사실('2025-11-18 지정 완료, 강화되고 있음')로 현행화하는 변경",
+    "EU DORA 감독 당국의 법적 지정(날짜·주체·대상)이라는 규제 사실 주장을 포함하므로 공식 출처 교차검증 필요(거버넌스 경로)"
+  ],
+  "target_path": "src/content/docs/ko/governance/landing-zone.md",
+  "changed_paths": [
+    "src/content/docs/ko/governance/landing-zone.md",
+    "src/content/docs/en/governance/landing-zone.md",
+    "src/content/docs/ja/governance/landing-zone.md"
+  ],
+  "generated_by_llm": true,
+  "writer": {
+    "model": "kiro-agent",
+    "provider": "kiro"
+  },
+  "claim_ledger": [
+    {
+      "claim": "2025년 11월 18일 유럽감독당국(ESAs — EBA·EIOPA·ESMA)이 DORA 제31(9)조에 따라 AWS·Microsoft Azure·Google Cloud를 포함한 19개 사업자를 Critical ICT Third-Party Provider(CTPP)로 공식 지정했다. 따라서 랜딩존 문서의 서술을 '지정될 것으로 예상'(미래형)에서 '지정 완료'(확정)로 현행화한다.",
+      "source_url": "https://eba.europa.eu/publications-and-media/press-releases/european-supervisory-authorities-designate-critical-ict-third-party-providers-under-digital",
+      "quote": "The European Supervisory Authorities (EBA, EIOPA, and ESMA) publish today the list of designated critical ICT third-party providers (CTPPs) under the Digital Operational Resilience Act (DORA).",
+      "checked_at": "2026-10-24T21:10:00+09:00",
+      "volatile": false,
+      "status": "verified"
+    }
+  ]
+}

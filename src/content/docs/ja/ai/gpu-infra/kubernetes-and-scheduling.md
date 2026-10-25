@@ -3,7 +3,7 @@ title: "GPU Kubernetesとスケジューリング"
 description: "GPUノードプール・device plugin、MIG/time-slicing共有、ResourceQuota・anti-hoarding、gang scheduling（Kueue/Volcano）、DCGM可観測性をベンダー中立の視点で整理します。"
 ---
 
-> 文書基準: 2026年9月 | この文書は変化の速い領域であり、四半期ごとのレビュー対象です。
+> 文書基準: 2026年10月 | この文書は変化の速い領域であり、四半期ごとのレビュー対象です。
 
 :::note
 この文書はKubernetes上でGPUをスケジューリング・共有・統制する方法を扱います。クラスターのアップグレードやノード管理など一般的なKubernetes運用は[Kubernetes運用](../../../devops/kubernetes-operations/)で、GPUクラスターの通信・配置は[GPUワークロードの特性とリファレンスアーキテクチャ](../workload-and-architecture/)で扱います。

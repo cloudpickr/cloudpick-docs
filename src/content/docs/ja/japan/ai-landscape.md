@@ -3,7 +3,7 @@ title: "日本のAI政策と国産モデルの動向"
 description: "日本のAI法（AI推進法）とAI基本計画、経済産業省のGENIACプログラム、NTT tsuzumi・NEC cotomi・PFN PLaMoなど国産LLMの動向、政府調達経路（源内）を整理します。"
 ---
 
-> 文書基準: 2026年9月
+> 文書基準: 2026年10月
 
 ## 概要
 

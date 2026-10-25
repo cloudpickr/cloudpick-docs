@@ -3,7 +3,7 @@ title: "欧州ソブリンAI・モデル地形"
 description: "EU AI Continent Action Plan・AI Factories、Mistral AI・Aleph Alphaなど欧州ファウンデーションモデル提供企業、ハイパースケーラーのソブリンクラウドにおけるAIサービス範囲を整理します。"
 ---
 
-> 文書基準: 2026年9月
+> 文書基準: 2026年10月
 
 ## 概要
 

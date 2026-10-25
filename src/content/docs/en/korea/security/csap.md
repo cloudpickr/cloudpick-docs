@@ -3,7 +3,7 @@ title: "CSAP (Cloud Security Assurance Program)"
 description: "An overview of Korea's CSAP (Cloud Security Assurance Program), its tier system, and vendor-by-vendor certification status."
 ---
 
-> Last reviewed: September 2026
+> Last reviewed: October 2026
 
 ## Overview
 

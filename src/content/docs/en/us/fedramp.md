@@ -3,7 +3,7 @@ title: "FedRAMP"
 description: "An overview of FedRAMP, the security authorization program for US federal cloud procurement, covering the status of the 2026 FedRAMP 20x overhaul, isolated government regions, and CMMC/DoD SRG."
 ---
 
-> Last reviewed: September 2026
+> Last reviewed: October 2026
 
 ## Overview
 

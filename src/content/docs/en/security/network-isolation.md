@@ -3,7 +3,7 @@ title: "Network Segregation and Isolation"
 description: "Explains physical/logical network segregation concepts, cloud network isolation implementation patterns, and how to meet regulatory requirements."
 ---
 
-> Last reviewed: September 2026
+> Last reviewed: October 2026
 
 ## Overview
 

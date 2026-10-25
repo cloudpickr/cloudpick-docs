@@ -3,7 +3,7 @@ title: "The State Privacy Law Landscape"
 description: "Covers the absence of a federal comprehensive privacy law in the US, the common requirements shared across 20-plus state privacy laws, and multi-state compliance architecture."
 ---
 
-> Last reviewed: September 2026
+> Last reviewed: October 2026
 
 ## Overview
 

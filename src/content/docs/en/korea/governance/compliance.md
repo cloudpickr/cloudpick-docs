@@ -3,7 +3,7 @@ title: "Compliance (Korea)"
 description: "A rundown of Korea's cloud compliance certifications and requirements, including ISMS-P, CSAP, and financial-sector regulations."
 ---
 
-> Last reviewed: September 2026
+> Last reviewed: October 2026
 
 ## Overview
 

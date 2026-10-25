@@ -3,7 +3,7 @@ title: "VPC and Subnets"
 description: "Compares the VPC/VNet/VCN concept, subnet design, security layers, routing, VPC-to-VPC connectivity, and on-premises connectivity across vendors."
 ---
 
-> Last reviewed: September 2026
+> Last reviewed: October 2026
 
 ## Overview
 

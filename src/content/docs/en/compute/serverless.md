@@ -3,7 +3,7 @@ title: "Serverless"
 description: "Compares FaaS, serverless containers, and workflow orchestration across vendors, and explains cold start mitigation strategies."
 ---
 
-> Last reviewed: September 2026
+> Last reviewed: October 2026
 
 ## Overview
 

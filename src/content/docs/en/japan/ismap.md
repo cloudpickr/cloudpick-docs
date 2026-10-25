@@ -3,7 +3,7 @@ title: "ISMAP (Japan Government Cloud Procurement Certification)"
 description: "Covers the overview, registration process, the distinction between ISMAP and ISMAP-LIU, hyperscaler registration status, and implications for foreign companies of Japan's cloud security assessment program for government information systems (ISMAP)."
 ---
 
-> Last reviewed: September 2026
+> Last reviewed: October 2026
 
 ## Overview
 

@@ -3,7 +3,7 @@ title: "유럽 소버린 AI·모델 지형"
 description: "EU AI Continent Action Plan·AI Factories, Mistral AI·Aleph Alpha 등 유럽 파운데이션 모델 제공사, 하이퍼스케일러 소버린 클라우드의 AI 서비스 범위를 정리합니다."
 ---
 
-> 문서 기준: 2026년 9월
+> 문서 기준: 2026년 10월
 
 ## 개요
 

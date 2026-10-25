@@ -3,7 +3,7 @@ title: "Domestic Foundation Model Provider Comparison"
 description: "Compares the models, licenses, and delivery channels of domestic FM providers in Korea, including Naver, LG AI Research, Kakao, KT, Upstage, NC AI, and SKT."
 ---
 
-> Last reviewed: September 2026
+> Last reviewed: October 2026
 
 ## Overview
 

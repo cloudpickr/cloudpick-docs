@@ -21,7 +21,7 @@ CloudPick에 기여해 주셔서 감사합니다. 이 문서는 문서 작성 �
 
 ```
 1. frontmatter (title, description)
-2. 문서 기준 마커 (ko `> 문서 기준: 2026년 8월` / en `> Last reviewed: August 2026` / ja `> 文書基準: 2026年8月`)
+2. 문서 기준 마커 (ko `> 문서 기준: 2026년 9월` / en `> Last reviewed: September 2026` / ja `> 文書基準: 2026年9月`)
 3. ## 개요 (또는 'X란 무엇인가')
 4. 본문 (벤더 비교, 핵심 개념 등)
 5. ## 자주 하는 실수 — 해당되는 경우
@@ -32,7 +32,7 @@ CloudPick에 기여해 주셔서 감사합니다. 이 문서는 문서 작성 �
 
 **필수 항목:**
 - frontmatter `title`과 `description`
-- 문서 기준 마커 — ko: `> 문서 기준: 2026년 8월`, en: `> Last reviewed: August 2026`, ja: `> 文書基準: 2026年8月` (랜딩·웰컴 페이지 `index.mdx`·`introduction.mdx`는 예외)
+- 문서 기준 마커 — ko: `> 문서 기준: 2026년 9월`, en: `> Last reviewed: September 2026`, ja: `> 文書基準: 2026年9月` (랜딩·웰컴 페이지 `index.mdx`·`introduction.mdx`는 예외)
 - `## 참고하기`
 
 ## 개요 섹션 작성 가이드
@@ -144,12 +144,19 @@ npm run build
 # 2) 문서 일관성 — 로케일 대칭성, 문서 기준 마커, 접이식(<details>) 금지
 python3 scripts/lint-docs-consistency.py
 
-# 3) Mermaid 다이어그램 파싱 안전성
+# 3) 볼드 경계 깨짐 (** 뒤 구두점·CJK 밀착)
+python3 scripts/lint-emphasis.py
+
+# 4) Mermaid 다이어그램 파싱 안전성
 python3 scripts/lint-mermaid.py
 
-# 4) 물결표(~) 취소선 오렌더링
+# 5) 물결표(~) 취소선 오렌더링
 python3 scripts/lint-strikethrough.py
 ```
+
+위 검사는 모두 차단(required)입니다. 이와 별개로 CI의 `editorial-advisory` 잡은 가독성·중복·
+분류(`scripts/lint-readability.py`·`lint-duplication.py`·`lint-taxonomy.py`)를 warn-only(비차단)로
+점검해 Step Summary에 노출합니다. 로컬에서도 같은 명령으로 미리 확인할 수 있습니다.
 
 - **내부 링크**는 `npm run build`의 `starlight-links-validator`가 대상 존재 여부를 검증합니다(깨진 링크 시 빌드 실패). 상대경로(`../`) 표기 자체는 허용되며, 가리키는 대상이 없을 때만 실패합니다.
 - **외부 링크**는 CI(`External Link Check`, lychee + 한국 도메인은 NCP 함수)가 담당합니다. 로컬에는 lychee가 없어도 되며, CI가 검사합니다.
@@ -203,6 +210,7 @@ python3 scripts/lint-strikethrough.py
 - [ ] `python3 scripts/lint-docs-consistency.py` 통과 (로케일 대칭성 · 문서 기준 마커 · 접이식 `<details>` 금지).
 - [ ] `python3 scripts/lint-mermaid.py` 통과 (Mermaid 파싱 안전성).
 - [ ] `python3 scripts/lint-strikethrough.py` 통과 (범위 표기에 반각 `~` 대신 엔대시 `–`, 일본어는 전각 `～`).
+- [ ] `python3 scripts/lint-emphasis.py` 통과 (볼드 `**` 경계가 구두점·CJK와 밀착해 깨지지 않음).
 - [ ] 보조 정보는 원시 HTML·각주가 아니라 Starlight aside(`:::note` 등)로 작성했습니다.
 - [ ] 새 문서를 추가했다면 `astro.config.mjs` sidebar에 포함했습니다.
 - [ ] ko 문서를 추가·수정했다면 en·ja 번역도 같은 내용으로 반영했고, 3개 로케일의 파일 구조가 대칭이며 내용(사실·날짜·구조)이 일치합니다.

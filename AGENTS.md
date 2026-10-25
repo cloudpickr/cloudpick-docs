@@ -50,6 +50,9 @@ Manage the background server with `astro dev stop`, `astro dev status`, and `ast
 - **범위 표기 시 물결표(`~`) 금지**:
   - 마크다운(GFM) 취소선(`<del>`) 오렌더링 방지를 위해 반각 `~` 대신 엔대시 `–`(U+2013)를 사용합니다. (일본어 문서는 전각 `～` 사용)
   - `python3 scripts/lint-strikethrough.py` 린터를 통과해야 합니다.
+- **볼드(`**`) 경계 밀착 금지**:
+  - 볼드 마커 `**`가 구두점이나 CJK 문자와 밀착해 렌더링이 깨지지 않도록 작성합니다.
+  - `python3 scripts/lint-emphasis.py` 린터를 통과해야 합니다.
 - **중립적·객관적 문체**:
   - "최고의", "가장 뛰어난", "완벽한", "무결한" 등의 주관적·과장된 수식어는 엄격히 금지됩니다.
   - 기술적 트레이드오프와 벤더 중립성을 항상 유지합니다.

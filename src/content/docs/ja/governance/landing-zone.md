@@ -161,7 +161,7 @@ AzureのCloud Adoption Framework（CAF）もモジュール式のランディン
 | OCI | EU Sovereign Cloud | 物理的に分離されたEU専用インフラ | 既存 |
 
 :::note
-ソブリンランディングゾーンとは、単に「EUリージョンに配置する」ことではありません。データ処理（compute）、鍵管理、管理アクセス（personnel access）に至るまで管轄権内に制限することです。2025年11月18日にESAs（EBA・EIOPA・ESMA）がAWS、Azure、GCPを**Critical ICT Third-Party Provider**に指定したことで、金融・公共分野におけるソブリン要件が今後さらに強化されています。
+ソブリンランディングゾーンとは、単に「EUリージョンに配置する」ことではありません。データ処理（compute）、鍵管理、管理アクセス（personnel access）に至るまで管轄権内に制限することです。2025年11月18日にESAs（EBA・EIOPA・ESMA）がAWS、Azure、GCPを**Critical ICT Third-Party Provider**に指定し、これらの事業者は金融セクター向けサービスについてEU監督当局による直接的なICTリスク監督の対象となりました。ただしこの指定は**ICTリスク監督**を設定するものであり、DORA自体はデータローカライゼーション義務を課しません — ソブリン要件（データ・処理・運用アクセスの域内制限）は、別個の契約・規制・自社ポリシーに由来します。
 :::
 
 ### EU規制連携

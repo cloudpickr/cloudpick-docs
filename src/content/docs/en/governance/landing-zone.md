@@ -161,7 +161,7 @@ As data sovereignty requirements intensify, landing zones have emerged that keep
 | OCI | EU Sovereign Cloud | Physically isolated EU-only infrastructure | Existing |
 
 :::note
-A sovereign landing zone is not simply "deploying to an EU region." It restricts data processing (compute), key management, and administrative (personnel) access to within the jurisdiction. On November 18, 2025, the ESAs (EBA, EIOPA, ESMA) designated AWS, Azure, and GCP as **Critical ICT Third-Party Providers**, and sovereign requirements are intensifying further in the financial and public sectors as a result.
+A sovereign landing zone is not simply "deploying to an EU region." It restricts data processing (compute), key management, and administrative (personnel) access to within the jurisdiction. On November 18, 2025, the ESAs (EBA, EIOPA, ESMA) designated AWS, Azure, and GCP as **Critical ICT Third-Party Providers**, placing these providers under direct EU ICT-risk oversight for services to financial-sector entities. Note that this designation establishes **ICT-risk oversight**, not a data-localization mandate — DORA itself imposes no data-localization obligation, and sovereignty requirements (keeping data, processing, and operational access within the jurisdiction) arise from separate contractual, regulatory, or internal policy sources.
 :::
 
 ### EU Regulatory Linkage

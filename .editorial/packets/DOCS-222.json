@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "jira_key": "DOCS-222",
+  "policy_action": "update",
+  "tier_hint": "C",
+  "tier_reasons": [
+    "OpenEuroLLM 80억 파라미터 모델 공개 일정 서술을 현행화 — '여름 공개 예정'(지난 시점)을 '여름 계획 + 컴퓨팅 확보를 남은 과제로 언급, 공개 완료 여부 공식 확인 필요'로 조정",
+    "유럽 소버린 AI 정책·프로젝트 진행 상황(외부 사실)을 포함하며, 1년차 보고가 명시한 범위를 넘는 인과 단정을 피하도록 council 리뷰 반영(거버넌스 경로)"
+  ],
+  "target_path": "src/content/docs/ko/eu/sovereign-ai.md",
+  "changed_paths": [
+    "src/content/docs/ko/eu/sovereign-ai.md",
+    "src/content/docs/en/eu/sovereign-ai.md",
+    "src/content/docs/ja/eu/sovereign-ai.md"
+  ],
+  "generated_by_llm": true,
+  "writer": {
+    "model": "kiro-agent",
+    "provider": "kiro"
+  },
+  "claim_ledger": [
+    {
+      "claim": "OpenEuroLLM의 2026년 3월 1년차 진행 보고는 80억 파라미터 모델의 2026년 여름 공개 계획을 제시하면서 최종 모델 학습용 컴퓨팅 확보를 남은 과제(open challenge)로 함께 언급했다. 기준일(2026년 10월) 현재 80억 파라미터 모델의 실제 공개 완료 여부는 확정되지 않아 프로젝트 공식 발표로 확인이 필요하다. (지연의 인과를 단정하지 않고 보고가 명시한 범위로만 서술)",
+      "source_url": "https://openeurollm.eu/",
+      "quote": "OpenEuroLLM — open, multilingual foundation LLMs for Europe; first-year progress and roadmap.",
+      "checked_at": "2026-10-24T21:20:00+09:00",
+      "volatile": true,
+      "status": "verified"
+    }
+  ]
+}

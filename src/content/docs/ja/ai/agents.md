@@ -61,23 +61,32 @@ LLMチャットはブラウザの中に閉じ込められていました。Deskt
 
 ### 常時稼働プロアクティブエージェントへの移行
 
-2026年に入り、主要ベンダーが一斉に**リクエスト-レスポンス型チャットボットから常時稼働(always-on)のプロアクティブエージェントへ**と製品の方向性を移しました。共通するパターンは4つです — **(1)** ユーザーが離席しても背景で稼働し続ける、**(2)** 専用のクラウドコンピューター/VMで動作する、**(3)** 接続されたアプリ(メール・カレンダーなど)を定期的に点検して先回りで提案する、**(4)** 送信・決済・削除などの機微な操作について**人の承認と監査証跡をサポート**する(製品により、承認を要するかは組織が構成する)。
+2026年に入り、主要ベンダーが一斉に同じ方向へ製品を移しました — **リクエストに応答するチャットボット**から、ユーザーの指示を待たず**自ら先回りして動く(プロアクティブ)常時稼働(always-on)エージェント**への移行です。ここで「常時稼働」とはアプリを閉じても背景で動き続けること、「プロアクティブ」とは命令を待たずに先にやるべきことを提案・実行することを指します。
+
+これらの製品には4つの共通点があります。
+
+- **背景実行** — ユーザーが離席しても作業を続ける。
+- **専用の実行環境** — 各エージェントが専用のクラウドコンピューターやVMで動作する。
+- **先回りの点検** — 接続されたアプリ(メール・カレンダーなど)を定期的に確認し、先に提案する。
+- **機微な操作の制御** — 送信・決済・削除などの操作について、人の承認と監査証跡をサポートする(承認を必須とするかは製品・組織の設定による)。
+
+以下は各ベンダーの代表的な製品です。「区分」はコンシューマー向けか企業向けかを示します。
 
 | 製品 | ベンダー | 公開 | 区分 | ガバナンス・セキュリティの特徴 |
 | --- | --- | --- | --- | --- |
-| [Muse](https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/) | Meta | 2026.09 | コンシューマー | 専用Secure VM + 別個のSentinelエージェントが外部送信を承認、認証情報を見ずに利用 |
-| [Scout / Autopilot](https://www.microsoft.com/en-us/copilot/blog/2026/06/02/introducing-microsoft-scout-your-always-on-personal-agent/) | Microsoft | 2026.06～09 | エンタープライズ | 「Autopilots」という新区分。EntraガバナンスドID、認証情報のログからの削除、Purview DLPの即時適用、機微な操作は組織が構成した制御に従って承認を要求可能 |
-| [Quick 常時稼働エージェント](https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-quick-always-on-agents-sharper-feed-enterprise-controls/) | AWS | 2026.09 | エンタープライズ | クラウド常時実行(スケジュール・モニタリング)、管理者制御(MDM・ユーザー別権限)、Purview DLP連携、スキルカタログ |
-| [Gemini Spark / Daily Brief](https://blog.google/innovation-and-ai/products/gemini-app/next-evolution-gemini-app/) | Google | 2026.05 (I/O) | コンシューマー | 24/7プロアクティブ、デイリーブリーフ、macOSアプリがローカルマシンで動作 |
+| [Muse](https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/) | Meta | 2026.09 | コンシューマー | 専用Secure VMで動作。別個のSentinelエージェントが外部送信を承認し、認証情報を露出せずに利用 |
+| [Scout / Autopilot](https://www.microsoft.com/en-us/copilot/blog/2026/06/02/introducing-microsoft-scout-your-always-on-personal-agent/) | Microsoft | 2026.06～09 | 企業 | 「Autopilots」という新区分。エージェント別Entra ID、認証情報のログからの削除、Purview DLPの即時適用。機微な操作の承認は組織の設定に従う |
+| [Quick 常時稼働エージェント](https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-quick-always-on-agents-sharper-feed-enterprise-controls/) | AWS | 2026.09 | 企業 | スケジュール・モニタリングエージェントがクラウドで常時実行。管理者制御(MDM・権限)、Purview DLP連携 |
+| [Gemini Spark / Daily Brief](https://blog.google/innovation-and-ai/products/gemini-app/next-evolution-gemini-app/) | Google | 2026.05 (I/O) | コンシューマー | 24/7プロアクティブ、デイリーブリーフ。macOSアプリがローカルマシンで動作 |
 | [dots](https://openai.com/devday/2026/) | OpenAI | 2026.09 (DevDay) | コンシューマー | DevDay 2026で公開された常時稼働エージェント |
-| [Claude Duet](https://claude.com/resources/articles/claude-duet) | Anthropic | 2026.10 | コンシューマー/プロ | Opus 5.5ベース、デイリーブリーフ、機微な操作の前に承認。米国Pro/Maxのリサーチプレビュー(ウェイトリスト) |
+| [Claude Duet](https://claude.com/resources/articles/claude-duet) | Anthropic | 2026.10 | コンシューマー/プロ | Opus 5.5ベース、デイリーブリーフ。機微な操作の前にユーザー確認。米国Pro/Maxのリサーチプレビュー(ウェイトリスト) |
 
 :::note
-この移行の核心はモデル性能ではなく、**行動境界とガバナンス**です。エンタープライズ製品(Scout/Autopilot、Quick)はいずれもガバナンスドID、DLPの即時適用、機微な操作の事前承認を前面に打ち出しています。組織導入時に適用する行動境界・承認ポリシー・監査は[エージェント導入ガイド](../../ai/agent-adoption/)を、非人間IDの管理は同ドキュメントの「エージェントID」項目を参照してください。
+この移行の核心はモデル性能ではなく、**行動境界とガバナンス**です。企業向け製品(Scout/Autopilot、Quick)はいずれもガバナンスドID、DLPの即時適用、機微な操作の承認構成を強調します。組織導入時に適用する行動境界・承認ポリシー・監査は[エージェント導入ガイド](../../ai/agent-adoption/)を、非人間IDの管理は同ドキュメントの「エージェントID」項目を参照してください。
 :::
 
 :::caution
-常時稼働エージェントは**長時間の自律実行でコストが急増**し、外部入力を通じた**クロスアプリのプロンプトインジェクション**にさらされる可能性があります。セッション予算・自動停止、コネクタ許可リスト、送信・決済前の承認ゲートを併せて適用してください。詳細なリスクは下記の[Desktop Agent固有のリスク](#desktop-agent固有のリスク)を参照してください。
+常時稼働エージェントには2つの大きなリスクがあります。第一に、長時間の自律実行で**コストが急増**する可能性があります。第二に、外部入力を通じた**クロスアプリのプロンプトインジェクション**にさらされる可能性があります。セッション予算・自動停止、コネクタ許可リスト、送信・決済前の承認ゲートを併せて適用してください。詳細なリスクは下記の[Desktop Agent固有のリスク](#desktop-agent固有のリスク)を参照してください。
 :::
 
 ---

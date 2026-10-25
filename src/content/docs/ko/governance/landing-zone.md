@@ -161,7 +161,7 @@ Azure의 Cloud Adoption Framework(CAF)도 모듈식 랜딩존 아키텍처를 �
 | OCI | EU Sovereign Cloud | 물리적으로 분리된 EU 전용 인프라 | 기존 |
 
 :::note
-소버린 랜딩존은 단순히 "EU 리전에 배포"하는 것이 아닙니다. 데이터 처리(compute), 키 관리, 관리 접근(personnel access)까지 관할권 내로 제한하는 것입니다. 2025년 11월 ESAs(EBA·EIOPA·ESMA)가 AWS, Azure, GCP를 **Critical ICT Third-Party Provider**로 지정하면서, 금융·공공 분야에서 소버린 요건이 더욱 강화될 것으로 예상됩니다.
+소버린 랜딩존은 단순히 "EU 리전에 배포"하는 것이 아닙니다. 데이터 처리(compute), 키 관리, 관리 접근(personnel access)까지 관할권 내로 제한하는 것입니다. 2025년 11월 18일 ESAs(EBA·EIOPA·ESMA)가 AWS, Azure, GCP를 **Critical ICT Third-Party Provider**로 지정하면서, 금융·공공 분야에서 소버린 요건이 더욱 강화되고 있습니다.
 :::
 
 ### EU 규제 연계

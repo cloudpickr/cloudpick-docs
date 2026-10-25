@@ -161,7 +161,7 @@ As data sovereignty requirements intensify, landing zones have emerged that keep
 | OCI | EU Sovereign Cloud | Physically isolated EU-only infrastructure | Existing |
 
 :::note
-A sovereign landing zone is not simply "deploying to an EU region." It restricts data processing (compute), key management, and administrative (personnel) access to within the jurisdiction. In November 2025, the ESAs (EBA, EIOPA, ESMA) designated AWS, Azure, and GCP as **Critical ICT Third-Party Providers**, and sovereign requirements are expected to intensify further in the financial and public sectors as a result.
+A sovereign landing zone is not simply "deploying to an EU region." It restricts data processing (compute), key management, and administrative (personnel) access to within the jurisdiction. On November 18, 2025, the ESAs (EBA, EIOPA, ESMA) designated AWS, Azure, and GCP as **Critical ICT Third-Party Providers**, and sovereign requirements are intensifying further in the financial and public sectors as a result.
 :::
 
 ### EU Regulatory Linkage

@@ -23,9 +23,9 @@ As containers scale into the tens or hundreds, you need orchestration to manage 
 
 | Vendor | Product | Notes |
 | --- | --- | --- |
-| AWS | EKS (Elastic Kubernetes Service) | Control plane is paid. Supports K8s 1.36 (2026.06) |
+| AWS | EKS (Elastic Kubernetes Service) | Control plane is paid. See the [EKS version docs](https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html) for supported Kubernetes versions |
 | Azure | AKS (Azure Kubernetes Service) | Control plane is free |
-| Google Cloud | GKE (Google Kubernetes Engine) | Autopilot mode: no node management, billed per pod. Rapid channel: K8s 1.36 |
+| Google Cloud | GKE (Google Kubernetes Engine) | Autopilot mode: no node management, billed per pod. Supported versions differ by release channel (Rapid/Regular/Stable); see the [GKE version docs](https://cloud.google.com/kubernetes-engine/versioning) |
 | OCI | OKE (Oracle Kubernetes Engine) | Control plane is free. Serverless operation possible via Virtual Nodes |
 
 ### Serverless / simplified container execution

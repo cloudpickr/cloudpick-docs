@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "jira_key": "DOCS-219",
+  "policy_action": "update",
+  "tier_hint": "B",
+  "tier_reasons": [
+    "참고 링크의 PCI DSS 버전 표기를 v4.0에서 현행 v4.0.1로 갱신하는 유계 사실 수정",
+    "표준 버전 명칭(외부 사실)을 포함하며, 동일 리포 compliance.md의 v4.0.1 표기와 정합을 맞춤"
+  ],
+  "target_path": "src/content/docs/ko/security/network-isolation.md",
+  "changed_paths": [
+    "src/content/docs/ko/security/network-isolation.md",
+    "src/content/docs/en/security/network-isolation.md",
+    "src/content/docs/ja/security/network-isolation.md"
+  ],
+  "generated_by_llm": true,
+  "writer": {
+    "model": "kiro-agent",
+    "provider": "kiro"
+  },
+  "claim_ledger": [
+    {
+      "claim": "PCI DSS의 현행 활성 버전은 v4.0.1(2024-06 공개)이며 유일한 활성 버전이다. 참고 링크 표기를 v4.0에서 v4.0.1로 현행화한다.",
+      "source_url": "https://www.pcisecuritystandards.org/",
+      "quote": "PCI DSS v4.0.1 is the current version of the standard.",
+      "checked_at": "2026-10-24T20:50:00+09:00",
+      "volatile": false,
+      "status": "verified"
+    }
+  ]
+}

@@ -222,7 +222,7 @@ However, guardrails **only work once configured.** Most are disabled by default,
 
 ### Regulations/Standards
 
-- [PCI DSS v4.0 (PCI SSC)](https://www.pcisecuritystandards.org/)
+- [PCI DSS v4.0.1 (PCI SSC)](https://www.pcisecuritystandards.org/)
 - For links to Korea's regulations (Electronic Financial Supervisory Regulation, CSAP, N2SF), see [Network Segregation and Isolation (Korea)](../../korea/security/network-isolation/)
 
 ### AWS

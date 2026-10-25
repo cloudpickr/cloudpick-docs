@@ -61,15 +61,15 @@ LLM 채팅은 브라우저 안에 갇혀 있었습니다. Desktop Agent는 로�
 
 ### 상시 가동 프로액티브 에이전트로의 전환
 
-2026년 들어 주요 벤더가 일제히 **요청-응답형 챗봇에서 상시 가동(always-on) 프로액티브 에이전트로** 제품 방향을 옮겼습니다. 공통 패턴은 네 가지입니다 — **(1)** 사용자가 자리를 비워도 백그라운드에서 계속 실행, **(2)** 전용 클라우드 컴퓨터/VM에서 동작, **(3)** 연결된 앱(메일·캘린더 등)을 주기적으로 점검해 먼저 제안, **(4)** 발송·결제·삭제 같은 민감 행동 전 **사람의 승인과 감사 추적**.
+2026년 들어 주요 벤더가 일제히 **요청-응답형 챗봇에서 상시 가동(always-on) 프로액티브 에이전트로** 제품 방향을 옮겼습니다. 공통 패턴은 네 가지입니다 — **(1)** 사용자가 자리를 비워도 백그라운드에서 계속 실행, **(2)** 전용 클라우드 컴퓨터/VM에서 동작, **(3)** 연결된 앱(메일·캘린더 등)을 주기적으로 점검해 먼저 제안, **(4)** 발송·결제·삭제 같은 민감 행동에 대해 **사람의 승인과 감사 추적을 지원**(제품에 따라 조직이 승인 요구를 구성).
 
 | 제품 | 벤더 | 공개 | 구분 | 거버넌스·보안 특징 |
 | --- | --- | --- | --- | --- |
 | [Muse](https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/) | Meta | 2026.09 | 소비자 | 전용 Secure VM + 별도 Sentinel 에이전트가 인터넷 송신을 승인, 자격증명을 보지 않고 사용 |
-| [Scout / Autopilot](https://www.microsoft.com/en-us/copilot/blog/2026/06/02/introducing-microsoft-scout-your-always-on-personal-agent/) | Microsoft | 2026.06–09 | 엔터프라이즈 | "Autopilots" 신규 분류. Entra 거버넌스 ID, 자격증명 로그 삭제, Purview DLP 실시간 적용, 민감 행동 사전 승인 |
+| [Scout / Autopilot](https://www.microsoft.com/en-us/copilot/blog/2026/06/02/introducing-microsoft-scout-your-always-on-personal-agent/) | Microsoft | 2026.06–09 | 엔터프라이즈 | "Autopilots" 신규 분류. Entra 거버넌스 ID, 자격증명 로그 삭제, Purview DLP 실시간 적용, 민감 행동에 조직이 사전 승인을 구성 가능 |
 | [Quick 상시 에이전트](https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-quick-always-on-agents-sharper-feed-enterprise-controls/) | AWS | 2026.09 | 엔터프라이즈 | 클라우드 상시 실행(스케줄·모니터링), 관리자 제어(MDM·퍼유저 권한), Purview DLP 연동, 스킬 카탈로그 |
 | [Gemini Spark / Daily Brief](https://blog.google/innovation-and-ai/products/gemini-app/next-evolution-gemini-app/) | Google | 2026.05 (I/O) | 소비자 | 24/7 프로액티브, 데일리 브리프, macOS 앱이 로컬 머신에서 동작 |
-| [dots](https://openai.com/devday/2026/) | OpenAI | 2026.09 (DevDay) | 소비자 | GPT-6 Astra 기반, 각 에이전트가 전용 클라우드 컴퓨터·브라우저 보유 |
+| [dots](https://openai.com/devday/2026/) | OpenAI | 2026.09 (DevDay) | 소비자 | DevDay 2026에서 공개된 상시 가동 에이전트 |
 | [Claude Duet](https://claude.com/resources/articles/claude-duet) | Anthropic | 2026.10 | 소비자/프로 | Opus 5.5 기반, 데일리 브리프, 민감 행동 전 승인. 미국 Pro/Max 리서치 프리뷰(웨이트리스트) |
 
 :::note

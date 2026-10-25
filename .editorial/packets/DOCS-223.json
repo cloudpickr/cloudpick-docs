@@ -29,11 +29,11 @@
       "status": "verified"
     },
     {
-      "claim": "Microsoft는 2026년 6월 'Autopilots'라는 상시 가동 에이전트 신규 분류와 첫 제품 Microsoft Scout를 발표했고, 2026년 9월 25일 새 Copilot(Home·Code·Autopilot)을 발표했다. Scout/Autopilot은 에이전트마다 거버넌스된 Entra ID로 동작하고, 자격증명을 로그에서 삭제하며, Purview DLP를 실시간 적용하고, 민감 행동 전 사람의 승인을 요구한다.",
+      "claim": "Microsoft는 2026년 6월 'Autopilots'라는 상시 가동 에이전트 신규 분류와 첫 제품 Microsoft Scout를 발표했고, 2026년 9월 25일 새 Copilot(Home·Code·Autopilot)을 발표했다. Scout/Autopilot은 에이전트마다 거버넌스된 Entra ID로 동작하고, 자격증명을 로그에서 삭제하며, Purview DLP를 실시간 적용한다. 민감 행동에 대한 사람의 승인은 무조건적 기본값이 아니라 조직이 구성한 제어에 따라 요구될 수 있는 제어다(제품 보장이 아닌 구성 가능 제어로 서술).",
       "sources": [
         {
           "source_url": "https://www.microsoft.com/en-us/copilot/blog/2026/06/02/introducing-microsoft-scout-your-always-on-personal-agent/",
-          "quote": "Today we are introducing a new category of agents called Autopilots ... Every agent operates under its own governed Entra identity ... data protection policies from Microsoft Purview ... are enforced in the moment"
+          "quote": "Sensitive actions can require a human to sign off before they proceed ... Microsoft Scout doesn't bypass these controls; it operates within them, adhering to the protections your organization has already configured."
         },
         {
           "source_url": "https://blogs.microsoft.com/blog/2026/09/25/introducing-the-new-copilot-with-home-code-and-autopilot/",
@@ -61,7 +61,7 @@
       "status": "verified"
     },
     {
-      "claim": "OpenAI는 2026년 9월 29일 DevDay 2026에서 상시 가동 에이전트 'dots'를 발표했다. 각 dot은 GPT-6 Astra 기반으로 자체 클라우드 컴퓨터를 갖고 사용자가 로그오프한 뒤에도 작업을 이어간다.",
+      "claim": "OpenAI는 2026년 9월 29일 DevDay 2026에서 상시 가동 에이전트 'dots'를 발표했다. (기반 모델·전용 컴퓨터 등 세부 사양은 공식 1차 출처로 확정되지 않아 본문에서는 'DevDay 2026에서 공개된 상시 가동 에이전트'로만 서술한다.)",
       "source_url": "https://openai.com/devday/2026/",
       "quote": "This year, we introduced new models, tools, and agents ...",
       "checked_at": "2026-10-25T18:10:00+09:00",

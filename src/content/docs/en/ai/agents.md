@@ -59,15 +59,15 @@ Enterprise Desktop Agent satisfaction depends more on **IT's data source connect
 
 ### The shift to always-on proactive agents
 
-Through 2026, the major vendors moved in unison **from request-response chatbots to always-on, proactive agents**. Four patterns are common — **(1)** they keep running in the background even when you step away, **(2)** they operate on a dedicated cloud computer/VM, **(3)** they periodically check connected apps (mail, calendar, etc.) and surface suggestions first, and **(4)** they require **human approval and an audit trail** before sensitive actions such as sending, paying, or deleting.
+Through 2026, the major vendors moved in unison **from request-response chatbots to always-on, proactive agents**. Four patterns are common — **(1)** they keep running in the background even when you step away, **(2)** they operate on a dedicated cloud computer/VM, **(3)** they periodically check connected apps (mail, calendar, etc.) and surface suggestions first, and **(4)** they **support human approval and an audit trail** for sensitive actions such as sending, paying, or deleting (depending on the product, organizations configure whether approval is required).
 
 | Product | Vendor | Released | Category | Governance & security notes |
 | --- | --- | --- | --- | --- |
 | [Muse](https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/) | Meta | 2026.09 | Consumer | Dedicated Secure VM + a separate Sentinel agent approves outbound traffic; uses credentials without seeing them |
-| [Scout / Autopilot](https://www.microsoft.com/en-us/copilot/blog/2026/06/02/introducing-microsoft-scout-your-always-on-personal-agent/) | Microsoft | 2026.06–09 | Enterprise | New "Autopilots" category. Governed Entra identity, credentials redacted from logs, Purview DLP enforced in the moment, sign-off before sensitive actions |
+| [Scout / Autopilot](https://www.microsoft.com/en-us/copilot/blog/2026/06/02/introducing-microsoft-scout-your-always-on-personal-agent/) | Microsoft | 2026.06–09 | Enterprise | New "Autopilots" category. Governed Entra identity, credentials redacted from logs, Purview DLP enforced in the moment, sensitive actions can require sign-off per the controls an organization configures |
 | [Quick always-on agents](https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-quick-always-on-agents-sharper-feed-enterprise-controls/) | AWS | 2026.09 | Enterprise | Always-on cloud execution (scheduled/monitoring), admin controls (MDM, per-user permissions), Purview DLP integration, skills catalog |
 | [Gemini Spark / Daily Brief](https://blog.google/innovation-and-ai/products/gemini-app/next-evolution-gemini-app/) | Google | 2026.05 (I/O) | Consumer | 24/7 proactive, daily brief, macOS app operates on the local machine |
-| [dots](https://openai.com/devday/2026/) | OpenAI | 2026.09 (DevDay) | Consumer | Built on GPT-6 Astra; each agent has its own cloud computer and browser |
+| [dots](https://openai.com/devday/2026/) | OpenAI | 2026.09 (DevDay) | Consumer | Always-on agent introduced at DevDay 2026 |
 | [Claude Duet](https://claude.com/resources/articles/claude-duet) | Anthropic | 2026.10 | Consumer/Pro | Built on Opus 5.5, daily brief, approval before sensitive actions. US Pro/Max research preview (waitlist) |
 
 :::note

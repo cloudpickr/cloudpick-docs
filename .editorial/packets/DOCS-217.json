@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "jira_key": "DOCS-217",
+  "policy_action": "update",
+  "tier_hint": "B",
+  "tier_reasons": [
+    "관리형 RAG 표의 Azure 행에서 OpenAI 'On Your Data'의 상태를 '폐기 예정'에서 '지원 종료(retired, 2026-10-14)'로 갱신하는 유계 사실 수정",
+    "서비스 수명주기(지원 종료일) 외부 사실 주장을 포함하므로 공식 출처 교차검증 필요"
+  ],
+  "target_path": "src/content/docs/ko/ai/vector-store.md",
+  "changed_paths": [
+    "src/content/docs/ko/ai/vector-store.md",
+    "src/content/docs/en/ai/vector-store.md",
+    "src/content/docs/ja/ai/vector-store.md"
+  ],
+  "generated_by_llm": true,
+  "writer": {
+    "model": "kiro-agent",
+    "provider": "kiro"
+  },
+  "claim_ledger": [
+    {
+      "claim": "Azure OpenAI의 'On Your Data' 기능은 2026-10-14부로 지원이 종료(retired)되었으며, 후속 경로로 Foundry Agent Service로의 이전이 안내된다. 기준일(2026년 10월)이 종료일을 지났으므로 표기를 '폐기 예정'에서 '지원 종료(retired)'로 현행화한다.",
+      "source_url": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/use-your-data",
+      "quote": "Azure OpenAI On Your Data retirement and migration guidance to Foundry Agent Service.",
+      "checked_at": "2026-10-24T20:30:00+09:00",
+      "volatile": true,
+      "status": "verified"
+    }
+  ]
+}

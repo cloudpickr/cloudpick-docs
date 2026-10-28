@@ -120,6 +120,18 @@ h1[data-page-title] {
  * 마크업에 의존하지 않는 표준 보정만 둔다(네이티브 <select> 사용).
  */
 @media (max-width: 49.999rem) {
+	/*
+	 * 모바일 메뉴(사이드바 popover)에서 선택기 푸터를 하단에 배치.
+	 * Starlight 기본은 footer(.md:sl-hidden 래퍼 = MobileMenuFooter)를 네비 트리
+	 * 바로 아래 일반 흐름에 두어, 짧은 메뉴에서는 선택기가 중간 높이에 떠 보인다.
+	 * .sidebar-content 는 flex column 이므로, footer 래퍼에 margin-block-start:auto 를
+	 * 주면 남는 세로 공간을 흡수해 메뉴 하단으로 내려간다. Starlight 내부 사설
+	 * 셀렉터(popover 상태 등)에 의존하지 않는 표준 flex 기법이다.
+	 */
+	.sidebar-content > .md\:sl-hidden {
+		margin-block-start: auto;
+	}
+
 	.mobile-preferences starlight-theme-select select,
 	.mobile-preferences starlight-lang-select select {
 		/* iOS Safari는 16px 미만 입력에서 자동 줌 — 16px로 고정해 방지. */

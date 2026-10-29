@@ -15,31 +15,52 @@
 
 ## 이 디렉터리의 내용
 
-- `packet.schema.json` — 근거 패킷(evidence packet) **형식 검증** 스키마(JSON Schema 2020-12).
-  계약 §Evidence packet의 최소 필드를 반영합니다.
-- `validate_packet.py` — 패킷 **trusted validator**(형식+파서/파일 레벨: 경로 정규화·128KiB·
-  중복 JSON 키·trailing newline·BOM·checked_at RFC3339·target∈changed·파일명 일치).
-- `classify_change.py` — 실제 diff+패킷으로 **A/B/C 재판정**(tier_hint는 입력일 뿐,
-  LLM 생성 최소 B, 신규/삭제/이동/문서외/규제=C, 근거 없는 비기계적 변경은 C로 상향).
-  파일 경로 기준 스코프: `src/content/docs/**` 문서 변경만 A/B/C 판정하며, 비문서 파일
-  (관리/인프라 코드·워크플로우·`.editorial/` 도구·루트 문서)은 편집 리뷰 대상이 아니다.
-  문서 변경이 하나도 없으면 오케스트레이터가 편집 scope 밖으로 통과시킨다(혼합 PR은 문서
-  하위집합만 리뷰).
-- `review_runner.py` — B/C **독립 LLM 리뷰**(LiteLLM 재사용, writer-distinct 강제, 예산·
-  호출·토큰 상한, outage/미설정은 non-pass, PR 내용은 데이터). 미설정 시 shadow(non-pass).
-- `envelope.py` — 리뷰 결과를 repo/PR/base_sha/head_sha/packet-SHA256/policy/reviewer-config
-  튜플에 **바인딩**. 하나라도 바뀌면 이전 결과 무효(캐시 미스). freshness 만료 포함.
-- `tests/` — 위 4개의 실제 단위 테스트(unittest).
-- 패킷 실제 파일 위치(계약 제안): `.editorial/packets/<jira_key>.json` (draft PR에 포함).
+## 이 디렉터리의 내용 (소스 맵)
 
-관련 워크플로/스크립트(저장소 루트):
-- `.github/workflows/editorial-c-approval.yml` — C 승인 게이트(status `editorial-c-approval`).
-- `.github/scripts/c_approval_gate.cjs` (+`.test.cjs`) — A/B는 명시 pass, 문서 변경이 없는
-  PR(비문서 전용 — 파일 경로 기준 스코프)은 편집 scope 밖으로 명시 pass, C는 allowlisted human
-  (봇/에이전트 제외)이 **현재 packet SHA-256을 코멘트로 confirm**해야 pass. 형식:
-  `/approve <64-hex packet_sha256>`. GitHub PR Approve는 C 신호가 아니다. 무관한 커밋
-  (CI/feature/merge)이 packet·문서 바이트를 바꾸지 않으면 C를 리셋하지 않는다.
-  `EDITORIAL_C_APPROVAL_ALLOWLIST` 변수 미설정 시 C는 승인 불가(임의 승인자 없음).
+`.editorial/`의 모든 소스는 AGENTS.md의 **4대 축 운영 모델**을 떠받칩니다. 각 파일이 어느 축·어느 역할인지 아래 표로 정리합니다(파일 이동 없이 역할을 명시). 상세 설명은 각 파일 상단 docstring을 참조하세요.
+
+### 편집 리뷰 게이트 (축1·2·4 공통 — 근거 패킷 PR 판정)
+
+| 파일 | 역할 |
+| --- | --- |
+| `packet.schema.json` | 근거 패킷 **형식 검증** 스키마(JSON Schema 2020-12). 계약 §Evidence packet 최소 필드. |
+| `validate_packet.py` | 패킷 **trusted validator**(경로 정규화·128KiB·중복 JSON 키·trailing newline·BOM·checked_at RFC3339·target∈changed·파일명 일치). |
+| `classify_change.py` | diff+패킷으로 **A/B/C 재판정**. `src/content/docs/**` 문서 변경만 판정, 비문서는 scope 밖. legal-B(단일 논리 문서) 티어 로직 포함. |
+| `review_runner.py` | B/C **독립 LLM 리뷰**(LiteLLM 재사용, writer-distinct 강제, 예산·호출·토큰 상한, outage/미설정은 non-pass). |
+| `source_fetch.py` | 패킷 `source_url`을 **독립 fetch해 대조**(SSRF 방어: 사설/메타데이터·불안전 리다이렉트 거부, 바이트·시간 상한). |
+| `envelope.py` | 리뷰 결과를 repo/PR/base_sha/head_sha/packet-SHA256/policy/reviewer-config 튜플에 **바인딩**(하나라도 바뀌면 캐시 미스). |
+| `run_review_gate.py` | **게이트 오케스트레이터** — 패킷검증→분류→(B/C)독립리뷰→verdict. 레벨링 패킷은 의미보존 리뷰로 분기(fail-closed). |
+
+### 축1 — 노후(stale) 스캔 전용 헬퍼
+
+| 파일 | 역할 |
+| --- | --- |
+| `verifier_core.py` | stale 스캔 2단계 전용 인용/대조 헬퍼(date_probes·cooccurs·quote_is_substring·llm_adjudicate, `MAX_LLM_CALLS` 상한). 게이트 러너와 공유하지 않음(advisory exit-0 시맨틱 충돌 방지). |
+
+### 축4 — 레벨링(표현 교정) 엔진
+
+| 파일 | 역할 |
+| --- | --- |
+| `leveling-rules.yaml` | 레벨링 **권위 원본 규칙**(불변 사실군 정의, 규제 경로 tier-C 고정, 루프 상한). |
+| `leveling_core.py` | 레벨링 교정 엔진 — LLM writer 제안 + **의미보존 리뷰**(닫힌 enum만 차단, 유일 수정은 hunk revert, 24h 만료). 사실은 바이트/멀티셋 불변(가드가 강제). |
+
+### 운영·테스트
+
+| 파일 | 역할 |
+| --- | --- |
+| `enforce_required_checks.sh` | required 체크 등록/롤백 **versioned 스크립트**(`apply-enforce`/`apply-rollback`). |
+| `tests/` | 위 모듈들의 단위 테스트(unittest). |
+| `packets/` | 근거 패킷 실제 파일(`<jira_key>.json`, draft PR에 포함). |
+
+:::note
+결정론적 가드 `scripts/leveling-guard.py`는 LLM보다 **먼저** 실행되어 코드·표·링크·수치·날짜·버전·고유명사·수식어 개수를 불변으로 강제합니다. 가드 실패는 LLM이 뒤집을 수 없습니다(위치: 저장소 루트 `scripts/`).
+:::
+
+### 관련 워크플로/스크립트 (저장소 루트)
+
+- `.github/workflows/editorial-c-approval.yml` — C 승인 게이트(status `editorial-review`·`editorial-c-approval`를 생성).
+- `.github/scripts/c_approval_gate.cjs` (+`.test.cjs`) — A/B는 명시 pass, 비문서 전용 PR은 scope 밖 pass, C는 allowlisted human이 **현재 packet SHA-256을 코멘트로 confirm**(`/approve <64-hex>`)해야 pass. GitHub PR Approve는 C 신호가 아니며, 무관한 커밋은 C를 리셋하지 않는다. `EDITORIAL_C_APPROVAL_ALLOWLIST` 미설정 시 C 승인 불가.
+- 저장소 루트 `scripts/`의 스캐너/린터 인벤토리는 `scripts/README.md` 참조.
 
 ## 공통 크기 상한 (스택·저장소 양측 동일 적용)
 

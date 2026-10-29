@@ -58,7 +58,7 @@ The AI Verify testing framework evaluates AI systems against the following **11 
 
 Transparency, explainability, repeatability, safety, security, robustness, fairness, data governance, accountability, human agency and oversight, and inclusive growth/societal and environmental well-being.
 
-This set of principles is mapped to major international frameworks — including the US NIST AI RMF, the Hiroshima Process International Code of Conduct, and ISO/IEC 42001 — from the EU, G7, OECD, and US, allowing for cross-referencing. The AI Verify Foundation counts AWS, Dell, Google, IBM, Microsoft, Red Hat, and Salesforce among its premier members, and it operates **Project Moonshot** (a large language model evaluation toolkit), the **Global AI Assurance Sandbox** (a real-world generative AI testing environment), and the **AI Tester Accreditation Programme**, Asia's first third-party test-lab accreditation program.
+This set of principles is mapped to major international frameworks — including the US NIST AI RMF, the Hiroshima Process International Code of Conduct, and ISO/IEC 42001 — from the EU, G7, OECD, and US, allowing for cross-referencing. The AI Verify Foundation counts AWS, Dell, Google, IBM, Microsoft, Red Hat, and Salesforce among its premier members. It operates **Project Moonshot** (a large language model evaluation toolkit), the **Global AI Assurance Sandbox** (a real-world generative AI testing environment), and the **AI Tester Accreditation Programme**, Asia's first third-party test-lab accreditation program.
 
 ## IMDA's Approach — Tools Over Regulation
 
@@ -82,7 +82,7 @@ Singapore's Model AI Governance Framework effectively served as the prototype fo
 
 ## A Regional Model — SEA-LION
 
-A flagship example representing the research and infrastructure pillar of the national AI strategy is **SEA-LION (Southeast Asian Languages In One Network)**. Developed by **AI Singapore**, a national program supported by the National Research Foundation and led by the National University of Singapore (NUS), SEA-LION is an open-source family of multilingual, multimodal language models designed to reflect the linguistic and cultural nuances — including low-resource languages — of 11 or more Southeast Asian languages. The latest version, **SEA-LION v4.5**, incorporates agentic capabilities and a custom speculative decoder for improved reasoning efficiency, and it is accompanied by **SEA-Guard**, a family of safety-filtering models tailored to Southeast Asian cultural context.
+A flagship example representing the research and infrastructure pillar of the national AI strategy is **SEA-LION (Southeast Asian Languages In One Network)**. Developed by **AI Singapore**, a national program supported by the National Research Foundation and led by the National University of Singapore (NUS), SEA-LION is an open-source family of multilingual, multimodal language models designed to reflect the linguistic and cultural nuances — including low-resource languages — of 11 or more Southeast Asian languages. The latest version, **SEA-LION v4.5**, incorporates agentic capabilities and a custom speculative decoder for improved reasoning efficiency. It is accompanied by **SEA-Guard**, a family of safety-filtering models tailored to Southeast Asian cultural context.
 
 SEA-LION is regarded as a project symbolizing Singapore's national strategy of securing domestic and regional model capability that reflects Southeast Asian language and culture, rather than relying entirely on general-purpose LLMs developed in the West.
 

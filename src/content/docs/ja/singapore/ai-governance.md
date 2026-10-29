@@ -58,7 +58,7 @@ AI Verifyテスティングフレームワークは、以下の**11のAIガバ�
 
 透明性、説明可能性、反復可能性(Repeatability)、安全性、セキュリティ、堅牢性(Robustness)、公正性、データガバナンス、責任性、人間の関与と監督(Human Agency and Oversight)、包摂的成長・社会的・環境的ウェルビーイング。
 
-この原則体系は、EU・G7・OECD・米国など主要な国際フレームワーク(米国NIST AI RMF、広島プロセス国際行動規範、ISO/IEC 42001など)とマッピングされ、相互参照が可能なよう設計されています。AI Verify FoundationはAWS・Dell・Google・IBM・Microsoft・Red Hat・Salesforceなどをプレミアメンバーとして擁しており、大規模言語モデル評価ツールキット**Project Moonshot**、実環境生成AIテスト環境である**Global AI Assurance Sandbox**、アジア初の第三者テスト機関認定プログラムである**AI Tester Accreditation Programme**などを運営しています。
+この原則体系は、EU・G7・OECD・米国など主要な国際フレームワーク(米国NIST AI RMF、広島プロセス国際行動規範、ISO/IEC 42001など)とマッピングされ、相互参照が可能なよう設計されています。AI Verify FoundationはAWS・Dell・Google・IBM・Microsoft・Red Hat・Salesforceなどをプレミアメンバーとして擁しています。大規模言語モデル評価ツールキット**Project Moonshot**、実環境生成AIテスト環境である**Global AI Assurance Sandbox**、アジア初の第三者テスト機関認定プログラムである**AI Tester Accreditation Programme**などを運営しています。
 
 ## IMDAのアプローチ — 規制よりもツール
 
@@ -82,7 +82,7 @@ PDPCは**2024年3月1日**、「AI推薦・意思決定システムにおける�
 
 ## 東南アジア地域モデル — SEA-LION
 
-国家AI戦略の研究・インフラ軸を代表する事例が**SEA-LION(Southeast Asian Languages In One Network)** です。国立研究財団(National Research Foundation)の支援を受け、シンガポール国立大学(NUS)が主管する国家プログラム**AI Singapore**が開発したオープンソース多言語・マルチモーダル言語モデル系列で、東南アジア11以上の言語の言語的・文化的ニュアンス(低資源言語を含む)を反映するよう設計されています。最新版である**SEA-LION v4.5**はエージェント的機能と推論効率を高めたカスタムスペキュレイティブデコーダーを搭載しており、東南アジアの文化的文脈に合わせた安全性フィルタリングモデル群**SEA-Guard**も併せて提供されます。
+国家AI戦略の研究・インフラ軸を代表する事例が**SEA-LION(Southeast Asian Languages In One Network)** です。国立研究財団(National Research Foundation)の支援を受け、シンガポール国立大学(NUS)が主管する国家プログラム**AI Singapore**が開発したオープンソース多言語・マルチモーダル言語モデル系列です。東南アジア11以上の言語の言語的・文化的ニュアンス(低資源言語を含む)を反映するよう設計されています。最新版である**SEA-LION v4.5**はエージェント的機能と推論効率を高めたカスタムスペキュレイティブデコーダーを搭載しています。東南アジアの文化的文脈に合わせた安全性フィルタリングモデル群**SEA-Guard**も併せて提供されます。
 
 SEA-LIONは、西側諸国で開発された汎用LLMに全面的に依存せず、東南アジアの言語・文化的文脈を反映した自国・域内モデル能力を確保しようとするシンガポールの国家戦略を象徴するプロジェクトとして評価されています。
 

@@ -7,7 +7,11 @@ on:
   # 컴포넌트·plugins·config·netlify.toml 등). 린터는 PR diff가 아니라 src/content/docs
   # 전체를 순회 검사하므로, 무관한 PR에서 돌아도 전체 문서를 재검증하며 빠르게 통과한다
   # (공허한 승인 아님, fail-closed 유지). 비용은 checkout+python 수십 초 수준.
+  # required 체크는 모든 PR에서 실행한다(아래 설명). leveling-guard가 라벨 기반이므로
+  # labeled/unlabeled도 구독해야, PR 생성 후 axis-4-leveling 라벨을 붙여도 가드가 돈다
+  # (기본 opened/synchronize/reopened에는 labeled가 없음 — Codex P1).
   pull_request:
+    types: [opened, synchronize, reopened, labeled, unlabeled]
   push:
     branches: [master, main]
     paths:
@@ -20,7 +24,6 @@ on:
 
 permissions:
   contents: read
-  pull-requests: read
 
 jobs:
   mermaid-lint:
@@ -107,25 +110,28 @@ jobs:
       - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
-      - name: Run leveling guard on changed ko docs (axis-4-leveling label only)
+      - name: Run leveling guard on changed docs (axis-4-leveling label only)
         env:
-          GH_TOKEN: ${{ github.token }}
-          PR: ${{ github.event.pull_request.number }}
           BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          # 라벨은 이벤트 payload에서 직접 읽어 API 의존·실패를 피한다(fail-closed).
+          HAS_LABEL: ${{ contains(github.event.pull_request.labels.*.name, 'axis-4-leveling') }}
         run: |
-          set -e
-          LABELS=$(gh pr view "$PR" --json labels --jq '.labels[].name' 2>/dev/null || echo "")
-          if ! echo "$LABELS" | grep -qx "axis-4-leveling"; then
+          set -euo pipefail
+          if [ "$HAS_LABEL" != "true" ]; then
             echo "axis-4-leveling 라벨 없음 — 레벨링 가드 건너뜀(일반 PR의 사실 변경은 정상)."
             exit 0
           fi
-          echo "axis-4-leveling 라벨 감지 — 변경된 ko 문서에 사실 불변 가드 적용."
-          CHANGED=$(gh pr view "$PR" --json files --jq '.files[].path' \
-                    | grep -E '^src/content/docs/ko/.*\.mdx?$' || true)
-          if [ -z "$CHANGED" ]; then echo "변경된 ko 문서 없음."; exit 0; fi
+          echo "axis-4-leveling 라벨 감지 — 변경된 모든 로케일 문서에 사실 불변 가드 적용."
+          # 변경 파일은 로컬 git diff로(API 의존 제거). 실패는 그대로 전파(fail-closed, set -e).
+          CHANGED=$(git diff --name-only "$BASE_SHA" "$HEAD_SHA" -- 'src/content/docs/**/*.md' 'src/content/docs/**/*.mdx')
+          DOCS=$(echo "$CHANGED" | grep -E '^src/content/docs/(ko|en|ja)/.*\.mdx?$' || true)
+          if [ -z "$DOCS" ]; then echo "변경된 문서 없음."; exit 0; fi
           FAIL=0
-          for f in $CHANGED; do
-            git show "$BASE_SHA:$f" > /tmp/base.md 2>/dev/null || { echo "신규 파일 $f — 가드 대상 아님(스킵)"; continue; }
+          for f in $DOCS; do
+            if ! git show "$BASE_SHA:$f" > /tmp/base.md 2>/dev/null; then
+              echo "신규 파일 $f — base 없음(레벨링 대상 아님, 스킵)"; continue
+            fi
             echo "::group::leveling-guard $f"
             if ! python3 scripts/leveling-guard.py --base /tmp/base.md --head "$f"; then
               FAIL=1
@@ -133,7 +139,7 @@ jobs:
             echo "::endgroup::"
           done
           if [ "$FAIL" -ne 0 ]; then
-            echo "❌ 레벨링 PR이 사실을 변경했습니다 — 축1(근거 패킷) 경로로 보내세요."
+            echo "❌ 레벨링 PR이 사실을 변경했습니다(어느 로케일이든) — 축1(근거 패킷) 경로로 보내세요."
             exit 1
           fi
-          echo "✅ 레벨링 가드 통과(표현 전용)."
+          echo "✅ 레벨링 가드 통과(전 로케일 표현 전용)."

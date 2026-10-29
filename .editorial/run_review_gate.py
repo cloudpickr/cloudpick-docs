@@ -166,10 +166,29 @@ def run(args) -> dict:
         reasons.append("leveling meaning-preserved review: ok")
 
     # link-refresh(URL-only 현행화) 전용: 사실 불변은 결정론 가드(scripts/link-refresh-guard.py)가
-    # CI required 잡으로 전수 증명한다(base/head 전체 파일 필요 — diff만으론 불가). 이 게이트는
-    # 분류·독립 리뷰까지만 책임지고, 가드 통과를 '머지 전제'로 명시해 기록한다(가드 required는
-    # 분류 자격에서 파생 — docs-quality.yml이 link-refresh 패킷 PR에서 가드 잡을 required로 돌림).
+    # CI required 잡으로 전수 증명한다(base/head 전체 파일 필요 — diff만으론 불가). 또한
+    # governance 투표 반영: url_map의 각 old URL을 독립 re-fetch해 리다이렉트 체인이 new로
+    # 끝남을 '실제로' 확인한다(빈 claim_ledger로 fetch가 스킵되던 fail-open 차단). path-collapse나
+    # 최종 URL 불일치는 hold(비승인). 이 게이트는 분류·독립 리뷰·redirect 재확인까지 책임지고,
+    # URL 외 불변 증명은 CI 가드가 담당한다(가드 required는 라벨이 아니라 분류 자격에서 파생).
     if _is_link_refresh_packet(packet):
+        lr = packet.get("link_refresh") or {}
+        url_map = lr.get("url_map") or {}
+        if not url_map:
+            return _out(tier, "error",
+                        ["link-refresh packet without link_refresh.url_map → hold"] + reasons,
+                        args, packet_sha)
+        rchk = _verify_redirect_chains(url_map)
+        if rchk.get("error"):
+            # fetch 불가/차단은 비승인(보류) — 리다이렉트=실제 이전 보증을 확인 못 함.
+            return _out(tier, "error",
+                        [f"link-refresh redirect re-fetch unavailable → hold ({rchk['error']})"] + reasons,
+                        args, packet_sha)
+        if rchk.get("mismatches"):
+            reasons += ["link-refresh redirect re-fetch: MISMATCH"] + \
+                       [f"{m['old']} → 최종 {m['final']} (기대 {m['expected']})" for m in rchk["mismatches"][:10]]
+            return _out(tier, "changes_requested", reasons, args, packet_sha)
+        reasons.append(f"link-refresh redirect re-fetch: ok ({rchk.get('checked', 0)} URLs → new)")
         reasons.append("link-refresh: URL-only change — CI link-refresh-guard(재구성 매칭)가 사실 불변을 전수 증명해야 머지 가능")
 
     # 감사 정확성: 실제 선택된 리뷰어 model을 envelope에 기록(단일 고정값 아님).
@@ -187,13 +206,56 @@ def _is_leveling_packet(packet: dict) -> bool:
 
 def _is_link_refresh_packet(packet: dict) -> bool:
     """패킷이 link-refresh(URL-only 현행화) 성격인지 — claim_ledger 비었고
-    policy_action=='link-refresh' 또는 tier_reasons에 link-refresh/링크 현행화 표기."""
+    policy_action=='link-refresh'(단일 필드, governance 투표 반영: tier_reasons 매칭 제거)."""
     if not isinstance(packet, dict) or packet.get("claim_ledger"):
         return False
-    if (packet.get("policy_action") or "") == "link-refresh":
-        return True
-    reasons = " ".join(packet.get("tier_reasons", []) or [])
-    return ("link-refresh" in reasons.lower()) or ("링크 현행화" in reasons)
+    return (packet.get("policy_action") or "") == "link-refresh"
+
+
+def _normalize_url(u: str) -> str:
+    """리다이렉트 최종 URL 비교용 정규화 — trailing slash·fragment 차이만 흡수."""
+    from urllib.parse import urlsplit, urlunsplit
+    s = urlsplit(u.strip())
+    path = s.path or "/"
+    # 끝 슬래시 1개만 정규화(의미 있는 경로 차이는 보존).
+    if len(path) > 1 and path.endswith("/"):
+        path = path.rstrip("/") or "/"
+    return urlunsplit((s.scheme.lower(), s.netloc.lower(), path, s.query, ""))
+
+
+def _verify_redirect_chains(url_map: dict) -> dict:
+    """link-refresh url_map의 각 old URL을 독립 re-fetch해 최종 URL이 new와 일치하는지 확인.
+
+    governance 투표 반영: 빈 claim_ledger로 source fetch가 스킵되어 '리다이렉트=실제 이전'
+    보증이 비던 fail-open을 차단한다. source_fetch(SSRF 방어·상한)를 재사용한다.
+
+    반환: {checked:int, mismatches:[{old,final,expected}], error?:str}
+      - error: 모듈 부재/전체 fetch 실패 등 '확인 불가'(→ 호출부에서 hold).
+      - mismatches: old의 리다이렉트 체인이 new로 끝나지 않음(→ 호출부에서 changes_requested).
+    """
+    try:
+        import source_fetch as sf
+    except Exception as e:  # noqa: BLE001
+        return {"error": f"source_fetch import 실패: {e}", "checked": 0, "mismatches": []}
+
+    mismatches = []
+    checked = 0
+    errors = []
+    for old, new in url_map.items():
+        try:
+            res = sf.fetch_source(old)
+        except Exception as e:  # noqa: BLE001  (SSRF 차단·네트워크 실패 포함)
+            errors.append(f"{old}: {e}")
+            continue
+        checked += 1
+        final = getattr(res, "final_url", None) or getattr(res, "url", None) or ""
+        if _normalize_url(final) != _normalize_url(new):
+            mismatches.append({"old": old, "final": final, "expected": new})
+    # 하나도 확인 못 했으면(전부 fetch 실패) 확인 불가 → error.
+    if checked == 0 and errors:
+        return {"error": "모든 old URL fetch 실패: " + "; ".join(errors[:5]),
+                "checked": 0, "mismatches": []}
+    return {"checked": checked, "mismatches": mismatches, "fetch_errors": errors}
 
 
 def _meaning_preserved_from_diff(diff_text: str, packet: dict) -> dict:

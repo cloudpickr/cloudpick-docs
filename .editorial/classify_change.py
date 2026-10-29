@@ -92,21 +92,19 @@ def _packet_is_link_refresh(packet) -> bool:
     """링크 현행화 PR의 빈 claim_ledger를 'link-refresh(사실 주장 없음)'로 인정하는지 판정.
 
     링크 현행화는 URL 문자열만 바꾸므로 새 사실 주장이 없어 claim_ledger가 비어도 정당하다.
-    남용 방지를 위해 패킷이 'link-refresh' 성격을 policy_action 또는 tier_reasons로
-    명시해야 하고, claim_ledger는 실제로 비어 있어야 한다. (규제 경로 제외는 호출부에서 처리.)
+    자격은 policy_action=="link-refresh" '단일 필드'로만 부여한다(governance 투표 반영:
+    tier_reasons 텍스트 매칭은 우회 표면이라 제거). claim_ledger는 실제로 비어 있어야 한다.
+    (규제 경로 제외는 호출부에서 처리.)
 
-    council 합의: 이 자격이 B를 부여하는 '동시에' link-refresh 가드(scripts/link-refresh-guard.py)를
-    강제하는 신호다 — 가드 required를 변경 가능한 라벨이 아니라 분류기 자격에서 파생시킨다.
-    워크플로는 이 분류 결과(tier=B + link-refresh)를 보고 가드 잡을 required로 돌린다.
+    중요(fail-open 차단): 이 자격이 B(사람 승인 없음)를 부여하는 '동시에' link-refresh
+    가드를 강제해야 한다. 워크플로는 라벨이 아니라 '패킷의 link-refresh 자격'을 보고
+    가드 잡을 돌린다(docs-quality.yml). 라벨 생략으로 가드를 스킵할 수 없다.
     """
     if not isinstance(packet, dict):
         return False
     if packet.get("claim_ledger"):
         return False
-    if (packet.get("policy_action") or "") == "link-refresh":
-        return True
-    reasons = " ".join(packet.get("tier_reasons", []) or [])
-    return ("link-refresh" in reasons.lower()) or ("링크 현행화" in reasons)
+    return (packet.get("policy_action") or "") == "link-refresh"
 
 
 def _packet_is_legal_b(packet) -> bool:

@@ -100,10 +100,10 @@ Manage the background server with `astro dev stop`, `astro dev status`, and `ast
 
 - **URL 문자열만 교체, 그 외 바이트 불변** — `scripts/link-refresh-guard.py`(결정론)가 '재구성 매칭'으로 증명합니다: 승인된 old→new 매핑을 base에 적용한 결과가 head와 바이트 일치해야 하며, 라인 증감·코드/frontmatter/인라인코드/mermaid 내부 변경·URL 외 텍스트 변경은 fail-closed. **사실·문장 변경은 link-refresh가 아니라 축1 근거 패킷 경로**로 보냅니다.
 - **로케일·버전 파라미터 규칙** — 최종 URL에서 원본에 없던 로케일 세그먼트(`/en-us/` 등)와 추적 파라미터(`icid`·`utm_*`)는 벗깁니다. `?view=`·`?tabs=`·`?pivots=`는 버전 선택자이므로 유지합니다. path-collapse(하위→상위 축약)나 edition/version 토큰 변경은 B가 아니라 C(사람 승인).
-- **빈 `claim_ledger` + manifest** — 새 사실 주장이 없으므로 claim_ledger는 비웁니다. 패킷 `policy_action: "link-refresh"` + `link_refresh.url_map`(old→new) + `manifest_sha256`(전체 경로·매핑·base/head SHA 해시)로 대량 분산 변경의 완전성을 보증합니다(changed_paths 64 상한 우회). CI가 manifest를 재계산해 대조합니다.
-- **독립 리뷰 재fetch** — 독립 리뷰어가 각 old URL을 재fetch해 리다이렉트 체인이 new URL로 끝남을 확인합니다(soft-404 방지).
+- **빈 `claim_ledger` + manifest** — 새 사실 주장이 없으므로 claim_ledger는 비웁니다. 패킷 `policy_action: "link-refresh"`(이 단일 필드가 자격을 부여) + `link_refresh.url_map`(old→new) + `manifest_sha256`(전체 경로·매핑·base/head SHA 해시)로 대량 분산 변경의 완전성을 보증합니다(changed_paths 64 상한 우회). CI가 manifest를 재계산해 대조합니다.
+- **독립 리뷰 재fetch** — 게이트가 url_map의 각 old URL을 독립 re-fetch해 리다이렉트 체인이 new URL로 끝남을 확인합니다(soft-404·path-collapse 방지). 불일치·fetch 불가는 비승인(hold).
 - **규제 경로는 C** — korea/japan/eu/us/singapore 문서의 링크 현행화는 리다이렉트가 개정 법령판을 가리킬 수 있어 사람 승인(C)을 유지합니다. core(B) PR과 규제(C) PR을 분리합니다.
-- 분류기 자격(`classify_change._packet_is_link_refresh`)이 B를 부여하는 동시에 CI의 `link-refresh-guard`를 강제합니다(가드 required는 라벨이 아니라 자격에서 파생).
+- 분류 자격(`classify_change._packet_is_link_refresh`, `policy_action=="link-refresh"` 단일 필드)이 B를 부여하는 동시에 CI의 `link-refresh-guard`를 강제합니다 — 가드 트리거는 변경 가능한 라벨이 아니라 **변경된 패킷의 link-refresh 자격에서 파생**하므로, 라벨 생략으로 가드를 스킵할 수 없습니다(fail-open 차단).
 
 ### 체크리스트 (변경 PR 공통)
 

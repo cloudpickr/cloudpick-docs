@@ -333,5 +333,49 @@ class TestGate(unittest.TestCase):
         self.assertNotEqual(out["state"], "success")
 
 
+class TestLinkRefreshRedirect(unittest.TestCase):
+    """link-refresh redirect re-fetch 검증(governance 투표 반영 — fail-open 차단)."""
+
+    def test_normalize_url_trailing_slash_and_fragment(self):
+        self.assertEqual(
+            g._normalize_url("https://A.com/Path/#frag"),
+            g._normalize_url("https://a.com/Path"),
+        )
+
+    def _patch_fetch(self, final_by_old):
+        import source_fetch as sf
+
+        class R:
+            def __init__(self, url):
+                self.url = url
+
+        def fake_fetch(old, **kw):
+            if final_by_old.get(old) is None:
+                raise sf.FetchError("blocked")
+            return R(final_by_old[old])
+
+        self._orig = sf.fetch_source
+        sf.fetch_source = fake_fetch
+        self.addCleanup(lambda: setattr(sf, "fetch_source", self._orig))
+
+    def test_redirect_ends_at_new_ok(self):
+        self._patch_fetch({"https://old.com/": "https://new.com/"})
+        r = g._verify_redirect_chains({"https://old.com/": "https://new.com/"})
+        self.assertFalse(r.get("error"))
+        self.assertEqual(r["mismatches"], [])
+        self.assertEqual(r["checked"], 1)
+
+    def test_redirect_mismatch_flagged(self):
+        self._patch_fetch({"https://old.com/": "https://elsewhere.com/"})
+        r = g._verify_redirect_chains({"https://old.com/": "https://new.com/"})
+        self.assertFalse(r.get("error"))
+        self.assertEqual(len(r["mismatches"]), 1)
+
+    def test_all_fetch_fail_is_error(self):
+        self._patch_fetch({"https://old.com/": None})
+        r = g._verify_redirect_chains({"https://old.com/": "https://new.com/"})
+        self.assertTrue(r.get("error"))
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

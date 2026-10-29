@@ -144,12 +144,13 @@ jobs:
           fi
           echo "✅ 레벨링 가드 통과(전 로케일 표현 전용)."
 
-  # 링크 현행화 가드 — 'link-refresh' 라벨 PR에서 URL 교체만 했음을 결정론적으로 증명한다.
-  # leveling-guard와 같은 required 설계: 라벨 없으면 즉시 통과(일반 PR). 라벨이 있으면:
-  #   1) 이 PR이 변경한 패킷(.editorial/packets/*.json)에서 link_refresh.url_map을 읽고,
+  # 링크 현행화 가드 — URL 교체만 했음을 결정론적으로 증명한다.
+  # fail-open 차단(governance 투표 반영): 트리거를 변경 가능한 '라벨'이 아니라 '패킷의
+  # link-refresh 자격'에서 파생한다. 이 PR이 변경/추가한 패킷 중 policy_action=="link-refresh"가
+  # 하나라도 있으면(=classify가 B를 부여하는 바로 그 조건) 가드를 강제한다. 라벨 생략으로
+  # 가드를 스킵할 수 없다. link-refresh 패킷이 없으면 즉시 통과(일반 PR·다른 패킷 PR).
+  #   1) 해당 패킷들에서 link_refresh.url_map을 읽고 manifest를 대조,
   #   2) 변경된 모든 로케일 문서를 base와 비교해 '재구성 매칭'(URL 외 변경 없음)을 강제한다.
-  # 가드 실패(사실·문장 변경, 라인 증감, 코드/frontmatter/인라인코드 내부 변경)는 머지 차단.
-  # (classify_change가 link-refresh 패킷을 B로 인정하는 '자격'과 짝이 되는 CI 증명이다.)
   link-refresh-guard:
     runs-on: ubuntu-latest
     if: github.event_name == 'pull_request'
@@ -160,24 +161,27 @@ jobs:
       - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
-      - name: Run link-refresh guard on changed docs (link-refresh label only)
+      - name: Run link-refresh guard (derived from packet link-refresh eligibility)
         env:
           BASE_SHA: ${{ github.event.pull_request.base.sha }}
           HEAD_SHA: ${{ github.event.pull_request.head.sha }}
-          HAS_LABEL: ${{ contains(github.event.pull_request.labels.*.name, 'link-refresh') }}
         run: |
           set -euo pipefail
-          if [ "$HAS_LABEL" != "true" ]; then
-            echo "link-refresh 라벨 없음 — 링크 현행화 가드 건너뜀(일반 PR은 대상 아님)."
+          CHANGED_ALL=$(git diff --name-only "$BASE_SHA" "$HEAD_SHA")
+          ALL_PACKETS=$(echo "$CHANGED_ALL" | grep -E '^\.editorial/packets/.*\.json$' || true)
+          # 트리거 파생: 변경 패킷 중 policy_action=="link-refresh"인 것만 추린다(라벨 무관).
+          PACKETS=""
+          for pkt in $ALL_PACKETS; do
+            act=$(python3 -c "import json,sys; print(json.load(open(sys.argv[1])).get('policy_action',''))" "$pkt" 2>/dev/null || echo "")
+            if [ "$act" = "link-refresh" ]; then PACKETS="$PACKETS $pkt"; fi
+          done
+          PACKETS=$(echo "$PACKETS" | xargs -n1 2>/dev/null || true)
+          if [ -z "$PACKETS" ]; then
+            echo "link-refresh 패킷 없음 — 링크 현행화 가드 대상 아님(통과)."
             exit 0
           fi
-          echo "link-refresh 라벨 감지 — url_map 추출 후 변경 문서에 재구성 매칭 가드 적용."
-          # 1) 이 PR이 변경/추가한 패킷에서 link_refresh.url_map을 모아 하나의 매핑으로 합친다.
-          CHANGED_ALL=$(git diff --name-only "$BASE_SHA" "$HEAD_SHA")
-          PACKETS=$(echo "$CHANGED_ALL" | grep -E '^\.editorial/packets/.*\.json$' || true)
-          if [ -z "$PACKETS" ]; then
-            echo "❌ link-refresh 라벨인데 변경된 패킷이 없습니다 — url_map 출처 없음."; exit 1
-          fi
+          echo "link-refresh 패킷 감지 — url_map 추출 후 변경 문서에 재구성 매칭 가드 적용."
+          # 1) link-refresh 패킷들에서 url_map 병합.
           python3 scripts/link-refresh-manifest.py merge $PACKETS > /tmp/url_map.json
           # 1b) 각 패킷의 manifest_sha256·changed_paths_count를 실제 변경과 대조(완전성·불변성).
           DOCS=$(echo "$CHANGED_ALL" | grep -E '^src/content/docs/(ko|en|ja)/.*\.mdx?$' || true)

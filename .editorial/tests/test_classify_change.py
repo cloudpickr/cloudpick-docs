@@ -189,9 +189,16 @@ class TestLinkRefresh(unittest.TestCase):
         r = cc.classify(changes, p)
         self.assertEqual(r.tier, "B")  # evidence-backed bounded update
 
-    def test_link_refresh_via_tier_reasons(self):
+    def test_tier_reasons_alone_does_not_grant_link_refresh(self):
+        # governance 투표 반영: policy_action=="link-refresh" 단일 필드로만 자격 부여.
+        # tier_reasons 텍스트만으로는 자격 없음(우회 표면 제거) → 근거 없는 비기계적 변경 = C.
         p = {"tier_reasons": ["링크 현행화: 리다이렉트 최종 URL 반영"], "claim_ledger": []}
-        # 20줄 초과로 A 자격을 벗어나야 link-refresh 분기(B)에 도달.
+        changes = [mod(f"{DOC}/ko/ai/agents.md", 30, 30)]
+        r = cc.classify(changes, p)
+        self.assertEqual(r.tier, "C")
+
+    def test_policy_action_grants_link_refresh(self):
+        p = {"policy_action": "link-refresh", "tier_reasons": ["link-refresh"], "claim_ledger": []}
         changes = [mod(f"{DOC}/ko/ai/agents.md", 30, 30)]
         r = cc.classify(changes, p)
         self.assertEqual(r.tier, "B")

@@ -38,11 +38,24 @@ MODALITY_DEFAULT = ["Preview", "GA", "일부", "최대", "최소", "필수", "�
 # 'It/The/This'가 추가·삭제돼 고유명사 오탐을 내므로 proper_nouns에서 제외한다. 실제
 # 고유명사(AWS/Azure/Bedrock…)와 겹치지 않는 일반어만 담는다.
 _COMMON_CAPITALIZED = {
-    "The", "This", "These", "That", "Those", "It", "Its", "They", "Their", "There",
-    "An", "As", "At", "By", "For", "From", "On", "Of", "Or", "And", "But",
-    "To", "With", "When", "While", "Where", "Which", "Who", "If", "Then", "Thus",
-    "However", "Because", "Both", "Each", "Also", "Here", "He", "She", "We", "You",
-    "Is", "Are", "Was", "Were", "Be", "Can", "May", "Will", "Would", "Should", "Must",
+    # 관사·지시어·대명사·소유격
+    "The", "This", "These", "That", "Those", "It", "Its", "They", "Their", "Them",
+    "There", "He", "She", "Him", "Her", "His", "We", "Our", "You", "Your", "I", "My",
+    "An", "Who", "Whom", "Whose", "Which", "What",
+    # 접속사·부사(문두 흔함)
+    "And", "Or", "But", "Nor", "Yet", "So", "Also", "However", "Because", "Although",
+    "Though", "Thus", "Therefore", "Hence", "Then", "Thereby", "Moreover", "Meanwhile",
+    "Instead", "Otherwise", "Still", "Rather", "Here", "Now", "Once", "Both", "Each",
+    "Either", "Neither", "If", "When", "While", "Where", "Whereas", "Since", "Unless",
+    "Until", "Whether",
+    # 전치사(문두 흔함)
+    "As", "At", "By", "For", "From", "In", "Into", "On", "Onto", "Of", "Off", "Over",
+    "To", "With", "Within", "Without", "After", "Before", "During", "Through",
+    "Across", "Among", "Between", "Beyond", "Under", "Upon", "About", "Per",
+    # 조동사·be동사(문두 흔함)
+    "Is", "Are", "Was", "Were", "Be", "Been", "Being", "Do", "Does", "Did", "Has",
+    "Have", "Had", "Can", "Could", "May", "Might", "Must", "Shall", "Should", "Will",
+    "Would",
 }
 
 

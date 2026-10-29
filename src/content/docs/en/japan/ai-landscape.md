@@ -52,8 +52,8 @@ The Digital Agency has developed and operates **Gennai (源内)** in-house, a ge
 - **March 6, 2026**: seven proposals were selected for trial as domestic LLMs with government procurement in mind — NTT Data's tsuzumi 2, KDDI/ELYZA's Llama-3.1-ELYZA-JP-70B, SoftBank's Sarashina2 mini, NEC's cotomi v3, Fujitsu's Takane 32B, PFN's PLaMo 2.0 Prime, and Custom Cloud's CC Gov-LLM.
 - **May 2026**: of the seven selected proposals, formal contracts were signed with **five companies**, and the models deployed in the large-scale trial (on the Sakura environment) were narrowed down to **three**.
 - **May 2026**: a large-scale trial began across all ministries (39 agencies), targeting roughly 180,000 users, expanding in stages (about 100,000 users as of May 2026, with the Ministry of Defense, MEXT, and others being added to reach the 180,000 target from June onward).
-- **August 2026**: a stage described in secondary reporting as the build-out of the domestic LLM evaluation environment (preceding formal trial use within Gennai). Actual completion has not been confirmed via official announcements.
-- **September–November 2026**: the A/B trial window for the three domestic LLM models above (per secondary reporting). As of the review date (September 2026) this is at an early stage; actual progress and completion need confirmation via official announcements.
+- **August 2026**: the domestic LLM evaluation environment is built (a stage preceding formal trial use within Gennai). The Digital Agency's official announcement states the experiment environment is built "by August."
+- **September–November 2026**: the A/B trial window for the three domestic LLM models above (stated in the official announcement). As of the review date (September 2026), this window has begun.
 - **January 2027 (planned)**: partial disclosure of evaluation and verification results.
 - **April 2027 (planned)**: paid procurement begins for models that performed well.
 - **April 24, 2026**: some Gennai functionality was open-sourced on GitHub under the MIT License and CC BY 4.0, aimed at supporting local governments and others in building their own AI infrastructure.

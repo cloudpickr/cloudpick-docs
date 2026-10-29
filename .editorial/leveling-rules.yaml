@@ -1,0 +1,84 @@
+# 레벨링 교정 규칙 — 축4(재구성/교정)의 권위 원본 (council v1 합의).
+#
+# 이 파일이 레벨링 교정의 유일한 권위 기준이다. AGENTS.md/스타일 가이드는 이 파일을
+# 가리키기만 하고 임계값을 중복 기재하지 않는다(drift 방지). 페르소나·보호 카테고리·
+# 임계값 변경은 "기준 변경"이므로 5에이전트 과반 의결 대상이며, CODEOWNERS로 보호해
+# 에이전트가 자기 규칙을 스스로 바꾸지 못하게 한다.
+#
+# 핵심 원칙(불변): 레벨링은 '표현'만 바꾼다. '사실'(수치·날짜·버전·상태어·고유명사·
+# 링크·코드·표)은 바이트/멀티셋 수준에서 불변이어야 한다. 사실 의심은 레벨링이
+# 해소하지 않고 Axis-1(stale) 큐로 라우팅한다.
+
+version: 1
+
+# ── 타깃 독자(페르소나) ──────────────────────────────────────────────
+persona:
+  reader: "한 클라우드를 아는 플랫폼/엔터프라이즈 아키텍트 (intro-to-intermediate)"
+  guidance:
+    - "표준 약어(VPC, IAM, CIDR, DNS, TLS, API 등)는 재정의하지 않는다."
+    - "생소한 용어만 첫 등장 시 한 절(clause)로 짧게 설명한다."
+    - "한 문단은 한 가지 생각. 여러 절이 겹친 긴 문장은 나눈다."
+  tone:
+    - "과장·우월성 주장 금지(최고·완벽·무결·압도적 등). 벤더 중립 유지."
+    - "트레이드오프와 조건을 지우지 않는다(쉽게 쓰려다 단정하지 않기)."
+
+# ── 가독성 신호(경고·선별용, 블로킹 아님) ────────────────────────────
+readability:
+  sentence_chars_soft: 80     # 초과 시 경고(선별 신호)
+  sentence_chars_hard: 120    # 초과 시 강한 선별 신호(여전히 블로킹 아님)
+  # 한국어 교착어 특성상 짧은 상한은 수식어를 떨구게 하므로 soft/hard로만 쓴다.
+
+# ── 사실 불변식(diff 가드 — 위반 시 fail-closed, LLM이 뒤집을 수 없음) ──
+# 아래 항목이 레벨링 PR(axis-4-leveling)에서 '변경'되면 가드가 차단한다.
+invariants:
+  byte_identical:            # 바이트 단위로 동일해야 하는 블록
+    - code_fence             # ``` 코드블록
+    - mermaid                # ```mermaid
+    - table_cell             # 표 셀 내용
+    - frontmatter            # --- 프론트매터 ---
+    - review_marker          # "> 문서 기준: YYYY년 M월" / Last reviewed / 文書基準
+  structure_identical:       # 순서·텍스트 동일
+    - headings               # H1~H4 제목과 순서
+  multiset_identical:        # 추가/삭제 없이 집합이 같아야 함(순서 무관)
+    - link_urls              # [..](url) 의 url, <url>
+    - numbers_with_units     # 숫자+단위/날짜/버전/퍼센트 (예: 22개 리전, 2026-09, v1.0, 80%)
+    - proper_nouns           # 라틴 고유명사·백틱 식별자·벤더 서비스명
+  # 문단별 수식어/서법어 개수 보존(oversimplification·사실 약화 탐지).
+  per_paragraph_modality_preserved:
+    - "Preview"
+    - "GA"
+    - "일부"
+    - "최대"
+    - "최소"
+    - "필수"
+    - "권장"
+    - "미지원"
+    - "지원"
+    - "only"
+    - "may"
+    - "예정"
+    - "불가"
+
+# ── 의미 보존 semantic 블로킹(닫힌 enum만 — 게이밍 방지) ──────────────
+# LLM 리뷰어는 아래 유형만 '차단' 신호로 낼 수 있고, 'contradicted'를 선언하지 않는다.
+# 각 신호는 정확한 before/after 인용을 첨부해야 하며, 유일한 수정은 해당 hunk revert.
+semantic_block_enum:
+  - negation_flip            # 긍정↔부정 뒤집힘
+  - modality_drop            # 서법어(may/권장/조건) 소실·강화
+  - omission_of_condition    # 조건·단서 삭제
+  - vendor_tilt              # 벤더 중립 훼손(특정 벤더 우호/비하)
+
+# ── 자율 수정 루프 상한 ───────────────────────────────────────────────
+revision_loop:
+  max_auto_rounds: 1         # 리뷰 changes_requested 자동 반영 1회만
+  expiry_hours: 24           # 초과 시 human-hold
+  on_guard_refail: human-hold
+  on_repeated_findings: human-hold
+  on_reviewer_dissent: human-hold
+  prefer_hunk_revert: true   # 세 번째 재작성보다 hunk revert가 기본값(라운드로 안 셈)
+
+# ── 순회·비용 ─────────────────────────────────────────────────────────
+traversal:
+  llm_docs_per_month: 8      # 결정론 선별 상위 N문서만 LLM 레벨링(전수 금지)
+  pr_scope: "1 logical doc + ko/en/ja mirror only"  # PR 1개 = 논리 1문서 + 3로케일
+  structure_changes_excluded: true  # 제목변경·분할·이동·사이드바는 레벨링 PR 금지(과반 의결 별도)

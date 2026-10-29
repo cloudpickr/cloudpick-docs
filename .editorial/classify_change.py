@@ -88,6 +88,40 @@ def _total_lines(changes: list[FileChange]) -> int:
     return sum(c.added + c.deleted for c in changes)
 
 
+def _packet_is_legal_b(packet) -> bool:
+    """레벨링 PR의 빈 claim_ledger를 'legal B(사실 주장 없음)'로 인정하는지 판정.
+
+    레벨링은 표현만 바꾸므로 새 사실 주장이 없어 claim_ledger가 비어도 정당하다. 단
+    남용(출처 날조 회피)을 막기 위해 패킷이 'leveling' 성격을 tier_reasons/policy_action으로
+    명시해야 하고, claim_ledger는 실제로 비어 있어야 한다. (규제 경로 제외는 호출부에서 처리.)
+    """
+    if not isinstance(packet, dict):
+        return False
+    if packet.get("claim_ledger"):
+        return False
+    reasons = " ".join(packet.get("tier_reasons", []) or [])
+    return ("leveling" in reasons.lower()) or ("레벨링" in reasons)
+
+
+def _is_single_logical_doc(changes: list[FileChange]) -> bool:
+    """변경이 '정확히 1개 논리 문서'(로케일 미러만)인지. 레벨링 legal-B의 범위 제한.
+
+    src/content/docs/<locale>/<rest> 에서 locale(ko/en/ja)만 벗겨 '논리 경로'로 묶는다.
+    논리 경로가 2개 이상이면(서로 다른 문서를 함께 변경) False → 사람 승인(C). rename의
+    이전 경로도 같은 논리 문서여야 한다. 문서 밖 변경이 섞이면 False(보수적)."""
+    import re as _re
+    logical = set()
+    for c in changes:
+        for p in (c.path, c.old_path):
+            if not p:
+                continue
+            m = _re.match(r"^src/content/docs/(?:ko|en|ja)/(.+)$", p)
+            if not m:
+                return False  # 문서 밖 경로가 섞임 → legal-B 범위 아님
+            logical.add(m.group(1))
+    return len(logical) == 1
+
+
 def _touches_astro_config_or_sidebar(changes: list[FileChange]) -> list[str]:
     reasons = []
     for c in changes:
@@ -163,6 +197,19 @@ def classify(
     # A 실패 → B. 단 근거(claim_ledger)나 명시 범위가 없으면 상향(escalate to C).
     if has_claims:
         return Classification("B", ["bounded factual update with evidence"] + a_blockers + risk_paths)
+
+    # legal B(레벨링): 빈 claim_ledger가 '사실 주장 없음'의 정당한 신호인 경우 B로 인정한다.
+    # 레벨링은 표현만 바꾸므로 새 사실 주장이 없다(패킷 tier_reasons가 leveling 성격을 명시).
+    # 남용·광범위 변경 방지를 위해 모두 요구:
+    #   - 변경이 '정확히 1개 논리 문서'(ko/en/ja 미러만) — 다중 문서면 C로 둬 사람 승인(Codex P1).
+    #   - country/governance(규제) 경로가 아님 — 규제 문서 레벨링은 C(사람 승인) 유지.
+    # 결정론 가드(leveling-guard)는 axis-4-leveling 라벨 PR에서 필수로 돌아 사실 불변을 강제한다.
+    # 이 분류기는 라벨을 볼 수 없으므로 범위를 1 논리 문서로 엄격 제한해 악용 표면을 최소화한다.
+    if _packet_is_legal_b(packet) and not risk_paths and _is_single_logical_doc(scoped):
+        return Classification(
+            "B",
+            ["leveling: empty claim_ledger is legal (expression-only, single logical doc)"] + a_blockers,
+        )
 
     # 근거 없는 비기계적 변경 = 범위/의도 불명확 → C로 상향(조용한 하향 금지).
     return Classification(

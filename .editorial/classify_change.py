@@ -88,6 +88,21 @@ def _total_lines(changes: list[FileChange]) -> int:
     return sum(c.added + c.deleted for c in changes)
 
 
+def _packet_is_legal_b(packet) -> bool:
+    """레벨링 PR의 빈 claim_ledger를 'legal B(사실 주장 없음)'로 인정하는지 판정.
+
+    레벨링은 표현만 바꾸므로 새 사실 주장이 없어 claim_ledger가 비어도 정당하다. 단
+    남용(출처 날조 회피)을 막기 위해 패킷이 'leveling' 성격을 tier_reasons/policy_action으로
+    명시해야 하고, claim_ledger는 실제로 비어 있어야 한다. (규제 경로 제외는 호출부에서 처리.)
+    """
+    if not isinstance(packet, dict):
+        return False
+    if packet.get("claim_ledger"):
+        return False
+    reasons = " ".join(packet.get("tier_reasons", []) or [])
+    return ("leveling" in reasons.lower()) or ("레벨링" in reasons)
+
+
 def _touches_astro_config_or_sidebar(changes: list[FileChange]) -> list[str]:
     reasons = []
     for c in changes:
@@ -163,6 +178,16 @@ def classify(
     # A 실패 → B. 단 근거(claim_ledger)나 명시 범위가 없으면 상향(escalate to C).
     if has_claims:
         return Classification("B", ["bounded factual update with evidence"] + a_blockers + risk_paths)
+
+    # legal B(레벨링): 빈 claim_ledger가 '사실 주장 없음'의 정당한 신호인 경우 B로 인정한다.
+    # 레벨링은 표현만 바꾸므로 새 사실 주장이 없다(패킷 tier_reasons가 leveling 성격을 명시).
+    # 단 country/governance(규제) 경로의 레벨링은 보수적으로 C(사람 승인) 유지 — 규제 문서의
+    # 표현 변경도 뉘앙스 왜곡 위험이 있어 사람 확인을 요구한다(council: 규제는 더 엄격).
+    if _packet_is_legal_b(packet) and not risk_paths:
+        return Classification(
+            "B",
+            ["leveling: empty claim_ledger is legal (expression-only, no factual claim)"] + a_blockers,
+        )
 
     # 근거 없는 비기계적 변경 = 범위/의도 불명확 → C로 상향(조용한 하향 금지).
     return Classification(

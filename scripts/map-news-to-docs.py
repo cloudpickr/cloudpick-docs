@@ -72,12 +72,18 @@ def tokenize(s: str) -> set[str]:
 
 
 def alias_tokens(s: str) -> set[str]:
-    """문자열에서 별칭 사전 키를 히트시킨 정규화 토큰 집합."""
+    """문자열에서 별칭 사전 키를 히트시킨 정규화 토큰 집합.
+
+    별칭은 '단어/구 경계'로 매칭한다. 부분문자열 매칭(예: 'rag' in 'storage')은
+    storage 문서를 RAG로 오분류하므로 금지(Codex P2)."""
     low = s.lower()
     hits = set()
     for key, variants in ALIASES.items():
-        if any(v in low for v in variants):
-            hits.add(key)
+        for v in variants:
+            # 별칭이 단어/구 경계로 등장할 때만 히트. 영숫자 경계는 \b, 그 외(공백·구두점)는 룩어라운드.
+            if re.search(r"(?<![a-z0-9])" + re.escape(v) + r"(?![a-z0-9])", low):
+                hits.add(key)
+                break
     return hits
 
 

@@ -70,7 +70,10 @@ def cooccurs(body: str, probe: str, status_re, window: int = WINDOW) -> bool:
 
 def quote_is_substring(quote: str, excerpts: list[str]) -> bool:
     """LLM이 반환한 인용문이 실제 fetch 발췌의 '정확한 부분문자열'인지 자동 검증.
-    council D항: 인용 필수만으론 불충분 — 이 결정론적 단언이 동반돼야 한다."""
+    council D항: 인용 필수만으론 불충분 — 이 결정론적 단언이 동반돼야 한다.
+    방어: quote가 문자열이 아니면 False(런을 깨지 않는다)."""
+    if not isinstance(quote, str):
+        return False
     nq = normalize(quote)
     if len(nq) < 8:
         return False
@@ -155,7 +158,11 @@ def llm_adjudicate(sentence: str, body: str, *, config=None, call_fn=None):
     )
     messages = [{"role": "system", "content": system}, {"role": "user", "content": user}]
     call_fn = call_fn or rr._default_gateway_call
-    model = config.reviewer_model or (config.reviewer_pool or [{}])[0].get("model")
+    # 모델 선택: pool이 있으면 pool 우선(README·is_configured 규약), 없으면 단일 reviewer_model.
+    if config.reviewer_pool:
+        model = config.reviewer_pool[0].get("model")
+    else:
+        model = config.reviewer_model
     try:
         raw = call_fn(messages, model, 512)
         parsed = _json.loads(raw)
@@ -166,6 +173,9 @@ def llm_adjudicate(sentence: str, body: str, *, config=None, call_fn=None):
 
     if verdict not in ("supports", "contradicts", "does-not-mention"):
         return {"verdict": "error", "error": f"bad verdict {verdict!r}"}
+    # quote 타입 방어: 모델이 non-string(숫자 등)을 반환해도 런 전체를 깨지 않는다.
+    if not isinstance(quote, str):
+        return {"verdict": "error", "error": f"non-string quote: {type(quote).__name__}"}
     q_ok = quote_is_substring(quote, excerpts) if quote else (verdict == "does-not-mention")
     return {"verdict": verdict, "quote": quote, "quote_ok": q_ok}
 

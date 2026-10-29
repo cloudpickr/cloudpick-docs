@@ -111,8 +111,9 @@ def proper_nouns(text):
     """라틴 고유명사(대문자 포함 토큰)·백틱 식별자. 코드블록 제외."""
     body = re.sub(r"```.*?```", "", text, flags=re.S)
     backtick = re.findall(r"`([^`]+)`", body)
-    # 대문자가 섞인 라틴 토큰(예: AgentCore, Bedrock, DynamoDB, VPC) + 숫자 조합
-    latin = re.findall(r"\b([A-Z][A-Za-z0-9]+(?:[A-Z][A-Za-z0-9]*)*)\b", body)
+    # 대문자로 시작하는 라틴 토큰(CamelCase 포함). 중첩 수량자 없이 단일 문자클래스로
+    # 매칭해 ReDoS(지수 백트래킹)를 피한다. 예: AgentCore, Bedrock, DynamoDB, VPC.
+    latin = re.findall(r"\b[A-Z][A-Za-z0-9]*\b", body)
     return [t for t in backtick + latin if len(t) > 1]
 
 

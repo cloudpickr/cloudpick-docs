@@ -268,6 +268,7 @@ jobs:
       # 건너뛴다(토큰 없이는 format=source 거부됨). 하루 1회만 — 같은 날 코멘트가 이미 있으면 skip.
       - name: Daily — collect vendor news from whats-new.cloud MCP
         if: steps.mode.outputs.action == 'daily'
+        id: daily
         uses: actions/github-script@v9
         env:
           WHATS_NEW_MCP_URL: https://whats-new.cloud/mcp
@@ -346,6 +347,7 @@ jobs:
             const PER_CALL = 50;
             let sections = [];
             let errors = [];
+            const allItems = [];  // 축2 매핑용: 수집된 모든 항목(title/url/csp) 누적
             for (const csp of csps) {
               try {
                 // 당일+전일 각각 조회 후 article_id 기준 dedupe.
@@ -358,6 +360,10 @@ jobs:
                     if (seen.has(key)) continue;
                     seen.add(key);
                     merged.push(r);
+                    allItems.push({
+                      title: (r.title || r.original_title || "").replace(/\n/g, " ").trim(),
+                      url: r.url, csp,
+                    });
                   }
                 }
                 if (merged.length) {
@@ -399,3 +405,36 @@ jobs:
               issue_number: issue.number, body,
             });
             core.info(`daily: #${issue.number}에 ${sections.length}개 CSP 소식 코멘트 완료(${d1}~${d0} UTC).`);
+
+            // 축2: 수집 항목을 파일로 저장하고 이슈 번호를 output으로 넘긴다(다음 매핑 스텝이 사용).
+            const fs = require('fs');
+            fs.writeFileSync('/tmp/news-items.json', JSON.stringify(allItems));
+            core.setOutput('issue_number', String(issue.number));
+            core.setOutput('date_range', `${d1}~${d0}`);
+
+      # 축2 매핑(제보 전용): daily가 수집한 새 소식을 관련 ko 문서 후보에 결정론 매핑해
+      # 같은 이슈에 코멘트로 제보한다. 반영은 사람/에이전트의 근거 패킷 PR(AGENTS.md 축2).
+      # daily가 이슈 번호를 output으로 넘겼을 때만(=수집 성공) 실행. 실패해도 이슈를 깨지 않는다.
+      - name: Daily — checkout for news→docs mapping
+        if: steps.mode.outputs.action == 'daily' && steps.daily.outputs.issue_number != ''
+        uses: actions/checkout@v5
+      - name: Daily — setup python for mapping
+        if: steps.mode.outputs.action == 'daily' && steps.daily.outputs.issue_number != ''
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Daily — map news to candidate docs and comment
+        if: steps.mode.outputs.action == 'daily' && steps.daily.outputs.issue_number != ''
+        continue-on-error: true
+        env:
+          ISSUE: ${{ steps.daily.outputs.issue_number }}
+          RANGE: ${{ steps.daily.outputs.date_range }}
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -e
+          # 수집 항목이 없으면 조용히 종료.
+          if [ ! -s /tmp/news-items.json ] || [ "$(python3 -c 'import json;print(len(json.load(open("/tmp/news-items.json"))))')" = "0" ]; then
+            echo "매핑: 수집 항목 없음 — 생략."; exit 0
+          fi
+          python3 scripts/map-news-to-docs.py --news /tmp/news-items.json --json > /tmp/news-map.json || { echo "매핑 실패 — 생략."; exit 0; }
+          python3 scripts/post-news-map-comment.py /tmp/news-map.json "$ISSUE" "$RANGE"

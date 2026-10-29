@@ -150,5 +150,52 @@ class TestDiffParsing(unittest.TestCase):
         self.assertEqual(changes[0].old_path, "src/content/docs/ko/orig.md")
 
 
+class TestLinkRefresh(unittest.TestCase):
+    """link-refresh 패킷: URL-only 현행화의 경량 티어(비규제 B / 규제 C)."""
+
+    def _packet(self, action="link-refresh", reasons=None):
+        return {
+            "policy_action": action,
+            "tier_reasons": reasons or ["link-refresh: redirect targets updated"],
+            "claim_ledger": [],
+        }
+
+    def test_core_path_link_refresh_is_B(self):
+        changes = [mod(f"{DOC}/ko/ai/agents.md", 10, 10),
+                   mod(f"{DOC}/en/ai/agents.md", 10, 10),
+                   mod(f"{DOC}/ja/ai/agents.md", 10, 10)]
+        r = cc.classify(changes, self._packet())
+        self.assertEqual(r.tier, "B")
+
+    def test_multi_doc_link_refresh_still_B(self):
+        # 레벨링과 달리 1 논리 문서 제한 없음(전 문서 분산이 본질).
+        changes = [mod(f"{DOC}/ko/ai/agents.md", 40, 40),
+                   mod(f"{DOC}/ko/compute/containers.md", 40, 40),
+                   mod(f"{DOC}/ko/storage/backup.md", 40, 40)]
+        r = cc.classify(changes, self._packet())
+        self.assertEqual(r.tier, "B")
+
+    def test_regulatory_path_link_refresh_is_C(self):
+        changes = [mod(f"{DOC}/ko/korea/security/csap.md", 5, 5)]
+        r = cc.classify(changes, self._packet())
+        self.assertEqual(r.tier, "C")
+
+    def test_link_refresh_requires_empty_ledger(self):
+        # claim_ledger가 있으면 link-refresh 자격 아님 → 일반 B 경로.
+        p = self._packet()
+        p["claim_ledger"] = [{"claim": "x", "source_url": "https://e.com", "quote": "q",
+                              "checked_at": "2026-10-01T00:00:00+09:00", "status": "verified"}]
+        changes = [mod(f"{DOC}/ko/ai/agents.md", 10, 10)]
+        r = cc.classify(changes, p)
+        self.assertEqual(r.tier, "B")  # evidence-backed bounded update
+
+    def test_link_refresh_via_tier_reasons(self):
+        p = {"tier_reasons": ["링크 현행화: 리다이렉트 최종 URL 반영"], "claim_ledger": []}
+        # 20줄 초과로 A 자격을 벗어나야 link-refresh 분기(B)에 도달.
+        changes = [mod(f"{DOC}/ko/ai/agents.md", 30, 30)]
+        r = cc.classify(changes, p)
+        self.assertEqual(r.tier, "B")
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

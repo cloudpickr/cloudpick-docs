@@ -15,6 +15,7 @@ AGENTS.md "표기 및 문체 규약 / 문서 형식 및 구조 일관성"을 기
 | `lint-mermaid.py` | Mermaid 11.x 호환성(특수문자 따옴표·코드펜스) | `mermaid-lint` (required) |
 | `lint-emphasis.py` | CJK 문맥의 볼드(`**`) 닫는 경계 | `emphasis-lint` |
 | `leveling-guard.py` | 축4 교정 PR의 사실 불변 강제(결정론, LLM보다 먼저) | `leveling-guard` (label-gated) |
+| `link-refresh-guard.py` | 축1 링크 현행화 PR의 'URL 교체만' 재구성 매칭 증명(결정론) | `link-refresh-guard` (label-gated) |
 
 ### 경고 전용(warn-only, 머지 비차단)
 
@@ -37,6 +38,8 @@ AGENTS.md "표기 및 문체 규약 / 문서 형식 및 구조 일관성"을 기
 | `post-news-map-comment.py` | 축2 | 매핑 결과를 월간 트래킹 이슈에 코멘트(제보) |
 | `scan-leveling-candidates.py` | 축4 | 레벨링 후보 ko 문서 선별(제보) |
 | `leveling-guard.py` | 축4 | 레벨링 PR 사실 불변 가드(차단) |
+| `link-refresh-guard.py` | 축1 | 링크 현행화 PR의 URL-only 재구성 매칭 가드(차단) |
+| `link-refresh-manifest.py` | 축1 | link-refresh 패킷 url_map 병합 + manifest_sha256 대조 |
 
 ## 빌드·인덱싱 (`.mjs`)
 

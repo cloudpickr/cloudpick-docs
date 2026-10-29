@@ -143,3 +143,65 @@ jobs:
             exit 1
           fi
           echo "✅ 레벨링 가드 통과(전 로케일 표현 전용)."
+
+  # 링크 현행화 가드 — 'link-refresh' 라벨 PR에서 URL 교체만 했음을 결정론적으로 증명한다.
+  # leveling-guard와 같은 required 설계: 라벨 없으면 즉시 통과(일반 PR). 라벨이 있으면:
+  #   1) 이 PR이 변경한 패킷(.editorial/packets/*.json)에서 link_refresh.url_map을 읽고,
+  #   2) 변경된 모든 로케일 문서를 base와 비교해 '재구성 매칭'(URL 외 변경 없음)을 강제한다.
+  # 가드 실패(사실·문장 변경, 라인 증감, 코드/frontmatter/인라인코드 내부 변경)는 머지 차단.
+  # (classify_change가 link-refresh 패킷을 B로 인정하는 '자격'과 짝이 되는 CI 증명이다.)
+  link-refresh-guard:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - name: Run link-refresh guard on changed docs (link-refresh label only)
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          HAS_LABEL: ${{ contains(github.event.pull_request.labels.*.name, 'link-refresh') }}
+        run: |
+          set -euo pipefail
+          if [ "$HAS_LABEL" != "true" ]; then
+            echo "link-refresh 라벨 없음 — 링크 현행화 가드 건너뜀(일반 PR은 대상 아님)."
+            exit 0
+          fi
+          echo "link-refresh 라벨 감지 — url_map 추출 후 변경 문서에 재구성 매칭 가드 적용."
+          # 1) 이 PR이 변경/추가한 패킷에서 link_refresh.url_map을 모아 하나의 매핑으로 합친다.
+          CHANGED_ALL=$(git diff --name-only "$BASE_SHA" "$HEAD_SHA")
+          PACKETS=$(echo "$CHANGED_ALL" | grep -E '^\.editorial/packets/.*\.json$' || true)
+          if [ -z "$PACKETS" ]; then
+            echo "❌ link-refresh 라벨인데 변경된 패킷이 없습니다 — url_map 출처 없음."; exit 1
+          fi
+          python3 scripts/link-refresh-manifest.py merge $PACKETS > /tmp/url_map.json
+          # 1b) 각 패킷의 manifest_sha256·changed_paths_count를 실제 변경과 대조(완전성·불변성).
+          DOCS=$(echo "$CHANGED_ALL" | grep -E '^src/content/docs/(ko|en|ja)/.*\.mdx?$' || true)
+          echo "$DOCS" > /tmp/changed_docs.txt
+          for pkt in $PACKETS; do
+            python3 scripts/link-refresh-manifest.py verify --packet "$pkt" \
+              --changed-paths /tmp/changed_docs.txt --base-sha "$BASE_SHA" --head-sha "$HEAD_SHA"
+          done
+          # 2) 변경된 모든 로케일 문서에 재구성 매칭 가드 적용(fail-closed).
+          if [ -z "$DOCS" ]; then echo "변경된 문서 없음."; exit 0; fi
+          FAIL=0
+          for f in $DOCS; do
+            if ! git show "$BASE_SHA:$f" > /tmp/base.md 2>/dev/null; then
+              echo "❌ 신규 파일 $f — link-refresh는 기존 문서의 URL만 바꾼다(신규/이동 불가)."
+              FAIL=1; continue
+            fi
+            echo "::group::link-refresh-guard $f"
+            if ! python3 scripts/link-refresh-guard.py --base /tmp/base.md --head "$f" --mapping /tmp/url_map.json; then
+              FAIL=1
+            fi
+            echo "::endgroup::"
+          done
+          if [ "$FAIL" -ne 0 ]; then
+            echo "❌ link-refresh PR이 URL 외 변경을 포함합니다 — 사실 변경은 축1(근거 패킷) 경로로 보내세요."
+            exit 1
+          fi
+          echo "✅ 링크 현행화 가드 통과(전 로케일 URL 교체 전용)."

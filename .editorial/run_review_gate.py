@@ -165,6 +165,13 @@ def run(args) -> dict:
                         args, packet_sha, reviewer_cfg)
         reasons.append("leveling meaning-preserved review: ok")
 
+    # link-refresh(URL-only 현행화) 전용: 사실 불변은 결정론 가드(scripts/link-refresh-guard.py)가
+    # CI required 잡으로 전수 증명한다(base/head 전체 파일 필요 — diff만으론 불가). 이 게이트는
+    # 분류·독립 리뷰까지만 책임지고, 가드 통과를 '머지 전제'로 명시해 기록한다(가드 required는
+    # 분류 자격에서 파생 — docs-quality.yml이 link-refresh 패킷 PR에서 가드 잡을 required로 돌림).
+    if _is_link_refresh_packet(packet):
+        reasons.append("link-refresh: URL-only change — CI link-refresh-guard(재구성 매칭)가 사실 불변을 전수 증명해야 머지 가능")
+
     # 감사 정확성: 실제 선택된 리뷰어 model을 envelope에 기록(단일 고정값 아님).
     reviewer_cfg = review.selected_model or (config.reviewer_model or "unset")
     return _out(tier, review.verdict, reasons, args, packet_sha, reviewer_cfg)
@@ -176,6 +183,17 @@ def _is_leveling_packet(packet: dict) -> bool:
         return False
     reasons = " ".join(packet.get("tier_reasons", []) or [])
     return ("leveling" in reasons.lower()) or ("레벨링" in reasons)
+
+
+def _is_link_refresh_packet(packet: dict) -> bool:
+    """패킷이 link-refresh(URL-only 현행화) 성격인지 — claim_ledger 비었고
+    policy_action=='link-refresh' 또는 tier_reasons에 link-refresh/링크 현행화 표기."""
+    if not isinstance(packet, dict) or packet.get("claim_ledger"):
+        return False
+    if (packet.get("policy_action") or "") == "link-refresh":
+        return True
+    reasons = " ".join(packet.get("tier_reasons", []) or [])
+    return ("link-refresh" in reasons.lower()) or ("링크 현행화" in reasons)
 
 
 def _meaning_preserved_from_diff(diff_text: str, packet: dict) -> dict:

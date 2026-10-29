@@ -29,7 +29,18 @@
 | `review_runner.py` | B/C **독립 LLM 리뷰**(LiteLLM 재사용, writer-distinct 강제, 예산·호출·토큰 상한, outage/미설정은 non-pass). |
 | `source_fetch.py` | 패킷 `source_url`을 **독립 fetch해 대조**(SSRF 방어: 사설/메타데이터·불안전 리다이렉트 거부, 바이트·시간 상한). |
 | `envelope.py` | 리뷰 결과를 repo/PR/base_sha/head_sha/packet-SHA256/policy/reviewer-config 튜플에 **바인딩**(하나라도 바뀌면 캐시 미스). |
-| `run_review_gate.py` | **게이트 오케스트레이터** — 패킷검증→분류→(B/C)독립리뷰→verdict. 레벨링 패킷은 의미보존 리뷰로 분기(fail-closed). |
+| `run_review_gate.py` | **게이트 오케스트레이터** — 패킷검증→분류→(B/C)독립리뷰→verdict. 레벨링 패킷은 의미보존 리뷰로 분기(fail-closed), link-refresh 패킷은 CI 가드 통과를 머지 전제로 명시. |
+
+### 축1 — 링크 현행화(link-refresh, URL-only)
+
+| 파일 | 역할 |
+| --- | --- |
+| `scripts/link-refresh-guard.py` (루트) | '재구성 매칭'으로 URL 교체만 했음을 결정론 증명(승인 매핑을 base에 적용→head와 바이트 일치). 라인증감·코드/frontmatter/인라인코드/mermaid 내부·URL 외 변경은 fail-closed. |
+| `scripts/link-refresh-manifest.py` (루트) | 패킷 `link_refresh.url_map` 병합(가드 입력) + `manifest_sha256` 재계산 대조(전체 경로·매핑·base/head SHA 완전성·불변성 보증, changed_paths 64 상한 우회). |
+
+:::note
+link-refresh 패킷은 `policy_action: "link-refresh"` + 빈 `claim_ledger` + `link_refresh{url_map, manifest_sha256, changed_paths_count}`. 비규제 경로는 분류기가 B로 인정(사람 승인 불필요, 독립 리뷰만), 규제 경로(korea/japan/eu/us/singapore)는 C 유지. 상세는 AGENTS.md "축1 링크 현행화 예외".
+:::
 
 ### 축1 — 노후(stale) 스캔 전용 헬퍼
 

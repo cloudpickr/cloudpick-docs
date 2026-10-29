@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "jira_key": "DOCS-225",
+  "policy_action": "update",
+  "tier_hint": "B",
+  "tier_reasons": [
+    "stale 검증기(2단계)가 governance/finops.md의 'AWS FinOps Agent [Preview]'를 ambiguous로 분류 → 공식 출처로 현행성 확인 결과 2026년 10월 현재도 Preview가 맞음(현행). 2차 보도(siliconangle)만 인용돼 있던 것에 AWS 공식 문서 링크를 병기해 상태 근거를 1차 출처로 보강",
+    "사실(Preview 상태)은 변경 없음 — 출처 품질만 향상. 다음 스캔·검증에서 supports로 확정되도록 문서 내 공식 링크 추가"
+  ],
+  "target_path": "src/content/docs/ko/governance/finops.md",
+  "changed_paths": [
+    "src/content/docs/ko/governance/finops.md",
+    "src/content/docs/en/governance/finops.md",
+    "src/content/docs/ja/governance/finops.md"
+  ],
+  "generated_by_llm": true,
+  "writer": {
+    "model": "kiro-agent",
+    "provider": "kiro"
+  },
+  "claim_ledger": [
+    {
+      "claim": "AWS FinOps Agent는 2026년 6월 FinOps X에서 발표되었고, AWS 공식 문서 기준 2026년 10월 현재도 Preview(미리보기) 상태이다. 비용 이상 자동 탐지·근본 원인 분석·Slack/Jira 라우팅 기능을 제공한다.",
+      "source_url": "https://docs.aws.amazon.com/finops-agent/latest/userguide/what-is.html",
+      "quote": "What is AWS FinOps Agent (preview)? AWS FinOps Agent is a frontier agent that makes it easy for customers to continuously monitor costs, investigate anomalies, and surface optimization opportunities across their cloud environments.",
+      "checked_at": "2026-10-25T20:30:00+09:00",
+      "volatile": true,
+      "status": "verified"
+    }
+  ]
+}

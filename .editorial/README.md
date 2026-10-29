@@ -39,7 +39,7 @@
 | `scripts/link-refresh-manifest.py` (루트) | 패킷 `link_refresh.url_map` 병합(가드 입력) + `manifest_sha256` 재계산 대조(전체 경로·매핑·base/head SHA 완전성·불변성 보증, changed_paths 64 상한 우회). |
 
 :::note
-link-refresh 패킷은 `policy_action: "link-refresh"` + 빈 `claim_ledger` + `link_refresh{url_map, manifest_sha256, changed_paths_count}`. 비규제 경로는 분류기가 B로 인정(사람 승인 불필요, 독립 리뷰만), 규제 경로(korea/japan/eu/us/singapore)는 C 유지. 상세는 AGENTS.md "축1 링크 현행화 예외".
+link-refresh 패킷은 `policy_action: "link-refresh"`(이 단일 필드가 자격 부여) + 빈 `claim_ledger` + `link_refresh{url_map, manifest_sha256, changed_paths_count}`. 비규제 경로는 분류기가 B로 인정(사람 승인 불필요, 독립 리뷰만), 규제 경로(korea/japan/eu/us/singapore)는 C 유지. **강제 경로(이중)**: ① 이미 required인 `editorial-review`(run_review_gate)가 diff 재구성 매칭 + redirect 체인 re-fetch를 직접 수행해 위반 시 non-pass, ② `link-refresh-guard` 잡이 전체 파일 재구성으로 교차 강제(enforce_required_checks.sh에 required 등록). 상세는 AGENTS.md "축1 링크 현행화 예외".
 :::
 
 ### 축1 — 노후(stale) 스캔 전용 헬퍼

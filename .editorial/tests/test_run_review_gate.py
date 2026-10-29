@@ -371,10 +371,51 @@ class TestLinkRefreshRedirect(unittest.TestCase):
         self.assertFalse(r.get("error"))
         self.assertEqual(len(r["mismatches"]), 1)
 
-    def test_all_fetch_fail_is_error(self):
-        self._patch_fetch({"https://old.com/": None})
-        r = g._verify_redirect_chains({"https://old.com/": "https://new.com/"})
+    def test_partial_fetch_failure_is_error(self):
+        # governance 투표(B): 일부 성공+일부 실패도 '확인 불가' → error(hold).
+        self._patch_fetch({
+            "https://ok.com/": "https://oknew.com/",   # 성공
+            "https://bad.com/": None,                   # 실패
+        })
+        r = g._verify_redirect_chains({
+            "https://ok.com/": "https://oknew.com/",
+            "https://bad.com/": "https://badnew.com/",
+        })
         self.assertTrue(r.get("error"))
+
+
+class TestLinkRefreshReconstructDiff(unittest.TestCase):
+    """diff 기반 재구성 매칭(editorial-review 안에서 가드 강제 — governance 투표 A)."""
+
+    MAP = {"https://old.com/": "https://new.com/"}
+
+    def test_url_only_replacement_ok(self):
+        diff = (
+            "--- a/x.md\n+++ b/x.md\n@@ -1,1 +1,1 @@\n"
+            "-참고: https://old.com/ 를 보세요.\n"
+            "+참고: https://new.com/ 를 보세요.\n"
+        )
+        r = g._link_refresh_reconstruct_from_diff(diff, self.MAP)
+        self.assertFalse(r.get("block"))
+
+    def test_prose_change_blocks(self):
+        diff = (
+            "--- a/x.md\n+++ b/x.md\n@@ -1,1 +1,1 @@\n"
+            "-참고: https://old.com/ 를 보세요.\n"
+            "+참고: https://new.com/ 를 꼭 보세요.\n"
+        )
+        r = g._link_refresh_reconstruct_from_diff(diff, self.MAP)
+        self.assertTrue(r.get("block"))
+
+    def test_line_count_mismatch_blocks(self):
+        diff = (
+            "--- a/x.md\n+++ b/x.md\n@@ -1,1 +1,2 @@\n"
+            "-참고: https://old.com/\n"
+            "+참고: https://new.com/\n"
+            "+추가된 줄.\n"
+        )
+        r = g._link_refresh_reconstruct_from_diff(diff, self.MAP)
+        self.assertTrue(r.get("block"))
 
 
 if __name__ == "__main__":

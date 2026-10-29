@@ -22,6 +22,10 @@ REPO="cloudpickr/cloudpick-docs"
 BRANCH="master"
 BASE_CONTEXTS=(build docs-consistency-lint link-check mermaid-lint strikethrough-lint)
 EDITORIAL_CONTEXTS=(editorial-review editorial-c-approval)
+# 결정론 가드 잡(축4 레벨링·축1 링크 현행화). 라벨/패킷 자격이 없는 일반 PR에서는 즉시
+# 성공(비차단)하지만, required로 등록해 '가드가 빨간데 머지되는' fail-open을 심층 방어한다.
+# (1차 강제는 editorial-review가 link-refresh 재구성·레벨링 의미보존을 직접 확인하는 경로다.)
+GUARD_CONTEXTS=(leveling-guard link-refresh-guard)
 
 join_json() {  # 배열 → JSON 문자열 배열
   local out="" c
@@ -44,8 +48,8 @@ set_contexts() {  # $1 = JSON 배열
 JSON
 }
 
-TARGET_ENFORCE=$(join_json "${BASE_CONTEXTS[@]}" "${EDITORIAL_CONTEXTS[@]}")
-TARGET_ROLLBACK=$(join_json "${BASE_CONTEXTS[@]}")
+TARGET_ENFORCE=$(join_json "${BASE_CONTEXTS[@]}" "${EDITORIAL_CONTEXTS[@]}" "${GUARD_CONTEXTS[@]}")
+TARGET_ROLLBACK=$(join_json "${BASE_CONTEXTS[@]}" "${GUARD_CONTEXTS[@]}")
 
 cmd="${1:-plan}"
 echo "repo=$REPO branch=$BRANCH"

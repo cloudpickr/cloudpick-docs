@@ -180,7 +180,7 @@ def run(args) -> dict:
                         args, packet_sha)
         rchk = _verify_redirect_chains(url_map)
         if rchk.get("error"):
-            # fetch 불가/차단은 비승인(보류) — 리다이렉트=실제 이전 보증을 확인 못 함.
+            # fetch 불가/차단/부분실패는 비승인(보류) — 리다이렉트=실제 이전 보증을 확인 못 함.
             return _out(tier, "error",
                         [f"link-refresh redirect re-fetch unavailable → hold ({rchk['error']})"] + reasons,
                         args, packet_sha)
@@ -189,7 +189,20 @@ def run(args) -> dict:
                        [f"{m['old']} → 최종 {m['final']} (기대 {m['expected']})" for m in rchk["mismatches"][:10]]
             return _out(tier, "changes_requested", reasons, args, packet_sha)
         reasons.append(f"link-refresh redirect re-fetch: ok ({rchk.get('checked', 0)} URLs → new)")
-        reasons.append("link-refresh: URL-only change — CI link-refresh-guard(재구성 매칭)가 사실 불변을 전수 증명해야 머지 가능")
+
+        # governance 투표(A): 가드를 editorial-review(이미 required) 안에서 직접 강제한다.
+        # diff 재구성 매칭으로 'URL 교체만' 했음을 확인하고, 위반 시 non-pass로 머지를 막는다.
+        # (별도 link-refresh-guard 잡이 required 미등록이어도 이 경로가 차단을 보증한다.)
+        rc = _link_refresh_reconstruct_from_diff(diff_text, url_map)
+        if rc.get("error"):
+            return _out(tier, "error",
+                        [f"link-refresh reconstruct check unavailable → hold ({rc['error']})"] + reasons,
+                        args, packet_sha)
+        if rc.get("block"):
+            reasons += ["link-refresh reconstruct(diff): BLOCK — URL 외 변경 의심"] + rc.get("signals", [])[:10]
+            return _out(tier, "changes_requested", reasons, args, packet_sha)
+        reasons.append("link-refresh reconstruct(diff): ok (URL 교체만)")
+        reasons.append("link-refresh: URL-only change — CI link-refresh-guard(재구성 매칭, 전체 파일)도 교차 강제")
 
     # 감사 정확성: 실제 선택된 리뷰어 model을 envelope에 기록(단일 고정값 아님).
     reviewer_cfg = review.selected_model or (config.reviewer_model or "unset")
@@ -251,11 +264,70 @@ def _verify_redirect_chains(url_map: dict) -> dict:
         final = getattr(res, "final_url", None) or getattr(res, "url", None) or ""
         if _normalize_url(final) != _normalize_url(new):
             mismatches.append({"old": old, "final": final, "expected": new})
-    # 하나도 확인 못 했으면(전부 fetch 실패) 확인 불가 → error.
-    if checked == 0 and errors:
-        return {"error": "모든 old URL fetch 실패: " + "; ".join(errors[:5]),
-                "checked": 0, "mismatches": []}
-    return {"checked": checked, "mismatches": mismatches, "fetch_errors": errors}
+    # 하나도 확인 못 했거나(전부 실패) 일부라도 실패하면(부분 실패) 확인 불가 → error.
+    # governance 투표(B): 부분 실패를 통과시키면 '확인 안 된 old→new'가 승인되는 fail-open.
+    if errors:
+        return {"error": "일부/전체 old URL fetch 실패(확인 불가): " + "; ".join(errors[:5]),
+                "checked": checked, "mismatches": mismatches, "fetch_errors": errors}
+    return {"checked": checked, "mismatches": mismatches, "fetch_errors": []}
+
+
+def _link_refresh_reconstruct_from_diff(diff_text: str, url_map: dict) -> dict:
+    """통합 diff에서 'URL 교체만' 했음을 재구성 매칭으로 검증(가드를 editorial-review 안에서 강제).
+
+    governance 투표(A): link-refresh-guard 잡이 required로 등록돼 있지 않아 가드가 머지를
+    못 막던 fail-open을 닫는다. 이미 required인 editorial-review(run_review_gate)가 직접
+    diff 기반 재구성을 수행하고, 위반 시 non-pass verdict을 낸다. (base/head 전체 파일이
+    필요한 CI 잡 가드와 짝을 이루지만, 이 diff 검사만으로도 머지 차단을 보증한다.)
+
+    각 '변경된 라인쌍'(연속한 - 다음 +)에서 삭제줄에 url_map을 리터럴 적용한 결과가 추가줄과
+    바이트 일치해야 한다. 불일치·짝 안 맞음·순수 추가/삭제(짝 없는 +/-)는 block.
+    반환: {block: bool, signals: [str], error?: str}
+    """
+    if not diff_text:
+        return {"block": False, "signals": [], "error": "empty diff"}
+    try:
+        import importlib.util
+        import pathlib
+        guard_path = pathlib.Path(__file__).resolve().parent.parent / "scripts" / "link-refresh-guard.py"
+        spec = importlib.util.spec_from_file_location("link_refresh_guard", guard_path)
+        lrg = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(lrg)
+    except Exception as exc:  # noqa: BLE001
+        return {"block": False, "signals": [], "error": f"link-refresh-guard import 실패: {exc}"}
+
+    signals = []
+    # 통합 diff를 hunk별로 돌며 - 블록과 + 블록을 순서대로 모아 1:1 대응시킨다.
+    minus, plus = [], []
+
+    def flush():
+        # 삭제/추가 블록을 라인 단위 1:1로 재구성 비교.
+        if len(minus) != len(plus):
+            signals.append(f"라인 증감(삭제 {len(minus)} vs 추가 {len(plus)}) — URL 교체는 라인수 불변")
+            return
+        for m, p in zip(minus, plus):
+            rebuilt = lrg.reconstruct(m, url_map)
+            if rebuilt != p:
+                signals.append(f"재구성≠추가: '{m.strip()[:50]}' → '{p.strip()[:50]}'")
+        minus.clear()
+        plus.clear()
+
+    for line in diff_text.splitlines():
+        if line.startswith("+++") or line.startswith("---"):
+            continue
+        if line.startswith("@@"):
+            flush()
+            continue
+        if line.startswith("-"):
+            minus.append(line[1:])
+        elif line.startswith("+"):
+            plus.append(line[1:])
+        else:
+            # 문맥 라인 → 지금까지의 -/+ 블록을 정산.
+            flush()
+    flush()
+
+    return {"block": bool(signals), "signals": signals}
 
 
 def _meaning_preserved_from_diff(diff_text: str, packet: dict) -> dict:

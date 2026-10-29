@@ -105,7 +105,8 @@ def ym_tuple(y, mo):
 
 
 def scan_file(path, default_month):
-    text = open(path, encoding="utf-8").read()
+    with open(path, encoding="utf-8") as fh:
+        text = fh.read()
     marker = read_marker_month(text) or default_month
     lines = text.splitlines()
     kept = strip_code_fences(lines)

@@ -152,14 +152,17 @@ jobs:
         if: steps.mode.outputs.action == 'open'
         continue-on-error: true
         env:
-          AI_GATEWAY_BASE_URL: ${{ secrets.AI_GATEWAY_BASE_URL }}
+          AI_GATEWAY_BASE_URL: ${{ vars.AI_GATEWAY_BASE_URL }}
           AI_GATEWAY_TOKEN: ${{ secrets.AI_GATEWAY_TOKEN }}
-          REVIEWER_MODEL: ${{ secrets.REVIEWER_MODEL }}
-          REVIEWER_PROVIDER: ${{ secrets.REVIEWER_PROVIDER }}
+          REVIEWER_MODEL: ${{ vars.REVIEWER_MODEL }}
+          REVIEWER_PROVIDER: ${{ vars.REVIEWER_PROVIDER }}
+          REVIEWER_POOL: ${{ vars.REVIEWER_POOL }}
         run: |
-          # 게이트웨이 secret이 모두 있으면 --with-llm, 아니면 결정론+fetch만.
+          # 게이트웨이가 구성돼 있으면(--with-llm) ambiguous를 LLM으로 판정, 아니면 결정론+fetch만.
+          # 기존 워크플로와 동일한 매핑: 설정값은 vars, 토큰만 secret. pool 또는 단일 model 둘 다 허용.
           LLM=""
-          if [ -n "$AI_GATEWAY_BASE_URL" ] && [ -n "$AI_GATEWAY_TOKEN" ] && [ -n "$REVIEWER_MODEL" ]; then
+          if [ -n "$AI_GATEWAY_BASE_URL" ] && [ -n "$AI_GATEWAY_TOKEN" ] \
+             && { [ -n "$REVIEWER_MODEL" ] || [ -n "$REVIEWER_POOL" ]; }; then
             LLM="--with-llm"
           fi
           python3 scripts/verify-stale-candidates.py --candidates /tmp/stale.json --fetch $LLM --json \

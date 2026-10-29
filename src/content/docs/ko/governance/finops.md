@@ -65,7 +65,7 @@ GPU 학습/추론 인프라에 특화된 비용 최적화(용량 예약·스팟�
 
 ### AWS FinOps Agent [Preview]
 
-2026년 6월 FinOps X에서 발표된 [AWS FinOps Agent](https://siliconangle.com/2026/06/11/aws-launches-finops-agent-bring-ai-cost-governance-cloud-spend-finopsx/)(Feature Preview)는 비용 이상을 AI가 자동 탐지하고, 근본 원인을 분석하여 담당 팀에 Slack/Jira로 라우팅합니다.
+2026년 6월 FinOps X에서 발표된 [AWS FinOps Agent](https://siliconangle.com/2026/06/11/aws-launches-finops-agent-bring-ai-cost-governance-cloud-spend-finopsx/)([공식 문서](https://docs.aws.amazon.com/finops-agent/latest/userguide/what-is.html) 기준 2026년 10월 현재 Preview)는 비용 이상을 AI가 자동 탐지하고, 근본 원인을 분석하여 담당 팀에 Slack/Jira로 라우팅합니다.
 
 | 기능 | 설명 |
 | --- | --- |

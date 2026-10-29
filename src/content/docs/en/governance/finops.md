@@ -65,7 +65,7 @@ Cost optimization specific to GPU training/inference infrastructure (capacity re
 
 ### AWS FinOps Agent [Preview]
 
-The [AWS FinOps Agent](https://siliconangle.com/2026/06/11/aws-launches-finops-agent-bring-ai-cost-governance-cloud-spend-finopsx/) (Feature Preview), announced at FinOps X in June 2026, uses AI to automatically detect cost anomalies, analyze root causes, and route them to the responsible team via Slack/Jira.
+The [AWS FinOps Agent](https://siliconangle.com/2026/06/11/aws-launches-finops-agent-bring-ai-cost-governance-cloud-spend-finopsx/) (in Preview as of October 2026 per the [official docs](https://docs.aws.amazon.com/finops-agent/latest/userguide/what-is.html)), announced at FinOps X in June 2026, uses AI to automatically detect cost anomalies, analyze root causes, and route them to the responsible team via Slack/Jira.
 
 | Feature | Description |
 | --- | --- |

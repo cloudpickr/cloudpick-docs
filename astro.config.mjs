@@ -35,6 +35,8 @@ export default defineConfig({
 			routeMiddleware: './src/routeData.ts',
 			components: {
 				Head: './src/components/Head.astro',
+				// 모바일 언어·테마 선택기를 공식 경로로 렌더(커스텀 JS 치환 레이어 제거).
+				MobileMenuFooter: './src/components/MobileMenuFooter.astro',
 			},
 			customCss: [
 				'@fontsource-variable/inter/wght.css',
@@ -47,10 +49,6 @@ export default defineConfig({
 				{
 					tag: 'link',
 					attrs: { rel: 'stylesheet', href: '/fonts/pretendard/pretendardvariable-dynamic-subset.css' },
-				},
-				{
-					tag: 'script',
-					attrs: { src: '/mobile-select-menu.js', defer: true },
 				},
 				// ─── .netlify.app → docs.cloudpick.kr 리디렉트 ───
 				// 프로덕션 미러(정확히 cloudpick-docs.netlify.app)에서만 정규 도메인으로 보낸다.

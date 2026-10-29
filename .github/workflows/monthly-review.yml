@@ -77,10 +77,23 @@ jobs:
               `(AGENTS.md: 기준 시점은 월 단위로 표기하며 정기 리뷰로 최신 월로 승격.)`,
               ``,
               `## 운영 방식`,
+              `이 레포는 ko(SOT) 전체를 **공식 웹 자료 기준**으로 지속 관리하고, 변경을 en·ja에 대칭 반영한다(AGENTS.md "문서 지속 관리 운영 모델" 참고). 관리 범위는 4대 축이다.`,
+              `- **① 유지보수**: 기존 문서의 outdated 내용 수정/삭제.`,
+              `- **② 새 소식 반영**: 신규 벤더 발표를 기존 범위 안에서 반영(아래 Daily 코멘트가 후보 제보).`,
+              `- **③ 범위 확장**: 범위 밖 새 주제/구조 추가 — 5에이전트 과반 의결 대상(봇은 제보만).`,
+              `- **④ 재구성/교정**: 구조 결함·서술 오류·중복·낡은 전제 바로잡기.`,
+              ``,
               `- **Daily**: 새 소식(벤더 공식 발표 등)이 있으면 이 이슈에 **공식 링크와 함께 코멘트**로 누적한다.`,
               `- **월중 PR**: 현행화 PR은 여러 개가 될 수 있다. 각 PR 설명에 \`Refs #<이 이슈 번호>\`로 **참조만** 한다.`,
               `  - ⚠️ \`Closes/Fixes #N\`은 쓰지 말 것 — PR 하나가 머지되면 이슈가 조기에 닫힌다.`,
               `- **월말**: 사이클이 끝나면 담당자가 이 이슈를 **수동으로 닫는다**(자동 닫힘 없음). 미완 항목은 다음 달 이슈로 이월.`,
+              ``,
+              `### 후보 처리상태 표기 (중복 제보·누락 방지)`,
+              `스캔/검증이 제보한 각 후보 옆에 처리상태를 표기해 다음 달 스캔이 중복 처리하지 않게 한다.`,
+              `- ✅ **done** — 현행화 PR 머지 완료(\`Refs #N\` PR 링크).`,
+              `- 🟢 **current** — 공식 출처 확인 결과 현행(수정 불필요). 근거 링크 남김.`,
+              `- 🟡 **hold** — 공식 출처로 확정 불가(unverified). 다음 달 이월.`,
+              `- ⚪ **wontfix** — 의도적 유지(역사적 서술 등). 소스에 \`<!-- stale-ignore: 사유 -->\`로 억제.`,
               ``,
               `## 기준 시점 승격`,
               `- [ ] 전 문서 기준 마커를 \`${marker.ko}\` / \`${marker.en}\` / \`${marker.ja}\`로 승격 (index/introduction 제외)`,
@@ -125,12 +138,137 @@ jobs:
               core.info(`생성: #${created.data.number}`);
             }
 
+      # Open(매월 1일) 직후: stale 후보 스캐너(1단계, 결정론)를 ko 전체에 돌려 그 달 이슈에
+      # 요약 코멘트를 남긴다. whats-new가 '새로 나온 것'을 제보한다면, 이쪽은 '기존 문서에 이미
+      # 박힌 낡았을 수 있는 서술'을 제보한다(push 보완용 pull 스캔). 봇은 제보만 — 공식 출처
+      # 대조·수정은 담당 에이전트/사람의 패킷 PR 몫. 네트워크·LLM 없음(결정론), exit 0(비차단).
+      - name: Open — checkout for stale scan
+        if: steps.mode.outputs.action == 'open'
+        uses: actions/checkout@v5
+      - name: Open — setup python for stale scan
+        if: steps.mode.outputs.action == 'open'
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Open — run stale-candidate scan (deterministic, advisory)
+        if: steps.mode.outputs.action == 'open'
+        id: stale
+        continue-on-error: true   # 스캔 실패가 월간 이슈 생성을 깨지 않게(advisory)
+        run: |
+          python3 scripts/scan-stale-candidates.py --json > /tmp/stale.json || echo '{}' > /tmp/stale.json
+          python3 scripts/scan-stale-candidates.py > /tmp/stale.txt || true
+          echo "done"
+      # 2단계 검증: 1단계 후보를 '문서 내 공식 출처'와 대조(결정론). 네트워크는 source_fetch의
+      # SSRF 방어·상한에 의존. LLM은 게이트웨이 secret이 있을 때만(--with-llm), 미설정이면
+      # ambiguous 유지(안전 폴백). 실패해도 월간 이슈를 깨지 않는다(continue-on-error, exit 0).
+      - name: Open — verify stale candidates against in-doc sources (advisory)
+        if: steps.mode.outputs.action == 'open'
+        continue-on-error: true
+        env:
+          AI_GATEWAY_BASE_URL: ${{ vars.AI_GATEWAY_BASE_URL }}
+          AI_GATEWAY_TOKEN: ${{ secrets.AI_GATEWAY_TOKEN }}
+          REVIEWER_MODEL: ${{ vars.REVIEWER_MODEL }}
+          REVIEWER_PROVIDER: ${{ vars.REVIEWER_PROVIDER }}
+          REVIEWER_POOL: ${{ vars.REVIEWER_POOL }}
+        run: |
+          # 게이트웨이가 구성돼 있으면(--with-llm) ambiguous를 LLM으로 판정, 아니면 결정론+fetch만.
+          # 기존 워크플로와 동일한 매핑: 설정값은 vars, 토큰만 secret. pool 또는 단일 model 둘 다 허용.
+          LLM=""
+          if [ -n "$AI_GATEWAY_BASE_URL" ] && [ -n "$AI_GATEWAY_TOKEN" ] \
+             && { [ -n "$REVIEWER_MODEL" ] || [ -n "$REVIEWER_POOL" ]; }; then
+            LLM="--with-llm"
+          fi
+          python3 scripts/verify-stale-candidates.py --candidates /tmp/stale.json --fetch $LLM --json \
+            > /tmp/verify.json 2>/dev/null || echo '{}' > /tmp/verify.json
+          echo "verify done (llm=${LLM:-off})"
+      - name: Open — comment stale scan summary on the issue
+        if: steps.mode.outputs.action == 'open'
+        continue-on-error: true
+        uses: actions/github-script@v9
+        with:
+          script: |
+            const fs = require('fs');
+            const year = ${{ steps.mode.outputs.year }};
+            const month = ${{ steps.mode.outputs.month }};
+            const title = `📅 월간 문서 현행화 — ${year}년 ${month}월`;
+            let data;
+            try { data = JSON.parse(fs.readFileSync('/tmp/stale.json', 'utf8')); }
+            catch { core.warning('stale: JSON 파싱 실패 — 코멘트 생략'); return; }
+            const s = data.summary;
+            if (!s) { core.info('stale: summary 없음 — 코멘트 생략'); return; }
+
+            // 그 달 이슈 확보
+            const issues = await github.paginate(github.rest.issues.listForRepo, {
+              owner: context.repo.owner, repo: context.repo.repo,
+              state: "open", labels: "routine:monthly-review", per_page: 100,
+            });
+            const issue = issues.find((i) => i.title === title && !i.pull_request);
+            if (!issue) { core.warning(`stale: 그 달 이슈 없음(${title}) — 생략`); return; }
+
+            const highLines = (data.high || []).map(h =>
+              `  - \`${h.path}:${h.line}\` — ${h.excerpt}`).join("\n");
+            const medLines = (data.medium || []).slice(0, 30).map(m =>
+              `  - \`${m.path}:${m.line}\` — ${m.excerpt}`).join("\n");
+
+            // 2단계 검증 결과(있으면). 문서 내 공식 출처와 대조한 contradicted/unverified.
+            let verifyBlock = "";
+            try {
+              const v = JSON.parse(fs.readFileSync('/tmp/verify.json', 'utf8'));
+              if (v && v.summary) {
+                const vs = v.summary;
+                const contra = (v.contradicted || []).map(r =>
+                  `  - \`${r.path}:${r.line}\` ← ${r.evidence && r.evidence.url ? r.evidence.url : '?'} — ${r.excerpt}`).join("\n");
+                const needHuman = (v.unverified || []).filter(r => r.sub === 'needs-human-source-hunt');
+                verifyBlock = [
+                  ``,
+                  `### 🔎 2단계 검증 (문서 내 공식 출처 대조${vs.fetched ? ', fetch on' : ''})`,
+                  `contradicted=${vs.contradicted} · ambiguous=${vs.ambiguous} · supports=${vs.supports} · unverified=${vs.unverified}`,
+                  ``,
+                  vs.contradicted ? `**contradicted — 공식 출처가 현 서술과 같은 날짜 맥락에서 모순(현행화 유력)**\n${contra}`
+                                  : `contradicted 없음.`,
+                  needHuman.length ? `\n> unverified 중 ${needHuman.length}건은 문서에 공식 링크가 없어 사람이 출처를 찾아야 합니다.` : ``,
+                ].join("\n");
+              }
+            } catch (e) { /* verify.json 없거나 파싱 실패 → 검증 섹션 생략 */ }
+
+            const body = [
+              `<!-- stale-scan:${year}-${String(month).padStart(2,"0")} -->`,
+              `## 🧭 기존 문서 stale 후보 스캔 (결정론 · advisory)`,
+              ``,
+              `whats-new(새 소식)와 별개로, **기존 ko 문서에 이미 박힌 현행성 의심 서술**을 결정론적으로 제보합니다. '매칭 없음 = 최신'이 아니며, 공식 출처 대조·수정은 담당자의 패킷 PR 몫입니다.`,
+              ``,
+              `**1단계 요약**: HIGH=${s.high} · MEDIUM=${s.medium} · LOW=${s.low} (LOW는 ${s.files_with_low}개 문서)`,
+              ``,
+              s.high ? `### HIGH — 마커보다 과거인데 '예정' 미래형\n${highLines}` : `### HIGH — 없음 ✅`,
+              ``,
+              s.medium ? `### MEDIUM — Preview/Beta 상태어 (상위 30건)\n${medLines}` : `### MEDIUM — 없음`,
+              verifyBlock,
+              ``,
+              `_auto-scanned by \`monthly-review.yml\` (open) — 판단·반영은 담당자 몫._`,
+            ].join("\n");
+
+            // 같은 달 stale 코멘트가 이미 있으면 skip(멱등)
+            const marker = `<!-- stale-scan:${year}-${String(month).padStart(2,"0")} -->`;
+            const comments = await github.paginate(github.rest.issues.listComments, {
+              owner: context.repo.owner, repo: context.repo.repo,
+              issue_number: issue.number, per_page: 100,
+            });
+            if (comments.some((c) => (c.body || "").includes(marker))) {
+              core.info(`stale: ${year}-${month} 코멘트 이미 존재 — skip`); return;
+            }
+            await github.rest.issues.createComment({
+              owner: context.repo.owner, repo: context.repo.repo,
+              issue_number: issue.number, body,
+            });
+            core.info(`stale: #${issue.number}에 요약 코멘트 완료.`);
+
       # Daily: whats-new.cloud MCP(format=source, 벤더 영문 원문)로 전날 신규 릴리스를 조회해,
       # 그 달 이슈에 공식 링크와 함께 코멘트로 누적한다. 봇은 '제보'만 — 사실성 판단·문서 반영은
       # 담당 에이전트/사람의 몫(AGENTS.md 공식 출처·교차검증 원칙). MCP_TOKEN 미설정이면 안전하게
       # 건너뛴다(토큰 없이는 format=source 거부됨). 하루 1회만 — 같은 날 코멘트가 이미 있으면 skip.
       - name: Daily — collect vendor news from whats-new.cloud MCP
         if: steps.mode.outputs.action == 'daily'
+        id: daily
         uses: actions/github-script@v9
         env:
           WHATS_NEW_MCP_URL: https://whats-new.cloud/mcp
@@ -209,6 +347,7 @@ jobs:
             const PER_CALL = 50;
             let sections = [];
             let errors = [];
+            const allItems = [];  // 축2 매핑용: 수집된 모든 항목(title/url/csp) 누적
             for (const csp of csps) {
               try {
                 // 당일+전일 각각 조회 후 article_id 기준 dedupe.
@@ -221,6 +360,10 @@ jobs:
                     if (seen.has(key)) continue;
                     seen.add(key);
                     merged.push(r);
+                    allItems.push({
+                      title: (r.title || r.original_title || "").replace(/\n/g, " ").trim(),
+                      url: r.url, csp,
+                    });
                   }
                 }
                 if (merged.length) {
@@ -262,3 +405,36 @@ jobs:
               issue_number: issue.number, body,
             });
             core.info(`daily: #${issue.number}에 ${sections.length}개 CSP 소식 코멘트 완료(${d1}~${d0} UTC).`);
+
+            // 축2: 수집 항목을 파일로 저장하고 이슈 번호를 output으로 넘긴다(다음 매핑 스텝이 사용).
+            const fs = require('fs');
+            fs.writeFileSync('/tmp/news-items.json', JSON.stringify(allItems));
+            core.setOutput('issue_number', String(issue.number));
+            core.setOutput('date_range', `${d1}~${d0}`);
+
+      # 축2 매핑(제보 전용): daily가 수집한 새 소식을 관련 ko 문서 후보에 결정론 매핑해
+      # 같은 이슈에 코멘트로 제보한다. 반영은 사람/에이전트의 근거 패킷 PR(AGENTS.md 축2).
+      # daily가 이슈 번호를 output으로 넘겼을 때만(=수집 성공) 실행. 실패해도 이슈를 깨지 않는다.
+      - name: Daily — checkout for news→docs mapping
+        if: steps.mode.outputs.action == 'daily' && steps.daily.outputs.issue_number != ''
+        uses: actions/checkout@v5
+      - name: Daily — setup python for mapping
+        if: steps.mode.outputs.action == 'daily' && steps.daily.outputs.issue_number != ''
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Daily — map news to candidate docs and comment
+        if: steps.mode.outputs.action == 'daily' && steps.daily.outputs.issue_number != ''
+        continue-on-error: true
+        env:
+          ISSUE: ${{ steps.daily.outputs.issue_number }}
+          RANGE: ${{ steps.daily.outputs.date_range }}
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -e
+          # 수집 항목이 없으면 조용히 종료.
+          if [ ! -s /tmp/news-items.json ] || [ "$(python3 -c 'import json;print(len(json.load(open("/tmp/news-items.json"))))')" = "0" ]; then
+            echo "매핑: 수집 항목 없음 — 생략."; exit 0
+          fi
+          python3 scripts/map-news-to-docs.py --news /tmp/news-items.json --json > /tmp/news-map.json || { echo "매핑 실패 — 생략."; exit 0; }
+          python3 scripts/post-news-map-comment.py /tmp/news-map.json "$ISSUE" "$RANGE"

@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "jira_key": "DOCS-223",
+  "policy_action": "update",
+  "tier_hint": "C",
+  "tier_reasons": [
+    "ai/agents.md에 '상시 가동 프로액티브 에이전트로의 전환' 섹션을 신설하여 2026년 다수 벤더의 제품 동향(외부 사실)을 요약 — LLM 생성 편집 + 공식 외부 사실 포함으로 보수적으로 C 상향 가정",
+    "6개 벤더(Meta/Microsoft/AWS/Google/OpenAI/Anthropic)의 출시 시점·거버넌스 특징을 각 벤더 공식 발표로 교차검증. 가격 등 미확인 2차 블로그 수치는 본문에서 배제",
+    "기존 '에이전트 유형' 분류 내 하위 섹션 추가로 신규 카테고리/사이드바/네비 변경 없음(과반 의결 비대상). 단 거버넌스 Actions의 최종 tier 재판정에 따름"
+  ],
+  "target_path": "src/content/docs/ko/ai/agents.md",
+  "changed_paths": [
+    "src/content/docs/ko/ai/agents.md",
+    "src/content/docs/en/ai/agents.md",
+    "src/content/docs/ja/ai/agents.md"
+  ],
+  "generated_by_llm": true,
+  "writer": {
+    "model": "kiro-agent",
+    "provider": "kiro"
+  },
+  "claim_ledger": [
+    {
+      "claim": "Meta는 2026년 9월 개인용 AI 에이전트 Muse를 공개했다. Muse는 전용 Secure VM에서 동작하며, 별도의 Sentinel 에이전트가 외부(인터넷) 송신을 승인하고, 자격증명을 에이전트가 보지 않고 사용하도록 설계됐으며, 발송·결제 등 민감 행동 전 사용자 승인과 감사 추적을 제공한다.",
+      "source_url": "https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/",
+      "quote": "A separate Sentinel agent runs on that same machine ... Nothing Muse does reaches the internet unless the Sentinel approves it ... Muse has no visibility into people's passwords or payment methods.",
+      "checked_at": "2026-10-25T18:10:00+09:00",
+      "volatile": false,
+      "status": "verified"
+    },
+    {
+      "claim": "Microsoft는 2026년 6월 'Autopilots'라는 상시 가동 에이전트 신규 분류와 첫 제품 Microsoft Scout를 발표했고, 2026년 9월 25일 새 Copilot(Home·Code·Autopilot)을 발표했다. Scout/Autopilot은 에이전트마다 거버넌스된 Entra ID로 동작하고, 자격증명을 로그에서 삭제하며, Purview DLP를 실시간 적용한다. 민감 행동에 대한 사람의 승인은 무조건적 기본값이 아니라 조직이 구성한 제어에 따라 요구될 수 있는 제어다(제품 보장이 아닌 구성 가능 제어로 서술).",
+      "sources": [
+        {
+          "source_url": "https://www.microsoft.com/en-us/copilot/blog/2026/06/02/introducing-microsoft-scout-your-always-on-personal-agent/",
+          "quote": "Sensitive actions can require a human to sign off before they proceed ... Microsoft Scout doesn't bypass these controls; it operates within them, adhering to the protections your organization has already configured."
+        },
+        {
+          "source_url": "https://blogs.microsoft.com/blog/2026/09/25/introducing-the-new-copilot-with-home-code-and-autopilot/",
+          "quote": "Autopilot is a persistent, proactive and personal agent that keeps working even when you're not."
+        }
+      ],
+      "checked_at": "2026-10-25T18:10:00+09:00",
+      "volatile": false,
+      "status": "verified"
+    },
+    {
+      "claim": "AWS는 2026년 9월 Amazon Quick에 상시 가동(always-on) 에이전트를 추가했다. 스케줄·모니터링 에이전트가 클라우드에서 실행되어 노트북을 닫아도 결과를 피드로 전달하며, 관리자용 MDM 지원·퍼유저 권한·Microsoft Purview DLP 연동과 스킬 카탈로그를 제공한다.",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-quick-always-on-agents-sharper-feed-enterprise-controls/",
+      "quote": "Your agents no longer stop when you step away. Scheduled tasks and monitoring agents run in the cloud and deliver results to your feed even when your laptop is closed ... Microsoft Purview data loss prevention integration.",
+      "checked_at": "2026-10-25T18:10:00+09:00",
+      "volatile": false,
+      "status": "verified"
+    },
+    {
+      "claim": "Google은 Google I/O 2026(2026년 5월)에서 24/7 프로액티브 개인 에이전트 Gemini Spark와 개인화 모닝 브리프 Daily Brief를 발표했으며, macOS 앱이 Gemini Spark를 통합해 로컬 머신에서 동작하도록 한다고 밝혔다.",
+      "source_url": "https://blog.google/innovation-and-ai/products/gemini-app/next-evolution-gemini-app/",
+      "quote": "Gemini Spark: A 24/7 personal AI agent designed to proactively manage tasks ... MacOS app: Our desktop app will be integrating Gemini Spark so it can operate on your local machine",
+      "checked_at": "2026-10-25T18:10:00+09:00",
+      "volatile": false,
+      "status": "verified"
+    },
+    {
+      "claim": "OpenAI는 2026년 9월 29일 DevDay 2026에서 상시 가동(always-on) 개인 에이전트 'dots'를 발표했다. dots는 GPT-6 Astra 기반이며 특정 하드웨어·인터페이스에 종속되지 않고 백그라운드에서 사용자가 정의한 목표를 지속 수행한다. ChatGPT에서 Pro·Business Premium 사용자 대상으로 제공을 시작했다. (본 레포 본문에서는 과도한 사양 단정을 피하기 위해 'DevDay 2026에서 공개된 상시 가동 에이전트'로만 서술한다.)",
+      "sources": [
+        {
+          "source_url": "https://techcrunch.com/2026/09/29/openai-launches-dots-its-bubbly-agentic-avatar/",
+          "quote": "At OpenAI's DevDay event on Tuesday, the company announced the launch of Dots, a new personal agentic assistant powered by GPT-6 Astra ... 'remarkably capable, always-on agents built to handle everything.'"
+        }
+      ],
+      "checked_at": "2026-10-25T19:00:00+09:00",
+      "volatile": true,
+      "status": "verified"
+    },
+    {
+      "claim": "Anthropic은 2026년 10월 Claude Duet을 공개했다. Opus 5.5 기반의 프로액티브 에이전트로 데일리 브리프를 보내고 연결된 앱을 점검하며, 민감 행동 전 사용자에게 확인을 요청한다. 미국 Pro/Max 구독자 대상 리서치 프리뷰(웨이트리스트)로 제공된다.",
+      "source_url": "https://claude.com/resources/articles/claude-duet",
+      "quote": "It comes to you with what needs your attention, completes tasks you ask of it, keeps working even when you step away, and checks with you before it acts on your behalf.",
+      "checked_at": "2026-10-25T18:10:00+09:00",
+      "volatile": true,
+      "status": "verified"
+    }
+  ]
+}

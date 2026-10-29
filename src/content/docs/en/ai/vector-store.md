@@ -85,7 +85,7 @@ Add vector capability to your current database. Start without extra infrastructu
 | Vendor | Product | Characteristics |
 | --- | --- | --- |
 | AWS | [Bedrock Knowledge Bases](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html) | Document → embedding → store → RAG automatic |
-| Azure | [Azure AI Search + Foundry Agent Service (Foundry IQ)](https://learn.microsoft.com/azure/ai-foundry/) | Managed RAG (legacy OpenAI "On Your Data" retires 2026-10-14; migrate to Foundry Agent Service) |
+| Azure | [Azure AI Search + Foundry Agent Service (Foundry IQ)](https://learn.microsoft.com/azure/ai-foundry/) | Managed RAG (legacy OpenAI "On Your Data" retired 2026-10-14; migrate to Foundry Agent Service) |
 | Google Cloud | [Vertex AI RAG Engine](https://cloud.google.com/vertex-ai/generative-ai/docs/rag-overview) | Document → embedding → retrieval unified |
 | OCI | [OCI Enterprise AI Agents](https://www.oracle.com/artificial-intelligence/generative-ai/agents/) | OCI Search integrated RAG |
 

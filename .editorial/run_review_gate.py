@@ -178,6 +178,15 @@ def run(args) -> dict:
             return _out(tier, "error",
                         ["link-refresh packet without link_refresh.url_map → hold"] + reasons,
                         args, packet_sha)
+        # url_map key/value는 절대 http(s) URL이어야 한다(게이트에서도 강제 — council 권고).
+        bad = [f"{k}→{v}" for k, v in url_map.items()
+               if not (isinstance(k, str) and isinstance(v, str)
+                       and k.startswith(("http://", "https://"))
+                       and v.startswith(("http://", "https://")))]
+        if bad:
+            return _out(tier, "error",
+                        ["link-refresh url_map has non-URL entries → hold"] + bad[:5] + reasons,
+                        args, packet_sha)
         rchk = _verify_redirect_chains(url_map)
         if rchk.get("error"):
             # fetch 불가/차단/부분실패는 비승인(보류) — 리다이렉트=실제 이전 보증을 확인 못 함.
@@ -286,6 +295,12 @@ def _link_refresh_reconstruct_from_diff(diff_text: str, url_map: dict) -> dict:
     """
     if not diff_text:
         return {"block": False, "signals": [], "error": "empty diff"}
+    # governance 투표: GitHub이 대용량/다파일 PR에서 patch를 생략하면('(no textual patch)')
+    # diff에 -/+ 라인이 없어 재구성이 'block:false'로 통과하는 fail-open이 된다. link-refresh는
+    # 수백 파일이라 발생 확률이 높다 → patch 누락/절단은 error(hold)로 폴백(전체파일 가드가 1차 방어).
+    if "(no textual patch)" in diff_text:
+        return {"block": False, "signals": [],
+                "error": "patch 생략 감지('(no textual patch)') — diff로 검증 불가, link-refresh-guard(전체파일)로만 검증"}
     try:
         import importlib.util
         import pathlib

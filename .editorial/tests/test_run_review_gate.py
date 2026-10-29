@@ -417,6 +417,13 @@ class TestLinkRefreshReconstructDiff(unittest.TestCase):
         r = g._link_refresh_reconstruct_from_diff(diff, self.MAP)
         self.assertTrue(r.get("block"))
 
+    def test_patch_omitted_is_error(self):
+        # governance 투표: GitHub patch 생략 시 diff 검증 불가 → error(hold), block:false 금지.
+        diff = "--- a/x.md\n(no textual patch)\n"
+        r = g._link_refresh_reconstruct_from_diff(diff, self.MAP)
+        self.assertTrue(r.get("error"))
+        self.assertFalse(r.get("block"))
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)

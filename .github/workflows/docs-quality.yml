@@ -20,6 +20,7 @@ on:
 
 permissions:
   contents: read
+  pull-requests: read
 
 jobs:
   mermaid-lint:
@@ -91,3 +92,48 @@ jobs:
           echo '```' >> "$GITHUB_STEP_SUMMARY"
           python3 scripts/lint-taxonomy.py | tee -a "$GITHUB_STEP_SUMMARY"
           echo '```' >> "$GITHUB_STEP_SUMMARY"
+
+  # 레벨링 가드(축4) — 'axis-4-leveling' 라벨 PR에서만 사실 불변을 결정론적으로 강제한다.
+  # Grok 교정: 비차단 editorial-c-approval 상태가 아니라 '필수' docs-quality 잡으로 둬야
+  # 실제로 머지를 차단한다. 라벨이 없으면(일반 PR) 즉시 통과 — 일반 PR의 사실 변경은 정상.
+  # 라벨이 있으면: 변경된 ko 문서 각각을 base 버전과 비교해 사실 불변식 위반 시 FAIL.
+  leveling-guard:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - name: Run leveling guard on changed ko docs (axis-4-leveling label only)
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR: ${{ github.event.pull_request.number }}
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: |
+          set -e
+          LABELS=$(gh pr view "$PR" --json labels --jq '.labels[].name' 2>/dev/null || echo "")
+          if ! echo "$LABELS" | grep -qx "axis-4-leveling"; then
+            echo "axis-4-leveling 라벨 없음 — 레벨링 가드 건너뜀(일반 PR의 사실 변경은 정상)."
+            exit 0
+          fi
+          echo "axis-4-leveling 라벨 감지 — 변경된 ko 문서에 사실 불변 가드 적용."
+          CHANGED=$(gh pr view "$PR" --json files --jq '.files[].path' \
+                    | grep -E '^src/content/docs/ko/.*\.mdx?$' || true)
+          if [ -z "$CHANGED" ]; then echo "변경된 ko 문서 없음."; exit 0; fi
+          FAIL=0
+          for f in $CHANGED; do
+            git show "$BASE_SHA:$f" > /tmp/base.md 2>/dev/null || { echo "신규 파일 $f — 가드 대상 아님(스킵)"; continue; }
+            echo "::group::leveling-guard $f"
+            if ! python3 scripts/leveling-guard.py --base /tmp/base.md --head "$f"; then
+              FAIL=1
+            fi
+            echo "::endgroup::"
+          done
+          if [ "$FAIL" -ne 0 ]; then
+            echo "❌ 레벨링 PR이 사실을 변경했습니다 — 축1(근거 패킷) 경로로 보내세요."
+            exit 1
+          fi
+          echo "✅ 레벨링 가드 통과(표현 전용)."

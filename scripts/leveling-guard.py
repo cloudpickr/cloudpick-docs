@@ -34,6 +34,17 @@ RULES_PATH = ".editorial/leveling-rules.yaml"
 MODALITY_DEFAULT = ["Preview", "GA", "일부", "최대", "최소", "필수", "권장",
                     "미지원", "지원", "only", "may", "예정", "불가"]
 
+# 영어 문장 첫 단어로 흔한 대문자어(관사·대명사·지시어·접속/전치/조동사 등). 문장 분할 시
+# 'It/The/This'가 추가·삭제돼 고유명사 오탐을 내므로 proper_nouns에서 제외한다. 실제
+# 고유명사(AWS/Azure/Bedrock…)와 겹치지 않는 일반어만 담는다.
+_COMMON_CAPITALIZED = {
+    "The", "This", "These", "That", "Those", "It", "Its", "They", "Their", "There",
+    "An", "As", "At", "By", "For", "From", "On", "Of", "Or", "And", "But",
+    "To", "With", "When", "While", "Where", "Which", "Who", "If", "Then", "Thus",
+    "However", "Because", "Both", "Each", "Also", "Here", "He", "She", "We", "You",
+    "Is", "Are", "Was", "Were", "Be", "Can", "May", "Will", "Would", "Should", "Must",
+}
+
 
 def load_modality(path=RULES_PATH):
     try:
@@ -127,10 +138,13 @@ def proper_nouns(text):
     backtick = re.findall(r"`([^`]+)`", body)
     # 대문자로 시작하는 라틴 토큰(CamelCase 포함). 중첩 수량자 없이 단일 문자클래스로
     # 매칭해 ReDoS를 피한다. 경계는 '라틴 문자셋' 룩어라운드로 둔다 — 한국어 조사가
-    # 붙은 'AWS는' 'Azure를'에서도 Latin 토큰을 분리해야 벤더 교체를 잡는다(Codex P2).
+    # 붙은 'AWS는' 'Azure를'에서도 Latin 토큰을 분리해야 벤더 교체를 잡는다.
     # Python \b는 Latin↔한글 사이에 경계를 만들지 못하므로 \b를 쓰지 않는다.
     latin = re.findall(r"(?<![A-Za-z0-9])[A-Z][A-Za-z0-9]*(?![A-Za-z0-9])", body)
-    return [t for t in backtick + latin if len(t) > 1]
+    # 문장 첫 단어(영어)는 항상 대문자라, 문장 분할(정상 레벨링) 시 'It/The/This' 등이
+    # 추가·삭제돼 오탐을 낸다. 흔한 문두 대문자어·대명사·관사는 고유명사에서 제외한다.
+    # (고유명사는 보통 문장 중간에서도 대문자이므로 이 제외로 실제 고유명사를 놓치지 않는다.)
+    return [t for t in backtick + latin if len(t) > 1 and t not in _COMMON_CAPITALIZED]
 
 
 def paragraphs(text):

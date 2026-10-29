@@ -134,11 +134,8 @@ def main(argv):
     ap.add_argument("--json", action="store_true")
     args = ap.parse_args(argv)
 
-    if args.with_llm:
-        sys.stderr.write(
-            "[verify] --with-llm은 아직 미구현(PoC 범위 밖)입니다. 결정론 + fetch까지만 수행합니다. "
-            "ambiguous 큐를 LLM으로 넘기는 단계는 다음 PR에서 추가됩니다.\n"
-        )
+    if args.with_llm and not args.fetch:
+        sys.stderr.write("[verify] --with-llm은 --fetch가 필요합니다(판정할 본문이 있어야 함). 무시합니다.\n")
 
     with open(args.candidates, encoding="utf-8") as fh:
         cand = json.load(fh)
@@ -150,6 +147,7 @@ def main(argv):
         fetch_source = sf.fetch_source
 
     rows = []
+    llm_calls = [0]  # 런당 LLM 호출 수(상한 vc.MAX_LLM_CALLS)
     for c in targets:
         path, line, sent = c["path"], c["line"], c["excerpt"]
         md = read_doc(path)
@@ -165,6 +163,25 @@ def main(argv):
                     fetch_errors.append(f"{u}: {type(e).__name__}")
         verdict, ev = classify(sent, bodies) if bodies else ("unverified", {})
 
+        # ambiguous → LLM 3진 판정(opt-in, council D). fetch 본문이 있을 때만, 런당 상한.
+        llm = None
+        if verdict == "ambiguous" and args.with_llm and args.fetch:
+            if llm_calls[0] < vc.MAX_LLM_CALLS:
+                url = ev.get("url")
+                body = bodies.get(url, "")
+                if body:
+                    llm_calls[0] += 1
+                    llm = vc.llm_adjudicate(sent, body)
+                    # LLM이 모순이라 하고 인용도 발췌의 부분문자열이면 contradicted로 승격.
+                    # 지지/언급없음/에러/인용 불일치는 ambiguous 유지(과신 금지).
+                    if llm.get("verdict") == "contradicts" and llm.get("quote_ok"):
+                        verdict, ev = "contradicted", {"url": url, "probe": ev.get("probe"),
+                                                       "llm_quote": llm.get("quote")}
+                    elif llm.get("verdict") == "supports" and llm.get("quote_ok"):
+                        verdict, ev = "supports", {"url": url, "llm_quote": llm.get("quote")}
+            else:
+                llm = {"verdict": "skipped", "error": "per-run LLM call cap reached"}
+
         # unverified 세분화(council E): 검사함(URL 있었고 fetch함) vs 사람이 출처 찾아야(URL 없음)
         sub = None
         if verdict == "unverified":
@@ -178,6 +195,7 @@ def main(argv):
             "path": path, "line": line, "excerpt": sent,
             "verdict": verdict, "sub": sub, "evidence": ev,
             "examined_urls": links, "fetched": fetched_urls, "fetch_errors": fetch_errors,
+            "llm": llm,
             "auto_edit": False, "status": "advisory",   # 절대 verified 아님
         })
 

@@ -125,6 +125,87 @@ jobs:
               core.info(`생성: #${created.data.number}`);
             }
 
+      # Open(매월 1일) 직후: stale 후보 스캐너(1단계, 결정론)를 ko 전체에 돌려 그 달 이슈에
+      # 요약 코멘트를 남긴다. whats-new가 '새로 나온 것'을 제보한다면, 이쪽은 '기존 문서에 이미
+      # 박힌 낡았을 수 있는 서술'을 제보한다(push 보완용 pull 스캔). 봇은 제보만 — 공식 출처
+      # 대조·수정은 담당 에이전트/사람의 패킷 PR 몫. 네트워크·LLM 없음(결정론), exit 0(비차단).
+      - name: Open — checkout for stale scan
+        if: steps.mode.outputs.action == 'open'
+        uses: actions/checkout@v5
+      - name: Open — setup python for stale scan
+        if: steps.mode.outputs.action == 'open'
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Open — run stale-candidate scan (deterministic, advisory)
+        if: steps.mode.outputs.action == 'open'
+        id: stale
+        continue-on-error: true   # 스캔 실패가 월간 이슈 생성을 깨지 않게(advisory)
+        run: |
+          python3 scripts/scan-stale-candidates.py --json > /tmp/stale.json || echo '{}' > /tmp/stale.json
+          python3 scripts/scan-stale-candidates.py > /tmp/stale.txt || true
+          echo "done"
+      - name: Open — comment stale scan summary on the issue
+        if: steps.mode.outputs.action == 'open'
+        continue-on-error: true
+        uses: actions/github-script@v9
+        with:
+          script: |
+            const fs = require('fs');
+            const year = ${{ steps.mode.outputs.year }};
+            const month = ${{ steps.mode.outputs.month }};
+            const title = `📅 월간 문서 현행화 — ${year}년 ${month}월`;
+            let data;
+            try { data = JSON.parse(fs.readFileSync('/tmp/stale.json', 'utf8')); }
+            catch { core.warning('stale: JSON 파싱 실패 — 코멘트 생략'); return; }
+            const s = data.summary;
+            if (!s) { core.info('stale: summary 없음 — 코멘트 생략'); return; }
+
+            // 그 달 이슈 확보
+            const issues = await github.paginate(github.rest.issues.listForRepo, {
+              owner: context.repo.owner, repo: context.repo.repo,
+              state: "open", labels: "routine:monthly-review", per_page: 100,
+            });
+            const issue = issues.find((i) => i.title === title && !i.pull_request);
+            if (!issue) { core.warning(`stale: 그 달 이슈 없음(${title}) — 생략`); return; }
+
+            const highLines = (data.high || []).map(h =>
+              `  - \`${h.path}:${h.line}\` — ${h.excerpt}`).join("\n");
+            const medLines = (data.medium || []).slice(0, 30).map(m =>
+              `  - \`${m.path}:${m.line}\` — ${m.excerpt}`).join("\n");
+
+            const body = [
+              `<!-- stale-scan:${year}-${String(month).padStart(2,"0")} -->`,
+              `## 🧭 기존 문서 stale 후보 스캔 (1단계, 결정론 · advisory)`,
+              ``,
+              `whats-new(새 소식)와 별개로, **기존 ko 문서에 이미 박힌 현행성 의심 서술**을 결정론적으로 제보합니다. '매칭 없음 = 최신'이 아니며, 공식 출처 대조·수정은 담당자의 패킷 PR 몫입니다.`,
+              ``,
+              `**요약**: HIGH=${s.high} · MEDIUM=${s.medium} · LOW=${s.low} (LOW는 ${s.files_with_low}개 문서)`,
+              ``,
+              s.high ? `### HIGH — 마커보다 과거인데 '예정' 미래형\n${highLines}` : `### HIGH — 없음 ✅`,
+              ``,
+              s.medium ? `### MEDIUM — Preview/Beta 상태어 (상위 30건)\n${medLines}` : `### MEDIUM — 없음`,
+              ``,
+              `> 2단계 검증(\`scripts/verify-stale-candidates.py\`)으로 문서 내 공식 출처와 대조해 contradicted/ambiguous/unverified를 가릴 수 있습니다.`,
+              ``,
+              `_auto-scanned by \`monthly-review.yml\` (open) — 판단·반영은 담당자 몫._`,
+            ].join("\n");
+
+            // 같은 달 stale 코멘트가 이미 있으면 skip(멱등)
+            const marker = `<!-- stale-scan:${year}-${String(month).padStart(2,"0")} -->`;
+            const comments = await github.paginate(github.rest.issues.listComments, {
+              owner: context.repo.owner, repo: context.repo.repo,
+              issue_number: issue.number, per_page: 100,
+            });
+            if (comments.some((c) => (c.body || "").includes(marker))) {
+              core.info(`stale: ${year}-${month} 코멘트 이미 존재 — skip`); return;
+            }
+            await github.rest.issues.createComment({
+              owner: context.repo.owner, repo: context.repo.repo,
+              issue_number: issue.number, body,
+            });
+            core.info(`stale: #${issue.number}에 요약 코멘트 완료.`);
+
       # Daily: whats-new.cloud MCP(format=source, 벤더 영문 원문)로 전날 신규 릴리스를 조회해,
       # 그 달 이슈에 공식 링크와 함께 코멘트로 누적한다. 봇은 '제보'만 — 사실성 판단·문서 반영은
       # 담당 에이전트/사람의 몫(AGENTS.md 공식 출처·교차검증 원칙). MCP_TOKEN 미설정이면 안전하게

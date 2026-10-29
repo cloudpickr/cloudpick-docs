@@ -152,15 +152,18 @@ def run(args) -> dict:
     if _is_leveling_packet(packet) and review.verdict == "approve":
         mp = _meaning_preserved_from_diff(diff_text, packet)
         if mp.get("block"):
-            review_verdict = "changes_requested"
             reasons += ["leveling meaning-preserved review: BLOCK"] + \
                        [f"{s['type']}: '{s['before'][:40]}' → '{s['after'][:40]}'" for s in mp.get("signals", [])]
             reviewer_cfg = review.selected_model or (config.reviewer_model or "unset")
-            return _out(tier, review_verdict, reasons, args, packet_sha, reviewer_cfg)
+            return _out(tier, "changes_requested", reasons, args, packet_sha, reviewer_cfg)
         if mp.get("error"):
-            reasons.append(f"leveling meaning-preserved review: skipped ({mp['error']})")
-        else:
-            reasons.append("leveling meaning-preserved review: ok")
+            # fail-closed: 의미보존 검사를 못 돌리면 approve로 떨어지지 않는다(hold).
+            # 레벨링 예외는 '모든 가드 충족'이 전제이므로, 검사 불가 = 비승인(Codex P1, AGENTS.md).
+            reviewer_cfg = review.selected_model or (config.reviewer_model or "unset")
+            return _out(tier, "error",
+                        [f"leveling meaning-preserved review unavailable → hold ({mp['error']})"] + reasons,
+                        args, packet_sha, reviewer_cfg)
+        reasons.append("leveling meaning-preserved review: ok")
 
     # 감사 정확성: 실제 선택된 리뷰어 model을 envelope에 기록(단일 고정값 아님).
     reviewer_cfg = review.selected_model or (config.reviewer_model or "unset")
@@ -179,7 +182,8 @@ def _meaning_preserved_from_diff(diff_text: str, packet: dict) -> dict:
     """diff의 삭제(-)/추가(+) 라인을 before/after로 모아 의미 보존 검사에 넘긴다.
 
     leveling_core.meaning_preserved_review를 호출(writer-distinct 리뷰어, 닫힌 enum).
-    반환은 그 결과({block, signals, error?}). 모듈/게이트웨이 부재 시 error(비차단).
+    반환은 그 결과({block, signals, error?}). 모듈/게이트웨이 부재 시 error를 반환하며,
+    호출부(run)는 이 error를 fail-closed로 처리한다(검사 불가 → 승인 아님, hold).
     """
     try:
         import leveling_core as lc

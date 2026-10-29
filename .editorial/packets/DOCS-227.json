@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "jira_key": "DOCS-227",
+  "policy_action": "update",
+  "tier_hint": "B",
+  "tier_reasons": [
+    "축4 레벨링 파일럿(council v1 7단계, 비규제 일반 문서): ai/physical-ai/data-and-training.md의 과도하게 긴 두 문장을 가독성 레벨링으로 분할. 표현(문장 구조)만 변경하고 사실(수치·날짜·버전·상태어·고유명사·링크·코드·표)은 완전 불변.",
+    "레벨링 PR이므로 새 사실 주장이 없어 claim_ledger는 비어 있다(legal B). 사실 불변은 scripts/leveling-guard.py가 전 로케일(ko/en/ja)에서 결정론적으로 강제했고 통과함. 정확히 1개 논리 문서(ko/en/ja 미러)만 변경.",
+    "ko(SOT) 수정 후 en/ja 미러에 동일 분할 반영. 구조 변경(제목·분할·이동·사이드바) 없음 — 문단 내 문장 경계만 조정. 비규제 경로."
+  ],
+  "target_path": "src/content/docs/ko/ai/physical-ai/data-and-training.md",
+  "changed_paths": [
+    "src/content/docs/ko/ai/physical-ai/data-and-training.md",
+    "src/content/docs/en/ai/physical-ai/data-and-training.md",
+    "src/content/docs/ja/ai/physical-ai/data-and-training.md"
+  ],
+  "generated_by_llm": true,
+  "writer": {
+    "model": "kiro-agent",
+    "provider": "kiro"
+  },
+  "claim_ledger": []
+}

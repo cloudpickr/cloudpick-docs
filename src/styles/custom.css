@@ -111,64 +111,32 @@ h1[data-page-title] {
 }
 
 /*
- * Mobile language/theme pickers.
- * Starlight puts them at the bottom of a long overflow:auto drawer, so they
- * scroll away and the native <select> list is clipped (iOS/Android).
- * Pin the footer, let only the nav tree scroll, and use a fixed listbox.
+ * Mobile language/theme pickers (공식 MobileMenuFooter 경로).
+ *
+ * 선택기는 Starlight 공식 컴포넌트(components.MobileMenuFooter →
+ * src/components/MobileMenuFooter.astro)가 모바일 메뉴 하단에 렌더한다.
+ * 과거의 커스텀 JS 리스트박스(cp-select-*)와 사설 사이드바 구조에 강결합한
+ * 레이아웃 CSS는 간헐적 깨짐의 원인이어서 제거했다. 여기서는 Starlight 내부
+ * 마크업에 의존하지 않는 표준 보정만 둔다(네이티브 <select> 사용).
  */
 @media (max-width: 49.999rem) {
 	/*
-	 * Starlight 0.42+: 모바일 사이드바는 네이티브 popover(<sl-sidebar-pane popover>).
-	 * 닫힘은 UA 규칙 [popover]:not(:popover-open){display:none}에 의존한다.
-	 * 따라서 flex 레이아웃(푸터 고정용)은 '열렸을 때'만 적용해야 하며, 무조건
-	 * display:flex를 걸면 닫힘 상태의 display:none을 덮어써 사이드바가 닫히지 않는다.
+	 * 모바일 메뉴(사이드바 popover)에서 선택기 푸터를 하단에 배치.
+	 * Starlight 기본은 footer(.md:sl-hidden 래퍼 = MobileMenuFooter)를 네비 트리
+	 * 바로 아래 일반 흐름에 두어, 짧은 메뉴에서는 선택기가 중간 높이에 떠 보인다.
+	 * .sidebar-content 는 flex column 이므로, footer 래퍼에 margin-block-start:auto 를
+	 * 주면 남는 세로 공간을 흡수해 메뉴 하단으로 내려간다. Starlight 내부 사설
+	 * 셀렉터(popover 상태 등)에 의존하지 않는 표준 flex 기법이다.
 	 */
-	.sidebar-pane:popover-open {
-		display: flex;
-		flex-direction: column;
-		overflow: hidden;
-	}
-
-	.sidebar-content {
-		min-height: 0;
-		height: 100%;
-		max-height: 100%;
-		overflow: hidden;
-	}
-
-	.sidebar-content sl-sidebar-state-persist {
-		display: block;
-		flex: 1 1 auto;
-		min-height: 0;
-		overflow-y: auto;
-		-webkit-overflow-scrolling: touch;
-	}
-
 	.sidebar-content > .md\:sl-hidden {
-		flex: 0 0 auto;
-		z-index: 2;
-		background-color: var(--sl-color-black);
-		box-shadow: 0 -1px 0 var(--sl-color-gray-6);
-		padding-bottom: env(safe-area-inset-bottom, 0px);
-	}
-
-	.mobile-preferences {
-		align-items: center;
-		flex-wrap: nowrap;
-		gap: 0.35rem;
-		padding-block: 0.35rem;
-	}
-
-	.mobile-preferences starlight-theme-select label,
-	.mobile-preferences starlight-lang-select label {
-		--sl-select-width: 8.5rem;
+		margin-block-start: auto;
 	}
 
 	.mobile-preferences starlight-theme-select select,
 	.mobile-preferences starlight-lang-select select {
+		/* iOS Safari는 16px 미만 입력에서 자동 줌 — 16px로 고정해 방지. */
 		font-size: 16px;
 		min-height: 2.75rem;
-		width: calc(var(--sl-select-width) + var(--sl-inline-padding) * 2);
 	}
 }
 
@@ -182,74 +150,6 @@ starlight-theme-select option,
 starlight-lang-select option {
 	background-color: Canvas;
 	color: CanvasText;
-}
-
-.cp-select-overlay {
-	display: none;
-}
-
-@media (max-width: 49.999rem) {
-	.cp-select-overlay {
-		display: block;
-		position: absolute;
-		inset: 0;
-		z-index: 2;
-		margin: 0;
-		padding: 0;
-		border: 0;
-		background: transparent;
-		cursor: pointer;
-		touch-action: manipulation;
-	}
-}
-
-.cp-select-backdrop {
-	position: fixed;
-	inset: 0;
-	z-index: 40;
-	background: transparent;
-}
-
-.cp-select-menu {
-	position: fixed;
-	z-index: 41;
-	display: flex;
-	flex-direction: column;
-	gap: 0.15rem;
-	padding: 0.35rem;
-	border: 1px solid var(--sl-color-gray-5);
-	border-radius: 0.5rem;
-	background: var(--sl-color-bg-nav);
-	box-shadow: var(--sl-shadow-md);
-	overflow-y: auto;
-	-webkit-overflow-scrolling: touch;
-}
-
-.cp-select-menu [role='option'] {
-	appearance: none;
-	display: block;
-	width: 100%;
-	margin: 0;
-	padding: 0.7rem 0.85rem;
-	border: 0;
-	border-radius: 0.35rem;
-	background: transparent;
-	color: var(--sl-color-white);
-	font: inherit;
-	font-size: 1rem;
-	text-align: start;
-	cursor: pointer;
-}
-
-.cp-select-menu [role='option']:hover,
-.cp-select-menu [role='option']:focus-visible {
-	background: var(--sl-color-gray-6);
-	outline: none;
-}
-
-.cp-select-menu [role='option'].is-selected {
-	background: var(--sl-color-accent-low);
-	color: var(--sl-color-white);
 }
 
 

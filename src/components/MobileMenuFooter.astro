@@ -1,0 +1,54 @@
+---
+/**
+ * Starlight MobileMenuFooter 오버라이드 (공식 확장점).
+ *
+ * 배경 / 왜 이 파일이 존재하는가:
+ *   모바일 언어·테마 선택기는 Starlight가 공식적으로 모바일 메뉴 하단
+ *   (<div class="md:sl-hidden"><MobileMenuFooter /></div>)에 렌더한다. 과거에는
+ *   이 네이티브 <select>를 커스텀 JS 리스트박스(public/mobile-select-menu.js)로
+ *   치환하고 사설 사이드바 구조에 강결합한 CSS로 레이아웃을 잡았는데, 그 레이어가
+ *   뷰 트랜지션·pageshow 캐시·Starlight 내부 구조 변경에 따라 간헐적으로 깨져
+ *   "모바일 언어 토글이 가끔 동작하지 않는" 증상을 만들었다.
+ *
+ *   그 취약한 레이어를 제거하고, 공식 하위 컴포넌트(LanguageSelect/ThemeSelect/
+ *   SocialIcons)를 그대로 렌더하는 공식 경로로 되돌린다. 이 파일을 명시적으로 두는
+ *   이유는, 향후 Starlight 버전에서 기본 구현이 바뀌더라도 "모바일에 언어 선택기를
+ *   노출한다"는 우리의 의도를 코드로 고정해 회귀를 조기에 드러내기 위함이다.
+ *
+ *   레이아웃·크기 보정은 src/styles/custom.css 의 `.mobile-preferences` 규칙이
+ *   담당한다(내부 사설 셀렉터에 의존하지 않는 표준 CSS만 사용).
+ */
+import LanguageSelect from 'virtual:starlight/components/LanguageSelect';
+import SocialIcons from 'virtual:starlight/components/SocialIcons';
+import ThemeSelect from 'virtual:starlight/components/ThemeSelect';
+---
+
+<div class="mobile-preferences sl-flex">
+	<div class="social-icons">
+		<SocialIcons />
+	</div>
+	<ThemeSelect />
+	<LanguageSelect />
+</div>
+
+<style>
+	@layer starlight.core {
+		.social-icons {
+			display: flex;
+			margin-inline-end: auto;
+			gap: 1rem;
+			align-items: center;
+			padding-block: 1rem;
+		}
+		.social-icons:empty {
+			display: none;
+		}
+		.mobile-preferences {
+			justify-content: space-between;
+			flex-wrap: wrap;
+			border-top: 1px solid var(--sl-color-gray-6);
+			column-gap: 1rem;
+			padding: 0.5rem 0;
+		}
+	}
+</style>

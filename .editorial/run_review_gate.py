@@ -144,9 +144,61 @@ def run(args) -> dict:
                     args, packet_sha)
     review = rr.run_review(config, packet, diff_text, source_evidence=source_evidence)
     reasons += [f"review:{review.verdict}"] + review.reasons + source_reasons
+
+    # 레벨링(legal-B) 전용: 의미 보존 검사 추가. 결정론 가드(leveling-guard)는 사실 불변을
+    # 강제하지만 '뉘앙스 왜곡'(부정 뒤집힘·서법어 소실·조건 삭제·벤더 편향)은 못 잡는다.
+    # writer-distinct 리뷰어가 닫힌 enum만 '차단' 신호로 낸다(contradicted 선언 금지).
+    # block=True면 changes_requested로 하향(승인 취소). error/미설정은 비차단(보류 유지).
+    if _is_leveling_packet(packet) and review.verdict == "approve":
+        mp = _meaning_preserved_from_diff(diff_text, packet)
+        if mp.get("block"):
+            reasons += ["leveling meaning-preserved review: BLOCK"] + \
+                       [f"{s['type']}: '{s['before'][:40]}' → '{s['after'][:40]}'" for s in mp.get("signals", [])]
+            reviewer_cfg = review.selected_model or (config.reviewer_model or "unset")
+            return _out(tier, "changes_requested", reasons, args, packet_sha, reviewer_cfg)
+        if mp.get("error"):
+            # fail-closed: 의미보존 검사를 못 돌리면 approve로 떨어지지 않는다(hold).
+            # 레벨링 예외는 '모든 가드 충족'이 전제이므로, 검사 불가 = 비승인(Codex P1, AGENTS.md).
+            reviewer_cfg = review.selected_model or (config.reviewer_model or "unset")
+            return _out(tier, "error",
+                        [f"leveling meaning-preserved review unavailable → hold ({mp['error']})"] + reasons,
+                        args, packet_sha, reviewer_cfg)
+        reasons.append("leveling meaning-preserved review: ok")
+
     # 감사 정확성: 실제 선택된 리뷰어 model을 envelope에 기록(단일 고정값 아님).
     reviewer_cfg = review.selected_model or (config.reviewer_model or "unset")
     return _out(tier, review.verdict, reasons, args, packet_sha, reviewer_cfg)
+
+
+def _is_leveling_packet(packet: dict) -> bool:
+    """패킷이 레벨링(표현 전용) 성격인지 — claim_ledger 비었고 tier_reasons에 leveling 표기."""
+    if not isinstance(packet, dict) or packet.get("claim_ledger"):
+        return False
+    reasons = " ".join(packet.get("tier_reasons", []) or [])
+    return ("leveling" in reasons.lower()) or ("레벨링" in reasons)
+
+
+def _meaning_preserved_from_diff(diff_text: str, packet: dict) -> dict:
+    """diff의 삭제(-)/추가(+) 라인을 before/after로 모아 의미 보존 검사에 넘긴다.
+
+    leveling_core.meaning_preserved_review를 호출(writer-distinct 리뷰어, 닫힌 enum).
+    반환은 그 결과({block, signals, error?}). 모듈/게이트웨이 부재 시 error를 반환하며,
+    호출부(run)는 이 error를 fail-closed로 처리한다(검사 불가 → 승인 아님, hold).
+    """
+    try:
+        import leveling_core as lc
+    except Exception as exc:  # noqa: BLE001
+        return {"block": False, "signals": [], "error": f"leveling_core import failed: {exc}"}
+    before, after = [], []
+    for ln in diff_text.splitlines():
+        if ln.startswith("-") and not ln.startswith("---"):
+            before.append(ln[1:])
+        elif ln.startswith("+") and not ln.startswith("+++"):
+            after.append(ln[1:])
+    if not before and not after:
+        return {"block": False, "signals": []}
+    writer = (packet or {}).get("writer") or {}
+    return lc.meaning_preserved_review("\n".join(before), "\n".join(after), writer=writer)
 
 
 def _fetch_sources(packet: dict):

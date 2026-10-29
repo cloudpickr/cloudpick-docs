@@ -85,25 +85,39 @@ def headings(text):
 def link_urls(text):
     urls = re.findall(r"\]\((https?://[^)\s]+)\)", text)
     urls += re.findall(r"\]\((\.{1,2}/[^)\s]+|/[^)\s]+)\)", text)  # 상대·root-relative 내부 링크
+    urls += re.findall(r"\]\((#[^)\s]+)\)", text)                   # 같은 페이지 프래그먼트(#앵커)
     urls += re.findall(r"<(https?://[^>\s]+)>", text)
     return [u.rstrip(".,)") for u in urls]
 
 
 def numbers_with_units(text):
-    """숫자+단위/날짜/버전/% 류. 코드블록 제외."""
+    """숫자(+단위/날짜/버전/%/개 등)를 포괄적으로 추출. 코드블록 제외.
+
+    화이트리스트 단위만 잡으면 '93개' 같은 맨 수치 사실 변경을 놓친다(Codex P2).
+    날짜/버전은 전용 패턴으로, 그 외 모든 숫자는 '뒤따르는 짧은 단위 토큰과 함께' 또는
+    맨 숫자로 포괄 수집한다.
+    """
     body = re.sub(r"```.*?```", "", text, flags=re.S)
-    pats = [
-        r"\d{4}[-./]\d{1,2}(?:[-./]\d{1,2})?",          # 날짜 2026-09 / 2026.09
-        r"\d{4}년(?:\s*\d{1,2}월)?",                      # 2026년 9월
-        r"v\d+(?:\.\d+)+",                               # v1.0
-        r"\$\s?\d[\d,]*(?:\.\d+)?",                       # $0.05
-        r"\d+(?:\.\d+)?\s*%",                            # 80%
-        r"\d+\s*개\s*(?:리전|가용\s*영역|AZ)",            # 22개 리전
-        r"\d+(?:\.\d+)?\s*(?:GB|TB|MB|ms|초|분|시간|일|개월|년)",
-    ]
     out = []
-    for p in pats:
+    # 날짜·버전·통화·퍼센트(맥락 포함)
+    for p in [
+        r"\d{4}[-./]\d{1,2}(?:[-./]\d{1,2})?",
+        r"\d{4}년(?:\s*\d{1,2}월)?(?:\s*\d{1,2}일)?",
+        r"v\d+(?:\.\d+)+",
+        r"\$\s?\d[\d,]*(?:\.\d+)?",
+        r"\d+(?:\.\d+)?\s*%",
+    ]:
         out += [m.group(0).strip() for m in re.finditer(p, body)]
+    # 위 패턴에 잡힌 영역을 제거한 뒤, 남은 '숫자(+인접 단위문자)'를 포괄 수집.
+    masked = body
+    for p in [r"\d{4}[-./]\d{1,2}(?:[-./]\d{1,2})?", r"\d{4}년(?:\s*\d{1,2}월)?(?:\s*\d{1,2}일)?",
+              r"v\d+(?:\.\d+)+", r"\$\s?\d[\d,]*(?:\.\d+)?", r"\d+(?:\.\d+)?\s*%"]:
+        masked = re.sub(p, " ", masked)
+    # 숫자 + (선택적) 바로 뒤 단위 토큰(한글/영문 몇 글자). 쉼표 자릿수 허용.
+    for m in re.finditer(r"\d[\d,]*(?:\.\d+)?\s*([A-Za-z가-힣]{0,6})", masked):
+        tok = m.group(0).strip()
+        # 순수 구분자/빈 단위도 숫자 자체는 보존(맨 숫자 사실 보호)
+        out.append(re.sub(r"\s+", "", tok))
     return out
 
 
@@ -112,8 +126,10 @@ def proper_nouns(text):
     body = re.sub(r"```.*?```", "", text, flags=re.S)
     backtick = re.findall(r"`([^`]+)`", body)
     # 대문자로 시작하는 라틴 토큰(CamelCase 포함). 중첩 수량자 없이 단일 문자클래스로
-    # 매칭해 ReDoS(지수 백트래킹)를 피한다. 예: AgentCore, Bedrock, DynamoDB, VPC.
-    latin = re.findall(r"\b[A-Z][A-Za-z0-9]*\b", body)
+    # 매칭해 ReDoS를 피한다. 경계는 '라틴 문자셋' 룩어라운드로 둔다 — 한국어 조사가
+    # 붙은 'AWS는' 'Azure를'에서도 Latin 토큰을 분리해야 벤더 교체를 잡는다(Codex P2).
+    # Python \b는 Latin↔한글 사이에 경계를 만들지 못하므로 \b를 쓰지 않는다.
+    latin = re.findall(r"(?<![A-Za-z0-9])[A-Z][A-Za-z0-9]*(?![A-Za-z0-9])", body)
     return [t for t in backtick + latin if len(t) > 1]
 
 
@@ -148,16 +164,25 @@ def fails(name, base_val, head_val, kind):
 
 
 def modality_violations(base, head, words):
-    """문단별 수식어 개수 보존. head 문단과 base 문단을 '최근접'으로 짝지어 비교하는
-    대신, 문서 전체 합계가 줄면 경고(oversimplification 1차). 문단 분할/병합 때문에
-    문단 단위 1:1은 깨지기 쉬워, 전체 합계 보존을 1차 가드로 쓴다."""
+    """문단별 수식어 개수 보존. 전체 합계가 '증가 또는 감소'하면 위반(Codex P2).
+
+    감소만 보면 '지원→미지원' 같은 상태 반전을 놓친다(지원 카운트 유지 + 미지원 증가).
+    증감 양방향을 모두 위반으로 처리한다. 또한 '미지원'이 '지원'을 부분문자열로 포함하므로,
+    긴 토큰부터 매칭해 소비(masking)한 뒤 세어 겹침 오산을 막는다."""
     def counts(t):
-        low = t
-        return {w: len(re.findall(re.escape(w), low)) for w in words}
+        res = {}
+        masked = t
+        # 긴 단어부터 세고 '\0'으로 마스킹해 짧은 단어가 그 안을 다시 세지 않게 한다.
+        for w in sorted(words, key=len, reverse=True):
+            n = masked.count(w)
+            res[w] = n
+            if n:
+                masked = masked.replace(w, "\0" * len(w))
+        return res
     cb, ch = counts(base), counts(head)
     viol = []
     for w in words:
-        if ch[w] < cb[w]:
+        if ch[w] != cb[w]:          # 증가·감소 모두 위반
             viol.append((w, cb[w], ch[w]))
     return viol
 

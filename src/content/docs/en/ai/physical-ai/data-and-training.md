@@ -44,7 +44,7 @@ For edge accelerators, the **lifespan of the software ecosystem** matters as muc
 
 ### Sensor Data Pipeline — Ingestion, Storage, Labeling
 
-Data arriving from the edge cannot be used for training as-is. Physical AI data is **multimodal — 1D time series (joint angles, current, temperature), 2D video, 3D point clouds, and equipment metadata mixed together** — so it must pass through ingestion, storage, and refinement/labeling before entering the training pipeline.
+Data arriving from the edge cannot be used for training as-is. Physical AI data is **multimodal — 1D time series (joint angles, current, temperature), 2D video, 3D point clouds, and equipment metadata mixed together**. It must therefore pass through ingestion, storage, and refinement/labeling before entering the training pipeline.
 
 | Stage | AWS | Azure | Google Cloud | OCI |
 | --- | --- | --- | --- | --- |
@@ -107,7 +107,7 @@ Because data scarcity is hard for any single organization to overcome alone, an 
 | Open toolchains | [LeRobot](https://github.com/huggingface/lerobot) | An open source stack bundling data format, training, and evaluation |
 
 :::caution
-Open datasets have **licensing terms that differ per asset.** Some permit research use only or require attribution or disclosure of derivatives, so before using them as training assets in a commercial product, check each dataset's license together with the terms of its subcomponents (the parts contributed by individual institutions). For example, Open X-Embodiment is not under a single license — **terms differ per constituent dataset** — and Ego4D can carry separate terms for commercial use.
+Open datasets have **licensing terms that differ per asset.** Some permit research use only or require attribution or disclosure of derivatives. In a commercial product, check each dataset's license together with the terms of its subcomponents (the parts contributed by individual institutions) before using them as training assets. For example, Open X-Embodiment is not under a single license — **terms differ per constituent dataset** — and Ego4D can carry separate terms for commercial use.
 :::
 
 :::note

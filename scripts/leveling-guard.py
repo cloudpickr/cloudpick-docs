@@ -142,9 +142,11 @@ def proper_nouns(text):
     # Python \b는 Latin↔한글 사이에 경계를 만들지 못하므로 \b를 쓰지 않는다.
     latin = re.findall(r"(?<![A-Za-z0-9])[A-Z][A-Za-z0-9]*(?![A-Za-z0-9])", body)
     # 문장 첫 단어(영어)는 항상 대문자라, 문장 분할(정상 레벨링) 시 'It/The/This' 등이
-    # 추가·삭제돼 오탐을 낸다. 흔한 문두 대문자어·대명사·관사는 고유명사에서 제외한다.
-    # (고유명사는 보통 문장 중간에서도 대문자이므로 이 제외로 실제 고유명사를 놓치지 않는다.)
-    return [t for t in backtick + latin if len(t) > 1 and t not in _COMMON_CAPITALIZED]
+    # 추가·삭제돼 오탐을 낸다. 흔한 문두 대문자어는 '산문(latin)'에서만 제외한다.
+    # 백틱 식별자(`And`→`Or` 같은 값/연산자)는 코드이므로 무조건 보존한다(Codex P2).
+    prose = [t for t in latin if len(t) > 1 and t not in _COMMON_CAPITALIZED]
+    backtick = [t for t in backtick if len(t) > 1]
+    return backtick + prose
 
 
 def paragraphs(text):

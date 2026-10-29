@@ -145,6 +145,26 @@ jobs:
           python3 scripts/scan-stale-candidates.py --json > /tmp/stale.json || echo '{}' > /tmp/stale.json
           python3 scripts/scan-stale-candidates.py > /tmp/stale.txt || true
           echo "done"
+      # 2단계 검증: 1단계 후보를 '문서 내 공식 출처'와 대조(결정론). 네트워크는 source_fetch의
+      # SSRF 방어·상한에 의존. LLM은 게이트웨이 secret이 있을 때만(--with-llm), 미설정이면
+      # ambiguous 유지(안전 폴백). 실패해도 월간 이슈를 깨지 않는다(continue-on-error, exit 0).
+      - name: Open — verify stale candidates against in-doc sources (advisory)
+        if: steps.mode.outputs.action == 'open'
+        continue-on-error: true
+        env:
+          AI_GATEWAY_BASE_URL: ${{ secrets.AI_GATEWAY_BASE_URL }}
+          AI_GATEWAY_TOKEN: ${{ secrets.AI_GATEWAY_TOKEN }}
+          REVIEWER_MODEL: ${{ secrets.REVIEWER_MODEL }}
+          REVIEWER_PROVIDER: ${{ secrets.REVIEWER_PROVIDER }}
+        run: |
+          # 게이트웨이 secret이 모두 있으면 --with-llm, 아니면 결정론+fetch만.
+          LLM=""
+          if [ -n "$AI_GATEWAY_BASE_URL" ] && [ -n "$AI_GATEWAY_TOKEN" ] && [ -n "$REVIEWER_MODEL" ]; then
+            LLM="--with-llm"
+          fi
+          python3 scripts/verify-stale-candidates.py --candidates /tmp/stale.json --fetch $LLM --json \
+            > /tmp/verify.json 2>/dev/null || echo '{}' > /tmp/verify.json
+          echo "verify done (llm=${LLM:-off})"
       - name: Open — comment stale scan summary on the issue
         if: steps.mode.outputs.action == 'open'
         continue-on-error: true
@@ -174,19 +194,39 @@ jobs:
             const medLines = (data.medium || []).slice(0, 30).map(m =>
               `  - \`${m.path}:${m.line}\` — ${m.excerpt}`).join("\n");
 
+            // 2단계 검증 결과(있으면). 문서 내 공식 출처와 대조한 contradicted/unverified.
+            let verifyBlock = "";
+            try {
+              const v = JSON.parse(fs.readFileSync('/tmp/verify.json', 'utf8'));
+              if (v && v.summary) {
+                const vs = v.summary;
+                const contra = (v.contradicted || []).map(r =>
+                  `  - \`${r.path}:${r.line}\` ← ${r.evidence && r.evidence.url ? r.evidence.url : '?'} — ${r.excerpt}`).join("\n");
+                const needHuman = (v.unverified || []).filter(r => r.sub === 'needs-human-source-hunt');
+                verifyBlock = [
+                  ``,
+                  `### 🔎 2단계 검증 (문서 내 공식 출처 대조${vs.fetched ? ', fetch on' : ''})`,
+                  `contradicted=${vs.contradicted} · ambiguous=${vs.ambiguous} · supports=${vs.supports} · unverified=${vs.unverified}`,
+                  ``,
+                  vs.contradicted ? `**contradicted — 공식 출처가 현 서술과 같은 날짜 맥락에서 모순(현행화 유력)**\n${contra}`
+                                  : `contradicted 없음.`,
+                  needHuman.length ? `\n> unverified 중 ${needHuman.length}건은 문서에 공식 링크가 없어 사람이 출처를 찾아야 합니다.` : ``,
+                ].join("\n");
+              }
+            } catch (e) { /* verify.json 없거나 파싱 실패 → 검증 섹션 생략 */ }
+
             const body = [
               `<!-- stale-scan:${year}-${String(month).padStart(2,"0")} -->`,
-              `## 🧭 기존 문서 stale 후보 스캔 (1단계, 결정론 · advisory)`,
+              `## 🧭 기존 문서 stale 후보 스캔 (결정론 · advisory)`,
               ``,
               `whats-new(새 소식)와 별개로, **기존 ko 문서에 이미 박힌 현행성 의심 서술**을 결정론적으로 제보합니다. '매칭 없음 = 최신'이 아니며, 공식 출처 대조·수정은 담당자의 패킷 PR 몫입니다.`,
               ``,
-              `**요약**: HIGH=${s.high} · MEDIUM=${s.medium} · LOW=${s.low} (LOW는 ${s.files_with_low}개 문서)`,
+              `**1단계 요약**: HIGH=${s.high} · MEDIUM=${s.medium} · LOW=${s.low} (LOW는 ${s.files_with_low}개 문서)`,
               ``,
               s.high ? `### HIGH — 마커보다 과거인데 '예정' 미래형\n${highLines}` : `### HIGH — 없음 ✅`,
               ``,
               s.medium ? `### MEDIUM — Preview/Beta 상태어 (상위 30건)\n${medLines}` : `### MEDIUM — 없음`,
-              ``,
-              `> 2단계 검증(\`scripts/verify-stale-candidates.py\`)으로 문서 내 공식 출처와 대조해 contradicted/ambiguous/unverified를 가릴 수 있습니다.`,
+              verifyBlock,
               ``,
               `_auto-scanned by \`monthly-review.yml\` (open) — 판단·반영은 담당자 몫._`,
             ].join("\n");

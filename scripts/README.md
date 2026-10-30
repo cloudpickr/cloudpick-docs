@@ -40,6 +40,25 @@ AGENTS.md "표기 및 문체 규약 / 문서 형식 및 구조 일관성"을 기
 | `leveling-guard.py` | 축4 | 레벨링 PR 사실 불변 가드(차단) |
 | `link-refresh-guard.py` | 축1 | 링크 현행화 PR의 URL-only 재구성 매칭 가드(차단) |
 | `link-refresh-manifest.py` | 축1 | link-refresh 패킷 url_map 병합 + manifest_sha256 대조 |
+| `prepare-link-refresh.py` | 축1 | Google docs 호스트 이전 후보를 제한적으로 수집하고 URL-only 패킷·3개 로케일 수정 및 C 승인 대상 draft PR 준비. 사실 승인·머지 권한 없음 |
+
+### 링크 현행화 draft 생성
+
+`prepare-link-refresh.py`는 기본적으로 읽기 전용입니다. 초기 범위는 `cloud.google.com/.../docs/...` → `docs.cloud.google.com` 이전 중 path·query·fragment가 완전히 같은 후보뿐입니다. `korea/japan/eu/us/singapore` 문서는 제외하고, 1회 최대 8개 논리 문서·12개 URL·120초(진행 중 fetch의 자체 20초 제한 별도)를 검사합니다. 기본 배치는 날짜에 따라 회전하고, 생성은 최대 1개 논리 문서와 ko/en/ja 미러로 제한합니다. 불확실한 URL·HTTP 실패는 보고서의 `unverified/hold`로 남깁니다. soft-404·판본 동등성을 자동 증명하지 않습니다.
+
+```sh
+# 깨끗한 작업 트리에서 실행. 보고서는 저장소 밖에 둡니다.
+python3 scripts/prepare-link-refresh.py --report /tmp/link-refresh-report.json
+python3 scripts/prepare-link-refresh.py --target compute/containers.md --report /tmp/link-refresh-report.json
+# 로컬 변경만 준비; 커밋·푸시·PR 작성 없음
+python3 scripts/prepare-link-refresh.py --write --ticket LINKREFRESH-123 --report /tmp/link-refresh-report.json
+# 최신 origin/master와 일치하는 master에서만 draft 생성
+GH_REPO=cloudpickr/cloudpick-docs python3 scripts/prepare-link-refresh.py --publish --report /tmp/link-refresh-report.json
+```
+
+`--publish`는 `GH_TOKEN`과 git 인증을 별도로 요구합니다. 열린 `docs/link-refresh-*` PR(파일럿 포함)이 있으면 생성하지 않고, 같은 후보로 이미 닫힌 PR도 자동 재시도하지 않습니다. 기존 검토 head를 갱신하거나 force-push하지 않습니다. 모든 미러·패킷·전체 파일 가드를 검증한 뒤 쓰고, 승인 명령은 PR 본문에 안내만 합니다. 코드에서 승인·머지를 실행하지 않습니다.
+
+생성 패킷의 writer는 OpenAI가 작성한 도구·템플릿의 출처를 나타냅니다. 실행 중 LLM writer 호출은 없지만 `generated_by_llm=true`로 보수적으로 신고하며, 독립 리뷰어는 다른 벤더여야 합니다. 이것은 신뢰된 생성 경로 증명이나 C 승인 대체가 아닙니다.
 
 ## 빌드·인덱싱 (`.mjs`)
 

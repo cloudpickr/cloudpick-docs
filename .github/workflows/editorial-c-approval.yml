@@ -15,7 +15,7 @@ name: Editorial Review
 #
 # 트리거:
 #   - pull_request        : 문서/에디토리얼/설정 변경 시 리뷰+분류 실행
-#   - issue_comment       : PR 코멘트의 '/approve <packet_sha256>'로 C 확인 신호 갱신
+#   - issue_comment       : PR 코멘트의 '/approve'로 C 확인 신호 갱신
 #   - workflow_dispatch   : 수동 실행(디버그)
 
 on:
@@ -223,7 +223,7 @@ jobs:
 
   # ---------------------------------------------------------------------------
   # editorial-c-approval: C 등급의 allowlisted 사람 packet-hash confirm 게이트.
-  # pull_request(재분류)와 issue_comment('/approve <hash>' 확인) 양쪽에서 실행.
+  # pull_request(재분류)와 issue_comment('/approve' 확인) 양쪽에서 실행.
   # c_approval_gate.cjs가 내부에서 자체적으로 commit status(editorial-c-approval)를 기록한다.
   # ---------------------------------------------------------------------------
   editorial-c-approval:

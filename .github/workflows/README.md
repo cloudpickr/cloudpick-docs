@@ -66,7 +66,7 @@ gh api repos/cloudpickr/cloudpick-docs/issues/comments/COMMENT_ID | node .github
 
 `link-refresh.yml`은 매주 화요일 10:35 KST에 후보 보고서를 만들고 14일 보관합니다. 기본값은 **보고만** 하며, 수동 `publish=true` 또는 저장소 변수 `LINK_REFRESH_CREATE_PRS=true`로 draft 생성을 선택합니다. `target`은 한국어 기준 상대 논리 경로(예: `compute/containers.md`)이며 생략하면 제한된 배치를 회전 검사합니다. 실행 코드는 dispatch 대상 ref와 관계없이 신뢰된 `master`에서만 가져옵니다.
 
-문서 변경이 없는 자동화 코드 PR은 기존 `feature-only` 경로로 사람 문서 승인 없이 검증합니다. 봇이 생성한 문서 PR은 URL 변경만 있어도 C이며, 독립 리뷰·필수 CI·허용된 사람의 패킷 해시 확인과 머지가 필요합니다. 코드 구현 PR과 생성 문서 PR을 섞지 않습니다.
+문서 변경이 없는 자동화 코드 PR은 기존 `feature-only` 경로로 사람 문서 승인 없이 검증합니다. 봇이 생성한 문서 PR은 URL 변경만 있어도 C이며, 독립 리뷰·필수 CI·허용된 사람의 `/approve`와 머지가 필요합니다. 코드 구현 PR과 생성 문서 PR을 섞지 않습니다.
 
 기본 `GITHUB_TOKEN`으로 PR을 만들면 GitHub가 후속 PR 워크플로 실행 승인을 요구할 수 있습니다. [GitHub 공식 설명](https://docs.github.com/en/actions/how-tos/write-workflows/choose-when-workflows-run/trigger-a-workflow)에 따라 무인 CI가 필요하면 `LINK_REFRESH_PR_TOKEN`(contents·pull requests·issues 권한의 GitHub App/PAT)을 별도로 설정합니다. 토큰이 없더라도 성공을 가장하지 않으며, 문서 승인자 신원을 자동 승인에 사용하지 않습니다. 저장소의 Actions PR 생성 허용 설정도 필요합니다.
 

@@ -9,7 +9,8 @@
  */
 const { test } = require('node:test');
 const assert = require('node:assert');
-const { evaluateApproval, normalizeComments } = require('./c_approval_gate.cjs');
+const { evaluateApproval, normalizeComments, approvalFingerprint } = require('./c_approval_gate.cjs');
+const gate = require('./c_approval_gate.cjs');
 
 const PACKET = 'a'.repeat(64);        // 현재 packet SHA-256
 const OTHER = 'b'.repeat(64);         // 다른(오래된) packet SHA-256
@@ -111,4 +112,52 @@ test('normalizeComments flags bot type and preserves body', () => {
   assert.strictEqual(out[0].isBot, false);
   assert.strictEqual(out[1].isBot, true);
   assert.ok(out[0].body.includes('/approve'));
+});
+
+test('simple approval requires an unedited allowed comment and matching recorded change', () => {
+  const comment = {id: 42, user:'alice', body:'/approve', isBot:false, createdAt:'t', updatedAt:'t'};
+  const input = {tier:'C',packetSha256:PACKET,allowlist:['alice'],confirmations:[comment],fingerprint:OTHER,bindings:{42:OTHER}};
+  assert.strictEqual(evaluateApproval(input).state, 'success');
+  assert.strictEqual(evaluateApproval({...input, fingerprint:PACKET}).state, 'pending');
+  assert.strictEqual(evaluateApproval({...input, bindings:{}}).state, 'pending');
+  assert.strictEqual(evaluateApproval({...input, confirmations:[{...comment,updatedAt:'later'}]}).state, 'pending');
+  assert.strictEqual(evaluateApproval({...input, confirmations:[{...comment,isBot:true}]}).state, 'pending');
+  assert.strictEqual(evaluateApproval({...input, confirmations:[{...comment,user:'mallory'}]}).state, 'pending');
+});
+
+test('approval fingerprint ignores only link manifest regeneration and binds document contents', () => {
+  const packet = {policy_action:'link-refresh', link_refresh:{manifest_sha256:'old',url_map:{'https://old.test':'https://new.test'}}};
+  const docs = [{path:'src/content/docs/ko/a.md',status:'modified',base:'old',head:'new'}];
+  const first = approvalFingerprint(packet,docs);
+  assert.strictEqual(first, approvalFingerprint({...packet,link_refresh:{...packet.link_refresh,manifest_sha256:'new'}},docs));
+  assert.notStrictEqual(first, approvalFingerprint(packet,[{...docs[0],head:'changed'}]));
+  assert.notStrictEqual(first, approvalFingerprint(packet,[{...docs[0],base:'changed'}]));
+  assert.notStrictEqual(first, approvalFingerprint({...packet, link_refresh:{...packet.link_refresh,url_map:{'https://old.test':'https://other.test'}}},docs));
+});
+
+test('command binds once, survives manifest refresh, and rejects changed documents', async () => {
+  const priorEnv = process.env.C_APPROVAL_ALLOWLIST;
+  process.env.C_APPROVAL_ALLOWLIST = 'alice';
+  const comment = {id:123, body:'/approve', user:{login:'alice',type:'User'}, created_at:'2026-10-01T12:00:00Z', updated_at:'2026-10-01T12:00:00Z'};
+  const packet = {policy_action:'link-refresh', link_refresh:{manifest_sha256:'one',url_map:{a:'b'}}};
+  const state = {head:'head1', base:'base1', doc:'blob1', statuses:[]};
+  const files = [{filename:'.editorial/packets/P.json',status:'added',additions:1,deletions:0}, {filename:'src/content/docs/ko/x.md',status:'modified',additions:1,deletions:1}];
+  const github = {rest:{pulls:{get:async()=>({data:{head:{sha:state.head},base:{sha:state.base},updated_at:'2026-10-01T11:00:00Z'}}),listFiles:'files',listCommits:'commits'}, issues:{listComments:'comments'},repos:{getContent:async({path,ref})=>({data:path.endsWith('.json') ? {content:Buffer.from(JSON.stringify(packet)).toString('base64'),encoding:'base64'} : {sha:ref === state.base ? 'baseblob' : state.doc,type:'file'}}),listCommitStatusesForRef:'statuses',createCommitStatus:async s => state.statuses.unshift({...s,creator:{login:'github-actions[bot]'}})}},paginate:async (method)=>({files,comments:[comment],commits:[{sha:'head1'},{sha:state.head}],statuses:state.statuses}[method])};
+  const context = {repo:{owner:'org',repo:'repo'},eventName:'issue_comment',payload:{action:'created',issue:{number:1,pull_request:{}},comment}};
+  const exec = {exec:async (_cmd,_args,options)=>options.listeners.stdout(Buffer.from(JSON.stringify({tier:'C',report:{envelope:{packet_sha256:PACKET}}})))};
+  const core = {info(){},warning(){}};
+  try {
+    await gate({github,context,core,exec});
+    assert.equal(state.statuses[0].state,'success');
+    packet.link_refresh.manifest_sha256 = 'two'; state.head = 'head2'; state.base = 'base2';
+    await gate({github,context:{...context,eventName:'pull_request',payload:{pull_request:{number:1}}},core,exec});
+    assert.equal(state.statuses[0].state,'success');
+    state.doc = 'changed'; state.head = 'head3';
+    await gate({github,context:{...context,eventName:'pull_request',payload:{pull_request:{number:1}}},core,exec});
+    assert.equal(state.statuses[0].state,'pending');
+    await gate({github,context,core,exec}); // rerunning an old comment cannot bind the new change
+    assert.equal(state.statuses[0].state,'pending');
+  } finally {
+    if (priorEnv === undefined) delete process.env.C_APPROVAL_ALLOWLIST; else process.env.C_APPROVAL_ALLOWLIST = priorEnv;
+  }
 });

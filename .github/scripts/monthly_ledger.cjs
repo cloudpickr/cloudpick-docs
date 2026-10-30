@@ -46,7 +46,8 @@ function build(month, paths, previous, current, candidates = []) {
   const resolved = new Set(current?.resolved_ids || previous?.resolved_ids || []);
   if (!current && previous) for (const item of previous.items) {
     if (item.status === 'open' || item.status === 'hold') items.set(item.id, {...item, carried_from: previous.month});
-    else resolved.add(item.id); // Details stay in the previous issue; IDs suppress duplicate rediscovery.
+    else if (item.status === 'done' || item.status === 'wontfix') resolved.add(item.id);
+    // A current volatile claim must be eligible for another review next month.
   }
   // A new month starts unreviewed even if last month was verified; last month's
   // evidence remains reachable in the previous issue, never reasserted as current.

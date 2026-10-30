@@ -50,3 +50,11 @@ test('candidate text cannot inject a ledger delimiter', () => {
   const l = ledger.build('2026-10', [path], null, null, [{path, axis: 1, reason: 'example <!-- monthly-ledger:end -->'}]);
   assert.deepEqual(ledger.parse(ledger.render('issue body', l)), l);
 });
+test('a previously current volatile finding is surfaced in the next month', () => {
+  const c = {path, axis: 1, reason: 'Preview status'};
+  const previous = ledger.build('2026-10', [path], null, null, [c]);
+  previous.items[0].status = 'current'; previous.items[0].evidence = ['https://example.org'];
+  const next = ledger.build('2026-11', [path], previous, null, [c]);
+  assert.equal(next.items.length, 1);
+  assert.equal(next.items[0].status, 'open');
+});

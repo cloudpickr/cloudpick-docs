@@ -13,8 +13,7 @@ name: Monthly Docs Review
 on:
   schedule:
     - cron: "5 0 1 * *"    # 매월 1일 UTC 00:05 — 그 달 리뷰 이슈 생성
-    - cron: "5 23 * * *"   # 매일 UTC 23:05 — daily 새 소식 수집(미 서부 15~16시 PT / 동부 18~19시 ET).
-                           # AWS·Azure의 가장 늦은 발표(UTC 20~21시)까지 지난 뒤 돌려 당일분을 온전히 담는다.
+    - cron: "15 0 * * *"   # 매일 UTC 00:15(KST 09:15), 월초 open(UTC 00:05) 이후.
   workflow_dispatch:
     inputs:
       action:
@@ -41,13 +40,13 @@ jobs:
         uses: actions/github-script@v9
         with:
           script: |
-            // schedule: cron으로 분기. "5 0 1 * *"=open, "5 23 * * *"=daily.
+            // schedule: cron으로 분기. "5 0 1 * *"=open, "15 0 * * *"=daily.
             // workflow_dispatch: 입력값 사용(기본 open). close는 없음 — 이슈는 월말에 사람이 닫는다.
             const cron = context.payload.schedule || "";
             let action = "open";
             if (context.eventName === "workflow_dispatch") {
               action = `${{ github.event.inputs.action }}` || "open";
-            } else if (cron === "5 23 * * *") {
+            } else if (cron === "15 0 * * *") {
               action = "daily";
             }
             // KST(UTC+9) 기준 '월'을 제목/마커에 쓴다.
@@ -60,11 +59,12 @@ jobs:
             core.setOutput("action", action);
             core.setOutput("year", String(year));
             core.setOutput("month", String(month));
+            core.setOutput("day", String(day));
             core.setOutput("date_kst", dateKst);
             core.info(`event=${context.eventName} cron="${cron}" action=${action} date=${dateKst}`);
 
       - name: Open monthly review issue
-        if: steps.mode.outputs.action == 'open'
+        if: steps.mode.outputs.action == 'open' || (steps.mode.outputs.action == 'daily' && steps.mode.outputs.day == '1')
         uses: actions/github-script@v9
         with:
           script: |
@@ -437,10 +437,7 @@ jobs:
               owner: context.repo.owner, repo: context.repo.repo,
               issue_number: issue.number, per_page: 100,
             });
-            if (comments.some((c) => (c.body || "").includes(marker) && c.user?.login === 'github-actions[bot]')) {
-              core.info(`daily: ${dateKst} 코멘트 이미 존재 #${issue.number} — skip.`);
-              return;
-            }
+            const existingDaily = comments.find(c => (c.body || '').includes(marker) && c.user?.login === 'github-actions[bot]');
 
             // 4) whats-new MCP search_releases(format=source) — csp별 벤더 영문 원문.
             //    whats-new 담당 권고(코드 근거): days=N 롤링 대신 UTC '당일+전일'을 각각
@@ -528,7 +525,11 @@ jobs:
                 core.setFailed('daily: vendor source collection failed');
               }
               else {
-                await github.rest.issues.createComment({owner: context.repo.owner, repo: context.repo.repo, issue_number: issue.number, body: `${marker}\n✅ ${d1}–${d0} UTC 새 소식 조회 완료: 결과 없음. 수집 범위 밖 소식 및 문서 최신성은 별도 검토가 필요합니다.`});
+                if (existingDaily) {
+                  core.setFailed('daily: 이전 성공 기록이 있으나 재조회 결과가 비어 있음 — 원장 누락 여부를 확인해야 합니다');
+                  return;
+                }
+                if (!existingDaily) await github.rest.issues.createComment({owner: context.repo.owner, repo: context.repo.repo, issue_number: issue.number, body: `${marker}\n✅ ${d1}–${d0} UTC 새 소식 조회 완료: 결과 없음. 수집 범위 밖 소식 및 문서 최신성은 별도 검토가 필요합니다.`});
               }
               return;
             }
@@ -549,7 +550,8 @@ jobs:
 
             const partialMarker = `<!-- wnk-daily-partial:${dateKst} -->`;
             const partial = errors.length && comments.find(c => (c.body || '').includes(partialMarker) && c.user?.login === 'github-actions[bot]');
-            if (partial) await github.rest.issues.updateComment({owner: context.repo.owner, repo: context.repo.repo, comment_id: partial.id, body});
+            if (!errors.length && existingDaily) await github.rest.issues.updateComment({owner: context.repo.owner, repo: context.repo.repo, comment_id: existingDaily.id, body});
+            else if (partial) await github.rest.issues.updateComment({owner: context.repo.owner, repo: context.repo.repo, comment_id: partial.id, body});
             else await github.rest.issues.createComment({owner: context.repo.owner, repo: context.repo.repo, issue_number: issue.number, body});
             core.info(`daily: #${issue.number}에 ${sections.length}개 CSP 소식 코멘트 완료(${d1}~${d0} UTC).`);
 
@@ -585,11 +587,11 @@ jobs:
           if [ ! -s /tmp/news-items.json ] || [ "$(python3 -c 'import json;print(len(json.load(open("/tmp/news-items.json"))))')" = "0" ]; then
             echo "매핑: 수집 항목 없음 — 생략."; exit 0
           fi
-          python3 scripts/map-news-to-docs.py --news /tmp/news-items.json --json > /tmp/news-map.json || { echo "매핑 실패 — 생략."; exit 0; }
+          python3 scripts/map-news-to-docs.py --news /tmp/news-items.json --json > /tmp/news-map.json
           python3 scripts/post-news-map-comment.py /tmp/news-map.json "$ISSUE" "$RANGE"
 
       - name: Daily — add news signals to monthly ledger
-        if: steps.mode.outputs.action == 'daily' && steps.daily.outputs.issue_number != '' && steps.news_map.outcome == 'success' && !cancelled()
+        if: steps.mode.outputs.action == 'daily' && steps.daily.outputs.issue_number != '' && steps.news_map.outcome != 'skipped' && !cancelled()
         uses: actions/github-script@v9
         env:
           ISSUE_NUMBER: ${{ steps.daily.outputs.issue_number }}
@@ -608,9 +610,12 @@ jobs:
               candidates.push({path: doc.path, axis: 2, reason: `${row.news} (${row.url || '출처 미확인'})`, source_url: row.url || null, source_status: 'unverified'});
             }
             for (const row of (mapped.unmapped || [])) candidates.push({path: null, axis: 3, reason: `${row.news} (${row.url || '출처 미확인'})`, source_url: row.url || null, source_status: 'unverified'});
-            const next = ledger.build(current.month, current.documents.map(d => d.path), null, current, candidates);
+            const next = ledger.build(current.month, current.documents.filter(d => !d.missing_from_inventory).map(d => d.path), null, current, candidates);
             const body = ledger.render(issue.body || '', next);
             if (Buffer.byteLength(body, 'utf8') > 60000) throw new Error('ledger exceeds safe issue body size; no update performed');
             const latest = await github.rest.issues.get({owner: context.repo.owner, repo: context.repo.repo, issue_number: issueNumber});
             if (latest.data.body !== issue.body) throw new Error('issue body changed during ledger generation; no update performed');
             if (body !== issue.body) await github.rest.issues.update({owner: context.repo.owner, repo: context.repo.repo, issue_number: issueNumber, body});
+      - name: Daily — report mapping failure
+        if: steps.mode.outputs.action == 'daily' && steps.news_map.outcome == 'failure' && !cancelled()
+        run: exit 1

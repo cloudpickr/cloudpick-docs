@@ -23,6 +23,7 @@ import ssl
 import time
 import urllib.request
 from dataclasses import dataclass
+from html.parser import HTMLParser
 
 MAX_BYTES = 2 * 1024 * 1024      # 2 MiB
 MAX_TIME_SECONDS = 20
@@ -44,6 +45,77 @@ class FetchResult:
     body_bytes: int
     body_sha256: str
     text_sample: str  # 앞부분 일부(대조 보조)
+    visible_sha256: str | None = None  # 선택적 본문 관측용, 사실 검증이 아님
+
+
+class _VisibleText(HTMLParser):
+    """Visible main/article text only; ignore navigation, scripts and UI chrome."""
+    BLOCKED = {'script', 'style', 'noscript', 'svg', 'template', 'iframe', 'nav', 'footer', 'form', 'button', 'head'}
+    VOID = {'area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'link', 'meta', 'param', 'source', 'track', 'wbr'}
+
+    def __init__(self):
+        super().__init__(convert_charrefs=True)
+        self.stack = []
+        self.invalid = False
+        self.text = []
+
+    OPTIONAL = {'p', 'li', 'dt', 'dd', 'option', 'thead', 'tbody', 'tfoot', 'tr', 'th', 'td'}
+
+    def handle_starttag(self, tag, attrs):
+        if tag in self.VOID:
+            return
+        attributes = dict(attrs)
+        sidebar = tag == 'aside' and attributes.get('role') in {'navigation', 'menu'}
+        blocked = (self.stack[-1][1] if self.stack else False) or tag in self.BLOCKED or sidebar
+        main = (self.stack[-1][2] if self.stack else False) or tag in {'main', 'article'} or attributes.get('role') == 'main' or attributes.get('id') == 'main-col-body'
+        self.stack.append((tag, blocked, main))
+
+    def handle_startendtag(self, tag, attrs):
+        pass
+
+    def handle_endtag(self, tag):
+        if tag in self.VOID:
+            return
+        matching = next((i for i in range(len(self.stack)-1,-1,-1) if self.stack[i][0] == tag), None)
+        if matching is None:
+            # HTML treats an unmatched </p> as an empty paragraph.
+            if tag == 'p':
+                return
+            if self.stack and (self.stack[-1][1] or self.stack[-1][2]):
+                self.invalid = True
+            return
+        if any(row[2] and row[0] not in self.OPTIONAL for row in self.stack[matching+1:]):
+            self.invalid = True
+        del self.stack[matching:]
+
+    def handle_data(self, value):
+        if self.stack and self.stack[-1][2] and not self.stack[-1][1]:
+            cleaned = ' '.join(value.split())
+            if cleaned:
+                self.text.append(cleaned)
+
+
+def _visible_digest(raw: bytes, content_type: str) -> str | None:
+    import hashlib
+    mime = content_type.split(';', 1)[0].strip().lower()
+    try:
+        decoded = raw.decode('utf-8', errors='strict')
+    except UnicodeDecodeError:
+        return None
+    if mime in ('text/html', 'application/xhtml+xml'):
+        parser = _VisibleText()
+        parser.feed(decoded)
+        if parser.invalid or any(row[2] for row in parser.stack):
+            return None
+        text = ' '.join(' '.join(parser.text).split())
+    elif mime == 'text/plain':
+        text = ' '.join(decoded.split())
+    else:
+        return None
+    # Tiny/JS-only/soft error pages have no dependable semantic content.
+    if len(text) < 100:
+        return None
+    return hashlib.sha256(text.encode('utf-8')).hexdigest()
 
 
 def _ip_is_safe(ip_str: str) -> bool:
@@ -88,7 +160,7 @@ def _validate_url(url: str) -> tuple[str, str]:
     return parsed.hostname, url
 
 
-def fetch_source(url: str, *, opener=None, resolver=None) -> FetchResult:
+def fetch_source(url: str, *, opener=None, resolver=None, normalize_content=False) -> FetchResult:
     """
     안전 fetch. opener/resolver 주입으로 테스트 가능.
     resolver(host) -> [ip...] (안전성 검사 포함), opener(url) -> (status, headers, body_reader).
@@ -116,6 +188,7 @@ def fetch_source(url: str, *, opener=None, resolver=None) -> FetchResult:
         h = hashlib.sha256()
         total = 0
         chunks = []
+        full = [] if normalize_content else None
         while True:
             if time.monotonic() > deadline:
                 raise FetchError("time budget exceeded during read")
@@ -126,10 +199,14 @@ def fetch_source(url: str, *, opener=None, resolver=None) -> FetchResult:
             if total > MAX_BYTES:
                 raise FetchError(f"response exceeds {MAX_BYTES} bytes")
             h.update(chunk)
+            if full is not None:
+                full.append(chunk)
             if len(chunks) < 4:
                 chunks.append(chunk)
         sample = b"".join(chunks)[:4096].decode("utf-8", errors="replace")
-        return FetchResult(current, status, total, h.hexdigest(), sample)
+        content_type = next((v for k, v in headers.items() if k.lower() == 'content-type'), '')
+        visible = _visible_digest(b''.join(full), content_type) if full is not None else None
+        return FetchResult(current, status, total, h.hexdigest(), sample, visible)
     raise FetchError("too many redirects")
 
 

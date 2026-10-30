@@ -340,6 +340,8 @@ def _link_refresh_reconstruct_from_diff(diff_text: str, url_map: dict) -> dict:
         # 삭제/추가 블록을 라인 단위 1:1로 재구성 비교.
         if len(minus) != len(plus):
             signals.append(f"라인 증감(삭제 {len(minus)} vs 추가 {len(plus)}) — URL 교체는 라인수 불변")
+            minus.clear()
+            plus.clear()
             return
         for m, p in zip(minus, plus):
             rebuilt = lrg.reconstruct(m, url_map)

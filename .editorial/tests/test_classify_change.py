@@ -151,11 +151,11 @@ class TestDiffParsing(unittest.TestCase):
 
 
 class TestLinkRefresh(unittest.TestCase):
-    """link-refresh 패킷: URL-only 현행화의 경량 티어(비규제 B / 규제 C)."""
+    """link-refresh는 목적지 의미 검증 전 모든 경로에서 C를 요구한다."""
 
-    def test_small_link_refresh_is_not_tier_a(self):
+    def test_small_link_refresh_is_c(self):
         change = cc.FileChange("src/content/docs/ko/cloud/test.md", "M", 1, 1)
-        self.assertEqual(cc.classify([change], self._packet()).tier, "B")
+        self.assertEqual(cc.classify([change], self._packet()).tier, "C")
 
     def _packet(self, action="link-refresh", reasons=None):
         return {
@@ -164,34 +164,34 @@ class TestLinkRefresh(unittest.TestCase):
             "claim_ledger": [],
         }
 
-    def test_core_path_link_refresh_is_B(self):
+    def test_core_path_link_refresh_is_C(self):
         changes = [mod(f"{DOC}/ko/ai/agents.md", 10, 10),
                    mod(f"{DOC}/en/ai/agents.md", 10, 10),
                    mod(f"{DOC}/ja/ai/agents.md", 10, 10)]
         r = cc.classify(changes, self._packet())
-        self.assertEqual(r.tier, "B")
+        self.assertEqual(r.tier, "C")
 
-    def test_multi_doc_link_refresh_still_B(self):
-        # 레벨링과 달리 1 논리 문서 제한 없음(전 문서 분산이 본질).
+    def test_multi_doc_link_refresh_is_C(self):
+        # 다중 문서도 목적지 검토를 위해 사람 승인이 필요하다.
         changes = [mod(f"{DOC}/ko/ai/agents.md", 40, 40),
                    mod(f"{DOC}/ko/compute/containers.md", 40, 40),
                    mod(f"{DOC}/ko/storage/backup.md", 40, 40)]
         r = cc.classify(changes, self._packet())
-        self.assertEqual(r.tier, "B")
+        self.assertEqual(r.tier, "C")
 
     def test_regulatory_path_link_refresh_is_C(self):
         changes = [mod(f"{DOC}/ko/korea/security/csap.md", 5, 5)]
         r = cc.classify(changes, self._packet())
         self.assertEqual(r.tier, "C")
 
-    def test_link_refresh_requires_empty_ledger(self):
-        # claim_ledger가 있으면 link-refresh 자격 아님 → 일반 B 경로.
+    def test_link_refresh_with_claims_is_also_c(self):
+        # claim_ledger를 추가해도 사람 승인 C를 우회하지 못한다.
         p = self._packet()
         p["claim_ledger"] = [{"claim": "x", "source_url": "https://e.com", "quote": "q",
                               "checked_at": "2026-10-01T00:00:00+09:00", "status": "verified"}]
         changes = [mod(f"{DOC}/ko/ai/agents.md", 10, 10)]
         r = cc.classify(changes, p)
-        self.assertEqual(r.tier, "B")  # evidence-backed bounded update
+        self.assertEqual(r.tier, "C")
 
     def test_tier_reasons_alone_does_not_grant_link_refresh(self):
         # governance 투표 반영: policy_action=="link-refresh" 단일 필드로만 자격 부여.
@@ -205,7 +205,7 @@ class TestLinkRefresh(unittest.TestCase):
         p = {"policy_action": "link-refresh", "tier_reasons": ["link-refresh"], "claim_ledger": []}
         changes = [mod(f"{DOC}/ko/ai/agents.md", 30, 30)]
         r = cc.classify(changes, p)
-        self.assertEqual(r.tier, "B")
+        self.assertEqual(r.tier, "C")
 
 
 if __name__ == "__main__":

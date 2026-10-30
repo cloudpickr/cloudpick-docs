@@ -200,7 +200,7 @@ python3 scripts/lint-strikethrough.py
   - **추적 파라미터**(`?icid=...`, `utm_*` 등)는 원본에 없었다면 추가하지 않습니다. 단 `?view=`·`?tabs=`·`?pivots=`는 **버전 선택자이며 추적이 아니므로** 벗기지 않습니다(벤더가 문서 버전을 구분하는 정식 파라미터).
   - 즉 "도메인·경로가 실제로 바뀐 것"만 최종 URL로 갱신하고(예: `docs.anthropic.com`→`platform.claude.com`, `azure/ai-foundry`→`azure/foundry`, NIST `/publications/detail/sp/800-145/final`→`/pubs/sp/800/145/final`), 로케일·파라미터 차이만 있는 리다이렉트는 유지합니다.
   - 리다이렉트 현황은 주간 스케줄 링크 점검 리포트(이슈)로 추적합니다.
-  - **대량 링크 현행화는 link-refresh 게이트 경로**를 씁니다: `policy_action: "link-refresh"` 패킷(빈 `claim_ledger` 허용 + `link_refresh.url_map`/`manifest_sha256`)을 붙입니다. `link-refresh` 라벨은 선택 사항이며 가드 실행 조건이 아닙니다. 그러면 분류기가 비규제 경로는 B로 인정하고, CI의 `link-refresh-guard`가 '재구성 매칭'으로 URL 외 변경이 없음을 전수 증명합니다(규제 경로 korea/japan/eu/us/singapore는 C 유지 → 사람 승인). 상세는 `.editorial/README.md`.
+  - **대량 링크 현행화는 link-refresh 게이트 경로**를 씁니다: `policy_action: "link-refresh"` 패킷(빈 `claim_ledger` 허용 + `link_refresh.url_map`/`manifest_sha256`)을 붙입니다. `link-refresh` 라벨은 선택 사항이며 가드 실행 조건이 아닙니다. 분류기는 모든 경로를 C로 두어 사람 승인을 요구하고, CI의 `link-refresh-guard`가 '재구성 매칭'으로 URL 외 변경이 없음을 전수 검증합니다. 사람은 URL의 내용·판본·soft-404 여부도 확인합니다. 상세는 `.editorial/README.md`.
 - 인증이 필요한 콘솔·포털 URL(예: `console.aws.amazon.com`)은 검사 오탐을 유발하므로 `참고하기`에 넣지 말고, 불가피하면 `lychee.toml`의 `exclude`에 등록합니다.
 - 링크 대체 시에도 벤더 열 순서·벤더별 그룹핑(`### AWS`/`### Azure`/`### Google Cloud`/`### OCI`) 규약을 유지합니다.
 

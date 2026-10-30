@@ -200,8 +200,8 @@ def classify(
 
     # A 자격: 순수 기계적, 합산 20줄 이하, 사실/구조 변경 없음, LLM 생성 아님.
     a_blockers = []
-    if _packet_is_link_refresh(packet):
-        a_blockers.append("link-refresh requires B/C guard and review")
+    if isinstance(packet, dict) and packet.get("policy_action") == "link-refresh":
+        a_blockers.append("link-refresh requires C guard and review")
     if generated_by_llm:
         a_blockers.append("generated_by_llm=true → minimum B")
     if has_claims:
@@ -215,29 +215,20 @@ def classify(
     if not a_blockers:
         return Classification("A", ["mechanical change within A limits"] + risk_paths)
 
-    # A 실패 → B. 단 근거(claim_ledger)나 명시 범위가 없으면 상향(escalate to C).
+    # URL 재구성 및 최종 HTTP 상태만으로 목적 문서의 내용·판본이 동일하다고
+    # 증명할 수 없다. soft-404·path-collapse·버전 변경은 사람이 확인한다.
+    # 신뢰 가능한 검증이 도입되기 전까지 모든 link-refresh를 C로 유지한다.
+    if isinstance(packet, dict) and packet.get("policy_action") == "link-refresh":
+        return Classification(
+            "C",
+            ["link-refresh requires human approval: redirect equivalence is not guaranteed"]
+            + a_blockers + risk_paths,
+            escalated_from="B",
+        )
+
+    # 일반 사실 갱신은 근거가 있으면 B를 유지한다.
     if has_claims:
         return Classification("B", ["bounded factual update with evidence"] + a_blockers + risk_paths)
-
-    # link-refresh: URL 문자열만 교체하는 링크 현행화. 빈 claim_ledger가 정당하다
-    # (새 사실 주장 없음). 레벨링과 달리 '1 논리 문서' 제한을 두지 않는다 — 링크 현행화는
-    # 본질적으로 전 문서에 분산되기 때문. 대신 결정론적 가드(scripts/link-refresh-guard.py)가
-    # 'URL 교체만 했음'을 재구성 매칭으로 전수 증명하므로, 범위 제한 대신 '변경 종류 제한'으로
-    # 안전을 확보한다(council 합의). 규제 경로(korea/japan/eu/us/singapore)는 리다이렉트가
-    # 개정 법령판을 가리킬 수 있어 C(사람 승인)를 유지한다.
-    if _packet_is_link_refresh(packet):
-        if risk_paths:
-            return Classification(
-                "C",
-                ["link-refresh on regulatory path → human approval (redirect may point to amended edition)"]
-                + a_blockers + risk_paths,
-                escalated_from="B",
-            )
-        return Classification(
-            "B",
-            ["link-refresh: empty claim_ledger is legal (URL-only; guard proves reconstruction match)"]
-            + a_blockers,
-        )
 
     # legal B(레벨링): 빈 claim_ledger가 '사실 주장 없음'의 정당한 신호인 경우 B로 인정한다.
     # 레벨링은 표현만 바꾸므로 새 사실 주장이 없다(패킷 tier_reasons가 leveling 성격을 명시).

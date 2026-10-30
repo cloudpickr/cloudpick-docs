@@ -436,6 +436,13 @@ class TestLinkRefreshReconstructDiff(unittest.TestCase):
         r = g._link_refresh_reconstruct_from_diff(diff, self.MAP)
         self.assertTrue(r.get("block"))
 
+    def test_mismatched_blocks_do_not_contaminate_following_blocks(self):
+        diff = "@@ -1,2 +1,1 @@\n-a\n-b\n+c\n context\n-x\n+y\n+z\n"
+        r = g._link_refresh_reconstruct_from_diff(diff, self.MAP)
+        self.assertEqual(len(r["signals"]), 2)
+        self.assertIn("삭제 2 vs 추가 1", r["signals"][0])
+        self.assertIn("삭제 1 vs 추가 2", r["signals"][1])
+
     def test_patch_omitted_is_error(self):
         # governance 투표: GitHub patch 생략 시 diff 검증 불가 → error(hold), block:false 금지.
         diff = "--- a/x.md\n(no textual patch)\n"

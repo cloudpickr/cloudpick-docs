@@ -24,7 +24,7 @@
     "url_map": {
       "https://cloud.google.com/kubernetes-engine/docs": "https://docs.cloud.google.com/kubernetes-engine/docs"
     },
-    "manifest_sha256": "e28bc83634f83c7adc506678ac88e29eb346aff56d9dca81b2efaa37acdffad1",
+    "manifest_sha256": "ba4de9f150b1123799f09ae8869add448c90ace701f13c7d2e4f4f17371fc395",
     "changed_paths_count": 3
   }
 }

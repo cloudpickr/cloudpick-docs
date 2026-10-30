@@ -35,5 +35,12 @@ test('malformed, error and truncated source responses never count as complete', 
   assert.throws(() => news.parseResponse({result:{isError:true,content:[{text:'[]'}]}},50));
   assert.throws(() => news.parseResponse(response('invalid'),50));
   assert.throws(() => news.parseResponse(response('[1,2] 10건 중 2건'),50));
+  try { news.parseResponse(response('[1,2] 10건 중 2건'),50); } catch (e) { assert.deepEqual(e.partialRows,[1,2]); }
   assert.throws(() => news.parseResponse(response('[1,2]'),2));
+});
+test('provisional late-arrival checks and older gaps both get capacity', () => {
+  const p = {version:1,started_on:'2026-10-01',before_start:'unverified',days:{'2026-10-08':{aws:'provisional'}},attempted:{'2026-10-08':{aws:'2026-10-09T00:00:00Z'}}};
+  const plan = news.plan(p,'2026-10-10').aws;
+  assert.ok(plan.includes('2026-10-08'));
+  assert.ok(plan.includes('2026-10-01'));
 });

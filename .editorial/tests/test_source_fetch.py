@@ -112,6 +112,13 @@ class TestLimits(unittest.TestCase):
         html = f'<div id="main-col-body"><p>{text}</p></div>'.encode()
         self.assertIsNotNone(sf._visible_digest(html, 'text/html'))
 
+    def test_malformed_block_does_not_hide_later_main_content(self):
+        prefix = 'Configuration and policy introduction. ' * 4
+        def doc(limit):
+            return f'<main><p>{prefix}</p><aside><p>Note</aside><p>Limit {limit} GB</p></main>'.encode()
+        self.assertNotEqual(sf._visible_digest(doc(5),'text/html'),sf._visible_digest(doc(50),'text/html'))
+        self.assertIsNone(sf._visible_digest(f'<main>{prefix}</div>Limit 5 GB</main>'.encode(),'text/html'))
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)

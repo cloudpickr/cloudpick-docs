@@ -55,21 +55,18 @@ class _VisibleText(HTMLParser):
 
     def __init__(self):
         super().__init__(convert_charrefs=True)
-        self.blocked = 0
-        self.main = 0
+        self.stack = []
+        self.invalid = False
         self.text = []
+
+    OPTIONAL = {'p', 'li', 'dt', 'dd', 'option', 'thead', 'tbody', 'tfoot', 'tr', 'th', 'td'}
 
     def handle_starttag(self, tag, attrs):
         if tag in self.VOID:
             return
-        if self.blocked:
-            self.blocked += 1
-        elif tag in self.BLOCKED:
-            self.blocked = 1
-        elif self.main:
-            self.main += 1
-        elif tag in {'main', 'article'} or dict(attrs).get('role') == 'main' or dict(attrs).get('id') == 'main-col-body':
-            self.main = 1
+        blocked = (self.stack[-1][1] if self.stack else False) or tag in self.BLOCKED
+        main = (self.stack[-1][2] if self.stack else False) or tag in {'main', 'article'} or dict(attrs).get('role') == 'main' or dict(attrs).get('id') == 'main-col-body'
+        self.stack.append((tag, blocked, main))
 
     def handle_startendtag(self, tag, attrs):
         pass
@@ -77,13 +74,17 @@ class _VisibleText(HTMLParser):
     def handle_endtag(self, tag):
         if tag in self.VOID:
             return
-        if self.blocked:
-            self.blocked -= 1
-        elif self.main:
-            self.main -= 1
+        matching = next((i for i in range(len(self.stack)-1,-1,-1) if self.stack[i][0] == tag), None)
+        if matching is None:
+            if self.stack and (self.stack[-1][1] or self.stack[-1][2]):
+                self.invalid = True
+            return
+        if any(row[0] not in self.OPTIONAL for row in self.stack[matching+1:]):
+            self.invalid = True
+        del self.stack[matching:]
 
     def handle_data(self, value):
-        if self.main and not self.blocked:
+        if self.stack and self.stack[-1][2] and not self.stack[-1][1]:
             cleaned = ' '.join(value.split())
             if cleaned:
                 self.text.append(cleaned)
@@ -99,6 +100,8 @@ def _visible_digest(raw: bytes, content_type: str) -> str | None:
     if mime in ('text/html', 'application/xhtml+xml'):
         parser = _VisibleText()
         parser.feed(decoded)
+        if parser.invalid or any(row[2] for row in parser.stack):
+            return None
         text = ' '.join(' '.join(parser.text).split())
     elif mime == 'text/plain':
         text = ' '.join(decoded.split())

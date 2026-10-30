@@ -81,7 +81,7 @@ function assemble(ref, comments) {
   const parts = [];
   for (const c of comments) {
     if (c.user?.login !== 'github-actions[bot]') continue;
-    if (ref.published && c.created_at && c.updated_at && Date.parse(c.created_at) <= Date.parse(ref.published) && /<!-- monthly-ledger-part:[0-9a-f]{32}:\d+:\d+ -->/.test(c.body || '') && !(c.body || '').includes(`<!-- monthly-ledger-part:${ref.id}:`) && Date.parse(c.updated_at) > Date.parse(ref.published)) throw new Error('an older snapshot was edited after publication; reconcile its changes before continuing');
+    if (ref.published && c.created_at && c.updated_at && /<!-- monthly-ledger-part:[0-9a-f]{32}:\d+:\d+ -->/.test(c.body || '') && !(c.body || '').includes(`<!-- monthly-ledger-part:${ref.id}:`) && Date.parse(c.updated_at) > Date.parse(ref.published) && Date.parse(c.updated_at) > Date.parse(c.created_at)) throw new Error('a non-current snapshot was edited after publication; reconcile its changes before continuing');
     const part = extractPart(c.body, ref);
     if (part) parts.push(part);
   }
@@ -124,7 +124,7 @@ function renderPointer(body, data, parts, published = new Date().toISOString()) 
   const news = data.news_progress ? `벤더 소식 복구 진행: ${require('./monthly_news.cjs').pending(data.news_progress, new Date().toISOString().slice(0,10))}개 벤더·날짜 미확인. ${data.news_progress.started_on} 이전은 미확인.` : '벤더 소식 수집 범위 미확인.';
   const coverage = data.coverage ? `검사 상태: ${Object.entries(data.coverage).map(([k,v]) => `${k}=${v}`).join(', ')}.` : '검사별 실행 상태 미확인.';
   const refs = Object.values(data.source_progress?.refs || {});
-  const source = data.source_progress ? `문서 참조 출처 ${refs.length}개 중 관측 ${refs.filter(r => r.status === 'observed').length}개, 실패·미확인 ${refs.filter(r => r.status === 'unverified').length}개, 미조회 ${refs.filter(r => !r.status).length}개. 관측과 변경 신호는 사실 검증이 아닙니다.` : '문서별 참조 출처 감시 미실행.';
+  const source = data.source_progress ? `문서 참조 출처 ${refs.length}개 중 이번 달(UTC) 조회 ${refs.filter(r => typeof r.checked_at === 'string' && r.checked_at.startsWith(data.month)).length}개. 최근 상태: 관측 ${refs.filter(r => r.status === 'observed').length}개, 실패·미확인 ${refs.filter(r => r.status === 'unverified').length}개, 미조회 ${refs.filter(r => !r.status).length}개. 관측과 변경 신호는 사실 검증이 아닙니다.` : '문서별 참조 출처 감시 미실행.';
   const summary = `${HEADER}\n## 월간 검토 원장\n\n${marker}\n\n문서 ${data.documents.length}개: 미검토 ${counts.unreviewed}, 스캔 ${counts.scanned}, 근거 검토 ${counts.verified}, 미확인 ${counts.unverified}. 처리 대기 후보 ${active.length}개. 자동 스캔은 근거 검토 완료를 뜻하지 않습니다.\n\n${overdue}\n\n${news}\n\n${source}\n\n${coverage}\n\n상세 원장은 아래 봇 댓글의 JSON 조각에 있습니다. 문서별 상태·근거 및 후보 상태·PR은 해당 댓글에서 수정합니다. 이전 스냅샷은 감사 이력으로 남습니다. 구조 변경은 별도 과반 의결을 따릅니다.\n${FOOTER}`;
   const start = body.indexOf(HEADER), end = body.indexOf(FOOTER);
   if ((start < 0) !== (end < 0) || (start >= 0 && (end < start || body.indexOf(HEADER, start + HEADER.length) !== -1 || body.indexOf(FOOTER, end + FOOTER.length) !== -1))) throw new Error('invalid summary markers');

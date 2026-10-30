@@ -41,9 +41,16 @@ function plan(progress, today, backlogLimit = 2) {
   const recent = dates.slice(-2);
   const result = {};
   for (const vendor of VENDORS) {
-    const backlog = dates.slice(0,-2).filter(day => progress.days[day]?.[vendor] !== 'complete')
-      .sort((a,b) => Number(progress.days[a]?.[vendor] !== 'provisional') - Number(progress.days[b]?.[vendor] !== 'provisional') || (progress.attempted?.[a]?.[vendor] || '').localeCompare(progress.attempted?.[b]?.[vendor] || '') || a.localeCompare(b)).slice(0, backlogLimit);
-    result[vendor] = [...new Set([...backlog, ...recent])];
+    const backlog = dates.slice(0,-2).filter(day => progress.days[day]?.[vendor] !== 'complete');
+    const order = (a,b) => (progress.attempted?.[a]?.[vendor] || '').localeCompare(progress.attempted?.[b]?.[vendor] || '') || a.localeCompare(b);
+    const provisional = backlog.filter(day => progress.days[day]?.[vendor] === 'provisional').sort(order);
+    const other = backlog.filter(day => progress.days[day]?.[vendor] !== 'provisional').sort(order);
+    const selected = [];
+    // Reserve capacity for both late-arrival rechecks and older outage recovery.
+    if (backlogLimit && provisional.length) selected.push(provisional.shift());
+    if (selected.length < backlogLimit && other.length) selected.push(other.shift());
+    while (selected.length < backlogLimit && (provisional.length || other.length)) selected.push(provisional.length ? provisional.shift() : other.shift());
+    result[vendor] = [...new Set([...selected, ...recent])];
   }
   return result;
 }
@@ -77,7 +84,11 @@ function parseResponse(data, limit) {
   const rows = JSON.parse(match[0]);
   if (!Array.isArray(rows)) throw new Error('MCP result is not an array');
   const count = text.match(/(\d+)\s*건\s*중\s*(\d+)\s*건/);
-  if (rows.length >= limit || (count && Number(count[1]) > Number(count[2]))) throw new Error('MCP result may be truncated; date remains unverified');
+  if (rows.length >= limit || (count && Number(count[1]) > Number(count[2]))) {
+    const error = new Error('MCP result may be truncated; date remains unverified');
+    error.partialRows = rows;
+    throw error;
+  }
   return rows;
 }
 module.exports = {VENDORS, initialize, validate, plan, apply, pending, parseResponse};

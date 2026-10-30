@@ -439,6 +439,7 @@ jobs:
             const utcNow = new Date();
             const d0 = utcNow.toISOString().slice(0, 10);
             const d1 = new Date(utcNow.getTime() - 86400000).toISOString().slice(0, 10);
+            const stableThrough = new Date(Date.parse(`${d0}T00:00:00Z`) - 7 * 86400000).toISOString().slice(0, 10);
             const progress = news.initialize(d0, current.news_progress);
             const planned = news.plan(progress, d0);
             const attempts = [];
@@ -501,8 +502,21 @@ jobs:
               const seen = new Set();
               const merged = [];
               for (const day of planned[csp]) {
+                let rows, truncated = false;
                 try {
-                  const rows = await callMcp({ csp, format: "source", start_date: day, end_date: day, limit: PER_CALL });
+                  rows = await callMcp({ csp, format: "source", start_date: day, end_date: day, limit: PER_CALL });
+                } catch (e) {
+                  if (Array.isArray(e.partialRows)) {
+                    rows = e.partialRows;
+                    truncated = true;
+                    errors.push(`${csp}/${day}: ${e.message}`);
+                  } else {
+                    attempts.push({vendor:csp, date:day, state:'failed'});
+                    errors.push(`${csp}/${day}: ${e.message}`);
+                    continue;
+                  }
+                }
+                try {
                   for (const r of (Array.isArray(rows) ? rows : [])) {
                     const key = r.article_id ?? `${csp}:${r.url || r.title || r.original_title}:${day}`;
                     if (seen.has(key)) continue;
@@ -513,7 +527,7 @@ jobs:
                       url: r.url, csp, date: day,
                     });
                   }
-                  attempts.push({vendor:csp, date:day, state:day === d0 ? 'provisional' : 'complete'});
+                  attempts.push({vendor:csp, date:day, state:truncated ? 'failed' : day > stableThrough ? 'provisional' : 'complete'});
                 } catch (e) {
                   attempts.push({vendor:csp, date:day, state:'failed'});
                   errors.push(`${csp}/${day}: ${e.message}`);

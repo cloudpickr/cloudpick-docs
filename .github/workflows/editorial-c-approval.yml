@@ -15,7 +15,7 @@ name: Editorial Review
 #
 # 트리거:
 #   - pull_request        : 문서/에디토리얼/설정 변경 시 리뷰+분류 실행
-#   - issue_comment       : PR 코멘트의 '/approve'로 C 확인 신호 갱신
+#   - issue_comment 승인 처리는 별도의 editorial-approval-comment.yml에서 실행
 #   - workflow_dispatch   : 수동 실행(디버그)
 
 on:
@@ -26,8 +26,6 @@ on:
     # required인데 영원히 pending(머지 불가)에 빠진다. editorial-review는 문서(src/content
     # /docs) 변경이 없으면 LLM 호출 전에 feature-only approve로 반환하므로, 무관한 PR에서
     # 돌아도 게이트웨이 비용 0에 수십 초로 끝난다(fail-closed 유지).
-  issue_comment:
-    types: [created, edited]
   workflow_dispatch:
     inputs:
       pr_number:
@@ -35,9 +33,7 @@ on:
         required: true
         type: string
 
-# 동일 PR + 동일 이벤트종류에 대해서만 최신 실행을 유지한다. 이벤트 종류(pull_request vs
-# issue_comment)를 group에 포함하지 않으면 서로 다른 트리거가 상대를 취소해(cancelled)
-# required 체크가 취소 상태로 남아 머지를 막는다. 이벤트별로 group을 분리해 이를 방지한다.
+# 동일 PR과 이벤트 종류의 최신 실행만 유지한다. 댓글 승인은 별도 워크플로다.
 concurrency:
   group: editorial-review-${{ github.event_name }}-${{ github.event.pull_request.number || github.event.issue.number || github.event.inputs.pr_number }}
   cancel-in-progress: true
@@ -50,7 +46,7 @@ permissions:
 jobs:
   # ---------------------------------------------------------------------------
   # editorial-review: 분류(A/B/C) + B/C 독립 LLM 리뷰. head SHA에 commit status 기록.
-  # issue_comment 이벤트에서는 실행하지 않는다(코멘트는 C 확인용 → c-approval 잡이 처리).
+  # 코멘트는 별도의 승인 전용 워크플로에서 처리한다.
   # ---------------------------------------------------------------------------
   editorial-review:
     if: >-
@@ -62,7 +58,7 @@ jobs:
       - name: Checkout trusted base tools
         uses: actions/checkout@v7
         with:
-          ref: ${{ github.event.pull_request.base.sha || github.ref }}
+          ref: ${{ github.event.pull_request.base.sha || github.event.repository.default_branch }}
 
       - uses: actions/setup-python@v7
         with:
@@ -223,21 +219,19 @@ jobs:
 
   # ---------------------------------------------------------------------------
   # editorial-c-approval: C 등급의 allowlisted 사람 packet-hash confirm 게이트.
-  # pull_request(재분류)와 issue_comment('/approve' 확인) 양쪽에서 실행.
+  # PR 재분류와 수동 재실행. 댓글 승인은 별도 워크플로에서 실행한다.
   # c_approval_gate.cjs가 내부에서 자체적으로 commit status(editorial-c-approval)를 기록한다.
   # ---------------------------------------------------------------------------
   editorial-c-approval:
-    # issue_comment는 PR 코멘트에만 반응(일반 이슈 코멘트 무시).
     if: >-
       github.event_name == 'pull_request' ||
-      github.event_name == 'workflow_dispatch' ||
-      (github.event_name == 'issue_comment' && github.event.issue.pull_request)
+      github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout trusted base tools
         uses: actions/checkout@v7
         with:
-          ref: ${{ github.event.pull_request.base.sha || github.ref }}
+          ref: ${{ github.event.pull_request.base.sha || github.event.repository.default_branch }}
 
       - uses: actions/setup-python@v7
         with:

@@ -1,32 +1,22 @@
 'use strict';
 /**
  * Editorial C-Approval Gate 로직.
- * 계약: froguin/multi-agent-stack@53618d6 §Review, approval and budget enforcement (5).
+ * 사용자 승인 정책: 허용된 사람이 문서와 근거를 확인한 뒤 /approve로 승인한다.
  *
  * 순수 판정 함수(evaluateApproval)는 테스트 가능하게 분리하고, main(github,...)은
  * GitHub API 연동(현재 packet SHA-256 계산·코멘트 조회·commit status 기록)만 담당한다.
  *
- * 계약 §5의 정확한 C 정의(중요 — head SHA Approve 방식 폐기):
- *  "C additionally requires an allowlisted human (not a bot or agent) to confirm
- *   the current packet SHA-256, not a GitHub PR Approve bound to PAT+commit SHA.
- *   Unrelated commits (CI, feature code, merge-from-master) that leave the packet
- *   and listed docs unchanged do not reset C. GitHub self-approval on the PR
- *   author is not the C signal."
+ * 허용된 사람의 신규 `/approve`를 문서 base/head blob과 근거 패킷의 지문에 묶는다.
+ * link-refresh의 재계산 가능한 manifest_sha256만 지문에서 제외한다. 링크 매핑,
+ * 문서 내용, 경로, 그 밖의 패킷 내용이 바뀌면 새 승인이 필요하다.
  *
- * 그래서 C 승인 신호는 다음이다:
- *  - allowlist에 속한 '사람'(봇/에이전트 아님)이
- *  - 현재 PR의 packet SHA-256(패킷 바이트의 sha256 hex)을 코멘트로 confirm.
- *    형식: 코멘트 본문에 `/approve <64-hex packet_sha256>` 포함.
- *  - 확인 hash가 현재 계산된 packet SHA-256과 정확히 일치해야 유효.
- *
- * head SHA는 병합시점 저장소 신원일 뿐이다. 무관한 커밋(CI/feature/merge-from-master)이
- * packet과 나열된 문서 바이트를 바꾸지 않으면 C를 리셋하지 않는다 → 이전 confirm이 그대로
- * 유효하다(같은 packet hash를 계속 가리키므로).
+ * 무관한 커밋은 승인 지문을 바꾸지 않는다. 기존 지문 기록이 PR의 커밋 이력에
+ * 남아 있으면 승인을 유지하고, 이력이 재작성되어 기록을 찾지 못하면 다시 승인한다.
  *
  * 원칙:
- *  - GitHub PR Approve(리뷰)는 C 신호가 아니다. 오직 packet SHA-256 코멘트 confirm만.
+ *  - GitHub PR Approve(리뷰)는 C 신호가 아니다. 사람의 코멘트를 사용한다.
  *  - PR 작성자 자기승인 여부는 actor로 구분 불가(에이전트/사람이 froguin 인증 공유).
- *    그래서 '누가 눌렀나'가 아니라 'allowlisted 사람이 현재 packet hash를 confirm했나'로
+ *    그래서 allowlisted 사람의 코멘트와 승인 지문으로
  *    검증한다. 봇 타입 코멘트 작성자는 제외.
  *  - Feature-only PR(문서 변경 없음 + 유효 패킷 없음)은 편집 LLM/C scope 밖 → 명시적 통과.
  *  - A/B: 이 게이트는 success로 명시 통과(자동 병합은 결정론적 5개 필수 체크가 담당).
@@ -36,6 +26,22 @@
 
 const CONTEXT_NAME = 'editorial-c-approval';
 const APPROVE_RE = /\/approve\s+([0-9a-f]{64})\b/i;
+const SIMPLE_APPROVE_RE = /^\s*\/approve\s*$/i;
+const BINDING_PREFIX = 'editorial-approval-binding/';
+const crypto = require('node:crypto');
+
+function stable(value) {
+  if (Array.isArray(value)) return value.map(stable);
+  if (value && typeof value === 'object') return Object.fromEntries(Object.keys(value).sort().map(k => [k, stable(value[k])]));
+  return value;
+}
+
+function approvalFingerprint(packet, docs) {
+  const copy = structuredClone(packet);
+  if (copy.policy_action === 'link-refresh' && copy.link_refresh) delete copy.link_refresh.manifest_sha256;
+  const ordered = [...docs].sort((a, b) => a.path.localeCompare(b.path));
+  return crypto.createHash('sha256').update(JSON.stringify(stable({packet: copy, docs: ordered}))).digest('hex');
+}
 
 /**
  * 순수 판정. GitHub API 없이 입력만으로 결정한다.
@@ -52,6 +58,8 @@ function evaluateApproval(input) {
     packetSha256,
     allowlist,
     confirmations,
+    fingerprint,
+    bindings,
   } = input;
 
   if (!tier) {
@@ -82,8 +90,9 @@ function evaluateApproval(input) {
     const login = (c.user || '').toLowerCase();
     if (!allowlist.includes(login)) return false;           // allowlist 인원만
     const m = APPROVE_RE.exec(c.body || '');
-    if (!m) return false;                                   // `/approve <hash>` 형식만
-    return m[1].toLowerCase() === want;                     // 현재 packet hash와 정확 일치
+    if (m && m[1].toLowerCase() !== want) return false;
+    if (m && !fingerprint) return true; // compatibility for the standalone legacy evaluator
+    return !!(fingerprint && c.id && c.createdAt && c.updatedAt && c.createdAt === c.updatedAt && (m || SIMPLE_APPROVE_RE.test(c.body || '')) && bindings?.[String(c.id)] === fingerprint);
   });
   if (valid.length > 0) {
     return { state: 'success', description: `C confirmed by allowlisted human for packet ${want.slice(0, 12)}` };
@@ -93,13 +102,14 @@ function evaluateApproval(input) {
 
 /**
  * 이슈 코멘트를 판정용 형태로 정규화(봇 타입 표시).
- * PR review가 아니라 issue comment를 쓴다: C 신호는 packet hash confirm 코멘트다.
+ * PR review가 아니라 issue comment를 쓴다.
  */
 function normalizeComments(rawComments) {
   return (rawComments || []).map((c) => ({
     user: (c.user && c.user.login) || '',
     body: c.body || '',
     isBot: !!(c.user && c.user.type === 'Bot'),
+    id: c.id, createdAt: c.created_at, updatedAt: c.updated_at,
   }));
 }
 
@@ -113,7 +123,7 @@ async function main({ github, context, core, exec }) {
   const prNumber = context.payload.pull_request?.number || context.payload.issue?.number;
 
   // 이벤트마다 현재 PR head를 API로 재확인(오래된 이벤트 payload 신뢰 금지).
-  // head SHA는 commit status 기록 대상일 뿐, C 승인 판정에는 packet hash를 쓴다.
+  // head SHA는 신뢰된 데이터 조회와 승인 기록 대상이다.
   const { data: fresh } = await github.rest.pulls.get({
     owner: context.repo.owner, repo: context.repo.repo, pull_number: prNumber,
   });
@@ -122,16 +132,18 @@ async function main({ github, context, core, exec }) {
   // 분류 + 현재 packet SHA-256 계산: 신뢰된 base 코드로 실행.
   let tier = null;
   let packetSha256 = '';
+  let fingerprint = '';
   try {
     const computed = await computeTierAndPacketSha({ github, context, exec, prNumber, headSha, core });
     tier = computed.tier;
     packetSha256 = computed.packetSha256;
+    if (tier === 'C' && packetSha256) fingerprint = await computeApprovalFingerprint({github, context, prNumber, headSha, baseSha: fresh.base.sha});
   } catch (e) {
     core.warning(`classification error: ${e.message}`);
     tier = null; // 실패는 승인 아님
   }
 
-  // 이슈 코멘트 조회(pagination) → packet hash confirm 신호 탐색.
+  // 이슈 코멘트 조회(pagination) → 사람 승인 신호 탐색.
   const rawComments = await github.paginate(github.rest.issues.listComments, {
     owner: context.repo.owner, repo: context.repo.repo, issue_number: prNumber, per_page: 100,
   });
@@ -140,7 +152,30 @@ async function main({ github, context, core, exec }) {
   const allowlist = (process.env.C_APPROVAL_ALLOWLIST || '')
     .split(',').map((s) => s.trim().toLowerCase()).filter(Boolean);
 
-  const result = evaluateApproval({ tier, packetSha256, allowlist, confirmations });
+  // Bind a new, unedited human command to the exact observed change. The
+  // commit status is an append-only GitHub record, not a PR-controlled file.
+  const eventComment = context.eventName === 'issue_comment' && context.payload.action === 'created' ? context.payload.comment : null;
+  const eligible = confirmations.find(c => c.id === eventComment?.id && !c.isBot && allowlist.includes(c.user.toLowerCase()) && c.createdAt && c.createdAt === c.updatedAt && (SIMPLE_APPROVE_RE.test(c.body) || (APPROVE_RE.exec(c.body)?.[1]?.toLowerCase() === packetSha256)));
+  const bindings = {};
+  if (tier === 'C' && fingerprint && confirmations.some(c => SIMPLE_APPROVE_RE.test(c.body || '') || APPROVE_RE.test(c.body || ''))) {
+    const commits = await github.paginate(github.rest.pulls.listCommits, {owner: context.repo.owner, repo: context.repo.repo, pull_number: prNumber, per_page: 100});
+    for (const commit of commits) {
+      const statuses = await github.paginate(github.rest.repos.listCommitStatusesForRef, {owner: context.repo.owner, repo: context.repo.repo, ref: commit.sha, per_page: 100});
+      for (const status of statuses) {
+        const id = status.context?.startsWith(BINDING_PREFIX) ? status.context.slice(BINDING_PREFIX.length) : '';
+        if (/^\d+$/.test(id) && status.creator?.login === 'github-actions[bot]' && status.state === 'success' && /^v1:[0-9a-f]{64}$/.test(status.description || '') && !(id in bindings)) bindings[id] = status.description.slice(3);
+      }
+    }
+  }
+  if (eligible && fingerprint && tier === 'C' && !(String(eligible.id) in bindings)) {
+    const {data: latest} = await github.rest.pulls.get({owner: context.repo.owner, repo: context.repo.repo, pull_number: prNumber});
+    if (latest.head.sha !== headSha || latest.base.sha !== fresh.base.sha) throw new Error('PR changed while recording approval; retry on the current revision');
+    if (!latest.updated_at || Date.parse(latest.updated_at) > Date.parse(eligible.createdAt)) throw new Error('PR changed after the approval comment; submit a new /approve after reviewing the current revision');
+    await github.rest.repos.createCommitStatus({owner: context.repo.owner, repo: context.repo.repo, sha: headSha, state: 'success', context: `${BINDING_PREFIX}${eligible.id}`, description: `v1:${fingerprint}`});
+    bindings[String(eligible.id)] = fingerprint;
+  }
+
+  const result = evaluateApproval({ tier, packetSha256, allowlist, confirmations, fingerprint, bindings });
 
   // 현재 head SHA에 commit status 기록(위조 방지: GITHUB_TOKEN으로만 기록).
   await github.rest.repos.createCommitStatus({
@@ -149,6 +184,35 @@ async function main({ github, context, core, exec }) {
     description: result.description.slice(0, 140),
   });
   core.info(`[${CONTEXT_NAME}] tier=${tier} packet=${packetSha256.slice(0, 12)} state=${result.state} — ${result.description}`);
+}
+
+async function computeApprovalFingerprint({github, context, prNumber, headSha, baseSha}) {
+  const {owner, repo} = context.repo;
+  const files = await github.paginate(github.rest.pulls.listFiles, {owner, repo, pull_number: prNumber, per_page: 100});
+  const packets = files.filter(f => /^\.editorial\/packets\/[^/]+\.json$/.test(f.filename));
+  if (packets.length !== 1) throw new Error('approval fingerprint requires exactly one packet');
+  const {data: packetBlob} = await github.rest.repos.getContent({owner, repo, path: packets[0].filename, ref: headSha});
+  const packet = JSON.parse(Buffer.from(packetBlob.content, packetBlob.encoding).toString('utf8'));
+  const docs = [];
+  for (const f of files.filter(f => f.filename.startsWith('src/content/docs/') || f.previous_filename?.startsWith('src/content/docs/'))) {
+    if (!['added','removed','modified','renamed'].includes(f.status)) throw new Error('unsupported document status');
+    const previous = f.previous_filename || f.filename;
+    let base = null;
+    if (f.status !== 'added') {
+      const {data} = await github.rest.repos.getContent({owner, repo, path: previous, ref: baseSha});
+      if (!data.sha || data.type !== 'file') throw new Error('base document unavailable');
+      base = data.sha;
+    }
+    let head = null;
+    if (f.status !== 'removed') {
+      const {data} = await github.rest.repos.getContent({owner, repo, path: f.filename, ref: headSha});
+      if (!data.sha || data.type !== 'file') throw new Error('head document unavailable');
+      head = data.sha;
+    }
+    docs.push({path: f.filename, previous, status: f.status, base, head});
+  }
+  if (!docs.length) throw new Error('approval fingerprint requires document changes');
+  return approvalFingerprint(packet, docs);
 }
 
 /** diff를 받아 tier + 현재 packet SHA-256 계산.
@@ -226,3 +290,4 @@ module.exports.main = main;
 module.exports.evaluateApproval = evaluateApproval;
 module.exports.normalizeComments = normalizeComments;
 module.exports.CONTEXT_NAME = CONTEXT_NAME;
+module.exports.approvalFingerprint = approvalFingerprint;

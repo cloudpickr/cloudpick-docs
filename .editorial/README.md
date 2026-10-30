@@ -70,7 +70,7 @@ link-refresh 패킷은 `policy_action: "link-refresh"`(이 단일 필드가 자�
 ### 관련 워크플로/스크립트 (저장소 루트)
 
 - `.github/workflows/editorial-c-approval.yml` — C 승인 게이트(status `editorial-review`·`editorial-c-approval`를 생성).
-- `.github/scripts/c_approval_gate.cjs` (+`.test.cjs`) — A/B는 명시 pass, 비문서 전용 PR은 scope 밖 pass, C는 allowlisted human이 **현재 packet SHA-256을 코멘트로 confirm**(`/approve <64-hex>`)해야 pass. GitHub PR Approve는 C 신호가 아니며, 무관한 커밋은 C를 리셋하지 않는다. `EDITORIAL_C_APPROVAL_ALLOWLIST` 미설정 시 C 승인 불가.
+- `.github/scripts/c_approval_gate.cjs` (+`.test.cjs`) — A/B는 명시 pass, 비문서 전용 PR은 scope 밖 pass. C는 allowlisted human이 PR에 `/approve` 코멘트를 남기면 당시 문서와 근거 패킷의 지문을 기록한다. 문서 내용·경로·근거 변경은 새 승인이 필요하며 link-refresh 매니페스트 해시만 재계산된 경우는 예외다. 예전 해시 명령도 새 코멘트로 사용할 수 있지만, 기존 코멘트는 자동 이관하지 않으므로 다시 승인해야 한다. GitHub PR Approve는 C 신호가 아니다. `EDITORIAL_C_APPROVAL_ALLOWLIST` 미설정 시 C 승인 불가.
 - 저장소 루트 `scripts/`의 스캐너/린터 인벤토리는 `scripts/README.md` 참조.
 
 ## 공통 크기 상한 (스택·저장소 양측 동일 적용)

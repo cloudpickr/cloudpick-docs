@@ -256,7 +256,7 @@ def publish(report, repo):
             'redirect re-fetch, build and link checks. All link-refresh remains C. '
             'A human must inspect meaning, edition and soft-404 before confirming; no automatic merge is configured.\n\n'
             f'Packet: `.editorial/packets/{ticket}.json`\n\n'
-            f'Human confirmation command (after review):\n```text\n/approve {report["packet_sha256"]}\n```\n\n'
+            'Human confirmation command (after review):\n```text\n/approve\n```\n\n'
             'If CI awaits workflow approval because GITHUB_TOKEN created this PR, a user with write access must approve the workflow runs. '
             'An optional LINK_REFRESH_PR_TOKEN can enable unattended CI; never use the C approval identity to auto-approve.\n')
     with tempfile.TemporaryDirectory() as folder:

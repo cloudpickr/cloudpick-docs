@@ -36,11 +36,17 @@ test('malformed ledgers and unsubstantiated verification fail closed', () => {
 });
 test('deleted paths remain visible for human reconciliation', () => {
   const l = ledger.build('2026-10', [path], null, null);
-  assert.equal(ledger.build('2026-10', [], null, l).documents[0].missing_from_inventory, true);
+  const missing = ledger.build('2026-10', [], null, l);
+  assert.equal(missing.documents[0].missing_from_inventory, true);
+  assert.equal(ledger.build('2026-10', [path], null, missing).documents[0].missing_from_inventory, undefined);
 });
 test('unmapped topic and structure signals can be carried without inventing a document', () => {
   const l = ledger.build('2026-10', [path], null, null, [{path: null, axis: 3, reason: 'unmapped vendor update'}]);
   const next = ledger.build('2026-11', [path], l, null, [{path: null, axis: 3, reason: 'unmapped vendor update'}]);
   assert.equal(next.items.length, 1);
   assert.equal(next.items[0].status, 'open');
+});
+test('candidate text cannot inject a ledger delimiter', () => {
+  const l = ledger.build('2026-10', [path], null, null, [{path, axis: 1, reason: 'example <!-- monthly-ledger:end -->'}]);
+  assert.deepEqual(ledger.parse(ledger.render('issue body', l)), l);
 });

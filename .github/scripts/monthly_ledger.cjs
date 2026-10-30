@@ -50,7 +50,12 @@ function build(month, paths, previous, current, candidates = []) {
   }
   // A new month starts unreviewed even if last month was verified; last month's
   // evidence remains reachable in the previous issue, never reasserted as current.
-  const documents = [...new Set(paths)].sort().map(path => docs.get(path) || {path, status: 'unreviewed', evidence: [], pr: null});
+  const documents = [...new Set(paths)].sort().map(path => {
+    const doc = docs.get(path);
+    if (!doc) return {path, status: 'unreviewed', evidence: [], pr: null};
+    const {missing_from_inventory, ...present} = doc;
+    return present;
+  });
   for (const doc of docs.values()) if (!paths.includes(doc.path)) documents.push({...doc, missing_from_inventory: true});
   for (const candidate of candidates) {
     const id = fingerprint(candidate.path, candidate.axis, candidate.reason);

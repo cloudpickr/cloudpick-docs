@@ -126,15 +126,19 @@ jobs:
 
             const existing = await github.paginate(github.rest.issues.listForRepo, {
               owner: context.repo.owner, repo: context.repo.repo,
-              state: "open", labels: "routine:monthly-review", per_page: 100,
+              state: "all", labels: "routine:monthly-review", per_page: 100,
             });
             const hit = existing.find((i) => i.title === title && !i.pull_request);
             if (hit) {
+              if (hit.state !== 'open') throw new Error(`이번 달 이슈 #${hit.number}가 닫혀 있습니다. 중복 생성 대신 기존 이슈를 확인하세요.`);
               core.info(`이미 존재: #${hit.number} — 생성 건너뜀`);
             } else {
+              const prev = new Date(Date.UTC(year, month - 2, 1));
+              const previousTitle = `📅 월간 문서 현행화 — ${prev.getUTCFullYear()}년 ${prev.getUTCMonth() + 1}월`;
+              const previous = existing.find(i => i.title === previousTitle && !i.pull_request);
               const created = await github.rest.issues.create({
                 owner: context.repo.owner, repo: context.repo.repo,
-                title, body, labels: ["routine:monthly-review", "documentation"],
+                title, body: body + (previous ? `\n\n이전 달 기록: #${previous.number}\n` : '\n\n이전 달 이슈를 찾지 못했습니다. 이월 내역을 수동 확인하세요.\n'), labels: ["routine:monthly-review", "documentation"],
               });
               core.info(`생성: #${created.data.number}`);
             }

@@ -129,13 +129,19 @@ function renderPointer(body, data, parts, published = new Date().toISOString()) 
   ledger.validate(data);
   const counts = Object.fromEntries(['unreviewed','scanned','verified','unverified'].map(s => [s, data.documents.filter(d => d.status === s).length]));
   const active = data.items.filter(i => ['open','hold'].includes(i.status));
+  const completed = data.items.filter(i => i.status === 'done');
+  const carried = active.filter(i => i.carried_from);
+  // Keep the issue body bounded; the full, editable record lives in the snapshot.
+  const prs = [...new Set(completed.map(i => i.pr).filter(url => url.length <= 1000 && /^https:\/\/[^\s<>]+$/.test(url)))].sort();
+  const prList = prs.slice(0, 20).map(url => `- ${url}`).join('\n');
+  const record = `완료로 기록된 후보 ${completed.length}개, 처리 대기 ${active.length}개(그중 이전 달 이월 ${carried.length}개). 완료 상태와 PR의 실제 머지 여부는 담당자가 확인합니다.\n\n${prList || '완료로 기록된 PR 없음.'}${prs.length > 20 ? `\n- 외 ${prs.length - 20}개 PR은 원장 참조.` : ''}`;
   const marker = `<!-- monthly-ledger-v2:${parts[0].id}:${parts.length}:${data.month} -->\n<!-- monthly-ledger-published:${published} -->`;
   const overdue = data.backlog ? `전월(${data.backlog.previous_month}) 근거 검토 미완 ${data.backlog.previous_unfinished.length}개, 목록에서 사라진 문서 ${data.backlog.previous_missing.length}개.` : '전월 원장 없음 또는 미연결: 미완 이월 범위 확인 필요.';
   const news = data.news_progress ? `벤더 소식 복구 진행: ${require('./monthly_news.cjs').pending(data.news_progress, new Date().toISOString().slice(0,10))}개 벤더·날짜 미확인. ${data.news_progress.started_on} 이전은 미확인.` : '벤더 소식 수집 범위 미확인.';
   const coverage = data.coverage ? `검사 상태: ${Object.entries(data.coverage).map(([k,v]) => `${k}=${v}`).join(', ')}.` : '검사별 실행 상태 미확인.';
   const refs = Object.values(data.source_progress?.refs || {});
   const source = data.source_progress ? `문서 참조 출처 ${refs.length}개 중 이번 달(UTC) 조회 ${refs.filter(r => typeof r.checked_at === 'string' && r.checked_at.startsWith(data.month)).length}개. 최근 상태: 관측 ${refs.filter(r => r.status === 'observed').length}개, 실패·미확인 ${refs.filter(r => r.status === 'unverified').length}개, 미조회 ${refs.filter(r => !r.status).length}개. 관측과 변경 신호는 사실 검증이 아닙니다.` : '문서별 참조 출처 감시 미실행.';
-  const summary = `${HEADER}\n## 월간 검토 원장\n\n${marker}\n\n문서 ${data.documents.length}개: 미검토 ${counts.unreviewed}, 스캔 ${counts.scanned}, 근거 검토 ${counts.verified}, 미확인 ${counts.unverified}. 처리 대기 후보 ${active.length}개. 자동 스캔은 근거 검토 완료를 뜻하지 않습니다.\n\n${overdue}\n\n${news}\n\n${source}\n\n${coverage}\n\n상세 원장은 아래 봇 댓글의 JSON 조각에 있습니다. 문서별 상태·근거 및 후보 상태·PR은 해당 댓글에서 수정합니다. 이전 스냅샷은 감사 이력으로 남습니다. 구조 변경은 별도 과반 의결을 따릅니다.\n${FOOTER}`;
+  const summary = `${HEADER}\n## 월간 검토 원장\n\n${marker}\n\n문서 ${data.documents.length}개: 미검토 ${counts.unreviewed}, 스캔 ${counts.scanned}, 근거 검토 ${counts.verified}, 미확인 ${counts.unverified}. 처리 대기 후보 ${active.length}개. 자동 스캔은 근거 검토 완료를 뜻하지 않습니다.\n\n### 이번 달 처리 기록\n\n${record}\n\n${overdue}\n\n${news}\n\n${source}\n\n${coverage}\n\n상세 원장은 아래 봇 댓글의 JSON 조각에 있습니다. 문서별 상태·근거 및 후보 상태·PR은 해당 댓글에서 수정합니다. 이전 스냅샷은 감사 이력으로 남습니다. 구조 변경은 별도 과반 의결을 따릅니다.\n${FOOTER}`;
   const start = body.indexOf(HEADER), end = body.indexOf(FOOTER);
   if ((start < 0) !== (end < 0) || (start >= 0 && (end < start || body.indexOf(HEADER, start + HEADER.length) !== -1 || body.indexOf(FOOTER, end + FOOTER.length) !== -1))) throw new Error('invalid summary markers');
   if (start >= 0) return body.slice(0, start) + summary + body.slice(end + FOOTER.length);

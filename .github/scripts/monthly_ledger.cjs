@@ -37,32 +37,47 @@ function fingerprint(path, axis, reason) {
   return crypto.createHash('sha256').update(JSON.stringify([path, axis, reason])).digest('hex').slice(0, 24);
 }
 
-function build(month, paths, previous, current, candidates = []) {
+function build(month, paths, previous, current, candidates = [], options = {}) {
   if (current && current.month !== month) throw new Error('current ledger month mismatch');
   if (previous) validate(previous);
   if (current) validate(current);
   const docs = new Map((current?.documents || []).map(d => [d.path, d]));
+  const previousDocs = new Map((previous?.documents || []).map(d => [d.path, d]));
   const items = new Map((current?.items || []).map(i => [i.id, i]));
   const resolved = new Set(current?.resolved_ids || previous?.resolved_ids || []);
   if (!current && previous) for (const item of previous.items) {
     if (item.status === 'open' || item.status === 'hold') items.set(item.id, {...item, carried_from: previous.month});
-    else if (item.status === 'done' || item.status === 'wontfix') resolved.add(item.id);
+    else if (item.status === 'wontfix' || (item.status === 'done' && (item.axis === 2 || item.axis === 3))) resolved.add(item.id);
     // A current volatile claim must be eligible for another review next month.
   }
   // A new month starts unreviewed even if last month was verified; last month's
   // evidence remains reachable in the previous issue, never reasserted as current.
   const documents = [...new Set(paths)].sort().map(path => {
     const doc = docs.get(path);
-    if (!doc) return {path, status: 'unreviewed', evidence: [], pr: null};
+    if (!doc) {
+      const prior = previousDocs.get(path);
+      const unfinished = prior && prior.status !== 'verified';
+      return {path, status: 'unreviewed', evidence: [], pr: null,
+              ...(prior ? {previous_status: prior.status, overdue_months: unfinished ? (prior.overdue_months || 0) + 1 : 0} : {})};
+    }
     const {missing_from_inventory, ...present} = doc;
     return present;
   });
   for (const doc of docs.values()) if (!paths.includes(doc.path)) documents.push({...doc, missing_from_inventory: true});
+  if (!current && previous) for (const doc of previous.documents) if (!paths.includes(doc.path)) documents.push({path: doc.path, status: 'unreviewed', evidence: [], pr: null, previous_status: doc.status, missing_from_inventory: true, overdue_months: doc.status === 'verified' ? 0 : (doc.overdue_months || 0) + 1});
+  const rescanned = new Set(options.rescanned || []);
+  for (const item of items.values()) if (rescanned.has(item.origin) && (item.status === 'open' || item.status === 'hold')) item.not_seen_in_latest_scan = true;
   for (const candidate of candidates) {
     const id = fingerprint(candidate.path, candidate.axis, candidate.reason);
     if (!items.has(id) && !resolved.has(id)) items.set(id, {id, ...candidate, status: 'open', evidence: [], pr: null});
+    const item = items.get(id);
+    if (item && candidate.origin) { item.origin ||= candidate.origin; item.last_seen = month; delete item.not_seen_in_latest_scan; }
   }
   const result = {version: 1, month, documents, items: [...items.values()], resolved_ids: [...resolved].sort()};
+  if (current?.coverage || options.coverage) result.coverage = options.coverage || current.coverage;
+  if (current?.news_progress || previous?.news_progress || options.news_progress) result.news_progress = options.news_progress || current?.news_progress || previous?.news_progress;
+  if (current?.backlog) result.backlog = current.backlog;
+  else if (previous) result.backlog = {previous_month: previous.month, previous_unfinished: previous.documents.filter(d => d.status !== 'verified').map(d => d.path), previous_missing: previous.documents.filter(d => d.missing_from_inventory).map(d => d.path)};
   validate(result);
   return result;
 }

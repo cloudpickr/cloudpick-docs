@@ -58,3 +58,24 @@ test('a previously current volatile finding is surfaced in the next month', () =
   assert.equal(next.items.length, 1);
   assert.equal(next.items[0].status, 'open');
 });
+test('backlog and vanished signals remain visible without auto-closing them', () => {
+  const c = {path, axis: 1, reason:'Preview', origin:'stale'};
+  const prev = ledger.build('2026-10', [path], null, null, [c]);
+  prev.news_progress = {version:1,started_on:'2026-09-01',before_start:'unverified',days:{}};
+  const next = ledger.build('2026-11', [path], prev, null, [], {coverage:{stale:'success'},rescanned:['stale']});
+  assert.deepEqual(next.backlog.previous_unfinished, [path]);
+  assert.equal(next.documents[0].overdue_months, 1);
+  assert.equal(next.items[0].status, 'open');
+  assert.equal(next.items[0].not_seen_in_latest_scan, true);
+  assert.equal(next.coverage.stale, 'success');
+  assert.deepEqual(next.news_progress, prev.news_progress);
+  const seen = ledger.build('2026-11', [path], null, next, [c], {rescanned:['stale']});
+  assert.equal(seen.items[0].not_seen_in_latest_scan, undefined);
+});
+test('completed readability or stale signals may be rediscovered in a later month', () => {
+  const c = {path, axis:4, reason:'leveling shortlist'};
+  const prev = ledger.build('2026-10',[path],null,null,[c]);
+  prev.items[0].status = 'done'; prev.items[0].pr = 'https://github.com/example/repo/pull/1';
+  const next = ledger.build('2026-11',[path],prev,null,[c]);
+  assert.equal(next.items[0].status,'open');
+});

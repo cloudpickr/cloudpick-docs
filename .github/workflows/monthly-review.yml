@@ -341,6 +341,7 @@ jobs:
           script: |
             const fs = require('fs');
             const ledger = require(`${process.env.GITHUB_WORKSPACE}/.github/scripts/monthly_ledger.cjs`);
+            const store = require(`${process.env.GITHUB_WORKSPACE}/.github/scripts/monthly_store.cjs`);
             const year = Number('${{ steps.mode.outputs.year }}');
             const month = Number('${{ steps.mode.outputs.month }}');
             const key = `${year}-${String(month).padStart(2, '0')}`;
@@ -355,13 +356,13 @@ jobs:
             if (!fs.existsSync('/tmp/monthly-coverage/inventory.json') || '${{ steps.coverage.outcome }}' !== 'success') throw new Error('inventory unavailable; ledger cannot claim complete scope');
             const inventory = JSON.parse(fs.readFileSync('/tmp/monthly-coverage/inventory.json', 'utf8'));
             const paths = inventory.documents.map(p => `src/content/docs/ko/${p}`);
-            const currentLedger = ledger.parse(issue.body || '');
-            const previousLedger = previous ? ledger.parse(previous.body || '') : null;
+            const currentLedger = await store.load(github, context, issue);
+            const previousLedger = previous ? await store.load(github, context, previous) : null;
             if (previousLedger && previousLedger.month !== previousKey) throw new Error('previous ledger month mismatch');
             let candidates = [];
             if ('${{ steps.stale.outcome }}' === 'success') {
               const scan = JSON.parse(fs.readFileSync('/tmp/stale.json', 'utf8'));
-              candidates = [...(scan.high || []), ...(scan.medium || [])].map(c => ({path: c.path, axis: 1, reason: `${c.rule}: ${c.excerpt}`, line: c.line}));
+              candidates = [...(scan.high || []), ...(scan.medium || [])].map(c => ({path: c.path, axis: 1, reason: `${c.rule}: ${c.excerpt}`, line: c.line, origin: 'stale'}));
             }
             const status = fs.readFileSync('/tmp/monthly-coverage/status.txt', 'utf8');
             for (const kind of ['taxonomy', 'duplication', 'readability']) {
@@ -369,14 +370,17 @@ jobs:
               const lines = fs.readFileSync(`/tmp/monthly-coverage/${kind}.txt`, 'utf8').split('\n');
               for (const line of lines.filter(s => s.includes(`[${kind}]`))) {
                 const match = line.match(/\[readability\]\s+([^ ]+\.mdx?)\s+—/);
-                candidates.push({path: match ? `src/content/docs/ko/${match[1]}` : null, axis: match ? 4 : 3, reason: line.trim()});
+                candidates.push({path: match ? `src/content/docs/ko/${match[1]}` : null, axis: match ? 4 : 3, reason: line.trim(), origin: kind});
               }
             }
             if (status.includes('leveling: completed;')) {
               const leveling = JSON.parse(fs.readFileSync('/tmp/monthly-coverage/leveling.json', 'utf8'));
-              for (const row of (leveling.shortlist || [])) candidates.push({path: row.path, axis: 4, reason: 'leveling shortlist: 가독성·미확정 서술 후보'});
+              for (const row of (leveling.shortlist || [])) candidates.push({path: row.path, axis: 4, reason: 'leveling shortlist: 가독성·미확정 서술 후보', origin: 'leveling'});
             }
-            const next = ledger.build(key, paths, previousLedger, currentLedger, candidates);
+            const coverage = {inventory:'success', stale:'${{ steps.stale.outcome }}', source_verification:'${{ steps.stale_verify.outcome }}'};
+            for (const kind of ['taxonomy','duplication','readability','leveling']) coverage[kind] = status.includes(`${kind}: completed;`) ? 'success' : 'failure';
+            const rescanned = Object.keys(coverage).filter(k => coverage[k] === 'success');
+            const next = ledger.build(key, paths, previousLedger, currentLedger, candidates, {coverage, rescanned});
             const counts = Object.fromEntries(['unreviewed','scanned','verified','unverified'].map(s => [s, next.documents.filter(d => d.status === s).length]));
             core.info(`ledger ${key}: ${JSON.stringify(counts)}; items=${next.items.length}; previous=${previousLedger ? previousKey : 'unavailable'}`);
             let baseBody = issue.body || '';
@@ -385,11 +389,18 @@ jobs:
               const note = '<!-- monthly-ledger:previous-unavailable -->';
               if (!baseBody.includes(note)) baseBody += `\n\n${note}\n⚠️ ${previousKey} 원장이 없어 이전 미완 항목은 자동 이월되지 않았습니다. 이전 월간 이슈를 수동 확인하세요.\n`;
             }
-            const rendered = ledger.render(baseBody, next);
-            if (Buffer.byteLength(rendered, 'utf8') > 60000) throw new Error('ledger exceeds safe issue body size; no update performed');
-            const latest = await github.rest.issues.get({owner: context.repo.owner, repo: context.repo.repo, issue_number: issue.number});
-            if (latest.data.body !== issue.body) throw new Error('issue body changed during ledger generation; no update performed');
-            if (rendered !== issue.body) await github.rest.issues.update({owner: context.repo.owner, repo: context.repo.repo, issue_number: issue.number, body: rendered});
+            // Refresh the visible summary even when a maintainer only edited a
+            // current snapshot comment since the previous run.
+            await store.save(github, context, issue, next, {baseBody, expected: currentLedger});
+
+      - name: Daily — checkout trusted scripts
+        if: steps.mode.outputs.action == 'daily' && !cancelled()
+        uses: actions/checkout@v5
+      - name: Daily — setup python
+        if: steps.mode.outputs.action == 'daily' && !cancelled()
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
 
       # Daily: whats-new.cloud MCP(format=source, 벤더 영문 원문)로 전날 신규 릴리스를 조회해,
       # 그 달 이슈에 공식 링크와 함께 코멘트로 누적한다. 봇은 '제보'만 — 사실성 판단·문서 반영은
@@ -420,13 +431,30 @@ jobs:
               return;
             }
 
-            // 2) 토큰이 없을 때도 실패를 이슈에 기록한다. 성공 마커는 쓰지 않아 재시도 가능.
+            const fs = require('fs');
+            const store = require(`${process.env.GITHUB_WORKSPACE}/.github/scripts/monthly_store.cjs`);
+            const news = require(`${process.env.GITHUB_WORKSPACE}/.github/scripts/monthly_news.cjs`);
+            const current = await store.load(github, context, issue);
+            if (!current) throw new Error('월간 원장이 없습니다. 월간 open 실행을 먼저 완료하세요.');
+            const utcNow = new Date();
+            const d0 = utcNow.toISOString().slice(0, 10);
+            const d1 = new Date(utcNow.getTime() - 86400000).toISOString().slice(0, 10);
+            const progress = news.initialize(d0, current.news_progress);
+            const planned = news.plan(progress, d0);
+            const attempts = [];
+
+            // 토큰이 없으면 계획된 범위를 실패로 기록해 다음 실행에서 재시도한다.
             const token = process.env.MCP_TOKEN;
             if (!token) {
               core.warning("daily: MCP_TOKEN 미설정 — whats-new 소식 수집 건너뜀(secrets.MCP_TOKEN 설정 필요).");
               const failureMarker = `<!-- wnk-daily-failure:${dateKst} -->`;
               const comments = await github.paginate(github.rest.issues.listComments, {owner: context.repo.owner, repo: context.repo.repo, issue_number: issue.number, per_page: 100});
               if (!comments.some(c => (c.body || '').includes(failureMarker))) await github.rest.issues.createComment({owner: context.repo.owner, repo: context.repo.repo, issue_number: issue.number, body: `${failureMarker}\n⚠️ ${dateKst} 새 소식 수집 실패: MCP_TOKEN 미설정. 해당 기간은 미확인입니다.`});
+              for (const vendor of news.VENDORS) for (const date of planned[vendor]) attempts.push({vendor, date, state:'failed'});
+              fs.writeFileSync('/tmp/news-attempts.json', JSON.stringify({progress, attempts, today:d0}));
+              fs.writeFileSync('/tmp/news-items.json', '[]');
+              core.setOutput('issue_number', String(issue.number));
+              core.setOutput('date_range', `catch-up-${dateKst}`);
               core.setFailed('daily: source token unavailable');
               return;
             }
@@ -474,47 +502,48 @@ jobs:
               return rows;
             }
 
-            // UTC 당일/전일 날짜(YYYY-MM-DD). whats-new는 UTC pub_date 기준.
-            const utcNow = new Date();
-            const d0 = utcNow.toISOString().slice(0, 10);
-            const d1 = new Date(utcNow.getTime() - 86400000).toISOString().slice(0, 10);
-            const windowDates = [d1, d0]; // 전일 → 당일 순
-
-            const csps = ["aws", "gcp", "azure", "oci"]; // openai/ibm 제외(권고)
+            const csps = news.VENDORS; // 현재 피드가 지원하는 네 CSP. 그 외 출처는 자동 확인하지 않음.
             const PER_CALL = 50;
             let sections = [];
             let errors = [];
             const allItems = [];  // 축2 매핑용: 수집된 모든 항목(title/url/csp) 누적
             for (const csp of csps) {
-              try {
-                // 당일+전일 각각 조회 후 article_id 기준 dedupe.
-                const seen = new Set();
-                const merged = [];
-                for (const day of windowDates) {
+              const seen = new Set();
+              const merged = [];
+              for (const day of planned[csp]) {
+                try {
                   const rows = await callMcp({ csp, format: "source", start_date: day, end_date: day, limit: PER_CALL });
                   for (const r of (Array.isArray(rows) ? rows : [])) {
-                    const key = r.article_id ?? `${csp}:${r.url}`; // article_id 우선, 보조 csp+url
+                    const key = r.article_id ?? `${csp}:${r.url || r.title || r.original_title}:${day}`;
                     if (seen.has(key)) continue;
                     seen.add(key);
                     merged.push(r);
                     allItems.push({
                       title: (r.title || r.original_title || "").replace(/\n/g, " ").trim(),
-                      url: r.url, csp,
+                      url: r.url, csp, date: day,
                     });
                   }
+                  attempts.push({vendor:csp, date:day, state:'complete'});
+                } catch (e) {
+                  attempts.push({vendor:csp, date:day, state:'failed'});
+                  errors.push(`${csp}/${day}: ${e.message}`);
                 }
-                if (merged.length) {
-                  const lines = merged.map((r) => {
-                    const t = (r.title || r.original_title || "(untitled)").replace(/\n/g, " ").trim();
-                    const d = (r.pub_date || "").slice(0, 10);
-                    return `- [${t}](${r.url})${d ? ` _(${d})_` : ""}`;
-                  });
-                  sections.push(`### ${csp.toUpperCase()} (${merged.length})\n${lines.join("\n")}`);
-                }
-              } catch (e) {
-                errors.push(`${csp}: ${e.message}`);
+              }
+              if (merged.length) {
+                const lines = merged.map((r) => {
+                  const t = (r.title || r.original_title || "(untitled)").replace(/\n/g, " ").trim();
+                  const d = (r.pub_date || "").slice(0, 10);
+                  return `- [${t}](${r.url})${d ? ` _(${d})_` : ""}`;
+                });
+                sections.push(`### ${csp.toUpperCase()} (${merged.length})\n${lines.join("\n")}`);
               }
             }
+
+            // Set outputs before posting so a comment error cannot silently skip the ledger.
+            fs.writeFileSync('/tmp/news-attempts.json', JSON.stringify({progress, attempts, today:d0}));
+            fs.writeFileSync('/tmp/news-items.json', JSON.stringify(allItems));
+            core.setOutput('issue_number', String(issue.number));
+            core.setOutput('date_range', `catch-up-${dateKst}`);
 
             // 5) 결과가 없으면 조용히 종료(빈 코멘트로 이슈를 어지럽히지 않는다).
             if (!sections.length) {
@@ -525,10 +554,6 @@ jobs:
                 core.setFailed('daily: vendor source collection failed');
               }
               else {
-                if (existingDaily) {
-                  core.setFailed('daily: 이전 성공 기록이 있으나 재조회 결과가 비어 있음 — 원장 누락 여부를 확인해야 합니다');
-                  return;
-                }
                 if (!existingDaily) await github.rest.issues.createComment({owner: context.repo.owner, repo: context.repo.repo, issue_number: issue.number, body: `${marker}\n✅ ${d1}–${d0} UTC 새 소식 조회 완료: 결과 없음. 수집 범위 밖 소식 및 문서 최신성은 별도 검토가 필요합니다.`});
               }
               return;
@@ -537,9 +562,9 @@ jobs:
             // 6) 그 달 이슈에 코멘트. 벤더 영문 원문 + 공식 링크. 판단·반영은 사람/에이전트 몫.
             const body = [
               errors.length ? `<!-- wnk-daily-partial:${dateKst} -->` : `${marker}`,
-              `## 🔔 벤더 새 소식 — ${d1}~${d0} (UTC) · whats-new.cloud`,
+              `## 🔔 벤더 새 소식 — ${d1}–${d0} 및 미수집 날짜 복구 (UTC) · whats-new.cloud`,
               ``,
-              `아래는 AWS·GCP·Azure·OCI 공식 What's New에서 **UTC 전일~당일** 신규 항목입니다(출처: whats-new.cloud MCP, 벤더 영문 원문).`,
+              `아래는 AWS·GCP·Azure·OCI의 UTC 전일·당일과 과거 미수집 날짜를 조회한 결과입니다(whats-new.cloud MCP, 벤더 영문 원문).`,
               `cloudpick-docs 문서에 영향 있는 항목만 교차검증 후 현행화 PR로 반영하고, 반영한 항목은 상단 "이번 달 수집된 새 소식"에 정리하세요. 전부가 문서 반영 대상은 아닙니다.`,
               ``,
               sections.join("\n\n"),
@@ -555,24 +580,11 @@ jobs:
             else await github.rest.issues.createComment({owner: context.repo.owner, repo: context.repo.repo, issue_number: issue.number, body});
             core.info(`daily: #${issue.number}에 ${sections.length}개 CSP 소식 코멘트 완료(${d1}~${d0} UTC).`);
 
-            // 축2: 수집 항목을 파일로 저장하고 이슈 번호를 output으로 넘긴다(다음 매핑 스텝이 사용).
-            const fs = require('fs');
-            fs.writeFileSync('/tmp/news-items.json', JSON.stringify(allItems));
-            core.setOutput('issue_number', String(issue.number));
-            core.setOutput('date_range', `${d1}~${d0}`);
             if (errors.length) core.setFailed('daily: vendor source collection partially failed; successful items remain available');
 
       # 축2 매핑(제보 전용): daily가 수집한 새 소식을 관련 ko 문서 후보에 결정론 매핑해
       # 같은 이슈에 코멘트로 제보한다. 반영은 사람/에이전트의 근거 패킷 PR(AGENTS.md 축2).
       # daily가 이슈 번호를 output으로 넘겼을 때만(=수집 성공) 실행. 실패해도 이슈를 깨지 않는다.
-      - name: Daily — checkout for news→docs mapping
-        if: steps.mode.outputs.action == 'daily' && steps.daily.outputs.issue_number != '' && !cancelled()
-        uses: actions/checkout@v5
-      - name: Daily — setup python for mapping
-        if: steps.mode.outputs.action == 'daily' && steps.daily.outputs.issue_number != '' && !cancelled()
-        uses: actions/setup-python@v6
-        with:
-          python-version: '3.12'
       - name: Daily — map news to candidate docs and comment
         if: steps.mode.outputs.action == 'daily' && steps.daily.outputs.issue_number != '' && !cancelled()
         id: news_map
@@ -584,9 +596,7 @@ jobs:
         run: |
           set -e
           # 수집 항목이 없으면 조용히 종료.
-          if [ ! -s /tmp/news-items.json ] || [ "$(python3 -c 'import json;print(len(json.load(open("/tmp/news-items.json"))))')" = "0" ]; then
-            echo "매핑: 수집 항목 없음 — 생략."; exit 0
-          fi
+          if [ ! -s /tmp/news-items.json ]; then echo "수집 결과 없음"; exit 1; fi
           python3 scripts/map-news-to-docs.py --news /tmp/news-items.json --json > /tmp/news-map.json
           python3 scripts/post-news-map-comment.py /tmp/news-map.json "$ISSUE" "$RANGE"
 
@@ -598,24 +608,26 @@ jobs:
         with:
           script: |
             const fs = require('fs');
-            if (!fs.existsSync('/tmp/news-map.json')) return;
+            if (!fs.existsSync('/tmp/news-map.json') || !fs.existsSync('/tmp/news-attempts.json')) throw new Error('news mapping or attempt data missing');
             const ledger = require(`${process.env.GITHUB_WORKSPACE}/.github/scripts/monthly_ledger.cjs`);
+            const store = require(`${process.env.GITHUB_WORKSPACE}/.github/scripts/monthly_store.cjs`);
             const issueNumber = Number(process.env.ISSUE_NUMBER);
             const {data: issue} = await github.rest.issues.get({owner: context.repo.owner, repo: context.repo.repo, issue_number: issueNumber});
-            const current = ledger.parse(issue.body || '');
+            const current = await store.load(github, context, issue);
             if (!current) throw new Error('monthly ledger unavailable; news cannot be silently marked tracked');
             const mapped = JSON.parse(fs.readFileSync('/tmp/news-map.json', 'utf8'));
+            const attempts = JSON.parse(fs.readFileSync('/tmp/news-attempts.json', 'utf8'));
+            const news = require(`${process.env.GITHUB_WORKSPACE}/.github/scripts/monthly_news.cjs`);
+            if (JSON.stringify(news.initialize(attempts.today, current.news_progress)) !== JSON.stringify(attempts.progress)) throw new Error('news progress changed during collection; retry without overwriting updates');
             const candidates = [];
             for (const row of (mapped.mapped || [])) for (const doc of (row.candidates || [])) {
               candidates.push({path: doc.path, axis: 2, reason: `${row.news} (${row.url || '출처 미확인'})`, source_url: row.url || null, source_status: 'unverified'});
             }
             for (const row of (mapped.unmapped || [])) candidates.push({path: null, axis: 3, reason: `${row.news} (${row.url || '출처 미확인'})`, source_url: row.url || null, source_status: 'unverified'});
-            const next = ledger.build(current.month, current.documents.filter(d => !d.missing_from_inventory).map(d => d.path), null, current, candidates);
-            const body = ledger.render(issue.body || '', next);
-            if (Buffer.byteLength(body, 'utf8') > 60000) throw new Error('ledger exceeds safe issue body size; no update performed');
-            const latest = await github.rest.issues.get({owner: context.repo.owner, repo: context.repo.repo, issue_number: issueNumber});
-            if (latest.data.body !== issue.body) throw new Error('issue body changed during ledger generation; no update performed');
-            if (body !== issue.body) await github.rest.issues.update({owner: context.repo.owner, repo: context.repo.repo, issue_number: issueNumber, body});
+            // Commit collection progress only together with successfully mapped candidates.
+            const progress = news.apply(attempts.progress, attempts.attempts);
+            const next = ledger.build(current.month, current.documents.filter(d => !d.missing_from_inventory).map(d => d.path), null, current, candidates, {news_progress:progress});
+            if (!store.pointer(issue.body || '') || JSON.stringify(current) !== JSON.stringify(next)) await store.save(github, context, issue, next, {expected: current});
       - name: Daily — report mapping failure
         if: steps.mode.outputs.action == 'daily' && steps.news_map.outcome == 'failure' && !cancelled()
         run: exit 1

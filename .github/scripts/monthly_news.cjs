@@ -1,0 +1,58 @@
+'use strict';
+
+const VENDORS = ['aws', 'gcp', 'azure', 'oci'];
+const DAY = 86400000;
+function iso(date) { return new Date(date).toISOString().slice(0, 10); }
+function dateValue(s) {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(s) || iso(`${s}T00:00:00Z`) !== s) throw new Error('invalid progress date');
+  return Date.parse(`${s}T00:00:00Z`);
+}
+function initialize(today, existing) {
+  dateValue(today);
+  if (existing) { validate(existing); return structuredClone(existing); }
+  // The first monitored interval begins on the first day of the previous month;
+  // anything earlier remains explicitly unknown, never inferred current.
+  const d = new Date(`${today}T00:00:00Z`);
+  return {version:1, started_on:iso(Date.UTC(d.getUTCFullYear(),d.getUTCMonth()-1,1)), before_start:'unverified', days:{}};
+}
+function validate(progress) {
+  if (!progress || progress.version !== 1 || progress.before_start !== 'unverified' || !progress.days || typeof progress.days !== 'object' || Array.isArray(progress.days)) throw new Error('invalid news progress');
+  dateValue(progress.started_on);
+  for (const [day, vendors] of Object.entries(progress.days)) {
+    dateValue(day);
+    if (!vendors || typeof vendors !== 'object' || Array.isArray(vendors)) throw new Error('invalid vendor progress');
+    for (const [vendor, state] of Object.entries(vendors)) if (!VENDORS.includes(vendor) || !['complete','failed'].includes(state)) throw new Error('invalid vendor state');
+  }
+}
+function plan(progress, today, backlogLimit = 2) {
+  validate(progress);
+  const end = dateValue(today), start = dateValue(progress.started_on);
+  if (start > end || backlogLimit < 0 || backlogLimit > 10) throw new Error('invalid news range');
+  const dates = [];
+  for (let t = start; t <= end; t += DAY) dates.push(iso(t));
+  const recent = dates.slice(-2);
+  const result = {};
+  for (const vendor of VENDORS) {
+    const backlog = dates.slice(0,-2).filter(day => progress.days[day]?.[vendor] !== 'complete').slice(0, backlogLimit);
+    result[vendor] = [...new Set([...backlog, ...recent])];
+  }
+  return result;
+}
+function apply(progress, attempts) {
+  const result = structuredClone(progress); validate(result);
+  for (const attempt of attempts) {
+    dateValue(attempt.date);
+    if (!VENDORS.includes(attempt.vendor) || !['complete','failed'].includes(attempt.state)) throw new Error('invalid attempt');
+    result.days[attempt.date] ||= {};
+    // A failed refresh means late-arriving releases may still be missing.
+    result.days[attempt.date][attempt.vendor] = attempt.state;
+  }
+  return result;
+}
+function pending(progress, today) {
+  validate(progress);
+  let count = 0;
+  for (let t = dateValue(progress.started_on); t <= dateValue(today); t += DAY) for (const v of VENDORS) if (progress.days[iso(t)]?.[v] !== 'complete') count++;
+  return count;
+}
+module.exports = {VENDORS, initialize, validate, plan, apply, pending};

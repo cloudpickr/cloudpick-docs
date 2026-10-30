@@ -5,6 +5,19 @@ const ledger = require('./monthly_ledger.cjs');
 const path = 'src/content/docs/ko/test.md';
 const ctx = {repo:{owner:'org',repo:'repo'}};
 
+test('monthly issue summary shows recorded PRs and carried work without claiming merge', () => {
+  const data = ledger.build('2026-10',[path],null,null,[
+    {path, axis:1, reason:'completed'}, {path, axis:1, reason:'carried'}
+  ]);
+  data.items[0].status = 'done'; data.items[0].pr = 'https://github.com/org/repo/pull/12';
+  data.items[1].carried_from = '2026-09';
+  const body = store.renderPointer('기존 기록', data, store.makeParts(data));
+  assert.match(body, /완료로 기록된 후보 1개, 처리 대기 1개\(그중 이전 달 이월 1개\)/);
+  assert.ok(body.includes(data.items[0].pr));
+  assert.match(body, /실제 머지 여부는 담당자가 확인/);
+  assert.match(body, /기존 기록/);
+});
+
 function fixture(body) {
   const state = {body, comments: [], failAt: 0, changed: false};
   const github = {rest:{issues:{

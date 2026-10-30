@@ -199,7 +199,7 @@ Day-2 운영 상세는 [Kubernetes 운영](../../devops/kubernetes-operations/)�
 
 ### Google Cloud
 
-- [Google Kubernetes Engine 문서](https://cloud.google.com/kubernetes-engine/docs)
+- [Google Kubernetes Engine 문서](https://docs.cloud.google.com/kubernetes-engine/docs)
 - [Google Cloud Run 문서](https://cloud.google.com/run/docs)
 - [Google Artifact Registry 문서](https://cloud.google.com/artifact-registry/docs)
 

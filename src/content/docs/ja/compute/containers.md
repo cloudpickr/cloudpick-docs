@@ -199,7 +199,7 @@ Day-2運用の詳細は[Kubernetes運用](../../devops/kubernetes-operations/)�
 
 ### Google Cloud
 
-- [Google Kubernetes Engine 文書](https://cloud.google.com/kubernetes-engine/docs)
+- [Google Kubernetes Engine 文書](https://docs.cloud.google.com/kubernetes-engine/docs)
 - [Google Cloud Run 文書](https://cloud.google.com/run/docs)
 - [Google Artifact Registry 文書](https://cloud.google.com/artifact-registry/docs)
 

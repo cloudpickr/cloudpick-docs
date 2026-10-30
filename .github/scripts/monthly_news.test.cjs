@@ -18,6 +18,7 @@ test('failed refresh leaves the day pending because late releases may be missing
 });
 test('bad progress never turns into an empty successful plan', () => {
   assert.throws(() => news.plan({version:1,started_on:'2026-99-01',before_start:'unverified',days:{}},'2026-11-01'));
+  assert.throws(() => news.validate({version:1,started_on:'2026-10-01',before_start:'unverified',days:{},attempted:{'2026-10-01':{aws:'2026-10-02T00:00:00Z'}}}));
 });
 test('an unfinished day is retried after a skipped run', () => {
   const p = news.initialize('2026-10-10', null);

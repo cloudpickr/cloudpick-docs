@@ -28,6 +28,9 @@ function makeParts(data, id = crypto.randomBytes(16).toString('hex')) {
   if (!/^[0-9a-f]{32}$/.test(id)) throw new Error('invalid snapshot ID');
   const parts = [];
   const {version, month, documents, items, resolved_ids, ...metadata} = data;
+  if (Object.keys(metadata).some(k => !['coverage', 'news_progress', 'source_progress', 'backlog'].includes(k))) throw new Error('invalid metadata fields');
+  if (metadata.news_progress) require('./monthly_news.cjs').validate(metadata.news_progress);
+  if (metadata.source_progress && (metadata.source_progress.version !== 1 || !metadata.source_progress.refs || typeof metadata.source_progress.refs !== 'object' || Array.isArray(metadata.source_progress.refs) || Object.entries(metadata.source_progress.refs).some(([url,value]) => !url.startsWith('https://') || !value || typeof value !== 'object' || Array.isArray(value)))) throw new Error('invalid source progress');
   let newsDays = [];
   if (metadata.news_progress) {
     const {days, attempted, ...newsMeta} = metadata.news_progress;

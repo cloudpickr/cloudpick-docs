@@ -28,7 +28,7 @@ function validate(progress) {
     for (const [day, vendors] of Object.entries(progress.attempted)) {
       dateValue(day);
       if (!vendors || typeof vendors !== 'object' || Array.isArray(vendors)) throw new Error('invalid attempt history');
-      for (const [vendor, timestamp] of Object.entries(vendors)) if (!VENDORS.includes(vendor) || typeof timestamp !== 'string' || !Number.isFinite(Date.parse(timestamp))) throw new Error('invalid attempt timestamp');
+      for (const [vendor, timestamp] of Object.entries(vendors)) if (!VENDORS.includes(vendor) || !progress.days[day]?.[vendor] || typeof timestamp !== 'string' || !Number.isFinite(Date.parse(timestamp))) throw new Error('invalid or orphaned attempt timestamp');
     }
   }
 }

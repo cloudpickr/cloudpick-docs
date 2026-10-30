@@ -104,3 +104,11 @@ test('empty and populated news attempt history survive snapshot storage', () => 
     assert.deepEqual(store.assemble({id:'f'.repeat(32),count:parts.length,month:'2026-10'},comments),data);
   }
 });
+test('invalid metadata cannot publish an unreadable snapshot', async () => {
+  const data = ledger.build('2026-10',[path],null,null);
+  const {state,github} = fixture(ledger.render('body',data));
+  data.news_progress = {version:1,started_on:'2026-10-01',before_start:'unverified',days:{},attempted:{'2026-10-01':{aws:'2026-10-02T00:00:00Z'}}};
+  await assert.rejects(store.save(github,ctx,{number:1,body:state.body},data), /orphaned/);
+  assert.equal(state.comments.length,0);
+  assert.ok(ledger.parse(state.body));
+});

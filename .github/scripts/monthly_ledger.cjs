@@ -47,7 +47,7 @@ function build(month, paths, previous, current, candidates = [], options = {}) {
   const resolved = new Set(current?.resolved_ids || previous?.resolved_ids || []);
   if (!current && previous) for (const item of previous.items) {
     if (item.status === 'open' || item.status === 'hold') items.set(item.id, {...item, carried_from: previous.month});
-    else if (item.status === 'wontfix' || (item.status === 'done' && (item.axis === 2 || item.axis === 3))) resolved.add(item.id);
+    else if ((item.status === 'wontfix' && item.origin !== 'source-watch') || (item.status === 'done' && (item.axis === 2 || item.axis === 3))) resolved.add(item.id);
     // A current volatile claim must be eligible for another review next month.
   }
   // A new month starts unreviewed even if last month was verified; last month's
@@ -69,11 +69,13 @@ function build(month, paths, previous, current, candidates = [], options = {}) {
   for (const item of items.values()) if (rescanned.has(item.origin) && (item.status === 'open' || item.status === 'hold')) item.not_seen_in_latest_scan = true;
   for (const candidate of candidates) {
     const id = fingerprint(candidate.path, candidate.axis, candidate.reason);
+    // A fresh source change is a new observation even when an older one was dismissed.
+    if (candidate.origin === 'source-watch' && candidate.change_digest) resolved.delete(id);
     if (!items.has(id) && !resolved.has(id)) items.set(id, {id, ...candidate, status: 'open', evidence: [], pr: null});
     const item = items.get(id);
     if (item && candidate.origin) {
       if (candidate.origin === 'source-watch' && candidate.change_digest && item.change_digest !== candidate.change_digest) {
-        if (item.status === 'done' || item.status === 'current') { item.status = 'open'; item.evidence = []; item.pr = null; }
+        if (item.status === 'done' || item.status === 'current' || item.status === 'wontfix') { item.status = 'open'; item.evidence = []; item.pr = null; }
         item.change_digest = candidate.change_digest;
       }
       item.origin ||= candidate.origin; item.last_seen = month; delete item.not_seen_in_latest_scan;

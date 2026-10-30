@@ -95,3 +95,16 @@ test('completed readability or stale signals may be rediscovered in a later mont
   const next = ledger.build('2026-11',[path],prev,null,[c]);
   assert.equal(next.items[0].status,'open');
 });
+test('a later source change reopens a dismissed observation within and across months', () => {
+  const c = {path, axis:1, reason:'source changed: https://example.org', origin:'source-watch', change_digest:'a'};
+  const first = ledger.build('2026-10',[path],null,null,[c]);
+  first.items[0].status = 'wontfix';
+  const sameMonth = ledger.build('2026-10',[path],null,first,[{...c,change_digest:'b'}]);
+  assert.equal(sameMonth.items[0].status, 'open');
+  const following = ledger.build('2026-11',[path],first,null,[{...c,change_digest:'b'}]);
+  assert.equal(following.items[0].status, 'open');
+  const legacy = ledger.build('2026-11',[path],first,null,[]);
+  legacy.resolved_ids.push(first.items[0].id);
+  const recovered = ledger.build('2026-11',[path],null,legacy,[{...c,change_digest:'c'}]);
+  assert.equal(recovered.items[0].status, 'open');
+});

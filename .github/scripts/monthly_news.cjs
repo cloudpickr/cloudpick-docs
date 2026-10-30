@@ -13,7 +13,7 @@ function initialize(today, existing) {
   // The first monitored interval begins on the first day of the previous month;
   // anything earlier remains explicitly unknown, never inferred current.
   const d = new Date(`${today}T00:00:00Z`);
-  return {version:1, started_on:iso(Date.UTC(d.getUTCFullYear(),d.getUTCMonth()-1,1)), before_start:'unverified', days:{}};
+  return {version:1, started_on:iso(Date.UTC(d.getUTCFullYear(),d.getUTCMonth()-1,1)), before_start:'unverified', days:{}, attempted:{}};
 }
 function validate(progress) {
   if (!progress || progress.version !== 1 || progress.before_start !== 'unverified' || !progress.days || typeof progress.days !== 'object' || Array.isArray(progress.days)) throw new Error('invalid news progress');
@@ -21,7 +21,15 @@ function validate(progress) {
   for (const [day, vendors] of Object.entries(progress.days)) {
     dateValue(day);
     if (!vendors || typeof vendors !== 'object' || Array.isArray(vendors)) throw new Error('invalid vendor progress');
-    for (const [vendor, state] of Object.entries(vendors)) if (!VENDORS.includes(vendor) || !['complete','failed'].includes(state)) throw new Error('invalid vendor state');
+    for (const [vendor, state] of Object.entries(vendors)) if (!VENDORS.includes(vendor) || !['complete','failed','provisional'].includes(state)) throw new Error('invalid vendor state');
+  }
+  if (progress.attempted !== undefined) {
+    if (!progress.attempted || typeof progress.attempted !== 'object' || Array.isArray(progress.attempted)) throw new Error('invalid attempt history');
+    for (const [day, vendors] of Object.entries(progress.attempted)) {
+      dateValue(day);
+      if (!vendors || typeof vendors !== 'object' || Array.isArray(vendors)) throw new Error('invalid attempt history');
+      for (const [vendor, timestamp] of Object.entries(vendors)) if (!VENDORS.includes(vendor) || typeof timestamp !== 'string' || !Number.isFinite(Date.parse(timestamp))) throw new Error('invalid attempt timestamp');
+    }
   }
 }
 function plan(progress, today, backlogLimit = 2) {
@@ -33,17 +41,22 @@ function plan(progress, today, backlogLimit = 2) {
   const recent = dates.slice(-2);
   const result = {};
   for (const vendor of VENDORS) {
-    const backlog = dates.slice(0,-2).filter(day => progress.days[day]?.[vendor] !== 'complete').slice(0, backlogLimit);
+    const backlog = dates.slice(0,-2).filter(day => progress.days[day]?.[vendor] !== 'complete')
+      .sort((a,b) => Number(progress.days[a]?.[vendor] !== 'provisional') - Number(progress.days[b]?.[vendor] !== 'provisional') || (progress.attempted?.[a]?.[vendor] || '').localeCompare(progress.attempted?.[b]?.[vendor] || '') || a.localeCompare(b)).slice(0, backlogLimit);
     result[vendor] = [...new Set([...backlog, ...recent])];
   }
   return result;
 }
-function apply(progress, attempts) {
+function apply(progress, attempts, checkedAt = new Date().toISOString()) {
   const result = structuredClone(progress); validate(result);
+  if (!Number.isFinite(Date.parse(checkedAt))) throw new Error('invalid checked time');
+  result.attempted ||= {};
   for (const attempt of attempts) {
     dateValue(attempt.date);
-    if (!VENDORS.includes(attempt.vendor) || !['complete','failed'].includes(attempt.state)) throw new Error('invalid attempt');
+    if (!VENDORS.includes(attempt.vendor) || !['complete','failed','provisional'].includes(attempt.state)) throw new Error('invalid attempt');
     result.days[attempt.date] ||= {};
+    result.attempted[attempt.date] ||= {};
+    result.attempted[attempt.date][attempt.vendor] = checkedAt;
     // A failed refresh means late-arriving releases may still be missing.
     result.days[attempt.date][attempt.vendor] = attempt.state;
   }

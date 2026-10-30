@@ -76,6 +76,7 @@ function build(month, paths, previous, current, candidates = [], options = {}) {
   const result = {version: 1, month, documents, items: [...items.values()], resolved_ids: [...resolved].sort()};
   if (current?.coverage || options.coverage) result.coverage = options.coverage || current.coverage;
   if (current?.news_progress || previous?.news_progress || options.news_progress) result.news_progress = options.news_progress || current?.news_progress || previous?.news_progress;
+  if (current?.source_progress || previous?.source_progress || options.source_progress) result.source_progress = options.source_progress || current?.source_progress || previous?.source_progress;
   if (current?.backlog) result.backlog = current.backlog;
   else if (previous) result.backlog = {previous_month: previous.month, previous_unfinished: previous.documents.filter(d => d.status !== 'verified').map(d => d.path), previous_missing: previous.documents.filter(d => d.missing_from_inventory).map(d => d.path)};
   validate(result);

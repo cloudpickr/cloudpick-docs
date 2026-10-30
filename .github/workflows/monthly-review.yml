@@ -523,7 +523,7 @@ jobs:
                       url: r.url, csp, date: day,
                     });
                   }
-                  attempts.push({vendor:csp, date:day, state:'complete'});
+                  attempts.push({vendor:csp, date:day, state:day === d0 ? 'provisional' : 'complete'});
                 } catch (e) {
                   attempts.push({vendor:csp, date:day, state:'failed'});
                   errors.push(`${csp}/${day}: ${e.message}`);
@@ -631,3 +631,45 @@ jobs:
       - name: Daily — report mapping failure
         if: steps.mode.outputs.action == 'daily' && steps.news_map.outcome == 'failure' && !cancelled()
         run: exit 1
+
+      - name: Daily — load source observation state
+        if: steps.mode.outputs.action == 'daily' && steps.daily.outputs.issue_number != '' && !cancelled()
+        id: source_load
+        uses: actions/github-script@v9
+        env:
+          ISSUE_NUMBER: ${{ steps.daily.outputs.issue_number }}
+        with:
+          script: |
+            const fs = require('fs');
+            const store = require(`${process.env.GITHUB_WORKSPACE}/.github/scripts/monthly_store.cjs`);
+            const {data: issue} = await github.rest.issues.get({owner: context.repo.owner, repo: context.repo.repo, issue_number: Number(process.env.ISSUE_NUMBER)});
+            const current = await store.load(github, context, issue);
+            if (!current) throw new Error('monthly ledger unavailable; source scan cannot run');
+            fs.writeFileSync('/tmp/source-observation-before.json', JSON.stringify(current.source_progress || null));
+            fs.writeFileSync('/tmp/source-refs-before.json', JSON.stringify(current.source_progress?.refs || {}));
+      - name: Daily — inspect a bounded batch of cited sources
+        if: steps.mode.outputs.action == 'daily' && steps.source_load.outcome == 'success' && !cancelled()
+        id: source_scan
+        run: python3 scripts/scan-source-changes.py --previous /tmp/source-refs-before.json --output /tmp/source-observation.json
+      - name: Daily — record source change signals
+        if: steps.mode.outputs.action == 'daily' && steps.source_scan.outcome == 'success' && !cancelled()
+        uses: actions/github-script@v9
+        env:
+          ISSUE_NUMBER: ${{ steps.daily.outputs.issue_number }}
+        with:
+          script: |
+            const fs = require('fs');
+            const store = require(`${process.env.GITHUB_WORKSPACE}/.github/scripts/monthly_store.cjs`);
+            const ledger = require(`${process.env.GITHUB_WORKSPACE}/.github/scripts/monthly_ledger.cjs`);
+            const issueNumber = Number(process.env.ISSUE_NUMBER);
+            const {data: issue} = await github.rest.issues.get({owner: context.repo.owner, repo: context.repo.repo, issue_number: issueNumber});
+            const current = await store.load(github, context, issue);
+            if (!current) throw new Error('monthly ledger unavailable; source results cannot be stored');
+            const before = JSON.parse(fs.readFileSync('/tmp/source-observation-before.json', 'utf8'));
+            if (JSON.stringify(current.source_progress || null) !== JSON.stringify(before)) throw new Error('source state changed during scan; no overwrite performed');
+            const result = JSON.parse(fs.readFileSync('/tmp/source-observation.json', 'utf8'));
+            if (!result.refs || !Array.isArray(result.candidates) || result.checked > 75) throw new Error('invalid source observation');
+            const progress = {version: 1, refs: result.refs};
+            const next = ledger.build(current.month, current.documents.filter(d => !d.missing_from_inventory).map(d => d.path), null, current, result.candidates, {source_progress: progress});
+            await store.save(github, context, issue, next, {expected: current});
+            core.info(`출처 ${result.checked}/${result.total}개 조회, ${result.failed}개 미확인, 변경 신호 ${result.candidates.length}건. 사실 판정 아님.`);

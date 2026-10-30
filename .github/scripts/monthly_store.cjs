@@ -8,7 +8,7 @@ const REF = /<!-- monthly-ledger-v2:([0-9a-f]{32}):(\d+):(\d{4}-\d{2}) -->/g;
 const HEADER = '<!-- monthly-ledger-summary:start -->';
 const FOOTER = '<!-- monthly-ledger-summary:end -->';
 const MAX_PART = 44000;
-const MAX_PARTS = 100;
+const MAX_PARTS = 1000;
 const encoded = value => JSON.stringify(value, null, 2).replace(/</g, '\\u003c').replace(/`/g, '\\u0060');
 
 function pointer(body) {
@@ -18,7 +18,9 @@ function pointer(body) {
   const [, id, n, month] = matches[0];
   const count = Number(n);
   if (!count || count > MAX_PARTS) throw new Error('invalid ledger part count');
-  return {id, count, month};
+  const published = /<!-- monthly-ledger-published:([^ ]+) -->/.exec(body)?.[1] || null;
+  if (published && !Number.isFinite(Date.parse(published))) throw new Error('invalid ledger publication time');
+  return {id, count, month, published};
 }
 
 function makeParts(data, id = crypto.randomBytes(16).toString('hex')) {
@@ -28,12 +30,18 @@ function makeParts(data, id = crypto.randomBytes(16).toString('hex')) {
   const {version, month, documents, items, resolved_ids, ...metadata} = data;
   let newsDays = [];
   if (metadata.news_progress) {
-    const {days, ...newsMeta} = metadata.news_progress;
-    newsDays = Object.entries(days || {}).map(([date, vendors]) => ({date, vendors}));
-    metadata.news_progress = newsMeta;
+    const {days, attempted, ...newsMeta} = metadata.news_progress;
+    newsDays = Object.entries(days || {}).map(([date, vendors]) => ({date, vendors, ...(attempted?.[date] ? {attempted: attempted[date]} : {})}));
+    metadata.news_progress = {...newsMeta, ...(attempted !== undefined ? {had_attempt_history:true} : {})};
   }
-  for (const field of ['documents', 'items', 'resolved_ids', 'news_days', 'metadata']) {
-    const rows = field === 'metadata' ? [metadata] : field === 'news_days' ? newsDays : (data[field] || []);
+  let sourceRefs = [];
+  if (metadata.source_progress) {
+    const {refs, ...sourceMeta} = metadata.source_progress;
+    sourceRefs = Object.entries(refs || {}).map(([url, value]) => ({url, value}));
+    metadata.source_progress = sourceMeta;
+  }
+  for (const field of ['documents', 'items', 'resolved_ids', 'news_days', 'source_refs', 'metadata']) {
+    const rows = field === 'metadata' ? [metadata] : field === 'news_days' ? newsDays : field === 'source_refs' ? sourceRefs : (data[field] || []);
     let batch = [];
     for (const row of rows) {
       const next = [...batch, row];
@@ -65,7 +73,7 @@ function extractPart(body, ref) {
   const fenced = /^```json\s*\n([\s\S]*?)\n```\s*$/.exec(text);
   if (!fenced) throw new Error('invalid ledger part formatting');
   const p = JSON.parse(fenced[1]);
-  if (p.version !== 2 || p.id !== ref.id || p.month !== ref.month || p.count !== ref.count || p.index !== Number(match[1]) || p.count !== Number(match[2]) || !['documents','items','resolved_ids','news_days','metadata'].includes(p.field) || !Array.isArray(p.rows)) throw new Error('ledger part metadata mismatch');
+  if (p.version !== 2 || p.id !== ref.id || p.month !== ref.month || p.count !== ref.count || p.index !== Number(match[1]) || p.count !== Number(match[2]) || !['documents','items','resolved_ids','news_days','source_refs','metadata'].includes(p.field) || !Array.isArray(p.rows)) throw new Error('ledger part metadata mismatch');
   return p;
 }
 
@@ -73,6 +81,7 @@ function assemble(ref, comments) {
   const parts = [];
   for (const c of comments) {
     if (c.user?.login !== 'github-actions[bot]') continue;
+    if (ref.published && c.updated_at && /<!-- monthly-ledger-part:[0-9a-f]{32}:\d+:\d+ -->/.test(c.body || '') && !(c.body || '').includes(`<!-- monthly-ledger-part:${ref.id}:`) && Date.parse(c.updated_at) > Date.parse(ref.published)) throw new Error('an older snapshot was edited after publication; reconcile its changes before continuing');
     const part = extractPart(c.body, ref);
     if (part) parts.push(part);
   }
@@ -81,31 +90,42 @@ function assemble(ref, comments) {
   const metadataParts = parts.filter(p => p.field === 'metadata');
   if (metadataParts.length !== 1 || metadataParts[0].rows.length !== 1) throw new Error('invalid ledger metadata');
   const metadata = metadataParts[0].rows[0];
-  if (!metadata || typeof metadata !== 'object' || Array.isArray(metadata) || Object.keys(metadata).some(k => !['coverage', 'news_progress', 'backlog'].includes(k))) throw new Error('invalid metadata fields');
+  if (!metadata || typeof metadata !== 'object' || Array.isArray(metadata) || Object.keys(metadata).some(k => !['coverage', 'news_progress', 'source_progress', 'backlog'].includes(k))) throw new Error('invalid metadata fields');
   Object.assign(data, metadata);
   const newsDays = [];
+  const sourceRefs = [];
   for (const p of parts.sort((a,b) => a.index - b.index)) {
     if (p.field === 'news_days') newsDays.push(...p.rows);
+    else if (p.field === 'source_refs') sourceRefs.push(...p.rows);
     else if (p.field !== 'metadata') data[p.field].push(...p.rows);
   }
   if (data.news_progress) {
     if (new Set(newsDays.map(d => d.date)).size !== newsDays.length) throw new Error('duplicate news progress date');
     data.news_progress.days = Object.fromEntries(newsDays.map(d => [d.date, d.vendors]));
+    const attempted = Object.fromEntries(newsDays.filter(d => d.attempted).map(d => [d.date, d.attempted]));
+    if (Object.keys(attempted).length || metadata.news_progress.had_attempt_history) data.news_progress.attempted = attempted;
+    delete data.news_progress.had_attempt_history;
     require('./monthly_news.cjs').validate(data.news_progress);
   } else if (newsDays.length) throw new Error('news progress metadata missing');
+  if (data.source_progress) {
+    if (data.source_progress.version !== 1 || new Set(sourceRefs.map(r => r.url)).size !== sourceRefs.length || sourceRefs.some(r => typeof r.url !== 'string' || !r.url.startsWith('https://') || !r.value || typeof r.value !== 'object')) throw new Error('invalid source progress');
+    data.source_progress.refs = Object.fromEntries(sourceRefs.map(r => [r.url, r.value]));
+  } else if (sourceRefs.length) throw new Error('source progress metadata missing');
   ledger.validate(data);
   return data;
 }
 
-function renderPointer(body, data, parts) {
+function renderPointer(body, data, parts, published = new Date().toISOString()) {
   ledger.validate(data);
   const counts = Object.fromEntries(['unreviewed','scanned','verified','unverified'].map(s => [s, data.documents.filter(d => d.status === s).length]));
   const active = data.items.filter(i => ['open','hold'].includes(i.status));
-  const marker = `<!-- monthly-ledger-v2:${parts[0].id}:${parts.length}:${data.month} -->`;
+  const marker = `<!-- monthly-ledger-v2:${parts[0].id}:${parts.length}:${data.month} -->\n<!-- monthly-ledger-published:${published} -->`;
   const overdue = data.backlog ? `전월(${data.backlog.previous_month}) 근거 검토 미완 ${data.backlog.previous_unfinished.length}개, 목록에서 사라진 문서 ${data.backlog.previous_missing.length}개.` : '전월 원장 없음 또는 미연결: 미완 이월 범위 확인 필요.';
   const news = data.news_progress ? `벤더 소식 복구 진행: ${require('./monthly_news.cjs').pending(data.news_progress, new Date().toISOString().slice(0,10))}개 벤더·날짜 미확인. ${data.news_progress.started_on} 이전은 미확인.` : '벤더 소식 수집 범위 미확인.';
   const coverage = data.coverage ? `검사 상태: ${Object.entries(data.coverage).map(([k,v]) => `${k}=${v}`).join(', ')}.` : '검사별 실행 상태 미확인.';
-  const summary = `${HEADER}\n## 월간 검토 원장\n\n${marker}\n\n문서 ${data.documents.length}개: 미검토 ${counts.unreviewed}, 스캔 ${counts.scanned}, 근거 검토 ${counts.verified}, 미확인 ${counts.unverified}. 처리 대기 후보 ${active.length}개. 자동 스캔은 근거 검토 완료를 뜻하지 않습니다.\n\n${overdue}\n\n${news}\n\n${coverage}\n\n상세 원장은 아래 봇 댓글의 JSON 조각에 있습니다. 문서별 상태·근거 및 후보 상태·PR은 해당 댓글에서 수정합니다. 이전 스냅샷은 감사 이력으로 남습니다. 구조 변경은 별도 과반 의결을 따릅니다.\n${FOOTER}`;
+  const refs = Object.values(data.source_progress?.refs || {});
+  const source = data.source_progress ? `문서 참조 출처 ${refs.length}개 중 관측 ${refs.filter(r => r.status === 'observed').length}개, 실패·미확인 ${refs.filter(r => r.status === 'unverified').length}개, 미조회 ${refs.filter(r => !r.status).length}개. 관측과 변경 신호는 사실 검증이 아닙니다.` : '문서별 참조 출처 감시 미실행.';
+  const summary = `${HEADER}\n## 월간 검토 원장\n\n${marker}\n\n문서 ${data.documents.length}개: 미검토 ${counts.unreviewed}, 스캔 ${counts.scanned}, 근거 검토 ${counts.verified}, 미확인 ${counts.unverified}. 처리 대기 후보 ${active.length}개. 자동 스캔은 근거 검토 완료를 뜻하지 않습니다.\n\n${overdue}\n\n${news}\n\n${source}\n\n${coverage}\n\n상세 원장은 아래 봇 댓글의 JSON 조각에 있습니다. 문서별 상태·근거 및 후보 상태·PR은 해당 댓글에서 수정합니다. 이전 스냅샷은 감사 이력으로 남습니다. 구조 변경은 별도 과반 의결을 따릅니다.\n${FOOTER}`;
   const start = body.indexOf(HEADER), end = body.indexOf(FOOTER);
   if ((start < 0) !== (end < 0) || (start >= 0 && (end < start || body.indexOf(HEADER, start + HEADER.length) !== -1 || body.indexOf(FOOTER, end + FOOTER.length) !== -1))) throw new Error('invalid summary markers');
   if (start >= 0) return body.slice(0, start) + summary + body.slice(end + FOOTER.length);

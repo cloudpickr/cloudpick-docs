@@ -34,6 +34,7 @@ AGENTS.md "표기 및 문체 규약 / 문서 형식 및 구조 일관성"을 기
 | --- | --- | --- |
 | `scan-stale-candidates.py` | 축1 | 노후 후보 결정론적 1차 추출 |
 | `verify-stale-candidates.py` | 축1 | 추출 후보를 공식 출처로 대조·검증(제보) |
+| `scan-source-changes.py` | 축1 | 전체 ko 문서의 HTTPS 참조를 제한된 배치로 관측하고 해시 변화·실패를 미검증 신호로 제보 |
 | `map-news-to-docs.py` | 축2 | 새 벤더 소식 → 후보 ko 문서 매핑(제보) |
 | `post-news-map-comment.py` | 축2 | 매핑 결과를 월간 트래킹 이슈에 코멘트(제보) |
 | `scan-leveling-candidates.py` | 축4 | 레벨링 후보 ko 문서 선별(제보) |

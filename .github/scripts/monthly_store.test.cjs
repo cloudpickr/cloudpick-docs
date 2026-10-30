@@ -64,3 +64,25 @@ test('part size limit accounts for escaped marker and fence characters', () => {
   const parts = store.makeParts(ledger.build('2026-10',[path],null,null,rows),'d'.repeat(32));
   for (const part of parts) assert.ok(Buffer.byteLength(store.partBody(part)) < 60000);
 });
+test('source coverage survives sharding and distinguishes failed from unseen', () => {
+  const data = ledger.build('2026-10',[path],null,null);
+  data.source_progress = {version:1, refs:{'https://example.org/a':{paths:[path],status:'unverified'},'https://example.org/b':{paths:[path]}}};
+  const parts=store.makeParts(data,'e'.repeat(32));
+  const comments=parts.map(part => ({body:store.partBody(part),user:{login:'github-actions[bot]'}}));
+  assert.deepEqual(store.assemble({id:'e'.repeat(32),count:parts.length,month:'2026-10'},comments),data);
+});
+test('an edit to an older snapshot after publication is detected', () => {
+  const data = ledger.build('2026-10',[path],null,null);
+  const old=store.makeParts(data,'a'.repeat(32)), current=store.makeParts(data,'b'.repeat(32));
+  const comments=[...old,...current].map(part => ({body:store.partBody(part),user:{login:'github-actions[bot]'},updated_at:part.id.startsWith('a') ? '2026-10-01T01:01:00Z' : '2026-10-01T00:59:00Z'}));
+  assert.throws(() => store.assemble({id:'b'.repeat(32),count:current.length,month:'2026-10',published:'2026-10-01T01:00:00Z'},comments), /older snapshot/);
+});
+test('empty and populated news attempt history survive snapshot storage', () => {
+  for (const attempted of [{},{'2026-09-01':{aws:'2026-10-01T00:00:00.000Z'}}]) {
+    const data = ledger.build('2026-10',[path],null,null);
+    data.news_progress = {version:1,started_on:'2026-09-01',before_start:'unverified',days:{'2026-09-01':{aws:'failed'}},attempted};
+    const parts=store.makeParts(data,'f'.repeat(32));
+    const comments=parts.map(part => ({body:store.partBody(part),user:{login:'github-actions[bot]'}}));
+    assert.deepEqual(store.assemble({id:'f'.repeat(32),count:parts.length,month:'2026-10'},comments),data);
+  }
+});

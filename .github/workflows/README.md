@@ -44,6 +44,8 @@ master 보호의 required 체크는 7개입니다: `build`·`docs-consistency-li
 
 과거 스냅샷 충돌 시 Actions 오류에 표시된 댓글 ID의 수정 내용을 현재 스냅샷과 비교하고, 필요한 변경을 현재 스냅샷에 직접 반영하거나 반영할 내용이 없음을 확인합니다. 그런 다음 아래 명령의 결과를 월간 이슈 본문에 추가하고 워크플로를 재실행합니다. 이 표식은 해당 댓글의 정확한 내용에만 유효하므로 댓글을 다시 수정하면 조정과 표식 생성도 다시 필요합니다.
 
+표식은 `monthly-ledger-summary` 시작·끝 마커 **바깥**에 넣습니다. 요약 안에 넣으면 다음 갱신 때 사라집니다. 일일 출처 관측은 추가·삭제된 ko 문서 목록도 원장에 반영합니다.
+
 ```sh
 gh api repos/cloudpickr/cloudpick-docs/issues/comments/COMMENT_ID | node .github/scripts/monthly_reconcile.cjs
 ```

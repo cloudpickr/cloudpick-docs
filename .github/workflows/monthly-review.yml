@@ -673,6 +673,8 @@ jobs:
             const result = JSON.parse(fs.readFileSync('/tmp/source-observation.json', 'utf8'));
             if (!result.refs || !Array.isArray(result.candidates) || result.checked > 75) throw new Error('invalid source observation');
             const progress = {version: 1, refs: result.refs};
-            const next = ledger.build(current.month, current.documents.filter(d => !d.missing_from_inventory).map(d => d.path), null, current, result.candidates, {source_progress: progress});
+            const paths = require('child_process').execFileSync('git', ['ls-files', '-z', '--', 'src/content/docs/ko/'], {encoding: 'utf8'}).split('\0').filter(p => /\.mdx?$/.test(p));
+            if (!paths.length) throw new Error('Korean inventory unavailable');
+            const next = ledger.build(current.month, paths, null, current, result.candidates, {source_progress: progress});
             await store.save(github, context, issue, next, {expected: current});
             core.info(`출처 ${result.checked}/${result.total}개 조회, ${result.failed}개 미확인, 변경 신호 ${result.candidates.length}건. 사실 판정 아님.`);

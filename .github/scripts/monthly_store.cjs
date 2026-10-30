@@ -89,7 +89,7 @@ function assemble(ref, comments, issueBody = '') {
   const parts = [];
   for (const c of comments) {
     if (c.user?.login !== 'github-actions[bot]') continue;
-    if (ref.published && c.created_at && c.updated_at && /<!-- monthly-ledger-part:[0-9a-f]{32}:\d+:\d+ -->/.test(c.body || '') && !(c.body || '').includes(`<!-- monthly-ledger-part:${ref.id}:`) && Date.parse(c.updated_at) > Date.parse(ref.published) && Date.parse(c.updated_at) > Date.parse(c.created_at)) {
+    if (ref.published && c.created_at && c.updated_at && /<!-- monthly-ledger-part:[0-9a-f]{32}:\d+:\d+ -->/.test(c.body || '') && !(c.body || '').includes(`<!-- monthly-ledger-part:${ref.id}:`) && Date.parse(c.updated_at) >= Math.floor(Date.parse(ref.published) / 1000) * 1000 && Date.parse(c.updated_at) > Date.parse(c.created_at)) {
       if (!issueBody.includes(acknowledgement(c))) throw new Error(`non-current snapshot comment ${c.id} was edited; reconcile and acknowledge its exact contents before continuing`);
     }
     const part = extractPart(c.body, ref);

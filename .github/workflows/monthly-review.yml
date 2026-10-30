@@ -439,7 +439,6 @@ jobs:
             const utcNow = new Date();
             const d0 = utcNow.toISOString().slice(0, 10);
             const d1 = new Date(utcNow.getTime() - 86400000).toISOString().slice(0, 10);
-            const stableThrough = new Date(Date.parse(`${d0}T00:00:00Z`) - 7 * 86400000).toISOString().slice(0, 10);
             const progress = news.initialize(d0, current.news_progress);
             const planned = news.plan(progress, d0);
             const attempts = [];
@@ -527,7 +526,7 @@ jobs:
                       url: r.url, csp, date: day,
                     });
                   }
-                  attempts.push({vendor:csp, date:day, state:truncated ? 'failed' : day > stableThrough ? 'provisional' : 'complete'});
+                  attempts.push({vendor:csp, date:day, state:news.stateFor(day, d0, truncated)});
                 } catch (e) {
                   attempts.push({vendor:csp, date:day, state:'failed'});
                   errors.push(`${csp}/${day}: ${e.message}`);

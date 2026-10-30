@@ -44,3 +44,10 @@ test('provisional late-arrival checks and older gaps both get capacity', () => {
   assert.ok(plan.includes('2026-10-08'));
   assert.ok(plan.includes('2026-10-01'));
 });
+test('dates remain provisional for a week, and truncation never completes', () => {
+  assert.equal(news.stateFor('2026-10-10','2026-10-10'),'provisional');
+  assert.equal(news.stateFor('2026-10-04','2026-10-10'),'provisional');
+  assert.equal(news.stateFor('2026-10-03','2026-10-10'),'complete');
+  assert.equal(news.stateFor('2026-10-03','2026-10-10',true),'failed');
+  assert.throws(() => news.stateFor('2026-10-11','2026-10-10'));
+});

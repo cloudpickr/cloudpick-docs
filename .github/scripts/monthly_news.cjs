@@ -75,6 +75,11 @@ function pending(progress, today) {
   for (let t = dateValue(progress.started_on); t <= dateValue(today); t += DAY) for (const v of VENDORS) if (progress.days[iso(t)]?.[v] !== 'complete') count++;
   return count;
 }
+function stateFor(day, today, truncated = false) {
+  const age = (dateValue(today) - dateValue(day)) / DAY;
+  if (age < 0) throw new Error('future source date');
+  return truncated ? 'failed' : age < 7 ? 'provisional' : 'complete';
+}
 function parseResponse(data, limit) {
   if (data?.error || data?.result?.isError) throw new Error('MCP tool reported an error');
   const text = data?.result?.content?.[0]?.text;
@@ -91,4 +96,4 @@ function parseResponse(data, limit) {
   }
   return rows;
 }
-module.exports = {VENDORS, initialize, validate, plan, apply, pending, parseResponse};
+module.exports = {VENDORS, initialize, validate, plan, apply, pending, parseResponse, stateFor};

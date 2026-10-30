@@ -195,7 +195,12 @@ python3 scripts/lint-strikethrough.py
 
 - `참고하기`의 외부 공식 링크는 매 커밋(push/PR)마다 CI(`External Link Check`, lychee)가 검사합니다. 한국 도메인(`.go.kr`, `.or.kr`, `.naver.com`, `.ntruss.com` 등)은 해외 CI IP에서 차단이 잦아 lychee에서 제외하고, 한국 리전 NCP 함수(`scripts/check-korean-links.mjs`)가 전담 검증합니다.
 - **깨진 링크(404/410)가 발견되면 CI가 실패합니다. 발견 즉시 해당 링크를 제거하거나 유효한 공식 URL로 대체한 뒤 다시 커밋**합니다. 깨진 링크를 남긴 채 머지하지 않습니다.
-- **리다이렉트(301/302/307/308)는 유효로 허용**됩니다(벤더 문서가 로케일 부가·경로 개편으로 상시 반환). 다만 가능하면 최종 URL로 직접 링크하는 것을 권장합니다. 리다이렉트 현황은 주간 스케줄 링크 점검 리포트로 추적합니다.
+- **리다이렉트(301/302/307/308)는 유효로 허용**되지만(lychee는 리다이렉트를 따라가 최종 200이면 통과), **실제 페이지가 이전된 경우 최종 URL로 갱신**합니다. 갱신 시 아래 두 가지는 **벗겨냅니다**:
+  - **로케일 세그먼트**(`/en-us/`, `/ko-kr/` 등)는 원본 링크에 없었다면 넣지 않습니다. 벤더(Microsoft·Oracle 등)는 로케일 없는 URL에 대해 Accept-Language로 로케일을 자동 결정하는데, `/en-us/`를 하드코딩하면 ko/ja 독자에게도 영어가 강제됩니다. 따라서 로케일만 추가하는 리다이렉트(예: `/azure/...`→`/en-us/azure/...`)는 **갱신 대상이 아니며**(영구적 302이 정상), 그대로 둡니다.
+  - **추적 파라미터**(`?icid=...`, `utm_*` 등)는 원본에 없었다면 추가하지 않습니다. 단 `?view=`·`?tabs=`·`?pivots=`는 **버전 선택자이며 추적이 아니므로** 벗기지 않습니다(벤더가 문서 버전을 구분하는 정식 파라미터).
+  - 즉 "도메인·경로가 실제로 바뀐 것"만 최종 URL로 갱신하고(예: `docs.anthropic.com`→`platform.claude.com`, `azure/ai-foundry`→`azure/foundry`, NIST `/publications/detail/sp/800-145/final`→`/pubs/sp/800/145/final`), 로케일·파라미터 차이만 있는 리다이렉트는 유지합니다.
+  - 리다이렉트 현황은 주간 스케줄 링크 점검 리포트(이슈)로 추적합니다.
+  - **대량 링크 현행화는 link-refresh 게이트 경로**를 씁니다: `policy_action: "link-refresh"` 패킷(빈 `claim_ledger` 허용 + `link_refresh.url_map`/`manifest_sha256`)을 붙입니다. `link-refresh` 라벨은 선택 사항이며 가드 실행 조건이 아닙니다. 분류기는 모든 경로를 C로 두어 사람 승인을 요구하고, CI의 `link-refresh-guard`가 '재구성 매칭'으로 URL 외 변경이 없음을 전수 검증합니다. 사람은 URL의 내용·판본·soft-404 여부도 확인합니다. 상세는 `.editorial/README.md`.
 - 인증이 필요한 콘솔·포털 URL(예: `console.aws.amazon.com`)은 검사 오탐을 유발하므로 `참고하기`에 넣지 말고, 불가피하면 `lychee.toml`의 `exclude`에 등록합니다.
 - 링크 대체 시에도 벤더 열 순서·벤더별 그룹핑(`### AWS`/`### Azure`/`### Google Cloud`/`### OCI`) 규약을 유지합니다.
 

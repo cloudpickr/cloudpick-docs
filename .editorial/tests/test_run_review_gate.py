@@ -333,5 +333,123 @@ class TestGate(unittest.TestCase):
         self.assertNotEqual(out["state"], "success")
 
 
+class TestLinkRefreshRedirect(unittest.TestCase):
+    """link-refresh redirect re-fetch 검증(governance 투표 반영 — fail-open 차단)."""
+
+    def test_normalize_url_trailing_slash_and_fragment(self):
+        self.assertEqual(
+            g._normalize_url("https://A.com/Path/#frag"),
+            g._normalize_url("https://a.com/Path"),
+        )
+
+    def _patch_fetch(self, final_by_old):
+        import source_fetch as sf
+
+        class R:
+            def __init__(self, url):
+                self.url = url
+                self.status = 200
+
+        def fake_fetch(old, **kw):
+            if final_by_old.get(old) is None:
+                raise sf.FetchError("blocked")
+            return R(final_by_old[old])
+
+        self._orig = sf.fetch_source
+        sf.fetch_source = fake_fetch
+        self.addCleanup(lambda: setattr(sf, "fetch_source", self._orig))
+
+    def test_redirect_ends_at_new_ok(self):
+        self._patch_fetch({"https://old.com/": "https://new.com/"})
+        r = g._verify_redirect_chains({"https://old.com/": "https://new.com/"})
+        self.assertFalse(r.get("error"))
+        self.assertEqual(r["mismatches"], [])
+        self.assertEqual(r["checked"], 1)
+
+    def test_redirect_mismatch_flagged(self):
+        self._patch_fetch({"https://old.com/": "https://elsewhere.com/"})
+        r = g._verify_redirect_chains({"https://old.com/": "https://new.com/"})
+        self.assertFalse(r.get("error"))
+        self.assertEqual(len(r["mismatches"]), 1)
+
+    def test_locale_and_tracking_added_by_redirect_are_ignored(self):
+        self._patch_fetch({"https://old.com/doc": "https://new.com/en-us/doc?view=v2&utm_source=x"})
+        r = g._verify_redirect_chains({"https://old.com/doc": "https://new.com/doc?view=v2"})
+        self.assertEqual(r["mismatches"], [])
+
+    def test_http_error_is_hold(self):
+        import source_fetch as sf
+        from unittest.mock import patch
+        from types import SimpleNamespace
+        with patch.object(sf, "fetch_source", return_value=SimpleNamespace(url="https://new.com/", status=404)):
+            r = g._verify_redirect_chains({"https://old.com/": "https://new.com/"})
+        self.assertTrue(r.get("error"))
+
+    def test_version_parameter_is_not_stripped(self):
+        self._patch_fetch({"https://old.com/": "https://new.com/?view=v2"})
+        r = g._verify_redirect_chains({"https://old.com/": "https://new.com/"})
+        self.assertTrue(r["mismatches"])
+
+    def test_partial_fetch_failure_is_error(self):
+        # governance 투표(B): 일부 성공+일부 실패도 '확인 불가' → error(hold).
+        self._patch_fetch({
+            "https://ok.com/": "https://oknew.com/",   # 성공
+            "https://bad.com/": None,                   # 실패
+        })
+        r = g._verify_redirect_chains({
+            "https://ok.com/": "https://oknew.com/",
+            "https://bad.com/": "https://badnew.com/",
+        })
+        self.assertTrue(r.get("error"))
+
+
+class TestLinkRefreshReconstructDiff(unittest.TestCase):
+    """diff 기반 재구성 매칭(editorial-review 안에서 가드 강제 — governance 투표 A)."""
+
+    MAP = {"https://old.com/": "https://new.com/"}
+
+    def test_url_only_replacement_ok(self):
+        diff = (
+            "--- a/x.md\n+++ b/x.md\n@@ -1,1 +1,1 @@\n"
+            "-참고: https://old.com/ 를 보세요.\n"
+            "+참고: https://new.com/ 를 보세요.\n"
+        )
+        r = g._link_refresh_reconstruct_from_diff(diff, self.MAP)
+        self.assertFalse(r.get("block"))
+
+    def test_prose_change_blocks(self):
+        diff = (
+            "--- a/x.md\n+++ b/x.md\n@@ -1,1 +1,1 @@\n"
+            "-참고: https://old.com/ 를 보세요.\n"
+            "+참고: https://new.com/ 를 꼭 보세요.\n"
+        )
+        r = g._link_refresh_reconstruct_from_diff(diff, self.MAP)
+        self.assertTrue(r.get("block"))
+
+    def test_line_count_mismatch_blocks(self):
+        diff = (
+            "--- a/x.md\n+++ b/x.md\n@@ -1,1 +1,2 @@\n"
+            "-참고: https://old.com/\n"
+            "+참고: https://new.com/\n"
+            "+추가된 줄.\n"
+        )
+        r = g._link_refresh_reconstruct_from_diff(diff, self.MAP)
+        self.assertTrue(r.get("block"))
+
+    def test_mismatched_blocks_do_not_contaminate_following_blocks(self):
+        diff = "@@ -1,2 +1,1 @@\n-a\n-b\n+c\n context\n-x\n+y\n+z\n"
+        r = g._link_refresh_reconstruct_from_diff(diff, self.MAP)
+        self.assertEqual(len(r["signals"]), 2)
+        self.assertIn("삭제 2 vs 추가 1", r["signals"][0])
+        self.assertIn("삭제 1 vs 추가 2", r["signals"][1])
+
+    def test_patch_omitted_is_error(self):
+        # governance 투표: GitHub patch 생략 시 diff 검증 불가 → error(hold), block:false 금지.
+        diff = "--- a/x.md\n(no textual patch)\n"
+        r = g._link_refresh_reconstruct_from_diff(diff, self.MAP)
+        self.assertTrue(r.get("error"))
+        self.assertFalse(r.get("block"))
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

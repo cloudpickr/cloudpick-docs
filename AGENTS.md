@@ -41,7 +41,7 @@ Manage the background server with `astro dev stop`, `astro dev status`, and `ast
   - 변경 의도나 기준이 모호한 경우 반드시 `git log`와 커밋 히스토리를 확인하여 이전 의사결정 맥락을 파악한 후 진행합니다.
 - **링크 유효성 검증(내부·외부)**:
   - **내부 링크**(상대 `../`·root-relative `/ko/..`)는 `npm run build`의 `starlight-links-validator`가 대상 존재 여부를 검증합니다. 깨진 내부 링크·누락 파일이 있으면 빌드가 실패해 머지가 차단됩니다.
-  - **외부 링크**(`참고하기`의 공식 문서)는 CI(`External Link Check`, lychee)가 매 커밋 검사하며, 깨진 링크(404/410)는 차단됩니다. 리다이렉트(301/302/307/308)는 유효로 허용합니다. 한국 도메인은 NCP 함수(`scripts/check-korean-links.mjs`)가 전담합니다.
+  - **외부 링크**(`참고하기`의 공식 문서)는 CI(`External Link Check`, lychee)가 매 커밋 검사하며, 깨진 링크(404/410)는 차단됩니다. 리다이렉트(301/302/307/308)는 유효로 허용하되(lychee가 따라가 최종 200이면 통과), **실제 페이지 이전은 최종 URL로 갱신**합니다. 이때 로케일 세그먼트(`/en-us/` 등, 원본에 없었다면)와 추적 파라미터(`icid`·`utm_*`)는 원본에 없었다면 벗기고 버전 선택자(`view`·`tabs`·`pivots`)는 유지합니다 — 상세 원칙은 `CONTRIBUTING.md` "외부 링크 관리". 한국 도메인은 NCP 함수(`scripts/check-korean-links.mjs`)가 전담합니다.
   - 깨진 링크는 발견 즉시 유효한 공식 URL로 대체하거나 제거한 뒤 커밋합니다.
   - **상대 링크 깊이 함정(문서 이동·분할 시)**: `starlight-links-validator`가 통과해도 `trailingSlash: 'always'` 때문에 브라우저에서는 404가 나는 상대 링크가 있을 수 있습니다. 문서를 하위 디렉터리로 옮기거나 한 문서를 여러 문서로 **분할**하면 상대경로 깊이가 한 단계씩 어긋나므로, 이동·분할한 문서의 모든 `../`·`./` 링크를 새 위치 기준으로 재계산해야 합니다. 검증 방법(빌드 후 `dist` 상대경로를 브라우저 기준으로 풀어 실제 페이지 존재를 대조)은 `CONTRIBUTING.md`의 "상대 링크 깊이 함정"을 참고하세요.
 
@@ -93,6 +93,17 @@ Manage the background server with `astro dev stop`, `astro dev status`, and `ast
 - **루프 상한** — 자동 수정 1라운드 + 24시간. 가드 재실패·동일 findings 반복·리뷰어 이견·범위 확대 시 `human-hold`로 정지합니다.
 - **범위 제한** — 레벨링 PR은 1개 논리 문서 + ko/en/ja 미러만. 제목 변경·분할·이동·사이드바 등 구조 변경은 레벨링에 포함할 수 없고 별도 제안 + 과반 의결입니다.
 - 상세 기준은 `.editorial/leveling-rules.yaml`(권위 원본)을 따릅니다.
+
+#### 축1 링크 현행화 예외 (link-refresh — URL-only 자율 교정)
+
+리다이렉트가 **실제 페이지 이전**을 가리킬 때, 외부 링크를 최종 URL로 일괄 갱신하는 것(link-refresh)은 레벨링과 같은 "사실 불변" 성격이라 에이전트가 PR을 직접 작성할 수 있습니다(모든 경로에 사람 승인 필수). 전제 가드:
+
+- **URL 문자열만 교체, 그 외 바이트 불변** — `scripts/link-refresh-guard.py`(결정론)가 '재구성 매칭'으로 증명합니다: 승인된 old→new 매핑을 base에 적용한 결과가 head와 바이트 일치해야 하며, 라인 증감·코드/frontmatter/인라인코드/mermaid 내부 변경·URL 외 텍스트 변경은 fail-closed. **사실·문장 변경은 link-refresh가 아니라 축1 근거 패킷 경로**로 보냅니다.
+- **로케일·버전 파라미터 규칙** — 최종 URL에서 원본에 없던 로케일 세그먼트(`/en-us/` 등)와 추적 파라미터(`icid`·`utm_*`)는 벗깁니다. `?view=`·`?tabs=`·`?pivots=`는 버전 선택자이므로 유지합니다. path-collapse(하위→상위 축약)나 edition/version 토큰 변경은 사람이 확인합니다. 현재 이를 자동 탐지하지 않으므로 모든 link-refresh는 C입니다.
+- **빈 `claim_ledger` + manifest** — 새 사실 주장이 없으므로 claim_ledger는 비웁니다. 패킷 `policy_action: "link-refresh"`(이 단일 필드가 자격을 부여) + `link_refresh.url_map`(old→new) + `manifest_sha256`(전체 경로·매핑·base SHA 해시)로 대량 분산 변경의 완전성을 보증합니다(changed_paths 64 상한 우회). CI가 manifest를 재계산해 대조하며, 리뷰 envelope은 별도로 실제 head SHA에 바인딩합니다.
+- **독립 리뷰 재fetch** — 게이트가 url_map의 각 old URL을 독립 re-fetch해 리다이렉트 체인이 new URL로 끝남을 확인합니다(최종 HTTP 성공 상태 확인; soft-404·path-collapse·edition 변경은 별도 검토 필요). 불일치·fetch 불가는 비승인(hold).
+- **모든 경로는 C** — 리다이렉트만으로 soft-404·path-collapse·판본 변경을 완전히 판별할 수 없으므로 비규제·규제 경로 모두 사람 승인(C)이 필요합니다. core와 규제 PR은 검토를 위해 분리합니다.
+- `policy_action=="link-refresh"`은 C를 부여하며 `editorial-review`에서 신뢰된 base 가드로 전체 파일 및 매니페스트 검증을 강제합니다. 별도 `link-refresh-guard` 잡도 라벨이 아니라 패킷에서 실행 여부를 파생합니다. 해당 잡을 required로 등록하려면 관리자 설정이 별도로 필요합니다.
 
 ### 체크리스트 (변경 PR 공통)
 

@@ -133,6 +133,18 @@ def run(args) -> dict:
                     ["B/C requires a valid evidence packet; none valid → hold"] + reasons,
                     args, packet_sha)
 
+    # link-refresh는 diff만으로 코드펜스/프론트매터 위치를 알 수 없다. 신뢰된
+    # base 스크립트로 base/head의 전체 파일과 매니페스트를 검사하고 실패 시 보류한다.
+    if packet.get("policy_action") == "link-refresh":
+        if not _is_link_refresh_packet(packet):
+            return _out(tier, "changes_requested", ["link-refresh requires an empty claim_ledger"] + reasons, args, packet_sha)
+        full = _verify_link_refresh_files(args, changes, packet)
+        if full.get("error"):
+            return _out(tier, "error", [f"link-refresh full-file verification unavailable → hold: {full['error']}"] + reasons, args, packet_sha)
+        if full.get("block"):
+            return _out(tier, "changes_requested", [f"link-refresh full-file verification failed: {full['block']}"] + reasons, args, packet_sha)
+        reasons.append("link-refresh full-file verification: ok")
+
     # 독립 LLM 리뷰. claim_ledger의 공식 출처를 source_fetch로 독립 재취득해 리뷰에 연결(#2).
     config = rr.ReviewConfig.from_env()
     diff_text = Path(args.diff).read_text(encoding="utf-8") if Path(args.diff).is_file() else ""
@@ -165,10 +177,123 @@ def run(args) -> dict:
                         args, packet_sha, reviewer_cfg)
         reasons.append("leveling meaning-preserved review: ok")
 
+    # link-refresh(URL-only 현행화) 전용: 사실 불변은 결정론 가드(scripts/link-refresh-guard.py)가
+    # CI required 잡으로 전수 증명한다(base/head 전체 파일 필요 — diff만으론 불가). 또한
+    # governance 투표 반영: url_map의 각 old URL을 독립 re-fetch해 리다이렉트 체인이 new로
+    # 끝남을 확인한다. HTTP 오류·최종 URL 불일치는 non-pass다.
+    # URL 일치만으로 soft-404·path-collapse·판본 변경을 증명할 수 없다. 이 게이트는 분류·독립 리뷰·redirect 재확인까지 책임지고,
+    # URL 외 불변 증명은 CI 가드가 담당한다(가드 required는 라벨이 아니라 분류 자격에서 파생).
+    if _is_link_refresh_packet(packet):
+        lr = packet.get("link_refresh") or {}
+        url_map = lr.get("url_map") or {}
+        if not url_map:
+            return _out(tier, "error",
+                        ["link-refresh packet without link_refresh.url_map → hold"] + reasons,
+                        args, packet_sha)
+        # url_map key/value는 절대 http(s) URL이어야 한다(게이트에서도 강제 — council 권고).
+        bad = [f"{k}→{v}" for k, v in url_map.items()
+               if not (isinstance(k, str) and isinstance(v, str)
+                       and k.startswith(("http://", "https://"))
+                       and v.startswith(("http://", "https://")))]
+        if bad:
+            return _out(tier, "error",
+                        ["link-refresh url_map has non-URL entries → hold"] + bad[:5] + reasons,
+                        args, packet_sha)
+        rchk = _verify_redirect_chains(url_map)
+        if rchk.get("error"):
+            # fetch 불가/차단/부분실패는 비승인(보류) — 리다이렉트=실제 이전 보증을 확인 못 함.
+            return _out(tier, "error",
+                        [f"link-refresh redirect re-fetch unavailable → hold ({rchk['error']})"] + reasons,
+                        args, packet_sha)
+        if rchk.get("mismatches"):
+            reasons += ["link-refresh redirect re-fetch: MISMATCH"] + \
+                       [f"{m['old']} → 최종 {m['final']} (기대 {m['expected']})" for m in rchk["mismatches"][:10]]
+            return _out(tier, "changes_requested", reasons, args, packet_sha)
+        reasons.append(f"link-refresh redirect re-fetch: ok ({rchk.get('checked', 0)} URLs → new)")
+
+        # governance 투표(A): 가드를 editorial-review(이미 required) 안에서 직접 강제한다.
+        # diff 재구성 매칭으로 'URL 교체만' 했음을 확인하고, 위반 시 non-pass로 머지를 막는다.
+        # (별도 link-refresh-guard 잡이 required 미등록이어도 이 경로가 차단을 보증한다.)
+        link_diff = Path(args.link_refresh_diff).read_text(encoding="utf-8") if getattr(args, "link_refresh_diff", None) else diff_text
+        rc = _link_refresh_reconstruct_from_diff(link_diff, url_map)
+        if rc.get("error"):
+            return _out(tier, "error",
+                        [f"link-refresh reconstruct check unavailable → hold ({rc['error']})"] + reasons,
+                        args, packet_sha)
+        if rc.get("block"):
+            reasons += ["link-refresh reconstruct(diff): BLOCK — URL 외 변경 의심"] + rc.get("signals", [])[:10]
+            return _out(tier, "changes_requested", reasons, args, packet_sha)
+        reasons.append("link-refresh reconstruct(diff): ok (URL 교체만)")
+        reasons.append("link-refresh: URL-only change — CI link-refresh-guard(재구성 매칭, 전체 파일)도 교차 강제")
+
     # 감사 정확성: 실제 선택된 리뷰어 model을 envelope에 기록(단일 고정값 아님).
     reviewer_cfg = review.selected_model or (config.reviewer_model or "unset")
     return _out(tier, review.verdict, reasons, args, packet_sha, reviewer_cfg)
 
+
+
+def _verify_link_refresh_files(args, changes, packet):
+    """Trusted base guard validates immutable git blobs, never executes head code."""
+    import re
+    import subprocess
+    import tempfile
+
+    repo = getattr(args, "link_refresh_repo", None)
+    if not repo:
+        return {"error": "repository containing base/head git objects not supplied"}
+    if not all(re.fullmatch(r"[0-9a-f]{40,64}", str(x)) for x in (args.base_sha, args.head_sha)):
+        return {"error": "invalid commit identity"}
+    root = Path(repo)
+    def git(*argv):
+        return subprocess.run(["git", "-C", str(root), *argv], stdout=subprocess.PIPE,
+                              stderr=subprocess.PIPE, timeout=120, check=True).stdout
+    try:
+        # git diff의 완전한 목록을 API 입력과 대조하고 변경 종류를 제한한다.
+        raw = git("diff", "--name-status", "--no-renames", "-z", args.base_sha, args.head_sha,
+                  "--", "src/content/docs/").split(b"\0")
+        if raw[-1:] == [b""]:
+            raw.pop()
+        if len(raw) % 2:
+            return {"error": "invalid git diff output"}
+        entries = [(raw[i].decode("utf-8"), raw[i + 1].decode("utf-8")) for i in range(0, len(raw), 2)]
+        if any(status != "M" for status, _ in entries):
+            return {"block": "link-refresh accepts only modified existing documents"}
+        paths = [path for _, path in entries]
+        if not paths or set(paths) != {c.path for c in changes} or len(paths) != len(changes):
+            return {"block": "document list differs from trusted git diff"}
+        if any(not re.fullmatch(r"src/content/docs/(?:ko|en|ja)/.+\.mdx?", p) or "\n" in p or "\r" in p for p in paths):
+            return {"block": "unsupported document path"}
+        guard = HERE.parent / "scripts" / "link-refresh-guard.py"
+        manifest = HERE.parent / "scripts" / "link-refresh-manifest.py"
+        with tempfile.TemporaryDirectory(prefix="link-refresh-") as temp:
+            tmp = Path(temp)
+            paths_file = tmp / "paths.txt"
+            paths_file.write_text("".join(p + "\n" for p in paths), encoding="utf-8")
+            map_file = tmp / "map.json"
+            map_file.write_text(json.dumps(packet.get("link_refresh", {}).get("url_map", {})), encoding="utf-8")
+            check = subprocess.run([sys.executable, str(manifest), "verify", "--packet", args.packet,
+                                    "--changed-paths", str(paths_file), "--base-sha", args.base_sha],
+                                   capture_output=True, text=True, timeout=120)
+            if check.returncode:
+                return {"block": "manifest verification failed: " + check.stderr[:500]}
+            for path in paths:
+                for rev, filename in ((args.base_sha, "base"), (args.head_sha, "head")):
+                    # 파일 모드(심볼릭 링크 등)도 확인한다. 경로는 git ls-tree의 리터럴 pathspec이다.
+                    tree = git("--literal-pathspecs", "ls-tree", rev, "--", path)
+                    if not tree.startswith((b"100644 blob ", b"100755 blob ")):
+                        return {"block": "non-regular or missing file: " + path}
+                    data = git("show", f"{rev}:{path}")
+                    if len(data) > 2 * 1024 * 1024:
+                        return {"error": "document exceeds 2 MiB: " + path}
+                    (tmp / filename).write_bytes(data)
+                check = subprocess.run([sys.executable, str(guard), "--base", str(tmp / "base"),
+                                        "--head", str(tmp / "head"), "--mapping", str(map_file)],
+                                       capture_output=True, text=True, timeout=120)
+                if check.returncode:
+                    return {"block": path + ": " + check.stderr[:500]}
+    except (OSError, UnicodeError, subprocess.SubprocessError, ValueError) as exc:
+        return {"error": str(exc)}
+    return {"ok": True}
 
 def _is_leveling_packet(packet: dict) -> bool:
     """패킷이 레벨링(표현 전용) 성격인지 — claim_ledger 비었고 tier_reasons에 leveling 표기."""
@@ -176,6 +301,147 @@ def _is_leveling_packet(packet: dict) -> bool:
         return False
     reasons = " ".join(packet.get("tier_reasons", []) or [])
     return ("leveling" in reasons.lower()) or ("레벨링" in reasons)
+
+
+def _is_link_refresh_packet(packet: dict) -> bool:
+    """패킷이 link-refresh(URL-only 현행화) 성격인지 — claim_ledger 비었고
+    policy_action=='link-refresh'(단일 필드, governance 투표 반영: tier_reasons 매칭 제거)."""
+    if not isinstance(packet, dict) or packet.get("claim_ledger"):
+        return False
+    return (packet.get("policy_action") or "") == "link-refresh"
+
+
+def _normalize_url(u: str) -> str:
+    """리다이렉트 최종 URL 비교용 정규화 — trailing slash·fragment 차이만 흡수."""
+    from urllib.parse import urlsplit, urlunsplit
+    s = urlsplit(u.strip())
+    path = s.path or "/"
+    # 끝 슬래시 1개만 정규화(의미 있는 경로 차이는 보존).
+    if len(path) > 1 and path.endswith("/"):
+        path = path.rstrip("/") or "/"
+    return urlunsplit((s.scheme.lower(), s.netloc.lower(), path, s.query, ""))
+
+
+
+def _normalize_redirect_target(final: str, old: str, new: str) -> str:
+    """Only remove locale/tracking additions absent from both old and proposed URLs."""
+    import re
+    from urllib.parse import parse_qsl, urlencode, urlsplit, urlunsplit
+    f, o, n = (urlsplit(u) for u in (final, old, new))
+    locale = re.compile(r"^/([a-z]{2}-[a-z]{2})(?=/|$)", re.I)
+    path = f.path
+    if locale.match(path) and not locale.match(o.path) and not locale.match(n.path):
+        path = path[locale.match(path).end():] or "/"
+    original_keys = {k.lower() for k, _ in parse_qsl(o.query, keep_blank_values=True)}
+    proposed_keys = {k.lower() for k, _ in parse_qsl(n.query, keep_blank_values=True)}
+    pairs = parse_qsl(f.query, keep_blank_values=True)
+    pairs = [(k, v) for k, v in pairs if not (
+        (k.lower() == "icid" or k.lower().startswith("utm_"))
+        and k.lower() not in original_keys and k.lower() not in proposed_keys)]
+    return _normalize_url(urlunsplit((f.scheme, f.netloc, path, urlencode(pairs, doseq=True), f.fragment)))
+
+def _verify_redirect_chains(url_map: dict) -> dict:
+    """link-refresh url_map의 각 old URL을 독립 re-fetch해 최종 URL이 new와 일치하는지 확인.
+
+    governance 투표 반영: 빈 claim_ledger로 source fetch가 스킵되어 '리다이렉트=실제 이전'
+    보증이 비던 fail-open을 차단한다. source_fetch(SSRF 방어·상한)를 재사용한다.
+
+    반환: {checked:int, mismatches:[{old,final,expected}], error?:str}
+      - error: 모듈 부재/전체 fetch 실패 등 '확인 불가'(→ 호출부에서 hold).
+      - mismatches: old의 리다이렉트 체인이 new로 끝나지 않음(→ 호출부에서 changes_requested).
+    """
+    try:
+        import source_fetch as sf
+    except Exception as e:  # noqa: BLE001
+        return {"error": f"source_fetch import 실패: {e}", "checked": 0, "mismatches": []}
+
+    mismatches = []
+    checked = 0
+    errors = []
+    for old, new in url_map.items():
+        try:
+            res = sf.fetch_source(old)
+        except Exception as e:  # noqa: BLE001  (SSRF 차단·네트워크 실패 포함)
+            errors.append(f"{old}: {e}")
+            continue
+        if not 200 <= res.status < 300:
+            errors.append(f"{old}: final HTTP status {res.status}")
+            continue
+        checked += 1
+        final = getattr(res, "final_url", None) or getattr(res, "url", None) or ""
+        if _normalize_redirect_target(final, old, new) != _normalize_url(new):
+            mismatches.append({"old": old, "final": final, "expected": new})
+    # 하나도 확인 못 했거나(전부 실패) 일부라도 실패하면(부분 실패) 확인 불가 → error.
+    # governance 투표(B): 부분 실패를 통과시키면 '확인 안 된 old→new'가 승인되는 fail-open.
+    if errors:
+        return {"error": "일부/전체 old URL fetch 실패(확인 불가): " + "; ".join(errors[:5]),
+                "checked": checked, "mismatches": mismatches, "fetch_errors": errors}
+    return {"checked": checked, "mismatches": mismatches, "fetch_errors": []}
+
+
+def _link_refresh_reconstruct_from_diff(diff_text: str, url_map: dict) -> dict:
+    """통합 diff에서 'URL 교체만' 했음을 재구성 매칭으로 검증(가드를 editorial-review 안에서 강제).
+
+    governance 투표(A): link-refresh-guard 잡이 required로 등록돼 있지 않아 가드가 머지를
+    못 막던 fail-open을 닫는다. 이미 required인 editorial-review(run_review_gate)가 직접
+    diff 기반 재구성을 수행하고, 위반 시 non-pass verdict을 낸다. (base/head 전체 파일이
+    필요한 CI 잡 가드와 짝을 이루지만, 이 diff 검사만으로도 머지 차단을 보증한다.)
+
+    각 '변경된 라인쌍'(연속한 - 다음 +)에서 삭제줄에 url_map을 리터럴 적용한 결과가 추가줄과
+    바이트 일치해야 한다. 불일치·짝 안 맞음·순수 추가/삭제(짝 없는 +/-)는 block.
+    반환: {block: bool, signals: [str], error?: str}
+    """
+    if not diff_text:
+        return {"block": False, "signals": [], "error": "empty diff"}
+    # governance 투표: GitHub이 대용량/다파일 PR에서 patch를 생략하면('(no textual patch)')
+    # diff에 -/+ 라인이 없어 재구성이 'block:false'로 통과하는 fail-open이 된다. link-refresh는
+    # 수백 파일이라 발생 확률이 높다 → patch 누락/절단은 error(hold)로 폴백(전체파일 가드가 1차 방어).
+    if "(no textual patch)" in diff_text:
+        return {"block": False, "signals": [],
+                "error": "patch 생략 감지('(no textual patch)') — diff로 검증 불가, link-refresh-guard(전체파일)로만 검증"}
+    try:
+        import importlib.util
+        guard_path = Path(__file__).resolve().parent.parent / "scripts" / "link-refresh-guard.py"
+        spec = importlib.util.spec_from_file_location("link_refresh_guard", guard_path)
+        lrg = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(lrg)
+    except Exception as exc:  # noqa: BLE001
+        return {"block": False, "signals": [], "error": f"link-refresh-guard import 실패: {exc}"}
+
+    signals = []
+    # 통합 diff를 hunk별로 돌며 - 블록과 + 블록을 순서대로 모아 1:1 대응시킨다.
+    minus, plus = [], []
+
+    def flush():
+        # 삭제/추가 블록을 라인 단위 1:1로 재구성 비교.
+        if len(minus) != len(plus):
+            signals.append(f"라인 증감(삭제 {len(minus)} vs 추가 {len(plus)}) — URL 교체는 라인수 불변")
+            minus.clear()
+            plus.clear()
+            return
+        for m, p in zip(minus, plus):
+            rebuilt = lrg.reconstruct(m, url_map)
+            if rebuilt != p:
+                signals.append(f"재구성≠추가: '{m.strip()[:50]}' → '{p.strip()[:50]}'")
+        minus.clear()
+        plus.clear()
+
+    for line in diff_text.splitlines():
+        if line.startswith("+++") or line.startswith("---"):
+            continue
+        if line.startswith("@@"):
+            flush()
+            continue
+        if line.startswith("-"):
+            minus.append(line[1:])
+        elif line.startswith("+"):
+            plus.append(line[1:])
+        else:
+            # 문맥 라인 → 지금까지의 -/+ 블록을 정산.
+            flush()
+    flush()
+
+    return {"block": bool(signals), "signals": signals}
 
 
 def _meaning_preserved_from_diff(diff_text: str, packet: dict) -> dict:
@@ -251,6 +517,8 @@ def main(argv) -> int:
     p.add_argument("--numstat", required=True)
     p.add_argument("--name-status", required=True, dest="name_status")
     p.add_argument("--diff", required=True)
+    p.add_argument("--link-refresh-diff", default=None, help="document-only diff for URL reconstruction")
+    p.add_argument("--link-refresh-repo", default=None, help="trusted local git repository with base/head objects")
     p.add_argument("--packet", default="none")
     p.add_argument("--packet-repo-path", default="", dest="packet_repo_path",
                    help="GitHub API가 보고한 패킷의 실제 저장소 경로(파일명 검증용)")

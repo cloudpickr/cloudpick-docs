@@ -57,6 +57,20 @@ class TestValidPacket(unittest.TestCase):
         vp.validate_packet(to_bytes(d))
 
 
+class TestSchemaDependency(unittest.TestCase):
+    def test_missing_jsonschema_fails_closed(self):
+        from unittest.mock import patch
+        import builtins
+        original = builtins.__import__
+        def fake_import(name, *args, **kwargs):
+            if name == "jsonschema":
+                raise ImportError("simulated missing dependency")
+            return original(name, *args, **kwargs)
+        with patch("builtins.__import__", side_effect=fake_import):
+            with self.assertRaisesRegex(vp.PacketError, "jsonschema is required"):
+                vp.validate_schema({})
+
+
 class TestFileParserLevel(unittest.TestCase):
     def test_oversize_rejected(self):
         d = copy.deepcopy(VALID)

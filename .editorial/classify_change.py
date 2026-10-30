@@ -88,6 +88,25 @@ def _total_lines(changes: list[FileChange]) -> int:
     return sum(c.added + c.deleted for c in changes)
 
 
+def _packet_is_link_refresh(packet) -> bool:
+    """링크 현행화 PR의 빈 claim_ledger를 'link-refresh(사실 주장 없음)'로 인정하는지 판정.
+
+    링크 현행화는 URL 문자열만 바꾸므로 새 사실 주장이 없어 claim_ledger가 비어도 정당하다.
+    자격은 policy_action=="link-refresh" '단일 필드'로만 부여한다(governance 투표 반영:
+    tier_reasons 텍스트 매칭은 우회 표면이라 제거). claim_ledger는 실제로 비어 있어야 한다.
+    (규제 경로 제외는 호출부에서 처리.)
+
+    중요(fail-open 차단): 이 자격이 B(사람 승인 없음)를 부여하는 '동시에' link-refresh
+    가드를 강제해야 한다. 워크플로는 라벨이 아니라 '패킷의 link-refresh 자격'을 보고
+    가드 잡을 돌린다(docs-quality.yml). 라벨 생략으로 가드를 스킵할 수 없다.
+    """
+    if not isinstance(packet, dict):
+        return False
+    if packet.get("claim_ledger"):
+        return False
+    return (packet.get("policy_action") or "") == "link-refresh"
+
+
 def _packet_is_legal_b(packet) -> bool:
     """레벨링 PR의 빈 claim_ledger를 'legal B(사실 주장 없음)'로 인정하는지 판정.
 
@@ -181,6 +200,8 @@ def classify(
 
     # A 자격: 순수 기계적, 합산 20줄 이하, 사실/구조 변경 없음, LLM 생성 아님.
     a_blockers = []
+    if isinstance(packet, dict) and packet.get("policy_action") == "link-refresh":
+        a_blockers.append("link-refresh requires C guard and review")
     if generated_by_llm:
         a_blockers.append("generated_by_llm=true → minimum B")
     if has_claims:
@@ -194,7 +215,18 @@ def classify(
     if not a_blockers:
         return Classification("A", ["mechanical change within A limits"] + risk_paths)
 
-    # A 실패 → B. 단 근거(claim_ledger)나 명시 범위가 없으면 상향(escalate to C).
+    # URL 재구성 및 최종 HTTP 상태만으로 목적 문서의 내용·판본이 동일하다고
+    # 증명할 수 없다. soft-404·path-collapse·버전 변경은 사람이 확인한다.
+    # 신뢰 가능한 검증이 도입되기 전까지 모든 link-refresh를 C로 유지한다.
+    if isinstance(packet, dict) and packet.get("policy_action") == "link-refresh":
+        return Classification(
+            "C",
+            ["link-refresh requires human approval: redirect equivalence is not guaranteed"]
+            + a_blockers + risk_paths,
+            escalated_from="B",
+        )
+
+    # 일반 사실 갱신은 근거가 있으면 B를 유지한다.
     if has_claims:
         return Classification("B", ["bounded factual update with evidence"] + a_blockers + risk_paths)
 

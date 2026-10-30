@@ -97,15 +97,12 @@ def _norm_reject_traversal(path: str, field: str) -> None:
 
 
 def validate_schema(data: dict) -> None:
-    """JSON Schema 형식 검증(있으면). jsonschema 미설치 시 필수 필드만 확인."""
+    """JSON Schema 전체 검증. 의존성이 없으면 승인하지 않는다."""
     schema = json.loads(SCHEMA_PATH.read_text(encoding="utf-8"))
     try:
         import jsonschema
-    except ImportError:
-        for req in schema.get("required", []):
-            if req not in data:
-                raise PacketError(f"missing required field: {req}")
-        return
+    except ImportError as exc:
+        raise PacketError("jsonschema is required for packet validation") from exc
     validator = jsonschema.Draft202012Validator(schema)
     errors = sorted(validator.iter_errors(data), key=lambda e: list(e.path))
     if errors:

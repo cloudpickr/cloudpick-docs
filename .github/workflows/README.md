@@ -24,12 +24,16 @@ master 보호의 required 체크는 7개입니다: `build`·`docs-consistency-li
 | `monthly-review.yml` | Monthly Docs Review | 월간 트래킹 이슈 생성(매월 1일) + 매일 새 소식 수집·매핑 코멘트(축2) | schedule(월·일) · dispatch |
 | `editorial-gateway-healthcheck.yml` | Editorial Gateway Healthcheck | AI 게이트웨이 토큰·쿼터 상태 일일 점검 | schedule(매일) · dispatch |
 | `needs-fix-label.yml` | Label Bridge for Docs Agent | `changes_requested` 리뷰·`/fix` 코멘트를 라벨로 브리지 | pull_request_review · issue_comment |
-| `docs-quality.yml` (일부) | Docs Quality | `emphasis-lint`·`editorial-advisory`·`leveling-guard`(label-gated) | push · PR |
+| `docs-quality.yml` (일부) | Docs Quality | `emphasis-lint`·`editorial-advisory`·`leveling-guard`(라벨 기반)·`link-refresh-guard`(패킷 자격 파생) | push · PR |
 | `codeql.yml` | CodeQL | 코드 보안 정적 분석(python·js·actions) | push · PR · schedule |
 
 ## 축4 레벨링 라벨 게이트
 
 `docs-quality.yml`의 `leveling-guard` 잡은 `axis-4-leveling` 라벨이 붙은 PR에서만 required로 작동합니다. 트리거에 `labeled`·`unlabeled`가 포함되어 라벨 부착 시점에 재평가됩니다. 레벨링 PR의 사실 불변 강제는 `scripts/leveling-guard.py`(결정론), 의미 보존은 `editorial-review` 게이트가 담당합니다.
+
+## 축1 링크 현행화 게이트 (패킷 자격에서 파생)
+
+`docs-quality.yml`의 `link-refresh-guard` 잡은 **PR이 변경/추가한 패킷(`.editorial/packets/*.json`) 중 `policy_action: "link-refresh"`가 있으면** 작동합니다(변경 가능한 라벨이 아니라 '패킷 자격'에서 트리거를 파생 — 라벨 생략으로 스킵 불가, fail-open 차단). 해당 패킷들의 `link_refresh.url_map`을 모아, 변경된 모든 로케일 문서에 '재구성 매칭'(`scripts/link-refresh-guard.py`)을 적용해 URL 외 변경이 없음을 증명하고, `scripts/link-refresh-manifest.py`로 `manifest_sha256`·`changed_paths_count`를 실제 변경과 대조합니다. 추가로 editorial 게이트는 신뢰된 base 가드로 두 커밋의 문서 전체 및 매니페스트를 검사하고 각 old URL을 re-fetch해 리다이렉트 체인이 new로 끝남을 확인합니다. PR head 코드는 실행하지 않으며 파일·커밋을 취득하지 못하면 보류합니다. 자격·규제 경로 분리는 AGENTS.md "축1 링크 현행화 예외" 참조.
 
 ## required 등록·롤백
 

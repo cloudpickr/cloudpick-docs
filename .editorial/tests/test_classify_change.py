@@ -150,5 +150,63 @@ class TestDiffParsing(unittest.TestCase):
         self.assertEqual(changes[0].old_path, "src/content/docs/ko/orig.md")
 
 
+class TestLinkRefresh(unittest.TestCase):
+    """link-refresh는 목적지 의미 검증 전 모든 경로에서 C를 요구한다."""
+
+    def test_small_link_refresh_is_c(self):
+        change = cc.FileChange("src/content/docs/ko/cloud/test.md", "M", 1, 1)
+        self.assertEqual(cc.classify([change], self._packet()).tier, "C")
+
+    def _packet(self, action="link-refresh", reasons=None):
+        return {
+            "policy_action": action,
+            "tier_reasons": reasons or ["link-refresh: redirect targets updated"],
+            "claim_ledger": [],
+        }
+
+    def test_core_path_link_refresh_is_C(self):
+        changes = [mod(f"{DOC}/ko/ai/agents.md", 10, 10),
+                   mod(f"{DOC}/en/ai/agents.md", 10, 10),
+                   mod(f"{DOC}/ja/ai/agents.md", 10, 10)]
+        r = cc.classify(changes, self._packet())
+        self.assertEqual(r.tier, "C")
+
+    def test_multi_doc_link_refresh_is_C(self):
+        # 다중 문서도 목적지 검토를 위해 사람 승인이 필요하다.
+        changes = [mod(f"{DOC}/ko/ai/agents.md", 40, 40),
+                   mod(f"{DOC}/ko/compute/containers.md", 40, 40),
+                   mod(f"{DOC}/ko/storage/backup.md", 40, 40)]
+        r = cc.classify(changes, self._packet())
+        self.assertEqual(r.tier, "C")
+
+    def test_regulatory_path_link_refresh_is_C(self):
+        changes = [mod(f"{DOC}/ko/korea/security/csap.md", 5, 5)]
+        r = cc.classify(changes, self._packet())
+        self.assertEqual(r.tier, "C")
+
+    def test_link_refresh_with_claims_is_also_c(self):
+        # claim_ledger를 추가해도 사람 승인 C를 우회하지 못한다.
+        p = self._packet()
+        p["claim_ledger"] = [{"claim": "x", "source_url": "https://e.com", "quote": "q",
+                              "checked_at": "2026-10-01T00:00:00+09:00", "status": "verified"}]
+        changes = [mod(f"{DOC}/ko/ai/agents.md", 10, 10)]
+        r = cc.classify(changes, p)
+        self.assertEqual(r.tier, "C")
+
+    def test_tier_reasons_alone_does_not_grant_link_refresh(self):
+        # governance 투표 반영: policy_action=="link-refresh" 단일 필드로만 자격 부여.
+        # tier_reasons 텍스트만으로는 자격 없음(우회 표면 제거) → 근거 없는 비기계적 변경 = C.
+        p = {"tier_reasons": ["링크 현행화: 리다이렉트 최종 URL 반영"], "claim_ledger": []}
+        changes = [mod(f"{DOC}/ko/ai/agents.md", 30, 30)]
+        r = cc.classify(changes, p)
+        self.assertEqual(r.tier, "C")
+
+    def test_policy_action_grants_link_refresh(self):
+        p = {"policy_action": "link-refresh", "tier_reasons": ["link-refresh"], "claim_ledger": []}
+        changes = [mod(f"{DOC}/ko/ai/agents.md", 30, 30)]
+        r = cc.classify(changes, p)
+        self.assertEqual(r.tier, "C")
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

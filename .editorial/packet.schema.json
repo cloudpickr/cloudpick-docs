@@ -26,9 +26,9 @@
       "maxLength": 64
     },
     "policy_action": {
-      "description": "변경의 정책적 성격. 실제 tier 판정은 Actions가 diff로 재분류한다.",
+      "description": "변경의 정책적 성격. 실제 tier 판정은 Actions가 diff로 재분류한다. link-refresh는 URL 문자열만 교체하는 링크 현행화(사실 불변, claim_ledger 빔 허용)이며 link-refresh-guard가 재구성 매칭으로 증명한다.",
       "type": "string",
-      "enum": ["create", "update", "delete", "move", "merge", "split"]
+      "enum": ["create", "update", "delete", "move", "merge", "split", "link-refresh"]
     },
     "tier_hint": {
       "description": "작성 측이 제안하는 위험 등급 힌트(입력 전용). Actions는 이를 신뢰하지 않고 실제 diff·근거로 재판정하며, 불명확/이견은 상향(escalate)하되 절대 조용히 하향하지 않는다. LLM 생성 편집은 최소 B다.",
@@ -68,10 +68,38 @@
       }
     },
     "claim_ledger": {
-      "description": "변경된 사실 주장과 공식 출처 목록. quote는 리뷰 보조용이며 독립적 공식 출처 재확인을 대체하지 않는다. 상한 32개. 주의: 스키마는 source_url 또는 sources 중 최소 하나를 요구하지만, 출처의 실재·내용 일치·status=verified의 진위는 trusted validator가 독립 확인한다(자기신고 verified로 대체 금지).",
+      "description": "변경된 사실 주장과 공식 출처 목록. quote는 리뷰 보조용이며 독립적 공식 출처 재확인을 대체하지 않는다. 상한 32개. link-refresh(URL-only)는 새 사실 주장이 없어 빈 배열이 정당하다. 주의: 스키마는 source_url 또는 sources 중 최소 하나를 요구하지만, 출처의 실재·내용 일치·status=verified의 진위는 trusted validator가 독립 확인한다(자기신고 verified로 대체 금지).",
       "type": "array",
       "maxItems": 32,
       "items": { "$ref": "#/$defs/claim" }
+    },
+    "link_refresh": {
+      "description": "policy_action=link-refresh 전용. 승인된 old→new URL 매핑과 전체 변경 매니페스트 해시. changed_paths는 스키마상 64개 상한이라 전 문서(수백 개) 분산 변경을 담을 수 없으므로, 전체 경로 목록·매핑·base SHA를 해시한 manifest_sha256으로 완전성을 보증하고 CI가 대조한다(council 합의).",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["url_map", "manifest_sha256", "changed_paths_count"],
+      "properties": {
+        "url_map": {
+          "description": "old→new 절대 URL 매핑(link-refresh-guard가 재구성 매칭에 사용). 상한 512.",
+          "type": "object",
+          "minProperties": 1,
+          "maxProperties": 512,
+          "additionalProperties": {
+            "type": "string",
+            "pattern": "^https?://",
+            "maxLength": 2048
+          }
+        },
+        "manifest_sha256": {
+          "description": "정렬된 전체 changed_paths + url_map(정렬) + base_sha를 직렬화해 해시한 값. CI가 동일 입력으로 재계산해 대조(완전성·불변성 보증).",
+          "$ref": "#/$defs/sha256_hex"
+        },
+        "changed_paths_count": {
+          "description": "이 PR이 실제로 변경한 문서 파일 수(전수). CI가 git diff로 대조.",
+          "type": "integer",
+          "minimum": 1
+        }
+      }
     }
   },
   "$defs": {

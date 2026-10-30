@@ -51,6 +51,14 @@ class SourceWatchTests(unittest.TestCase):
         self.assertEqual(r['candidates'],[])
         self.assertEqual(r['refs'][u]['hash_kind'],'visible-v1')
 
+    def test_unselected_legacy_hash_is_not_reported_as_observed(self):
+        a,b='https://example.org/a','https://example.org/b'
+        refs={a:['src/content/docs/ko/a.md'],b:['src/content/docs/ko/a.md']}
+        old={b:{'hash':'a'*64,'checked_at':'2026-10-01','status':'observed'}}
+        r=source.scan(refs,old,'2026-10-02',lambda u:SimpleNamespace(status=200,visible_sha256='b'*64,url=u),limit=1,workers=1)
+        self.assertEqual(r['refs'][b]['status'],'unverified')
+        self.assertEqual(r['refs'][b]['error'],'legacy-baseline-not-comparable')
+
     def test_unsupported_content_is_unverified(self):
         u='https://example.org/a'
         r=source.scan({u:['src/content/docs/ko/a.md']},{},'2026-10-01',lambda _:SimpleNamespace(status=200,visible_sha256=None,url=u))

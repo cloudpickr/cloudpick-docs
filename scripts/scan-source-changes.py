@@ -61,6 +61,11 @@ def scan(refs, previous, now, fetch=fetch_normalized, limit=MAX_URLS, workers=WO
     if not isinstance(previous, dict) or limit < 1 or limit > MAX_URLS or workers < 1 or workers > WORKERS:
         raise ValueError('invalid source scan state or limits')
     state = {url: {**previous.get(url, {}), 'paths': paths} for url, paths in refs.items()}
+    for entry in state.values():
+        if entry.get('hash') and entry.get('hash_kind') != 'visible-v1':
+            # Raw HTML hashes cannot be compared with normalized text. Prioritize
+            # re-baselining and keep the interval explicitly unverified.
+            entry.update(status='unverified', error='legacy-baseline-not-comparable', checked_at='')
     # Never-checked first, then least-recently checked, including failed URLs.
     selected = sorted(refs, key=lambda url: (state[url].get('checked_at', ''), url))[:limit]
     def check(url):

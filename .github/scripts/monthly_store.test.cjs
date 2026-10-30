@@ -26,6 +26,16 @@ test('large ledger splits into bounded human-readable comments and round trips',
   assert.deepEqual(store.assemble({id:'a'.repeat(32),count:parts.length,month:'2026-10'},comments),data);
   assert.throws(() => store.assemble({id:'a'.repeat(32),count:parts.length,month:'2026-10'},comments.slice(1)));
 });
+test('entire corpus and source inventory survive large multi-part snapshots', () => {
+  const docs = Array.from({length:119},(_,i)=>`src/content/docs/ko/category/doc-${i}.md`);
+  const rows = Array.from({length:1500},(_,i)=>({path:docs[i%docs.length],axis:2,reason:`update ${i} ${'x'.repeat(100)}`}));
+  const data = ledger.build('2026-10',docs,null,null,rows);
+  data.source_progress = {version:1,refs:Object.fromEntries(Array.from({length:1301},(_,i)=>[`https://example.org/${i}`,{paths:[docs[i%docs.length]],status:'observed',hash:'a'.repeat(64),checked_at:'2026-10-01T00:00:00Z'}]))};
+  const parts=store.makeParts(data,'1'.repeat(32));
+  assert.ok(parts.length > 10);
+  const comments=parts.map(part=>({body:store.partBody(part),user:{login:'github-actions[bot]'}}));
+  assert.deepEqual(store.assemble({id:'1'.repeat(32),count:parts.length,month:'2026-10'},comments),data);
+});
 
 test('partial snapshot write leaves legacy ledger authoritative and retry succeeds', async () => {
   const data = ledger.build('2026-10',[path],null,null);

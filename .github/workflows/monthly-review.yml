@@ -489,17 +489,7 @@ jobs:
               });
               if (!res.ok) throw new Error(`MCP HTTP ${res.status}`);
               const data = await res.json();
-              if (data.error) throw new Error(`MCP error: ${data.error.message || JSON.stringify(data.error)}`);
-              if (data.result?.isError) throw new Error('MCP tool reported an error');
-              const text = data.result?.content?.[0]?.text;
-              if (typeof text !== 'string') throw new Error('MCP 응답에 결과 텍스트 없음');
-              // 응답은 JSON 배열 뒤에 "N건 중 M건" 안내문구가 붙을 수 있다 → 배열만 추출.
-              const m = text.match(/\[[\s\S]*\]/);
-              if (!m) throw new Error('MCP 응답에 JSON 배열이 없음');
-              const rows = JSON.parse(m[0]);
-              if (!Array.isArray(rows)) throw new Error('MCP 응답이 배열이 아님');
-              if (rows.length >= args.limit) throw new Error('MCP 결과 상한에 도달해 누락 여부를 확인할 수 없음');
-              return rows;
+              return news.parseResponse(data, args.limit);
             }
 
             const csps = news.VENDORS; // 현재 피드가 지원하는 네 CSP. 그 외 출처는 자동 확인하지 않음.

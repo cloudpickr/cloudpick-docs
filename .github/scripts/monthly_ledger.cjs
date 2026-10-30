@@ -71,7 +71,13 @@ function build(month, paths, previous, current, candidates = [], options = {}) {
     const id = fingerprint(candidate.path, candidate.axis, candidate.reason);
     if (!items.has(id) && !resolved.has(id)) items.set(id, {id, ...candidate, status: 'open', evidence: [], pr: null});
     const item = items.get(id);
-    if (item && candidate.origin) { item.origin ||= candidate.origin; item.last_seen = month; delete item.not_seen_in_latest_scan; }
+    if (item && candidate.origin) {
+      if (candidate.origin === 'source-watch' && candidate.change_digest && item.change_digest !== candidate.change_digest) {
+        if (item.status === 'done' || item.status === 'current') { item.status = 'open'; item.evidence = []; item.pr = null; }
+        item.change_digest = candidate.change_digest;
+      }
+      item.origin ||= candidate.origin; item.last_seen = month; delete item.not_seen_in_latest_scan;
+    }
   }
   const result = {version: 1, month, documents, items: [...items.values()], resolved_ids: [...resolved].sort()};
   if (current?.coverage || options.coverage) result.coverage = options.coverage || current.coverage;

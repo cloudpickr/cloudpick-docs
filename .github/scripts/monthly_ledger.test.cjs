@@ -79,6 +79,15 @@ test('building a new revision never mutates the loaded snapshot', () => {
   ledger.build('2026-10',[path],null,current,[],{rescanned:['stale']});
   assert.deepEqual(current,before);
 });
+test('repeated source changes update one candidate and reopen a completed review', () => {
+  const c = {path, axis:1, reason:'출처 변경 신호: https://example.org',origin:'source-watch',change_digest:'a'};
+  const first = ledger.build('2026-10',[path],null,null,[c]);
+  first.items[0].status='done'; first.items[0].pr='https://github.com/example/repo/pull/1';
+  const next=ledger.build('2026-10',[path],null,first,[{...c,change_digest:'b'}]);
+  assert.equal(next.items.length,1);
+  assert.equal(next.items[0].status,'open');
+  assert.equal(next.items[0].change_digest,'b');
+});
 test('completed readability or stale signals may be rediscovered in a later month', () => {
   const c = {path, axis:4, reason:'leveling shortlist'};
   const prev = ledger.build('2026-10',[path],null,null,[c]);

@@ -29,3 +29,11 @@ test('repeatedly failing dates do not starve other missing days', () => {
   p = news.apply(p, ['2026-10-01','2026-10-02'].map(date => ({date,vendor:'aws',state:'failed'})), '2026-10-10T00:15:00Z');
   assert.deepEqual(news.plan(p,'2026-10-10').aws.slice(0,2),['2026-10-03','2026-10-04']);
 });
+test('malformed, error and truncated source responses never count as complete', () => {
+  const response = text => ({result:{content:[{text}]}});
+  assert.deepEqual(news.parseResponse(response('[]'),50),[]);
+  assert.throws(() => news.parseResponse({result:{isError:true,content:[{text:'[]'}]}},50));
+  assert.throws(() => news.parseResponse(response('invalid'),50));
+  assert.throws(() => news.parseResponse(response('[1,2] 10건 중 2건'),50));
+  assert.throws(() => news.parseResponse(response('[1,2]'),2));
+});

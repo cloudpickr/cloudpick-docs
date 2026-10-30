@@ -68,4 +68,16 @@ function pending(progress, today) {
   for (let t = dateValue(progress.started_on); t <= dateValue(today); t += DAY) for (const v of VENDORS) if (progress.days[iso(t)]?.[v] !== 'complete') count++;
   return count;
 }
-module.exports = {VENDORS, initialize, validate, plan, apply, pending};
+function parseResponse(data, limit) {
+  if (data?.error || data?.result?.isError) throw new Error('MCP tool reported an error');
+  const text = data?.result?.content?.[0]?.text;
+  if (typeof text !== 'string') throw new Error('MCP response missing result text');
+  const match = text.match(/\[[\s\S]*\]/);
+  if (!match) throw new Error('MCP response missing JSON array');
+  const rows = JSON.parse(match[0]);
+  if (!Array.isArray(rows)) throw new Error('MCP result is not an array');
+  const count = text.match(/(\d+)\s*건\s*중\s*(\d+)\s*건/);
+  if (rows.length >= limit || (count && Number(count[1]) > Number(count[2]))) throw new Error('MCP result may be truncated; date remains unverified');
+  return rows;
+}
+module.exports = {VENDORS, initialize, validate, plan, apply, pending, parseResponse};

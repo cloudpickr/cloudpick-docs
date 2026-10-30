@@ -199,7 +199,7 @@ For Day-2 operations details, see [Kubernetes Operations](../../devops/kubernete
 
 ### Google Cloud
 
-- [Google Kubernetes Engine documentation](https://cloud.google.com/kubernetes-engine/docs)
+- [Google Kubernetes Engine documentation](https://docs.cloud.google.com/kubernetes-engine/docs)
 - [Google Cloud Run documentation](https://cloud.google.com/run/docs)
 - [Google Artifact Registry documentation](https://cloud.google.com/artifact-registry/docs)
 

@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "jira_key": "DOCS-271",
+  "policy_action": "link-refresh",
+  "tier_hint": "C",
+  "tier_reasons": [
+    "축1 link-refresh 실전 파일럿: compute/containers.md와 ko/en/ja 미러의 GKE 공식 문서 URL 1개씩만 교체한다. 새 사실 주장이 없어 claim_ledger는 비어 있다.",
+    "공식 old URL의 301이 동일 경로의 docs.cloud.google.com 문서로 이어지고 최종 200임을 확인했다. 경로·쿼리·로케일·판본 토큰은 불변이며 문서 구조 변경은 없다.",
+    "모든 link-refresh는 C다. 실제 독립 리뷰와 사람 승인을 요구하며, 이 패킷의 자기신고로 승인 또는 머지를 대신하지 않는다. Refs #271, #211."
+  ],
+  "target_path": "src/content/docs/ko/compute/containers.md",
+  "changed_paths": [
+    "src/content/docs/ko/compute/containers.md",
+    "src/content/docs/en/compute/containers.md",
+    "src/content/docs/ja/compute/containers.md"
+  ],
+  "generated_by_llm": true,
+  "writer": {
+    "model": "gpt-6",
+    "provider": "openai"
+  },
+  "claim_ledger": [],
+  "link_refresh": {
+    "url_map": {
+      "https://cloud.google.com/kubernetes-engine/docs": "https://docs.cloud.google.com/kubernetes-engine/docs"
+    },
+    "manifest_sha256": "ba4de9f150b1123799f09ae8869add448c90ace701f13c7d2e4f4f17371fc395",
+    "changed_paths_count": 3
+  }
+}

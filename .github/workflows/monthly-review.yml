@@ -379,8 +379,13 @@ jobs:
             const next = ledger.build(key, paths, previousLedger, currentLedger, candidates);
             const counts = Object.fromEntries(['unreviewed','scanned','verified','unverified'].map(s => [s, next.documents.filter(d => d.status === s).length]));
             core.info(`ledger ${key}: ${JSON.stringify(counts)}; items=${next.items.length}; previous=${previousLedger ? previousKey : 'unavailable'}`);
-            if (!currentLedger && !previousLedger) core.warning('전월 원장 없음: 이전 미완 항목을 자동으로 확인할 수 없습니다. 이전 이슈를 수동 확인하세요.');
-            const rendered = ledger.render(issue.body || '', next);
+            let baseBody = issue.body || '';
+            if (!previousLedger) {
+              core.warning('전월 원장 없음: 이전 미완 항목을 자동으로 확인할 수 없습니다. 이전 이슈를 수동 확인하세요.');
+              const note = '<!-- monthly-ledger:previous-unavailable -->';
+              if (!baseBody.includes(note)) baseBody += `\n\n${note}\n⚠️ ${previousKey} 원장이 없어 이전 미완 항목은 자동 이월되지 않았습니다. 이전 월간 이슈를 수동 확인하세요.\n`;
+            }
+            const rendered = ledger.render(baseBody, next);
             if (Buffer.byteLength(rendered, 'utf8') > 60000) throw new Error('ledger exceeds safe issue body size; no update performed');
             const latest = await github.rest.issues.get({owner: context.repo.owner, repo: context.repo.repo, issue_number: issue.number});
             if (latest.data.body !== issue.body) throw new Error('issue body changed during ledger generation; no update performed');
@@ -432,7 +437,7 @@ jobs:
               owner: context.repo.owner, repo: context.repo.repo,
               issue_number: issue.number, per_page: 100,
             });
-            if (comments.some((c) => (c.body || "").includes(marker))) {
+            if (comments.some((c) => (c.body || "").includes(marker) && c.user?.login === 'github-actions[bot]')) {
               core.info(`daily: ${dateKst} 코멘트 이미 존재 #${issue.number} — skip.`);
               return;
             }
@@ -460,6 +465,7 @@ jobs:
               if (!res.ok) throw new Error(`MCP HTTP ${res.status}`);
               const data = await res.json();
               if (data.error) throw new Error(`MCP error: ${data.error.message || JSON.stringify(data.error)}`);
+              if (data.result?.isError) throw new Error('MCP tool reported an error');
               const text = data.result?.content?.[0]?.text;
               if (typeof text !== 'string') throw new Error('MCP 응답에 결과 텍스트 없음');
               // 응답은 JSON 배열 뒤에 "N건 중 M건" 안내문구가 붙을 수 있다 → 배열만 추출.
@@ -467,6 +473,7 @@ jobs:
               if (!m) throw new Error('MCP 응답에 JSON 배열이 없음');
               const rows = JSON.parse(m[0]);
               if (!Array.isArray(rows)) throw new Error('MCP 응답이 배열이 아님');
+              if (rows.length >= args.limit) throw new Error('MCP 결과 상한에 도달해 누락 여부를 확인할 수 없음');
               return rows;
             }
 

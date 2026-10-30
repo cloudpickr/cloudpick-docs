@@ -28,6 +28,16 @@ master 보호의 required 체크는 7개입니다: `build`·`docs-consistency-li
 | `docs-quality.yml` (일부) | Docs Quality | `emphasis-lint`·`editorial-advisory`·`leveling-guard`(라벨 기반)·`link-refresh-guard`(패킷 자격 파생) | push · PR |
 | `codeql.yml` | CodeQL | 코드 보안 정적 분석(python·js·actions) | push · PR · schedule |
 
+## 월간 문서 검토 원장
+
+`monthly-review.yml`의 월초 실행은 ko 문서 목록과 분류·중복·가독성·레벨링 신호를 월간 이슈와 실행 아티팩트에 기록합니다. 이슈 본문의 `monthly-ledger` JSON은 문서별 `unreviewed`·`scanned`·`verified`·`unverified` 상태와 네 축의 후보(`open`·`hold`·`done`·`current`·`wontfix`)를 보존합니다. 자동 스캔은 후보만 생성하고 문서를 `verified`로 바꾸지 않습니다.
+
+담당자는 월간 이슈의 JSON에서 상태·공식 근거 URL(`evidence`)·관련 PR URL(`pr`)을 직접 기록합니다. `verified` 문서와 `current` 후보에는 HTTPS 근거가 필요하며, `done` 후보에는 PR URL이 필요합니다. 근거 URL 형식 검사는 출처의 공식성이나 사실 일치 판정이 아닙니다. 새 달에는 문서를 다시 `unreviewed`로 시작하고 이전 달 `open`·`hold` 후보를 이월합니다. 종료 후보의 ID도 이어 받아 같은 후보를 다시 만들지 않습니다. 상세 기록은 원래 월간 이슈에 남습니다.
+
+원장이 없던 이전 달은 이월을 자동으로 복구할 수 없어 수동 확인이 필요합니다. 기존 이슈에 사람이 자유 형식으로 남긴 코멘트를 자동으로 처리 완료로 해석하지 않습니다. 원장 JSON이 잘못되었거나 이슈 본문 크기 상한을 넘으면 갱신을 중단하고 Actions 실패로 표시합니다. 이슈 본문을 동시에 편집할 때는 실행이 끝난 뒤 변경 내용을 확인하세요.
+
+일일 소식은 결정론적 매핑 후보를 축2 원장에 추가하고, 미매핑 소식은 문서 경로가 없는 축3 후보로 남깁니다. 근거는 `unverified`로 시작합니다. 공식 출처 확인·관련성 판단, 누락된 소식 재수집, 의미·구조 검토는 자동 스캔을 대체할 수 없습니다. 수집 실패·부분 실패는 월간 이슈에 표시하며 수동 재실행할 수 있습니다. 원장과 신호는 구조 변경을 승인하지 않으며, 분류·구조 변경은 기존 과반 의결을 따릅니다.
+
 ## 축4 레벨링 라벨 게이트
 
 `docs-quality.yml`의 `leveling-guard` 잡은 `axis-4-leveling` 라벨이 붙은 PR에서만 required로 작동합니다. 트리거에 `labeled`·`unlabeled`가 포함되어 라벨 부착 시점에 재평가됩니다. 레벨링 PR의 사실 불변 강제는 `scripts/leveling-guard.py`(결정론), 의미 보존은 `editorial-review` 게이트가 담당합니다.

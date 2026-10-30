@@ -91,6 +91,49 @@ class TestLimits(unittest.TestCase):
         self.assertEqual(r.status, 200)
         self.assertEqual(len(r.body_sha256), 64)
 
+    def test_visible_hash_ignores_scripts_navigation_and_nonce_but_detects_main_change(self):
+        text = 'Documented release details and configuration guidance. ' * 4
+        def page(nonce, suffix=''):
+            return f'<html><head><script nonce="{nonce}">random {nonce}</script></head><body><nav>{nonce}</nav><main><h1>Documentation</h1><p>{text}{suffix}</p></main><footer>{nonce}</footer></body></html>'.encode()
+        def get(raw):
+            return sf.fetch_source('https://a.test/', opener=lambda _: (200, {'Content-Type':'text/html; charset=utf-8'}, FakeBody(raw)), resolver=lambda _: ['93.184.216.34'], normalize_content=True)
+        a,b,c=get(page('one')),get(page('two')),get(page('three','updated'))
+        self.assertNotEqual(a.body_sha256,b.body_sha256)
+        self.assertEqual(a.visible_sha256,b.visible_sha256)
+        self.assertNotEqual(a.visible_sha256,c.visible_sha256)
+
+    def test_unsupported_and_js_only_pages_remain_unverified(self):
+        self.assertIsNone(sf._visible_digest(b'%PDF-1.7', 'application/pdf'))
+        self.assertIsNone(sf._visible_digest(b'<html><script>load()</script><main></main></html>', 'text/html'))
+        self.assertIsNone(sf._visible_digest(b'<main>\xff</main>', 'text/html'))
+
+    def test_main_header_and_notice_are_observed_but_global_header_is_not(self):
+        text = 'Configuration and release documentation. ' * 4
+        def page(global_header, title, notice):
+            return f'<header>{global_header}</header><main><header>{title}</header><p>{text}</p><aside>{notice}</aside></main>'.encode()
+        baseline = sf._visible_digest(page('one', 'Title', 'Preview'), 'text/html')
+        self.assertEqual(baseline, sf._visible_digest(page('two', 'Title', 'Preview'), 'text/html'))
+        self.assertNotEqual(baseline, sf._visible_digest(page('one', 'New title', 'Preview'), 'text/html'))
+        self.assertNotEqual(baseline, sf._visible_digest(page('one', 'Title', 'Deprecated'), 'text/html'))
+
+    def test_aws_document_main_body_is_supported(self):
+        text = 'AWS documentation body and configuration details. ' * 4
+        html = f'<div id="main-col-body"><p>{text}</p></div>'.encode()
+        self.assertIsNotNone(sf._visible_digest(html, 'text/html'))
+
+    def test_malformed_block_does_not_hide_later_main_content(self):
+        prefix = 'Configuration and policy introduction. ' * 4
+        def doc(limit):
+            return f'<main><p>{prefix}</p><aside><p>Note</aside><p>Limit {limit} GB</p></main>'.encode()
+        self.assertNotEqual(sf._visible_digest(doc(5),'text/html'),sf._visible_digest(doc(50),'text/html'))
+        self.assertIsNone(sf._visible_digest(f'<main>{prefix}</div>Limit 5 GB</main>'.encode(),'text/html'))
+
+    def test_html_optional_paragraph_and_unclosed_outer_chrome_are_tolerated(self):
+        text = 'Documentation content and configuration guidance. ' * 4
+        html = f'<html><body><div><main><p>{text}</p></p></main></body></html>'.encode()
+        self.assertIsNotNone(sf._visible_digest(html, 'text/html'))
+        self.assertIsNone(sf._visible_digest(f'<main><div>{text}</main>'.encode(), 'text/html'))
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)

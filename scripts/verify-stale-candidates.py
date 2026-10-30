@@ -12,11 +12,11 @@ council 합의(요약):
   - "unverified != stale": fetch 실패·근거 없음은 모순이 아니다. 토큰 미스 ≠ 모순,
     토큰 히트 ≠ 지지.
   - 판정:
-      supports      = 날짜 + (문서와 같은) 상태가 ~200자 창에 공존, 부정어 없음 → 현행, 제외
+      supports      = 날짜 + (문서와 같은) 상태가 약 200자 창에 공존, 부정어 없음 → 지지 신호(현행 확정 아님)
       contradicted  = 같은 제품 맥락에 '반대 상태어'(Preview↔GA/종료) 공존 → 실제 현행화 필요
       unverified    = fetch 실패/근거 없음/URL 없음 → 보류(사람 판단)
-  - LLM은 최후(opt-in): fetch 본문 존재 + 결정론 애매할 때만. 인용문은 발췌의 정확한
-    부분문자열이어야 함(verifier_core.quote_is_substring)로 자동 단언.
+  - LLM은 최후(opt-in): fetch 본문 존재 + 결정론 애매할 때만 보조 정보를 기록한다.
+    인용 일치만으로 결정론 결과를 contradicted/supports로 승격하지 않는다.
   - 출력: contradicted 만 상세 행, supports 는 건수, unverified 는 '검사함/사람 필요'로 분리.
     1단계 HIGH 등급을 재사용하지 않는다.
 
@@ -172,13 +172,8 @@ def main(argv):
                 if body:
                     llm_calls[0] += 1
                     llm = vc.llm_adjudicate(sent, body)
-                    # LLM이 모순이라 하고 인용도 발췌의 부분문자열이면 contradicted로 승격.
-                    # 지지/언급없음/에러/인용 불일치는 ambiguous 유지(과신 금지).
-                    if llm.get("verdict") == "contradicts" and llm.get("quote_ok"):
-                        verdict, ev = "contradicted", {"url": url, "probe": ev.get("probe"),
-                                                       "llm_quote": llm.get("quote")}
-                    elif llm.get("verdict") == "supports" and llm.get("quote_ok"):
-                        verdict, ev = "supports", {"url": url, "llm_quote": llm.get("quote")}
+                    # LLM 답변과 인용 일치는 검토 보조 정보다. 단독으로 모순이나
+                    # 지지를 판정하지 않고 결정론 판정(ambiguous)을 유지한다.
             else:
                 llm = {"verdict": "skipped", "error": "per-run LLM call cap reached"}
 

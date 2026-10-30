@@ -142,11 +142,17 @@ jobs:
           set +e
           NOW="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
           EXPIRES="$(date -u -d '+7 days' +%Y-%m-%dT%H:%M:%SZ 2>/dev/null || date -u -v+7d +%Y-%m-%dT%H:%M:%SZ)"
+          # 이 PR 자체는 구버전 base 게이트를 실행한다. 새 CLI를 지원하는 base에서만
+          # 문서 전용 diff 인자를 전달한다. PR head 코드를 실행하지 않는다.
+          LINK_DIFF_ARGS=()
+          if python3 .editorial/run_review_gate.py --help | grep -q -- "--link-refresh-diff"; then
+            LINK_DIFF_ARGS=(--link-refresh-diff /tmp/er_docs_diff.txt)
+          fi
           python3 .editorial/run_review_gate.py \
             --numstat /tmp/er_numstat.txt \
             --name-status /tmp/er_name_status.txt \
             --diff /tmp/er_diff.txt \
-            --link-refresh-diff /tmp/er_docs_diff.txt \
+            "${LINK_DIFF_ARGS[@]}" \
             --packet '${{ steps.fetch.outputs.packet_arg }}' \
             --packet-repo-path '${{ steps.fetch.outputs.packet_repo_path }}' \
             --repo '${{ github.repository }}' \
@@ -177,6 +183,10 @@ jobs:
               state, context: 'editorial-review', description: desc,
             });
             core.info(`[editorial-review] ${state} — ${desc}`);
+
+      - name: Fail job when gate did not approve
+        if: always() && steps.gate.outputs.exit != '0'
+        run: exit 1
 
   # ---------------------------------------------------------------------------
   # editorial-c-approval: C 등급의 allowlisted 사람 packet-hash confirm 게이트.

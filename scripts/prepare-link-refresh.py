@@ -127,7 +127,7 @@ def candidate_paths(root, target=None, day=None):
     return paths
 
 
-def scan(root, target=None, fetch=fetch_source, now=time.monotonic):
+def scan(root, target=None, fetch=fetch_source, now=time.monotonic, previous_pr=None):
     report = {'status': 'advisory', 'auto_merge': False, 'checked_urls': 0, 'findings': [], 'candidate': None}
     deadline = now() + MAX_SECONDS
     cache = {}
@@ -158,7 +158,14 @@ def scan(root, target=None, fetch=fetch_source, now=time.monotonic):
         if mapping:
             try:
                 prepare_mirrors(root, relative, mapping)
-                report['candidate'] = {'path': relative, 'url_map': mapping}
+                candidate = {'path': relative, 'url_map': mapping}
+                previous = previous_pr(candidate) if previous_pr else None
+                if previous:
+                    report['findings'].append({'path': relative, 'status': 'hold',
+                                               'reason': 'candidate already proposed; continuing bounded batch',
+                                               'previous_pr': previous})
+                    continue
+                report['candidate'] = candidate
                 break
             except (ValueError, UnicodeError) as exc:
                 report['findings'].append({'path': relative, 'status': 'hold', 'reason': str(exc)})
@@ -213,15 +220,25 @@ def has_active_pr(repo):
     return next((p['url'] for p in pulls if p['headRefName'].startswith('docs/link-refresh-')), None)
 
 
+def candidate_branch(candidate):
+    fingerprint = hashlib.sha256(json.dumps(candidate, sort_keys=True).encode()).hexdigest()[:12]
+    return f'docs/link-refresh-auto-{fingerprint}'
+
+
+def previous_candidate_pr(repo, candidate):
+    pulls = json.loads(gh('pr', 'list', '--repo', repo, '--state', 'all', '--head', candidate_branch(candidate), '--json', 'url,state'))
+    return pulls[0]['url'] if pulls else None
+
+
 def publish(report, repo):
     """Create at most one new draft; never update an existing human-reviewed head."""
     candidate = report['candidate']
-    fingerprint = hashlib.sha256(json.dumps(candidate, sort_keys=True).encode()).hexdigest()[:12]
-    branch = f'docs/link-refresh-auto-{fingerprint}'
-    previous = json.loads(gh('pr', 'list', '--repo', repo, '--state', 'all', '--head', branch, '--json', 'url,state'))
+    branch = candidate_branch(candidate)
+    fingerprint = branch.rsplit('-', 1)[1]
+    previous = previous_candidate_pr(repo, candidate)
     if previous:
         report['skipped'] = 'candidate already proposed (open/closed/merged); no automatic retry'
-        report['previous_pr'] = previous[0]['url']
+        report['previous_pr'] = previous
         return
     ticket = f'LINKREFRESH-{int(fingerprint, 16)}'
     write_candidate(ROOT, report, report['base_sha'], ticket)
@@ -275,7 +292,7 @@ def main(argv=None):
         if active:
             Path(args.report).write_text(json.dumps({'status': 'advisory', 'skipped': 'existing link-refresh PR', 'pr_url': active}) + '\n')
             return
-    report = scan(ROOT, args.target)
+    report = scan(ROOT, args.target, previous_pr=(lambda candidate: previous_candidate_pr(repo, candidate)) if args.publish else None)
     report['base_sha'] = base_sha
     if args.write and report['candidate']:
         write_candidate(ROOT, report, base_sha, args.ticket)

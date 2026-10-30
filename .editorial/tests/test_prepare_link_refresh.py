@@ -123,6 +123,25 @@ class TestPreparation(unittest.TestCase):
         git.assert_not_called()
         self.assertIn('already proposed', report['skipped'])
 
+    def test_dismissed_candidate_does_not_starve_later_document(self):
+        first = self.root / 'src/content/docs/ko/compute/containers.md'
+        for locale in ('ko', 'en', 'ja'):
+            original = self.root / f'src/content/docs/{locale}/compute/containers.md'
+            original.with_name('second.md').write_bytes(original.read_bytes())
+        previous = lambda candidate: 'https://example/pr/old' if candidate['path'] == 'compute/containers.md' else None
+        with patch.object(tool, 'candidate_paths', return_value=[first, first.with_name('second.md')]):
+            report = tool.scan(self.root, fetch=self.fetch, previous_pr=previous)
+        self.assertEqual(report['candidate']['path'], 'compute/second.md')
+        self.assertEqual(report['findings'][0]['previous_pr'], 'https://example/pr/old')
+        self.assertEqual(report['checked_urls'], 1)  # Cache and batch budget survive the skip.
+
+    def test_all_dismissed_candidates_produce_hold_without_changes(self):
+        report = tool.scan(self.root, 'compute/containers.md', self.fetch,
+                           previous_pr=lambda _: 'https://example/pr/old')
+        self.assertIsNone(report['candidate'])
+        self.assertEqual(report['findings'][0]['status'], 'hold')
+        self.assertEqual(list((self.root / '.editorial/packets').iterdir()), [])
+
     def test_active_pilot_prevents_another_draft(self):
         with patch.object(tool, 'gh', return_value='[{"headRefName":"docs/link-refresh-pilot-271","url":"https://example/pr/272"}]'):
             self.assertEqual(tool.has_active_pr('owner/repo'), 'https://example/pr/272')

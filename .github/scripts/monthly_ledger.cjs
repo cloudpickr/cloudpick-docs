@@ -41,9 +41,9 @@ function build(month, paths, previous, current, candidates = [], options = {}) {
   if (current && current.month !== month) throw new Error('current ledger month mismatch');
   if (previous) validate(previous);
   if (current) validate(current);
-  const docs = new Map((current?.documents || []).map(d => [d.path, d]));
+  const docs = new Map((current?.documents || []).map(d => [d.path, structuredClone(d)]));
   const previousDocs = new Map((previous?.documents || []).map(d => [d.path, d]));
-  const items = new Map((current?.items || []).map(i => [i.id, i]));
+  const items = new Map((current?.items || []).map(i => [i.id, structuredClone(i)]));
   const resolved = new Set(current?.resolved_ids || previous?.resolved_ids || []);
   if (!current && previous) for (const item of previous.items) {
     if (item.status === 'open' || item.status === 'hold') items.set(item.id, {...item, carried_from: previous.month});

@@ -72,6 +72,13 @@ test('backlog and vanished signals remain visible without auto-closing them', ()
   const seen = ledger.build('2026-11', [path], null, next, [c], {rescanned:['stale']});
   assert.equal(seen.items[0].not_seen_in_latest_scan, undefined);
 });
+test('building a new revision never mutates the loaded snapshot', () => {
+  const c = {path, axis: 1, reason:'Preview', origin:'stale'};
+  const current = ledger.build('2026-10',[path],null,null,[c]);
+  const before = structuredClone(current);
+  ledger.build('2026-10',[path],null,current,[],{rescanned:['stale']});
+  assert.deepEqual(current,before);
+});
 test('completed readability or stale signals may be rediscovered in a later month', () => {
   const c = {path, axis:4, reason:'leveling shortlist'};
   const prev = ledger.build('2026-10',[path],null,null,[c]);

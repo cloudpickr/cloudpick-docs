@@ -81,7 +81,7 @@ function assemble(ref, comments) {
   const parts = [];
   for (const c of comments) {
     if (c.user?.login !== 'github-actions[bot]') continue;
-    if (ref.published && c.updated_at && /<!-- monthly-ledger-part:[0-9a-f]{32}:\d+:\d+ -->/.test(c.body || '') && !(c.body || '').includes(`<!-- monthly-ledger-part:${ref.id}:`) && Date.parse(c.updated_at) > Date.parse(ref.published)) throw new Error('an older snapshot was edited after publication; reconcile its changes before continuing');
+    if (ref.published && c.created_at && c.updated_at && Date.parse(c.created_at) <= Date.parse(ref.published) && /<!-- monthly-ledger-part:[0-9a-f]{32}:\d+:\d+ -->/.test(c.body || '') && !(c.body || '').includes(`<!-- monthly-ledger-part:${ref.id}:`) && Date.parse(c.updated_at) > Date.parse(ref.published)) throw new Error('an older snapshot was edited after publication; reconcile its changes before continuing');
     const part = extractPart(c.body, ref);
     if (part) parts.push(part);
   }

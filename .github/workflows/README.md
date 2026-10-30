@@ -11,7 +11,8 @@ master 보호의 required 체크는 7개입니다: `build`·`docs-consistency-li
 | `starlight-build.yml` | Build | `build` (내부 링크 검증 포함) | push · 모든 PR |
 | `docs-quality.yml` | Docs Quality | `docs-consistency-lint`·`mermaid-lint`·`strikethrough-lint` | push · 모든 PR |
 | `external-link-check.yml` | External Link Check | `link-check` (lychee, 외부 링크) | push · 모든 PR · schedule |
-| `editorial-c-approval.yml` | Editorial Review | `editorial-review`·`editorial-c-approval` | pull_request · issue_comment(`/approve`) · dispatch |
+| `editorial-c-approval.yml` | Editorial Review | `editorial-review`·`editorial-c-approval` | pull_request · dispatch |
+| `editorial-approval-comment.yml` | Editorial Approval Comment | 기본 브랜치의 신뢰된 코드로 PR 승인 코멘트 처리 | issue_comment(`/approve`) |
 
 :::caution
 `link-check`·`build`는 모든 PR에서 돕니다(paths 필터 없음). paths 필터를 두면 필터 밖 경로만 바꾸는 PR에서 required 체크가 생성되지 않아 머지가 영구 대기(BLOCKED)에 빠집니다. 필터를 추가하지 마세요.

@@ -41,8 +41,8 @@ def load_thresholds(path=RULES):
             soft = int(ms.group(1))
         if mh:
             hard = int(mh.group(1))
-    except OSError:
-        pass
+    except OSError as exc:
+        print(f"warning: cannot read leveling thresholds from {path}: {exc}; using defaults {soft}/{hard}", file=sys.stderr)
     return soft, hard
 
 

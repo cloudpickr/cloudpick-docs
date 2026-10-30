@@ -153,6 +153,7 @@ jobs:
       - name: Open — inventory and structure signals
         if: steps.mode.outputs.action == 'open'
         id: coverage
+        continue-on-error: true
         shell: bash
         run: |
           mkdir -p /tmp/monthly-coverage
@@ -174,6 +175,7 @@ jobs:
           done
       - name: Open — upload full inventory and advisory signals
         if: steps.mode.outputs.action == 'open' && always()
+        continue-on-error: true
         uses: actions/upload-artifact@v6
         with:
           name: monthly-coverage-${{ steps.mode.outputs.year }}-${{ steps.mode.outputs.month }}
@@ -181,7 +183,8 @@ jobs:
           if-no-files-found: error
           retention-days: 90
       - name: Open — summarize inventory in monthly issue
-        if: steps.mode.outputs.action == 'open' && steps.coverage.outcome == 'success'
+        if: steps.mode.outputs.action == 'open' && !cancelled()
+        continue-on-error: true
         uses: actions/github-script@v9
         with:
           script: |
@@ -193,9 +196,14 @@ jobs:
             const issues = await github.paginate(github.rest.issues.listForRepo, {owner: context.repo.owner, repo: context.repo.repo, state: 'open', labels: 'routine:monthly-review', per_page: 100});
             const issue = issues.find(i => i.title === title && !i.pull_request);
             if (!issue) { core.setFailed(`월간 이슈 없음: ${title}`); return; }
-            const inventory = JSON.parse(fs.readFileSync('/tmp/monthly-coverage/inventory.json', 'utf8'));
-            const status = fs.readFileSync('/tmp/monthly-coverage/status.txt', 'utf8');
-            const body = `${marker}\n## 전체 한국어 문서 범위와 구조 신호\n\n대상 ${inventory.documents.length}개 문서. 목록과 분류·중복·가독성 신호는 [실행 아티팩트](https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId})에 있습니다.\n\n\`scanned-not-reviewed\`: 목록 작성은 사실·구조 검토 완료가 아닙니다. 검토하지 않았거나 출처를 확인하지 못한 문서는 미검토·미확인으로 관리합니다.\n\n\`\`\`\n${status}\`\`\`\n\n구조 신호는 제안이며 실제 구조 변경은 기존 과반 의결과 문서 승인 절차를 따릅니다.`;
+            const coverageOutcome = '${{ steps.coverage.outcome }}';
+            let detail = '❌ 목록 또는 구조 신호 수집 실패·미실행. 전체 범위는 미확인입니다. Actions 로그를 확인하세요.';
+            if (coverageOutcome === 'success') {
+              const inventory = JSON.parse(fs.readFileSync('/tmp/monthly-coverage/inventory.json', 'utf8'));
+              const status = fs.readFileSync('/tmp/monthly-coverage/status.txt', 'utf8');
+              detail = `대상 ${inventory.documents.length}개 문서. 목록과 분류·중복·가독성 신호는 [실행 아티팩트](https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId})에 있습니다.\n\n\`scanned-not-reviewed\`: 목록 작성은 사실·구조 검토 완료가 아닙니다. 검토하지 않았거나 출처를 확인하지 못한 문서는 미검토·미확인으로 관리합니다.\n\n\`\`\`\n${status}\`\`\``;
+            }
+            const body = `${marker}\n## 전체 한국어 문서 범위와 구조 신호\n\n${detail}\n\n구조 신호는 제안이며 실제 구조 변경은 기존 과반 의결과 문서 승인 절차를 따릅니다.`;
             const comments = await github.paginate(github.rest.issues.listComments, {owner: context.repo.owner, repo: context.repo.repo, issue_number: issue.number, per_page: 100});
             const existing = comments.find(c => (c.body || '').includes(marker) && c.user?.login === 'github-actions[bot]');
             if (existing) await github.rest.issues.updateComment({owner: context.repo.owner, repo: context.repo.repo, comment_id: existing.id, body});

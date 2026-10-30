@@ -103,7 +103,7 @@ Manage the background server with `astro dev stop`, `astro dev status`, and `ast
 - **빈 `claim_ledger` + manifest** — 새 사실 주장이 없으므로 claim_ledger는 비웁니다. 패킷 `policy_action: "link-refresh"`(이 단일 필드가 자격을 부여) + `link_refresh.url_map`(old→new) + `manifest_sha256`(전체 경로·매핑·base SHA 해시)로 대량 분산 변경의 완전성을 보증합니다(changed_paths 64 상한 우회). CI가 manifest를 재계산해 대조하며, 리뷰 envelope은 별도로 실제 head SHA에 바인딩합니다.
 - **독립 리뷰 재fetch** — 게이트가 url_map의 각 old URL을 독립 re-fetch해 리다이렉트 체인이 new URL로 끝남을 확인합니다(최종 HTTP 성공 상태 확인; soft-404·path-collapse·edition 변경은 별도 검토 필요). 불일치·fetch 불가는 비승인(hold).
 - **모든 경로는 C** — 리다이렉트만으로 soft-404·path-collapse·판본 변경을 완전히 판별할 수 없으므로 비규제·규제 경로 모두 사람 승인(C)이 필요합니다. core와 규제 PR은 검토를 위해 분리합니다.
-- 분류 자격(`classify_change._packet_is_link_refresh`, `policy_action=="link-refresh"` 단일 필드)이 C를 부여하는 동시에 CI의 `link-refresh-guard`를 강제합니다 — 가드 트리거는 변경 가능한 라벨이 아니라 **변경된 패킷의 link-refresh 자격에서 파생**하므로, 라벨 생략으로 가드를 스킵할 수 없습니다(fail-open 차단).
+- `policy_action=="link-refresh"`은 C를 부여하며 `editorial-review`에서 신뢰된 base 가드로 전체 파일 및 매니페스트 검증을 강제합니다. 별도 `link-refresh-guard` 잡도 라벨이 아니라 패킷에서 실행 여부를 파생합니다. 해당 잡을 required로 등록하려면 관리자 설정이 별도로 필요합니다.
 
 ### 체크리스트 (변경 PR 공통)
 

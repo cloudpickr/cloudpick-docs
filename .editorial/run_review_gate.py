@@ -133,6 +133,18 @@ def run(args) -> dict:
                     ["B/C requires a valid evidence packet; none valid → hold"] + reasons,
                     args, packet_sha)
 
+    # link-refresh는 diff만으로 코드펜스/프론트매터 위치를 알 수 없다. 신뢰된
+    # base 스크립트로 base/head의 전체 파일과 매니페스트를 검사하고 실패 시 보류한다.
+    if packet.get("policy_action") == "link-refresh":
+        if not _is_link_refresh_packet(packet):
+            return _out(tier, "changes_requested", ["link-refresh requires an empty claim_ledger"] + reasons, args, packet_sha)
+        full = _verify_link_refresh_files(args, changes, packet)
+        if full.get("error"):
+            return _out(tier, "error", [f"link-refresh full-file verification unavailable → hold: {full['error']}"] + reasons, args, packet_sha)
+        if full.get("block"):
+            return _out(tier, "changes_requested", [f"link-refresh full-file verification failed: {full['block']}"] + reasons, args, packet_sha)
+        reasons.append("link-refresh full-file verification: ok")
+
     # 독립 LLM 리뷰. claim_ledger의 공식 출처를 source_fetch로 독립 재취득해 리뷰에 연결(#2).
     config = rr.ReviewConfig.from_env()
     diff_text = Path(args.diff).read_text(encoding="utf-8") if Path(args.diff).is_file() else ""
@@ -218,6 +230,70 @@ def run(args) -> dict:
     reviewer_cfg = review.selected_model or (config.reviewer_model or "unset")
     return _out(tier, review.verdict, reasons, args, packet_sha, reviewer_cfg)
 
+
+
+def _verify_link_refresh_files(args, changes, packet):
+    """Trusted base guard validates immutable git blobs, never executes head code."""
+    import re
+    import subprocess
+    import tempfile
+
+    repo = getattr(args, "link_refresh_repo", None)
+    if not repo:
+        return {"error": "repository containing base/head git objects not supplied"}
+    if not all(re.fullmatch(r"[0-9a-f]{40,64}", str(x)) for x in (args.base_sha, args.head_sha)):
+        return {"error": "invalid commit identity"}
+    root = Path(repo)
+    def git(*argv):
+        return subprocess.run(["git", "-C", str(root), *argv], stdout=subprocess.PIPE,
+                              stderr=subprocess.PIPE, timeout=120, check=True).stdout
+    try:
+        # git diff의 완전한 목록을 API 입력과 대조하고 변경 종류를 제한한다.
+        raw = git("diff", "--name-status", "--no-renames", "-z", args.base_sha, args.head_sha,
+                  "--", "src/content/docs/").split(b"\0")
+        if raw[-1:] == [b""]:
+            raw.pop()
+        if len(raw) % 2:
+            return {"error": "invalid git diff output"}
+        entries = [(raw[i].decode("utf-8"), raw[i + 1].decode("utf-8")) for i in range(0, len(raw), 2)]
+        if any(status != "M" for status, _ in entries):
+            return {"block": "link-refresh accepts only modified existing documents"}
+        paths = [path for _, path in entries]
+        if not paths or set(paths) != {c.path for c in changes} or len(paths) != len(changes):
+            return {"block": "document list differs from trusted git diff"}
+        if any(not re.fullmatch(r"src/content/docs/(?:ko|en|ja)/.+\.mdx?", p) or "\n" in p or "\r" in p for p in paths):
+            return {"block": "unsupported document path"}
+        guard = HERE.parent / "scripts" / "link-refresh-guard.py"
+        manifest = HERE.parent / "scripts" / "link-refresh-manifest.py"
+        with tempfile.TemporaryDirectory(prefix="link-refresh-") as temp:
+            tmp = Path(temp)
+            paths_file = tmp / "paths.txt"
+            paths_file.write_text("".join(p + "\n" for p in paths), encoding="utf-8")
+            map_file = tmp / "map.json"
+            map_file.write_text(json.dumps(packet.get("link_refresh", {}).get("url_map", {})), encoding="utf-8")
+            check = subprocess.run([sys.executable, str(manifest), "verify", "--packet", args.packet,
+                                    "--changed-paths", str(paths_file), "--base-sha", args.base_sha],
+                                   capture_output=True, text=True, timeout=120)
+            if check.returncode:
+                return {"block": "manifest verification failed: " + check.stderr[:500]}
+            for path in paths:
+                for rev, filename in ((args.base_sha, "base"), (args.head_sha, "head")):
+                    # 파일 모드(심볼릭 링크 등)도 확인한다. 경로는 git ls-tree의 리터럴 pathspec이다.
+                    tree = git("--literal-pathspecs", "ls-tree", rev, "--", path)
+                    if not tree.startswith((b"100644 blob ", b"100755 blob ")):
+                        return {"block": "non-regular or missing file: " + path}
+                    data = git("show", f"{rev}:{path}")
+                    if len(data) > 2 * 1024 * 1024:
+                        return {"error": "document exceeds 2 MiB: " + path}
+                    (tmp / filename).write_bytes(data)
+                check = subprocess.run([sys.executable, str(guard), "--base", str(tmp / "base"),
+                                        "--head", str(tmp / "head"), "--mapping", str(map_file)],
+                                       capture_output=True, text=True, timeout=120)
+                if check.returncode:
+                    return {"block": path + ": " + check.stderr[:500]}
+    except (OSError, UnicodeError, subprocess.SubprocessError, ValueError) as exc:
+        return {"error": str(exc)}
+    return {"ok": True}
 
 def _is_leveling_packet(packet: dict) -> bool:
     """패킷이 레벨링(표현 전용) 성격인지 — claim_ledger 비었고 tier_reasons에 leveling 표기."""
@@ -442,6 +518,7 @@ def main(argv) -> int:
     p.add_argument("--name-status", required=True, dest="name_status")
     p.add_argument("--diff", required=True)
     p.add_argument("--link-refresh-diff", default=None, help="document-only diff for URL reconstruction")
+    p.add_argument("--link-refresh-repo", default=None, help="trusted local git repository with base/head objects")
     p.add_argument("--packet", default="none")
     p.add_argument("--packet-repo-path", default="", dest="packet_repo_path",
                    help="GitHub API가 보고한 패킷의 실제 저장소 경로(파일명 검증용)")

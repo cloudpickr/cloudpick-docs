@@ -39,7 +39,7 @@
 | `scripts/link-refresh-manifest.py` (루트) | 패킷 `link_refresh.url_map` 병합(가드 입력) + `manifest_sha256` 재계산 대조(전체 경로·매핑·base SHA 대조, changed_paths 64 상한 우회; 실제 head는 리뷰 envelope에 바인딩). |
 
 :::note
-link-refresh 패킷은 `policy_action: "link-refresh"`(이 단일 필드가 자격 부여) + 빈 `claim_ledger` + `link_refresh{url_map, manifest_sha256, changed_paths_count}`. 비규제·규제 경로 모두 C(사람 승인 및 독립 리뷰 필요). URL 목적의 의미와 판본을 자동으로 충분히 판별할 수 있을 때까지 B 경로는 보류. **강제 경로(이중)**: ① 이미 required인 `editorial-review`(run_review_gate)가 diff 재구성 매칭 + redirect 체인 re-fetch를 직접 수행해 위반 시 non-pass, ② `link-refresh-guard` 잡이 전체 파일 재구성으로 교차 강제(required 등록 필요: 스크립트 변경만으로 브랜치 보호 설정은 바뀌지 않음). 상세는 AGENTS.md "축1 링크 현행화 예외".
+link-refresh 패킷은 `policy_action: "link-refresh"`(이 단일 필드가 자격 부여) + 빈 `claim_ledger` + `link_refresh{url_map, manifest_sha256, changed_paths_count}`. 비규제·규제 경로 모두 C(사람 승인 및 독립 리뷰 필요). URL 목적의 의미와 판본을 자동으로 충분히 판별할 수 있을 때까지 B 경로는 보류. **강제 경로(이중)**: ① `editorial-review`가 신뢰된 base 코드로 양 커밋의 전체 문서·매니페스트를 검사하고 diff 재구성 및 redirect re-fetch도 수행(미검증 시 non-pass), ② `link-refresh-guard` 잡이 교차 검사(required 등록은 관리자 설정 필요). PR head는 데이터로만 취급합니다. 상세는 AGENTS.md "축1 링크 현행화 예외".
 :::
 
 ### 축1 — 노후(stale) 스캔 전용 헬퍼

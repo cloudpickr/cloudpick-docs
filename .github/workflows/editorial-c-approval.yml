@@ -138,6 +138,7 @@ jobs:
           REVIEWER_MODEL: ${{ vars.REVIEWER_MODEL }}
           REVIEWER_PROVIDER: ${{ vars.REVIEWER_PROVIDER }}
           REVIEWER_POOL: ${{ vars.REVIEWER_POOL }}
+          PR_HEAD_SHA: ${{ steps.fetch.outputs.head_sha }}
         run: |
           set +e
           NOW="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
@@ -145,8 +146,19 @@ jobs:
           # 이 PR 자체는 구버전 base 게이트를 실행한다. 새 CLI를 지원하는 base에서만
           # 문서 전용 diff 인자를 전달한다. PR head 코드를 실행하지 않는다.
           LINK_DIFF_ARGS=()
-          if python3 .editorial/run_review_gate.py --help | grep -q -- "--link-refresh-diff"; then
-            LINK_DIFF_ARGS=(--link-refresh-diff /tmp/er_docs_diff.txt)
+          GATE_HELP="$(python3 .editorial/run_review_gate.py --help)"
+          if grep -q -- "--link-refresh-diff" <<< "$GATE_HELP"; then
+            LINK_DIFF_ARGS+=(--link-refresh-diff /tmp/er_docs_diff.txt)
+          fi
+          if grep -q -- "--link-refresh-repo" <<< "$GATE_HELP"; then
+            LINK_DIFF_ARGS+=(--link-refresh-repo "$GITHUB_WORKSPACE")
+            # git objects are data only: never check out or execute PR head code.
+            if [ '${{ steps.fetch.outputs.packet_arg }}' != 'none' ] &&
+               python3 -c 'import json,sys; sys.exit(0 if json.load(open(sys.argv[1])).get("policy_action") == "link-refresh" else 1)' '${{ steps.fetch.outputs.packet_arg }}'; then
+              git cat-file -e "${PR_HEAD_SHA}^{commit}" 2>/dev/null ||
+                git fetch --no-tags origin "$PR_HEAD_SHA" ||
+                echo "::warning::Cannot fetch PR head object; full-file verification will hold."
+            fi
           fi
           python3 .editorial/run_review_gate.py \
             --numstat /tmp/er_numstat.txt \
@@ -187,6 +199,24 @@ jobs:
       - name: Fail job when gate did not approve
         if: always() && steps.gate.outputs.exit != '0'
         run: exit 1
+
+  # Untrusted PR code is tested without secrets or write permissions. The actual
+  # editorial gate above continues to execute only trusted base-branch tools.
+  editorial-tests:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - run: python -m pip install "jsonschema>=4.23,<5"
+      - run: python -m unittest discover -s .editorial/tests -p 'test_*.py' -q
+      - run: node --test .github/scripts/c_approval_gate.test.cjs
 
   # ---------------------------------------------------------------------------
   # editorial-c-approval: C 등급의 allowlisted 사람 packet-hash confirm 게이트.

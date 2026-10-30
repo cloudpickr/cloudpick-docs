@@ -42,6 +42,14 @@ master 보호의 required 체크는 7개입니다: `build`·`docs-consistency-li
 
 뉴스 추적은 최근 7일의 조회를 `provisional`로 남겨 늦게 반영된 항목을 다시 조회합니다. 이 기간이 지난 뒤 조회에 성공하면 `complete`로 기록하지만, 그보다 늦은 피드 유입까지 보장하지는 않습니다. 날짜당 결과가 50건 상한에 걸리면 받은 항목은 보존하면서 날짜는 실패로 남겨 수동 확인·재시도합니다. 반복 실패 날짜는 마지막 시도 시각 기준으로 순환하고, 미완 과거 날짜와 최근 재확인에 각각 조회 기회를 배분합니다. 이미 교체된 과거 스냅샷이나 실패한 미사용 스냅샷 댓글을 수정하면 다음 실행이 중단되어 담당자의 조정을 요구하므로, 항상 이슈 본문이 가리키는 현재 스냅샷을 편집하세요.
 
+과거 스냅샷 충돌 시 Actions 오류에 표시된 댓글 ID의 수정 내용을 현재 스냅샷과 비교하고, 필요한 변경을 현재 스냅샷에 직접 반영하거나 반영할 내용이 없음을 확인합니다. 그런 다음 아래 명령의 결과를 월간 이슈 본문에 추가하고 워크플로를 재실행합니다. 이 표식은 해당 댓글의 정확한 내용에만 유효하므로 댓글을 다시 수정하면 조정과 표식 생성도 다시 필요합니다.
+
+```sh
+gh api repos/cloudpickr/cloudpick-docs/issues/comments/COMMENT_ID | node .github/scripts/monthly_reconcile.cjs
+```
+
+뉴스 50건 상한으로 실패한 날짜는 벤더 공식 발표를 별도로 대조하고 근거와 관련 후보를 기록한 후에만 현재 원장의 해당 `news_progress.days` 벤더 상태를 `complete`로 변경합니다. 전체 확인이 불가능하면 실패 상태로 남깁니다.
+
 ## 축4 레벨링 라벨 게이트
 
 `docs-quality.yml`의 `leveling-guard` 잡은 `axis-4-leveling` 라벨이 붙은 PR에서만 required로 작동합니다. 트리거에 `labeled`·`unlabeled`가 포함되어 라벨 부착 시점에 재평가됩니다. 레벨링 PR의 사실 불변 강제는 `scripts/leveling-guard.py`(결정론), 의미 보존은 `editorial-review` 게이트가 담당합니다.

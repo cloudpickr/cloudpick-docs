@@ -50,7 +50,7 @@ class FetchResult:
 
 class _VisibleText(HTMLParser):
     """Visible main/article text only; ignore navigation, scripts and UI chrome."""
-    BLOCKED = {'script', 'style', 'noscript', 'svg', 'template', 'iframe', 'nav', 'header', 'footer', 'form', 'aside', 'button', 'head'}
+    BLOCKED = {'script', 'style', 'noscript', 'svg', 'template', 'iframe', 'nav', 'footer', 'form', 'button', 'head'}
     VOID = {'area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'link', 'meta', 'param', 'source', 'track', 'wbr'}
 
     def __init__(self):
@@ -64,8 +64,10 @@ class _VisibleText(HTMLParser):
     def handle_starttag(self, tag, attrs):
         if tag in self.VOID:
             return
-        blocked = (self.stack[-1][1] if self.stack else False) or tag in self.BLOCKED
-        main = (self.stack[-1][2] if self.stack else False) or tag in {'main', 'article'} or dict(attrs).get('role') == 'main' or dict(attrs).get('id') == 'main-col-body'
+        attributes = dict(attrs)
+        sidebar = tag == 'aside' and attributes.get('role') in {'navigation', 'menu'}
+        blocked = (self.stack[-1][1] if self.stack else False) or tag in self.BLOCKED or sidebar
+        main = (self.stack[-1][2] if self.stack else False) or tag in {'main', 'article'} or attributes.get('role') == 'main' or attributes.get('id') == 'main-col-body'
         self.stack.append((tag, blocked, main))
 
     def handle_startendtag(self, tag, attrs):

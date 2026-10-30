@@ -107,6 +107,15 @@ class TestLimits(unittest.TestCase):
         self.assertIsNone(sf._visible_digest(b'<html><script>load()</script><main></main></html>', 'text/html'))
         self.assertIsNone(sf._visible_digest(b'<main>\xff</main>', 'text/html'))
 
+    def test_main_header_and_notice_are_observed_but_global_header_is_not(self):
+        text = 'Configuration and release documentation. ' * 4
+        def page(global_header, title, notice):
+            return f'<header>{global_header}</header><main><header>{title}</header><p>{text}</p><aside>{notice}</aside></main>'.encode()
+        baseline = sf._visible_digest(page('one', 'Title', 'Preview'), 'text/html')
+        self.assertEqual(baseline, sf._visible_digest(page('two', 'Title', 'Preview'), 'text/html'))
+        self.assertNotEqual(baseline, sf._visible_digest(page('one', 'New title', 'Preview'), 'text/html'))
+        self.assertNotEqual(baseline, sf._visible_digest(page('one', 'Title', 'Deprecated'), 'text/html'))
+
     def test_aws_document_main_body_is_supported(self):
         text = 'AWS documentation body and configuration details. ' * 4
         html = f'<div id="main-col-body"><p>{text}</p></div>'.encode()

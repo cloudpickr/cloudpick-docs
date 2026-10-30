@@ -80,11 +80,18 @@ function extractPart(body, ref) {
   return p;
 }
 
-function assemble(ref, comments) {
+function acknowledgement(comment) {
+  if (!Number.isSafeInteger(comment.id) || comment.id <= 0 || typeof comment.body !== 'string') throw new Error('invalid edited comment');
+  return `<!-- monthly-ledger-reconciled:${comment.id}:${crypto.createHash('sha256').update(comment.body, 'utf8').digest('hex')} -->`;
+}
+
+function assemble(ref, comments, issueBody = '') {
   const parts = [];
   for (const c of comments) {
     if (c.user?.login !== 'github-actions[bot]') continue;
-    if (ref.published && c.created_at && c.updated_at && /<!-- monthly-ledger-part:[0-9a-f]{32}:\d+:\d+ -->/.test(c.body || '') && !(c.body || '').includes(`<!-- monthly-ledger-part:${ref.id}:`) && Date.parse(c.updated_at) > Date.parse(ref.published) && Date.parse(c.updated_at) > Date.parse(c.created_at)) throw new Error('a non-current snapshot was edited after publication; reconcile its changes before continuing');
+    if (ref.published && c.created_at && c.updated_at && /<!-- monthly-ledger-part:[0-9a-f]{32}:\d+:\d+ -->/.test(c.body || '') && !(c.body || '').includes(`<!-- monthly-ledger-part:${ref.id}:`) && Date.parse(c.updated_at) > Date.parse(ref.published) && Date.parse(c.updated_at) > Date.parse(c.created_at)) {
+      if (!issueBody.includes(acknowledgement(c))) throw new Error(`non-current snapshot comment ${c.id} was edited; reconcile and acknowledge its exact contents before continuing`);
+    }
     const part = extractPart(c.body, ref);
     if (part) parts.push(part);
   }
@@ -147,7 +154,7 @@ async function load(github, context, issue) {
   if (ref && legacy) throw new Error('both legacy ledger and new pointer present');
   if (!ref) return legacy;
   const comments = await github.paginate(github.rest.issues.listComments, {owner: context.repo.owner, repo: context.repo.repo, issue_number: issue.number, per_page: 100});
-  return assemble(ref, comments);
+  return assemble(ref, comments, issue.body || '');
 }
 
 async function save(github, context, issue, data, {baseBody = issue.body || '', expected = null} = {}) {
@@ -162,4 +169,4 @@ async function save(github, context, issue, data, {baseBody = issue.body || '', 
   return parts.length;
 }
 
-module.exports = {pointer, makeParts, partBody, extractPart, assemble, renderPointer, load, save};
+module.exports = {pointer, makeParts, partBody, extractPart, assemble, renderPointer, load, save, acknowledgement};

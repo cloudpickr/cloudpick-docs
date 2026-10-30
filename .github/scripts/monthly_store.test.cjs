@@ -84,13 +84,17 @@ test('source coverage survives sharding and distinguishes failed from unseen', (
 test('an edit to an older snapshot after publication is detected', () => {
   const data = ledger.build('2026-10',[path],null,null);
   const old=store.makeParts(data,'a'.repeat(32)), current=store.makeParts(data,'b'.repeat(32));
-  const comments=[...old,...current].map(part => ({body:store.partBody(part),user:{login:'github-actions[bot]'},created_at:'2026-10-01T00:50:00Z',updated_at:part.id.startsWith('a') ? '2026-10-01T01:01:00Z' : '2026-10-01T00:59:00Z'}));
+  const comments=[...old,...current].map((part,i) => ({id:i+1,body:store.partBody(part),user:{login:'github-actions[bot]'},created_at:'2026-10-01T00:50:00Z',updated_at:part.id.startsWith('a') ? '2026-10-01T01:01:00Z' : '2026-10-01T00:59:00Z'}));
   assert.throws(() => store.assemble({id:'b'.repeat(32),count:current.length,month:'2026-10',published:'2026-10-01T01:00:00Z'},comments), /non-current snapshot/);
+  const acknowledgements=comments.filter(c=>c.updated_at==='2026-10-01T01:01:00Z').map(store.acknowledgement).join('\n');
+  assert.deepEqual(store.assemble({id:'b'.repeat(32),count:current.length,month:'2026-10',published:'2026-10-01T01:00:00Z'},comments,acknowledgements),data);
+  comments[0].body += '\nchanged again';
+  assert.throws(() => store.assemble({id:'b'.repeat(32),count:current.length,month:'2026-10',published:'2026-10-01T01:00:00Z'},comments,acknowledgements), /non-current snapshot/);
 });
 test('new orphan snapshot from a failed save does not block recovery', () => {
   const data = ledger.build('2026-10',[path],null,null);
   const current=store.makeParts(data,'a'.repeat(32)), orphan=store.makeParts(data,'b'.repeat(32));
-  const comments=[...current,...orphan].map(part => ({body:store.partBody(part),user:{login:'github-actions[bot]'},created_at:part.id.startsWith('a') ? '2026-10-01T00:50:00Z' : '2026-10-01T01:01:00Z',updated_at:part.id.startsWith('a') ? '2026-10-01T00:50:00Z' : '2026-10-01T01:01:00Z'}));
+  const comments=[...current,...orphan].map((part,i) => ({id:i+1,body:store.partBody(part),user:{login:'github-actions[bot]'},created_at:part.id.startsWith('a') ? '2026-10-01T00:50:00Z' : '2026-10-01T01:01:00Z',updated_at:part.id.startsWith('a') ? '2026-10-01T00:50:00Z' : '2026-10-01T01:01:00Z'}));
   assert.deepEqual(store.assemble({id:'a'.repeat(32),count:current.length,month:'2026-10',published:'2026-10-01T01:00:00Z'},comments),data);
   comments[comments.length-1].updated_at='2026-10-01T01:02:00Z';
   assert.throws(() => store.assemble({id:'a'.repeat(32),count:current.length,month:'2026-10',published:'2026-10-01T01:00:00Z'},comments), /non-current snapshot/);

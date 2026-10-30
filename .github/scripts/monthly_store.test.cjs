@@ -13,7 +13,7 @@ test('monthly issue summary shows recorded PRs and carried work without claiming
   data.items[1].carried_from = '2026-09';
   const body = store.renderPointer('기존 기록', data, store.makeParts(data));
   assert.match(body, /완료로 기록된 후보 1개, 처리 대기 1개\(그중 이전 달 이월 1개\)/);
-  assert.ok(body.includes('https://github.com/org/repo/pull/12'));
+  assert.ok(body.includes(data.items[0].pr));
   assert.match(body, /실제 머지 여부는 담당자가 확인/);
   assert.match(body, /기존 기록/);
 });

@@ -200,6 +200,8 @@ def classify(
 
     # A 자격: 순수 기계적, 합산 20줄 이하, 사실/구조 변경 없음, LLM 생성 아님.
     a_blockers = []
+    if _packet_is_link_refresh(packet):
+        a_blockers.append("link-refresh requires B/C guard and review")
     if generated_by_llm:
         a_blockers.append("generated_by_llm=true → minimum B")
     if has_claims:

@@ -106,6 +106,9 @@ jobs:
             fs.writeFileSync('/tmp/er_numstat.txt', numstat + '\n');
             fs.writeFileSync('/tmp/er_name_status.txt', nameStatus + '\n');
             fs.writeFileSync('/tmp/er_diff.txt', diff + '\n');
+            const docDiff = files.filter(f => f.filename.startsWith('src/content/docs/'))
+              .map(f => `--- ${f.filename}\n${f.patch || '(no textual patch)'}`).join('\n');
+            fs.writeFileSync('/tmp/er_docs_diff.txt', docDiff + '\n');
             // 단일 evidence packet 파일이면 head SHA 콘텐츠를 데이터로 취득.
             const packets = files.filter(f => /^\.editorial\/packets\/[^/]+\.json$/.test(f.filename));
             let packetArg = 'none', packetRepoPath = '';
@@ -140,6 +143,7 @@ jobs:
             --numstat /tmp/er_numstat.txt \
             --name-status /tmp/er_name_status.txt \
             --diff /tmp/er_diff.txt \
+            --link-refresh-diff /tmp/er_docs_diff.txt \
             --packet '${{ steps.fetch.outputs.packet_arg }}' \
             --packet-repo-path '${{ steps.fetch.outputs.packet_repo_path }}' \
             --repo '${{ github.repository }}' \

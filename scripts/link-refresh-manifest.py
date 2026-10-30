@@ -7,7 +7,7 @@ manifest_sha256으로 완전성·불변성 보증한다. 이 도구는 CI에서 
 
   merge   : PR이 변경한 패킷들의 link_refresh.url_map을 하나로 병합해 출력(가드 입력용).
   verify  : 패킷의 manifest_sha256이 (정렬된 changed_paths + 정렬된 url_map +
-            base_sha + head_sha)의 재계산 해시와 일치하는지, changed_paths_count가
+            base_sha)의 재계산 해시와 일치하는지, changed_paths_count가
             실제 변경 파일 수와 맞는지 대조. 불일치는 exit 1(fail-closed).
 
 manifest 계산식(양측 동일해야 함):
@@ -15,16 +15,15 @@ manifest 계산식(양측 동일해야 함):
     "changed_paths": sorted(changed_paths),
     "url_map": dict(sorted(url_map.items())),
     "base_sha": base_sha,
-    "head_sha": head_sha,
   }, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
   manifest_sha256 = sha256(payload.encode("utf-8")).hexdigest()
 
 사용법:
   python3 scripts/link-refresh-manifest.py merge  <packet.json> [<packet.json> ...]
   python3 scripts/link-refresh-manifest.py compute --changed-paths FILE --url-map FILE \
-      --base-sha SHA --head-sha SHA
+      --base-sha SHA
   python3 scripts/link-refresh-manifest.py verify --packet P.json \
-      --changed-paths FILE --base-sha SHA --head-sha SHA
+      --changed-paths FILE --base-sha SHA
 """
 from __future__ import annotations
 
@@ -32,6 +31,7 @@ import argparse
 import hashlib
 import json
 import sys
+from pathlib import Path
 
 
 def _die(msg: str) -> None:
@@ -41,18 +41,18 @@ def _die(msg: str) -> None:
 
 def load_packet(path: str) -> dict:
     try:
-        return json.load(open(path, encoding="utf-8"))
+        with open(path, encoding="utf-8") as fh:
+            return json.load(fh)
     except (OSError, json.JSONDecodeError) as e:
         _die(f"패킷 로드 실패 {path}: {e}")
 
 
-def compute_manifest(changed_paths, url_map, base_sha: str, head_sha: str) -> str:
+def compute_manifest(changed_paths, url_map, base_sha: str) -> str:
     payload = json.dumps(
         {
             "changed_paths": sorted(changed_paths),
             "url_map": dict(sorted(url_map.items())),
             "base_sha": base_sha,
-            "head_sha": head_sha,
         },
         ensure_ascii=False,
         sort_keys=True,
@@ -80,9 +80,9 @@ def cmd_merge(packets: list[str]) -> int:
 
 
 def cmd_compute(args) -> int:
-    changed = [l.strip() for l in open(args.changed_paths, encoding="utf-8") if l.strip()]
-    url_map = json.load(open(args.url_map, encoding="utf-8"))
-    print(compute_manifest(changed, url_map, args.base_sha, args.head_sha))
+    changed = [l.strip() for l in Path(args.changed_paths).read_text(encoding="utf-8").splitlines() if l.strip()]
+    url_map = json.loads(Path(args.url_map).read_text(encoding="utf-8"))
+    print(compute_manifest(changed, url_map, args.base_sha))
     return 0
 
 
@@ -95,10 +95,10 @@ def cmd_verify(args) -> int:
     claimed = lr.get("manifest_sha256")
     count = lr.get("changed_paths_count")
 
-    changed = [l.strip() for l in open(args.changed_paths, encoding="utf-8") if l.strip()]
+    changed = [l.strip() for l in Path(args.changed_paths).read_text(encoding="utf-8").splitlines() if l.strip()]
     if count != len(changed):
         _die(f"changed_paths_count={count} != 실제 변경 {len(changed)}개")
-    recomputed = compute_manifest(changed, url_map, args.base_sha, args.head_sha)
+    recomputed = compute_manifest(changed, url_map, args.base_sha)
     if recomputed != claimed:
         _die(f"manifest_sha256 불일치\n  패킷: {claimed}\n  재계산: {recomputed}")
     print(f"link-refresh-manifest: OK — manifest 일치({len(changed)} paths, {len(url_map)} mappings)")
@@ -114,12 +114,10 @@ def main(argv: list[str]) -> int:
     c.add_argument("--changed-paths", required=True)
     c.add_argument("--url-map", required=True)
     c.add_argument("--base-sha", required=True)
-    c.add_argument("--head-sha", required=True)
     v = sub.add_parser("verify")
     v.add_argument("--packet", required=True)
     v.add_argument("--changed-paths", required=True)
     v.add_argument("--base-sha", required=True)
-    v.add_argument("--head-sha", required=True)
     args = ap.parse_args(argv[1:])
     if args.cmd == "merge":
         return cmd_merge(args.packets)

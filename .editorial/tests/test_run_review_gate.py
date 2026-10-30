@@ -348,6 +348,7 @@ class TestLinkRefreshRedirect(unittest.TestCase):
         class R:
             def __init__(self, url):
                 self.url = url
+                self.status = 200
 
         def fake_fetch(old, **kw):
             if final_by_old.get(old) is None:
@@ -370,6 +371,24 @@ class TestLinkRefreshRedirect(unittest.TestCase):
         r = g._verify_redirect_chains({"https://old.com/": "https://new.com/"})
         self.assertFalse(r.get("error"))
         self.assertEqual(len(r["mismatches"]), 1)
+
+    def test_locale_and_tracking_added_by_redirect_are_ignored(self):
+        self._patch_fetch({"https://old.com/doc": "https://new.com/en-us/doc?view=v2&utm_source=x"})
+        r = g._verify_redirect_chains({"https://old.com/doc": "https://new.com/doc?view=v2"})
+        self.assertEqual(r["mismatches"], [])
+
+    def test_http_error_is_hold(self):
+        import source_fetch as sf
+        from unittest.mock import patch
+        from types import SimpleNamespace
+        with patch.object(sf, "fetch_source", return_value=SimpleNamespace(url="https://new.com/", status=404)):
+            r = g._verify_redirect_chains({"https://old.com/": "https://new.com/"})
+        self.assertTrue(r.get("error"))
+
+    def test_version_parameter_is_not_stripped(self):
+        self._patch_fetch({"https://old.com/": "https://new.com/?view=v2"})
+        r = g._verify_redirect_chains({"https://old.com/": "https://new.com/"})
+        self.assertTrue(r["mismatches"])
 
     def test_partial_fetch_failure_is_error(self):
         # governance 투표(B): 일부 성공+일부 실패도 '확인 불가' → error(hold).

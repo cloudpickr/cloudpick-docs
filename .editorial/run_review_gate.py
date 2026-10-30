@@ -168,8 +168,8 @@ def run(args) -> dict:
     # link-refresh(URL-only 현행화) 전용: 사실 불변은 결정론 가드(scripts/link-refresh-guard.py)가
     # CI required 잡으로 전수 증명한다(base/head 전체 파일 필요 — diff만으론 불가). 또한
     # governance 투표 반영: url_map의 각 old URL을 독립 re-fetch해 리다이렉트 체인이 new로
-    # 끝남을 '실제로' 확인한다(빈 claim_ledger로 fetch가 스킵되던 fail-open 차단). path-collapse나
-    # 최종 URL 불일치는 hold(비승인). 이 게이트는 분류·독립 리뷰·redirect 재확인까지 책임지고,
+    # 끝남을 확인한다. HTTP 오류·최종 URL 불일치는 non-pass다.
+    # URL 일치만으로 soft-404·path-collapse·판본 변경을 증명할 수 없다. 이 게이트는 분류·독립 리뷰·redirect 재확인까지 책임지고,
     # URL 외 불변 증명은 CI 가드가 담당한다(가드 required는 라벨이 아니라 분류 자격에서 파생).
     if _is_link_refresh_packet(packet):
         lr = packet.get("link_refresh") or {}
@@ -202,7 +202,8 @@ def run(args) -> dict:
         # governance 투표(A): 가드를 editorial-review(이미 required) 안에서 직접 강제한다.
         # diff 재구성 매칭으로 'URL 교체만' 했음을 확인하고, 위반 시 non-pass로 머지를 막는다.
         # (별도 link-refresh-guard 잡이 required 미등록이어도 이 경로가 차단을 보증한다.)
-        rc = _link_refresh_reconstruct_from_diff(diff_text, url_map)
+        link_diff = Path(args.link_refresh_diff).read_text(encoding="utf-8") if getattr(args, "link_refresh_diff", None) else diff_text
+        rc = _link_refresh_reconstruct_from_diff(link_diff, url_map)
         if rc.get("error"):
             return _out(tier, "error",
                         [f"link-refresh reconstruct check unavailable → hold ({rc['error']})"] + reasons,
@@ -245,6 +246,24 @@ def _normalize_url(u: str) -> str:
     return urlunsplit((s.scheme.lower(), s.netloc.lower(), path, s.query, ""))
 
 
+
+def _normalize_redirect_target(final: str, old: str, new: str) -> str:
+    """Only remove locale/tracking additions absent from both old and proposed URLs."""
+    import re
+    from urllib.parse import parse_qsl, urlencode, urlsplit, urlunsplit
+    f, o, n = (urlsplit(u) for u in (final, old, new))
+    locale = re.compile(r"^/([a-z]{2}-[a-z]{2})(?=/|$)", re.I)
+    path = f.path
+    if locale.match(path) and not locale.match(o.path) and not locale.match(n.path):
+        path = path[locale.match(path).end():] or "/"
+    original_keys = {k.lower() for k, _ in parse_qsl(o.query, keep_blank_values=True)}
+    proposed_keys = {k.lower() for k, _ in parse_qsl(n.query, keep_blank_values=True)}
+    pairs = parse_qsl(f.query, keep_blank_values=True)
+    pairs = [(k, v) for k, v in pairs if not (
+        (k.lower() == "icid" or k.lower().startswith("utm_"))
+        and k.lower() not in original_keys and k.lower() not in proposed_keys)]
+    return _normalize_url(urlunsplit((f.scheme, f.netloc, path, urlencode(pairs, doseq=True), f.fragment)))
+
 def _verify_redirect_chains(url_map: dict) -> dict:
     """link-refresh url_map의 각 old URL을 독립 re-fetch해 최종 URL이 new와 일치하는지 확인.
 
@@ -269,9 +288,12 @@ def _verify_redirect_chains(url_map: dict) -> dict:
         except Exception as e:  # noqa: BLE001  (SSRF 차단·네트워크 실패 포함)
             errors.append(f"{old}: {e}")
             continue
+        if not 200 <= res.status < 300:
+            errors.append(f"{old}: final HTTP status {res.status}")
+            continue
         checked += 1
         final = getattr(res, "final_url", None) or getattr(res, "url", None) or ""
-        if _normalize_url(final) != _normalize_url(new):
+        if _normalize_redirect_target(final, old, new) != _normalize_url(new):
             mismatches.append({"old": old, "final": final, "expected": new})
     # 하나도 확인 못 했거나(전부 실패) 일부라도 실패하면(부분 실패) 확인 불가 → error.
     # governance 투표(B): 부분 실패를 통과시키면 '확인 안 된 old→new'가 승인되는 fail-open.
@@ -303,8 +325,7 @@ def _link_refresh_reconstruct_from_diff(diff_text: str, url_map: dict) -> dict:
                 "error": "patch 생략 감지('(no textual patch)') — diff로 검증 불가, link-refresh-guard(전체파일)로만 검증"}
     try:
         import importlib.util
-        import pathlib
-        guard_path = pathlib.Path(__file__).resolve().parent.parent / "scripts" / "link-refresh-guard.py"
+        guard_path = Path(__file__).resolve().parent.parent / "scripts" / "link-refresh-guard.py"
         spec = importlib.util.spec_from_file_location("link_refresh_guard", guard_path)
         lrg = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(lrg)
@@ -418,6 +439,7 @@ def main(argv) -> int:
     p.add_argument("--numstat", required=True)
     p.add_argument("--name-status", required=True, dest="name_status")
     p.add_argument("--diff", required=True)
+    p.add_argument("--link-refresh-diff", default=None, help="document-only diff for URL reconstruction")
     p.add_argument("--packet", default="none")
     p.add_argument("--packet-repo-path", default="", dest="packet_repo_path",
                    help="GitHub API가 보고한 패킷의 실제 저장소 경로(파일명 검증용)")

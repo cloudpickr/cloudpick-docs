@@ -188,7 +188,7 @@ jobs:
           echo "$DOCS" > /tmp/changed_docs.txt
           for pkt in $PACKETS; do
             python3 scripts/link-refresh-manifest.py verify --packet "$pkt" \
-              --changed-paths /tmp/changed_docs.txt --base-sha "$BASE_SHA" --head-sha "$HEAD_SHA"
+              --changed-paths /tmp/changed_docs.txt --base-sha "$BASE_SHA"
           done
           # 2) 변경된 모든 로케일 문서에 재구성 매칭 가드 적용(fail-closed).
           if [ -z "$DOCS" ]; then echo "변경된 문서 없음."; exit 0; fi

@@ -104,17 +104,14 @@ def protected_mask(lines: list[str]) -> list[bool]:
     """각 줄이 보호 영역(코드펜스/frontmatter/mermaid) 내부인지 표시."""
     mask = [False] * len(lines)
     in_fence = False
-    in_fm = False
     # frontmatter: 파일 맨 처음의 --- ... ---
     i = 0
     if lines and lines[0].strip() == "---":
-        in_fm = True
         mask[0] = True
         i = 1
         while i < len(lines):
             mask[i] = True
             if lines[i].strip() == "---":
-                in_fm = False
                 i += 1
                 break
             i += 1
@@ -139,8 +136,10 @@ def main(argv: list[str]) -> int:
     mapping = load_mapping(args.mapping)
 
     try:
-        base = open(args.base, encoding="utf-8").read()
-        head = open(args.head, encoding="utf-8").read()
+        with open(args.base, encoding="utf-8", newline="") as fh:
+            base = fh.read()
+        with open(args.head, encoding="utf-8", newline="") as fh:
+            head = fh.read()
     except OSError as e:
         _fail(f"파일 읽기 실패: {e}")
 

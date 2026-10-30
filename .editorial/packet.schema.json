@@ -74,7 +74,7 @@
       "items": { "$ref": "#/$defs/claim" }
     },
     "link_refresh": {
-      "description": "policy_action=link-refresh 전용. 승인된 old→new URL 매핑과 전체 변경 매니페스트 해시. changed_paths는 스키마상 64개 상한이라 전 문서(수백 개) 분산 변경을 담을 수 없으므로, 전체 경로 목록·매핑·base/head SHA를 해시한 manifest_sha256으로 완전성을 보증하고 CI가 대조한다(council 합의).",
+      "description": "policy_action=link-refresh 전용. 승인된 old→new URL 매핑과 전체 변경 매니페스트 해시. changed_paths는 스키마상 64개 상한이라 전 문서(수백 개) 분산 변경을 담을 수 없으므로, 전체 경로 목록·매핑·base SHA를 해시한 manifest_sha256으로 완전성을 보증하고 CI가 대조한다(council 합의).",
       "type": "object",
       "additionalProperties": false,
       "required": ["url_map", "manifest_sha256", "changed_paths_count"],
@@ -91,7 +91,7 @@
           }
         },
         "manifest_sha256": {
-          "description": "정렬된 전체 changed_paths + url_map(정렬) + base_sha + head_sha를 직렬화해 해시한 값. CI가 동일 입력으로 재계산해 대조(완전성·불변성 보증).",
+          "description": "정렬된 전체 changed_paths + url_map(정렬) + base_sha를 직렬화해 해시한 값. CI가 동일 입력으로 재계산해 대조(완전성·불변성 보증).",
           "$ref": "#/$defs/sha256_hex"
         },
         "changed_paths_count": {

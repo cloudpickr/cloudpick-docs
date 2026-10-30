@@ -153,6 +153,10 @@ class TestDiffParsing(unittest.TestCase):
 class TestLinkRefresh(unittest.TestCase):
     """link-refresh 패킷: URL-only 현행화의 경량 티어(비규제 B / 규제 C)."""
 
+    def test_small_link_refresh_is_not_tier_a(self):
+        change = cc.FileChange("src/content/docs/ko/cloud/test.md", "M", 1, 1)
+        self.assertEqual(cc.classify([change], self._packet()).tier, "B")
+
     def _packet(self, action="link-refresh", reasons=None):
         return {
             "policy_action": action,

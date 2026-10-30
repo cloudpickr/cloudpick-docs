@@ -128,6 +128,12 @@ class TestLimits(unittest.TestCase):
         self.assertNotEqual(sf._visible_digest(doc(5),'text/html'),sf._visible_digest(doc(50),'text/html'))
         self.assertIsNone(sf._visible_digest(f'<main>{prefix}</div>Limit 5 GB</main>'.encode(),'text/html'))
 
+    def test_html_optional_paragraph_and_unclosed_outer_chrome_are_tolerated(self):
+        text = 'Documentation content and configuration guidance. ' * 4
+        html = f'<html><body><div><main><p>{text}</p></p></main></body></html>'.encode()
+        self.assertIsNotNone(sf._visible_digest(html, 'text/html'))
+        self.assertIsNone(sf._visible_digest(f'<main><div>{text}</main>'.encode(), 'text/html'))
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)

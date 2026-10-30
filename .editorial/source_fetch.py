@@ -78,10 +78,13 @@ class _VisibleText(HTMLParser):
             return
         matching = next((i for i in range(len(self.stack)-1,-1,-1) if self.stack[i][0] == tag), None)
         if matching is None:
+            # HTML treats an unmatched </p> as an empty paragraph.
+            if tag == 'p':
+                return
             if self.stack and (self.stack[-1][1] or self.stack[-1][2]):
                 self.invalid = True
             return
-        if any(row[0] not in self.OPTIONAL for row in self.stack[matching+1:]):
+        if any(row[2] and row[0] not in self.OPTIONAL for row in self.stack[matching+1:]):
             self.invalid = True
         del self.stack[matching:]
 

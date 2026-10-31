@@ -5,6 +5,8 @@
 const crypto = require('node:crypto');
 const ledger = require('./monthly_ledger.cjs');
 const REF = /<!-- monthly-ledger-v2:([0-9a-f]{32}):(\d+):(\d{4}-\d{2}) -->/g;
+const REF3 = /<!-- monthly-ledger-v3:(\d{4}-\d{2}) -->/g;
+const STATE_BRANCH = 'monthly-review-state';
 const HEADER = '<!-- monthly-ledger-summary:start -->';
 const FOOTER = '<!-- monthly-ledger-summary:end -->';
 const MAX_PART = 44000;
@@ -13,7 +15,13 @@ const encoded = value => JSON.stringify(value, null, 2).replace(/</g, '\\u003c')
 
 function pointer(body) {
   const matches = [...body.matchAll(REF)];
-  if (matches.length > 1) throw new Error('duplicate ledger pointers');
+  const modern = [...body.matchAll(REF3)];
+  if (matches.length + modern.length > 1) throw new Error('duplicate ledger pointers');
+  if (modern.length) {
+    const migration = /<!-- monthly-ledger-v3-migrated:([^ ]+) -->/.exec(body)?.[1] || null;
+    if (migration && !Number.isFinite(Date.parse(migration))) throw new Error('invalid migration time');
+    return {version: 3, month: modern[0][1], migration};
+  }
   if (!matches.length) return null;
   const [, id, n, month] = matches[0];
   const count = Number(n);
@@ -21,6 +29,91 @@ function pointer(body) {
   const published = /<!-- monthly-ledger-published:([^ ]+) -->/.exec(body)?.[1] || null;
   if (published && !Number.isFinite(Date.parse(published))) throw new Error('invalid ledger publication time');
   return {id, count, month, published};
+}
+
+function statePath(month) {
+  if (!/^\d{4}-(0[1-9]|1[0-2])$/.test(month)) throw new Error('invalid state month');
+  return `monthly-review/${month}.json`;
+}
+
+async function stateHead(github, context) {
+  const repo = context.repo;
+  try {
+    const {data} = await github.rest.git.getRef({...repo, ref:`heads/${STATE_BRANCH}`});
+    return data.object.sha;
+  } catch (e) {
+    if (e.status === 404) return null;
+    throw e;
+  }
+}
+
+async function readJSON(github, context, path, ref) {
+  if (!ref) return null;
+  const repo = context.repo;
+  let file;
+  try {
+    ({data: file} = await github.rest.repos.getContent({...repo, path, ref}));
+  } catch (e) {
+    if (e.status === 404) return null;
+    throw e;
+  }
+  if (file.type !== 'file' || !file.sha) throw new Error('invalid state file');
+  const {data: blob} = await github.rest.git.getBlob({...repo, file_sha:file.sha});
+  if (blob.encoding !== 'base64' || !blob.content) throw new Error('invalid state blob');
+  return JSON.parse(Buffer.from(blob.content, 'base64').toString('utf8'));
+}
+
+async function stateAt(github, context, month, ref) {
+  const data = await readJSON(github, context, statePath(month), ref);
+  if (!data) return null;
+  if (data.month !== month) throw new Error('state month mismatch');
+  ledger.validate(data);
+  makeParts(data);
+  return data;
+}
+
+const sourceHash = data => data ? crypto.createHash('sha256').update(JSON.stringify(data)).digest('hex') : null;
+const metaPath = issueNumber => `monthly-review/issues/${issueNumber}.json`;
+
+async function stateMeta(github, context, issueNumber, ref) {
+  if (!Number.isSafeInteger(issueNumber) || issueNumber <= 0) throw new Error('invalid issue number');
+  const meta = await readJSON(github, context, metaPath(issueNumber), ref);
+  if (meta && (meta.version !== 1 || meta.issue !== issueNumber || !/^\d{4}-(0[1-9]|1[0-2])$/.test(meta.month) || !(meta.legacy_hash === null || /^[0-9a-f]{64}$/.test(meta.legacy_hash)) || !(meta.migration === null || Number.isFinite(Date.parse(meta.migration))))) throw new Error('invalid state metadata');
+  return meta;
+}
+
+async function ensureStateBranch(github, context) {
+  const repo = context.repo;
+  let head = await stateHead(github, context);
+  if (head) return head;
+  const {data: info} = await github.rest.repos.get(repo);
+  const {data: base} = await github.rest.git.getRef({...repo, ref:`heads/${info.default_branch}`});
+  try { await github.rest.git.createRef({...repo, ref:`refs/heads/${STATE_BRANCH}`, sha:base.object.sha}); }
+  catch (e) { if (e.status !== 422) throw e; }
+  head = await stateHead(github, context);
+  if (!head) throw new Error('state branch unavailable');
+  return head;
+}
+
+async function writeState(github, context, data, expected, issueRef, issueNumber) {
+  const repo = context.repo;
+  const head = await ensureStateBranch(github, context);
+  const existing = await stateAt(github, context, data.month, head);
+  let meta = await stateMeta(github, context, issueNumber, head);
+  if (meta && meta.month !== data.month) throw new Error('state issue month mismatch');
+  if (!meta && existing) throw new Error('state exists without matching issue metadata');
+  if (issueRef?.version === 3 && JSON.stringify(existing) !== JSON.stringify(expected)) throw new Error('state changed during update; retry');
+  if (issueRef?.version !== 3 && existing && JSON.stringify(existing) !== JSON.stringify(expected) && JSON.stringify(existing) !== JSON.stringify(data)) throw new Error('legacy migration conflict; reconcile existing state before retry');
+  if (existing && JSON.stringify(existing) === JSON.stringify(data)) return meta;
+  meta ||= {version:1, issue:issueNumber, month:data.month, legacy_hash:sourceHash(expected), migration:issueRef ? new Date().toISOString() : null};
+  const {data: parent} = await github.rest.git.getCommit({...repo, commit_sha:head});
+  const {data: blob} = await github.rest.git.createBlob({...repo, content:Buffer.from(JSON.stringify(data, null, 2) + '\n').toString('base64'), encoding:'base64'});
+  const {data: metaBlob} = await github.rest.git.createBlob({...repo, content:Buffer.from(JSON.stringify(meta) + '\n').toString('base64'), encoding:'base64'});
+  const {data: tree} = await github.rest.git.createTree({...repo, base_tree:parent.tree.sha, tree:[{path:statePath(data.month), mode:'100644', type:'blob', sha:blob.sha},{path:metaPath(issueNumber), mode:'100644', type:'blob', sha:metaBlob.sha}]});
+  const {data: commit} = await github.rest.git.createCommit({...repo, message:`Update monthly review state ${data.month}`, tree:tree.sha, parents:[head]});
+  // A non-fast-forward update fails if another writer advanced the branch.
+  await github.rest.git.updateRef({...repo, ref:`heads/${STATE_BRANCH}`, sha:commit.sha, force:false});
+  return meta;
 }
 
 function makeParts(data, id = crypto.randomBytes(16).toString('hex')) {
@@ -155,24 +248,58 @@ function renderPointer(body, data, parts, published = new Date().toISOString()) 
 }
 
 async function load(github, context, issue) {
-  const ref = pointer(issue.body || '');
+  const bodyRef = pointer(issue.body || '');
   const legacy = ledger.parse(issue.body || '');
-  if (ref && legacy) throw new Error('both legacy ledger and new pointer present');
-  if (!ref) return legacy;
+  if (bodyRef && legacy) throw new Error('both legacy ledger and new pointer present');
   const comments = await github.paginate(github.rest.issues.listComments, {owner: context.repo.owner, repo: context.repo.repo, issue_number: issue.number, per_page: 100});
-  return assemble(ref, comments, issue.body || '');
+  const summaries = comments.filter(c => c.user?.login === 'github-actions[bot]' && (c.body || '').includes('<!-- monthly-ledger-branch-summary -->'));
+  if (summaries.length > 1) throw new Error('duplicate branch summaries');
+  const summaryRef = summaries.length ? pointer(summaries[0].body || '') : null;
+  if (summaries.length && summaryRef?.version !== 3) throw new Error('invalid branch summary');
+  const head = await stateHead(github, context);
+  const meta = await stateMeta(github, context, issue.number, head);
+  if (summaryRef && !meta) throw new Error('branch summary lacks state metadata');
+  if (meta && summaryRef && summaryRef.month !== meta.month) throw new Error('summary month mismatch');
+  if (meta?.legacy_hash && !bodyRef && sourceHash(legacy) !== meta.legacy_hash) throw new Error('legacy inline ledger changed after migration; reconcile before continuing');
+  const ref = summaryRef || (bodyRef?.version === 3 ? bodyRef : null) || (meta ? {version:3, month:meta.month, migration:meta.migration} : null);
+  if (ref?.version === 3) {
+    if (ref.migration) {
+      for (const c of comments) {
+        if (c.user?.login === 'github-actions[bot]' && /<!-- monthly-ledger-part:[0-9a-f]{32}:\d+:\d+ -->/.test(c.body || '') && c.created_at && c.updated_at && Date.parse(c.updated_at) >= Math.floor(Date.parse(ref.migration) / 1000) * 1000 && Date.parse(c.updated_at) > Date.parse(c.created_at) && !(issue.body || '').includes(acknowledgement(c))) throw new Error(`migrated snapshot comment ${c.id} was edited; reconcile and acknowledge its exact contents before continuing`);
+      }
+    }
+    if (!summaryRef && meta) {
+      const old = bodyRef && bodyRef.version !== 3 ? assemble(bodyRef, comments, issue.body || '') : legacy;
+      if (sourceHash(old) !== meta.legacy_hash) throw new Error('legacy source changed during interrupted migration; reconcile before continuing');
+    }
+    const state = await stateAt(github, context, ref.month, head);
+    if (!state) throw new Error('monthly state missing from state branch');
+    return state;
+  }
+  if (bodyRef) return assemble(bodyRef, comments, issue.body || '');
+  return legacy;
 }
 
-async function save(github, context, issue, data, {baseBody = issue.body || '', expected = null} = {}) {
+async function save(github, context, issue, data, {expected = null} = {}) {
   const parts = makeParts(data);
-  const body = renderPointer(baseBody, data, parts);
-  if (Buffer.byteLength(body, 'utf8') > 60000) throw new Error('non-ledger issue text too large');
-  for (const part of parts) await github.rest.issues.createComment({owner: context.repo.owner, repo: context.repo.repo, issue_number: issue.number, body: partBody(part)});
+  const oldRef = pointer(issue.body || '');
+  const oldMarker = `<!-- monthly-ledger-v2:${parts[0].id}:${parts.length}:${data.month} -->`;
+  const branchURL = `https://github.com/${context.repo.owner}/${context.repo.repo}/blob/${STATE_BRANCH}/${statePath(data.month)}`;
   const latest = await github.rest.issues.get({owner: context.repo.owner, repo: context.repo.repo, issue_number: issue.number});
   if (latest.data.body !== issue.body) throw new Error('issue changed while saving ledger; old snapshot remains active');
-  if (expected && JSON.stringify(await load(github, context, latest.data)) !== JSON.stringify(expected)) throw new Error('ledger comments changed during snapshot; old snapshot remains active');
-  await github.rest.issues.update({owner: context.repo.owner, repo: context.repo.repo, issue_number: issue.number, body});
+  if (JSON.stringify(await load(github, context, latest.data)) !== JSON.stringify(expected)) throw new Error('ledger changed during snapshot; retry');
+  const meta = await writeState(github, context, data, expected, oldRef, issue.number);
+  const body = '<!-- monthly-ledger-branch-summary -->\n' + renderPointer('', data, parts)
+    .replace(oldMarker, `<!-- monthly-ledger-v3:${data.month} -->${meta?.migration ? `\n<!-- monthly-ledger-v3-migrated:${meta.migration} -->` : ''}`)
+    .replace(/<!-- monthly-ledger-published:[^ ]+ -->\n/, '')
+    .replace('상세 원장은 아래 봇 댓글의 JSON 조각에 있습니다. 문서별 상태·근거 및 후보 상태·PR은 해당 댓글에서 수정합니다. 이전 스냅샷은 감사 이력으로 남습니다.', `상세 원장: ${branchURL} (Git 이력 보존). 문서별 상태·근거 및 후보 상태·PR은 이 파일에 기록합니다.`);
+  if (Buffer.byteLength(body, 'utf8') > 60000) throw new Error('summary too large');
+  const comments = await github.paginate(github.rest.issues.listComments, {owner: context.repo.owner, repo: context.repo.repo, issue_number: issue.number, per_page: 100});
+  const summaries = comments.filter(c => c.user?.login === 'github-actions[bot]' && (c.body || '').includes('<!-- monthly-ledger-branch-summary -->'));
+  if (summaries.length > 1) throw new Error('duplicate branch summaries');
+  if (summaries.length) await github.rest.issues.updateComment({owner: context.repo.owner, repo: context.repo.repo, comment_id:summaries[0].id, body});
+  else await github.rest.issues.createComment({owner: context.repo.owner, repo: context.repo.repo, issue_number:issue.number, body});
   return parts.length;
 }
 
-module.exports = {pointer, makeParts, partBody, extractPart, assemble, renderPointer, load, save, acknowledgement};
+module.exports = {pointer, makeParts, partBody, extractPart, assemble, renderPointer, load, save, acknowledgement, stateAt, writeState};

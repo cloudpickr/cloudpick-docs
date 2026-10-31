@@ -38,11 +38,10 @@ def main(argv):
     marker = f"<!-- news-map:{rng} -->"
     lines = [
         marker,
-        "## 🔗 새 소식 → 문서 매핑 (축2, 결정론 · 제보 전용)",
+        "## 문서 검토 후보",
         "",
         (
-            "위 새 소식을 반영할 **후보 ko 문서**입니다(토큰·별칭 겹침 기반). "
-            + "'매핑=반영 지시'가 아니며, 공식 출처 확인 후 근거 패킷 PR로 반영합니다."
+            "자동 매핑은 검토 후보입니다. 문서 반영 전 공식 출처를 확인하세요."
         ),
         "",
         f"**요약**: 매핑 {s.get('mapped', 0)} · 미매핑 {s.get('unmapped', 0)}",
@@ -50,17 +49,20 @@ def main(argv):
     ]
     if mapped:
         lines.append("### 반영 후보")
-        for r in mapped[:20]:
+        for r in mapped[:5]:
             lines.append(f"- {r['news']}" + (f"  ({r['url']})" if r.get("url") else ""))
-            for c in r.get("candidates", []):
+            for c in r.get("candidates", [])[:1]:
                 p = c["path"].replace("src/content/docs/ko/", "")
-                lines.append(f"    → `{p}` (score {c['score']})")
+                lines.append(f"    → `{p}`")
+        if len(mapped) > 5:
+            lines.append(f"- 외 {len(mapped) - 5}건은 월간 원장 참조")
     if unmapped:
         lines.append("")
         lines.append(f"### 미매핑 — 기존 범위 밖일 수 있음(반복되면 축3 신설 검토): {len(unmapped)}건")
-        for r in unmapped[:10]:
+        for r in unmapped[:3]:
             lines.append(f"- {r['news']}" + (f"  ({r['url']})" if r.get("url") else ""))
-    lines += ["", "_auto-mapped by `monthly-review.yml` (daily, 결정론) — 판단·반영은 담당자 몫._"]
+        if len(unmapped) > 3:
+            lines.append(f"- 외 {len(unmapped) - 3}건은 월간 원장 참조")
     body = "\n".join(lines)
 
     repo = os.environ.get("GITHUB_REPOSITORY", "")

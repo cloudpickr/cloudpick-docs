@@ -65,14 +65,14 @@ Cost optimization specific to GPU training/inference infrastructure (capacity re
 
 ### AWS FinOps Agent [Preview]
 
-The [AWS FinOps Agent](https://siliconangle.com/2026/06/11/aws-launches-finops-agent-bring-ai-cost-governance-cloud-spend-finopsx/) (in Preview as of October 2026 per the [official docs](https://docs.aws.amazon.com/finops-agent/latest/userguide/what-is.html)), announced at FinOps X in June 2026, uses AI to automatically detect cost anomalies, analyze root causes, and route them to the responsible team via Slack/Jira.
+The [AWS FinOps Agent](https://aws.amazon.com/blogs/aws-cloud-financial-management/aws-finops-agent-is-now-public-preview/), announced in June 2026 and in Public Preview as of October 2026 according to the [official documentation](https://docs.aws.amazon.com/finops-agent/latest/userguide/what-is.html), investigates cost anomalies in response to AWS Cost Anomaly Detection events and delivers investigation reports to Slack or Jira.
 
 | Feature | Description |
 | --- | --- |
-| Anomaly detection | Automatically detects anomalies in daily cost patterns |
-| Root cause analysis | Analyzes which service/tag/region drove the cost spike |
-| Team routing | Automatically sends Slack/Jira notifications to the cost owner |
-| Status | Feature Preview (2026-06) |
+| Anomaly investigation | Investigates cost anomalies from AWS Cost Anomaly Detection events |
+| Root cause analysis | Provides a report analyzing the cause of the cost anomaly |
+| Report delivery | Delivers investigation reports to Slack or Jira |
+| Status | Public Preview (2026-06) |
 
 ## Practical Rollout Order
 

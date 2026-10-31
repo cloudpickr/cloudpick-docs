@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "jira_key": "DOCS-211",
+  "policy_action": "update",
+  "tier_hint": "B",
+  "tier_reasons": [
+    "10월 월간 검토 이슈의 FinOps Agent 상태 후보를 공식 문서로 대조해 이벤트 기반 조사 및 보고서 전달을 정확하게 설명한다.",
+    "비용 이상을 탐지하는 서비스와 조사하는 에이전트의 역할을 구분하고, 비공식 발표 링크를 AWS 공식 발표로 교체한다."
+  ],
+  "target_path": "src/content/docs/ko/governance/finops.md",
+  "changed_paths": [
+    "src/content/docs/ko/governance/finops.md",
+    "src/content/docs/en/governance/finops.md",
+    "src/content/docs/ja/governance/finops.md"
+  ],
+  "generated_by_llm": true,
+  "writer": {"model": "gpt-6", "provider": "openai"},
+  "claim_ledger": [
+    {
+      "claim": "AWS FinOps Agent는 AWS Cost Anomaly Detection 이벤트를 받아 비용 이상을 조사하고, 조사 보고서를 Jira 또는 Slack에 전달할 수 있다.",
+      "source_url": "https://docs.aws.amazon.com/finops-agent/latest/userguide/what-is.html",
+      "quote": "Configure the agent to listen for AWS Cost Anomaly Detection events",
+      "checked_at": "2026-11-01T07:00:00+09:00",
+      "volatile": true,
+      "status": "verified"
+    },
+    {
+      "claim": "AWS FinOps Agent의 퍼블릭 프리뷰는 2026년 6월에 발표되었다.",
+      "source_url": "https://aws.amazon.com/blogs/aws-cloud-financial-management/aws-finops-agent-is-now-public-preview/",
+      "quote": "Today, AWS announces the public preview of AWS FinOps Agent",
+      "checked_at": "2026-11-01T07:00:00+09:00",
+      "volatile": true,
+      "status": "verified"
+    }
+  ]
+}

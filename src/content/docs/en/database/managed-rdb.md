@@ -57,7 +57,11 @@ Standard managed offerings (RDS, Cloud SQL) use the existing DB engine as-is, wi
 | **Replication** | Full data copy to a separate instance | The storage layer itself is multi-AZ replicated |
 | **Adding a read replica** | Requires copying data (slow) | Shares the same storage (fast) |
 | **Failover** | Switch to a standby instance (tens of seconds) | Attach new compute (seconds) |
-| **Capacity** | Disk size pre-specified | Auto-scaling |
+| **Capacity** | Initial disk size specified; auto-scaling available for some products | Auto-scaling |
+
+:::note
+According to the October 2026 announcement, RDS for Oracle and SQL Server can also auto-scale additional storage volumes when a maximum limit is configured. See the [AWS announcement](https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-rds-oracle-sqlserver-autoscaling-additional-storage-volumes/).
+:::
 
 ### Globally distributed DB
 

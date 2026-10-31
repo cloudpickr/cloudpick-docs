@@ -19,9 +19,17 @@
   },
   "claim_ledger": [
     {
-      "claim": "AWS KMS는 2026년 10월 ML-KEM 키 캡슐화·복원 기능을 발표했으며 UAE·바레인·중국 리전은 제외된다.",
+      "claim": "AWS는 2026년 10월 KMS의 ML-KEM 키 캡슐화·복원 기능을 발표했다.",
       "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/10/kms-ml-kem-post-quantum/",
       "quote": "KMS supports all three ML-KEM key specs",
+      "checked_at": "2026-10-31T22:09:18Z",
+      "volatile": true,
+      "status": "verified"
+    },
+    {
+      "claim": "해당 발표는 UAE·바레인·중국 리전을 제공 범위에서 제외한다.",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/10/kms-ml-kem-post-quantum/",
+      "quote": "except the the Middle East (UAE), Middle East (Bahrain), and China Regions",
       "checked_at": "2026-10-31T22:09:18Z",
       "volatile": true,
       "status": "verified"

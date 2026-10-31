@@ -65,13 +65,13 @@ GPU 학습/추론 인프라에 특화된 비용 최적화(용량 예약·스팟�
 
 ### AWS FinOps Agent [Preview]
 
-2026년 6월 공개된 [AWS FinOps Agent](https://aws.amazon.com/blogs/aws-cloud-financial-management/aws-finops-agent-is-now-public-preview/)([공식 문서](https://docs.aws.amazon.com/finops-agent/latest/userguide/what-is.html) 기준 2026년 10월 현재 Public Preview)는 AWS Cost Anomaly Detection의 이벤트를 받아 비용 이상을 조사하고, 조사 보고서를 Slack 또는 Jira로 전달합니다.
+2026년 6월 공개된 [AWS FinOps Agent](https://aws.amazon.com/blogs/aws-cloud-financial-management/aws-finops-agent-is-now-public-preview/)([공식 문서](https://docs.aws.amazon.com/finops-agent/latest/userguide/what-is.html) 기준 2026년 10월 현재 Public Preview)는 AWS Cost Anomaly Detection의 이벤트를 받아 비용 이상을 조사하고, 설정에 따라 조사 보고서를 Slack 또는 Jira로 전달할 수 있습니다.
 
 | 기능 | 설명 |
 | --- | --- |
 | 이상 조사 | AWS Cost Anomaly Detection 이벤트를 받아 비용 이상 조사 |
 | 근본 원인 분석 | 비용 이상의 원인을 분석한 조사 보고서 제공 |
-| 결과 전달 | 조사 보고서를 Slack 또는 Jira로 전달 |
+| 결과 전달 | 선택적으로 조사 보고서를 Slack 또는 Jira로 전달 |
 | 상태 | Public Preview (2026.06) |
 
 ## 실무 적용 순서

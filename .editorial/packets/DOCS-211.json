@@ -14,10 +14,13 @@
     "src/content/docs/ja/governance/finops.md"
   ],
   "generated_by_llm": true,
-  "writer": {"model": "gpt-6", "provider": "openai"},
+  "writer": {
+    "model": "gpt-6",
+    "provider": "openai"
+  },
   "claim_ledger": [
     {
-      "claim": "AWS FinOps Agent는 AWS Cost Anomaly Detection 이벤트를 받아 비용 이상을 조사하고, 조사 보고서를 Jira 또는 Slack에 전달할 수 있다.",
+      "claim": "AWS FinOps Agent는 설정된 AWS Cost Anomaly Detection 이벤트를 받아 비용 이상을 조사한다.",
       "source_url": "https://docs.aws.amazon.com/finops-agent/latest/userguide/what-is.html",
       "quote": "Configure the agent to listen for AWS Cost Anomaly Detection events",
       "checked_at": "2026-11-01T07:00:00+09:00",
@@ -25,9 +28,17 @@
       "status": "verified"
     },
     {
+      "claim": "설정에 따라 조사 결과를 Jira 또는 Slack으로 전달할 수 있다.",
+      "source_url": "https://aws.amazon.com/blogs/aws-cloud-financial-management/aws-finops-agent-is-now-public-preview/",
+      "quote": "Optionally, the agent can deliver the findings",
+      "checked_at": "2026-11-01T07:00:00+09:00",
+      "volatile": true,
+      "status": "verified"
+    },
+    {
       "claim": "AWS FinOps Agent의 퍼블릭 프리뷰는 2026년 6월에 발표되었다.",
       "source_url": "https://aws.amazon.com/blogs/aws-cloud-financial-management/aws-finops-agent-is-now-public-preview/",
-      "quote": "Today, AWS announces the public preview of AWS FinOps Agent",
+      "quote": "public preview of AWS FinOps Agent",
       "checked_at": "2026-11-01T07:00:00+09:00",
       "volatile": true,
       "status": "verified"

@@ -19,13 +19,14 @@ test('monthly issue summary shows recorded PRs and carried work without claiming
 });
 
 function fixture(body) {
-  const state = {body, comments: [], failAt: 0, failIssue: false, changed: false, head:null, blobs:{}, trees:{base:{}}, commits:{base:{tree:{sha:'base'}}}, next:0};
+  const state = {body, comments: [], failAt: 0, failComment: false, changed: false, head:null, blobs:{}, trees:{base:{}}, commits:{base:{tree:{sha:'base'}}}, next:0};
   const notFound = () => Object.assign(new Error('missing'), {status:404});
   const github = {rest:{issues:{
     listComments: {},
-    createComment: async ({body}) => { if (state.failAt && state.comments.length + 1 === state.failAt) throw Error('network failure'); state.comments.push({body, user:{login:'github-actions[bot]'}}); },
+    createComment: async ({body}) => { if (state.failComment) throw Error('comment failed'); state.comments.push({id:10000+state.comments.length,body, user:{login:'github-actions[bot]'}}); },
+    updateComment: async ({comment_id,body}) => { if (state.failComment) throw Error('comment failed'); const c=state.comments.find(c=>c.id===comment_id); if (!c) throw Error('missing comment'); c.body=body; },
     get: async () => ({data:{number:1,body:state.changed ? state.body+' human edit' : state.body}}),
-    update: async ({body}) => {if (state.failIssue) throw Error('issue update failed'); state.body = body;},
+    update: async () => {throw Error('issue body must not be updated');},
   },repos:{
     get:async()=>({data:{default_branch:'master'}}),
     getContent:async({path,ref})=>{const sha=state.trees[state.commits[ref]?.tree.sha]?.[path]; if (!sha) throw notFound(); return {data:{type:'file',sha}};},
@@ -67,13 +68,13 @@ test('state write failure leaves legacy ledger authoritative and retry succeeds'
   const data = ledger.build('2026-10',[path],null,null);
   const {state,github} = fixture(ledger.render('user text',data));
   const issue = {number:1,body:state.body}; state.failAt = 1;
-  await assert.rejects(store.save(github,ctx,issue,data), /network failure/);
+  await assert.rejects(store.save(github,ctx,issue,data,{expected:data}), /network failure/);
   assert.deepEqual(await store.load(github,ctx,issue),data);
   state.failAt = 0;
   await store.save(github,ctx,issue,data,{expected:data});
   assert.ok(state.body.includes('user text'));
-  assert.ok(state.body.includes('monthly-ledger-v3:2026-10'));
-  assert.equal(state.comments.length, 0);
+  assert.ok(state.comments[0].body.includes('monthly-ledger-v3:2026-10'));
+  assert.equal(state.comments.length, 1);
   assert.deepEqual(await store.load(github,ctx,{number:1,body:state.body}),data);
 });
 
@@ -152,7 +153,7 @@ test('state branch preserves concurrent human edits and prior snapshots', async 
   const first = structuredClone(data);
   const human = structuredClone(data); human.documents[0].status='unverified';
   const issue = {number:1,body:state.body};
-  await store.writeState(github,ctx,human,first,store.pointer(issue.body));
+  await store.writeState(github,ctx,human,first,{version:3},1);
   await assert.rejects(store.save(github,ctx,issue,first,{expected:first}), /changed/);
   assert.equal((await store.load(github,ctx,issue)).documents[0].status,'unverified');
   assert.ok(state.commits[state.head].parent.startsWith('commit'));
@@ -167,7 +168,7 @@ test('legacy comment snapshot migrates to branch without losing records', async 
   const issue={number:1,body};
   await store.save(github,ctx,issue,data,{expected:data});
   assert.deepEqual(await store.load(github,ctx,{number:1,body:state.body}),data);
-  assert.equal(state.comments.length,parts.length);
+  assert.equal(state.comments.length,parts.length+1);
   assert.ok(state.body.includes('existing notes'));
   state.comments[0].updated_at='2099-01-01T00:00:00Z';
   await assert.rejects(store.load(github,ctx,{number:1,body:state.body}), /migrated snapshot comment/);
@@ -175,20 +176,21 @@ test('legacy comment snapshot migrates to branch without losing records', async 
   assert.deepEqual(await store.load(github,ctx,{number:1,body:state.body}),data);
 });
 
-test('failed issue update preserves state and permits safe retry of legacy migration', async () => {
+test('failed summary creation preserves state and permits retry with new data', async () => {
   const data=ledger.build('2026-10',[path],null,null);
   const body=ledger.render('human notes',data);
   const {state,github}=fixture(body);
-  state.failIssue=true;
-  await assert.rejects(store.save(github,ctx,{number:1,body},data,{expected:data}), /issue update failed/);
+  state.failComment=true;
+  await assert.rejects(store.save(github,ctx,{number:1,body},data,{expected:data}), /comment failed/);
   assert.deepEqual(await store.stateAt(github,ctx,'2026-10',state.head),data);
   assert.deepEqual(await store.load(github,ctx,{number:1,body:state.body}),data);
-  state.failIssue=false;
-  await store.save(github,ctx,{number:1,body:state.body},data,{expected:data});
-  assert.deepEqual(await store.load(github,ctx,{number:1,body:state.body}),data);
+  state.failComment=false;
+  const next=structuredClone(data); next.documents[0].status='unverified';
+  await store.save(github,ctx,{number:1,body:state.body},next,{expected:data});
+  assert.deepEqual(await store.load(github,ctx,{number:1,body:state.body}),next);
 });
 
-test('branch storage round trips a corpus-sized ledger without issue comments', async () => {
+test('branch storage round trips a corpus-sized ledger with one summary comment', async () => {
   const docs=Array.from({length:119},(_,i)=>`src/content/docs/ko/doc-${i}.md`);
   const rows=Array.from({length:1500},(_,i)=>({path:docs[i%docs.length],axis:2,reason:`release ${i} ${'x'.repeat(50)}`}));
   const data=ledger.build('2026-11',docs,null,null,rows);
@@ -196,7 +198,7 @@ test('branch storage round trips a corpus-sized ledger without issue comments', 
   const {state,github}=fixture('monthly issue');
   await store.save(github,ctx,{number:1,body:state.body},data);
   assert.deepEqual(await store.load(github,ctx,{number:1,body:state.body}),data);
-  assert.equal(state.comments.length,0);
+  assert.equal(state.comments.length,1);
 });
 
 test('a concurrent branch advance cannot be overwritten', async () => {
@@ -212,4 +214,39 @@ test('a concurrent branch advance cannot be overwritten', async () => {
   await assert.rejects(store.save(github,ctx,{number:1,body},data,{expected:data}), /non-fast-forward/);
   assert.equal(state.head,'concurrent');
   assert.equal(state.body,body);
+});
+
+test('a new month remains readable and can be carried over when the first summary fails', async () => {
+  const data=ledger.build('2026-11',[path],null,null,[{path,axis:1,reason:'review'}]);
+  const {state,github}=fixture('human notes');
+  state.failComment=true;
+  await assert.rejects(store.save(github,ctx,{number:1,body:state.body},data), /comment failed/);
+  const recovered=await store.load(github,ctx,{number:1,body:state.body});
+  assert.equal(ledger.build('2026-12',[path],recovered,null).items[0].status,'open');
+  state.failComment=false;
+  const next=structuredClone(recovered); next.documents[0].status='unverified';
+  await store.save(github,ctx,{number:1,body:state.body},next,{expected:recovered});
+  assert.deepEqual(await store.load(github,ctx,{number:1,body:state.body}),next);
+});
+
+test('a person editing the issue body during branch save is never overwritten', async () => {
+  const data=ledger.build('2026-10',[path],null,null);
+  const {state,github}=fixture('original');
+  const create=github.rest.git.createCommit;
+  github.rest.git.createCommit=async args=>{state.body='human update'; return create(args);};
+  await store.save(github,ctx,{number:1,body:'original'},data);
+  assert.equal(state.body,'human update');
+  assert.deepEqual(await store.load(github,ctx,{number:1,body:state.body}),data);
+});
+
+test('a changed legacy source after interrupted migration is not silently discarded', async () => {
+  const data=ledger.build('2026-10',[path],null,null);
+  const body=ledger.render('notes',data);
+  const {state,github}=fixture(body);
+  state.failComment=true;
+  await assert.rejects(store.save(github,ctx,{number:1,body},data,{expected:data}), /comment failed/);
+  const edited=structuredClone(data); edited.documents[0].status='unverified';
+  state.body=ledger.render('notes',edited);
+  await assert.rejects(store.load(github,ctx,{number:1,body:state.body}), /legacy.*changed/);
+  assert.equal((await store.stateAt(github,ctx,'2026-10',state.head)).documents[0].status,'unreviewed');
 });

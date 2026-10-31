@@ -390,15 +390,12 @@ jobs:
             const next = ledger.build(key, paths, previousLedger, currentLedger, candidates, {coverage, rescanned});
             const counts = Object.fromEntries(['unreviewed','scanned','verified','unverified'].map(s => [s, next.documents.filter(d => d.status === s).length]));
             core.info(`ledger ${key}: ${JSON.stringify(counts)}; items=${next.items.length}; previous=${previousLedger ? previousKey : 'unavailable'}`);
-            let baseBody = issue.body || '';
             if (!previousLedger) {
               core.warning('전월 원장 없음: 이전 미완 항목을 자동으로 확인할 수 없습니다. 이전 이슈를 수동 확인하세요.');
-              const note = '<!-- monthly-ledger:previous-unavailable -->';
-              if (!baseBody.includes(note)) baseBody += `\n\n${note}\n⚠️ ${previousKey} 원장이 없어 이전 미완 항목은 자동 이월되지 않았습니다. 이전 월간 이슈를 수동 확인하세요.\n`;
             }
             // Refresh the visible summary even when a maintainer only edited a
             // current snapshot comment since the previous run.
-            await store.save(github, context, issue, next, {baseBody, expected: currentLedger});
+            await store.save(github, context, issue, next, {expected: currentLedger});
 
       - name: Daily — checkout trusted scripts
         if: steps.mode.outputs.action == 'daily' && !cancelled()
@@ -639,7 +636,7 @@ jobs:
             // Commit collection progress only together with successfully mapped candidates.
             const progress = news.apply(attempts.progress, attempts.attempts);
             const next = ledger.build(current.month, current.documents.filter(d => !d.missing_from_inventory).map(d => d.path), null, current, candidates, {news_progress:progress});
-            if (!store.pointer(issue.body || '') || JSON.stringify(current) !== JSON.stringify(next)) await store.save(github, context, issue, next, {expected: current});
+            if (JSON.stringify(current) !== JSON.stringify(next)) await store.save(github, context, issue, next, {expected: current});
       - name: Daily — report mapping failure
         if: steps.mode.outputs.action == 'daily' && steps.news_map.outcome == 'failure' && !cancelled()
         run: exit 1

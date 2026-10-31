@@ -61,7 +61,7 @@ description: "転送中/保存時の暗号化、WAF、ネットワークセキ�
 
 | ベンダー | 状況 | 参考 |
 | --- | --- | --- |
-| AWS | KMSでML-KEMハイブリッドTLSに対応。S3、ACMなどサービス間通信にPQハイブリッド鍵交換を適用中 | [AWS Post-Quantum Cryptography](https://aws.amazon.com/security/post-quantum-cryptography/) |
+| AWS | KMS API接続でECDHとML-KEMを組み合わせたハイブリッドTLSに対応。2026年10月からKMSのML-KEMキーで共有秘密をカプセル化・復元可能（UAE・バーレーン・中国リージョンを除く） | [AWS KMS ML-KEM発表](https://aws.amazon.com/about-aws/whats-new/2026/10/kms-ml-kem-post-quantum/) · [ハイブリッドTLS](https://docs.aws.amazon.com/kms/latest/developerguide/pqtls.html) |
 | Azure | Microsoft Quantum Safe Program。SymCryptライブラリにML-KEM/ML-DSAを実装。TLS 1.3ハイブリッド鍵交換に対応 | [Microsoft Quantum Safe](https://www.microsoft.com/en-us/security/blog/2025/08/20/quantum-safe-security-progress-towards-next-generation-cryptography/) |
 | Google Cloud | Cloud KMSでPQCデジタル署名(ML-DSA・SLH-DSA)がGA、非対称PQCインサイトダッシュボードがGA。量子耐性鍵インポート(ML-KEM/X-Wing)はプレビュー。Chrome/BoringSSLへML-KEMハイブリッドの展開完了 | [Cloud KMSリリースノート](https://cloud.google.com/kms/docs/release-notes) |
 | OCI | OCI VaultなどでPQCアルゴリズムのロードマップを発表。Oracle Database TLSハイブリッドモードなどは公式ロードマップ・リリースノートに基づき確認 (具体的な製品ドキュメントが公開され次第リンクを差し替え) | [Oracle Security](https://www.oracle.com/security/) (総合ハブ。PQC専用ページは公式ドキュメントで確認) |

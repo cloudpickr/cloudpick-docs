@@ -61,7 +61,7 @@ description: "전송 중/저장 시 암호화, WAF, 네트워크 보안을 벤�
 
 | 벤더 | 현황 | 참고 |
 | --- | --- | --- |
-| AWS | KMS에서 ML-KEM 하이브리드 TLS 지원. S3, ACM 등 서비스 간 통신에 PQ 하이브리드 키 교환 적용 중 | [AWS Post-Quantum Cryptography](https://aws.amazon.com/security/post-quantum-cryptography/) |
+| AWS | KMS API 연결에 ECDH와 ML-KEM을 결합한 하이브리드 TLS 지원. 2026년 10월부터 KMS의 ML-KEM 키로 공유 비밀을 캡슐화·복원할 수 있음(아랍에미리트·바레인·중국 리전 제외) | [AWS KMS ML-KEM 발표](https://aws.amazon.com/about-aws/whats-new/2026/10/kms-ml-kem-post-quantum/) · [하이브리드 TLS](https://docs.aws.amazon.com/kms/latest/developerguide/pqtls.html) |
 | Azure | Microsoft Quantum Safe Program. SymCrypt 라이브러리에 ML-KEM/ML-DSA 구현. TLS 1.3 하이브리드 키 교환 지원 | [Microsoft Quantum Safe](https://www.microsoft.com/en-us/security/blog/2025/08/20/quantum-safe-security-progress-towards-next-generation-cryptography/) |
 | Google Cloud | Cloud KMS에서 PQC 디지털 서명(ML-DSA·SLH-DSA) GA, 비대칭 PQC 인사이트 대시보드 GA. 양자내성 키 임포트(ML-KEM/X-Wing)는 프리뷰. Chrome/BoringSSL에 ML-KEM 하이브리드 배포 완료 | [Cloud KMS 릴리스 노트](https://cloud.google.com/kms/docs/release-notes) |
 | OCI | OCI Vault 등에서 PQC 알고리즘 로드맵을 발표. Oracle Database TLS 하이브리드 모드 등은 공식 로드맵·릴리스 노트 기준으로 확인 (구체 제품 문서가 공개되면 링크로 교체) | [Oracle Security](https://www.oracle.com/security/) (일반 허브; PQC 전용 페이지는 공식 문서 확인) |

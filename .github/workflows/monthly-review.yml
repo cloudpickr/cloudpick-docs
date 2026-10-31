@@ -23,7 +23,7 @@ on:
         default: open
 
 permissions:
-  contents: read
+  contents: write # 월간 원장을 전용 브랜치에 버전 관리
   issues: write
 
 concurrency:
@@ -150,6 +150,9 @@ jobs:
       - name: Open — checkout for stale scan
         if: steps.mode.outputs.action == 'open'
         uses: actions/checkout@v5
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          persist-credentials: false
       - name: Open — setup python for stale scan
         if: steps.mode.outputs.action == 'open'
         uses: actions/setup-python@v6
@@ -284,9 +287,9 @@ jobs:
               return;
             }
 
-            const highLines = (data.high || []).map(h =>
+            const highLines = (data.high || []).slice(0, 5).map(h =>
               `  - \`${h.path}:${h.line}\` — ${h.excerpt}`).join("\n");
-            const medLines = (data.medium || []).slice(0, 30).map(m =>
+            const medLines = (data.medium || []).slice(0, 5).map(m =>
               `  - \`${m.path}:${m.line}\` — ${m.excerpt}`).join("\n");
 
             // 2단계 검증 결과(있으면). 문서 내 공식 출처와 대조한 contradicted/unverified.
@@ -295,7 +298,7 @@ jobs:
               const v = JSON.parse(fs.readFileSync('/tmp/verify.json', 'utf8'));
               if (v && v.summary && '${{ steps.stale_verify.outcome }}' === 'success') {
                 const vs = v.summary;
-                const contra = (v.contradicted || []).map(r =>
+                const contra = (v.contradicted || []).slice(0, 5).map(r =>
                   `  - \`${r.path}:${r.line}\` ← ${r.evidence && r.evidence.url ? r.evidence.url : '?'} — ${r.excerpt}`).join("\n");
                 const needHuman = (v.unverified || []).filter(r => r.sub === 'needs-human-source-hunt');
                 verifyBlock = [
@@ -312,18 +315,18 @@ jobs:
 
             const body = [
               `<!-- stale-scan:${year}-${String(month).padStart(2,"0")} -->`,
-              `## 🧭 기존 문서 stale 후보 스캔 (결정론 · advisory)`,
+              `## 기존 문서 검토 후보`,
               ``,
-              `whats-new(새 소식)와 별개로, **기존 ko 문서에 이미 박힌 현행성 의심 서술**을 결정론적으로 제보합니다. '매칭 없음 = 최신'이 아니며, 공식 출처 대조·수정은 담당자의 패킷 PR 몫입니다.`,
+              `기존 문서에서 현행성 확인이 필요한 후보입니다. 자동 탐지는 최신성 검증을 대신하지 않습니다.`,
               ``,
               `**1단계 요약**: HIGH=${s.high} · MEDIUM=${s.medium} · LOW=${s.low} (LOW는 ${s.files_with_low}개 문서)`,
               ``,
-              s.high ? `### HIGH — 마커보다 과거인데 '예정' 미래형\n${highLines}` : `### HIGH — 없음 ✅`,
+              s.high ? `### 지난 시점의 예정 표현 (최대 5건)\n${highLines}` : `지난 시점의 예정 표현 후보 없음.`,
               ``,
-              s.medium ? `### MEDIUM — Preview/Beta 상태어 (상위 30건)\n${medLines}` : `### MEDIUM — 없음`,
+              s.medium ? `### Preview/Beta 상태 확인 (최대 5건)\n${medLines}` : `Preview/Beta 상태 확인 후보 없음.`,
               verifyBlock,
               ``,
-              `_auto-scanned by \`monthly-review.yml\` (open) — 판단·반영은 담당자 몫._`,
+              `전체 후보는 이슈 본문의 월간 원장에서 확인하세요.`,
             ].join("\n");
 
             // 같은 달 stale 코멘트가 이미 있으면 skip(멱등)
@@ -400,6 +403,9 @@ jobs:
       - name: Daily — checkout trusted scripts
         if: steps.mode.outputs.action == 'daily' && !cancelled()
         uses: actions/checkout@v5
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          persist-credentials: false
       - name: Daily — setup python
         if: steps.mode.outputs.action == 'daily' && !cancelled()
         uses: actions/setup-python@v6
@@ -537,12 +543,12 @@ jobs:
                 }
               }
               if (merged.length) {
-                const lines = merged.map((r) => {
+                const lines = merged.slice(0, 3).map((r) => {
                   const t = (r.title || r.original_title || "(untitled)").replace(/\n/g, " ").trim();
                   const d = (r.pub_date || "").slice(0, 10);
                   return `- [${t}](${r.url})${d ? ` _(${d})_` : ""}`;
                 });
-                sections.push(`### ${csp.toUpperCase()} (${merged.length})\n${lines.join("\n")}`);
+                sections.push(`### ${csp.toUpperCase()} ${merged.length}건\n${lines.join("\n")}${merged.length > 3 ? `\n- 외 ${merged.length - 3}건은 월간 원장 참조` : ''}`);
               }
             }
 
@@ -571,13 +577,12 @@ jobs:
               errors.length ? `<!-- wnk-daily-partial:${dateKst} -->` : `${marker}`,
               `## 🔔 벤더 새 소식 — ${d1}–${d0} 및 미수집 날짜 복구 (UTC) · whats-new.cloud`,
               ``,
-              `아래는 AWS·GCP·Azure·OCI의 UTC 전일·당일과 과거 미수집 날짜를 조회한 결과입니다(whats-new.cloud MCP, 벤더 영문 원문).`,
-              `cloudpick-docs 문서에 영향 있는 항목만 교차검증 후 현행화 PR로 반영하고, 반영한 항목은 상단 "이번 달 수집된 새 소식"에 정리하세요. 전부가 문서 반영 대상은 아닙니다.`,
+              `수집 ${allItems.length}건 · ${errors.length ? `수집 실패 ${errors.length}건` : '수집 실패 없음'}. 각 벤더의 일부만 표시합니다.`,
+              `관련 문서와 전체 후보는 월간 원장을 확인하세요. 문서 반영 전 공식 출처 확인이 필요합니다.`,
               ``,
               sections.join("\n\n"),
               errors.length ? `\n> ⚠️ 일부 수집 실패: ${errors.join("; ")}` : ``,
               ``,
-              `_auto-collected by \`monthly-review.yml\` (daily) — 사실성·관련성 판단은 담당자 몫._`,
             ].join("\n");
 
             const partialMarker = `<!-- wnk-daily-partial:${dateKst} -->`;

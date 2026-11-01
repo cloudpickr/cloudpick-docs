@@ -11,7 +11,7 @@ Manage the background server with `astro dev stop`, `astro dev status`, and `ast
 ## Multi-Agent Governance Protocol
 
 본 리포지토리의 문서 관리와 확장은 5개 에이전트의 협업 체계로 운영됩니다.
-- **참여 에이전트**: `codex`, `claude`, `kiro`, `grok`, `gemini`
+- **참여 에이전트**: `codex`, `claude`, `cursor`, `grok`, `gemini`
 - **분류/구조 변경 의결 규칙**:
   - 문서 분류 추가(새 카테고리, 도메인 신설, 사이드바 구조 개편, 신규 토픽 생성 등)는 반드시 다른 에이전트들과의 검토를 거쳐 **과반수 찬성(5개 에이전트 중 3표 이상)**을 획득해야 머지할 수 있습니다.
   - 테스트/임시 문서(예: `automation-trigger-test.md`)를 정식 문서로 승격하거나 사이드바에 편입할 때도 동일한 과반 찬성 절차가 적용됩니다.

@@ -130,6 +130,10 @@ For cases where content protection is critical, such as paid video streaming, co
 - **Google Cloud Cloud CDN** — Configuration is simple, enabled with a single checkbox on Cloud Load Balancing. Cache invalidation propagates within seconds.
 - **OCI** — Instead of its own CDN service, it supports global distribution through partnerships with specialized CDNs like Akamai and Fastly. Edge Services provides WAF and DDoS protection.
 
+:::note
+As of the Azure update on October 29, 2026 (id 578681), rules 500100 (anomalously high client request rates) and 500110 (addresses that Microsoft Threat Intelligence classifies as bots) in the HTTP DDoS ruleset (`Microsoft_HTTPDDoSRuleSet_1.0`) for Azure Front Door Premium WAF are generally available. Country and region rules 500310 and 500320 are in preview. The ruleset applies to Front Door Premium, and the default action is Log. This item was reviewed on November 1, 2026.
+:::
+
 ## Global Network Accelerator
 
 A CDN **caches** content to deliver it quickly, but workloads that can't be cached (game servers, IoT, real-time APIs) need a **network accelerator**. An accelerator terminates the TCP/TLS connection at the edge without caching and forwards it to the origin over the vendor backbone network to reduce latency.
@@ -200,6 +204,8 @@ You can run code at the CDN edge to transform requests/responses, or handle simp
 
 - [Azure Front Door Documentation](https://learn.microsoft.com/ko-kr/azure/frontdoor/)
 - [Azure CDN Documentation](https://learn.microsoft.com/ko-kr/azure/cdn/)
+- [HTTP DDoS ruleset for Front Door WAF](https://learn.microsoft.com/en-us/azure/web-application-firewall/afds/http-ddos-ruleset)
+- [Azure update 578681: HTTP DDoS ruleset for Front Door Premium WAF](https://azure.microsoft.com/en-us/updates?id=578681)
 
 ### Google Cloud
 

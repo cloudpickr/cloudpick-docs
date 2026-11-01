@@ -77,7 +77,7 @@ description: "벤더별 AI 플랫폼, 모델 카탈로그, GPU/AI 칩, Applied A
 | 모델 제공사 | 주요 모델 | 1P (직접) | 3P (클라우드 제공) |
 | --- | --- | --- | --- |
 | **OpenAI** | GPT-6 계열(Astra 플래그십 / Sol 중급 / Luna 저비용), GPT-5.6, o-시리즈 | [api.openai.com](https://platform.openai.com/) | Azure Foundry, Bedrock |
-| **Anthropic** | Claude Fable 5.1, Opus 5.5, Sonnet 5, Haiku 5.5 | [api.anthropic.com](https://platform.claude.com/) | Bedrock, Vertex AI |
+| **Anthropic** | Claude Fable 5.1, Opus 5.5, Sonnet 5.5, Haiku 5.5 | [api.anthropic.com](https://platform.claude.com/) | Bedrock, Vertex AI, Foundry |
 | **Google** | Gemini 3.x 세대 (Pro/Flash — 세대·변형·Preview/GA는 [공식 문서](https://ai.google.dev/) 확인), Gemini Omni | [Gemini API](https://ai.google.dev/) | Vertex AI (네이티브) |
 | **SpaceXAI (구 xAI)** | Grok 4.7, Grok Imagine | [x.ai/api](https://x.ai/api) | OCI, Vertex AI, Bedrock, Azure |
 | **Moonshot AI** | Kimi K3 (오픈웨이트, 멀티모달) | [platform.moonshot.ai](https://platform.moonshot.ai/) | Bedrock, OCI(임포트), 셀프호스팅 |
@@ -175,7 +175,7 @@ AI 시스템의 7단계 전 수명주기(AI System Life Cycle), 대상 페르소
 | 2026.04 | **OpenAI-Microsoft 독점 종료** | OpenAI 모델을 Azure 외 플랫폼에서도 제공 가능 |
 | 2026.04 | **OpenAI 모델 → Bedrock 제공 시작** | 독점 종료 직후 GPT-5.x가 Bedrock에 등장 |
 | 2025-2026 | **SpaceXAI(구 xAI) Grok 멀티클라우드 확산** | Azure AI Foundry(2025.09), Vertex AI, OCI, Bedrock(Grok 4.7, GovCloud 2026.10 포함) |
-| 2025-2026 | **Anthropic Claude 채널 강화** | 기존 Bedrock/Vertex에 더해 OCI 등 추가 채널 |
+| 2025-2026 | **Anthropic Claude 채널 강화** | Bedrock/Vertex에 더해 Microsoft Foundry에서도 제공 |
 | 2026.09 | **플래그십 세대 교체 물결** | OpenAI GPT-6 계열(Astra/Sol/Luna), Anthropic Opus 5.5가 API·Bedrock·Vertex·Foundry로 확산 |
 
 **운영 시사점:**

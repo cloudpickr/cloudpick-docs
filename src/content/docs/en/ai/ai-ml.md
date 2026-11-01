@@ -73,7 +73,7 @@ Decision models suit tasks where the decision space is clearly enumerated — cl
 | Provider | Key Models | 1P (Direct) | 3P (Cloud-hosted) |
 | --- | --- | --- | --- |
 | **OpenAI** | GPT-6 family (Astra flagship / Sol mid / Luna low-cost), GPT-5.6, o-series | [api.openai.com](https://platform.openai.com/) | Azure Foundry, Bedrock |
-| **Anthropic** | Claude Fable 5.1, Opus 5.5, Sonnet 5, Haiku 5.5 | [api.anthropic.com](https://platform.claude.com/) | Bedrock, Vertex AI |
+| **Anthropic** | Claude Fable 5.1, Opus 5.5, Sonnet 5.5, Haiku 5.5 | [api.anthropic.com](https://platform.claude.com/) | Bedrock, Vertex AI, Foundry |
 | **Google** | Gemini 3.x generation (Pro/Flash — check [official docs](https://ai.google.dev/) for generation/variant and Preview/GA status), Gemini Omni | [Gemini API](https://ai.google.dev/) | Vertex AI (native) |
 | **SpaceXAI (formerly xAI)** | Grok 4.7, Grok Imagine | [x.ai/api](https://x.ai/api) | OCI, Vertex AI, Bedrock, Azure |
 | **Moonshot AI** | Kimi K3 (open-weight, multimodal) | [platform.moonshot.ai](https://platform.moonshot.ai/) | Bedrock, OCI (import), self-host |
@@ -167,7 +167,7 @@ Physical AI — connecting AI to the physical world of sensors, robots, and equi
 | **OpenAI-Microsoft exclusivity ended (2026.04)** | OpenAI models available on non-Azure platforms |
 | **OpenAI → Bedrock (2026.04)** | GPT-5.x available on Bedrock post-exclusivity |
 | **SpaceXAI (formerly xAI) Grok multicloud expansion** | Available on Azure, Vertex AI, OCI, Bedrock (Grok 4.7, including GovCloud in 2026.10) |
-| **Anthropic Claude channel expansion** | Beyond Bedrock/Vertex to additional channels |
+| **Anthropic Claude channel expansion** | Available on Microsoft Foundry in addition to Bedrock/Vertex |
 | **Flagship generation refresh (2026.09)** | OpenAI GPT-6 family (Astra/Sol/Luna) and Anthropic Opus 5.5 rolling out across API, Bedrock, Vertex, and Foundry |
 
 ## Inference Cost Optimization

@@ -149,8 +149,9 @@ jobs:
           if grep -q -- "--link-refresh-repo" <<< "$GATE_HELP"; then
             LINK_DIFF_ARGS+=(--link-refresh-repo "$GITHUB_WORKSPACE")
             # git objects are data only: never check out or execute PR head code.
+            # link-refresh·marker-refresh 모두 base/head 전체 파일 검증이 필요하므로 head 객체를 fetch한다.
             if [ '${{ steps.fetch.outputs.packet_arg }}' != 'none' ] &&
-               python3 -c 'import json,sys; sys.exit(0 if json.load(open(sys.argv[1])).get("policy_action") == "link-refresh" else 1)' '${{ steps.fetch.outputs.packet_arg }}'; then
+               python3 -c 'import json,sys; sys.exit(0 if json.load(open(sys.argv[1])).get("policy_action") in ("link-refresh","marker-refresh") else 1)' '${{ steps.fetch.outputs.packet_arg }}'; then
               git cat-file -e "${PR_HEAD_SHA}^{commit}" 2>/dev/null ||
                 git fetch --no-tags origin "$PR_HEAD_SHA" ||
                 echo "::warning::Cannot fetch PR head object; full-file verification will hold."

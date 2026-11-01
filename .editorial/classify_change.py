@@ -107,6 +107,24 @@ def _packet_is_link_refresh(packet) -> bool:
     return (packet.get("policy_action") or "") == "link-refresh"
 
 
+def _packet_is_marker_refresh(packet) -> bool:
+    """마커 현행화 PR의 빈 claim_ledger를 'marker-refresh(사실 주장 없음)'로 인정하는지 판정.
+
+    marker-refresh는 리뷰 기준 마커(`> 문서 기준:` 등)의 월 토큰만 승격하므로 새 사실
+    주장이 없어 claim_ledger가 비어도 정당하다. 자격은 policy_action=="marker-refresh"
+    '단일 필드'로만 부여하며 claim_ledger는 실제로 비어 있어야 한다.
+
+    link-refresh와 동형으로, 이 자격은 '마커 외 바이트 불변'을 전수 증명하는 결정론
+    가드(scripts/marker-refresh-guard.py)를 CI에서 강제하는 것과 짝을 이룬다. 가드는
+    라벨이 아니라 패킷의 marker-refresh 자격에서 파생된다(docs-quality.yml).
+    """
+    if not isinstance(packet, dict):
+        return False
+    if packet.get("claim_ledger"):
+        return False
+    return (packet.get("policy_action") or "") == "marker-refresh"
+
+
 def _packet_is_legal_b(packet) -> bool:
     """레벨링 PR의 빈 claim_ledger를 'legal B(사실 주장 없음)'로 인정하는지 판정.
 
@@ -202,6 +220,8 @@ def classify(
     a_blockers = []
     if isinstance(packet, dict) and packet.get("policy_action") == "link-refresh":
         a_blockers.append("link-refresh requires C guard and review")
+    if isinstance(packet, dict) and packet.get("policy_action") == "marker-refresh":
+        a_blockers.append("marker-refresh requires C guard and review")
     if generated_by_llm:
         a_blockers.append("generated_by_llm=true → minimum B")
     if has_claims:
@@ -222,6 +242,17 @@ def classify(
         return Classification(
             "C",
             ["link-refresh requires human approval: redirect equivalence is not guaranteed"]
+            + a_blockers + risk_paths,
+            escalated_from="B",
+        )
+
+    # 마커 현행화(월 토큰 승격)도 최신성 '사실 주장'이므로 사람 승인(C)을 요구한다.
+    # 결정론 가드가 '마커 외 바이트 불변'을 증명하지만, 월 승격 자체의 정당성(실제로
+    # 해당 문서를 그 월에 리뷰했는가)은 사람이 확인한다. link-refresh와 동형으로 C 고정.
+    if isinstance(packet, dict) and packet.get("policy_action") == "marker-refresh":
+        return Classification(
+            "C",
+            ["marker-refresh requires human approval: baseline-month promotion is a currency claim"]
             + a_blockers + risk_paths,
             escalated_from="B",
         )

@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "jira_key": "DOCS-282",
+  "policy_action": "update",
+  "tier_hint": "B",
+  "tier_reasons": [
+    "10월 공식 발표를 기존 보안 문서에 반영하고 전송 TLS와 KMS 키의 ML-KEM 기능을 구별한다."
+  ],
+  "target_path": "src/content/docs/ko/security/data-protection.md",
+  "changed_paths": [
+    "src/content/docs/ko/security/data-protection.md",
+    "src/content/docs/en/security/data-protection.md",
+    "src/content/docs/ja/security/data-protection.md"
+  ],
+  "generated_by_llm": true,
+  "writer": {
+    "model": "gpt-6",
+    "provider": "openai"
+  },
+  "claim_ledger": [
+    {
+      "claim": "AWS는 2026년 10월 KMS의 ML-KEM 키 캡슐화·복원 기능을 발표했다.",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/10/kms-ml-kem-post-quantum/",
+      "quote": "KMS supports all three ML-KEM key specs",
+      "checked_at": "2026-10-31T22:09:18Z",
+      "volatile": true,
+      "status": "verified"
+    },
+    {
+      "claim": "해당 발표는 UAE·바레인·중국 리전을 제공 범위에서 제외한다.",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/10/kms-ml-kem-post-quantum/",
+      "quote": "except the the Middle East (UAE), Middle East (Bahrain), and China Regions",
+      "checked_at": "2026-10-31T22:09:18Z",
+      "volatile": true,
+      "status": "verified"
+    },
+    {
+      "claim": "AWS KMS API의 하이브리드 TLS 키 교환은 ECDH와 ML-KEM을 결합한다.",
+      "source_url": "https://docs.aws.amazon.com/kms/latest/developerguide/pqtls.html",
+      "quote": "combines Elliptic Curve Diffie-Hellman (ECDH) with ML-KEM",
+      "checked_at": "2026-10-31T22:09:18Z",
+      "volatile": true,
+      "status": "verified"
+    },
+    {
+      "claim": "Amazon S3는 일부 엔드포인트를 제외하고 클라이언트와 S3 엔드포인트 사이의 하이브리드 PQ-TLS를 지원한다.",
+      "source_url": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingEncryptionInTransit.PQ-TLS.html",
+      "quote": "Hybrid post-quantum TLS is supported for all S3 endpoints except",
+      "checked_at": "2026-10-31T22:17:00Z",
+      "volatile": true,
+      "status": "verified"
+    }
+  ]
+}

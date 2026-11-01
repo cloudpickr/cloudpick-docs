@@ -65,14 +65,14 @@ GPU学習/推論インフラに特化したコスト最適化（容量予約・�
 
 ### AWS FinOps Agent [Preview]
 
-2026年6月のFinOps Xで発表された[AWS FinOps Agent](https://siliconangle.com/2026/06/11/aws-launches-finops-agent-bring-ai-cost-governance-cloud-spend-finopsx/)([公式ドキュメント](https://docs.aws.amazon.com/finops-agent/latest/userguide/what-is.html)に基づき2026年10月現在プレビュー)は、コストの異常をAIが自動検知し、根本原因を分析して担当チームにSlack/Jiraでルーティングします。
+2026年6月に発表された[AWS FinOps Agent](https://aws.amazon.com/blogs/aws-cloud-financial-management/aws-finops-agent-is-now-public-preview/)（[公式ドキュメント](https://docs.aws.amazon.com/finops-agent/latest/userguide/what-is.html)に基づき2026年10月現在パブリックプレビュー）は、AWS Cost Anomaly Detectionのイベントを受けてコスト異常を調査し、設定に応じて調査レポートをSlackまたはJiraに送付できます。
 
 | 機能 | 説明 |
 | --- | --- |
-| 異常検知 | 日次のコストパターンから異常を自動検知 |
-| 根本原因分析 | どのサービス/タグ/リージョンでコストが急増したかを分析 |
-| チームルーティング | コストオーナーへSlack/Jira通知を自動送信 |
-| ステータス | Feature Preview（2026年6月） |
+| 異常調査 | AWS Cost Anomaly Detectionのイベントを受けてコスト異常を調査 |
+| 根本原因分析 | コスト異常の原因を分析した調査レポートを提供 |
+| 結果の送付 | 調査レポートを必要に応じてSlackまたはJiraに送付 |
+| ステータス | Public Preview（2026年6月） |
 
 ## 実務適用の手順
 

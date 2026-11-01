@@ -3,7 +3,7 @@ title: "GDPR and Data Sovereignty"
 description: "Covers the GDPR cross-border transfer framework, the EU Data Boundary, a comparison of sovereign cloud options, and the state of the EUCS certification scheme."
 ---
 
-> Last reviewed: September 2026
+> Last reviewed: October 2026
 
 ## Overview
 

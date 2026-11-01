@@ -3,7 +3,7 @@ title: "Japan's AI Policy and Domestic Model Landscape"
 description: "Covers Japan's AI Act (AI推進法) and AI Basic Plan, the Ministry of Economy, Trade and Industry's GENIAC program, the domestic LLM landscape (NTT tsuzumi, NEC cotomi, PFN PLaMo, and others), and the government procurement channel Gennai (源内)."
 ---
 
-> Last reviewed: September 2026
+> Last reviewed: October 2026
 
 ## Overview
 

@@ -3,7 +3,7 @@ title: Vector Stores and Embeddings
 description: Vector store concepts, vendor comparison, and embedding model selection.
 ---
 
-> Last reviewed: September 2026
+> Last reviewed: October 2026
 
 ## Overview
 

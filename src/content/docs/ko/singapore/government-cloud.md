@@ -3,7 +3,7 @@ title: "정부 클라우드 (GCC·IM8·SGTS)"
 description: "싱가포르 정부 클라우드 체계 — GCC(Government Commercial Cloud)의 구조와 GCC+, IM8 보안 정책 개혁, SG Tech Stack, 정부 조달 참여 요건을 정리합니다."
 ---
 
-> 문서 기준: 2026년 9월
+> 문서 기준: 2026년 10월
 
 ## 개요
 

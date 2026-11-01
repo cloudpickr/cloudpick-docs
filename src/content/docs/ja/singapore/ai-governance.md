@@ -3,7 +3,7 @@ title: "AIガバナンス"
 description: "シンガポールAIガバナンス体系 — NAIS 2.0国家AI戦略、Model AI Governance Framework、AI Verify、IMDAのツール中心アプローチ、PDPAとの関係、ASEAN・東南アジア連携を整理します。"
 ---
 
-> 文書基準: 2026年9月
+> 文書基準: 2026年10月
 
 ## 概要
 

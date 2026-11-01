@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "jira_key": "DOCS-291",
+  "policy_action": "marker-refresh",
+  "tier_hint": "C",
+  "tier_reasons": [
+    "2026년 10월 리뷰 사이클에서 수정된 27개 논리 문서(ko/en/ja 81파일)의 리뷰 기준 마커를 2026년 9월→10월로 승격한다. 마커 라인의 월 토큰만 바뀌며 본문 사실 서술은 불변이다(marker-refresh-guard가 재구성 매칭으로 전수 증명).",
+    "새 사실 주장이 없어 claim_ledger는 비어 있다. 전수 완전성은 marker_refresh.manifest_sha256(81개 경로 전체 + from/to month + base_sha 해시)로 보증하며 CI가 재계산 대조한다.",
+    "모든 marker-refresh는 C다. 월 승격은 최신성 주장이므로 사람 승인을 요구하며, 이 패킷의 자기신고로 승인·머지를 대신하지 않는다. Refs #288."
+  ],
+  "target_path": "src/content/docs/ko/about-cloud/getting-started.md",
+  "changed_paths": [
+    "src/content/docs/ko/about-cloud/getting-started.md",
+    "src/content/docs/ko/about-cloud/regions-and-zones.md",
+    "src/content/docs/ko/ai/agents.md",
+    "src/content/docs/ko/ai/ai-ml.md",
+    "src/content/docs/ko/ai/lifecycle.md",
+    "src/content/docs/ko/ai/physical-ai/data-and-training.md",
+    "src/content/docs/ko/ai/physical-ai/deploy-and-operate.md",
+    "src/content/docs/ko/ai/vector-store.md",
+    "src/content/docs/ko/compute/containers.md",
+    "src/content/docs/ko/devops/observability.md",
+    "src/content/docs/ko/eu/gdpr-sovereignty.md",
+    "src/content/docs/ko/eu/nis2-ai-act.md",
+    "src/content/docs/ko/eu/sovereign-ai.md",
+    "src/content/docs/ko/governance/finops.md",
+    "src/content/docs/ko/governance/landing-zone.md",
+    "src/content/docs/ko/japan/ai-landscape.md",
+    "src/content/docs/ko/japan/government-cloud.md",
+    "src/content/docs/ko/networking/cdn.md",
+    "src/content/docs/ko/security/ai-security.md",
+    "src/content/docs/ko/security/data-protection.md",
+    "src/content/docs/ko/security/network-isolation.md",
+    "src/content/docs/ko/singapore/ai-governance.md",
+    "src/content/docs/ko/singapore/government-cloud.md",
+    "src/content/docs/ko/singapore/mtcs.md",
+    "src/content/docs/ko/singapore/pdpa.md",
+    "src/content/docs/ko/us/hipaa.md",
+    "src/content/docs/ko/us/itar.md"
+  ],
+  "generated_by_llm": false,
+  "claim_ledger": [],
+  "marker_refresh": {
+    "from_month": {
+      "ko": "2026년 9월",
+      "en": "September 2026",
+      "ja": "2026年9月"
+    },
+    "to_month": {
+      "ko": "2026년 10월",
+      "en": "October 2026",
+      "ja": "2026年10月"
+    },
+    "manifest_sha256": "0e4b940c089cffb13f39d3b4837c88b3f95962711c728b387de7233a1b4f02d9",
+    "changed_paths_count": 81
+  }
+}

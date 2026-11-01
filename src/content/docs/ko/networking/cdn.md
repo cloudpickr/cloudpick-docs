@@ -204,8 +204,8 @@ CDN 엣지에서 코드를 실행하여 요청/응답을 변환하거나, 간단
 
 - [Azure Front Door 문서](https://learn.microsoft.com/ko-kr/azure/frontdoor/)
 - [Azure CDN 문서](https://learn.microsoft.com/ko-kr/azure/cdn/)
-- [Front Door WAF의 HTTP DDoS 규칙 집합](https://learn.microsoft.com/en-us/azure/web-application-firewall/afds/http-ddos-ruleset)
-- [Azure 업데이트 578681: Front Door Premium WAF의 HTTP DDoS 규칙 집합](https://azure.microsoft.com/en-us/updates?id=578681)
+- [Front Door WAF의 HTTP DDoS 규칙 집합](https://learn.microsoft.com/azure/web-application-firewall/afds/http-ddos-ruleset)
+- [Azure 업데이트 578681: Front Door Premium WAF의 HTTP DDoS 규칙 집합](https://azure.microsoft.com/updates?id=578681)
 
 ### Google Cloud
 

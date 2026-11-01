@@ -204,8 +204,8 @@ You can run code at the CDN edge to transform requests/responses, or handle simp
 
 - [Azure Front Door Documentation](https://learn.microsoft.com/ko-kr/azure/frontdoor/)
 - [Azure CDN Documentation](https://learn.microsoft.com/ko-kr/azure/cdn/)
-- [HTTP DDoS ruleset for Front Door WAF](https://learn.microsoft.com/en-us/azure/web-application-firewall/afds/http-ddos-ruleset)
-- [Azure update 578681: HTTP DDoS ruleset for Front Door Premium WAF](https://azure.microsoft.com/en-us/updates?id=578681)
+- [HTTP DDoS ruleset for Front Door WAF](https://learn.microsoft.com/azure/web-application-firewall/afds/http-ddos-ruleset)
+- [Azure update 578681: HTTP DDoS ruleset for Front Door Premium WAF](https://azure.microsoft.com/updates?id=578681)
 
 ### Google Cloud
 

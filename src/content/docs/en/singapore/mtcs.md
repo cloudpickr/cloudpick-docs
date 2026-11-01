@@ -3,7 +3,7 @@ title: "MTCS (Multi-Tier Cloud Security Standard)"
 description: "Covers the tier system, operating bodies, hyperscaler certification status, and additional financial-sector requirements of Singapore's MTCS (SS 584) cloud security standard."
 ---
 
-> Last reviewed: September 2026
+> Last reviewed: October 2026
 
 ## Overview
 

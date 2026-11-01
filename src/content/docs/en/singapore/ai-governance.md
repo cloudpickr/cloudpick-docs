@@ -3,7 +3,7 @@ title: "AI Governance"
 description: "Covers Singapore's AI governance framework — the NAIS 2.0 national AI strategy, the Model AI Governance Framework, AI Verify, IMDA's tools-first approach, the relationship with the PDPA, and ASEAN/Southeast Asia connections."
 ---
 
-> Last reviewed: September 2026
+> Last reviewed: October 2026
 
 ## Overview
 

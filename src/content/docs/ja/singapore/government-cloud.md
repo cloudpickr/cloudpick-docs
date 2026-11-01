@@ -3,7 +3,7 @@ title: "政府クラウド (GCC・IM8・SGTS)"
 description: "シンガポール政府クラウド体系 — GCC(Government Commercial Cloud)の構造とGCC+、IM8セキュリティ政策改革、SG Tech Stack、政府調達参加要件を整理します。"
 ---
 
-> 文書基準: 2026年9月
+> 文書基準: 2026年10月
 
 ## 概要
 

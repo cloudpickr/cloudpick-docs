@@ -3,7 +3,7 @@ title: "NIS2 + EU AI Act"
 description: "NIS2의 사이버보안·인시던트 보고 의무와 EU AI Act 시행 타임라인, 2026.8.2 제50조 투명성 의무 발효와 Digital Omnibus에 따른 고위험 AI 의무 연기를 정리합니다."
 ---
 
-> 문서 기준: 2026년 9월
+> 문서 기준: 2026년 10월
 
 ## 개요
 

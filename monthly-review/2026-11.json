@@ -2995,7 +2995,7 @@
         "paths": [
           "src/content/docs/ko/ai/agents.md"
         ],
-        "checked_at": "2026-10-31T05:51:00Z",
+        "checked_at": "2026-11-01T06:15:13Z",
         "status": "unverified",
         "hash": "dc7fc249911468c4dc00fc4eb92b1c0d611070787422d5a6d767fc3b925fee20",
         "final_url": "https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/",
@@ -3005,7 +3005,7 @@
         "paths": [
           "src/content/docs/ko/singapore/mtcs.md"
         ],
-        "checked_at": "2026-10-31T05:51:00Z",
+        "checked_at": "2026-11-01T06:15:13Z",
         "status": "unverified",
         "hash": "635b02875de69e3cc1de1579b70facd5f4c19edf127bd2e3769e8a92f70b360b",
         "final_url": "https://abs.org.sg/docs/library/abs-ospar-guidelines-v2-0.pdf",
@@ -3015,7 +3015,7 @@
         "paths": [
           "src/content/docs/ko/ai/agents.md"
         ],
-        "checked_at": "2026-10-31T05:51:00Z",
+        "checked_at": "2026-11-01T06:15:13Z",
         "status": "unverified",
         "hash": "279273094623330fe250f2984391cac02002276942f6d2dbd8537e495fae1bdf",
         "final_url": "https://www.ag2.ai/",
@@ -3025,7 +3025,7 @@
         "paths": [
           "src/content/docs/ko/ai/getting-started.md"
         ],
-        "checked_at": "2026-10-31T05:51:00Z",
+        "checked_at": "2026-11-01T06:15:13Z",
         "status": "unverified",
         "hash": "ae0f8a0945b3d1cf6945ebf983706906940024c6f02864250619be546f2c10a2",
         "final_url": "https://ai.azure.com/",
@@ -3065,7 +3065,7 @@
         "paths": [
           "src/content/docs/ko/singapore/ai-governance.md"
         ],
-        "checked_at": "2026-10-31T05:51:00Z",
+        "checked_at": "2026-11-01T06:15:13Z",
         "status": "unverified",
         "hash": "861c9baae1bb9420d984be6abe0a5a19d6b07730363337bf8a901ea68a37c87d",
         "final_url": "https://aiverifyfoundation.sg/resources/mgf-gen-ai/",
@@ -3085,7 +3085,7 @@
         "paths": [
           "src/content/docs/ko/devops/devsecops.md"
         ],
-        "checked_at": "2026-10-31T05:51:00Z",
+        "checked_at": "2026-11-01T06:15:13Z",
         "status": "unverified",
         "hash": "6ce84a59d0c606ad8c2c2b3d3703944b3097b677f6a9c36c22154de4e3295152",
         "final_url": "https://aquasecurity.github.io/tfsec/",
@@ -3105,7 +3105,7 @@
         "paths": [
           "src/content/docs/ko/ai/llmops.md"
         ],
-        "checked_at": "2026-10-31T05:51:00Z",
+        "checked_at": "2026-11-01T06:15:13Z",
         "status": "unverified",
         "hash": "84e61b481a6f8d7a78ec8093dce057a9e2b06a9ea80957e5c3766d9b595ef09c",
         "final_url": "https://arize.com/",
@@ -3175,7 +3175,7 @@
         "paths": [
           "src/content/docs/ko/devops/observability.md"
         ],
-        "checked_at": "2026-10-31T05:51:00Z",
+        "checked_at": "2026-11-01T06:15:13Z",
         "status": "unverified",
         "hash": "b472569757f991e0df0919150abea62828a7651cc991dfcabea1158bc12ba1fe",
         "final_url": "https://aws-otel.github.io/",
@@ -3221,6 +3221,26 @@
         "hash": "0733080b8b43bb245e1ce5dae9d1165d15ad639fd06ad3ac467892f7316161a7",
         "final_url": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-quick-always-on-agents-sharper-feed-enterprise-controls/",
         "hash_kind": "visible-v1"
+      },
+      "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-rds-oracle-sqlserver-autoscaling-additional-storage-volumes/": {
+        "paths": [
+          "src/content/docs/ko/database/managed-rdb.md"
+        ],
+        "checked_at": "2026-11-01T06:15:13Z",
+        "status": "observed",
+        "hash": "363dd7dbe2805d4fbe772097c2a03c42414b1c1db3a4d75f8b27440cb6b36e3a",
+        "hash_kind": "visible-v1",
+        "final_url": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-rds-oracle-sqlserver-autoscaling-additional-storage-volumes/"
+      },
+      "https://aws.amazon.com/about-aws/whats-new/2026/10/kms-ml-kem-post-quantum/": {
+        "paths": [
+          "src/content/docs/ko/security/data-protection.md"
+        ],
+        "checked_at": "2026-11-01T06:15:13Z",
+        "status": "observed",
+        "hash": "923f7a2ed0d3d5f3960d0212491a456ce071e795283e55060c4a7efd58132c7b",
+        "hash_kind": "visible-v1",
+        "final_url": "https://aws.amazon.com/about-aws/whats-new/2026/10/kms-ml-kem-post-quantum/"
       },
       "https://aws.amazon.com/app2container/": {
         "paths": [
@@ -3346,6 +3366,16 @@
         "hash": "8cea182d0f5fea0251be5d6472e6192801099d2ab7162f0439a8681966f17fee",
         "final_url": "https://aws.amazon.com/bedrock/pricing/",
         "hash_kind": "visible-v1"
+      },
+      "https://aws.amazon.com/blogs/aws-cloud-financial-management/aws-finops-agent-is-now-public-preview/": {
+        "paths": [
+          "src/content/docs/ko/governance/finops.md"
+        ],
+        "checked_at": "2026-11-01T06:15:13Z",
+        "status": "observed",
+        "hash": "b377cc339f8691cbf30fc07260f3ddb9fa2814456aeef5e6f45421a4aeb9a180",
+        "hash_kind": "visible-v1",
+        "final_url": "https://aws.amazon.com/blogs/aws-cloud-financial-management/aws-finops-agent-is-now-public-preview/"
       },
       "https://aws.amazon.com/blogs/security/aws-achieves-cloud-security-assurance-program-csap-low-tier-certification-in-aws-seoul-region/": {
         "paths": [
@@ -4392,6 +4422,16 @@
         "hash": "4faaf2d2f0c54ad389e0ae594db9fe9bda81cc93796830e6098f0413909262aa",
         "hash_kind": "visible-v1",
         "final_url": "https://azure.microsoft.com/en-us/updates/?status=retirement"
+      },
+      "https://azure.microsoft.com/updates?id=578681": {
+        "paths": [
+          "src/content/docs/ko/networking/cdn.md"
+        ],
+        "checked_at": "2026-11-01T06:15:13Z",
+        "status": "observed",
+        "hash": "4faaf2d2f0c54ad389e0ae594db9fe9bda81cc93796830e6098f0413909262aa",
+        "hash_kind": "visible-v1",
+        "final_url": "https://azure.microsoft.com/en-us/updates?id=578681"
       },
       "https://azurespeedtest.azurewebsites.net": {
         "paths": [
@@ -7003,309 +7043,614 @@
       "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/what-is-network-monitor.html": {
         "paths": [
           "src/content/docs/ko/about-cloud/compare-clouds.md"
-        ]
+        ],
+        "checked_at": "2026-11-01T06:15:13Z",
+        "status": "observed",
+        "hash": "d97281e73cbe112ea639164fbfad379a422589242c5e631fd1d5771524a266fc",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/what-is-network-monitor.html"
       },
       "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html": {
         "paths": [
           "src/content/docs/ko/database/operations.md"
-        ]
+        ],
+        "checked_at": "2026-11-01T06:15:13Z",
+        "status": "observed",
+        "hash": "108121c8b0e17020d4f0da23bc0967f020532b958ae5eca15db1060a264e30c9",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html"
       },
       "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html": {
         "paths": [
           "src/content/docs/ko/database/operations.md"
-        ]
+        ],
+        "checked_at": "2026-11-01T06:15:13Z",
+        "status": "observed",
+        "hash": "53b01cda92ee644fa54fafb1cf5c451b0976dade3a5a86ec279e2dd9a7d4a954",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html"
       },
       "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Welcome.html": {
         "paths": [
           "src/content/docs/ko/database/operations.md"
-        ]
+        ],
+        "checked_at": "2026-11-01T06:15:13Z",
+        "status": "observed",
+        "hash": "a834225589e481d246425b6e609b5998db4fdbdcc6c4d72ffd444e1b988952df",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Welcome.html"
       },
       "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-proxy.html": {
         "paths": [
           "src/content/docs/ko/database/operations.md"
-        ]
+        ],
+        "checked_at": "2026-11-01T06:15:13Z",
+        "status": "observed",
+        "hash": "9d01da9ec9c791c3ec035d398ea53371b4beb48cb9917eae015cb7415967da7d",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-proxy.html"
+      },
+      "https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingEncryptionInTransit.PQ-TLS.html": {
+        "paths": [
+          "src/content/docs/ko/security/data-protection.md"
+        ],
+        "checked_at": "2026-11-01T06:15:13Z",
+        "status": "observed",
+        "hash": "81228009a451a97a9e6bf086d5fbd8b34ae5d3121c9dcb2882f5c05d3b5f8317",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingEncryptionInTransit.PQ-TLS.html"
       },
       "https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-vectors-regions-quotas.html": {
         "paths": [
           "src/content/docs/ko/ai/vector-store.md"
-        ]
+        ],
+        "checked_at": "2026-11-01T06:15:13Z",
+        "status": "observed",
+        "hash": "47a21de1c893d56fb5e836b8343f3179c4f62406535266d2029b6bb0db17a305",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-vectors-regions-quotas.html"
       },
       "https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-vectors.html": {
         "paths": [
           "src/content/docs/ko/ai/vector-store.md"
-        ]
+        ],
+        "checked_at": "2026-11-01T06:15:13Z",
+        "status": "observed",
+        "hash": "b94ff655bd189a293f0b1ecf6616b84b619b95b1d9bd81aead34885cac29c1ca",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-vectors.html"
       },
       "https://docs.aws.amazon.com/app-mesh/latest/userguide/what-is-app-mesh.html": {
         "paths": [
           "src/content/docs/ko/compute/service-mesh.md"
-        ]
+        ],
+        "checked_at": "2026-11-01T06:15:13Z",
+        "status": "observed",
+        "hash": "23e7260a467af406e442319cf54d60f4fc368976bad5b39d142fb84b7d3a1d27",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/app-mesh/latest/userguide/what-is-app-mesh.html"
       },
       "https://docs.aws.amazon.com/appconfig/latest/userguide/what-is-appconfig.html": {
         "paths": [
           "src/content/docs/ko/security/secrets.md"
-        ]
+        ],
+        "checked_at": "2026-11-01T06:15:13Z",
+        "status": "observed",
+        "hash": "c8b15ba7c3f00c77bc3acdf7b44d3bca764be4f734f8ba993c770e091c8b2288",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/appconfig/latest/userguide/what-is-appconfig.html"
       },
       "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/consolidated-billing.html": {
         "paths": [
           "src/content/docs/ko/about-cloud/accounts-and-organizations.mdx"
-        ]
+        ],
+        "checked_at": "2026-11-01T06:15:13Z",
+        "status": "observed",
+        "hash": "d9baf175a696de2425d14dba16f21668b7eedb1fcb985597910f3b85a76628a3",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/consolidated-billing.html"
       },
       "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html": {
         "paths": [
           "src/content/docs/ko/governance/finops.md"
-        ]
+        ],
+        "checked_at": "2026-11-01T06:15:13Z",
+        "status": "observed",
+        "hash": "813ae0e7298fa16265737bd52edd0320d1773f756c3b87baa971b306e3de5dcd",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html"
       },
       "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/what-is-ccft.html": {
         "paths": [
           "src/content/docs/ko/governance/sustainability.md"
-        ]
+        ],
+        "checked_at": "2026-11-01T06:15:13Z",
+        "status": "unverified",
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/": {
         "paths": [
           "src/content/docs/ko/ai/agents.md"
-        ]
+        ],
+        "checked_at": "2026-11-01T06:15:13Z",
+        "status": "unverified",
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/observability-get-started.html": {
         "paths": [
           "src/content/docs/ko/ai/llmops.md"
-        ]
+        ],
+        "checked_at": "2026-11-01T06:15:13Z",
+        "status": "observed",
+        "hash": "eeecc8c8cb8c5a0643068f4f24e7e8fc89419781c4331143c6c8100bf38d79b6",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/observability-get-started.html"
       },
       "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/registry-get-started.html": {
         "paths": [
           "src/content/docs/ko/ai/agents.md"
-        ]
+        ],
+        "checked_at": "2026-11-01T06:15:13Z",
+        "status": "observed",
+        "hash": "b21694348a8c13fb33abaa2f535694560a48fe4a2be244a27573e67a2d89e996",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/registry-get-started.html"
       },
       "https://docs.aws.amazon.com/bedrock/": {
         "paths": [
           "src/content/docs/ko/ai/1p-vs-3p.md",
           "src/content/docs/ko/ai/multicloud-ai.md"
-        ]
+        ],
+        "checked_at": "2026-11-01T06:15:13Z",
+        "status": "observed",
+        "hash": "26298686fc25124a82d0468bd65a1e14803082250aeace9f76a2f21b12660d5c",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/bedrock/"
       },
       "https://docs.aws.amazon.com/bedrock/latest/userguide/agents-how.html": {
         "paths": [
           "src/content/docs/ko/ai/agent-adoption.md"
-        ]
+        ],
+        "checked_at": "2026-11-01T06:15:13Z",
+        "status": "observed",
+        "hash": "1d4ff97839a361c11e42a00a6d9916da5fe6b2835d0a2fedb8cdc112d893f642",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/bedrock/latest/userguide/agents-how.html"
       },
       "https://docs.aws.amazon.com/bedrock/latest/userguide/evaluation.html": {
         "paths": [
           "src/content/docs/ko/ai/llmops.md"
-        ]
+        ],
+        "checked_at": "2026-11-01T06:15:13Z",
+        "status": "observed",
+        "hash": "d7113dc6bf682534bd8d77ea903b7d30af1d8cdce17058f3973574806a53ea03",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/bedrock/latest/userguide/evaluation.html"
       },
       "https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html": {
         "paths": [
           "src/content/docs/ko/security/ai-security.md"
-        ]
+        ],
+        "checked_at": "2026-11-01T06:15:13Z",
+        "status": "observed",
+        "hash": "4b142de807ccd87f3f20bc58d5fb990bd8399336618a557c7ffa9bd9d80b95c3",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html"
       },
       "https://docs.aws.amazon.com/bedrock/latest/userguide/kb-chunking-parsing.html": {
         "paths": [
           "src/content/docs/ko/ai/rag-patterns.md"
-        ]
+        ],
+        "checked_at": "2026-11-01T06:15:13Z",
+        "status": "observed",
+        "hash": "185782656b60aa7996ff181dd1b93f55e5fb123e8cef7e8dba98758ea3366951",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/bedrock/latest/userguide/kb-chunking.html"
       },
       "https://docs.aws.amazon.com/bedrock/latest/userguide/kb-managed-acl.html": {
         "paths": [
           "src/content/docs/ko/ai/rag-patterns.md"
-        ]
+        ],
+        "checked_at": "2026-11-01T06:15:13Z",
+        "status": "observed",
+        "hash": "4105839895ed686c1bd6334b9ccb7805f41c032f93db3bbc82e22fca59f38835",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/bedrock/latest/userguide/kb-managed-acl.html"
       },
       "https://docs.aws.amazon.com/bedrock/latest/userguide/kb-reranker.html": {
         "paths": [
           "src/content/docs/ko/ai/rag-patterns.md"
-        ]
+        ],
+        "checked_at": "2026-11-01T06:15:13Z",
+        "status": "unverified",
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html": {
         "paths": [
           "src/content/docs/ko/ai/vector-store.md"
-        ]
+        ],
+        "checked_at": "2026-11-01T06:15:13Z",
+        "status": "observed",
+        "hash": "2e908d62e8447dbdbd0cf711b074ab14d8a278a5b18587e7b3f8e392261cf891",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html"
       },
       "https://docs.aws.amazon.com/bedrock/latest/userguide/model-evaluation.html": {
         "paths": [
           "src/content/docs/ko/ai/rag-patterns.md"
-        ]
+        ],
+        "checked_at": "2026-11-01T06:15:13Z",
+        "status": "unverified",
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-nova.html": {
         "paths": [
           "src/content/docs/ko/ai/getting-started.md"
-        ]
+        ],
+        "checked_at": "2026-11-01T06:15:13Z",
+        "status": "observed",
+        "hash": "a8b6832deeba5e4e9dd26a589988dda1eafa74718be63e2e98a33903c245db4a",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-nova.html"
       },
       "https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-engineering-guidelines.html": {
         "paths": [
           "src/content/docs/ko/ai/prompt-engineering.md"
-        ]
+        ],
+        "checked_at": "2026-11-01T06:15:13Z",
+        "status": "observed",
+        "hash": "d83d1e95b9774d700897691d3d4513b754a9b4a441861ac0b412e76dff3c3380",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-engineering-guidelines.html"
       },
       "https://docs.aws.amazon.com/bedrock/latest/userguide/tool-use.html": {
         "paths": [
           "src/content/docs/ko/ai/prompt-engineering.md"
-        ]
+        ],
+        "checked_at": "2026-11-01T06:15:13Z",
+        "status": "observed",
+        "hash": "1b6f191b4ba9fe72324e19c9de35c2b266adfffdc10fc96b80ce77d89f261b6f",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/bedrock/latest/userguide/tool-use.html"
       },
       "https://docs.aws.amazon.com/controltower/": {
         "paths": [
           "src/content/docs/ko/governance/landing-zone.md"
-        ]
+        ],
+        "checked_at": "2026-11-01T06:15:13Z",
+        "status": "observed",
+        "hash": "050333fdfa7c8fa436a1f6b438460e7650478e2959346154f7de54eea7ae8b5f",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/controltower/"
       },
       "https://docs.aws.amazon.com/cost-management/": {
         "paths": [
           "src/content/docs/ko/governance/finops.md"
-        ]
+        ],
+        "checked_at": "2026-11-01T06:15:13Z",
+        "status": "unverified",
+        "error": "HTTP 403"
       },
       "https://docs.aws.amazon.com/cost-management/latest/userguide/manage-ad.html": {
         "paths": [
           "src/content/docs/ko/governance/finops.md"
-        ]
+        ],
+        "checked_at": "2026-11-01T06:15:13Z",
+        "status": "observed",
+        "hash": "bb70d139db7a6ad0be17683826af6f59ca3a53559fa45a9bd63434fcef5d16cd",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/cost-management/latest/userguide/manage-ad.html"
       },
       "https://docs.aws.amazon.com/cur/latest/userguide/table-columns-cur2.html": {
         "paths": [
           "src/content/docs/ko/governance/finops.md"
-        ]
+        ],
+        "checked_at": "2026-11-01T06:15:13Z",
+        "status": "unverified",
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://docs.aws.amazon.com/datasync/": {
         "paths": [
           "src/content/docs/ko/storage/migration.md"
-        ]
+        ],
+        "checked_at": "2026-11-01T06:15:13Z",
+        "status": "observed",
+        "hash": "70f72fd433631f5a2ee14a169f743a27aa8cd4c63a4a3385882b4fe0e2909c88",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/datasync/"
       },
       "https://docs.aws.amazon.com/directconnect/latest/UserGuide/Welcome.html": {
         "paths": [
           "src/content/docs/ko/networking/multicloud-networking.md"
-        ]
+        ],
+        "checked_at": "2026-11-01T06:15:13Z",
+        "status": "observed",
+        "hash": "062c10ef12cd093f8c2873dbdf372b36646c720636adb241d958ba72650bcfac",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/directconnect/latest/UserGuide/Welcome.html"
       },
       "https://docs.aws.amazon.com/drs/": {
         "paths": [
           "src/content/docs/ko/governance/dr.md"
-        ]
+        ],
+        "checked_at": "2026-11-01T06:15:13Z",
+        "status": "observed",
+        "hash": "a6e59ba92933625cda72f14d0dd74cf1d97d4a25ec8db66a6d54a99d46fb2a8e",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/drs/"
       },
       "https://docs.aws.amazon.com/eks/latest/best-practices/subnets.html": {
         "paths": [
           "src/content/docs/ko/devops/kubernetes-operations.mdx"
-        ]
+        ],
+        "checked_at": "2026-11-01T06:15:13Z",
+        "status": "observed",
+        "hash": "9a3b77f90b75942a839233fbfa771285016f06b65f1157b2ea0d179c1b607361",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/eks/latest/best-practices/subnets.html"
       },
       "https://docs.aws.amazon.com/eks/latest/userguide/eks-optimized-ami.html": {
         "paths": [
           "src/content/docs/ko/ai/gpu-infra/kubernetes-and-scheduling.md"
-        ]
+        ],
+        "checked_at": "2026-11-01T06:15:13Z",
+        "status": "observed",
+        "hash": "d70d0ab71663db43622760475415cdaef11bd87934db738bf0fa3360938ffe47",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/eks/latest/userguide/eks-optimized-ami.html"
       },
       "https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html": {
         "paths": [
           "src/content/docs/ko/compute/containers.md"
-        ]
+        ],
+        "checked_at": "2026-11-01T06:15:13Z",
+        "status": "observed",
+        "hash": "74094f18d2ba99af2fdfe4a61a9bb900647f10a1c549c43abc40246fb5fd1860",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html"
       },
       "https://docs.aws.amazon.com/elasticache/": {
         "paths": [
           "src/content/docs/ko/database/cache.md"
-        ]
+        ],
+        "checked_at": "2026-11-01T06:15:13Z",
+        "status": "observed",
+        "hash": "265fdda9c20798751d23cb65550e7c984bc490af72a49c969b66a575430a96c1",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/elasticache/"
       },
       "https://docs.aws.amazon.com/eventbridge/": {
         "paths": [
           "src/content/docs/ko/database/messaging.md"
-        ]
+        ],
+        "checked_at": "2026-11-01T06:15:13Z",
+        "status": "observed",
+        "hash": "eab8b2712d07269cc95ca0d4b5e7b2ec439071958bec78d8b6ab11847c03969c",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/eventbridge/"
       },
       "https://docs.aws.amazon.com/finops-agent/latest/userguide/what-is.html": {
         "paths": [
           "src/content/docs/ko/governance/finops.md"
-        ]
+        ],
+        "checked_at": "2026-11-01T06:15:13Z",
+        "status": "observed",
+        "hash": "1716266aab909948608406a0e125faf3c27e067960d7ff698ac099641b1d65fa",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/finops-agent/latest/userguide/what-is.html"
       },
       "https://docs.aws.amazon.com/fis/": {
         "paths": [
           "src/content/docs/ko/governance/dr.md"
-        ]
+        ],
+        "checked_at": "2026-11-01T06:15:13Z",
+        "status": "observed",
+        "hash": "723140d2948e8a6beb6f33817405189d046c05cc0897b0cf51afbf8e655d0b5f",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/fis/"
       },
       "https://docs.aws.amazon.com/glue/": {
         "paths": [
           "src/content/docs/ko/database/data-pipeline.md"
-        ]
+        ],
+        "checked_at": "2026-11-01T06:15:13Z",
+        "status": "observed",
+        "hash": "f00a6662366fb80dcf76c68479bf132cfc67671cc2c61289ca5b382ccf6fd723",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/glue/"
       },
       "https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-compliance.html": {
         "paths": [
           "src/content/docs/ko/us/fedramp.md"
-        ]
+        ],
+        "checked_at": "2026-11-01T06:15:13Z",
+        "status": "observed",
+        "hash": "8e4bafe5bd078499c46737640df0e8001667eb12190834cb2516cc097948958a",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-compliance.html"
       },
       "https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-itar.html": {
         "paths": [
           "src/content/docs/ko/us/itar.md"
-        ]
+        ],
+        "checked_at": "2026-11-01T06:15:13Z",
+        "status": "observed",
+        "hash": "f8355d0cb150c3b9740971bc5affc851c5ea8de51b702167e0835be5d81730bf",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-itar.html"
       },
       "https://docs.aws.amazon.com/greengrass/v2/developerguide/": {
         "paths": [
           "src/content/docs/ko/ai/physical-ai/data-and-training.md"
-        ]
+        ],
+        "checked_at": "2026-11-01T06:15:13Z",
+        "status": "unverified",
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://docs.aws.amazon.com/guardduty/latest/ug/runtime-monitoring.html": {
         "paths": [
           "src/content/docs/ko/security/security-posture.md"
-        ]
+        ],
+        "checked_at": "2026-11-01T06:15:13Z",
+        "status": "observed",
+        "hash": "f810cfaba8bdfd4be4abf837cf9c76f995575db3d04957c004e23188e2559565",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/guardduty/latest/ug/runtime-monitoring.html"
       },
       "https://docs.aws.amazon.com/guardduty/latest/ug/what-is-guardduty.html": {
         "paths": [
           "src/content/docs/ko/security/security-posture.md"
-        ]
+        ],
+        "checked_at": "2026-11-01T06:15:13Z",
+        "status": "observed",
+        "hash": "96c687fe3fc3e015633df73052e7a638ffb7f6a90439705a6ae7f08ba0e5ff13",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/guardduty/latest/ug/what-is-guardduty.html"
       },
       "https://docs.aws.amazon.com/inspector/latest/user/sbom-generator.html": {
         "paths": [
           "src/content/docs/ko/devops/devsecops.md"
-        ]
+        ],
+        "checked_at": "2026-11-01T06:15:13Z",
+        "status": "observed",
+        "hash": "c37c8a95044a5cf60551ce7563410dca2032ccc18a4153e1c86bdf660b582872",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/inspector/latest/user/sbom-generator.html"
       },
       "https://docs.aws.amazon.com/inspector/latest/user/scanning-code.html": {
         "paths": [
           "src/content/docs/ko/devops/devsecops.md"
-        ]
+        ],
+        "checked_at": "2026-11-01T06:15:13Z",
+        "status": "unverified",
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://docs.aws.amazon.com/inspector/latest/user/what-is-inspector.html": {
         "paths": [
           "src/content/docs/ko/devops/patch-and-vulnerability.md",
           "src/content/docs/ko/security/security-posture.md"
-        ]
+        ],
+        "checked_at": "2026-11-01T06:15:13Z",
+        "status": "observed",
+        "hash": "60acd22030c6e7486b995358eb0569bd9a71d0d8deac5e47fc3d1ff88fb0b51e",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/inspector/latest/user/what-is-inspector.html"
       },
       "https://docs.aws.amazon.com/kinesis/": {
         "paths": [
           "src/content/docs/ko/database/data-pipeline.md"
-        ]
+        ],
+        "checked_at": "2026-11-01T06:15:13Z",
+        "status": "observed",
+        "hash": "dc2df09d968b2bb7454bd538f367dfe0c36ca33ce09a48c2c24563e07102868c",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/kinesis/"
+      },
+      "https://docs.aws.amazon.com/kms/latest/developerguide/pqtls.html": {
+        "paths": [
+          "src/content/docs/ko/security/data-protection.md"
+        ],
+        "checked_at": "2026-11-01T06:15:13Z",
+        "status": "observed",
+        "hash": "2950e04bc16d5c44748fc788c9d5f91e6cd589f70266c9ebe202845153f7125b",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/kms/latest/developerguide/pqtls.html"
       },
       "https://docs.aws.amazon.com/ko_kr/AWSEC2/latest/UserGuide/AMIs.html": {
         "paths": [
           "src/content/docs/ko/storage/block-and-file.md"
-        ]
+        ],
+        "checked_at": "2026-11-01T06:15:13Z",
+        "status": "observed",
+        "hash": "fd30d3d30c6d2bc19a928a075e9e3f6e8081ab2cf0e10fcb7fc205c233374690",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/ko_kr/AWSEC2/latest/UserGuide/AMIs.html"
       },
       "https://docs.aws.amazon.com/ko_kr/AWSEC2/latest/UserGuide/using-regions-availability-zones.html": {
         "paths": [
           "src/content/docs/ko/about-cloud/regions-and-zones.md"
-        ]
+        ],
+        "checked_at": "2026-11-01T06:15:13Z",
+        "status": "observed",
+        "hash": "73482eb718ca2783eaa05a86f73777ab950c4904fea3ead2fe7539f7369d9411",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/ko_kr/AWSEC2/latest/UserGuide/using-regions-availability-zones.html"
       },
       "https://docs.aws.amazon.com/ko_kr/AmazonECS/latest/userguide/AWS_Fargate.html": {
         "paths": [
           "src/content/docs/ko/compute/containers.md"
-        ]
+        ],
+        "checked_at": "2026-11-01T06:15:13Z",
+        "status": "observed",
+        "hash": "fce20c072ff5ea19cd10a87ca3fb1b4d30d4c2b3ad8c8d17263a05fcd9549d89",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/ko_kr/AmazonECS/latest/developerguide/Welcome.html"
       },
       "https://docs.aws.amazon.com/ko_kr/AmazonRDS/latest/AuroraUserGuide/": {
         "paths": [
           "src/content/docs/ko/database/managed-rdb.md"
-        ]
+        ],
+        "checked_at": "2026-11-01T06:15:13Z",
+        "status": "unverified",
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://docs.aws.amazon.com/ko_kr/AmazonS3/latest/userguide/intelligent-tiering.html": {
         "paths": [
           "src/content/docs/ko/storage/object-storage.md"
-        ]
+        ],
+        "checked_at": "2026-11-01T06:15:13Z",
+        "status": "observed",
+        "hash": "7b26531d259f68e55ba892510f406966b4540c7a60b75110c8778ec9d39fcc51",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/ko_kr/AmazonS3/latest/userguide/intelligent-tiering.html"
       },
       "https://docs.aws.amazon.com/ko_kr/AmazonS3/latest/userguide/s3-metadata.html": {
         "paths": [
           "src/content/docs/ko/storage/object-storage.md"
-        ]
+        ],
+        "checked_at": "2026-11-01T06:15:13Z",
+        "status": "unverified",
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://docs.aws.amazon.com/ko_kr/AmazonS3/latest/userguide/s3-tables.html": {
         "paths": [
           "src/content/docs/ko/storage/object-storage.md"
-        ]
+        ],
+        "checked_at": "2026-11-01T06:15:13Z",
+        "status": "observed",
+        "hash": "6a51e0612b2f4287bcd52daab99a6c7da1199804b9b3db0f24325bdf60ac2f30",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/ko_kr/AmazonS3/latest/userguide/s3-tables.html"
       },
       "https://docs.aws.amazon.com/ko_kr/AmazonS3/latest/userguide/storage-class-intro.html": {
         "paths": [
           "src/content/docs/ko/storage/object-storage.md"
-        ]
+        ],
+        "checked_at": "2026-11-01T06:15:13Z",
+        "status": "observed",
+        "hash": "9bbbba2bd1b772adea77f338a74b44501ecb66484ad803374befbe1c456986bd",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/ko_kr/AmazonS3/latest/userguide/storage-class-intro.html"
       },
       "https://docs.aws.amazon.com/ko_kr/IAM/latest/UserGuide/best-practices.html": {
         "paths": [
           "src/content/docs/ko/security/iam.md"
-        ]
+        ],
+        "checked_at": "2026-11-01T06:15:13Z",
+        "status": "observed",
+        "hash": "57827aeb00695851f54bded3d510c6a169756500679d2c989056cbd9781008d0",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/ko_kr/IAM/latest/UserGuide/best-practices.html"
       },
       "https://docs.aws.amazon.com/ko_kr/IAM/latest/UserGuide/what-is-access-analyzer.html": {
         "paths": [
           "src/content/docs/ko/security/iam.md"
-        ]
+        ],
+        "checked_at": "2026-11-01T06:15:13Z",
+        "status": "observed",
+        "hash": "bdf06ac21c2a2a9030300339307cedc3e3e7dfe377f5ff74efce98728144f7e6",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/ko_kr/IAM/latest/UserGuide/what-is-access-analyzer.html"
       },
       "https://docs.aws.amazon.com/ko_kr/Route53/latest/DeveloperGuide/health-checks-creating.html": {
         "paths": [
@@ -9411,6 +9756,11 @@
           "src/content/docs/ko/ai/gpu-infra/serving-reliability-cost.md"
         ]
       },
+      "https://learn.microsoft.com/azure/web-application-firewall/afds/http-ddos-ruleset": {
+        "paths": [
+          "src/content/docs/ko/networking/cdn.md"
+        ]
+      },
       "https://learn.microsoft.com/azure/web-application-firewall/overview": {
         "paths": [
           "src/content/docs/ko/security/data-protection.md"
@@ -10263,11 +10613,6 @@
         "paths": [
           "src/content/docs/ko/about-cloud/shared-responsibility.mdx",
           "src/content/docs/ko/governance/compliance.md"
-        ]
-      },
-      "https://siliconangle.com/2026/06/11/aws-launches-finops-agent-bring-ai-cost-governance-cloud-spend-finopsx/": {
-        "paths": [
-          "src/content/docs/ko/governance/finops.md"
         ]
       },
       "https://skillbuilder.aws/": {

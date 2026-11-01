@@ -8,10 +8,11 @@
        (AGENTS.md "3개 로케일 대칭성 보장": 미번역/고립 파일 금지)
   2) 문서 기준 마커(review marker)
      - 각 문서는 로케일별 표준 접두사로 시작하는 `>` 인용 마커를 가져야 한다.
-       ko: "> 문서 기준: 2026년 9월"
-       en: "> Last reviewed: September 2026"
-       ja: "> 文書基準: 2026年9月"
-       (AGENTS.md "기준 시점: 2026년 9월", 모든 문서에 기준 시점 명시)
+       ko: "> 문서 기준: 2026년 10월" (직전 월 "2026년 9월"도 허용)
+       en: "> Last reviewed: October 2026" (or "September 2026")
+       ja: "> 文書基準: 2026年10月" (または "2026年9月")
+       (AGENTS.md "기준 시점", 모든 문서에 기준 시점 명시. 정기 리뷰로 월 승격 시
+        과도기에는 현행 월과 직전 월이 공존할 수 있다.)
      - 랜딩 페이지 index.mdx는 예외.
   3) 접이식 블록 금지(no <details>/<summary>)
      - 딥링크·Pagefind·스크린리더 접근성 저해로 AGENTS.md에서 금지.
@@ -27,10 +28,12 @@ DOCS_DIR = "src/content/docs"
 LOCALES = ["ko", "en", "ja"]
 
 # 로케일별 문서 기준 마커의 표준 접두사(뒤에 부가 문구가 붙는 변형 허용).
-MARKER_PREFIX = {
-    "ko": "> 문서 기준: 2026년 9월",
-    "en": "> Last reviewed: September 2026",
-    "ja": "> 文書基準: 2026年9月",
+# 정기 리뷰로 월이 승격되는 과도기에는 여러 월이 공존할 수 있으므로 로케일별로
+# '허용 접두사 목록'을 둔다(문서는 그중 하나로 시작하면 통과). 가장 앞 항목이 현행 기준월.
+MARKER_PREFIXES = {
+    "ko": ["> 문서 기준: 2026년 10월", "> 문서 기준: 2026년 9월"],
+    "en": ["> Last reviewed: October 2026", "> Last reviewed: September 2026"],
+    "ja": ["> 文書基準: 2026年10月", "> 文書基準: 2026年9月"],
 }
 
 # 마커 예외 파일(로케일 루트 기준 상대경로). 랜딩·웰컴 페이지는 마커를 두지 않는다.
@@ -80,16 +83,18 @@ def check_parity(sets_by_locale):
 
 
 def check_marker(rel_path, abs_path, locale):
-    """문서 기준 마커 존재 검사."""
+    """문서 기준 마커 존재 검사(로케일별 허용 접두사 중 하나로 시작하면 통과)."""
     if rel_path in MARKER_EXEMPT:
         return []
-    prefix = MARKER_PREFIX[locale]
+    prefixes = MARKER_PREFIXES[locale]
     with open(abs_path, encoding="utf-8") as fh:
         content = fh.read()
     for line in content.split("\n"):
-        if line.strip().startswith(prefix):
+        stripped = line.strip()
+        if any(stripped.startswith(p) for p in prefixes):
             return []
-    return [f"[marker] {abs_path} — 표준 마커 누락 (기대: '{prefix} ...')"]
+    expected = " | ".join(f"'{p} ...'" for p in prefixes)
+    return [f"[marker] {abs_path} — 표준 마커 누락 (기대: {expected})"]
 
 
 def check_details(abs_path):
@@ -129,8 +134,10 @@ def main():
             print(f"  {iss}")
         print(
             "\n규약: AGENTS.md의 3로케일 대칭성 / 문서 기준 마커 / 접이식 금지 참고.\n"
-            "마커 표준 문구: ko '문서 기준: 2026년 9월', en 'Last reviewed: September 2026', "
-            "ja '文書基準: 2026年9月'."
+            "마커 표준 문구(현행 월 또는 직전 월 허용): "
+            "ko '문서 기준: 2026년 10월'|'2026년 9월', "
+            "en 'Last reviewed: October 2026'|'September 2026', "
+            "ja '文書基準: 2026年10月'|'2026年9月'."
         )
         sys.exit(1)
     else:

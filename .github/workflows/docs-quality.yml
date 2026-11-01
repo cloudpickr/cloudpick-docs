@@ -254,7 +254,16 @@ jobs:
           python3 scripts/marker-refresh-manifest.py verify --packet "$PKT" \
             --changed-paths /tmp/changed_docs.txt --base-sha "$BASE_SHA"
           # 2) from/to 월 토큰을 패킷에서 읽어 각 문서에 가드 적용.
-          read -r FK TK FE TE FJ TJ < <(python3 -c "import json,sys; d=json.load(open(sys.argv[1]))['marker_refresh']; f=d['from_month']; t=d['to_month']; print(f['ko'],t['ko'],f['en'],t['en'],f['ja'],t['ja'])" "$PKT")
+          # 월 토큰에 공백이 포함되므로('2026년 9월', 'September 2026') 공백 분리 read는
+          # 값을 쪼갠다(리뷰 봇 P1). 각 토큰을 개별 추출해 공백을 보존한다(bash 3.2+ 호환).
+          mkey() { python3 -c "import json,sys; print(json.load(open(sys.argv[1]))['marker_refresh'][sys.argv[2]][sys.argv[3]])" "$PKT" "$1" "$2"; }
+          FK="$(mkey from_month ko)"; TK="$(mkey to_month ko)"
+          FE="$(mkey from_month en)"; TE="$(mkey to_month en)"
+          FJ="$(mkey from_month ja)"; TJ="$(mkey to_month ja)"
+          if [ -z "$FK" ] || [ -z "$TK" ] || [ -z "$FE" ] || [ -z "$TE" ] || [ -z "$FJ" ] || [ -z "$TJ" ]; then
+            echo "❌ marker_refresh에서 6개 월 토큰(ko/en/ja × from/to)을 읽지 못했습니다."
+            exit 1
+          fi
           if [ -z "$DOCS" ]; then echo "변경된 문서 없음."; exit 0; fi
           FAIL=0
           for f in $DOCS; do

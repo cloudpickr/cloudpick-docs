@@ -30,6 +30,7 @@ Exit: 0 = 마커 월 교체만 확인 / 1 = 위반(fail-closed).
 from __future__ import annotations
 
 import argparse
+import re
 import sys
 
 # 로케일별 리뷰 기준 마커의 '접두사'(월 토큰 바로 앞까지). 월 토큰은 이 접두사 뒤에 온다.
@@ -39,6 +40,38 @@ MARKER_PREFIX = {
     "en": "Last reviewed: ",
     "ja": "文書基準: ",
 }
+
+# 로케일별 월 토큰의 '정확한' 구문. 월 토큰은 '연·월만' 담아야 하며 임의 접미사를 허용하지
+# 않는다(예: 'October 2026; HIPAA certified' 같은 주장 삽입 차단 — 리뷰 봇 P1). 전각 숫자는
+# 쓰지 않는다는 레포 관례를 반영해 ASCII 숫자만 허용한다.
+_MONTH_EN = {
+    "january": 1, "february": 2, "march": 3, "april": 4, "may": 5, "june": 6,
+    "july": 7, "august": 8, "september": 9, "october": 10, "november": 11, "december": 12,
+}
+_MONTH_RE = {
+    "ko": re.compile(r"^(?P<y>\d{4})년 (?P<m>\d{1,2})월$"),
+    "en": re.compile(r"^(?P<name>[A-Z][a-z]+) (?P<y>\d{4})$"),
+    "ja": re.compile(r"^(?P<y>\d{4})年(?P<m>\d{1,2})月$"),
+}
+
+
+def parse_month(loc: str, token: str) -> tuple[int, int] | None:
+    """로케일 월 토큰을 (연, 월)로 파싱. 구문이 정확히 '연·월'이 아니면 None.
+
+    임의 접미사·접두사를 허용하지 않아, 월 토큰에 사실 주장을 몰래 끼워 넣는 우회를 막는다.
+    """
+    m = _MONTH_RE[loc].match(token.strip())
+    if not m:
+        return None
+    if loc == "en":
+        mon = _MONTH_EN.get(m.group("name").lower())
+        if mon is None:
+            return None
+        return int(m.group("y")), mon
+    mon = int(m.group("m"))
+    if not 1 <= mon <= 12:
+        return None
+    return int(m.group("y")), mon
 
 
 def _fail(msg: str) -> None:
@@ -107,9 +140,24 @@ def main(argv: list[str]) -> int:
         "en": (args.from_month_en, args.to_month_en),
         "ja": (args.from_month_ja, args.to_month_ja),
     }
+    # 월 토큰은 '정확히 연·월' 구문이어야 한다(임의 접미사로 주장 삽입 차단 — 리뷰 봇 P1).
+    parsed_from, parsed_to = {}, {}
     for loc, (f, t) in months.items():
         if not f or not t or f == t:
             _fail(f"{loc} from/to 월 토큰이 비었거나 동일함: {f!r}→{t!r}")
+        pf = parse_month(loc, f)
+        pt = parse_month(loc, t)
+        if pf is None:
+            _fail(f"{loc} from_month이 '연·월' 구문이 아님(접미사 등 불허): {f!r}")
+        if pt is None:
+            _fail(f"{loc} to_month이 '연·월' 구문이 아님(접미사 등 불허): {t!r}")
+        parsed_from[loc] = pf
+        parsed_to[loc] = pt
+    # 세 로케일이 같은 (연,월)을 가리켜야 한다(로케일별로 다른 달로 승격하는 비대칭 차단).
+    if len(set(parsed_from.values())) != 1:
+        _fail(f"from_month이 로케일 간 불일치: {parsed_from}")
+    if len(set(parsed_to.values())) != 1:
+        _fail(f"to_month이 로케일 간 불일치: {parsed_to}")
 
     try:
         with open(args.base, encoding="utf-8", newline="") as fh:

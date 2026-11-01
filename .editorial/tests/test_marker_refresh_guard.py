@@ -121,5 +121,44 @@ class TestFailClosed(unittest.TestCase):
         self.assertEqual(run_guard(BASE_KO, head), 1)
 
 
+class TestMonthSyntax(unittest.TestCase):
+    """월 토큰은 '정확히 연·월' 구문이어야 한다(임의 접미사로 주장 삽입 차단)."""
+
+    def _args_with(self, to_en):
+        return [
+            "--from-month-ko", "2026년 9월", "--to-month-ko", "2026년 10월",
+            "--from-month-en", "September 2026", "--to-month-en", to_en,
+            "--from-month-ja", "2026年9月", "--to-month-ja", "2026年10月",
+        ]
+
+    def _run(self, base, head, args):
+        with tempfile.TemporaryDirectory() as d:
+            dp = Path(d)
+            (dp / "base.md").write_text(base, encoding="utf-8")
+            (dp / "head.md").write_text(head, encoding="utf-8")
+            r = subprocess.run(
+                [sys.executable, str(GUARD), "--base", str(dp / "base.md"),
+                 "--head", str(dp / "head.md"), *args],
+                capture_output=True, text=True,
+            )
+            return r.returncode
+
+    def test_suffix_injection_in_month_token_fails(self):
+        # to_month.en에 주장을 끼워 넣는 우회(리뷰 봇 P1) → 구문 검증으로 차단.
+        base = BASE_EN
+        head = BASE_EN.replace("> Last reviewed: September 2026",
+                               "> Last reviewed: October 2026; HIPAA certified")
+        args = self._args_with("October 2026; HIPAA certified")
+        self.assertEqual(self._run(base, head, args), 1)
+
+    def test_locale_month_mismatch_fails(self):
+        # ko=10월인데 en=November면 로케일 간 월 불일치 → 차단.
+        base = BASE_EN
+        head = BASE_EN.replace("> Last reviewed: September 2026",
+                               "> Last reviewed: November 2026")
+        args = self._args_with("November 2026")
+        self.assertEqual(self._run(base, head, args), 1)
+
+
 if __name__ == "__main__":
     unittest.main()

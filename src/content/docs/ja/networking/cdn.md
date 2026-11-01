@@ -204,8 +204,8 @@ CDNエッジでコードを実行してリクエスト/レスポンスを変換�
 
 - [Azure Front Doorドキュメント](https://learn.microsoft.com/ko-kr/azure/frontdoor/)
 - [Azure CDNドキュメント](https://learn.microsoft.com/ko-kr/azure/cdn/)
-- [Front Door WAF の HTTP DDoS ルールセット](https://learn.microsoft.com/en-us/azure/web-application-firewall/afds/http-ddos-ruleset)
-- [Azure アップデート 578681: Front Door Premium WAF の HTTP DDoS ルールセット](https://azure.microsoft.com/en-us/updates?id=578681)
+- [Front Door WAF の HTTP DDoS ルールセット](https://learn.microsoft.com/azure/web-application-firewall/afds/http-ddos-ruleset)
+- [Azure アップデート 578681: Front Door Premium WAF の HTTP DDoS ルールセット](https://azure.microsoft.com/updates?id=578681)
 
 ### Google Cloud
 

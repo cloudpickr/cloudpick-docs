@@ -130,6 +130,10 @@ CDN을 통해 배포하면서도 접근을 제한해야 하는 경우 (유료 �
 - **Google Cloud Cloud CDN** — Cloud Load Balancing에 체크박스 하나로 활성화할 수 있어 설정이 간단합니다. 캐시 무효화가 수 초 내에 전파됩니다.
 - **OCI** — 자체 CDN 서비스 대신 Akamai, Fastly 등 전문 CDN과의 파트너십을 통해 글로벌 배포를 지원합니다. Edge Services에서 WAF와 DDoS 보호를 제공합니다.
 
+:::note
+2026년 10월 29일 Azure 업데이트(id 578681) 기준, Azure Front Door Premium WAF의 HTTP DDoS 규칙 집합(`Microsoft_HTTPDDoSRuleSet_1.0`)에서 규칙 500100(비정상적으로 높은 클라이언트 요청률)과 규칙 500110(Microsoft Threat Intelligence가 봇으로 분류한 주소)은 GA입니다. 국가·지역 규칙 500310과 500320은 Preview입니다. 이 규칙 집합은 Front Door Premium에 적용되며, 기본 동작은 Log입니다. 이 항목의 검토 시점은 2026년 11월 1일입니다.
+:::
+
 ## 글로벌 네트워크 가속기
 
 CDN은 콘텐츠를 **캐싱**하여 빠르게 전달하지만, 캐싱이 불가능한 워크로드(게임 서버, IoT, 실시간 API)에는 **네트워크 가속기**가 필요합니다. 가속기는 캐싱 없이 TCP/TLS 연결을 엣지에서 종료하고 벤더 백본 네트워크로 오리진까지 전달하여 지연을 줄입니다.
@@ -200,6 +204,8 @@ CDN 엣지에서 코드를 실행하여 요청/응답을 변환하거나, 간단
 
 - [Azure Front Door 문서](https://learn.microsoft.com/ko-kr/azure/frontdoor/)
 - [Azure CDN 문서](https://learn.microsoft.com/ko-kr/azure/cdn/)
+- [Front Door WAF의 HTTP DDoS 규칙 집합](https://learn.microsoft.com/en-us/azure/web-application-firewall/afds/http-ddos-ruleset)
+- [Azure 업데이트 578681: Front Door Premium WAF의 HTTP DDoS 규칙 집합](https://azure.microsoft.com/en-us/updates?id=578681)
 
 ### Google Cloud
 

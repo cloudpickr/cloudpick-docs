@@ -130,6 +130,10 @@ CDNを通じて配信しながらもアクセスを制限する必要がある�
 - **Google Cloud Cloud CDN** — Cloud Load Balancingでチェックボックス1つで有効化でき、設定が簡単です。キャッシュ無効化が数秒以内に伝播します。
 - **OCI** — 自社CDNサービスの代わりに、Akamai、Fastlyなど専門CDNとのパートナーシップを通じてグローバル配信をサポートします。Edge ServicesでWAFとDDoS保護を提供します。
 
+:::note
+2026年10月29日の Azure アップデート（id 578681）時点で、Azure Front Door Premium WAF の HTTP DDoS ルールセット（`Microsoft_HTTPDDoSRuleSet_1.0`）では、ルール 500100（異常に高いクライアント要求率）とルール 500110（Microsoft Threat Intelligence がボットと分類したアドレス）が一般提供（GA）です。国・地域ルール 500310 と 500320 はプレビューです。このルールセットは Front Door Premium に適用され、既定のアクションは Log です。この項目の確認日は 2026年11月1日です。
+:::
+
 ## グローバルネットワークアクセラレーター
 
 CDNはコンテンツを**キャッシュ**して高速に配信しますが、キャッシュが不可能なワークロード（ゲームサーバー、IoT、リアルタイムAPI）には**ネットワークアクセラレーター**が必要です。アクセラレーターはキャッシュなしでTCP/TLS接続をエッジで終端し、ベンダーバックボーンネットワークを通じてオリジンまで転送することで遅延を削減します。
@@ -200,6 +204,8 @@ CDNエッジでコードを実行してリクエスト/レスポンスを変換�
 
 - [Azure Front Doorドキュメント](https://learn.microsoft.com/ko-kr/azure/frontdoor/)
 - [Azure CDNドキュメント](https://learn.microsoft.com/ko-kr/azure/cdn/)
+- [Front Door WAF の HTTP DDoS ルールセット](https://learn.microsoft.com/en-us/azure/web-application-firewall/afds/http-ddos-ruleset)
+- [Azure アップデート 578681: Front Door Premium WAF の HTTP DDoS ルールセット](https://azure.microsoft.com/en-us/updates?id=578681)
 
 ### Google Cloud
 

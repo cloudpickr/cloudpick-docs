@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "jira_key": "DOCS-280",
+  "policy_action": "update",
+  "tier_hint": "B",
+  "tier_reasons": ["기존 AI 모델 표의 Anthropic 모델 및 제공 경로를 공식 출처로 현행화하는 사실 수정"],
+  "target_path": "src/content/docs/ko/ai/ai-ml.md",
+  "changed_paths": [
+    "src/content/docs/ko/ai/ai-ml.md",
+    "src/content/docs/en/ai/ai-ml.md",
+    "src/content/docs/ja/ai/ai-ml.md"
+  ],
+  "generated_by_llm": true,
+  "writer": {"model": "codex", "provider": "openai"},
+  "claim_ledger": [
+    {
+      "claim": "Claude Sonnet 5.5는 2026년 9월 28일 출시되었고 Claude Platform과 AWS, Google Cloud, Microsoft Azure에서 제공된다.",
+      "source_url": "https://www.anthropic.com/claude-sonnet-5-5",
+      "quote": "Claude Sonnet 5.5 is now available on all platforms, including Amazon Web Services, Google Cloud, and Microsoft Azure.",
+      "checked_at": "2026-11-01T07:04:13+09:00",
+      "volatile": true,
+      "status": "verified"
+    },
+    {
+      "claim": "Amazon Bedrock은 Claude Sonnet 5.5를 지원한다.",
+      "source_url": "https://docs.aws.amazon.com/bedrock/latest/userguide/models-endpoint-availability.html",
+      "quote": "Claude Sonnet 5.5",
+      "checked_at": "2026-11-01T07:04:13+09:00",
+      "volatile": true,
+      "status": "verified"
+    },
+    {
+      "claim": "Google Cloud Model Garden은 Claude Sonnet 5.5를 2026년 9월 28일부터 제공한다.",
+      "source_url": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/release-notes",
+      "quote": "Claude Sonnet 5.5 is available in Model Garden.",
+      "checked_at": "2026-11-01T07:04:13+09:00",
+      "volatile": true,
+      "status": "verified"
+    },
+    {
+      "claim": "Microsoft Foundry는 Claude Sonnet 5.5를 제공한다.",
+      "source_url": "https://learn.microsoft.com/azure/foundry/foundry-models/concepts/claude-models",
+      "quote": "claude-sonnet-5-5",
+      "checked_at": "2026-11-01T07:04:13+09:00",
+      "volatile": true,
+      "status": "verified"
+    },
+    {
+      "claim": "기존 OCI 채널 주장은 OCI Generative AI 자체 제공과 외부 Anthropic 연결을 혼동할 수 있어 제거한다. Oracle은 Claude 모델이 OCI Generative AI 모델 목록이 아닌 Anthropic에서 제공된다고 명시한다.",
+      "source_url": "https://docs.oracle.com/en-us/iaas/Content/internet-of-things/select-ai-apex.htm",
+      "quote": "Gemini and Claude models come from Google and Anthropic, not from the OCI Generative AI service model list.",
+      "checked_at": "2026-11-01T07:04:13+09:00",
+      "volatile": true,
+      "status": "verified"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "jira_key": "DOCS-281",
+  "policy_action": "update",
+  "tier_hint": "B",
+  "tier_reasons": [
+    "축2: 이슈 #211의 2026-10-29 Azure 업데이트 578681만 networking/cdn.md(ko/en/ja)에 반영했다. 새 문서·제목·분할·사이드바는 없다. 문서 기준 마커는 2026년 9월을 유지하고, 이 항목에만 발표일과 검토일을 적었다.",
+    "채택한 사실: Front Door Premium WAF의 HTTP DDoS 규칙 집합에서 500100·500110은 GA, 지오 규칙 500310·500320은 Preview, 적용 범위는 Premium, 기본 동작은 Log. 전용 Learn 문서(ms.date 2026-10-15)와 릴리스 커뮤니케이션 578681 본문이 일치한다.",
+    "보류: L7 개요(application-ddos-protection, ms.date 2026-10-22)는 규칙 집합 전체를 preview로 적고 규칙 두 개만 나열한다. 발표 제목의 포괄 GA도 본문과 달라 채택하지 않았다. Application Gateway preview와 비영어 번역 지연은 범위 밖이다."
+  ],
+  "target_path": "src/content/docs/ko/networking/cdn.md",
+  "changed_paths": [
+    "src/content/docs/ko/networking/cdn.md",
+    "src/content/docs/en/networking/cdn.md",
+    "src/content/docs/ja/networking/cdn.md"
+  ],
+  "generated_by_llm": true,
+  "writer": {
+    "model": "grok-4.7",
+    "provider": "xai"
+  },
+  "claim_ledger": [
+    {
+      "claim": "Azure Front Door Premium WAF의 HTTP DDoS 규칙 집합 Microsoft_HTTPDDoSRuleSet_1.0에서 규칙 500100(클라이언트 요청률 이상)과 500110(Microsoft Threat Intelligence가 봇으로 분류한 주소)은 Generally available이고, 지오 규칙 500310과 500320은 Preview다. 적용 대상은 Front Door Premium이며, 할당 시 기본 동작은 Log다.",
+      "source_url": "https://learn.microsoft.com/en-us/azure/web-application-firewall/afds/http-ddos-ruleset",
+      "quote": "The geo rules in the HTTP DDoS ruleset, rules 500310 and 500320, are currently in preview. The rest of the HTTP DDoS ruleset is generally available.",
+      "checked_at": "2026-10-31T22:08:23Z",
+      "source_updated_at": "2026-10-15",
+      "volatile": true,
+      "status": "verified"
+    },
+    {
+      "claim": "2026년 10월 29일 Microsoft는 Azure Front Door Premium WAF의 HTTP DDoS 규칙 집합 일반 제공을 발표했다. 본문은 GA 규칙을 비정상적으로 높은 클라이언트 요청률과 Microsoft Threat Intelligence가 봇으로 분류한 주소의 두 가지로 한정하고, 국가·지역 지오 규칙 두 개는 Preview라고 적으며, 모든 규칙의 기본 동작은 Log라고 적는다.",
+      "source_url": "https://www.microsoft.com/releasecommunications/api/v2/azure/578681",
+      "sources": [
+        {
+          "source_url": "https://azure.microsoft.com/en-us/updates?id=578681"
+        }
+      ],
+      "quote": "one for clients sending anomalously high request rates, and one for suspected bots identified by Microsoft Threat Intelligence.",
+      "checked_at": "2026-10-31T22:08:23Z",
+      "source_updated_at": "2026-10-29T17:09:49Z",
+      "volatile": true,
+      "status": "verified"
+    },
+    {
+      "claim": "L7 DDoS 개요 문서는 2026-10-22 개정본에서 Front Door Premium의 HTTP DDoS 규칙 집합 전체를 preview로 적고, 규칙을 500100과 500110 두 개만 나열한다. 2026-10-29 발표 본문 및 Front Door 전용 문서의 상태 표와 충돌하므로 이 서술은 문서에 반영하지 않았다.",
+      "source_url": "https://learn.microsoft.com/en-us/azure/web-application-firewall/application-ddos-protection",
+      "quote": "It's available in preview on both Azure Front Door Premium and Application Gateway WAF v2.",
+      "checked_at": "2026-10-31T22:08:23Z",
+      "source_updated_at": "2026-10-22",
+      "volatile": true,
+      "status": "conflicting"
+    }
+  ]
+}

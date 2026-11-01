@@ -1149,7 +1149,8 @@
       "pr": null,
       "origin": "stale",
       "last_seen": "2026-11",
-      "carried_from": "2026-10"
+      "carried_from": "2026-10",
+      "not_seen_in_latest_scan": true
     },
     {
       "id": "67c6b452bd32de874fc916c7",
@@ -1162,7 +1163,8 @@
       "pr": null,
       "origin": "stale",
       "last_seen": "2026-11",
-      "carried_from": "2026-10"
+      "carried_from": "2026-10",
+      "not_seen_in_latest_scan": true
     },
     {
       "id": "b781252971018918f2552655",
@@ -2693,6 +2695,42 @@
       "evidence": [],
       "pr": null,
       "carried_from": "2026-10"
+    },
+    {
+      "id": "8c463016f025e591655ca882",
+      "path": "src/content/docs/ko/governance/finops.md",
+      "axis": 1,
+      "reason": "status-word: 2026년 6월 공개된 [AWS FinOps Agent](https://aws.amazon.com/blogs/aws-cloud-financial-management/aws-finops-agent-is-now-public-preview/)([공식 문서…",
+      "line": 68,
+      "origin": "stale",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "be4fd2202e8a2e62071e7620",
+      "path": "src/content/docs/ko/governance/finops.md",
+      "axis": 1,
+      "reason": "status-word: | 상태 | Public Preview (2026.06) |",
+      "line": 75,
+      "origin": "stale",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "afcd55226f8964de089427d5",
+      "path": "src/content/docs/ko/networking/cdn.md",
+      "axis": 1,
+      "reason": "status-word: 2026년 10월 29일 Azure 업데이트(id 578681) 기준, Azure Front Door Premium WAF의 HTTP DDoS 규칙 집합(`Microsoft_HTTPDDoSRuleSet_1.0`)에서 규칙 500100(비정상적으로 높…",
+      "line": 134,
+      "origin": "stale",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
     }
   ],
   "resolved_ids": [],

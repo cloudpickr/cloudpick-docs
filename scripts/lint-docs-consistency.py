@@ -129,8 +129,8 @@ def main():
             print(f"  {iss}")
         print(
             "\n규약: AGENTS.md의 3로케일 대칭성 / 문서 기준 마커 / 접이식 금지 참고.\n"
-            "마커 표준 문구: ko '문서 기준: 2026년 8월', en 'Last reviewed: August 2026', "
-            "ja '文書基準: 2026年8月'."
+            "마커 표준 문구: ko '문서 기준: 2026년 9월', en 'Last reviewed: September 2026', "
+            "ja '文書基準: 2026年9月'."
         )
         sys.exit(1)
     else:

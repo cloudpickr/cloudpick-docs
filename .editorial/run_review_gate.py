@@ -145,6 +145,28 @@ def run(args) -> dict:
             return _out(tier, "changes_requested", [f"link-refresh full-file verification failed: {full['block']}"] + reasons, args, packet_sha)
         reasons.append("link-refresh full-file verification: ok")
 
+    # marker-refresh: 리뷰 기준 마커의 '월 토큰만' 바뀌었음을 신뢰된 base 스크립트로 전수
+    # 증명(base/head 전체 파일 + manifest). 새 사실 주장이 없으므로(claim_ledger 빔) LLM
+    # 리뷰·source fetch는 생략하고, 결정론 가드 통과 시 바로 approve한다(C 사람 승인은 별도
+    # editorial-c-approval 게이트가 담당). 검증 실패는 fail-closed(hold/changes_requested).
+    if packet.get("policy_action") == "marker-refresh":
+        if not _is_marker_refresh_packet(packet):
+            return _out(tier, "changes_requested",
+                        ["marker-refresh requires an empty claim_ledger"] + reasons, args, packet_sha)
+        full = _verify_marker_refresh_files(args, changes, packet)
+        if full.get("error"):
+            return _out(tier, "error",
+                        [f"marker-refresh full-file verification unavailable → hold: {full['error']}"] + reasons,
+                        args, packet_sha)
+        if full.get("block"):
+            return _out(tier, "changes_requested",
+                        [f"marker-refresh full-file verification failed: {full['block']}"] + reasons,
+                        args, packet_sha)
+        reasons.append("marker-refresh full-file verification: ok (마커 월 교체만, 전 로케일)")
+        return _out(tier, "approve",
+                    ["marker-refresh: marker-month-only change proven byte-equivalent"] + reasons,
+                    args, packet_sha)
+
     # 독립 LLM 리뷰. claim_ledger의 공식 출처를 source_fetch로 독립 재취득해 리뷰에 연결(#2).
     config = rr.ReviewConfig.from_env()
     diff_text = Path(args.diff).read_text(encoding="utf-8") if Path(args.diff).is_file() else ""
@@ -309,6 +331,92 @@ def _is_link_refresh_packet(packet: dict) -> bool:
     if not isinstance(packet, dict) or packet.get("claim_ledger"):
         return False
     return (packet.get("policy_action") or "") == "link-refresh"
+
+
+def _is_marker_refresh_packet(packet: dict) -> bool:
+    """패킷이 marker-refresh(리뷰 기준 마커 월 승격) 성격인지 — claim_ledger 비었고
+    policy_action=='marker-refresh'(단일 필드). 가드가 '마커 외 바이트 불변'을 증명한다."""
+    if not isinstance(packet, dict) or packet.get("claim_ledger"):
+        return False
+    return (packet.get("policy_action") or "") == "marker-refresh"
+
+
+def _verify_marker_refresh_files(args, changes, packet):
+    """신뢰된 git blob으로 marker-refresh를 전수 검증(head 코드 실행 안 함).
+
+    link-refresh의 _verify_link_refresh_files와 동형: 변경이 모두 'M'(수정)인지, 경로
+    목록이 신뢰된 git diff와 일치하는지 확인하고, manifest(marker-refresh-manifest.py)와
+    가드(marker-refresh-guard.py)를 base/head blob에 대해 돌린다.
+    """
+    import re
+    import subprocess
+    import tempfile
+
+    repo = getattr(args, "link_refresh_repo", None)
+    if not repo:
+        return {"error": "repository containing base/head git objects not supplied"}
+    if not all(re.fullmatch(r"[0-9a-f]{40,64}", str(x)) for x in (args.base_sha, args.head_sha)):
+        return {"error": "invalid commit identity"}
+    mr = packet.get("marker_refresh") or {}
+    from_m = mr.get("from_month") or {}
+    to_m = mr.get("to_month") or {}
+    for key, obj in (("from_month", from_m), ("to_month", to_m)):
+        if set(obj) != {"ko", "en", "ja"}:
+            return {"block": f"marker_refresh.{key} must have ko/en/ja"}
+
+    root = Path(repo)
+
+    def git(*argv):
+        return subprocess.run(["git", "-C", str(root), *argv], stdout=subprocess.PIPE,
+                              stderr=subprocess.PIPE, timeout=120, check=True).stdout
+    try:
+        raw = git("diff", "--name-status", "--no-renames", "-z", args.base_sha, args.head_sha,
+                  "--", "src/content/docs/").split(b"\0")
+        if raw[-1:] == [b""]:
+            raw.pop()
+        if len(raw) % 2:
+            return {"error": "invalid git diff output"}
+        entries = [(raw[i].decode("utf-8"), raw[i + 1].decode("utf-8")) for i in range(0, len(raw), 2)]
+        if any(status != "M" for status, _ in entries):
+            return {"block": "marker-refresh accepts only modified existing documents"}
+        paths = [path for _, path in entries]
+        if not paths or set(paths) != {c.path for c in changes} or len(paths) != len(changes):
+            return {"block": "document list differs from trusted git diff"}
+        if any(not re.fullmatch(r"src/content/docs/(?:ko|en|ja)/.+\.mdx?", p) or "\n" in p or "\r" in p for p in paths):
+            return {"block": "unsupported document path"}
+        guard = HERE.parent / "scripts" / "marker-refresh-guard.py"
+        manifest = HERE.parent / "scripts" / "marker-refresh-manifest.py"
+        with tempfile.TemporaryDirectory(prefix="marker-refresh-") as temp:
+            tmp = Path(temp)
+            paths_file = tmp / "paths.txt"
+            paths_file.write_text("".join(p + "\n" for p in paths), encoding="utf-8")
+            check = subprocess.run([sys.executable, str(manifest), "verify", "--packet", args.packet,
+                                    "--changed-paths", str(paths_file), "--base-sha", args.base_sha],
+                                   capture_output=True, text=True, timeout=120)
+            if check.returncode:
+                return {"block": "manifest verification failed: " + check.stderr[:500]}
+            guard_args = [
+                "--from-month-ko", from_m["ko"], "--to-month-ko", to_m["ko"],
+                "--from-month-en", from_m["en"], "--to-month-en", to_m["en"],
+                "--from-month-ja", from_m["ja"], "--to-month-ja", to_m["ja"],
+            ]
+            for path in paths:
+                for rev, filename in ((args.base_sha, "base"), (args.head_sha, "head")):
+                    tree = git("--literal-pathspecs", "ls-tree", rev, "--", path)
+                    if not tree.startswith((b"100644 blob ", b"100755 blob ")):
+                        return {"block": "non-regular or missing file: " + path}
+                    data = git("show", f"{rev}:{path}")
+                    if len(data) > 2 * 1024 * 1024:
+                        return {"error": "document exceeds 2 MiB: " + path}
+                    (tmp / filename).write_bytes(data)
+                check = subprocess.run([sys.executable, str(guard), "--base", str(tmp / "base"),
+                                        "--head", str(tmp / "head"), *guard_args],
+                                       capture_output=True, text=True, timeout=120)
+                if check.returncode:
+                    return {"block": path + ": " + check.stderr[:500]}
+    except (OSError, UnicodeError, subprocess.SubprocessError, ValueError) as exc:
+        return {"error": str(exc)}
+    return {"ok": True}
 
 
 def _normalize_url(u: str) -> str:

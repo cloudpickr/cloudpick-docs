@@ -135,6 +135,17 @@ test('approval fingerprint ignores only link manifest regeneration and binds doc
   assert.notStrictEqual(first, approvalFingerprint({...packet, link_refresh:{...packet.link_refresh,url_map:{'https://old.test':'https://other.test'}}},docs));
 });
 
+test('approval fingerprint ignores only marker manifest regeneration and binds document contents', () => {
+  const packet = {policy_action:'marker-refresh', marker_refresh:{manifest_sha256:'old',from_month:{ko:'2026년 9월',en:'September 2026',ja:'2026年9月'},to_month:{ko:'2026년 10월',en:'October 2026',ja:'2026年10月'},changed_paths_count:1}};
+  const docs = [{path:'src/content/docs/ko/a.md',status:'modified',base:'old',head:'new'}];
+  const first = approvalFingerprint(packet,docs);
+  // manifest 재계산(해시 변경)은 지문을 바꾸지 않는다(CI가 재계산하므로).
+  assert.strictEqual(first, approvalFingerprint({...packet,marker_refresh:{...packet.marker_refresh,manifest_sha256:'new'}},docs));
+  // 문서 blob이나 승인된 월 토큰이 바뀌면 지문이 달라져 재승인을 강제한다.
+  assert.notStrictEqual(first, approvalFingerprint(packet,[{...docs[0],head:'changed'}]));
+  assert.notStrictEqual(first, approvalFingerprint({...packet, marker_refresh:{...packet.marker_refresh,to_month:{ko:'2026년 11월',en:'November 2026',ja:'2026年11月'}}},docs));
+});
+
 test('command binds once, survives manifest refresh, and rejects changed documents', async () => {
   const priorEnv = process.env.C_APPROVAL_ALLOWLIST;
   process.env.C_APPROVAL_ALLOWLIST = 'alice';

@@ -209,3 +209,79 @@ jobs:
             exit 1
           fi
           echo "✅ 링크 현행화 가드 통과(전 로케일 URL 교체 전용)."
+
+  # marker-refresh 가드: 리뷰 기준 마커의 '월 토큰만' 바뀌었음을 전 로케일 문서에서 전수
+  # 증명한다(라벨이 아니라 패킷의 marker-refresh 자격에서 파생). marker-refresh 패킷이
+  # 없으면 즉시 통과. 있으면 manifest 대조 + 변경 문서별 재구성 매칭 가드(fail-closed).
+  marker-refresh-guard:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - name: Run marker-refresh guard (derived from packet marker-refresh eligibility)
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          set -euo pipefail
+          CHANGED_ALL=$(git diff --name-only "$BASE_SHA" "$HEAD_SHA")
+          ALL_PACKETS=$(echo "$CHANGED_ALL" | grep -E '^\.editorial/packets/.*\.json$' || true)
+          # 트리거 파생: 변경 패킷 중 policy_action=="marker-refresh"인 것만 추린다(라벨 무관).
+          PACKETS=""
+          for pkt in $ALL_PACKETS; do
+            act=$(python3 -c "import json,sys; print(json.load(open(sys.argv[1])).get('policy_action',''))" "$pkt" 2>/dev/null || echo "")
+            if [ "$act" = "marker-refresh" ]; then PACKETS="$PACKETS $pkt"; fi
+          done
+          PACKETS=$(echo "$PACKETS" | xargs -n1 2>/dev/null || true)
+          if [ -z "$PACKETS" ]; then
+            echo "marker-refresh 패킷 없음 — 마커 현행화 가드 대상 아님(통과)."
+            exit 0
+          fi
+          if [ "$(echo "$PACKETS" | wc -l | tr -d ' ')" != "1" ]; then
+            echo "❌ marker-refresh 패킷은 PR당 정확히 1개여야 합니다."
+            exit 1
+          fi
+          PKT="$PACKETS"
+          echo "marker-refresh 패킷 감지($PKT) — manifest 대조 + 변경 문서 재구성 매칭."
+          DOCS=$(echo "$CHANGED_ALL" | grep -E '^src/content/docs/(ko|en|ja)/.*\.mdx?$' || true)
+          echo "$DOCS" > /tmp/changed_docs.txt
+          # 1) manifest_sha256·changed_paths_count를 실제 변경과 대조(완전성·불변성).
+          python3 scripts/marker-refresh-manifest.py verify --packet "$PKT" \
+            --changed-paths /tmp/changed_docs.txt --base-sha "$BASE_SHA"
+          # 2) from/to 월 토큰을 패킷에서 읽어 각 문서에 가드 적용.
+          # 월 토큰에 공백이 포함되므로('2026년 9월', 'September 2026') 공백 분리 read는
+          # 값을 쪼갠다(리뷰 봇 P1). 각 토큰을 개별 추출해 공백을 보존한다(bash 3.2+ 호환).
+          mkey() { python3 -c "import json,sys; print(json.load(open(sys.argv[1]))['marker_refresh'][sys.argv[2]][sys.argv[3]])" "$PKT" "$1" "$2"; }
+          FK="$(mkey from_month ko)"; TK="$(mkey to_month ko)"
+          FE="$(mkey from_month en)"; TE="$(mkey to_month en)"
+          FJ="$(mkey from_month ja)"; TJ="$(mkey to_month ja)"
+          if [ -z "$FK" ] || [ -z "$TK" ] || [ -z "$FE" ] || [ -z "$TE" ] || [ -z "$FJ" ] || [ -z "$TJ" ]; then
+            echo "❌ marker_refresh에서 6개 월 토큰(ko/en/ja × from/to)을 읽지 못했습니다."
+            exit 1
+          fi
+          if [ -z "$DOCS" ]; then echo "변경된 문서 없음."; exit 0; fi
+          FAIL=0
+          for f in $DOCS; do
+            if ! git show "$BASE_SHA:$f" > /tmp/base.md 2>/dev/null; then
+              echo "❌ 신규 파일 $f — marker-refresh는 기존 문서의 마커만 바꾼다(신규/이동 불가)."
+              FAIL=1; continue
+            fi
+            echo "::group::marker-refresh-guard $f"
+            if ! python3 scripts/marker-refresh-guard.py --base /tmp/base.md --head "$f" \
+                --from-month-ko "$FK" --to-month-ko "$TK" \
+                --from-month-en "$FE" --to-month-en "$TE" \
+                --from-month-ja "$FJ" --to-month-ja "$TJ"; then
+              FAIL=1
+            fi
+            echo "::endgroup::"
+          done
+          if [ "$FAIL" -ne 0 ]; then
+            echo "❌ marker-refresh PR이 마커 외 변경을 포함합니다 — 사실 변경은 축1(근거 패킷) 경로로 보내세요."
+            exit 1
+          fi
+          echo "✅ 마커 현행화 가드 통과(전 로케일 마커 월 교체 전용)."

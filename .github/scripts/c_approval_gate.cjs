@@ -39,6 +39,7 @@ function stable(value) {
 function approvalFingerprint(packet, docs) {
   const copy = structuredClone(packet);
   if (copy.policy_action === 'link-refresh' && copy.link_refresh) delete copy.link_refresh.manifest_sha256;
+  if (copy.policy_action === 'marker-refresh' && copy.marker_refresh) delete copy.marker_refresh.manifest_sha256;
   const ordered = [...docs].sort((a, b) => a.path.localeCompare(b.path));
   return crypto.createHash('sha256').update(JSON.stringify(stable({packet: copy, docs: ordered}))).digest('hex');
 }

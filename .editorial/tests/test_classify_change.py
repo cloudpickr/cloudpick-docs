@@ -208,5 +208,44 @@ class TestLinkRefresh(unittest.TestCase):
         self.assertEqual(r.tier, "C")
 
 
+class TestMarkerRefresh(unittest.TestCase):
+    """marker-refresh(리뷰 기준 마커 월 승격)는 최신성 주장이므로 모든 경로에서 C."""
+
+    def _packet(self, action="marker-refresh"):
+        return {
+            "policy_action": action,
+            "tier_reasons": ["marker-refresh: baseline month promoted 9→10"],
+            "claim_ledger": [],
+        }
+
+    def test_small_marker_refresh_is_c(self):
+        change = mod(f"{DOC}/ko/cloud/test.md", 1, 1)
+        self.assertEqual(cc.classify([change], self._packet()).tier, "C")
+
+    def test_multi_doc_marker_refresh_is_c(self):
+        changes = [mod(f"{DOC}/ko/ai/agents.md", 1, 1),
+                   mod(f"{DOC}/en/ai/agents.md", 1, 1),
+                   mod(f"{DOC}/ja/ai/agents.md", 1, 1)]
+        self.assertEqual(cc.classify(changes, self._packet()).tier, "C")
+
+    def test_regulatory_path_marker_refresh_is_c(self):
+        changes = [mod(f"{DOC}/ko/korea/security/csap.md", 1, 1)]
+        self.assertEqual(cc.classify(changes, self._packet()).tier, "C")
+
+    def test_marker_refresh_with_claims_is_also_c(self):
+        p = self._packet()
+        p["claim_ledger"] = [{"claim": "x", "source_url": "https://e.com", "quote": "q",
+                              "checked_at": "2026-10-01T00:00:00+09:00", "status": "verified"}]
+        changes = [mod(f"{DOC}/ko/ai/agents.md", 1, 1)]
+        self.assertEqual(cc.classify(changes, p).tier, "C")
+
+    def test_tier_reasons_alone_does_not_grant_marker_refresh(self):
+        # policy_action 없이 tier_reasons 텍스트만으로는 marker-refresh 자격 없음.
+        # 자격이 없으면 일반 분류를 따른다: 근거 없는 20줄 초과 비기계적 변경 → C.
+        p = {"tier_reasons": ["마커 현행화"], "claim_ledger": []}
+        changes = [mod(f"{DOC}/ko/ai/agents.md", 30, 30)]
+        self.assertEqual(cc.classify(changes, p).tier, "C")
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

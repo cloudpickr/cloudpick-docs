@@ -3019,7 +3019,7 @@
         "paths": [
           "src/content/docs/ko/ai/agents.md"
         ],
-        "checked_at": "2026-11-01T06:15:13Z",
+        "checked_at": "2026-11-02T06:15:45Z",
         "status": "unverified",
         "hash": "dc7fc249911468c4dc00fc4eb92b1c0d611070787422d5a6d767fc3b925fee20",
         "final_url": "https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/",
@@ -3029,7 +3029,7 @@
         "paths": [
           "src/content/docs/ko/singapore/mtcs.md"
         ],
-        "checked_at": "2026-11-01T06:15:13Z",
+        "checked_at": "2026-11-02T06:15:45Z",
         "status": "unverified",
         "hash": "635b02875de69e3cc1de1579b70facd5f4c19edf127bd2e3769e8a92f70b360b",
         "final_url": "https://abs.org.sg/docs/library/abs-ospar-guidelines-v2-0.pdf",
@@ -3039,7 +3039,7 @@
         "paths": [
           "src/content/docs/ko/ai/agents.md"
         ],
-        "checked_at": "2026-11-01T06:15:13Z",
+        "checked_at": "2026-11-02T06:15:45Z",
         "status": "unverified",
         "hash": "279273094623330fe250f2984391cac02002276942f6d2dbd8537e495fae1bdf",
         "final_url": "https://www.ag2.ai/",
@@ -3049,7 +3049,7 @@
         "paths": [
           "src/content/docs/ko/ai/getting-started.md"
         ],
-        "checked_at": "2026-11-01T06:15:13Z",
+        "checked_at": "2026-11-02T06:15:45Z",
         "status": "unverified",
         "hash": "ae0f8a0945b3d1cf6945ebf983706906940024c6f02864250619be546f2c10a2",
         "final_url": "https://ai.azure.com/",
@@ -3089,7 +3089,7 @@
         "paths": [
           "src/content/docs/ko/singapore/ai-governance.md"
         ],
-        "checked_at": "2026-11-01T06:15:13Z",
+        "checked_at": "2026-11-02T06:15:45Z",
         "status": "unverified",
         "hash": "861c9baae1bb9420d984be6abe0a5a19d6b07730363337bf8a901ea68a37c87d",
         "final_url": "https://aiverifyfoundation.sg/resources/mgf-gen-ai/",
@@ -3109,7 +3109,7 @@
         "paths": [
           "src/content/docs/ko/devops/devsecops.md"
         ],
-        "checked_at": "2026-11-01T06:15:13Z",
+        "checked_at": "2026-11-02T06:15:45Z",
         "status": "unverified",
         "hash": "6ce84a59d0c606ad8c2c2b3d3703944b3097b677f6a9c36c22154de4e3295152",
         "final_url": "https://aquasecurity.github.io/tfsec/",
@@ -3129,7 +3129,7 @@
         "paths": [
           "src/content/docs/ko/ai/llmops.md"
         ],
-        "checked_at": "2026-11-01T06:15:13Z",
+        "checked_at": "2026-11-02T06:15:45Z",
         "status": "unverified",
         "hash": "84e61b481a6f8d7a78ec8093dce057a9e2b06a9ea80957e5c3766d9b595ef09c",
         "final_url": "https://arize.com/",
@@ -3199,7 +3199,7 @@
         "paths": [
           "src/content/docs/ko/devops/observability.md"
         ],
-        "checked_at": "2026-11-01T06:15:13Z",
+        "checked_at": "2026-11-02T06:15:45Z",
         "status": "unverified",
         "hash": "b472569757f991e0df0919150abea62828a7651cc991dfcabea1158bc12ba1fe",
         "final_url": "https://aws-otel.github.io/",
@@ -7679,341 +7679,662 @@
       "https://docs.aws.amazon.com/ko_kr/Route53/latest/DeveloperGuide/health-checks-creating.html": {
         "paths": [
           "src/content/docs/ko/networking/dns.md"
-        ]
+        ],
+        "checked_at": "2026-11-02T06:15:45Z",
+        "status": "observed",
+        "hash": "1d80dc24d599910f8f33eb23de3ec8b15440e17d6d7b7f3d334d4ebc4df238b8",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/ko_kr/Route53/latest/DeveloperGuide/health-checks-creating.html"
       },
       "https://docs.aws.amazon.com/ko_kr/Route53/latest/DeveloperGuide/routing-policy.html": {
         "paths": [
           "src/content/docs/ko/networking/dns.md"
-        ]
+        ],
+        "checked_at": "2026-11-02T06:15:45Z",
+        "status": "observed",
+        "hash": "7ed304380277a8f3beafc695cf9a3eaef8b2198e7bbd3cbbba33bfa6afa5b6f9",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/ko_kr/Route53/latest/DeveloperGuide/routing-policy.html"
       },
       "https://docs.aws.amazon.com/ko_kr/SchemaConversionTool/": {
         "paths": [
           "src/content/docs/ko/database/migration.md"
-        ]
+        ],
+        "checked_at": "2026-11-02T06:15:45Z",
+        "status": "observed",
+        "hash": "a6243887552a6eeb98f55aba4837ed04eca107932190b430282ce5760a7efcf0",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/ko_kr/SchemaConversionTool/"
       },
       "https://docs.aws.amazon.com/ko_kr/acm/": {
         "paths": [
           "src/content/docs/ko/security/secrets.md"
-        ]
+        ],
+        "checked_at": "2026-11-02T06:15:45Z",
+        "status": "observed",
+        "hash": "74f6f03f55c55cd7273178e7ac3fa2fbd1867f017cca4f8da4557125cbff73b5",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/ko_kr/acm/"
       },
       "https://docs.aws.amazon.com/ko_kr/apigateway/": {
         "paths": [
           "src/content/docs/ko/networking/api-gateway.md"
-        ]
+        ],
+        "checked_at": "2026-11-02T06:15:45Z",
+        "status": "observed",
+        "hash": "f7a6118f988cbf207f89c5d08622fec7d863a4355b5ab53c500f8b1452b82a72",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/ko_kr/apigateway/"
       },
       "https://docs.aws.amazon.com/ko_kr/apigateway/latest/developerguide/apigateway-control-access-to-api.html": {
         "paths": [
           "src/content/docs/ko/networking/api-gateway.md"
-        ]
+        ],
+        "checked_at": "2026-11-02T06:15:45Z",
+        "status": "observed",
+        "hash": "2500fb177d458f6a9cf3d9a0979fabb0427b21c531b59b23f742e7f056108837",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/ko_kr/apigateway/latest/developerguide/apigateway-control-access-to-api.html"
       },
       "https://docs.aws.amazon.com/ko_kr/appsync/": {
         "paths": [
           "src/content/docs/ko/networking/api-gateway.md"
-        ]
+        ],
+        "checked_at": "2026-11-02T06:15:45Z",
+        "status": "observed",
+        "hash": "e378a05831e284e6cc081d7d5e11c319d1390c818e078816e34c0eccb4e7d133",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/ko_kr/appsync/"
       },
       "https://docs.aws.amazon.com/ko_kr/athena/": {
         "paths": [
           "src/content/docs/ko/storage/object-storage.md"
-        ]
+        ],
+        "checked_at": "2026-11-02T06:15:45Z",
+        "status": "unverified",
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://docs.aws.amazon.com/ko_kr/autoscaling/": {
         "paths": [
           "src/content/docs/ko/compute/auto-scaling.md"
-        ]
+        ],
+        "checked_at": "2026-11-02T06:15:45Z",
+        "status": "observed",
+        "hash": "8940122157f78e3125c944650e8de7f2064db477b597466af9e0ec1b8baf29bb",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/ko_kr/autoscaling/"
       },
       "https://docs.aws.amazon.com/ko_kr/autoscaling/ec2/userguide/": {
         "paths": [
           "src/content/docs/ko/compute/auto-scaling.md"
-        ]
+        ],
+        "checked_at": "2026-11-02T06:15:45Z",
+        "status": "unverified",
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://docs.aws.amazon.com/ko_kr/aws-backup/": {
         "paths": [
           "src/content/docs/ko/storage/backup.md"
-        ]
+        ],
+        "checked_at": "2026-11-02T06:15:45Z",
+        "status": "observed",
+        "hash": "80bdc5191bf4c847a5e25975a3ca31ad05c128cc73cf5fa2c06126ca7ea61233",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/ko_kr/aws-backup/"
       },
       "https://docs.aws.amazon.com/ko_kr/awssupport/latest/user/aws-support-plans.html": {
         "paths": [
           "src/content/docs/ko/about-cloud/support-plans.md"
-        ]
+        ],
+        "checked_at": "2026-11-02T06:15:45Z",
+        "status": "observed",
+        "hash": "7540bca4bed40d5c8d6e6750a5a65c0029c4a59499a2a17a31451cc1fcc881c2",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/ko_kr/awssupport/latest/user/aws-support-plans.html"
       },
       "https://docs.aws.amazon.com/ko_kr/awssupport/latest/user/trusted-advisor.html": {
         "paths": [
           "src/content/docs/ko/about-cloud/support-plans.md"
-        ]
+        ],
+        "checked_at": "2026-11-02T06:15:45Z",
+        "status": "observed",
+        "hash": "300cc482b1ba8e712d87f8687f706bea93bcd0c42d5e48dffd7c38b3b081bee2",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/ko_kr/awssupport/latest/user/trusted-advisor.html"
       },
       "https://docs.aws.amazon.com/ko_kr/bedrock/": {
         "paths": [
           "src/content/docs/ko/ai/ai-ml.md"
-        ]
+        ],
+        "checked_at": "2026-11-02T06:15:45Z",
+        "status": "observed",
+        "hash": "26298686fc25124a82d0468bd65a1e14803082250aeace9f76a2f21b12660d5c",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/ko_kr/bedrock/"
       },
       "https://docs.aws.amazon.com/ko_kr/bedrock/latest/userguide/knowledge-base.html": {
         "paths": [
           "src/content/docs/ko/ai/vector-store.md"
-        ]
+        ],
+        "checked_at": "2026-11-02T06:15:45Z",
+        "status": "observed",
+        "hash": "cbedf6f32cbefe4ef2786f73eedde8840f00297f16375c49f2b12a027eaf9244",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/ko_kr/bedrock/latest/userguide/knowledge-base.html"
       },
       "https://docs.aws.amazon.com/ko_kr/cdk/": {
         "paths": [
           "src/content/docs/ko/devops/iac.md"
-        ]
+        ],
+        "checked_at": "2026-11-02T06:15:45Z",
+        "status": "observed",
+        "hash": "f18bb21f4ef01cb58cd90a549d1c770559c1691c41206ff0f899c9fcc90fec05",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/ko_kr/cdk/"
       },
       "https://docs.aws.amazon.com/ko_kr/cli/latest/userguide/getting-started-install.html": {
         "paths": [
           "src/content/docs/ko/about-cloud/console-cli-sdk.md"
-        ]
+        ],
+        "checked_at": "2026-11-02T06:15:45Z",
+        "status": "observed",
+        "hash": "a34084ea58d9a875cb2f2e4980a875739fb0947f506a0d7e62b31cfa9a7df3c0",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/ko_kr/cli/latest/userguide/getting-started-install.html"
       },
       "https://docs.aws.amazon.com/ko_kr/cloudformation/": {
         "paths": [
           "src/content/docs/ko/devops/iac.md"
-        ]
+        ],
+        "checked_at": "2026-11-02T06:15:45Z",
+        "status": "observed",
+        "hash": "6d38b95656f8bbdadf659196c9d48ae3925a7370fae0da9df545da67c0a82c16",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/ko_kr/cloudformation/"
       },
       "https://docs.aws.amazon.com/ko_kr/cloudfront/": {
         "paths": [
           "src/content/docs/ko/networking/cdn.md"
-        ]
+        ],
+        "checked_at": "2026-11-02T06:15:45Z",
+        "status": "observed",
+        "hash": "2b76abd414c76c620502dde6daa458891d451c3dc6b7c5b4856ef70c0a3beab5",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/ko_kr/cloudfront/"
       },
       "https://docs.aws.amazon.com/ko_kr/cloudshell/latest/userguide/": {
         "paths": [
           "src/content/docs/ko/about-cloud/console-cli-sdk.md"
-        ]
+        ],
+        "checked_at": "2026-11-02T06:15:45Z",
+        "status": "unverified",
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://docs.aws.amazon.com/ko_kr/cloudwatch/": {
         "paths": [
           "src/content/docs/ko/devops/monitoring.md"
-        ]
+        ],
+        "checked_at": "2026-11-02T06:15:45Z",
+        "status": "observed",
+        "hash": "d578c22d4abaa8806ec4b2f68c2d88d2998a6ddafb8b5c2549e49640e6ca0ace",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/ko_kr/cloudwatch/"
       },
       "https://docs.aws.amazon.com/ko_kr/codebuild/": {
         "paths": [
           "src/content/docs/ko/devops/cicd.md"
-        ]
+        ],
+        "checked_at": "2026-11-02T06:15:45Z",
+        "status": "observed",
+        "hash": "7b5c772c6b3e83a52626fa2739b9630f97e76f0ecab25d8f1c549faf18c61d29",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/ko_kr/codebuild/"
       },
       "https://docs.aws.amazon.com/ko_kr/codedeploy/": {
         "paths": [
           "src/content/docs/ko/devops/cicd.md"
-        ]
+        ],
+        "checked_at": "2026-11-02T06:15:45Z",
+        "status": "observed",
+        "hash": "288b1874ccefe421bfca6b32a3905faee9c54f91791609a3edc3cf915d7d6733",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/ko_kr/codedeploy/"
       },
       "https://docs.aws.amazon.com/ko_kr/codepipeline/": {
         "paths": [
           "src/content/docs/ko/devops/cicd.md"
-        ]
+        ],
+        "checked_at": "2026-11-02T06:15:45Z",
+        "status": "observed",
+        "hash": "669c01ab90b91fc9ea8d35e61b670751baa9be3ad98161d507537d017c6c6851",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/ko_kr/codepipeline/"
       },
       "https://docs.aws.amazon.com/ko_kr/cognito/": {
         "paths": [
           "src/content/docs/ko/networking/api-gateway.md"
-        ]
+        ],
+        "checked_at": "2026-11-02T06:15:45Z",
+        "status": "observed",
+        "hash": "e97a5c31f2aa0268f6bbcbd4f3f2a46d294982922b561367c2dd68a570f043f5",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/ko_kr/cognito/"
       },
       "https://docs.aws.amazon.com/ko_kr/dms/": {
         "paths": [
           "src/content/docs/ko/database/migration.md"
-        ]
+        ],
+        "checked_at": "2026-11-02T06:15:45Z",
+        "status": "observed",
+        "hash": "10948190f43894a7d8bab3678b834e11e4932f90fcb1d0b6bfd8886389920e7d",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/ko_kr/dms/"
       },
       "https://docs.aws.amazon.com/ko_kr/dynamodb/": {
         "paths": [
           "src/content/docs/ko/database/nosql.md"
-        ]
+        ],
+        "checked_at": "2026-11-02T06:15:45Z",
+        "status": "observed",
+        "hash": "a42e1bd4974a8d729beac680cb7cd538411be4c66efa408b58ccb0d627ea7185",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/ko_kr/dynamodb/"
       },
       "https://docs.aws.amazon.com/ko_kr/ebs/": {
         "paths": [
           "src/content/docs/ko/storage/block-and-file.md"
-        ]
+        ],
+        "checked_at": "2026-11-02T06:15:45Z",
+        "status": "observed",
+        "hash": "452ae90c95e6d6cfb3c9ca09eb5a7eedeef6c22b928cf7789700f3a5e24a2cca",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/ko_kr/ebs/"
       },
       "https://docs.aws.amazon.com/ko_kr/ebs/latest/userguide/EBSSnapshots.html": {
         "paths": [
           "src/content/docs/ko/storage/backup.md",
           "src/content/docs/ko/storage/block-and-file.md"
-        ]
+        ],
+        "checked_at": "2026-11-02T06:15:45Z",
+        "status": "observed",
+        "hash": "84223a93098ea494519b04ed3290c85606e89557083c7893b116b7764ee54a9d",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/ko_kr/ebs/latest/userguide/ebs-snapshots.html"
       },
       "https://docs.aws.amazon.com/ko_kr/ebs/latest/userguide/ebs-volume-types.html": {
         "paths": [
           "src/content/docs/ko/storage/block-and-file.md"
-        ]
+        ],
+        "checked_at": "2026-11-02T06:15:45Z",
+        "status": "observed",
+        "hash": "eb135d6fac91dc32bea390768d470112674b3e86e21080d48517723e032cb6eb",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/ko_kr/ebs/latest/userguide/ebs-volume-types.html"
       },
       "https://docs.aws.amazon.com/ko_kr/ec2/": {
         "paths": [
           "src/content/docs/ko/compute/virtual-machines.md"
-        ]
+        ],
+        "checked_at": "2026-11-02T06:15:45Z",
+        "status": "observed",
+        "hash": "5a34204666499deb47262d9e23afcf49e953b021a032ff05983507dc4a242692",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/ko_kr/ec2/"
       },
       "https://docs.aws.amazon.com/ko_kr/ec2/latest/instancetypes/": {
         "paths": [
           "src/content/docs/ko/compute/virtual-machines.md"
-        ]
+        ],
+        "checked_at": "2026-11-02T06:15:45Z",
+        "status": "unverified",
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://docs.aws.amazon.com/ko_kr/ecs/": {
         "paths": [
           "src/content/docs/ko/compute/containers.md"
-        ]
+        ],
+        "checked_at": "2026-11-02T06:15:45Z",
+        "status": "observed",
+        "hash": "191dcc0e4392d7849997629a35558c1da749f961dd399754f62e5bd847110e0b",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/ko_kr/ecs/"
       },
       "https://docs.aws.amazon.com/ko_kr/efs/": {
         "paths": [
           "src/content/docs/ko/storage/block-and-file.md"
-        ]
+        ],
+        "checked_at": "2026-11-02T06:15:45Z",
+        "status": "unverified",
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://docs.aws.amazon.com/ko_kr/eks/": {
         "paths": [
           "src/content/docs/ko/compute/containers.md"
-        ]
+        ],
+        "checked_at": "2026-11-02T06:15:45Z",
+        "status": "observed",
+        "hash": "6f3e8e84ae0d91e2df72bfc159d1da570e2422fd9e62f28af564816db523bb9c",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/ko_kr/eks/"
       },
       "https://docs.aws.amazon.com/ko_kr/elasticloadbalancing/": {
         "paths": [
           "src/content/docs/ko/networking/load-balancer.md"
-        ]
+        ],
+        "checked_at": "2026-11-02T06:15:45Z",
+        "status": "observed",
+        "hash": "a42b73e2d7060e040f6dd9a58c47c714888bc8373b52aa3079c1d00c2c5be5d2",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/ko_kr/elasticloadbalancing/"
       },
       "https://docs.aws.amazon.com/ko_kr/fsx/": {
         "paths": [
           "src/content/docs/ko/storage/block-and-file.md"
-        ]
+        ],
+        "checked_at": "2026-11-02T06:15:45Z",
+        "status": "observed",
+        "hash": "12888ff59515e7d3089c53a481d30114e57d486eda4829259eefd91e45113507",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/ko_kr/fsx/"
       },
       "https://docs.aws.amazon.com/ko_kr/global-accelerator/": {
         "paths": [
           "src/content/docs/ko/networking/load-balancer.md"
-        ]
+        ],
+        "checked_at": "2026-11-02T06:15:45Z",
+        "status": "observed",
+        "hash": "0d606375df508a4a11cc6b22b365319791234009bf9e6d6ff95e17002f3920b5",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/ko_kr/global-accelerator/"
       },
       "https://docs.aws.amazon.com/ko_kr/iam/": {
         "paths": [
           "src/content/docs/ko/about-cloud/iam-overview.md",
           "src/content/docs/ko/security/iam.md"
-        ]
+        ],
+        "checked_at": "2026-11-02T06:15:45Z",
+        "status": "observed",
+        "hash": "dee737ec0b7bb96a8a4a68cd6465d6a04cc69189c3f95f08c698176fdf3be0a5",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/ko_kr/iam/"
       },
       "https://docs.aws.amazon.com/ko_kr/kms/": {
         "paths": [
           "src/content/docs/ko/security/data-protection.md",
           "src/content/docs/ko/security/secrets.md"
-        ]
+        ],
+        "checked_at": "2026-11-02T06:15:45Z",
+        "status": "observed",
+        "hash": "a56edd21a1c3e85b43461511d14e0ae4c4629ff4778535c6b883874131bb28f5",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/ko_kr/kms/"
       },
       "https://docs.aws.amazon.com/ko_kr/lake-formation/": {
         "paths": [
           "src/content/docs/ko/storage/object-storage.md"
-        ]
+        ],
+        "checked_at": "2026-11-02T06:15:45Z",
+        "status": "observed",
+        "hash": "2a71059d4b3004464d526deac900e48e16c19d6212b27173e8c7445ca68e1ac1",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/ko_kr/lake-formation/"
       },
       "https://docs.aws.amazon.com/ko_kr/lambda/": {
         "paths": [
           "src/content/docs/ko/compute/serverless.md"
-        ]
+        ],
+        "checked_at": "2026-11-02T06:15:45Z",
+        "status": "observed",
+        "hash": "0ba264c4b639c7fed8abbc67151925bf5bd9dba423c689b69b583d3d5d787867",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/ko_kr/lambda/"
       },
       "https://docs.aws.amazon.com/ko_kr/lambda/latest/dg/lambda-edge.html": {
         "paths": [
           "src/content/docs/ko/networking/cdn.md"
-        ]
+        ],
+        "checked_at": "2026-11-02T06:15:45Z",
+        "status": "observed",
+        "hash": "20f3e5a518e952dc6f23bb6c39e45f9562617a97e69bac4758e1aaeb19046696",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/ko_kr/AmazonCloudFront/latest/DeveloperGuide/lambda-at-the-edge.html"
       },
       "https://docs.aws.amazon.com/ko_kr/neptune/": {
         "paths": [
           "src/content/docs/ko/database/nosql.md"
-        ]
+        ],
+        "checked_at": "2026-11-02T06:15:45Z",
+        "status": "observed",
+        "hash": "bef2f8aed628652fcd4b922be58a32d381723527d72b42aeedb89e9c8997e930",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/ko_kr/neptune/"
       },
       "https://docs.aws.amazon.com/ko_kr/opensearch-service/latest/developerguide/knn.html": {
         "paths": [
           "src/content/docs/ko/ai/vector-store.md"
-        ]
+        ],
+        "checked_at": "2026-11-02T06:15:45Z",
+        "status": "observed",
+        "hash": "49dd7bced579e22b4f63cd4b5dc96570f055f65c67db9670a1a42ccb8247d15b",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/ko_kr/opensearch-service/latest/developerguide/knn.html"
       },
       "https://docs.aws.amazon.com/ko_kr/outposts/": {
         "paths": [
           "src/content/docs/ko/security/network-isolation.md"
-        ]
+        ],
+        "checked_at": "2026-11-02T06:15:45Z",
+        "status": "observed",
+        "hash": "39c110b05a75f6a312a8cda2b018c0c6f78493e27a6ccc82dc800a7246ec5df1",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/ko_kr/outposts/"
       },
       "https://docs.aws.amazon.com/ko_kr/rds/": {
         "paths": [
           "src/content/docs/ko/database/managed-rdb.md"
-        ]
+        ],
+        "checked_at": "2026-11-02T06:15:45Z",
+        "status": "observed",
+        "hash": "1288c57acd68d472c39f02077b887d1e9a6ec3104765dada5d9307700e19ff09",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/ko_kr/rds/"
       },
       "https://docs.aws.amazon.com/ko_kr/route53/": {
         "paths": [
           "src/content/docs/ko/networking/dns.md"
-        ]
+        ],
+        "checked_at": "2026-11-02T06:15:45Z",
+        "status": "observed",
+        "hash": "01869685b7bfa33e91cde219ab75a457edc7ff3c85aef02ff189cf708323a523",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/ko_kr/route53/"
       },
       "https://docs.aws.amazon.com/ko_kr/s3/": {
         "paths": [
           "src/content/docs/ko/storage/object-storage.md"
-        ]
+        ],
+        "checked_at": "2026-11-02T06:15:45Z",
+        "status": "observed",
+        "hash": "1fb370b8408995c4b831cda31971a837cb91453ee602eef3cd334c0273d117b5",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/ko_kr/s3/"
       },
       "https://docs.aws.amazon.com/ko_kr/sagemaker/": {
         "paths": [
           "src/content/docs/ko/ai/ai-ml.md"
-        ]
+        ],
+        "checked_at": "2026-11-02T06:15:45Z",
+        "status": "observed",
+        "hash": "91e493962270b4ce12cfd321f2025703bb0f4e16e51d558e94618d2c457e6a40",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/ko_kr/sagemaker/"
       },
       "https://docs.aws.amazon.com/ko_kr/sdkref/latest/guide/overview.html": {
         "paths": [
           "src/content/docs/ko/about-cloud/console-cli-sdk.md"
-        ]
+        ],
+        "checked_at": "2026-11-02T06:15:45Z",
+        "status": "observed",
+        "hash": "f7e06460aa5dce36c2f81d03bc30c350b383b85c080e1d82233e15e390d4f067",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/ko_kr/sdkref/latest/guide/overview.html"
       },
       "https://docs.aws.amazon.com/ko_kr/secretsmanager/": {
         "paths": [
           "src/content/docs/ko/security/secrets.md"
-        ]
+        ],
+        "checked_at": "2026-11-02T06:15:45Z",
+        "status": "observed",
+        "hash": "6eca3f0e313a9435289c1f76b5d7abbf0f46ea2ec60943ce4bcb45c117f23e6c",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/ko_kr/secretsmanager/"
       },
       "https://docs.aws.amazon.com/ko_kr/security/": {
         "paths": [
           "src/content/docs/ko/security/data-protection.md"
-        ]
+        ],
+        "checked_at": "2026-11-02T06:15:45Z",
+        "status": "observed",
+        "hash": "7402c3dee4edcef56dfdb74e2ea7cf70b1940cdf6133223e1ce489166a1eb4bf",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/ko_kr/security/"
       },
       "https://docs.aws.amazon.com/ko_kr/singlesignon/": {
         "paths": [
           "src/content/docs/ko/about-cloud/iam-overview.md",
           "src/content/docs/ko/security/iam.md"
-        ]
+        ],
+        "checked_at": "2026-11-02T06:15:45Z",
+        "status": "observed",
+        "hash": "132cabfb2fd949c3c23ae2b51c35405ebbbd570474f0fe336d5613f6d7e86e63",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/ko_kr/singlesignon/"
       },
       "https://docs.aws.amazon.com/ko_kr/step-functions/": {
         "paths": [
           "src/content/docs/ko/compute/serverless.md"
-        ]
+        ],
+        "checked_at": "2026-11-02T06:15:45Z",
+        "status": "observed",
+        "hash": "3325cf8299054c2a6aef083fee5c7ced691aac660ec0aedc2b877650e5542314",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/ko_kr/step-functions/"
       },
       "https://docs.aws.amazon.com/ko_kr/systems-manager/latest/userguide/systems-manager-parameter-store.html": {
         "paths": [
           "src/content/docs/ko/security/secrets.md"
-        ]
+        ],
+        "checked_at": "2026-11-02T06:15:45Z",
+        "status": "observed",
+        "hash": "94851eb9b79ba3d13dc1eccc003925070787e719624d9afe3a816235b2f07657",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/ko_kr/systems-manager/latest/userguide/systems-manager-parameter-store.html"
       },
       "https://docs.aws.amazon.com/ko_kr/vpc/": {
         "paths": [
           "src/content/docs/ko/networking/vpc-subnet.md"
-        ]
+        ],
+        "checked_at": "2026-11-02T06:15:45Z",
+        "status": "observed",
+        "hash": "cedf2ef39395513dc122e9757762710d4f40e6e7af08b9510b14e1c141199f11",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/ko_kr/vpc/"
       },
       "https://docs.aws.amazon.com/ko_kr/vpc/latest/privatelink/": {
         "paths": [
           "src/content/docs/ko/security/network-isolation.md"
-        ]
+        ],
+        "checked_at": "2026-11-02T06:15:45Z",
+        "status": "unverified",
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://docs.aws.amazon.com/ko_kr/vpc/latest/userguide/vpc-security-best-practices.html": {
         "paths": [
           "src/content/docs/ko/security/network-isolation.md"
-        ]
+        ],
+        "checked_at": "2026-11-02T06:15:45Z",
+        "status": "observed",
+        "hash": "737a5774e716f372d1a845dc738e1aa5811dc85da48d65b5a3c5854195d8ae56",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/ko_kr/vpc/latest/userguide/vpc-security-best-practices.html"
       },
       "https://docs.aws.amazon.com/ko_kr/waf/": {
         "paths": [
           "src/content/docs/ko/security/data-protection.md"
-        ]
+        ],
+        "checked_at": "2026-11-02T06:15:45Z",
+        "status": "observed",
+        "hash": "00047d4dd497ce3c774ba87d6864d4219657224d196c587aefcbd590a5f899fd",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/ko_kr/waf/"
       },
       "https://docs.aws.amazon.com/ko_kr/wellarchitected/latest/serverless-applications-lens/welcome.html": {
         "paths": [
           "src/content/docs/ko/compute/serverless.md"
-        ]
+        ],
+        "checked_at": "2026-11-02T06:15:45Z",
+        "status": "observed",
+        "hash": "fca0db8b64d8d5aae42f696504681f8cb84c35eabb482e6bf584d49c13dac7dc",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/ko_kr/wellarchitected/latest/serverless-applications-lens/welcome.html"
       },
       "https://docs.aws.amazon.com/ko_kr/whitepapers/latest/introduction-devops-aws/introduction-devops-aws.html": {
         "paths": [
           "src/content/docs/ko/devops/getting-started.md"
-        ]
+        ],
+        "checked_at": "2026-11-02T06:15:45Z",
+        "status": "unverified",
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://docs.aws.amazon.com/ko_kr/xray/": {
         "paths": [
           "src/content/docs/ko/devops/monitoring.md"
-        ]
+        ],
+        "checked_at": "2026-11-02T06:15:45Z",
+        "status": "observed",
+        "hash": "474f21644cc7d1079199a3b7d4ad35b867599fad441d475d581dbc9842c4daec",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/ko_kr/xray/"
       },
       "https://docs.aws.amazon.com/memorydb/": {
         "paths": [
           "src/content/docs/ko/database/cache.md"
-        ]
+        ],
+        "checked_at": "2026-11-02T06:15:45Z",
+        "status": "observed",
+        "hash": "a424fbe09a6795638a840b143925bb7bc3c84fbf3529a45d1e301a89cd169c9c",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/memorydb/"
       },
       "https://docs.aws.amazon.com/migrationhub/": {
         "paths": [
           "src/content/docs/ko/compute/modernization.md"
-        ]
+        ],
+        "checked_at": "2026-11-02T06:15:45Z",
+        "status": "observed",
+        "hash": "6de7ac9df8179b375935b958179f1572a8ca3453f26a5f47cf7588625c41f17f",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/migrationhub/"
       },
       "https://docs.aws.amazon.com/msk/": {
         "paths": [
           "src/content/docs/ko/database/messaging.md"
-        ]
+        ],
+        "checked_at": "2026-11-02T06:15:45Z",
+        "status": "observed",
+        "hash": "ca72b7ceca23f845fb050f2c88da0df9a279dfc5677eaed715ae360a93786d1f",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/msk/"
       },
       "https://docs.aws.amazon.com/mwaa/": {
         "paths": [
           "src/content/docs/ko/database/data-pipeline.md"
-        ]
+        ],
+        "checked_at": "2026-11-02T06:15:45Z",
+        "status": "observed",
+        "hash": "98e005fd2004b84148b3215faa8cfb75a8b5ed518c8bd7627590663719376719",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.aws.amazon.com/mwaa/"
       },
       "https://docs.aws.amazon.com/opensearch-service/": {
         "paths": [

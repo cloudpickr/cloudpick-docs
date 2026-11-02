@@ -149,13 +149,13 @@ jobs:
       # 대조·수정은 담당 에이전트/사람의 패킷 PR 몫. 네트워크·LLM 없음(결정론), exit 0(비차단).
       - name: Open — checkout for stale scan
         if: steps.mode.outputs.action == 'open'
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           ref: ${{ github.event.repository.default_branch }}
           persist-credentials: false
       - name: Open — setup python for stale scan
         if: steps.mode.outputs.action == 'open'
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@v7
         with:
           python-version: '3.12'
       - name: Open — inventory and structure signals
@@ -190,7 +190,7 @@ jobs:
         if: steps.mode.outputs.action == 'open' && always()
         id: coverage_upload
         continue-on-error: true
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: monthly-coverage-${{ steps.mode.outputs.year }}-${{ steps.mode.outputs.month }}
           path: /tmp/monthly-coverage/
@@ -399,13 +399,13 @@ jobs:
 
       - name: Daily — checkout trusted scripts
         if: steps.mode.outputs.action == 'daily' && !cancelled()
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           ref: ${{ github.event.repository.default_branch }}
           persist-credentials: false
       - name: Daily — setup python
         if: steps.mode.outputs.action == 'daily' && !cancelled()
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@v7
         with:
           python-version: '3.12'
 

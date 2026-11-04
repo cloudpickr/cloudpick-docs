@@ -4321,7 +4321,7 @@
         "paths": [
           "src/content/docs/ko/ai/agents.md"
         ],
-        "checked_at": "2026-11-03T06:54:26Z",
+        "checked_at": "2026-11-04T06:32:57Z",
         "status": "unverified",
         "hash": "dc7fc249911468c4dc00fc4eb92b1c0d611070787422d5a6d767fc3b925fee20",
         "final_url": "https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/",
@@ -4331,7 +4331,7 @@
         "paths": [
           "src/content/docs/ko/singapore/mtcs.md"
         ],
-        "checked_at": "2026-11-03T06:54:26Z",
+        "checked_at": "2026-11-04T06:32:57Z",
         "status": "unverified",
         "hash": "635b02875de69e3cc1de1579b70facd5f4c19edf127bd2e3769e8a92f70b360b",
         "final_url": "https://abs.org.sg/docs/library/abs-ospar-guidelines-v2-0.pdf",
@@ -4341,7 +4341,7 @@
         "paths": [
           "src/content/docs/ko/ai/agents.md"
         ],
-        "checked_at": "2026-11-03T06:54:26Z",
+        "checked_at": "2026-11-04T06:32:57Z",
         "status": "unverified",
         "hash": "279273094623330fe250f2984391cac02002276942f6d2dbd8537e495fae1bdf",
         "final_url": "https://www.ag2.ai/",
@@ -4351,7 +4351,7 @@
         "paths": [
           "src/content/docs/ko/ai/getting-started.md"
         ],
-        "checked_at": "2026-11-03T06:54:26Z",
+        "checked_at": "2026-11-04T06:32:57Z",
         "status": "unverified",
         "hash": "ae0f8a0945b3d1cf6945ebf983706906940024c6f02864250619be546f2c10a2",
         "final_url": "https://ai.azure.com/",
@@ -4391,7 +4391,7 @@
         "paths": [
           "src/content/docs/ko/singapore/ai-governance.md"
         ],
-        "checked_at": "2026-11-03T06:54:26Z",
+        "checked_at": "2026-11-04T06:32:57Z",
         "status": "unverified",
         "hash": "861c9baae1bb9420d984be6abe0a5a19d6b07730363337bf8a901ea68a37c87d",
         "final_url": "https://aiverifyfoundation.sg/resources/mgf-gen-ai/",
@@ -4411,7 +4411,7 @@
         "paths": [
           "src/content/docs/ko/devops/devsecops.md"
         ],
-        "checked_at": "2026-11-03T06:54:26Z",
+        "checked_at": "2026-11-04T06:32:57Z",
         "status": "unverified",
         "hash": "6ce84a59d0c606ad8c2c2b3d3703944b3097b677f6a9c36c22154de4e3295152",
         "final_url": "https://aquasecurity.github.io/tfsec/",
@@ -4431,7 +4431,7 @@
         "paths": [
           "src/content/docs/ko/ai/llmops.md"
         ],
-        "checked_at": "2026-11-03T06:54:26Z",
+        "checked_at": "2026-11-04T06:32:57Z",
         "status": "unverified",
         "hash": "84e61b481a6f8d7a78ec8093dce057a9e2b06a9ea80957e5c3766d9b595ef09c",
         "final_url": "https://arize.com/",
@@ -4501,7 +4501,7 @@
         "paths": [
           "src/content/docs/ko/devops/observability.md"
         ],
-        "checked_at": "2026-11-03T06:54:26Z",
+        "checked_at": "2026-11-04T06:32:57Z",
         "status": "unverified",
         "hash": "b472569757f991e0df0919150abea62828a7651cc991dfcabea1158bc12ba1fe",
         "final_url": "https://aws-otel.github.io/",
@@ -10295,175 +10295,340 @@
         "paths": [
           "src/content/docs/ko/about-cloud/console-cli-sdk.md",
           "src/content/docs/ko/storage/migration.md"
-        ]
+        ],
+        "checked_at": "2026-11-04T06:32:57Z",
+        "status": "observed",
+        "hash": "cc41ef03fab607018d05bc43fe0eedc9ac186d40200fd58c3e217f9f9c50560e",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/cliinstall.htm"
       },
       "https://docs.oracle.com/en-us/iaas/Content/APIGateway/home.htm": {
         "paths": [
           "src/content/docs/ko/compute/modernization.md",
           "src/content/docs/ko/networking/api-gateway.md"
-        ]
+        ],
+        "checked_at": "2026-11-04T06:32:57Z",
+        "status": "observed",
+        "hash": "c93284cd8375810c97903cea91188616f7118299ce64f2a8d3066daead04b3a0",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/Content/APIGateway/home.htm"
       },
       "https://docs.oracle.com/en-us/iaas/Content/Audit/Concepts/auditoverview.htm": {
         "paths": [
           "src/content/docs/ko/governance/compliance.md"
-        ]
+        ],
+        "checked_at": "2026-11-04T06:32:57Z",
+        "status": "observed",
+        "hash": "f9ae7b5a4ac18a29ad9b92c21acbf25827bd0cae508124f3bede88691ded222a",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/Content/Audit/Concepts/auditoverview.htm"
       },
       "https://docs.oracle.com/en-us/iaas/Content/Balance/home.htm": {
         "paths": [
           "src/content/docs/ko/networking/load-balancer.md"
-        ]
+        ],
+        "checked_at": "2026-11-04T06:32:57Z",
+        "status": "observed",
+        "hash": "dcd06f7737e9925df80502c96bf9b71c6544a3354f7d20285faa6a4cbab137ff",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/Content/Balance/home.htm"
       },
       "https://docs.oracle.com/en-us/iaas/Content/Bastion/home.htm": {
         "paths": [
           "src/content/docs/ko/devops/remote-access.md"
-        ]
+        ],
+        "checked_at": "2026-11-04T06:32:57Z",
+        "status": "observed",
+        "hash": "7a9c3c3742a551664471d9d3d19265686b251a93f7de9b8bbdf4b729784298cd",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/Content/Bastion/home.htm"
       },
       "https://docs.oracle.com/en-us/iaas/Content/Billing/Concepts/budgetsoverview.htm": {
         "paths": [
           "src/content/docs/ko/governance/finops.md"
-        ]
+        ],
+        "checked_at": "2026-11-04T06:32:57Z",
+        "status": "observed",
+        "hash": "ac12099eacc25e39bdaa4a105fbbaa8a6a5fa40f03eeb17f0faa21e732777042",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/Content/Billing/Concepts/budgetsoverview.htm"
       },
       "https://docs.oracle.com/en-us/iaas/Content/Billing/Concepts/costanalysisoverview.htm": {
         "paths": [
           "src/content/docs/ko/about-cloud/pricing-model.md"
-        ]
+        ],
+        "checked_at": "2026-11-04T06:32:57Z",
+        "status": "observed",
+        "hash": "c7c687ce5b6580bcee03fa062b211c6fdffff1c14ff8124ec2a97bd7c9f02e66",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/Content/Billing/Concepts/costanalysisoverview.htm"
       },
       "https://docs.oracle.com/en-us/iaas/Content/Billing/Concepts/costusagereportsoverview.htm": {
         "paths": [
           "src/content/docs/ko/governance/finops.md"
-        ]
+        ],
+        "checked_at": "2026-11-04T06:32:57Z",
+        "status": "observed",
+        "hash": "d401dca11b0ae31d3cf16635be8fae598d8dd35d7ca6e9930b044f3a34cc8aaa",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/Content/Billing/Concepts/costusagereportsoverview.htm"
       },
       "https://docs.oracle.com/en-us/iaas/Content/Billing/home.htm": {
         "paths": [
           "src/content/docs/ko/governance/finops.md"
-        ]
+        ],
+        "checked_at": "2026-11-04T06:32:57Z",
+        "status": "observed",
+        "hash": "860a23db60c87f2d0756b3cca99b54475a5e2f4a672194643e755c25d136f624",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/Content/Billing/home.htm"
       },
       "https://docs.oracle.com/en-us/iaas/Content/Block/Concepts/blockvolumebackups.htm": {
         "paths": [
           "src/content/docs/ko/storage/backup.md"
-        ]
+        ],
+        "checked_at": "2026-11-04T06:32:57Z",
+        "status": "observed",
+        "hash": "4f560364655d51548ebd9576655f693c2e702ef1207186a66fcd13f8223c7009",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/Content/Block/Concepts/blockvolumebackups.htm"
       },
       "https://docs.oracle.com/en-us/iaas/Content/Block/Concepts/bootvolumebackups.htm": {
         "paths": [
           "src/content/docs/ko/storage/backup.md"
-        ]
+        ],
+        "checked_at": "2026-11-04T06:32:57Z",
+        "status": "observed",
+        "hash": "ffc7124d89bfcb778f3a89cf34116811ff59cbba3e429479dd79659c19569d76",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/Content/Block/Concepts/bootvolumebackups.htm"
       },
       "https://docs.oracle.com/en-us/iaas/Content/Block/home.htm": {
         "paths": [
           "src/content/docs/ko/storage/block-and-file.md"
-        ]
+        ],
+        "checked_at": "2026-11-04T06:32:57Z",
+        "status": "observed",
+        "hash": "e4420653042b53a104beef02e6e7d98a0d977376e0917ecab55792bd01e15d8a",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/Content/Block/home.htm"
       },
       "https://docs.oracle.com/en-us/iaas/Content/CloudAdvisor/Concepts/cloudadvisoroverview.htm": {
         "paths": [
           "src/content/docs/ko/about-cloud/support-plans.md",
           "src/content/docs/ko/about-cloud/well-architected.mdx",
           "src/content/docs/ko/governance/finops.md"
-        ]
+        ],
+        "checked_at": "2026-11-04T06:32:57Z",
+        "status": "observed",
+        "hash": "6c72a2f891164431ca1008aac8b38c032e21339979e61fb841d763c722307549",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/Content/CloudAdvisor/Concepts/cloudadvisoroverview.htm"
       },
       "https://docs.oracle.com/en-us/iaas/Content/Compute/Concepts/preemptible.htm": {
         "paths": [
           "src/content/docs/ko/ai/gpu-infra/serving-reliability-cost.md"
-        ]
+        ],
+        "checked_at": "2026-11-04T06:32:57Z",
+        "status": "observed",
+        "hash": "192e3e1b484a966034d1aa68c1010434c5363b43b431f0eb5dd55cc2c133f5a7",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/Content/Compute/Concepts/preemptible.htm"
       },
       "https://docs.oracle.com/en-us/iaas/Content/Compute/References/computeshapes.htm": {
         "paths": [
           "src/content/docs/ko/ai/multicloud-ai.md",
           "src/content/docs/ko/compute/virtual-machines.md"
-        ]
+        ],
+        "checked_at": "2026-11-04T06:32:57Z",
+        "status": "observed",
+        "hash": "ac932f02fe4bca893ea86a84e3a79cee5858abea2807caf88eac245b9c74304c",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/Content/Compute/References/computeshapes.htm"
       },
       "https://docs.oracle.com/en-us/iaas/Content/Compute/References/confidential_compute.htm": {
         "paths": [
           "src/content/docs/ko/security/data-protection.md"
-        ]
+        ],
+        "checked_at": "2026-11-04T06:32:57Z",
+        "status": "observed",
+        "hash": "f385dd2543515e489c3bff3e60ec0f78ca5dc9f02d8dc21fa23711570de27ec8",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/Content/Compute/References/confidential_compute.htm"
       },
       "https://docs.oracle.com/en-us/iaas/Content/Compute/Tasks/autoscalinginstancepools.htm": {
         "paths": [
           "src/content/docs/ko/compute/auto-scaling.md"
-        ]
+        ],
+        "checked_at": "2026-11-04T06:32:57Z",
+        "status": "observed",
+        "hash": "61c5a5d4897bd08bb392351af8a6e03f0f99f46626573c34e9b4092d73d04176",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/Content/Compute/Tasks/autoscalinginstancepools.htm"
       },
       "https://docs.oracle.com/en-us/iaas/Content/Compute/Tasks/managingclusternetworks.htm": {
         "paths": [
           "src/content/docs/ko/ai/gpu-infra/workload-and-architecture.md"
-        ]
+        ],
+        "checked_at": "2026-11-04T06:32:57Z",
+        "status": "observed",
+        "hash": "58b0d42e7a7b48753979947035697623e2823ce90c4a2271de4fbb8ca3520995",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/Content/Compute/Tasks/managingclusternetworks.htm"
       },
       "https://docs.oracle.com/en-us/iaas/Content/Compute/Tasks/reserve-capacity.htm": {
         "paths": [
           "src/content/docs/ko/ai/gpu-infra/serving-reliability-cost.md"
-        ]
+        ],
+        "checked_at": "2026-11-04T06:32:57Z",
+        "status": "observed",
+        "hash": "eab3d4d43e9c18244caf71de1b9c5bddcf9ffb2760bbb88edb2db022746bf3eb",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/Content/Compute/Tasks/reserve-capacity.htm"
       },
       "https://docs.oracle.com/en-us/iaas/Content/Compute/home.htm": {
         "paths": [
           "src/content/docs/ko/compute/virtual-machines.md",
           "src/content/docs/ko/security/data-protection.md"
-        ]
+        ],
+        "checked_at": "2026-11-04T06:32:57Z",
+        "status": "observed",
+        "hash": "e3b16f3dde3bda61406a669b29fd468c3502106de794554d46e68ac3513a44ae",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/Content/Compute/home.htm"
       },
       "https://docs.oracle.com/en-us/iaas/Content/ContEng/Concepts/contengnetworkconfig.htm": {
         "paths": [
           "src/content/docs/ko/devops/kubernetes-operations.mdx"
-        ]
+        ],
+        "checked_at": "2026-11-04T06:32:57Z",
+        "status": "observed",
+        "hash": "566287667807ae53f7a97deea442e2226c2ea44533883a99c3c74eb4b89e049c",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/Content/ContEng/Concepts/contengnetworkconfig.htm"
       },
       "https://docs.oracle.com/en-us/iaas/Content/ContEng/Tasks/contengrunninggpunodes.htm": {
         "paths": [
           "src/content/docs/ko/ai/gpu-infra/kubernetes-and-scheduling.md"
-        ]
+        ],
+        "checked_at": "2026-11-04T06:32:57Z",
+        "status": "observed",
+        "hash": "76d312070b78b60d98c7cb65507bcd283bdd2a02b88f696fdbe8eb296b57cbfe",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/Content/ContEng/Tasks/contengrunninggpunodes.htm"
       },
       "https://docs.oracle.com/en-us/iaas/Content/ContEng/home.htm": {
         "paths": [
           "src/content/docs/ko/compute/containers.md",
           "src/content/docs/ko/compute/modernization.md",
           "src/content/docs/ko/devops/kubernetes-operations.mdx"
-        ]
+        ],
+        "checked_at": "2026-11-04T06:32:57Z",
+        "status": "observed",
+        "hash": "de00bbdf7fa5257b86a3cd74895d3f7a974ff8b1a41606ba0c507475d0d99274",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/Content/ContEng/home.htm"
       },
       "https://docs.oracle.com/en-us/iaas/Content/DNS/home.htm": {
         "paths": [
           "src/content/docs/ko/networking/dns.md"
-        ]
+        ],
+        "checked_at": "2026-11-04T06:32:57Z",
+        "status": "observed",
+        "hash": "64ecee58959aedf4b3c9875ee1681fc7da10afa84ce56902dc5c0f5686957fe4",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/Content/DNS/home.htm"
       },
       "https://docs.oracle.com/en-us/iaas/Content/DataTransfer/home.htm": {
         "paths": [
           "src/content/docs/ko/storage/migration.md"
-        ]
+        ],
+        "checked_at": "2026-11-04T06:32:57Z",
+        "status": "observed",
+        "hash": "f15fddc3e162a1c03d08a32c72113ba9e6d0c420b7bedda6e8404b5fd7342ced",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/Content/Rover/overview.htm#WhatIsRovingEdgeInfra__data-transfer-gateway"
       },
       "https://docs.oracle.com/en-us/iaas/Content/Events/home.htm": {
         "paths": [
           "src/content/docs/ko/database/messaging.md"
-        ]
+        ],
+        "checked_at": "2026-11-04T06:32:57Z",
+        "status": "observed",
+        "hash": "d22cb464ccbbc664bedefa2db54723147e6f443adc5bbcaba9b95effcb19064d",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/Content/Events/home.htm"
       },
       "https://docs.oracle.com/en-us/iaas/Content/File/home.htm": {
         "paths": [
           "src/content/docs/ko/storage/block-and-file.md"
-        ]
+        ],
+        "checked_at": "2026-11-04T06:32:57Z",
+        "status": "observed",
+        "hash": "baac98d1eb031059c9c0a371c09b15eb3824979107dc2c44a7d88cd2d0b1e9a6",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/Content/File/home.htm"
       },
       "https://docs.oracle.com/en-us/iaas/Content/Functions/home.htm": {
         "paths": [
           "src/content/docs/ko/compute/modernization.md",
           "src/content/docs/ko/compute/serverless.md"
-        ]
+        ],
+        "checked_at": "2026-11-04T06:32:57Z",
+        "status": "observed",
+        "hash": "81c41e788004c710ae693d06ef725a43ed496236e0c5066c389d9beda14a3d26",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/Content/Functions/home.htm"
       },
       "https://docs.oracle.com/en-us/iaas/Content/GSG/Concepts/settinguptenancy.htm": {
         "paths": [
           "src/content/docs/ko/about-cloud/accounts-and-organizations.mdx"
-        ]
+        ],
+        "checked_at": "2026-11-04T06:32:57Z",
+        "status": "observed",
+        "hash": "dcf95b1d2df178e15241cfd9bc8de1bc57daeb7a9ec3f82e23380e5ada79fba1",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/Content/GSG/Concepts/settinguptenancy.htm"
       },
       "https://docs.oracle.com/en-us/iaas/Content/General/Concepts/regions.htm": {
         "paths": [
           "src/content/docs/ko/about-cloud/regions-and-zones.md"
-        ]
+        ],
+        "checked_at": "2026-11-04T06:32:57Z",
+        "status": "observed",
+        "hash": "de62fe3dcca39b843f60379d2f5539c7b41e3314f06b60d3c3feaed4eb44cff6",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/Content/General/Concepts/regions.htm"
       },
       "https://docs.oracle.com/en-us/iaas/Content/Identity/Tasks/managingcompartments.htm": {
         "paths": [
           "src/content/docs/ko/about-cloud/accounts-and-organizations.mdx"
-        ]
+        ],
+        "checked_at": "2026-11-04T06:32:57Z",
+        "status": "observed",
+        "hash": "b82bb0315eb2948afc0ded5df5a335ff313d73fc626909592a580a67e7c741c6",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/Content/Identity/Tasks/managingcompartments.htm"
       },
       "https://docs.oracle.com/en-us/iaas/Content/Identity/Tasks/managingdynamicgroups.htm": {
         "paths": [
           "src/content/docs/ko/devops/remote-access.md"
-        ]
+        ],
+        "checked_at": "2026-11-04T06:32:57Z",
+        "status": "observed",
+        "hash": "f51aec1836d5da1d347e52d5b9dc3f4bdb0878f639808f90fb25b9fa6fc8b020",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/Content/Identity/Tasks/managingdynamicgroups.htm"
       },
       "https://docs.oracle.com/en-us/iaas/Content/Identity/domains/overview.htm": {
         "paths": [
           "src/content/docs/ko/security/iam.md"
-        ]
+        ],
+        "checked_at": "2026-11-04T06:32:57Z",
+        "status": "observed",
+        "hash": "deb916826914521773166d590dabc1fa0650d0b71a51c22f66f3d9d6ba8dd62c",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/Content/Identity/domains/overview.htm"
       },
       "https://docs.oracle.com/en-us/iaas/Content/Identity/home.htm": {
         "paths": [
@@ -10471,183 +10636,351 @@
           "src/content/docs/ko/about-cloud/iam-overview.md",
           "src/content/docs/ko/ai/agent-adoption.md",
           "src/content/docs/ko/security/iam.md"
-        ]
+        ],
+        "checked_at": "2026-11-04T06:32:57Z",
+        "status": "observed",
+        "hash": "1daf76a1a679bbd746b22e0ffee20b9b0a04ed32aa51b9155526bc462cbb4b3b",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/Content/Identity/home.htm"
       },
       "https://docs.oracle.com/en-us/iaas/Content/KeyManagement/home.htm": {
         "paths": [
           "src/content/docs/ko/security/data-protection.md",
           "src/content/docs/ko/security/secrets.md"
-        ]
+        ],
+        "checked_at": "2026-11-04T06:32:57Z",
+        "status": "observed",
+        "hash": "642e85f61e73066172b2435877fb990a0162b8849fcaec96959ff30e94bbed7a",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/Content/KeyManagement/home.htm"
       },
       "https://docs.oracle.com/en-us/iaas/Content/Logging/home.htm": {
         "paths": [
           "src/content/docs/ko/devops/monitoring.md",
           "src/content/docs/ko/devops/observability.md"
-        ]
+        ],
+        "checked_at": "2026-11-04T06:32:57Z",
+        "status": "observed",
+        "hash": "adca5e3cae65d005715ee574a791443d55b3479a9317bcb61d016a256d2adb87",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/Content/Logging/home.htm"
       },
       "https://docs.oracle.com/en-us/iaas/Content/Monitoring/home.htm": {
         "paths": [
           "src/content/docs/ko/devops/monitoring.md",
           "src/content/docs/ko/devops/observability.md",
           "src/content/docs/ko/governance/finops.md"
-        ]
+        ],
+        "checked_at": "2026-11-04T06:32:57Z",
+        "status": "observed",
+        "hash": "696fa85d5ba446acea2f83390cb4a195d251bd9223fd31b55c3c57509615da26",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/Content/Monitoring/home.htm"
       },
       "https://docs.oracle.com/en-us/iaas/Content/Network/Concepts/fastconnect.htm": {
         "paths": [
           "src/content/docs/ko/networking/multicloud-connectivity.md",
           "src/content/docs/ko/networking/multicloud-networking.md"
-        ]
+        ],
+        "checked_at": "2026-11-04T06:32:57Z",
+        "status": "observed",
+        "hash": "5d75aac7b0c109a7061fd3178bb9edfbd328e2299989fadb2575d5194363a0e4",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/Content/Network/Concepts/fastconnect.htm"
       },
       "https://docs.oracle.com/en-us/iaas/Content/Network/Concepts/fastconnectprovider.htm": {
         "paths": [
           "src/content/docs/ko/networking/vpc-subnet.md"
-        ]
+        ],
+        "checked_at": "2026-11-04T06:32:57Z",
+        "status": "observed",
+        "hash": "ba8fb34a94d172ca683c91fbc392e99743e772b02b8394ed64565d3cc6b8bb2a",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/Content/Network/Concepts/fastconnectprovider.htm"
       },
       "https://docs.oracle.com/en-us/iaas/Content/Network/Concepts/overview.htm": {
         "paths": [
           "src/content/docs/ko/networking/vpc-subnet.md"
-        ]
+        ],
+        "checked_at": "2026-11-04T06:32:57Z",
+        "status": "observed",
+        "hash": "712e4d8a5a2fe64ab191927565703ceb3db5662bb2826e9ef5eaf31065544a9e",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/Content/Network/Concepts/overview.htm"
       },
       "https://docs.oracle.com/en-us/iaas/Content/NetworkLoadBalancer/home.htm": {
         "paths": [
           "src/content/docs/ko/networking/load-balancer.md"
-        ]
+        ],
+        "checked_at": "2026-11-04T06:32:57Z",
+        "status": "observed",
+        "hash": "936954701918bb10bf05d9afeb76232c04666a63b2f5bae0453944bba750ff0b",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/Content/NetworkLoadBalancer/home.htm"
       },
       "https://docs.oracle.com/en-us/iaas/Content/Object/Concepts/understandingstoragetiers.htm": {
         "paths": [
           "src/content/docs/ko/storage/object-storage.md"
-        ]
+        ],
+        "checked_at": "2026-11-04T06:32:57Z",
+        "status": "observed",
+        "hash": "555b48f0105e2ebea145d5257b4260271f2b6e8e256431ad47605b3113e18709",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/Content/Object/Concepts/understandingstoragetiers.htm"
       },
       "https://docs.oracle.com/en-us/iaas/Content/Object/Tasks/usingreplication.htm": {
         "paths": [
           "src/content/docs/ko/storage/migration.md"
-        ]
+        ],
+        "checked_at": "2026-11-04T06:32:57Z",
+        "status": "observed",
+        "hash": "a87965b5ea2ceb601e6783250b9df772770717dd01d091fe1388c1d4f2a30d5d",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/Content/Object/Tasks/usingreplication.htm"
       },
       "https://docs.oracle.com/en-us/iaas/Content/Object/home.htm": {
         "paths": [
           "src/content/docs/ko/storage/object-storage.md"
-        ]
+        ],
+        "checked_at": "2026-11-04T06:32:57Z",
+        "status": "observed",
+        "hash": "c9e8bb6d4d77a3cbe8d37562f660d22c8f8695f84a417e971e142eecb1ff26fa",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/Content/Object/home.htm"
       },
       "https://docs.oracle.com/en-us/iaas/Content/Registry/home.htm": {
         "paths": [
           "src/content/docs/ko/compute/containers.md"
-        ]
+        ],
+        "checked_at": "2026-11-04T06:32:57Z",
+        "status": "observed",
+        "hash": "353cbea853f07f643ab950a3292e9631e92f1105773f66a897be78b415e158b6",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/Content/Registry/home.htm"
       },
       "https://docs.oracle.com/en-us/iaas/Content/ResourceManager/Concepts/resourcemanager.htm": {
         "paths": [
           "src/content/docs/ko/security/secrets.md"
-        ]
+        ],
+        "checked_at": "2026-11-04T06:32:57Z",
+        "status": "observed",
+        "hash": "7a358cbcbb3f5e32e8a9b19a27a72abbaa92781a43b3d698921f7942166efeeb",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/Content/ResourceManager/Concepts/resourcemanager.htm"
       },
       "https://docs.oracle.com/en-us/iaas/Content/ResourceManager/home.htm": {
         "paths": [
           "src/content/docs/ko/devops/iac.md"
-        ]
+        ],
+        "checked_at": "2026-11-04T06:32:57Z",
+        "status": "observed",
+        "hash": "99272acf8b65f16a6af7b92daea8bbeef4f9b732f05730750b99c9d5a4cdb465",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/Content/ResourceManager/home.htm"
       },
       "https://docs.oracle.com/en-us/iaas/Content/Rover/overview.htm": {
         "paths": [
           "src/content/docs/ko/ai/physical-ai/data-and-training.md"
-        ]
+        ],
+        "checked_at": "2026-11-04T06:32:57Z",
+        "status": "observed",
+        "hash": "f15fddc3e162a1c03d08a32c72113ba9e6d0c420b7bedda6e8404b5fd7342ced",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/Content/Rover/overview.htm"
       },
       "https://docs.oracle.com/en-us/iaas/Content/Security/Concepts/security_guide.htm": {
         "paths": [
           "src/content/docs/ko/about-cloud/shared-responsibility.mdx",
           "src/content/docs/ko/governance/compliance.md",
           "src/content/docs/ko/security/incident-response.md"
-        ]
+        ],
+        "checked_at": "2026-11-04T06:32:57Z",
+        "status": "observed",
+        "hash": "50fd1e70ea2f177606542dc9ddac7598e7fca1d95817492eaf461913d543ecb3",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/Content/Security/Concepts/security_guide.htm"
       },
       "https://docs.oracle.com/en-us/iaas/Content/Security/Reference/networking_security.htm": {
         "paths": [
           "src/content/docs/ko/security/network-isolation.md"
-        ]
+        ],
+        "checked_at": "2026-11-04T06:32:57Z",
+        "status": "observed",
+        "hash": "9f7201be0492a78147d0c6a60a5e00149e350d94f8abc5c51c59d61a2bf0ce8a",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/Content/Security/Reference/networking_security.htm"
       },
       "https://docs.oracle.com/en-us/iaas/Content/StorageGateway/home.htm": {
         "paths": [
           "src/content/docs/ko/storage/migration.md"
-        ]
+        ],
+        "checked_at": "2026-11-04T06:32:57Z",
+        "status": "unverified",
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://docs.oracle.com/en-us/iaas/Content/Streaming/home.htm": {
         "paths": [
           "src/content/docs/ko/database/data-pipeline.md",
           "src/content/docs/ko/database/messaging.md"
-        ]
+        ],
+        "checked_at": "2026-11-04T06:32:57Z",
+        "status": "observed",
+        "hash": "8dc118ed4c665c07441dfc233afa62e1ff93abd2b2e2daf9dab998f48c04aee6",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/Content/Streaming/home.htm"
       },
       "https://docs.oracle.com/en-us/iaas/Content/Tagging/Concepts/taggingoverview.htm": {
         "paths": [
           "src/content/docs/ko/governance/finops.md"
-        ]
+        ],
+        "checked_at": "2026-11-04T06:32:57Z",
+        "status": "observed",
+        "hash": "abba51bee829538395cd5f58b12cfab3d66be6f0ba71ff8e8857a69bb906fa47",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/Content/Tagging/Concepts/taggingoverview.htm"
       },
       "https://docs.oracle.com/en-us/iaas/Content/Tagging/Tasks/managingtagdefaults.htm": {
         "paths": [
           "src/content/docs/ko/governance/finops.md"
-        ]
+        ],
+        "checked_at": "2026-11-04T06:32:57Z",
+        "status": "observed",
+        "hash": "ca8432870d630437a99386ee3626aa8d50f5a77971a0e347af8c471ed25a6e09",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/Content/Tagging/Tasks/managingtagdefaults.htm"
       },
       "https://docs.oracle.com/en-us/iaas/Content/Tagging/Tasks/managingtagsandtagnamespaces.htm": {
         "paths": [
           "src/content/docs/ko/governance/finops.md"
-        ]
+        ],
+        "checked_at": "2026-11-04T06:32:57Z",
+        "status": "observed",
+        "hash": "cfa8102acbebcfbe104d1011fe45b7ab907a3211e277780b4691be511725a5d7",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/Content/Tagging/Tasks/managingtagsandtagnamespaces.htm"
       },
       "https://docs.oracle.com/en-us/iaas/Content/WAF/home.htm": {
         "paths": [
           "src/content/docs/ko/security/data-protection.md"
-        ]
+        ],
+        "checked_at": "2026-11-04T06:32:57Z",
+        "status": "observed",
+        "hash": "638bbf82873b68984571cc4b9b42a7c2f40942cf869b04f90aff9c98e5d4a261",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/Content/WAF/home.htm"
       },
       "https://docs.oracle.com/en-us/iaas/Content/certificates/home.htm": {
         "paths": [
           "src/content/docs/ko/security/secrets.md"
-        ]
+        ],
+        "checked_at": "2026-11-04T06:32:57Z",
+        "status": "observed",
+        "hash": "4d76582627a42d9250c46a41f82029ed68072a524363918679adaf6f91c92587",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/Content/certificates/home.htm"
       },
       "https://docs.oracle.com/en-us/iaas/Content/cloud-adoption-framework/home.htm": {
         "paths": [
           "src/content/docs/ko/about-cloud/compare-clouds.md",
           "src/content/docs/ko/about-cloud/decision-framework.md",
           "src/content/docs/ko/compute/modernization.md"
-        ]
+        ],
+        "checked_at": "2026-11-04T06:32:57Z",
+        "status": "observed",
+        "hash": "84c7201b90a909f43afe928b3af1a8a4d0204d2f189e0d7269e3150896aa56d5",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/Content/cloud-adoption-framework/home.htm"
       },
       "https://docs.oracle.com/en-us/iaas/Content/cloud-migration/home.htm": {
         "paths": [
           "src/content/docs/ko/compute/migration.md"
-        ]
+        ],
+        "checked_at": "2026-11-04T06:32:57Z",
+        "status": "observed",
+        "hash": "f02246464898899c200ed008dcb10b57e252aa4623c12427eee31507719955ab",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/Content/cloud-migration/home.htm"
       },
       "https://docs.oracle.com/en-us/iaas/Content/container-instances/home.htm": {
         "paths": [
           "src/content/docs/ko/compute/containers.md"
-        ]
+        ],
+        "checked_at": "2026-11-04T06:32:57Z",
+        "status": "observed",
+        "hash": "c92b9cb5896e3c492ff99ddd6e73d4c147e0cbbbe147c58468ba29fd4d931e44",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/Content/container-instances/home.htm"
       },
       "https://docs.oracle.com/en-us/iaas/Content/data-science/using/jobs-distributed-jobs.htm": {
         "paths": [
           "src/content/docs/ko/ai/gpu-infra/distributed-training.md"
-        ]
+        ],
+        "checked_at": "2026-11-04T06:32:57Z",
+        "status": "observed",
+        "hash": "003156a26aa1b98c60611a58f5742c9d4add8ec8c4b57dacbbf53ed09de0356f",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/Content/data-science/using/jobs-distributed-jobs.htm"
       },
       "https://docs.oracle.com/en-us/iaas/Content/devops/using/home.htm": {
         "paths": [
           "src/content/docs/ko/devops/cicd.md"
-        ]
+        ],
+        "checked_at": "2026-11-04T06:32:57Z",
+        "status": "observed",
+        "hash": "45e7252f082f3786d976d7302fb098fdfc801194a1d25022411fbe7dce23d600",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/Content/devops/using/home.htm"
       },
       "https://docs.oracle.com/en-us/iaas/Content/generative-ai-agents/oracle-db-guidelines.htm": {
         "paths": [
           "src/content/docs/ko/ai/rag-patterns.md"
-        ]
+        ],
+        "checked_at": "2026-11-04T06:32:57Z",
+        "status": "observed",
+        "hash": "9b32f92fec9887fac7a1fbb44eae21b40703096b016aa298b6bb7828e00b0ff7",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/Content/generative-ai-agents/oracle-db-guidelines.htm"
       },
       "https://docs.oracle.com/en-us/iaas/Content/generative-ai/home.htm": {
         "paths": [
           "src/content/docs/ko/ai/ai-ml.md",
           "src/content/docs/ko/ai/multicloud-ai.md"
-        ]
+        ],
+        "checked_at": "2026-11-04T06:32:57Z",
+        "status": "observed",
+        "hash": "495c70251e06ea9fb159d852b03db779d3602b626c2288a35234e6f6915ce74e",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/Content/generative-ai/home.htm"
       },
       "https://docs.oracle.com/en-us/iaas/Content/generative-ai/pretrained-models.htm": {
         "paths": [
           "src/content/docs/ko/ai/rag-patterns.md"
-        ]
+        ],
+        "checked_at": "2026-11-04T06:32:57Z",
+        "status": "observed",
+        "hash": "2026ef723cf79f45768350c3be14f7e200fad062f583e719ab9f93ba8488d3e2",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/Content/generative-ai/pretrained-models.htm"
       },
       "https://docs.oracle.com/en-us/iaas/Content/ocicache/home.htm": {
         "paths": [
           "src/content/docs/ko/database/cache.md"
-        ]
+        ],
+        "checked_at": "2026-11-04T06:32:57Z",
+        "status": "observed",
+        "hash": "d7eef33f79a66481ab0272995a605085af28780d4a70688b7e1f3f78082d12d0",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/Content/ocicache/home.htm"
       },
       "https://docs.oracle.com/en-us/iaas/Content/queue/home.htm": {
         "paths": [
           "src/content/docs/ko/database/messaging.md"
-        ]
+        ],
+        "checked_at": "2026-11-04T06:32:57Z",
+        "status": "observed",
+        "hash": "7ef7195b7ead7eebf0d4c4986d3ed61977f64909baaeec5e3441035c406bcfd4",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/Content/queue/home.htm"
       },
       "https://docs.oracle.com/en-us/iaas/Content/search-opensearch/home.htm": {
         "paths": [

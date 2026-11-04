@@ -3611,6 +3611,380 @@
       "status": "open",
       "evidence": [],
       "pr": null
+    },
+    {
+      "id": "650d4fdc3a24a9a8c313a2c1",
+      "path": "src/content/docs/ko/ai/agents.md",
+      "axis": 2,
+      "reason": "Amazon Connect Customer lets agents pause and resume emails (https://aws.amazon.com/about-aws/whats-new/2026/11/connect-pause-resume-email/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/connect-pause-resume-email/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "bea32276078ccf4c3a3e555b",
+      "path": "src/content/docs/ko/mcp.md",
+      "axis": 2,
+      "reason": "Amazon Connect Customer lets agents pause and resume emails (https://aws.amazon.com/about-aws/whats-new/2026/11/connect-pause-resume-email/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/connect-pause-resume-email/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "be5c3ab5d8146a5cd1235853",
+      "path": "src/content/docs/ko/ai/agent-adoption.md",
+      "axis": 2,
+      "reason": "Amazon Connect Customer lets agents pause and resume emails (https://aws.amazon.com/about-aws/whats-new/2026/11/connect-pause-resume-email/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/connect-pause-resume-email/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "176bf09d14f714ca4893bbd9",
+      "path": "src/content/docs/ko/security/ai-security.md",
+      "axis": 2,
+      "reason": "AWS Config now supports 10 new resource types (https://aws.amazon.com/about-aws/whats-new/2026/11/aws-config-new-resource-types)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-config-new-resource-types",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "83e41e727cf59c533b8fca82",
+      "path": "src/content/docs/ko/compute/modernization.md",
+      "axis": 2,
+      "reason": "AWS Transform for mainframe improves the reimagine modernization workflow (https://aws.amazon.com/about-aws/whats-new/2026/11/aws-transform-mainframe-reimagine/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-transform-mainframe-reimagine/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "2ed011071f2e94ae846f49af",
+      "path": "src/content/docs/ko/ai/gpu-infra/kubernetes-and-scheduling.md",
+      "axis": 2,
+      "reason": "Amazon EKS Capabilities now supports Argo CD Notifications (https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-eks-argo-cd-notifications)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-eks-argo-cd-notifications",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "7e87bcbfa1aaac19de822ab0",
+      "path": "src/content/docs/ko/compute/containers.md",
+      "axis": 2,
+      "reason": "Amazon EKS Capabilities now supports Argo CD Notifications (https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-eks-argo-cd-notifications)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-eks-argo-cd-notifications",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "987e9b9182969faa03941aeb",
+      "path": "src/content/docs/ko/devops/kubernetes-operations.mdx",
+      "axis": 2,
+      "reason": "Amazon EKS Capabilities now supports Argo CD Notifications (https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-eks-argo-cd-notifications)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-eks-argo-cd-notifications",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "39c12a4b4b3a12ffa5000f78",
+      "path": "src/content/docs/ko/networking/api-gateway.md",
+      "axis": 2,
+      "reason": "API Gateway (https://docs.cloud.google.com/release-notes#November_03_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_03_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "d5f3d3e6ee6208c0cfb6f12a",
+      "path": "src/content/docs/ko/about-cloud/console-cli-sdk.md",
+      "axis": 2,
+      "reason": "Cloud SDK (https://docs.cloud.google.com/release-notes#November_03_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_03_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "4fa0f374353c0645dcdc2383",
+      "path": "src/content/docs/ko/compute/containers.md",
+      "axis": 2,
+      "reason": "Google Kubernetes Engine (https://docs.cloud.google.com/release-notes#November_03_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_03_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "1124715eab58ce062a6eef90",
+      "path": "src/content/docs/ko/devops/kubernetes-operations.mdx",
+      "axis": 2,
+      "reason": "Google Kubernetes Engine (https://docs.cloud.google.com/release-notes#November_03_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_03_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "a257883134d36f020872429e",
+      "path": "src/content/docs/ko/ai/gpu-infra/kubernetes-and-scheduling.md",
+      "axis": 2,
+      "reason": "Google Kubernetes Engine (https://docs.cloud.google.com/release-notes#November_03_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_03_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "c1362351f70bd6b977769ead",
+      "path": "src/content/docs/ko/security/data-protection.md",
+      "axis": 2,
+      "reason": "Sensitive Data Protection (https://docs.cloud.google.com/release-notes#November_03_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_03_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "368883539e9a15f228df40ab",
+      "path": "src/content/docs/ko/singapore/pdpa.md",
+      "axis": 2,
+      "reason": "Sensitive Data Protection (https://docs.cloud.google.com/release-notes#November_03_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_03_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "daa157b0b462f337c694183d",
+      "path": "src/content/docs/ko/database/analytics.md",
+      "axis": 2,
+      "reason": "Oracle Database@Google Cloud (https://docs.cloud.google.com/release-notes#November_03_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_03_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "8f9460610d23d94545162764",
+      "path": "src/content/docs/ko/database/cache.md",
+      "axis": 2,
+      "reason": "Oracle Database@Google Cloud (https://docs.cloud.google.com/release-notes#November_03_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_03_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "71eb630fb1c50ea65e75918d",
+      "path": "src/content/docs/ko/database/data-pipeline.md",
+      "axis": 2,
+      "reason": "Oracle Database@Google Cloud (https://docs.cloud.google.com/release-notes#November_03_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_03_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "37e6ebf962ce459407a8f2a3",
+      "path": "src/content/docs/ko/governance/finops.md",
+      "axis": 2,
+      "reason": "[In preview] Public Preview: Advanced capacity insights are now available in Azure Storage Discovery (https://azure.microsoft.com/updates?id=578655)",
+      "source_url": "https://azure.microsoft.com/updates?id=578655",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "b9af2bdb64359f43f6a075bc",
+      "path": "src/content/docs/ko/storage/backup.md",
+      "axis": 2,
+      "reason": "[In preview] Public Preview: Advanced capacity insights are now available in Azure Storage Discovery (https://azure.microsoft.com/updates?id=578655)",
+      "source_url": "https://azure.microsoft.com/updates?id=578655",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "abf64e14555427040cf4edff",
+      "path": "src/content/docs/ko/storage/block-and-file.md",
+      "axis": 2,
+      "reason": "[In preview] Public Preview: Advanced capacity insights are now available in Azure Storage Discovery (https://azure.microsoft.com/updates?id=578655)",
+      "source_url": "https://azure.microsoft.com/updates?id=578655",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "c9129e9a274ca25dfb49350e",
+      "path": "src/content/docs/ko/database/managed-rdb.md",
+      "axis": 2,
+      "reason": "[In preview] Public Preview: Extend immutability for PITR backups for Azure SQL Database and Azure SQL Managed Instance (https://azure.microsoft.com/updates?id=579305)",
+      "source_url": "https://azure.microsoft.com/updates?id=579305",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "8c3033500f9172c5d9156cca",
+      "path": "src/content/docs/ko/database/nosql.md",
+      "axis": 2,
+      "reason": "[In preview] Public Preview: Extend immutability for PITR backups for Azure SQL Database and Azure SQL Managed Instance (https://azure.microsoft.com/updates?id=579305)",
+      "source_url": "https://azure.microsoft.com/updates?id=579305",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "57e101bea2f4c56f29b159b1",
+      "path": "src/content/docs/ko/database/operations.md",
+      "axis": 2,
+      "reason": "[In preview] Public Preview: Extend immutability for PITR backups for Azure SQL Database and Azure SQL Managed Instance (https://azure.microsoft.com/updates?id=579305)",
+      "source_url": "https://azure.microsoft.com/updates?id=579305",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "abeb982c5fc3d1b1a725dbcd",
+      "path": "src/content/docs/ko/networking/multicloud-networking.md",
+      "axis": 2,
+      "reason": "[Launched] Generally Available: Enhanced Azure Site Recovery support for VMSS Flex (https://azure.microsoft.com/updates?id=578926)",
+      "source_url": "https://azure.microsoft.com/updates?id=578926",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "6feb2cc85db2ecc61b6cfc0b",
+      "path": "src/content/docs/ko/about-cloud/support-plans.md",
+      "axis": 2,
+      "reason": "[Launched] Generally Available: Enhanced Azure Site Recovery support for VMSS Flex (https://azure.microsoft.com/updates?id=578926)",
+      "source_url": "https://azure.microsoft.com/updates?id=578926",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "96f761b6af8d3fe78dec3878",
+      "path": null,
+      "axis": 3,
+      "reason": "Amazon Connect Customer prefills the email address for new threads started from cases (https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-connect-cases-email-addresses/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-connect-cases-email-addresses/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "e604a20881369651c0c1e7be",
+      "path": null,
+      "axis": 3,
+      "reason": "Amazon RDS now supports the latest Cumulative Update and GDR updates for Microsoft SQL Server (https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-rds-supports-latest-cumulative-update-gdr-microsoft-sql-server/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-rds-supports-latest-cumulative-update-gdr-microsoft-sql-server/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "e6f57f1b3b400a2d52dc2ef9",
+      "path": null,
+      "axis": 3,
+      "reason": "Google SecOps SOAR (https://docs.cloud.google.com/release-notes#October_31_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#October_31_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "c31caf884ba5d23490ae3965",
+      "path": null,
+      "axis": 3,
+      "reason": "Google SecOps (https://docs.cloud.google.com/release-notes#October_31_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#October_31_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "58e00d6f655e46aa190188f9",
+      "path": null,
+      "axis": 3,
+      "reason": "BigQuery (https://docs.cloud.google.com/release-notes#November_03_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_03_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "ae1ddca11c7addc592d1abf0",
+      "path": null,
+      "axis": 3,
+      "reason": "Gemini Enterprise (https://docs.cloud.google.com/release-notes#November_03_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_03_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "e7a0ad65cd951160ee1ab228",
+      "path": null,
+      "axis": 3,
+      "reason": "Application Design Center (https://docs.cloud.google.com/release-notes#November_03_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_03_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "e9db477b3ed0941fc8f5edc2",
+      "path": null,
+      "axis": 3,
+      "reason": "Client ID Metadata Document (CIMD) Support for Database Tools MCP Server (https://docs.oracle.com/iaas/releasenotes/database-tools/cimd.htm)",
+      "source_url": "https://docs.oracle.com/iaas/releasenotes/database-tools/cimd.htm",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
     }
   ],
   "resolved_ids": [],
@@ -3759,6 +4133,18 @@
         "gcp": "provisional",
         "azure": "provisional",
         "oci": "provisional"
+      },
+      "2026-09-17": {
+        "aws": "complete",
+        "gcp": "complete",
+        "azure": "complete",
+        "oci": "complete"
+      },
+      "2026-11-04": {
+        "aws": "provisional",
+        "gcp": "provisional",
+        "azure": "provisional",
+        "oci": "provisional"
       }
     },
     "attempted": {
@@ -3853,10 +4239,10 @@
         "oci": "2026-10-31T05:50:42.785Z"
       },
       "2026-10-31": {
-        "aws": "2026-11-01T06:15:03.317Z",
-        "gcp": "2026-11-01T06:15:03.317Z",
-        "azure": "2026-11-01T06:15:03.317Z",
-        "oci": "2026-11-01T06:15:03.317Z"
+        "aws": "2026-11-04T06:32:49.227Z",
+        "gcp": "2026-11-04T06:32:49.227Z",
+        "azure": "2026-11-04T06:32:49.227Z",
+        "oci": "2026-11-04T06:32:49.227Z"
       },
       "2026-09-14": {
         "aws": "2026-11-01T06:15:03.317Z",
@@ -3889,10 +4275,22 @@
         "oci": "2026-11-03T06:54:19.123Z"
       },
       "2026-11-03": {
-        "aws": "2026-11-03T06:54:19.123Z",
-        "gcp": "2026-11-03T06:54:19.123Z",
-        "azure": "2026-11-03T06:54:19.123Z",
-        "oci": "2026-11-03T06:54:19.123Z"
+        "aws": "2026-11-04T06:32:49.227Z",
+        "gcp": "2026-11-04T06:32:49.227Z",
+        "azure": "2026-11-04T06:32:49.227Z",
+        "oci": "2026-11-04T06:32:49.227Z"
+      },
+      "2026-09-17": {
+        "aws": "2026-11-04T06:32:49.227Z",
+        "gcp": "2026-11-04T06:32:49.227Z",
+        "azure": "2026-11-04T06:32:49.227Z",
+        "oci": "2026-11-04T06:32:49.227Z"
+      },
+      "2026-11-04": {
+        "aws": "2026-11-04T06:32:49.227Z",
+        "gcp": "2026-11-04T06:32:49.227Z",
+        "azure": "2026-11-04T06:32:49.227Z",
+        "oci": "2026-11-04T06:32:49.227Z"
       }
     }
   },

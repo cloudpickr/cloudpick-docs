@@ -5027,7 +5027,7 @@
         "paths": [
           "src/content/docs/ko/ai/agents.md"
         ],
-        "checked_at": "2026-11-04T06:32:57Z",
+        "checked_at": "2026-11-05T06:55:17Z",
         "status": "unverified",
         "hash": "dc7fc249911468c4dc00fc4eb92b1c0d611070787422d5a6d767fc3b925fee20",
         "final_url": "https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/",
@@ -5037,7 +5037,7 @@
         "paths": [
           "src/content/docs/ko/singapore/mtcs.md"
         ],
-        "checked_at": "2026-11-04T06:32:57Z",
+        "checked_at": "2026-11-05T06:55:17Z",
         "status": "unverified",
         "hash": "635b02875de69e3cc1de1579b70facd5f4c19edf127bd2e3769e8a92f70b360b",
         "final_url": "https://abs.org.sg/docs/library/abs-ospar-guidelines-v2-0.pdf",
@@ -5047,7 +5047,7 @@
         "paths": [
           "src/content/docs/ko/ai/agents.md"
         ],
-        "checked_at": "2026-11-04T06:32:57Z",
+        "checked_at": "2026-11-05T06:55:17Z",
         "status": "unverified",
         "hash": "279273094623330fe250f2984391cac02002276942f6d2dbd8537e495fae1bdf",
         "final_url": "https://www.ag2.ai/",
@@ -5057,7 +5057,7 @@
         "paths": [
           "src/content/docs/ko/ai/getting-started.md"
         ],
-        "checked_at": "2026-11-04T06:32:57Z",
+        "checked_at": "2026-11-05T06:55:17Z",
         "status": "unverified",
         "hash": "ae0f8a0945b3d1cf6945ebf983706906940024c6f02864250619be546f2c10a2",
         "final_url": "https://ai.azure.com/",
@@ -5097,7 +5097,7 @@
         "paths": [
           "src/content/docs/ko/singapore/ai-governance.md"
         ],
-        "checked_at": "2026-11-04T06:32:57Z",
+        "checked_at": "2026-11-05T06:55:17Z",
         "status": "unverified",
         "hash": "861c9baae1bb9420d984be6abe0a5a19d6b07730363337bf8a901ea68a37c87d",
         "final_url": "https://aiverifyfoundation.sg/resources/mgf-gen-ai/",
@@ -5117,7 +5117,7 @@
         "paths": [
           "src/content/docs/ko/devops/devsecops.md"
         ],
-        "checked_at": "2026-11-04T06:32:57Z",
+        "checked_at": "2026-11-05T06:55:17Z",
         "status": "unverified",
         "hash": "6ce84a59d0c606ad8c2c2b3d3703944b3097b677f6a9c36c22154de4e3295152",
         "final_url": "https://aquasecurity.github.io/tfsec/",
@@ -5137,7 +5137,7 @@
         "paths": [
           "src/content/docs/ko/ai/llmops.md"
         ],
-        "checked_at": "2026-11-04T06:32:57Z",
+        "checked_at": "2026-11-05T06:55:17Z",
         "status": "unverified",
         "hash": "84e61b481a6f8d7a78ec8093dce057a9e2b06a9ea80957e5c3766d9b595ef09c",
         "final_url": "https://arize.com/",
@@ -5207,7 +5207,7 @@
         "paths": [
           "src/content/docs/ko/devops/observability.md"
         ],
-        "checked_at": "2026-11-04T06:32:57Z",
+        "checked_at": "2026-11-05T06:55:17Z",
         "status": "unverified",
         "hash": "b472569757f991e0df0919150abea62828a7651cc991dfcabea1158bc12ba1fe",
         "final_url": "https://aws-otel.github.io/",
@@ -11691,350 +11691,657 @@
       "https://docs.oracle.com/en-us/iaas/Content/search-opensearch/home.htm": {
         "paths": [
           "src/content/docs/ko/database/search.md"
-        ]
+        ],
+        "checked_at": "2026-11-05T06:55:17Z",
+        "status": "observed",
+        "hash": "2a86a6690e3502b6d5a2470ccc27e5819ba19484a2f710de258a02a1627dcfcd",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/Content/search-opensearch/home.htm"
       },
       "https://docs.oracle.com/en-us/iaas/Content/security-zone/home.htm": {
         "paths": [
           "src/content/docs/ko/governance/compliance.md"
-        ]
+        ],
+        "checked_at": "2026-11-05T06:55:17Z",
+        "status": "observed",
+        "hash": "248bf4e4ed71f1897af01cd5ff1fb8775fce6297ee2d7aced4a564551034bd7f",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/Content/security-zone/home.htm"
       },
       "https://docs.oracle.com/en-us/iaas/Content/zero-trust-packet-routing/home.htm": {
         "paths": [
           "src/content/docs/ko/security/zero-trust.md"
-        ]
+        ],
+        "checked_at": "2026-11-05T06:55:17Z",
+        "status": "observed",
+        "hash": "1f10094a5e3b1eab23e68d585f24452ce2b0b3f6e4fb3f3d6f197eabdcdc6db0",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/Content/zero-trust-packet-routing/home.htm"
       },
       "https://docs.oracle.com/en-us/iaas/analytics-cloud/index.html": {
         "paths": [
           "src/content/docs/ko/database/analytics.md"
-        ]
+        ],
+        "checked_at": "2026-11-05T06:55:17Z",
+        "status": "observed",
+        "hash": "685e809cf54aa296f53572a457af1cdadd51996eb8aa872ff87883253dca587a",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/analytics-cloud/index.html"
       },
       "https://docs.oracle.com/en-us/iaas/application-performance-monitoring/doc/configure-open-source-tracing-systems.html": {
         "paths": [
           "src/content/docs/ko/devops/observability.md"
-        ]
+        ],
+        "checked_at": "2026-11-05T06:55:17Z",
+        "status": "observed",
+        "hash": "03bc746dd7cd63c5ad9c88a6ed15f46be45a6f96ede022690583872143d6dcaa",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/application-performance-monitoring/doc/configure-open-source-tracing-systems.html"
       },
       "https://docs.oracle.com/en-us/iaas/application-performance-monitoring/index.html": {
         "paths": [
           "src/content/docs/ko/devops/monitoring.md"
-        ]
+        ],
+        "checked_at": "2026-11-05T06:55:17Z",
+        "status": "observed",
+        "hash": "c7b02b6231bc2660ed5bda612f60941279558c1b7abf31570398f6facd32120d",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/application-performance-monitoring/home.htm"
       },
       "https://docs.oracle.com/en-us/iaas/autonomous-database-serverless/doc/autonomous-data-guard.html": {
         "paths": [
           "src/content/docs/ko/database/operations.md"
-        ]
+        ],
+        "checked_at": "2026-11-05T06:55:17Z",
+        "status": "observed",
+        "hash": "70d59a80c2ee7a793fba063e7001b6f63c5cc4e961dcb726d9b6a67be5d846de",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/autonomous-database-serverless/doc/autonomous-data-guard.html"
       },
       "https://docs.oracle.com/en-us/iaas/autonomous-database-serverless/doc/oracle-ai-vector-search-autonomous-database.html": {
         "paths": [
           "src/content/docs/ko/ai/rag-patterns.md",
           "src/content/docs/ko/ai/vector-store.md"
-        ]
+        ],
+        "checked_at": "2026-11-05T06:55:17Z",
+        "status": "observed",
+        "hash": "03538c4b798b313a4cf1120537e17ee365df0a4590aa13ee6345c70abe19683a",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/autonomous-database-serverless/index.html"
       },
       "https://docs.oracle.com/en-us/iaas/autonomous-database-serverless/index.html": {
         "paths": [
           "src/content/docs/ko/database/analytics.md",
           "src/content/docs/ko/database/managed-rdb.md"
-        ]
+        ],
+        "checked_at": "2026-11-05T06:55:17Z",
+        "status": "observed",
+        "hash": "03538c4b798b313a4cf1120537e17ee365df0a4590aa13ee6345c70abe19683a",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/autonomous-database-serverless/index.html"
       },
       "https://docs.oracle.com/en-us/iaas/autonomous-database/index.html": {
         "paths": [
           "src/content/docs/ko/database/operations.md"
-        ]
+        ],
+        "checked_at": "2026-11-05T06:55:17Z",
+        "status": "observed",
+        "hash": "061bbb2679420115ddf32abfbfa07cc85c9a1f7ab9b9de4c7ee61e76edfa7cc4",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/autonomous-database-serverless/doc/autonomous-intro-adb.html"
       },
       "https://docs.oracle.com/en-us/iaas/cloud-guard/home.htm": {
         "paths": [
           "src/content/docs/ko/ai/agent-adoption.md",
           "src/content/docs/ko/governance/compliance.md",
           "src/content/docs/ko/security/security-posture.md"
-        ]
+        ],
+        "checked_at": "2026-11-05T06:55:17Z",
+        "status": "observed",
+        "hash": "0a2d2720f0d63cdd71518c0090f658963e8c1b1a634db4ec678b85290324da82",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/Content/cloud-guard/home.htm"
       },
       "https://docs.oracle.com/en-us/iaas/cloud-guard/using/detect-recipes.htm": {
         "paths": [
           "src/content/docs/ko/security/security-posture.md"
-        ]
+        ],
+        "checked_at": "2026-11-05T06:55:17Z",
+        "status": "observed",
+        "hash": "7557b35ee36fd367173dbae28306ccbeba0695d5dd7e465fcd3c551c2bde18c1",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/Content/cloud-guard/using/detect-recipes.htm"
       },
       "https://docs.oracle.com/en-us/iaas/data-flow/using/home.htm": {
         "paths": [
           "src/content/docs/ko/database/data-pipeline.md"
-        ]
+        ],
+        "checked_at": "2026-11-05T06:55:17Z",
+        "status": "observed",
+        "hash": "e600c44109a014a25adcbcec9e5b8afb8e0ff16a3f53f4e342fb9fa4471c8c5f",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/Content/data-flow/using/home.htm"
       },
       "https://docs.oracle.com/en-us/iaas/data-integration/home.htm": {
         "paths": [
           "src/content/docs/ko/database/data-pipeline.md"
-        ]
+        ],
+        "checked_at": "2026-11-05T06:55:17Z",
+        "status": "observed",
+        "hash": "4bb06de6b625aaea511f074ce13b2b2d34f9bd801ae9b20bae6b7723c6c1c615",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/Content/data-integration/home.htm"
       },
       "https://docs.oracle.com/en-us/iaas/data-science/using/data-science.htm": {
         "paths": [
           "src/content/docs/ko/ai/ai-ml.md"
-        ]
+        ],
+        "checked_at": "2026-11-05T06:55:17Z",
+        "status": "observed",
+        "hash": "3300961b54087ca8d4970f75fd6c393cf6118f5b27c2a7ccb0f9be24be505407",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/Content/data-science/using/home.htm"
       },
       "https://docs.oracle.com/en-us/iaas/database-migration/index.html": {
         "paths": [
           "src/content/docs/ko/database/migration.md"
-        ]
+        ],
+        "checked_at": "2026-11-05T06:55:17Z",
+        "status": "observed",
+        "hash": "84065f9ca34863c8dc72fa91acdf41b2d38cb9180191f34d18bcede2a245b221",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/database-migration/index.html"
       },
       "https://docs.oracle.com/en-us/iaas/disaster-recovery/index.html": {
         "paths": [
           "src/content/docs/ko/governance/dr.md"
-        ]
+        ],
+        "checked_at": "2026-11-05T06:55:17Z",
+        "status": "observed",
+        "hash": "782db9b385c6470a11253aee4b3e4abbd4da30e42b7b73a3adcd06adca852264",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/disaster-recovery/index.html"
       },
       "https://docs.oracle.com/en-us/iaas/logging-analytics/home.htm": {
         "paths": [
           "src/content/docs/ko/database/search.md",
           "src/content/docs/ko/security/security-posture.md"
-        ]
+        ],
+        "checked_at": "2026-11-05T06:55:17Z",
+        "status": "observed",
+        "hash": "6a46970cf45b8e4bce15102f155b26850fd785824330adc6675845d01bcb1e08",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/log-analytics/home.htm"
       },
       "https://docs.oracle.com/en-us/iaas/mysql-database/index.html": {
         "paths": [
           "src/content/docs/ko/database/managed-rdb.md"
-        ]
+        ],
+        "checked_at": "2026-11-05T06:55:17Z",
+        "status": "observed",
+        "hash": "6abe572a43c953afd7fad8ab2d867629c4ef0f8012ba488ddc163200cc954921",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/mysql-database/home.htm"
       },
       "https://docs.oracle.com/en-us/iaas/nosql-database/index.html": {
         "paths": [
           "src/content/docs/ko/database/nosql.md"
-        ]
+        ],
+        "checked_at": "2026-11-05T06:55:17Z",
+        "status": "observed",
+        "hash": "5b0b02cab70338ad9f71db379b4aa176926bf3c225f66944ac3fa447aefef27f",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/nosql-database/index.html"
       },
       "https://docs.oracle.com/en-us/iaas/osmh/doc/home.htm": {
         "paths": [
           "src/content/docs/ko/devops/patch-and-vulnerability.md"
-        ]
+        ],
+        "checked_at": "2026-11-05T06:55:17Z",
+        "status": "observed",
+        "hash": "7d304bde477989c04c40037dfac78cd1c0c7904e803f117e4f70a26359291d2e",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/osmh/doc/home.htm"
       },
       "https://docs.oracle.com/en-us/iaas/scanning/home.htm": {
         "paths": [
           "src/content/docs/ko/devops/patch-and-vulnerability.md"
-        ]
+        ],
+        "checked_at": "2026-11-05T06:55:17Z",
+        "status": "observed",
+        "hash": "e748b8f0bec67d26ea7d7e3e702128bd43a8ab263ae757ee401857cc9d89d9d3",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/Content/scanning/home.htm"
       },
       "https://docs.oracle.com/en-us/iaas/security-zone/home.htm": {
         "paths": [
           "src/content/docs/ko/devops/devsecops.md"
-        ]
+        ],
+        "checked_at": "2026-11-05T06:55:17Z",
+        "status": "observed",
+        "hash": "248bf4e4ed71f1897af01cd5ff1fb8775fce6297ee2d7aced4a564551034bd7f",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/Content/security-zone/home.htm"
       },
       "https://docs.oracle.com/en/solutions/cis-oci-benchmark/": {
         "paths": [
           "src/content/docs/ko/about-cloud/well-architected.mdx",
           "src/content/docs/ko/governance/landing-zone.md"
-        ]
+        ],
+        "checked_at": "2026-11-05T06:55:17Z",
+        "status": "observed",
+        "hash": "2df59cd3465b4012a26e91669e48913c030eb95c066fd11c24d5012031d6efb5",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en/solutions/cis-oci-benchmark/"
       },
       "https://docs.oracle.com/en/solutions/oci-best-practices/": {
         "paths": [
           "src/content/docs/ko/about-cloud/well-architected.mdx"
-        ]
+        ],
+        "checked_at": "2026-11-05T06:55:17Z",
+        "status": "observed",
+        "hash": "cb11506f8977019b5a2592e7a4d48ca5979eef1c2cc4541f124b2ec28b734697",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en/solutions/oci-best-practices/"
       },
       "https://docs.oracle.com/en/solutions/oci-best-practices/deploy-multicloud-oci-oracle-database-services1.html": {
         "paths": [
           "src/content/docs/ko/about-cloud/compare-clouds.md",
           "src/content/docs/ko/about-cloud/why-multicloud.md",
           "src/content/docs/ko/compute/hybrid-and-edge.md"
-        ]
+        ],
+        "checked_at": "2026-11-05T06:55:17Z",
+        "status": "observed",
+        "hash": "80bad2af2ca931029d42d4a8e48225705790aabf636d4c2918de1326d7bb7c7f",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en/solutions/oci-best-practices/deploy-multicloud-oci-oracle-database-services1.html"
       },
       "https://docs.oracle.com/iaas/Content/Billing/Concepts/costusagereportsoverview.htm": {
         "paths": [
           "src/content/docs/ko/governance/finops.md"
-        ]
+        ],
+        "checked_at": "2026-11-05T06:55:17Z",
+        "status": "observed",
+        "hash": "d401dca11b0ae31d3cf16635be8fae598d8dd35d7ca6e9930b044f3a34cc8aaa",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/Content/Billing/Concepts/costusagereportsoverview.htm"
       },
       "https://docs.oracle.com/iaas/Content/Identity/policyreference/policyreference.htm": {
         "paths": [
           "src/content/docs/ko/security/iam.md"
-        ]
+        ],
+        "checked_at": "2026-11-05T06:55:17Z",
+        "status": "observed",
+        "hash": "7a6cb9edb49bb78e914d95e34b33163829675dfd2c22fc09fee7f987235fb020",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/Content/Identity/policyreference/policyreference.htm"
       },
       "https://docs.oracle.com/iaas/Content/Network/Concepts/access-to-google-cloud-platform.htm": {
         "paths": [
           "src/content/docs/ko/networking/multicloud-connectivity.md"
-        ]
+        ],
+        "checked_at": "2026-11-05T06:55:17Z",
+        "status": "observed",
+        "hash": "2616cf23627a6b3ecff93dfcbc184871e386b309a3163780cca60600044adf3d",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/Content/multicloud/interconnect-gcp.htm"
       },
       "https://docs.oracle.com/iaas/Content/dedicated/dedicated-region/dedicated-region-overview.htm": {
         "paths": [
           "src/content/docs/ko/security/network-isolation.md"
-        ]
+        ],
+        "checked_at": "2026-11-05T06:55:17Z",
+        "status": "observed",
+        "hash": "0e554223d43b012a2393668503d5f70957868ca29ab15572fa19c811b3142bbf",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/Content/dedicated/dedicated-region/dedicated-region-overview.htm"
       },
       "https://docs.oracle.com/iaas/Content/generative-ai/agents.htm": {
         "paths": [
           "src/content/docs/ko/ai/agents.md",
           "src/content/docs/ko/ai/ai-ml.md"
-        ]
+        ],
+        "checked_at": "2026-11-05T06:55:17Z",
+        "status": "observed",
+        "hash": "67ab23bfd8cbf8e3fb337148d10fd19056f16542f7fc34b876bab01f43825cd7",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/Content/generative-ai/agents.htm"
       },
       "https://docs.oracle.com/iaas/Content/generative-ai/home.htm": {
         "paths": [
           "src/content/docs/ko/ai/ai-ml.md",
           "src/content/docs/ko/security/ai-security.md"
-        ]
+        ],
+        "checked_at": "2026-11-05T06:55:17Z",
+        "status": "observed",
+        "hash": "495c70251e06ea9fb159d852b03db779d3602b626c2288a35234e6f6915ce74e",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/Content/generative-ai/home.htm"
       },
       "https://docs.oracle.com/iaas/Content/multicloud/interconnect-aws.htm": {
         "paths": [
           "src/content/docs/ko/networking/multicloud-connectivity.md"
-        ]
+        ],
+        "checked_at": "2026-11-05T06:55:17Z",
+        "status": "observed",
+        "hash": "666d5857d6f3d7cf1308bee54be4ecacfdb948dda2c8c81ec37965604c1b4556",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/Content/multicloud/interconnect-aws.htm"
       },
       "https://docs.oracle.com/iaas/Content/multicloud/interconnect-azure.htm": {
         "paths": [
           "src/content/docs/ko/networking/multicloud-connectivity.md"
-        ]
+        ],
+        "checked_at": "2026-11-05T06:55:17Z",
+        "status": "observed",
+        "hash": "29b595e849f604e8db0714dc8cbaf1342e2e1ce18957f3ae8ef50271cb34e5be",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.oracle.com/en-us/iaas/Content/multicloud/interconnect-azure.htm"
       },
       "https://docs.pytorch.org/docs/stable/fsdp.html": {
         "paths": [
           "src/content/docs/ko/ai/gpu-infra/distributed-training.md"
-        ]
+        ],
+        "checked_at": "2026-11-05T06:55:17Z",
+        "status": "unverified",
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://docs.ragas.io/": {
         "paths": [
           "src/content/docs/ko/ai/llmops.md"
-        ]
+        ],
+        "checked_at": "2026-11-05T06:55:17Z",
+        "status": "observed",
+        "hash": "46f349739dfb12ba987559663437410675093d855f586d26bdfa314062f159b0",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.ragas.io/en/stable/"
       },
       "https://dodcio.defense.gov/cmmc/": {
         "paths": [
           "src/content/docs/ko/us/fedramp.md"
-        ]
+        ],
+        "checked_at": "2026-11-05T06:55:17Z",
+        "status": "unverified",
+        "error": "HTTP 403"
       },
       "https://dora.dev/": {
         "paths": [
           "src/content/docs/ko/devops/getting-started.md",
           "src/content/docs/ko/devops/slo.md"
-        ]
+        ],
+        "checked_at": "2026-11-05T06:55:17Z",
+        "status": "unverified",
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://ec.europa.eu/commission/presscorner/detail/en/qanda_21_6916": {
         "paths": [
           "src/content/docs/ko/eu/gdpr-sovereignty.md"
-        ]
+        ],
+        "checked_at": "2026-11-05T06:55:17Z",
+        "status": "unverified",
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://edpb.europa.eu/news/news/2021/edpb-adopts-opinion-draft-south-korea-adequacy-decision_en": {
         "paths": [
           "src/content/docs/ko/eu/gdpr-sovereignty.md"
-        ]
+        ],
+        "checked_at": "2026-11-05T06:55:17Z",
+        "status": "observed",
+        "hash": "7ada37e6c14ad53b6373f0d80530200fa94691c12b8a3daaa3e02e64c7d72925",
+        "hash_kind": "visible-v1",
+        "final_url": "https://www.edpb.europa.eu/news_en"
       },
       "https://education.oracle.com/oracle-cloud-infrastructure": {
         "paths": [
           "src/content/docs/ko/introduction.mdx"
-        ]
+        ],
+        "checked_at": "2026-11-05T06:55:17Z",
+        "status": "unverified",
+        "error": "HTTP 403"
       },
       "https://ego4d-data.org/": {
         "paths": [
           "src/content/docs/ko/ai/physical-ai/data-and-training.md"
-        ]
+        ],
+        "checked_at": "2026-11-05T06:55:17Z",
+        "status": "unverified",
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://en.edaily.co.kr/news/eda202608185493/": {
         "paths": [
           "src/content/docs/ko/korea/ai/sovereign-fm-policy.md"
-        ]
+        ],
+        "checked_at": "2026-11-05T06:55:17Z",
+        "status": "observed",
+        "hash": "5d8cd436490fd85057148abbd6cc2f4a1dec88cfab8e769c086ad907aabef931",
+        "hash_kind": "visible-v1",
+        "final_url": "https://en.edaily.co.kr/news/eda202608185493/"
       },
       "https://eur-lex.europa.eu/eli/dir/2022/2555/oj": {
         "paths": [
           "src/content/docs/ko/eu/nis2-ai-act.md"
-        ]
+        ],
+        "checked_at": "2026-11-05T06:55:17Z",
+        "status": "unverified",
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://eur-lex.europa.eu/eli/reg/2016/679/oj": {
         "paths": [
           "src/content/docs/ko/eu/gdpr-sovereignty.md"
-        ]
+        ],
+        "checked_at": "2026-11-05T06:55:17Z",
+        "status": "unverified",
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://eur-lex.europa.eu/eli/reg/2022/2554/oj": {
         "paths": [
           "src/content/docs/ko/eu/dora.md"
-        ]
+        ],
+        "checked_at": "2026-11-05T06:55:17Z",
+        "status": "unverified",
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://eur-lex.europa.eu/eli/reg/2024/1689/oj": {
         "paths": [
           "src/content/docs/ko/eu/nis2-ai-act.md"
-        ]
+        ],
+        "checked_at": "2026-11-05T06:55:17Z",
+        "status": "unverified",
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://fde.academy/blog/forward-deployed-engineer-vs-solutions-architect": {
         "paths": [
           "src/content/docs/ko/about-cloud/field-deployment.md"
-        ]
+        ],
+        "checked_at": "2026-11-05T06:55:17Z",
+        "status": "observed",
+        "hash": "f50876433b2abdbec5d8f2d0139a0c719408a1f08aeec9edf437f0a30c0e2677",
+        "hash_kind": "visible-v1",
+        "final_url": "https://fde.academy/blog/forward-deployed-engineer-vs-solutions-architect"
       },
       "https://fde.academy/blog/how-palantir-invented-the-forward-deployed-engineer-model": {
         "paths": [
           "src/content/docs/ko/about-cloud/field-deployment.md"
-        ]
+        ],
+        "checked_at": "2026-11-05T06:55:17Z",
+        "status": "observed",
+        "hash": "b49d6e619e47b0e535fffc31683ec9394f3909fa586332d98e17d2564e04af6a",
+        "hash_kind": "visible-v1",
+        "final_url": "https://fde.academy/blog/how-palantir-invented-the-forward-deployed-engineer-model"
       },
       "https://finops.org/framework": {
         "paths": [
           "src/content/docs/ko/about-cloud/pricing-model.md",
           "src/content/docs/ko/about-cloud/why-multicloud.md"
-        ]
+        ],
+        "checked_at": "2026-11-05T06:55:17Z",
+        "status": "unverified",
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://firebase.google.com/docs/auth": {
         "paths": [
           "src/content/docs/ko/networking/api-gateway.md"
-        ]
+        ],
+        "checked_at": "2026-11-05T06:55:17Z",
+        "status": "observed",
+        "hash": "b4a6ffc4476094fc922a2215f1cfbb9b377600d2734e5e6937fcc6863e520088",
+        "hash_kind": "visible-v1",
+        "final_url": "https://firebase.google.com/docs/auth"
       },
       "https://firebase.google.com/docs/remote-config": {
         "paths": [
           "src/content/docs/ko/security/secrets.md"
-        ]
+        ],
+        "checked_at": "2026-11-05T06:55:17Z",
+        "status": "observed",
+        "hash": "d2a5c6ed59ed742b485f60a1465f978c8b5da7684a72efc1b4f57864c0517fcf",
+        "hash_kind": "visible-v1",
+        "final_url": "https://firebase.google.com/docs/remote-config"
       },
       "https://fluentbit.io/": {
         "paths": [
           "src/content/docs/ko/devops/observability.md"
-        ]
+        ],
+        "checked_at": "2026-11-05T06:55:17Z",
+        "status": "unverified",
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://focus.finops.org/": {
         "paths": [
           "src/content/docs/ko/about-cloud/pricing-model.md",
           "src/content/docs/ko/governance/finops.md"
-        ]
+        ],
+        "checked_at": "2026-11-05T06:55:17Z",
+        "status": "unverified",
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://focus.finops.org/focus-specification/": {
         "paths": [
           "src/content/docs/ko/governance/finops.md"
-        ]
+        ],
+        "checked_at": "2026-11-05T06:55:17Z",
+        "status": "observed",
+        "hash": "62073a6276fc1c7023487a031e7309310ab89959ac0ea645676141801c615330",
+        "hash_kind": "visible-v1",
+        "final_url": "https://focus.finops.org/docs/specification/v1-4/"
       },
       "https://fortune.com/2026/09/26/openai-ai-agents-secure-sandbox-escape-training-pause-second-time-hugging-face-hack/": {
         "paths": [
           "src/content/docs/ko/security/ai-security.md"
-        ]
+        ],
+        "checked_at": "2026-11-05T06:55:17Z",
+        "status": "observed",
+        "hash": "99f909a2f6eff68ae49d006a439c828f599f48e5c345c555f1cec78e354d469a",
+        "hash_kind": "visible-v1",
+        "final_url": "https://fortune.com/2026/09/26/openai-ai-agents-secure-sandbox-escape-training-pause-second-time-hugging-face-hack/"
       },
       "https://gcping.com": {
         "paths": [
           "src/content/docs/ko/about-cloud/compare-clouds.md"
-        ]
+        ],
+        "checked_at": "2026-11-05T06:55:17Z",
+        "status": "observed",
+        "hash": "15a935c2c4c7ae864e6ab6aab915a024befca691ad25cb73364aba8162da1252",
+        "hash_kind": "visible-v1",
+        "final_url": "https://gcping.com"
       },
       "https://gdg.community.dev/gdg-cloud-korea/": {
         "paths": [
           "src/content/docs/ko/korea/index.md"
-        ]
+        ],
+        "checked_at": "2026-11-05T06:55:17Z",
+        "status": "unverified",
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://genai.owasp.org/llm-top-10/": {
         "paths": [
           "src/content/docs/ko/security/ai-security.md"
-        ]
+        ],
+        "checked_at": "2026-11-05T06:55:17Z",
+        "status": "observed",
+        "hash": "7ed1a16172b5e3a4d8c99e3779b72f85059a5a2fb4d02c3a6c9a917d56e1fdcd",
+        "hash_kind": "visible-v1",
+        "final_url": "https://genai.owasp.org/llm-top-10/"
       },
       "https://github.com/Arize-ai/phoenix": {
         "paths": [
           "src/content/docs/ko/ai/llmops.md"
-        ]
+        ],
+        "checked_at": "2026-11-05T06:55:17Z",
+        "status": "observed",
+        "hash": "046a7a7f818e429c420b1ed6702ab1cbf61891ea08dcfcd8badc537dfb4d940c",
+        "hash_kind": "visible-v1",
+        "final_url": "https://github.com/Arize-ai/phoenix"
       },
       "https://github.com/Farama-Foundation/Metaworld": {
         "paths": [
           "src/content/docs/ko/ai/physical-ai/data-and-training.md"
-        ]
+        ],
+        "checked_at": "2026-11-05T06:55:17Z",
+        "status": "observed",
+        "hash": "76a4bb805346a8977f0a7be7d67e045f23db656218a35c62574d2960ab97827a",
+        "hash_kind": "visible-v1",
+        "final_url": "https://github.com/Farama-Foundation/Metaworld"
       },
       "https://github.com/Lifelong-Robot-Learning/LIBERO": {
         "paths": [
           "src/content/docs/ko/ai/physical-ai/data-and-training.md"
-        ]
+        ],
+        "checked_at": "2026-11-05T06:55:17Z",
+        "status": "observed",
+        "hash": "634cd503f606c6e2e76a6421e70d773a912dcdc15da2881d9bc2fae82b6cebd6",
+        "hash_kind": "visible-v1",
+        "final_url": "https://github.com/Lifelong-Robot-Learning/LIBERO"
       },
       "https://github.com/NVIDIA/Megatron-LM": {
         "paths": [
           "src/content/docs/ko/ai/gpu-infra/distributed-training.md"
-        ]
+        ],
+        "checked_at": "2026-11-05T06:55:17Z",
+        "status": "observed",
+        "hash": "2cd6158f8cf030ba03dfdd55d85e4713143b5dd93d7c7bc2b7399479df9256af",
+        "hash_kind": "visible-v1",
+        "final_url": "https://github.com/NVIDIA/Megatron-LM"
       },
       "https://github.com/SKT-AI/A.X-4.0": {
         "paths": [
           "src/content/docs/ko/korea/ai/fm-providers.md"
-        ]
+        ],
+        "checked_at": "2026-11-05T06:55:17Z",
+        "status": "observed",
+        "hash": "fe91b46bb939dbb3fe3b6f35baee2e3123761905ffe6e87338bb7daef491d9db",
+        "hash_kind": "visible-v1",
+        "final_url": "https://github.com/SKT-AI/A.X-4.0"
       },
       "https://github.com/anchore/grype": {
         "paths": [
           "src/content/docs/ko/devops/devsecops.md"
-        ]
+        ],
+        "checked_at": "2026-11-05T06:55:17Z",
+        "status": "observed",
+        "hash": "132372f0b4444aa99e4d100def0f465b9c4f7c39591caea664c9e58359a90bc9",
+        "hash_kind": "visible-v1",
+        "final_url": "https://github.com/anchore/grype"
       },
       "https://github.com/anthropics/claude-code": {
         "paths": [
           "src/content/docs/ko/ai/agents.md"
-        ]
+        ],
+        "checked_at": "2026-11-05T06:55:17Z",
+        "status": "observed",
+        "hash": "03c72d5c15c51b8809ea88eef5443d054b24b10e4522cd6be0571a0863169213",
+        "hash_kind": "visible-v1",
+        "final_url": "https://github.com/anthropics/claude-code"
       },
       "https://github.com/anthropics/prompt-eng-interactive-tutorial": {
         "paths": [
           "src/content/docs/ko/ai/prompt-engineering.md"
-        ]
+        ],
+        "checked_at": "2026-11-05T06:55:17Z",
+        "status": "observed",
+        "hash": "ac3501386c29f3b48ec4e2f53fd43c2690effcc9873949f791e8eb01010e37ba",
+        "hash_kind": "visible-v1",
+        "final_url": "https://github.com/anthropics/prompt-eng-interactive-tutorial"
       },
       "https://github.com/cncf/tag-observability": {
         "paths": [

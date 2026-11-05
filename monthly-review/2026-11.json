@@ -3985,6 +3985,688 @@
       "status": "open",
       "evidence": [],
       "pr": null
+    },
+    {
+      "id": "e5adfb21dc254587cfae3fbe",
+      "path": "src/content/docs/ko/compute/containers.md",
+      "axis": 2,
+      "reason": "Amazon ECS Managed Daemons can now collect json-file logs from application containers on Amazon ECS Managed Instances (https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-ecs-managed-instances-json-file-log-driver/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-ecs-managed-instances-json-file-log-driver/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "dec788e68234a3767bd5e99b",
+      "path": "src/content/docs/ko/ai/gpu-infra/kubernetes-and-scheduling.md",
+      "axis": 2,
+      "reason": "Amazon ECS Managed Daemons can now collect json-file logs from application containers on Amazon ECS Managed Instances (https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-ecs-managed-instances-json-file-log-driver/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-ecs-managed-instances-json-file-log-driver/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "7a6d0680df93250870fce8a9",
+      "path": "src/content/docs/ko/devops/kubernetes-operations.mdx",
+      "axis": 2,
+      "reason": "Amazon ECS Managed Daemons can now collect json-file logs from application containers on Amazon ECS Managed Instances (https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-ecs-managed-instances-json-file-log-driver/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-ecs-managed-instances-json-file-log-driver/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "9e2c058faaee9891410e4c91",
+      "path": "src/content/docs/ko/networking/multicloud-networking.md",
+      "axis": 2,
+      "reason": "AWS announces AWS Interconnect - last mile preview with Equinix (https://aws.amazon.com/about-aws/whats-new/2026/11/interconnect-last-mile-preview-equinix/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/interconnect-last-mile-preview-equinix/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "08004f1d9b363c05bdd15406",
+      "path": "src/content/docs/ko/governance/finops.md",
+      "axis": 2,
+      "reason": "AWS announces AWS Interconnect - last mile preview with Equinix (https://aws.amazon.com/about-aws/whats-new/2026/11/interconnect-last-mile-preview-equinix/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/interconnect-last-mile-preview-equinix/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "522f2449e9bcb93c8dc1dbbb",
+      "path": "src/content/docs/ko/networking/multicloud-connectivity.md",
+      "axis": 2,
+      "reason": "AWS announces AWS Interconnect - last mile preview with Equinix (https://aws.amazon.com/about-aws/whats-new/2026/11/interconnect-last-mile-preview-equinix/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/interconnect-last-mile-preview-equinix/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "757289db81cd15023d631f07",
+      "path": "src/content/docs/ko/about-cloud/decision-framework.md",
+      "axis": 2,
+      "reason": "Amazon S3 Tables now provide a simple, cost-effective path for data lake modernization (https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-s3-tables-managed-migration-hive-to-iceberg/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-s3-tables-managed-migration-hive-to-iceberg/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "b294ae0ec05339f9a03a8307",
+      "path": "src/content/docs/ko/ai/gpu-infra/serving-reliability-cost.md",
+      "axis": 2,
+      "reason": "Amazon S3 Tables now provide a simple, cost-effective path for data lake modernization (https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-s3-tables-managed-migration-hive-to-iceberg/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-s3-tables-managed-migration-hive-to-iceberg/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "6d2083ed0e41799a4ec9fd00",
+      "path": "src/content/docs/ko/glossary.md",
+      "axis": 2,
+      "reason": "Amazon S3 Tables now provide a simple, cost-effective path for data lake modernization (https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-s3-tables-managed-migration-hive-to-iceberg/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-s3-tables-managed-migration-hive-to-iceberg/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "b6f9d066f5528e4668e96942",
+      "path": "src/content/docs/ko/about-cloud/compare-clouds.md",
+      "axis": 2,
+      "reason": "AWS DataSync Enhanced mode supports OpenID Connect (OIDC) for Google Cloud and Microsoft Azure (https://aws.amazon.com/about-aws/whats-new/2026/11/datasync-enhanced-oidc-google-azure/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/datasync-enhanced-oidc-google-azure/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "7395f078241c6cca70b4ccfe",
+      "path": "src/content/docs/ko/security/ai-security.md",
+      "axis": 2,
+      "reason": "AWS DataSync Enhanced mode supports OpenID Connect (OIDC) for Google Cloud and Microsoft Azure (https://aws.amazon.com/about-aws/whats-new/2026/11/datasync-enhanced-oidc-google-azure/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/datasync-enhanced-oidc-google-azure/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "54c864dc8916f66bc4f67f32",
+      "path": "src/content/docs/ko/security/data-protection.md",
+      "axis": 2,
+      "reason": "AWS DataSync Enhanced mode supports OpenID Connect (OIDC) for Google Cloud and Microsoft Azure (https://aws.amazon.com/about-aws/whats-new/2026/11/datasync-enhanced-oidc-google-azure/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/datasync-enhanced-oidc-google-azure/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "200dfa982ade1d3af5295370",
+      "path": "src/content/docs/ko/security/zero-trust.md",
+      "axis": 2,
+      "reason": "Amazon EC2 and VPC now display related resources for all resource types (https://aws.amazon.com/about-aws/whats-new/2026/11/ec2-vpc-related-resources-all-types/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/ec2-vpc-related-resources-all-types/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "a6568aa3dc17496f6a51b135",
+      "path": "src/content/docs/ko/governance/finops.md",
+      "axis": 2,
+      "reason": "Amazon EC2 and VPC now display related resources for all resource types (https://aws.amazon.com/about-aws/whats-new/2026/11/ec2-vpc-related-resources-all-types/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/ec2-vpc-related-resources-all-types/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "ef94193d2edc97962c777790",
+      "path": "src/content/docs/ko/governance/landing-zone.md",
+      "axis": 2,
+      "reason": "Amazon EC2 and VPC now display related resources for all resource types (https://aws.amazon.com/about-aws/whats-new/2026/11/ec2-vpc-related-resources-all-types/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/ec2-vpc-related-resources-all-types/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "c4f4fa0362a2984ec4014321",
+      "path": "src/content/docs/ko/about-cloud/support-plans.md",
+      "axis": 2,
+      "reason": "Managed Service for Apache Airflow (https://docs.cloud.google.com/release-notes#October_30_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#October_30_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "239def8dd9944f122e4fa2af",
+      "path": "src/content/docs/ko/database/nosql.md",
+      "axis": 2,
+      "reason": "Bigtable (https://docs.cloud.google.com/release-notes#November_04_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_04_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "313ae3d829f01769b9fa9e31",
+      "path": "src/content/docs/ko/compute/serverless.md",
+      "axis": 2,
+      "reason": "Cloud Run (https://docs.cloud.google.com/release-notes#November_04_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_04_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "9d7f3c39503142660a52993b",
+      "path": "src/content/docs/ko/ai/agent-adoption.md",
+      "axis": 2,
+      "reason": "Gemini Enterprise Agent Platform (https://docs.cloud.google.com/release-notes#November_04_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_04_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "485d8ba90c95a4fdadcc11e1",
+      "path": "src/content/docs/ko/ai/agents.md",
+      "axis": 2,
+      "reason": "Gemini Enterprise Agent Platform (https://docs.cloud.google.com/release-notes#November_04_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_04_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "fe2ae4a2333f22c033f3b677",
+      "path": "src/content/docs/ko/ai/llmops.md",
+      "axis": 2,
+      "reason": "Gemini Enterprise Agent Platform (https://docs.cloud.google.com/release-notes#November_04_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_04_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "3428a2e778ad6d5ff966b38d",
+      "path": "src/content/docs/ko/database/nosql.md",
+      "axis": 2,
+      "reason": "Cloud SQL for SQL Server (https://docs.cloud.google.com/release-notes#November_04_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_04_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "46d2b9471c62c009e85cab82",
+      "path": "src/content/docs/ko/storage/object-storage.md",
+      "axis": 2,
+      "reason": "Cloud Storage (https://docs.cloud.google.com/release-notes#November_04_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_04_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "86b4a3a565f1d936878a56b8",
+      "path": "src/content/docs/ko/storage/backup.md",
+      "axis": 2,
+      "reason": "Cloud Storage (https://docs.cloud.google.com/release-notes#November_04_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_04_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "cf2092d8ec1e0f3e476a6fff",
+      "path": "src/content/docs/ko/storage/block-and-file.md",
+      "axis": 2,
+      "reason": "Cloud Storage (https://docs.cloud.google.com/release-notes#November_04_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_04_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "46de061b32ae1323c0fdfa6c",
+      "path": "src/content/docs/ko/ai/gpu-infra/kubernetes-and-scheduling.md",
+      "axis": 2,
+      "reason": "Apigee Operator for kubernetes (https://docs.cloud.google.com/release-notes#November_04_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_04_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "99e9e90ccb2d6423e22387e9",
+      "path": "src/content/docs/ko/compute/containers.md",
+      "axis": 2,
+      "reason": "Apigee Operator for kubernetes (https://docs.cloud.google.com/release-notes#November_04_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_04_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "12012f40818fcf0c3381fc38",
+      "path": "src/content/docs/ko/devops/kubernetes-operations.mdx",
+      "axis": 2,
+      "reason": "Apigee Operator for kubernetes (https://docs.cloud.google.com/release-notes#November_04_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_04_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "c362655fb30a4e364bf604b4",
+      "path": "src/content/docs/ko/about-cloud/console-cli-sdk.md",
+      "axis": 2,
+      "reason": "Google Distributed Cloud (software only) for VMware (https://docs.cloud.google.com/release-notes#November_04_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_04_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "26f70c38c08eb420bea1c5fb",
+      "path": "src/content/docs/ko/devops/devsecops.md",
+      "axis": 2,
+      "reason": "Google Distributed Cloud (software only) for VMware (https://docs.cloud.google.com/release-notes#November_04_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_04_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "14633294b2852373c7775b3f",
+      "path": "src/content/docs/ko/security/ai-security.md",
+      "axis": 2,
+      "reason": "Google Distributed Cloud (software only) for VMware (https://docs.cloud.google.com/release-notes#November_04_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_04_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "f42c7cbff4bdd39e11371df9",
+      "path": "src/content/docs/ko/about-cloud/console-cli-sdk.md",
+      "axis": 2,
+      "reason": "Google Distributed Cloud (software only) for bare metal (https://docs.cloud.google.com/release-notes#November_04_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_04_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "18b6cc865356a44fbfd1f820",
+      "path": "src/content/docs/ko/devops/devsecops.md",
+      "axis": 2,
+      "reason": "Google Distributed Cloud (software only) for bare metal (https://docs.cloud.google.com/release-notes#November_04_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_04_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "5cfd6fd58d18ed4f97af68c7",
+      "path": "src/content/docs/ko/security/ai-security.md",
+      "axis": 2,
+      "reason": "Google Distributed Cloud (software only) for bare metal (https://docs.cloud.google.com/release-notes#November_04_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_04_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "28714760beaf8dce385a331c",
+      "path": "src/content/docs/ko/security/ai-security.md",
+      "axis": 2,
+      "reason": "[Launched] Generally Available: Azure Database for PostgreSQL stable REST API version 2026-10-01 (https://azure.microsoft.com/updates?id=579300)",
+      "source_url": "https://azure.microsoft.com/updates?id=579300",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "a4a6e44d1314a89fcb5dab94",
+      "path": "src/content/docs/ko/ai/ai-ml.md",
+      "axis": 2,
+      "reason": "[Launched] Generally Available: Azure Database for PostgreSQL stable REST API version 2026-10-01 (https://azure.microsoft.com/updates?id=579300)",
+      "source_url": "https://azure.microsoft.com/updates?id=579300",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "7b5fbc75c5e10c0bc7cc3dbe",
+      "path": "src/content/docs/ko/security/data-protection.md",
+      "axis": 2,
+      "reason": "[Launched] Generally Available: Azure Database for PostgreSQL stable REST API version 2026-10-01 (https://azure.microsoft.com/updates?id=579300)",
+      "source_url": "https://azure.microsoft.com/updates?id=579300",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "b06206009d7d5fac4b336faf",
+      "path": "src/content/docs/ko/governance/finops.md",
+      "axis": 2,
+      "reason": "[In preview] Public Preview: Azure Firewall IPv6 now supports application rules (https://azure.microsoft.com/updates?id=579507)",
+      "source_url": "https://azure.microsoft.com/updates?id=579507",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "14c46c556be920bacb7351e8",
+      "path": "src/content/docs/ko/networking/dns.md",
+      "axis": 2,
+      "reason": "[In preview] Public Preview: Azure Firewall IPv6 now supports application rules (https://azure.microsoft.com/updates?id=579507)",
+      "source_url": "https://azure.microsoft.com/updates?id=579507",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "d7b37eeec3a29c79b2211e5f",
+      "path": "src/content/docs/ko/about-cloud/getting-started.md",
+      "axis": 2,
+      "reason": "[In preview] Public Preview: Azure Firewall IPv6 now supports application rules (https://azure.microsoft.com/updates?id=579507)",
+      "source_url": "https://azure.microsoft.com/updates?id=579507",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "5e0b4906bd1bbccdf1cbba55",
+      "path": "src/content/docs/ko/ai/ai-ml.md",
+      "axis": 2,
+      "reason": "New tutorial: Search Documents with Vector Stores and OCI Generative AI API Keys (https://docs.oracle.com/iaas/releasenotes/generative-ai/vector-store-api-key-tutorial.htm)",
+      "source_url": "https://docs.oracle.com/iaas/releasenotes/generative-ai/vector-store-api-key-tutorial.htm",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "1580c54ba395cc82d93eedf5",
+      "path": "src/content/docs/ko/ai/getting-started.md",
+      "axis": 2,
+      "reason": "New tutorial: Search Documents with Vector Stores and OCI Generative AI API Keys (https://docs.oracle.com/iaas/releasenotes/generative-ai/vector-store-api-key-tutorial.htm)",
+      "source_url": "https://docs.oracle.com/iaas/releasenotes/generative-ai/vector-store-api-key-tutorial.htm",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "4ad83d26a11ce75e2b955cb9",
+      "path": "src/content/docs/ko/ai/vector-store.md",
+      "axis": 2,
+      "reason": "New tutorial: Search Documents with Vector Stores and OCI Generative AI API Keys (https://docs.oracle.com/iaas/releasenotes/generative-ai/vector-store-api-key-tutorial.htm)",
+      "source_url": "https://docs.oracle.com/iaas/releasenotes/generative-ai/vector-store-api-key-tutorial.htm",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "847e0ac4870ae55567711db5",
+      "path": "src/content/docs/ko/about-cloud/pricing-model.md",
+      "axis": 2,
+      "reason": "On-demand model access in Jeddah, Jerusalem, and Marseille (https://docs.oracle.com/iaas/releasenotes/generative-ai/expanded-on-demand-model-access-jed-mtz-mrs.htm)",
+      "source_url": "https://docs.oracle.com/iaas/releasenotes/generative-ai/expanded-on-demand-model-access-jed-mtz-mrs.htm",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "6bd856d083c496edc7242c57",
+      "path": null,
+      "axis": 3,
+      "reason": "Amazon Quick Introduces Quick Essentials (https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-quick-essentials/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-quick-essentials/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "b50251bde7834289c5691b11",
+      "path": null,
+      "axis": 3,
+      "reason": "Amazon DocumentDB (with MongoDB compatibility) is now available in the Asia Pacific (Taipei) and Asia Pacific (New Zealand) Regions (https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-documentdb-mongodb-compatibility-asia-pacific-taipei-new-zealand-regions/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-documentdb-mongodb-compatibility-asia-pacific-taipei-new-zealand-regions/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "a076918a15650a9929fee8e3",
+      "path": null,
+      "axis": 3,
+      "reason": "Amazon RDS for Oracle now supports copying option groups during cross-Region snapshot copy (https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-rds-oracle-cross-region-snapshot-copy-option-group/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-rds-oracle-cross-region-snapshot-copy-option-group/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "80ed242584b558d10da82075",
+      "path": null,
+      "axis": 3,
+      "reason": "Amazon Connect Customer now shows associated cases in contact records (https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-connect-cases-contact-records/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-connect-cases-contact-records/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "4e8ee9102dc6e62cf7861a1d",
+      "path": null,
+      "axis": 3,
+      "reason": "RHEL 10, Rocky 10 and Ubuntu 26.04 Bundles for WorkSpaces (https://aws.amazon.com/about-aws/whats-new/2026/11/rhel-10-rocky-10-ubuntu-26-04-workspaces/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/rhel-10-rocky-10-ubuntu-26-04-workspaces/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "bd94a824923897847b994888",
+      "path": null,
+      "axis": 3,
+      "reason": "New features for Amazon EC2 Capacity Manager (https://aws.amazon.com/about-aws/whats-new/2026/11/ec2-capacity-manager-supportability-and-fulfillment/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/ec2-capacity-manager-supportability-and-fulfillment/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "27562d37c10f0d30eff0944d",
+      "path": null,
+      "axis": 3,
+      "reason": "reCAPTCHA (https://docs.cloud.google.com/release-notes#October_30_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#October_30_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "679f9323d2eb723cae9bec73",
+      "path": null,
+      "axis": 3,
+      "reason": "NetApp Volumes (https://docs.cloud.google.com/release-notes#October_30_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#October_30_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "828e476d1d2604675612fa24",
+      "path": null,
+      "axis": 3,
+      "reason": "Cloud Asset Inventory (https://docs.cloud.google.com/release-notes#October_30_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#October_30_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "b06fbe82b5b10eac2df70fc0",
+      "path": null,
+      "axis": 3,
+      "reason": "Resource Manager (https://docs.cloud.google.com/release-notes#October_30_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#October_30_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "e3d68a47c13eb8fd7d454fc7",
+      "path": null,
+      "axis": 3,
+      "reason": "AlloyDB for PostgreSQL (https://docs.cloud.google.com/release-notes#November_04_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_04_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "7ee8b80a55c7321e4878315c",
+      "path": null,
+      "axis": 3,
+      "reason": "Gemini Enterprise (https://docs.cloud.google.com/release-notes#November_04_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_04_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "7ed0a639565c40170c96eb35",
+      "path": null,
+      "axis": 3,
+      "reason": "Google SecOps (https://docs.cloud.google.com/release-notes#November_04_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_04_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "2744faa08053653239e73c07",
+      "path": null,
+      "axis": 3,
+      "reason": "Generally Available: Route maps for Azure Route Server (https://azure.microsoft.com/updates?id=578966)",
+      "source_url": "https://azure.microsoft.com/updates?id=578966",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "a3181400d5768c7670bebee0",
+      "path": null,
+      "axis": 3,
+      "reason": "[In preview] Public Preview: Multi-disk crash-consistent VM restore points for Premium SSD v2 and Ultra Disks on VMs with SCSI disk controller (https://azure.microsoft.com/updates?id=579162)",
+      "source_url": "https://azure.microsoft.com/updates?id=579162",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "874a5cd2eacf7fbd89ca83b3",
+      "path": null,
+      "axis": 3,
+      "reason": "New tutorial: Discover Models with the Python SDK and REST API (https://docs.oracle.com/iaas/releasenotes/generative-ai/model-discovery-tutorial.htm)",
+      "source_url": "https://docs.oracle.com/iaas/releasenotes/generative-ai/model-discovery-tutorial.htm",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "3dc83612b8f52d12c9fdf951",
+      "path": null,
+      "axis": 3,
+      "reason": "New H100 Unit Shape for OpenAI gpt-oss-120b (https://docs.oracle.com/iaas/releasenotes/generative-ai/gpt-oss-120b-h100-x4.htm)",
+      "source_url": "https://docs.oracle.com/iaas/releasenotes/generative-ai/gpt-oss-120b-h100-x4.htm",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "916f4341395243db3aad8d4b",
+      "path": null,
+      "axis": 3,
+      "reason": "Support for pull-through cache repositories and the top-level capability (https://docs.oracle.com/iaas/releasenotes/registry/OCIR-Top-Level-and-Pull-Through-Repositories.htm)",
+      "source_url": "https://docs.oracle.com/iaas/releasenotes/registry/OCIR-Top-Level-and-Pull-Through-Repositories.htm",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
     }
   ],
   "resolved_ids": [],
@@ -4145,6 +4827,18 @@
         "gcp": "provisional",
         "azure": "provisional",
         "oci": "provisional"
+      },
+      "2026-09-18": {
+        "aws": "complete",
+        "gcp": "complete",
+        "azure": "complete",
+        "oci": "complete"
+      },
+      "2026-11-05": {
+        "aws": "provisional",
+        "gcp": "provisional",
+        "azure": "provisional",
+        "oci": "provisional"
       }
     },
     "attempted": {
@@ -4167,10 +4861,10 @@
         "oci": "2026-11-03T06:54:19.123Z"
       },
       "2026-10-30": {
-        "aws": "2026-11-02T06:15:35.724Z",
-        "gcp": "2026-11-02T06:15:35.724Z",
-        "azure": "2026-11-02T06:15:35.724Z",
-        "oci": "2026-11-02T06:15:35.724Z"
+        "aws": "2026-11-05T06:55:06.826Z",
+        "gcp": "2026-11-05T06:55:06.826Z",
+        "azure": "2026-11-05T06:55:06.826Z",
+        "oci": "2026-11-05T06:55:06.826Z"
       },
       "2026-09-03": {
         "aws": "2026-10-30T15:05:59.343Z",
@@ -4287,10 +4981,22 @@
         "oci": "2026-11-04T06:32:49.227Z"
       },
       "2026-11-04": {
-        "aws": "2026-11-04T06:32:49.227Z",
-        "gcp": "2026-11-04T06:32:49.227Z",
-        "azure": "2026-11-04T06:32:49.227Z",
-        "oci": "2026-11-04T06:32:49.227Z"
+        "aws": "2026-11-05T06:55:06.826Z",
+        "gcp": "2026-11-05T06:55:06.826Z",
+        "azure": "2026-11-05T06:55:06.826Z",
+        "oci": "2026-11-05T06:55:06.826Z"
+      },
+      "2026-09-18": {
+        "aws": "2026-11-05T06:55:06.826Z",
+        "gcp": "2026-11-05T06:55:06.826Z",
+        "azure": "2026-11-05T06:55:06.826Z",
+        "oci": "2026-11-05T06:55:06.826Z"
+      },
+      "2026-11-05": {
+        "aws": "2026-11-05T06:55:06.826Z",
+        "gcp": "2026-11-05T06:55:06.826Z",
+        "azure": "2026-11-05T06:55:06.826Z",
+        "oci": "2026-11-05T06:55:06.826Z"
       }
     }
   },

@@ -5711,7 +5711,7 @@
         "paths": [
           "src/content/docs/ko/ai/agents.md"
         ],
-        "checked_at": "2026-11-05T06:55:17Z",
+        "checked_at": "2026-11-06T06:54:01Z",
         "status": "unverified",
         "hash": "dc7fc249911468c4dc00fc4eb92b1c0d611070787422d5a6d767fc3b925fee20",
         "final_url": "https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/",
@@ -5721,7 +5721,7 @@
         "paths": [
           "src/content/docs/ko/singapore/mtcs.md"
         ],
-        "checked_at": "2026-11-05T06:55:17Z",
+        "checked_at": "2026-11-06T06:54:01Z",
         "status": "unverified",
         "hash": "635b02875de69e3cc1de1579b70facd5f4c19edf127bd2e3769e8a92f70b360b",
         "final_url": "https://abs.org.sg/docs/library/abs-ospar-guidelines-v2-0.pdf",
@@ -5731,7 +5731,7 @@
         "paths": [
           "src/content/docs/ko/ai/agents.md"
         ],
-        "checked_at": "2026-11-05T06:55:17Z",
+        "checked_at": "2026-11-06T06:54:01Z",
         "status": "unverified",
         "hash": "279273094623330fe250f2984391cac02002276942f6d2dbd8537e495fae1bdf",
         "final_url": "https://www.ag2.ai/",
@@ -5741,7 +5741,7 @@
         "paths": [
           "src/content/docs/ko/ai/getting-started.md"
         ],
-        "checked_at": "2026-11-05T06:55:17Z",
+        "checked_at": "2026-11-06T06:54:01Z",
         "status": "unverified",
         "hash": "ae0f8a0945b3d1cf6945ebf983706906940024c6f02864250619be546f2c10a2",
         "final_url": "https://ai.azure.com/",
@@ -5781,7 +5781,7 @@
         "paths": [
           "src/content/docs/ko/singapore/ai-governance.md"
         ],
-        "checked_at": "2026-11-05T06:55:17Z",
+        "checked_at": "2026-11-06T06:54:01Z",
         "status": "unverified",
         "hash": "861c9baae1bb9420d984be6abe0a5a19d6b07730363337bf8a901ea68a37c87d",
         "final_url": "https://aiverifyfoundation.sg/resources/mgf-gen-ai/",
@@ -5801,7 +5801,7 @@
         "paths": [
           "src/content/docs/ko/devops/devsecops.md"
         ],
-        "checked_at": "2026-11-05T06:55:17Z",
+        "checked_at": "2026-11-06T06:54:01Z",
         "status": "unverified",
         "hash": "6ce84a59d0c606ad8c2c2b3d3703944b3097b677f6a9c36c22154de4e3295152",
         "final_url": "https://aquasecurity.github.io/tfsec/",
@@ -5821,7 +5821,7 @@
         "paths": [
           "src/content/docs/ko/ai/llmops.md"
         ],
-        "checked_at": "2026-11-05T06:55:17Z",
+        "checked_at": "2026-11-06T06:54:01Z",
         "status": "unverified",
         "hash": "84e61b481a6f8d7a78ec8093dce057a9e2b06a9ea80957e5c3766d9b595ef09c",
         "final_url": "https://arize.com/",
@@ -5891,7 +5891,7 @@
         "paths": [
           "src/content/docs/ko/devops/observability.md"
         ],
-        "checked_at": "2026-11-05T06:55:17Z",
+        "checked_at": "2026-11-06T06:54:01Z",
         "status": "unverified",
         "hash": "b472569757f991e0df0919150abea62828a7651cc991dfcabea1158bc12ba1fe",
         "final_url": "https://aws-otel.github.io/",
@@ -13030,342 +13030,649 @@
       "https://github.com/cncf/tag-observability": {
         "paths": [
           "src/content/docs/ko/devops/observability.md"
-        ]
+        ],
+        "checked_at": "2026-11-06T06:54:01Z",
+        "status": "observed",
+        "hash": "1e0bed40fad722c5af169ae878d8cab1acd4f2c9c733a09ac9c7f9ac0e76cac9",
+        "hash_kind": "visible-v1",
+        "final_url": "https://github.com/cncf/tag-observability"
       },
       "https://github.com/crewAIInc/crewAI": {
         "paths": [
           "src/content/docs/ko/ai/agents.md"
-        ]
+        ],
+        "checked_at": "2026-11-06T06:54:01Z",
+        "status": "observed",
+        "hash": "1e98ca93371a3d4eb442f308a376d796003665a4e5f44dd6b0b72504523fecf4",
+        "hash_kind": "visible-v1",
+        "final_url": "https://github.com/crewAIInc/crewAI"
       },
       "https://github.com/droid-dataset/droid": {
         "paths": [
           "src/content/docs/ko/ai/physical-ai/data-and-training.md"
-        ]
+        ],
+        "checked_at": "2026-11-06T06:54:01Z",
+        "status": "observed",
+        "hash": "5ff8c83a5c036f598d27f593f3f3434aacf352db4ded75826288bd8d2e36ba9a",
+        "hash_kind": "visible-v1",
+        "final_url": "https://github.com/droid-dataset/droid"
       },
       "https://github.com/explodinggradients/ragas": {
         "paths": [
           "src/content/docs/ko/ai/rag-patterns.md"
-        ]
+        ],
+        "checked_at": "2026-11-06T06:54:01Z",
+        "status": "observed",
+        "hash": "be7ed92e1df8bf457b71bc49185c955a46a933141d4875554f8056b98be96630",
+        "hash_kind": "visible-v1",
+        "final_url": "https://github.com/vibrantlabsai/ragas"
       },
       "https://github.com/fastino-ai/GLiNER2": {
         "paths": [
           "src/content/docs/ko/ai/ai-ml.md"
-        ]
+        ],
+        "checked_at": "2026-11-06T06:54:01Z",
+        "status": "observed",
+        "hash": "251289c53da318b303eb080ad5bb007ec26f65aaba0078c05d6c7babb5a8105e",
+        "hash_kind": "visible-v1",
+        "final_url": "https://github.com/fastino-ai/GLiNER2"
       },
       "https://github.com/features/copilot": {
         "paths": [
           "src/content/docs/ko/ai/agents.md"
-        ]
+        ],
+        "checked_at": "2026-11-06T06:54:01Z",
+        "status": "observed",
+        "hash": "28406c47574601d3d6d7a12ec1adce133f0d68586f066b19021450c7899352de",
+        "hash_kind": "visible-v1",
+        "final_url": "https://github.com/features/copilot"
       },
       "https://github.com/google-a2a/A2A": {
         "paths": [
           "src/content/docs/ko/ai/agents.md"
-        ]
+        ],
+        "checked_at": "2026-11-06T06:54:01Z",
+        "status": "observed",
+        "hash": "535092ed29b81a89f0d457d29b0680b01f61cea2a62a8af6767f2b04a3c7e8e4",
+        "hash_kind": "visible-v1",
+        "final_url": "https://github.com/a2aproject/A2A"
       },
       "https://github.com/google-coral/edgetpu": {
         "paths": [
           "src/content/docs/ko/ai/physical-ai/data-and-training.md"
-        ]
+        ],
+        "checked_at": "2026-11-06T06:54:01Z",
+        "status": "observed",
+        "hash": "4ff2107f2763d0940e968c866630d63427d0d2b4484946672e6ed14d66e28566",
+        "hash_kind": "visible-v1",
+        "final_url": "https://github.com/google-coral/edgetpu"
       },
       "https://github.com/google-deepmind/open_x_embodiment": {
         "paths": [
           "src/content/docs/ko/ai/physical-ai/data-and-training.md"
-        ]
+        ],
+        "checked_at": "2026-11-06T06:54:01Z",
+        "status": "observed",
+        "hash": "1c02c1d9ad8a70c2daa9cf1ea5f0e2cee67726c010654f5384fb3efe07c5b234",
+        "hash_kind": "visible-v1",
+        "final_url": "https://github.com/google-deepmind/open_x_embodiment"
       },
       "https://github.com/huggingface/lerobot": {
         "paths": [
           "src/content/docs/ko/ai/physical-ai/data-and-training.md"
-        ]
+        ],
+        "checked_at": "2026-11-06T06:54:01Z",
+        "status": "observed",
+        "hash": "1aa094adb50621912b0e554a5e51cd4e348bb92b516284cf0245be8a398c7164",
+        "hash_kind": "visible-v1",
+        "final_url": "https://github.com/huggingface/lerobot"
       },
       "https://github.com/langchain-ai/langgraph": {
         "paths": [
           "src/content/docs/ko/ai/agents.md"
-        ]
+        ],
+        "checked_at": "2026-11-06T06:54:01Z",
+        "status": "observed",
+        "hash": "9b6c2e76bc6fa885e6b6b1650efd40d54bd1720901becdb544741f32e6103a12",
+        "hash_kind": "visible-v1",
+        "final_url": "https://github.com/langchain-ai/langgraph"
       },
       "https://github.com/mees/calvin": {
         "paths": [
           "src/content/docs/ko/ai/physical-ai/data-and-training.md"
-        ]
+        ],
+        "checked_at": "2026-11-06T06:54:01Z",
+        "status": "observed",
+        "hash": "212673c50f4daf58d620e4500e8a0779ca937a8e13266a89d3860d7af8e6df5d",
+        "hash_kind": "visible-v1",
+        "final_url": "https://github.com/mees/calvin"
       },
       "https://github.com/oracle-quickstart/oci-hpc": {
         "paths": [
           "src/content/docs/ko/ai/gpu-infra/workload-and-architecture.md"
-        ]
+        ],
+        "checked_at": "2026-11-06T06:54:01Z",
+        "status": "observed",
+        "hash": "53f5abd1c402191ca2cab33940d1aacaa4ddffc70777940b95826a1f70209c22",
+        "hash_kind": "visible-v1",
+        "final_url": "https://github.com/oracle-quickstart/oci-hpc"
       },
       "https://github.com/robocasa/robocasa": {
         "paths": [
           "src/content/docs/ko/ai/physical-ai/data-and-training.md"
-        ]
+        ],
+        "checked_at": "2026-11-06T06:54:01Z",
+        "status": "observed",
+        "hash": "4409a37096f70f976db70d41a9b055f2f32cf63b3fe5330e83d53fbfa811c39b",
+        "hash_kind": "visible-v1",
+        "final_url": "https://github.com/robocasa/robocasa"
       },
       "https://github.com/stelligent/cfn_nag": {
         "paths": [
           "src/content/docs/ko/devops/devsecops.md"
-        ]
+        ],
+        "checked_at": "2026-11-06T06:54:01Z",
+        "status": "observed",
+        "hash": "c3dc6285048e90ec8d6c5ace6b1df13622c6f24fc024a3f4cf860abe3ed0b1de",
+        "hash_kind": "visible-v1",
+        "final_url": "https://github.com/stelligent/cfn_nag"
       },
       "https://github.com/strands-labs/strands-decider": {
         "paths": [
           "src/content/docs/ko/ai/ai-ml.md"
-        ]
+        ],
+        "checked_at": "2026-11-06T06:54:01Z",
+        "status": "observed",
+        "hash": "682f42582bd22e0809e4a368d38ace74fa5b4f84d5f496b9bff848357f6452b9",
+        "hash_kind": "visible-v1",
+        "final_url": "https://github.com/strands-labs/strands-decider"
       },
       "https://github.com/valkey-io/valkey": {
         "paths": [
           "src/content/docs/ko/database/cache.md"
-        ]
+        ],
+        "checked_at": "2026-11-06T06:54:01Z",
+        "status": "observed",
+        "hash": "8323e9b57424a97e2367c64030bed297c4d4b447d3a6eb7774b0e8f4bfd8ee48",
+        "hash_kind": "visible-v1",
+        "final_url": "https://github.com/valkey-io/valkey"
       },
       "https://github.github.com/gh-aw/": {
         "paths": [
           "src/content/docs/ko/devops/cicd.md"
-        ]
+        ],
+        "checked_at": "2026-11-06T06:54:01Z",
+        "status": "observed",
+        "hash": "cc37ebb84bcd4e3fb69ee7239b9cec65ea2d33d1d4b4b605b403408d6f9b74d7",
+        "hash_kind": "visible-v1",
+        "final_url": "https://github.github.com/gh-aw/"
       },
       "https://gitleaks.io/": {
         "paths": [
           "src/content/docs/ko/devops/devsecops.md"
-        ]
+        ],
+        "checked_at": "2026-11-06T06:54:01Z",
+        "status": "unverified",
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://globallawexperts.com/pdpa-crossborder-data-transfers-fintech-singapore-2026/": {
         "paths": [
           "src/content/docs/ko/singapore/pdpa.md"
-        ]
+        ],
+        "checked_at": "2026-11-06T06:54:01Z",
+        "status": "observed",
+        "hash": "2cb7a987f0689180374c9d0bdb28cd8b52b0facc39c2620d04fe16a54e1917b7",
+        "hash_kind": "visible-v1",
+        "final_url": "https://globallawexperts.com/news/pdpa-crossborder-data-transfers-fintech-singapore-2026"
       },
       "https://grafana.com/": {
         "paths": [
           "src/content/docs/ko/devops/observability.md"
-        ]
+        ],
+        "checked_at": "2026-11-06T06:54:01Z",
+        "status": "observed",
+        "hash": "b6ce81afdba9f4e5800adc5f15025e82aa9fbcd2a9928ee98f4db78beac5ad04",
+        "hash_kind": "visible-v1",
+        "final_url": "https://grafana.com/"
       },
       "https://grafana.com/oss/loki/": {
         "paths": [
           "src/content/docs/ko/devops/observability.md"
-        ]
+        ],
+        "checked_at": "2026-11-06T06:54:01Z",
+        "status": "unverified",
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://grafana.com/oss/tempo/": {
         "paths": [
           "src/content/docs/ko/devops/observability.md"
-        ]
+        ],
+        "checked_at": "2026-11-06T06:54:01Z",
+        "status": "unverified",
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://grafana.com/products/cloud/": {
         "paths": [
           "src/content/docs/ko/devops/observability.md"
-        ]
+        ],
+        "checked_at": "2026-11-06T06:54:01Z",
+        "status": "unverified",
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://greensoftware.foundation/": {
         "paths": [
           "src/content/docs/ko/governance/sustainability.md"
-        ]
+        ],
+        "checked_at": "2026-11-06T06:54:01Z",
+        "status": "observed",
+        "hash": "dd2aef6ac73ba3fe8315672f0366f6fd50cc26711d6a0bd264b9e7d365193465",
+        "hash_kind": "visible-v1",
+        "final_url": "https://greensoftware.foundation/"
       },
       "https://hitrustalliance.net/": {
         "paths": [
           "src/content/docs/ko/us/hipaa.md"
-        ]
+        ],
+        "checked_at": "2026-11-06T06:54:01Z",
+        "status": "observed",
+        "hash": "048a230d1016425d20e0a10e1a173d12bf5a9f8fc05e9804c58e1b92d59651c0",
+        "hash_kind": "visible-v1",
+        "final_url": "https://hitrustalliance.net/"
       },
       "https://humanitec.com/": {
         "paths": [
           "src/content/docs/ko/devops/platform-engineering.md"
-        ]
+        ],
+        "checked_at": "2026-11-06T06:54:01Z",
+        "status": "observed",
+        "hash": "bb55aa9e46b59afd7eca86073c44a213b7c7dfe72c7a8eb9438f452f3cc0165e",
+        "hash_kind": "visible-v1",
+        "final_url": "https://humanitec.com/"
       },
       "https://iapp.org/resources/article/us-state-privacy-legislation-tracker/": {
         "paths": [
           "src/content/docs/ko/us/state-privacy.md"
-        ]
+        ],
+        "checked_at": "2026-11-06T06:54:01Z",
+        "status": "observed",
+        "hash": "5354e62cf994dc6e12c45255ad490fd1ee15ff995d16b1874419a99904d45361",
+        "hash_kind": "visible-v1",
+        "final_url": "https://iapp.org/resources/article/us-state-privacy-legislation-tracker"
       },
       "https://iceberg.apache.org/": {
         "paths": [
           "src/content/docs/ko/database/analytics.md"
-        ]
+        ],
+        "checked_at": "2026-11-06T06:54:01Z",
+        "status": "unverified",
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://iclg.com/practice-areas/data-protection-laws-and-regulations/singapore/": {
         "paths": [
           "src/content/docs/ko/singapore/pdpa.md"
-        ]
+        ],
+        "checked_at": "2026-11-06T06:54:01Z",
+        "status": "unverified",
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://info.flexera.com/CM-REPORT-State-of-the-Cloud": {
         "paths": [
           "src/content/docs/ko/about-cloud/pricing-model.md"
-        ]
+        ],
+        "checked_at": "2026-11-06T06:54:01Z",
+        "status": "unverified",
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://info.standards.tech.gov.sg/": {
         "paths": [
           "src/content/docs/ko/singapore/government-cloud.md"
-        ]
+        ],
+        "checked_at": "2026-11-06T06:54:01Z",
+        "status": "observed",
+        "hash": "7a3dbb0002dfcd3870f32618579d1d7536d142ccd6484a4fb1162d30f07210ab",
+        "hash_kind": "visible-v1",
+        "final_url": "https://info.standards.tech.gov.sg/"
       },
       "https://isms.kisa.or.kr/": {
         "paths": [
           "src/content/docs/ko/korea/governance/compliance.md"
-        ]
+        ],
+        "checked_at": "2026-11-06T06:54:01Z",
+        "status": "unverified",
+        "error": "FetchError"
       },
       "https://isms.kisa.or.kr/main/csap/intro/": {
         "paths": [
           "src/content/docs/ko/korea/governance/compliance.md",
           "src/content/docs/ko/korea/security/network-isolation.md"
-        ]
+        ],
+        "checked_at": "2026-11-06T06:54:01Z",
+        "status": "unverified",
+        "error": "FetchError"
       },
       "https://istio.io/": {
         "paths": [
           "src/content/docs/ko/compute/service-mesh.md"
-        ]
+        ],
+        "checked_at": "2026-11-06T06:54:01Z",
+        "status": "observed",
+        "hash": "a7bad25e4c80886ef6d35ccf52809df1f348ad061bda5f93a5fc656d3cefc80f",
+        "hash_kind": "visible-v1",
+        "final_url": "https://istio.io/"
       },
       "https://istio.io/latest/docs/": {
         "paths": [
           "src/content/docs/ko/compute/service-mesh.md"
-        ]
+        ],
+        "checked_at": "2026-11-06T06:54:01Z",
+        "status": "observed",
+        "hash": "ba164a548686105b2f846e687415934625728a755e07425c35f93d6f2d67d167",
+        "hash_kind": "visible-v1",
+        "final_url": "https://istio.io/latest/docs/"
       },
       "https://jpn.nec.com/government/solution04/col_g.1/index.html": {
         "paths": [
           "src/content/docs/ko/japan/government-cloud.md"
-        ]
+        ],
+        "checked_at": "2026-11-06T06:54:01Z",
+        "status": "observed",
+        "hash": "de701c88a96ed7686cf38b257891831aff8896f3f19503feb293df34050a3257",
+        "hash_kind": "visible-v1",
+        "final_url": "https://jpn.nec.com/government/solution04/col_g.1/index.html"
       },
       "https://kics.io/": {
         "paths": [
           "src/content/docs/ko/devops/devsecops.md"
-        ]
+        ],
+        "checked_at": "2026-11-06T06:54:01Z",
+        "status": "unverified",
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://kiro.dev/": {
         "paths": [
           "src/content/docs/ko/ai/agents.md",
           "src/content/docs/ko/ai/ai-ml.md",
           "src/content/docs/ko/devops/devsecops.md"
-        ]
+        ],
+        "checked_at": "2026-11-06T06:54:01Z",
+        "status": "observed",
+        "hash": "57896665004cfc096b3d244db4180e605571022c342383babd92e2dc14c45a7d",
+        "hash_kind": "visible-v1",
+        "final_url": "https://kiro.dev/"
       },
       "https://kubernetes.io/docs/concepts/security/": {
         "paths": [
           "src/content/docs/ko/devops/kubernetes-operations.mdx"
-        ]
+        ],
+        "checked_at": "2026-11-06T06:54:01Z",
+        "status": "observed",
+        "hash": "c9b4523d02c2165f771b9ae6f44a849658d0554edcb6b5eafac262a08cfc7424",
+        "hash_kind": "visible-v1",
+        "final_url": "https://kubernetes.io/docs/concepts/security/"
       },
       "https://kueue.sigs.k8s.io/": {
         "paths": [
           "src/content/docs/ko/ai/gpu-infra/kubernetes-and-scheduling.md"
-        ]
+        ],
+        "checked_at": "2026-11-06T06:54:01Z",
+        "status": "observed",
+        "hash": "e09bc4a495605613292c335ea3877146fdd04e759aa63b003cbf62f805b9a833",
+        "hash_kind": "visible-v1",
+        "final_url": "https://kueue.sigs.k8s.io/"
       },
       "https://kyverno.io/": {
         "paths": [
           "src/content/docs/ko/devops/kubernetes-operations.mdx"
-        ]
+        ],
+        "checked_at": "2026-11-06T06:54:01Z",
+        "status": "unverified",
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://landscape.cncf.io/": {
         "paths": [
           "src/content/docs/ko/about-cloud/well-architected.mdx",
           "src/content/docs/ko/governance/exit-strategy.md"
-        ]
+        ],
+        "checked_at": "2026-11-06T06:54:01Z",
+        "status": "unverified",
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://landscape.cncf.io/card-mode?category=service-mesh": {
         "paths": [
           "src/content/docs/ko/compute/service-mesh.md"
-        ]
+        ],
+        "checked_at": "2026-11-06T06:54:01Z",
+        "status": "unverified",
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://landscape.cncf.io/guide": {
         "paths": [
           "src/content/docs/ko/devops/observability.md"
-        ]
+        ],
+        "checked_at": "2026-11-06T06:54:01Z",
+        "status": "unverified",
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://langfuse.com/": {
         "paths": [
           "src/content/docs/ko/ai/llmops.md"
-        ]
+        ],
+        "checked_at": "2026-11-06T06:54:01Z",
+        "status": "observed",
+        "hash": "301a9073cc135e4e5617d78449e377c6c59684900bdbe18b0f21716e350b0c11",
+        "hash_kind": "visible-v1",
+        "final_url": "https://langfuse.com/"
       },
       "https://learn.microsoft.com/agent-framework/": {
         "paths": [
           "src/content/docs/ko/ai/agents.md"
-        ]
+        ],
+        "checked_at": "2026-11-06T06:54:01Z",
+        "status": "observed",
+        "hash": "52c557928f4f93bc8fdb28add0953c242f20a89250e39bd5ecc9f2ac6104d573",
+        "hash_kind": "visible-v1",
+        "final_url": "https://learn.microsoft.com/en-us/agent-framework/"
       },
       "https://learn.microsoft.com/azure/ai-foundry/": {
         "paths": [
           "src/content/docs/ko/ai/vector-store.md"
-        ]
+        ],
+        "checked_at": "2026-11-06T06:54:01Z",
+        "status": "observed",
+        "hash": "a13cf9ba1040944aa5546633dadf316e10011db4066caae7a5ff26efaf9a78bc",
+        "hash_kind": "visible-v1",
+        "final_url": "https://learn.microsoft.com/en-us/azure/foundry/"
       },
       "https://learn.microsoft.com/azure/ai-foundry/agents/": {
         "paths": [
           "src/content/docs/ko/ai/agents.md",
           "src/content/docs/ko/ai/ai-ml.md"
-        ]
+        ],
+        "checked_at": "2026-11-06T06:54:01Z",
+        "status": "observed",
+        "hash": "a13cf9ba1040944aa5546633dadf316e10011db4066caae7a5ff26efaf9a78bc",
+        "hash_kind": "visible-v1",
+        "final_url": "https://learn.microsoft.com/en-us/azure/foundry/"
       },
       "https://learn.microsoft.com/azure/ai-foundry/concepts/observability": {
         "paths": [
           "src/content/docs/ko/ai/llmops.md"
-        ]
+        ],
+        "checked_at": "2026-11-06T06:54:01Z",
+        "status": "observed",
+        "hash": "f00d9dc82d657dc591066e9c30aee7da3103204eda5a84ec90591b9a3cc3e550",
+        "hash_kind": "visible-v1",
+        "final_url": "https://learn.microsoft.com/en-us/azure/foundry/concepts/observability"
       },
       "https://learn.microsoft.com/azure/ai-services/content-safety/": {
         "paths": [
           "src/content/docs/ko/security/ai-security.md"
-        ]
+        ],
+        "checked_at": "2026-11-06T06:54:01Z",
+        "status": "observed",
+        "hash": "8b3ebbcb9a7d7ca4e90e3b09b69fa7b94a84a15405482801d9c6af566fe524b4",
+        "hash_kind": "visible-v1",
+        "final_url": "https://learn.microsoft.com/en-us/azure/ai-services/content-safety/"
       },
       "https://learn.microsoft.com/azure/ai-services/openai/concepts/prompt-engineering": {
         "paths": [
           "src/content/docs/ko/ai/prompt-engineering.md"
-        ]
+        ],
+        "checked_at": "2026-11-06T06:54:01Z",
+        "status": "observed",
+        "hash": "3306978fbf2ede2b3e2beb7c924453b9e7f96cd65d5eae16e64f7906a94c823e",
+        "hash_kind": "visible-v1",
+        "final_url": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/prompt-engineering"
       },
       "https://learn.microsoft.com/azure/ai-services/openai/how-to/structured-outputs": {
         "paths": [
           "src/content/docs/ko/ai/prompt-engineering.md"
-        ]
+        ],
+        "checked_at": "2026-11-06T06:54:01Z",
+        "status": "observed",
+        "hash": "7294550996958503f3b84664b2c69b1db121604124caa1cb429bf149701c5f60",
+        "hash_kind": "visible-v1",
+        "final_url": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/structured-outputs"
       },
       "https://learn.microsoft.com/azure/ai-services/openai/overview": {
         "paths": [
           "src/content/docs/ko/ai/getting-started.md"
-        ]
+        ],
+        "checked_at": "2026-11-06T06:54:01Z",
+        "status": "observed",
+        "hash": "ad7116ce2efe9c289895f2dce56d3662c032770b4e74eb1390163b7d0dacf67e",
+        "hash_kind": "visible-v1",
+        "final_url": "https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/models-sold-directly-by-azure"
       },
       "https://learn.microsoft.com/azure/ai-studio/": {
         "paths": [
           "src/content/docs/ko/ai/getting-started.md"
-        ]
+        ],
+        "checked_at": "2026-11-06T06:54:01Z",
+        "status": "observed",
+        "hash": "a13cf9ba1040944aa5546633dadf316e10011db4066caae7a5ff26efaf9a78bc",
+        "hash_kind": "visible-v1",
+        "final_url": "https://learn.microsoft.com/en-us/azure/foundry/"
       },
       "https://learn.microsoft.com/azure/ai-studio/how-to/develop/evaluate-sdk": {
         "paths": [
           "src/content/docs/ko/ai/rag-patterns.md"
-        ]
+        ],
+        "checked_at": "2026-11-06T06:54:01Z",
+        "status": "observed",
+        "hash": "6ab7fbd527ef18a4c14f82afda70eb002be5be3ccc3d5ac37baacc6023b0e414",
+        "hash_kind": "visible-v1",
+        "final_url": "https://learn.microsoft.com/en-us/azure/foundry-classic/how-to/develop/evaluate-sdk"
       },
       "https://learn.microsoft.com/azure/ai-studio/how-to/evaluate-generative-ai-app": {
         "paths": [
           "src/content/docs/ko/ai/llmops.md"
-        ]
+        ],
+        "checked_at": "2026-11-06T06:54:01Z",
+        "status": "observed",
+        "hash": "a63751540fe65b05ec5c30ec5bf2b08ff28a00174d8cf6532e4aab07e22e040a",
+        "hash_kind": "visible-v1",
+        "final_url": "https://learn.microsoft.com/en-us/azure/foundry/how-to/evaluate-generative-ai-app"
       },
       "https://learn.microsoft.com/azure/aks/best-practices": {
         "paths": [
           "src/content/docs/ko/devops/kubernetes-operations.mdx"
-        ]
+        ],
+        "checked_at": "2026-11-06T06:54:01Z",
+        "status": "observed",
+        "hash": "73eebf3d80f9c6e9a69b09949ad5127d2d87ad7d55bdc583124c0b39d0ce65ad",
+        "hash_kind": "visible-v1",
+        "final_url": "https://learn.microsoft.com/en-us/azure/aks/best-practices"
       },
       "https://learn.microsoft.com/azure/aks/concepts-network-ip-address-planning": {
         "paths": [
           "src/content/docs/ko/devops/kubernetes-operations.mdx"
-        ]
+        ],
+        "checked_at": "2026-11-06T06:54:01Z",
+        "status": "observed",
+        "hash": "6f002bbf4f285c06093cbc9f835ac282ad0fe128ce432bf36c983c2187a46f74",
+        "hash_kind": "visible-v1",
+        "final_url": "https://learn.microsoft.com/en-us/azure/aks/concepts-network-ip-address-planning"
       },
       "https://learn.microsoft.com/azure/aks/gpu-cluster": {
         "paths": [
           "src/content/docs/ko/ai/gpu-infra/kubernetes-and-scheduling.md"
-        ]
+        ],
+        "checked_at": "2026-11-06T06:54:01Z",
+        "status": "observed",
+        "hash": "4df0b90085e18639d13063c3cb6a0170d0e68a943e0747d39bd6e83290a3821c",
+        "hash_kind": "visible-v1",
+        "final_url": "https://learn.microsoft.com/en-us/azure/aks/use-nvidia-gpu"
       },
       "https://learn.microsoft.com/azure/aks/istio-about": {
         "paths": [
           "src/content/docs/ko/compute/service-mesh.md"
-        ]
+        ],
+        "checked_at": "2026-11-06T06:54:01Z",
+        "status": "observed",
+        "hash": "d56914c81540d98cad6868f3c48d8a30b60552defb51cbdf0cefa4af0143cbfa",
+        "hash_kind": "visible-v1",
+        "final_url": "https://learn.microsoft.com/en-us/azure/aks/istio-about"
       },
       "https://learn.microsoft.com/azure/architecture/ai-ml/guide/rag/rag-chunking-phase": {
         "paths": [
           "src/content/docs/ko/ai/rag-patterns.md"
-        ]
+        ],
+        "checked_at": "2026-11-06T06:54:01Z",
+        "status": "observed",
+        "hash": "dd0a1ec3705598b0c1650d9d70437a0e54120d2ced2be9f85c1ed3931c0c73dc",
+        "hash_kind": "visible-v1",
+        "final_url": "https://learn.microsoft.com/en-us/azure/architecture/ai-ml/guide/rag/rag-chunking-phase"
       },
       "https://learn.microsoft.com/azure/architecture/ai-ml/guide/rag/rag-enrichment-phase": {
         "paths": [
           "src/content/docs/ko/ai/rag-patterns.md"
-        ]
+        ],
+        "checked_at": "2026-11-06T06:54:01Z",
+        "status": "observed",
+        "hash": "0af4ece26c33258674553e305326e2c04e0e15b1ee0d43c6c70662914f911e9b",
+        "hash_kind": "visible-v1",
+        "final_url": "https://learn.microsoft.com/en-us/azure/architecture/ai-ml/guide/rag/rag-enrichment-phase"
       },
       "https://learn.microsoft.com/azure/architecture/ai-ml/guide/rag/rag-solution-design-and-evaluation-guide": {
         "paths": [
           "src/content/docs/ko/ai/rag-patterns.md"
-        ]
+        ],
+        "checked_at": "2026-11-06T06:54:01Z",
+        "status": "observed",
+        "hash": "629779c3fe9905ca52b4fde4f6d0d6116acf526ccc46d90f65b7af8822715ba4",
+        "hash_kind": "visible-v1",
+        "final_url": "https://learn.microsoft.com/en-us/azure/architecture/ai-ml/guide/rag/rag-solution-design-and-evaluation-guide"
       },
       "https://learn.microsoft.com/azure/architecture/guide/": {
         "paths": [
           "src/content/docs/ko/compute/modernization.md"
-        ]
+        ],
+        "checked_at": "2026-11-06T06:54:01Z",
+        "status": "observed",
+        "hash": "baa96a4248d02b23ad867a4bf35d6a9e15224ecf22e9d2561a59e2a85e2e4dea",
+        "hash_kind": "visible-v1",
+        "final_url": "https://learn.microsoft.com/en-us/azure/architecture/guide/"
       },
       "https://learn.microsoft.com/azure/architecture/networking/architecture/hub-spoke": {
         "paths": [
           "src/content/docs/ko/networking/multicloud-connectivity.md"
-        ]
+        ],
+        "checked_at": "2026-11-06T06:54:01Z",
+        "status": "observed",
+        "hash": "3ebe8c4a95631fc9ff15d3e6eebe3bf17a0941d1f559c3f2b983519ef8a1bdb7",
+        "hash_kind": "visible-v1",
+        "final_url": "https://learn.microsoft.com/en-us/azure/architecture/networking/architecture/hub-spoke"
       },
       "https://learn.microsoft.com/azure/azure-app-configuration/overview": {
         "paths": [
           "src/content/docs/ko/security/secrets.md"
-        ]
+        ],
+        "checked_at": "2026-11-06T06:54:01Z",
+        "status": "observed",
+        "hash": "da6a39db7cbf45dc5bdc0070dbfb2a464feb5dee8e77e705fb31ee503e84ecab",
+        "hash_kind": "visible-v1",
+        "final_url": "https://learn.microsoft.com/en-us/azure/azure-app-configuration/overview"
       },
       "https://learn.microsoft.com/azure/azure-arc/": {
         "paths": [

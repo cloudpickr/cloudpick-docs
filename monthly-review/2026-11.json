@@ -4667,6 +4667,666 @@
       "status": "open",
       "evidence": [],
       "pr": null
+    },
+    {
+      "id": "0a5ea8de051a62866af7eda0",
+      "path": "src/content/docs/ko/ai/agent-adoption.md",
+      "axis": 2,
+      "reason": "Amazon OpenSearch Service optimized engine now supports agent traces (https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-opensearch-service-support-traces)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-opensearch-service-support-traces",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "662e8ee099ac9ea76737cb4e",
+      "path": "src/content/docs/ko/ai/agents.md",
+      "axis": 2,
+      "reason": "Amazon OpenSearch Service optimized engine now supports agent traces (https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-opensearch-service-support-traces)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-opensearch-service-support-traces",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "01097fcc0acb52f35678f003",
+      "path": "src/content/docs/ko/ai/llmops.md",
+      "axis": 2,
+      "reason": "Amazon OpenSearch Service optimized engine now supports agent traces (https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-opensearch-service-support-traces)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-opensearch-service-support-traces",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "7eee7d9b177ca213c037859a",
+      "path": "src/content/docs/ko/networking/multicloud-connectivity.md",
+      "axis": 2,
+      "reason": "AWS Interconnect - last mile announces new metro in Northern Virginia, USA (https://aws.amazon.com/about-aws/whats-new/2026/11/interconnect-last-mile-northern-virginia/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/interconnect-last-mile-northern-virginia/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "fc5951735ecb81182dd6e08f",
+      "path": "src/content/docs/ko/networking/multicloud-networking.md",
+      "axis": 2,
+      "reason": "AWS Interconnect - last mile announces new metro in Northern Virginia, USA (https://aws.amazon.com/about-aws/whats-new/2026/11/interconnect-last-mile-northern-virginia/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/interconnect-last-mile-northern-virginia/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "78391c37fcb1bf2a93ade10b",
+      "path": "src/content/docs/ko/networking/load-balancer.md",
+      "axis": 2,
+      "reason": "AWS Network Load Balancer is now available in the AWS Phoenix Local Zone (https://aws.amazon.com/about-aws/whats-new/2026/10/aws-nlb-available-phx-local-zone/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-nlb-available-phx-local-zone/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "0816a3f665735bd83e072a93",
+      "path": "src/content/docs/ko/about-cloud/regions-and-zones.md",
+      "axis": 2,
+      "reason": "AWS Network Load Balancer is now available in the AWS Phoenix Local Zone (https://aws.amazon.com/about-aws/whats-new/2026/10/aws-nlb-available-phx-local-zone/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-nlb-available-phx-local-zone/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "5ddc63bcd16d005d60ec7111",
+      "path": "src/content/docs/ko/security/network-isolation.md",
+      "axis": 2,
+      "reason": "AWS Network Load Balancer is now available in the AWS Phoenix Local Zone (https://aws.amazon.com/about-aws/whats-new/2026/10/aws-nlb-available-phx-local-zone/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-nlb-available-phx-local-zone/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "d3fe1911421f64bb6fd4ae67",
+      "path": "src/content/docs/ko/database/nosql.md",
+      "axis": 2,
+      "reason": "Amazon DynamoDB now supports bulk put items (https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-dynamodb-now-supports-bulk-put-items/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-dynamodb-now-supports-bulk-put-items/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "edb6fdda3a85bcf02cb478bb",
+      "path": "src/content/docs/ko/about-cloud/accounts-and-organizations.mdx",
+      "axis": 2,
+      "reason": "IAM Roles Anywhere now supports automatic certificate revocation checking (https://aws.amazon.com/about-aws/whats-new/2026/11/iam-roles-anywhere-cdp/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/iam-roles-anywhere-cdp/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "a78801ca6c2992e822d95fd9",
+      "path": "src/content/docs/ko/about-cloud/iam-overview.md",
+      "axis": 2,
+      "reason": "IAM Roles Anywhere now supports automatic certificate revocation checking (https://aws.amazon.com/about-aws/whats-new/2026/11/iam-roles-anywhere-cdp/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/iam-roles-anywhere-cdp/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "2ad3585f64f9c87fcb6fa62e",
+      "path": "src/content/docs/ko/security/iam.md",
+      "axis": 2,
+      "reason": "IAM Roles Anywhere now supports automatic certificate revocation checking (https://aws.amazon.com/about-aws/whats-new/2026/11/iam-roles-anywhere-cdp/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/iam-roles-anywhere-cdp/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "de9865f58e57df341c1a820e",
+      "path": "src/content/docs/ko/security/network-isolation.md",
+      "axis": 2,
+      "reason": "AWS Security Hub Network Scanning now available in AWS GovCloud (US) (https://aws.amazon.com/about-aws/whats-new/2026/11/security-hub-network-scanning-govcloud/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/security-hub-network-scanning-govcloud/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "569e1d0ab82c73f5afe130c6",
+      "path": "src/content/docs/ko/about-cloud/shared-responsibility.mdx",
+      "axis": 2,
+      "reason": "AWS Security Hub Network Scanning now available in AWS GovCloud (US) (https://aws.amazon.com/about-aws/whats-new/2026/11/security-hub-network-scanning-govcloud/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/security-hub-network-scanning-govcloud/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "f4bc7c8da40447b27a935ba5",
+      "path": "src/content/docs/ko/security/ai-security.md",
+      "axis": 2,
+      "reason": "AWS Security Hub Network Scanning now available in AWS GovCloud (US) (https://aws.amazon.com/about-aws/whats-new/2026/11/security-hub-network-scanning-govcloud/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/security-hub-network-scanning-govcloud/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "1a2169f2d650faf1a3e0084b",
+      "path": "src/content/docs/ko/compute/serverless.md",
+      "axis": 2,
+      "reason": "AWS Lambda durable functions increases default execution and API quotas (https://aws.amazon.com/about-aws/whats-new/2026/11/lambda-durable-functions-default-quotas/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/lambda-durable-functions-default-quotas/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "1fd2a0ac5f728b105ff1a2ec",
+      "path": "src/content/docs/ko/about-cloud/pricing-model.md",
+      "axis": 2,
+      "reason": "AWS Lambda durable functions increases default execution and API quotas (https://aws.amazon.com/about-aws/whats-new/2026/11/lambda-durable-functions-default-quotas/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/lambda-durable-functions-default-quotas/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "82fc66ea100b28fb7b1e78d3",
+      "path": "src/content/docs/ko/ai/ai-ml.md",
+      "axis": 2,
+      "reason": "AWS Lambda durable functions increases default execution and API quotas (https://aws.amazon.com/about-aws/whats-new/2026/11/lambda-durable-functions-default-quotas/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/lambda-durable-functions-default-quotas/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "2139086c01064c1a96e69aa5",
+      "path": "src/content/docs/ko/about-cloud/console-cli-sdk.md",
+      "axis": 2,
+      "reason": "Amazon Q Developer in console is now the AWS assistant (https://aws.amazon.com/about-aws/whats-new/2026/11/q-developer-renamed-aws-assistant/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/q-developer-renamed-aws-assistant/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "c3c586b4a7fd2e8e2d79508a",
+      "path": "src/content/docs/ko/about-cloud/compare-clouds.md",
+      "axis": 2,
+      "reason": "AWS WAF AI traffic monetization now supports fiat payouts through Stripe (https://aws.amazon.com/about-aws/whats-new/2026/11/aws-waf-stripe-fiat-payouts/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-waf-stripe-fiat-payouts/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "e03cb6efdf8b884022f9329f",
+      "path": "src/content/docs/ko/compute/virtual-machines.md",
+      "axis": 2,
+      "reason": "AWS WAF AI traffic monetization now supports fiat payouts through Stripe (https://aws.amazon.com/about-aws/whats-new/2026/11/aws-waf-stripe-fiat-payouts/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-waf-stripe-fiat-payouts/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "93cc734c420e7407ece7dee8",
+      "path": "src/content/docs/ko/security/ai-security.md",
+      "axis": 2,
+      "reason": "AWS WAF AI traffic monetization now supports fiat payouts through Stripe (https://aws.amazon.com/about-aws/whats-new/2026/11/aws-waf-stripe-fiat-payouts/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-waf-stripe-fiat-payouts/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "d00e63b64ca4dd58ad5b3227",
+      "path": "src/content/docs/ko/security/iam.md",
+      "axis": 2,
+      "reason": "Amazon SageMaker AI Studio Now Supports IAM Identity Center Multi-Region Replication (https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-sagemaker-ai-studio-iam/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-sagemaker-ai-studio-iam/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "ac23846c5f555659841b4bf9",
+      "path": "src/content/docs/ko/security/zero-trust.md",
+      "axis": 2,
+      "reason": "Amazon SageMaker AI Studio Now Supports IAM Identity Center Multi-Region Replication (https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-sagemaker-ai-studio-iam/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-sagemaker-ai-studio-iam/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "271da1ae1f3b83c49b59bbed",
+      "path": "src/content/docs/ko/about-cloud/accounts-and-organizations.mdx",
+      "axis": 2,
+      "reason": "Amazon SageMaker AI Studio Now Supports IAM Identity Center Multi-Region Replication (https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-sagemaker-ai-studio-iam/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-sagemaker-ai-studio-iam/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "c739a1b0cc5bac1d3cd1e30c",
+      "path": "src/content/docs/ko/about-cloud/decision-framework.md",
+      "axis": 2,
+      "reason": "AWS Systems Manager Parameter Store now allows organization and validation with built-in data types (https://aws.amazon.com/about-aws/whats-new/2026/11/aws-ssm-parameter-store-allows-organization-validation-with-new-data-types/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-ssm-parameter-store-allows-organization-validation-with-new-data-types/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "fa74086f5763839a1b894fcf",
+      "path": "src/content/docs/ko/about-cloud/support-plans.md",
+      "axis": 2,
+      "reason": "AWS Systems Manager Parameter Store now allows organization and validation with built-in data types (https://aws.amazon.com/about-aws/whats-new/2026/11/aws-ssm-parameter-store-allows-organization-validation-with-new-data-types/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-ssm-parameter-store-allows-organization-validation-with-new-data-types/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "42949433ce029e4fe99f0655",
+      "path": "src/content/docs/ko/security/data-protection.md",
+      "axis": 2,
+      "reason": "AWS Systems Manager Parameter Store now allows organization and validation with built-in data types (https://aws.amazon.com/about-aws/whats-new/2026/11/aws-ssm-parameter-store-allows-organization-validation-with-new-data-types/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-ssm-parameter-store-allows-organization-validation-with-new-data-types/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "6a4829c49f431dd5c32f3aca",
+      "path": "src/content/docs/ko/about-cloud/shared-responsibility.mdx",
+      "axis": 2,
+      "reason": "AWS Security Hub now provides an SBOM inventory for your compute resources (https://aws.amazon.com/about-aws/whats-new/2026/11/security-hub-sbom-inventory/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/security-hub-sbom-inventory/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "26f181d7c66e16be25601e92",
+      "path": "src/content/docs/ko/security/ai-security.md",
+      "axis": 2,
+      "reason": "AWS Security Hub now provides an SBOM inventory for your compute resources (https://aws.amazon.com/about-aws/whats-new/2026/11/security-hub-sbom-inventory/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/security-hub-sbom-inventory/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "495f3e343a95a06352aa6034",
+      "path": "src/content/docs/ko/security/data-protection.md",
+      "axis": 2,
+      "reason": "AWS Security Hub now provides an SBOM inventory for your compute resources (https://aws.amazon.com/about-aws/whats-new/2026/11/security-hub-sbom-inventory/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/security-hub-sbom-inventory/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "5ea861af842a36af64f0341b",
+      "path": "src/content/docs/ko/ai/agent-adoption.md",
+      "axis": 2,
+      "reason": "Agent Platform Workbench (https://docs.cloud.google.com/release-notes#November_01_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_01_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "40967cf6fde0e47af0d0e6a2",
+      "path": "src/content/docs/ko/ai/agents.md",
+      "axis": 2,
+      "reason": "Agent Platform Workbench (https://docs.cloud.google.com/release-notes#November_01_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_01_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "e9715955f8354adaa2a9a61b",
+      "path": "src/content/docs/ko/ai/llmops.md",
+      "axis": 2,
+      "reason": "Agent Platform Workbench (https://docs.cloud.google.com/release-notes#November_01_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_01_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "14b4ce438ef763b1694cd211",
+      "path": "src/content/docs/ko/ai/agent-adoption.md",
+      "axis": 2,
+      "reason": "Gemini Enterprise Agent Platform (https://docs.cloud.google.com/release-notes#November_05_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_05_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "01ad31a72cb9b71840b74867",
+      "path": "src/content/docs/ko/ai/agents.md",
+      "axis": 2,
+      "reason": "Gemini Enterprise Agent Platform (https://docs.cloud.google.com/release-notes#November_05_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_05_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "862ea3e550eae83eda3e2e0d",
+      "path": "src/content/docs/ko/ai/llmops.md",
+      "axis": 2,
+      "reason": "Gemini Enterprise Agent Platform (https://docs.cloud.google.com/release-notes#November_05_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_05_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "cbaf1b59cc762111c896d2dd",
+      "path": "src/content/docs/ko/about-cloud/shared-responsibility.mdx",
+      "axis": 2,
+      "reason": "Security Command Center (https://docs.cloud.google.com/release-notes#November_05_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_05_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "d74b91fb16ce3a4f165c0280",
+      "path": "src/content/docs/ko/security/ai-security.md",
+      "axis": 2,
+      "reason": "Security Command Center (https://docs.cloud.google.com/release-notes#November_05_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_05_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "1d25cf090b1267028b952881",
+      "path": "src/content/docs/ko/security/data-protection.md",
+      "axis": 2,
+      "reason": "Security Command Center (https://docs.cloud.google.com/release-notes#November_05_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_05_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "12c1efa35775b86a46cc5185",
+      "path": "src/content/docs/ko/networking/api-gateway.md",
+      "axis": 2,
+      "reason": "Apigee Edge for Public Cloud (https://docs.cloud.google.com/release-notes#November_05_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_05_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "e680ad2edf7b86ce0bc02560",
+      "path": "src/content/docs/ko/about-cloud/getting-started.md",
+      "axis": 2,
+      "reason": "Apigee Edge for Public Cloud (https://docs.cloud.google.com/release-notes#November_05_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_05_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "e5dc8e356cecdcad86b03f7a",
+      "path": "src/content/docs/ko/about-cloud/regions-and-zones.md",
+      "axis": 2,
+      "reason": "Apigee Edge for Public Cloud (https://docs.cloud.google.com/release-notes#November_05_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_05_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "474d1906cb52c5dfa84ce93d",
+      "path": "src/content/docs/ko/security/data-protection.md",
+      "axis": 2,
+      "reason": "[Launched] Generally Available: Azure Front Door TLS key exchange policy with post-quantum support (https://azure.microsoft.com/updates?id=577668)",
+      "source_url": "https://azure.microsoft.com/updates?id=577668",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "7129a557a2d060c1499e7718",
+      "path": "src/content/docs/ko/networking/cdn.md",
+      "axis": 2,
+      "reason": "[Launched] Generally Available: Azure Front Door TLS key exchange policy with post-quantum support (https://azure.microsoft.com/updates?id=577668)",
+      "source_url": "https://azure.microsoft.com/updates?id=577668",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "2cc1be6d65c9b36eae1ef442",
+      "path": "src/content/docs/ko/about-cloud/support-plans.md",
+      "axis": 2,
+      "reason": "[Launched] Generally Available: Azure Front Door TLS key exchange policy with post-quantum support (https://azure.microsoft.com/updates?id=577668)",
+      "source_url": "https://azure.microsoft.com/updates?id=577668",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "d143a9a17df199539105abfd",
+      "path": "src/content/docs/ko/security/data-protection.md",
+      "axis": 2,
+      "reason": "[Launched] Generally Available: WAF Insights for Azure Application Gateway (https://azure.microsoft.com/updates?id=579280)",
+      "source_url": "https://azure.microsoft.com/updates?id=579280",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "57b406af2513829a5d7e58fb",
+      "path": "src/content/docs/ko/devops/devsecops.md",
+      "axis": 2,
+      "reason": "[Launched] Generally Available: WAF Insights for Azure Application Gateway (https://azure.microsoft.com/updates?id=579280)",
+      "source_url": "https://azure.microsoft.com/updates?id=579280",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "793d0bc9d0a01f56733a3549",
+      "path": "src/content/docs/ko/devops/monitoring.md",
+      "axis": 2,
+      "reason": "[Launched] Generally Available: WAF Insights for Azure Application Gateway (https://azure.microsoft.com/updates?id=579280)",
+      "source_url": "https://azure.microsoft.com/updates?id=579280",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "29cfd122c99fca83f48fdafe",
+      "path": null,
+      "axis": 3,
+      "reason": "Amazon OpenSearch Service optimized engine now supports logs and traces (https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-opensearch-service-support-traces)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-opensearch-service-support-traces",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "262b130ab7d5867c017c064a",
+      "path": null,
+      "axis": 3,
+      "reason": "Announcing Web Answer on Amazon Bedrock AgentCore (https://aws.amazon.com/about-aws/whats-new/2026/11/web-answer-amazon-bedrock/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/web-answer-amazon-bedrock/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "f4b8e8ee13911b000365f8c2",
+      "path": null,
+      "axis": 3,
+      "reason": "Amazon Cognito announces 99.99% Service Level Agreement for the Plus feature plan (https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-cognito-sla-update/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-cognito-sla-update/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "3190e171f09ea8bd726186cd",
+      "path": null,
+      "axis": 3,
+      "reason": "Amazon FSx for Lustre delivers 16x higher metadata IOPS on Intelligent-Tiering file systems (https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-fsx-for-lustre-intelligent-tiering-16x-higher-metadata-iops)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-fsx-for-lustre-intelligent-tiering-16x-higher-metadata-iops",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "8a83fec4f5d1ab8b5fb366a9",
+      "path": null,
+      "axis": 3,
+      "reason": "Amazon RDS for Oracle now supports Kerberos authentication with self-managed Active Directory (https://aws.amazon.com/about-aws/whats-new/2026/11/rds-oracle-kerberos-self-managed-ad/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/rds-oracle-kerberos-self-managed-ad/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "5233876032b98cf67081ada4",
+      "path": null,
+      "axis": 3,
+      "reason": "Google SecOps (https://docs.cloud.google.com/release-notes#November_01_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_01_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "c93dbcc56909a7f5785a5efc",
+      "path": null,
+      "axis": 3,
+      "reason": "Google SecOps SOAR (https://docs.cloud.google.com/release-notes#November_01_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_01_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "dcac65520455c30eb31d1e1d",
+      "path": null,
+      "axis": 3,
+      "reason": "Data Studio (https://docs.cloud.google.com/release-notes#November_05_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_05_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "8b43b5917b2448f6fbb87007",
+      "path": null,
+      "axis": 3,
+      "reason": "Google SecOps (https://docs.cloud.google.com/release-notes#November_05_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_05_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "dbcbd5e369cbeacb442662ea",
+      "path": null,
+      "axis": 3,
+      "reason": "BigQuery (https://docs.cloud.google.com/release-notes#November_05_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_05_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "27e8ddf18b29771e029e3985",
+      "path": null,
+      "axis": 3,
+      "reason": "Model Armor (https://docs.cloud.google.com/release-notes#November_05_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_05_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
     }
   ],
   "resolved_ids": [],
@@ -4839,6 +5499,18 @@
         "gcp": "provisional",
         "azure": "provisional",
         "oci": "provisional"
+      },
+      "2026-09-19": {
+        "aws": "complete",
+        "gcp": "complete",
+        "azure": "complete",
+        "oci": "complete"
+      },
+      "2026-11-06": {
+        "aws": "provisional",
+        "gcp": "provisional",
+        "azure": "provisional",
+        "oci": "provisional"
       }
     },
     "attempted": {
@@ -4945,10 +5617,10 @@
         "oci": "2026-11-01T06:15:03.317Z"
       },
       "2026-11-01": {
-        "aws": "2026-11-02T06:15:35.724Z",
-        "gcp": "2026-11-02T06:15:35.724Z",
-        "azure": "2026-11-02T06:15:35.724Z",
-        "oci": "2026-11-02T06:15:35.724Z"
+        "aws": "2026-11-06T06:53:53.439Z",
+        "gcp": "2026-11-06T06:53:53.439Z",
+        "azure": "2026-11-06T06:53:53.439Z",
+        "oci": "2026-11-06T06:53:53.439Z"
       },
       "2026-09-15": {
         "aws": "2026-11-02T06:15:35.724Z",
@@ -4993,10 +5665,22 @@
         "oci": "2026-11-05T06:55:06.826Z"
       },
       "2026-11-05": {
-        "aws": "2026-11-05T06:55:06.826Z",
-        "gcp": "2026-11-05T06:55:06.826Z",
-        "azure": "2026-11-05T06:55:06.826Z",
-        "oci": "2026-11-05T06:55:06.826Z"
+        "aws": "2026-11-06T06:53:53.439Z",
+        "gcp": "2026-11-06T06:53:53.439Z",
+        "azure": "2026-11-06T06:53:53.439Z",
+        "oci": "2026-11-06T06:53:53.439Z"
+      },
+      "2026-09-19": {
+        "aws": "2026-11-06T06:53:53.439Z",
+        "gcp": "2026-11-06T06:53:53.439Z",
+        "azure": "2026-11-06T06:53:53.439Z",
+        "oci": "2026-11-06T06:53:53.439Z"
+      },
+      "2026-11-06": {
+        "aws": "2026-11-06T06:53:53.439Z",
+        "gcp": "2026-11-06T06:53:53.439Z",
+        "azure": "2026-11-06T06:53:53.439Z",
+        "oci": "2026-11-06T06:53:53.439Z"
       }
     }
   },

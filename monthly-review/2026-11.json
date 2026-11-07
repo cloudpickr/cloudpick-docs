@@ -5327,6 +5327,501 @@
       "status": "open",
       "evidence": [],
       "pr": null
+    },
+    {
+      "id": "3e5a38dd21e1b1950989e86f",
+      "path": "src/content/docs/ko/about-cloud/regions-and-zones.md",
+      "axis": 2,
+      "reason": "AWS Backup now supports cross-account management and cross-account backup in the AWS European Sovereign Cloud (https://aws.amazon.com/about-aws/whats-new/2026/10/aws-backup-cross-account-esc/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-backup-cross-account-esc/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "8412cc319d5a3a74cb21d988",
+      "path": "src/content/docs/ko/about-cloud/support-plans.md",
+      "axis": 2,
+      "reason": "AWS Backup now supports cross-account management and cross-account backup in the AWS European Sovereign Cloud (https://aws.amazon.com/about-aws/whats-new/2026/10/aws-backup-cross-account-esc/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-backup-cross-account-esc/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "60161fa14e65a73740054d95",
+      "path": "src/content/docs/ko/about-cloud/getting-started.md",
+      "axis": 2,
+      "reason": "ACM now supports ACME for public certificates in AWS GovCloud (US) (https://aws.amazon.com/about-aws/whats-new/2026/10/acm-acme-support-govcloud-us/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/10/acm-acme-support-govcloud-us/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "64f0583dc1609f5acec0611a",
+      "path": "src/content/docs/ko/ai/agent-adoption.md",
+      "axis": 2,
+      "reason": "Agent Registry is now generally available in AWS GovCloud (US-West) Region (https://aws.amazon.com/about-aws/whats-new/2026/11/aws-agent-registry-govcloud-us-west/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-agent-registry-govcloud-us-west/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "1de955bb238924da115ed256",
+      "path": "src/content/docs/ko/ai/llmops.md",
+      "axis": 2,
+      "reason": "Agent Registry is now generally available in AWS GovCloud (US-West) Region (https://aws.amazon.com/about-aws/whats-new/2026/11/aws-agent-registry-govcloud-us-west/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-agent-registry-govcloud-us-west/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "d88cb51cf5edc8909c08284d",
+      "path": "src/content/docs/ko/governance/finops.md",
+      "axis": 2,
+      "reason": "Agent Registry is now generally available in AWS GovCloud (US-West) Region (https://aws.amazon.com/about-aws/whats-new/2026/11/aws-agent-registry-govcloud-us-west/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-agent-registry-govcloud-us-west/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "a3785c4dc28bb28291122bfc",
+      "path": "src/content/docs/ko/about-cloud/regions-and-zones.md",
+      "axis": 2,
+      "reason": "Amazon MSK Replicator is now available in AWS GovCloud (US-East, US-West) Regions (https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-msk-replicator-additional-aws-regions)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-msk-replicator-additional-aws-regions",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "918ea393896efa05c7ba570d",
+      "path": "src/content/docs/ko/us/fedramp.md",
+      "axis": 2,
+      "reason": "Amazon MSK Replicator is now available in AWS GovCloud (US-East, US-West) Regions (https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-msk-replicator-additional-aws-regions)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-msk-replicator-additional-aws-regions",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "9b10ba122ef93829915a3786",
+      "path": "src/content/docs/ko/us/itar.md",
+      "axis": 2,
+      "reason": "Amazon MSK Replicator is now available in AWS GovCloud (US-East, US-West) Regions (https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-msk-replicator-additional-aws-regions)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-msk-replicator-additional-aws-regions",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "a46a2a28bccea3c48643fdb0",
+      "path": "src/content/docs/ko/about-cloud/compare-clouds.md",
+      "axis": 2,
+      "reason": "AWS launches support for amortization of EC2 Capacity Blocks for ML (https://aws.amazon.com/about-aws/whats-new/2026/10/aws-ec2-capacity-blocks-ml/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-ec2-capacity-blocks-ml/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "0c4d4e06fbc51f2200ad9181",
+      "path": "src/content/docs/ko/about-cloud/console-cli-sdk.md",
+      "axis": 2,
+      "reason": "AWS launches support for amortization of EC2 Capacity Blocks for ML (https://aws.amazon.com/about-aws/whats-new/2026/10/aws-ec2-capacity-blocks-ml/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-ec2-capacity-blocks-ml/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "86123bed4e783fea23c0a283",
+      "path": "src/content/docs/ko/about-cloud/support-plans.md",
+      "axis": 2,
+      "reason": "AWS launches support for amortization of EC2 Capacity Blocks for ML (https://aws.amazon.com/about-aws/whats-new/2026/10/aws-ec2-capacity-blocks-ml/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-ec2-capacity-blocks-ml/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "15465488d04bac0ec3d59b42",
+      "path": "src/content/docs/ko/about-cloud/console-cli-sdk.md",
+      "axis": 2,
+      "reason": "Capacity Reservation Resource Groups now support Amazon EC2 Capacity Blocks and interruptible Capacity Reservations in AWS GovCloud (US) Regions (https://aws.amazon.com/about-aws/whats-new/2026/11/capacity-reservation-resource-groups-support-in-aws-govcloud-regions)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/capacity-reservation-resource-groups-support-in-aws-govcloud-regions",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "b1c625dce7808e6b928f196c",
+      "path": "src/content/docs/ko/about-cloud/regions-and-zones.md",
+      "axis": 2,
+      "reason": "Capacity Reservation Resource Groups now support Amazon EC2 Capacity Blocks and interruptible Capacity Reservations in AWS GovCloud (US) Regions (https://aws.amazon.com/about-aws/whats-new/2026/11/capacity-reservation-resource-groups-support-in-aws-govcloud-regions)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/capacity-reservation-resource-groups-support-in-aws-govcloud-regions",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "c18cae765b78b37c3505af86",
+      "path": "src/content/docs/ko/about-cloud/support-plans.md",
+      "axis": 2,
+      "reason": "Capacity Reservation Resource Groups now support Amazon EC2 Capacity Blocks and interruptible Capacity Reservations in AWS GovCloud (US) Regions (https://aws.amazon.com/about-aws/whats-new/2026/11/capacity-reservation-resource-groups-support-in-aws-govcloud-regions)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/capacity-reservation-resource-groups-support-in-aws-govcloud-regions",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "6b3a8c5ffc9154a27292072c",
+      "path": "src/content/docs/ko/about-cloud/regions-and-zones.md",
+      "axis": 2,
+      "reason": "Amazon Simple Email Service is now available in six new AWS Regions (https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-simple-email-service-new-aws-regions/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-simple-email-service-new-aws-regions/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "db40f32117e1dcc850653bf5",
+      "path": "src/content/docs/ko/about-cloud/support-plans.md",
+      "axis": 2,
+      "reason": "Amazon Simple Email Service is now available in six new AWS Regions (https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-simple-email-service-new-aws-regions/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-simple-email-service-new-aws-regions/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "9c95715e947eb6989674d46c",
+      "path": "src/content/docs/ko/compute/serverless.md",
+      "axis": 2,
+      "reason": "Amazon Simple Email Service is now available in six new AWS Regions (https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-simple-email-service-new-aws-regions/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-simple-email-service-new-aws-regions/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "5f759e5f2f64ffbe3254242d",
+      "path": "src/content/docs/ko/security/data-protection.md",
+      "axis": 2,
+      "reason": "AWS Glue Data Catalog now supports catalog-vended credentials with Apache Iceberg REST catalog federation (https://aws.amazon.com/about-aws/whats-new/2026/11/glue-catalog-vended-credentials-iceberg/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/glue-catalog-vended-credentials-iceberg/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "8514bf1e816dbd8596fe7733",
+      "path": "src/content/docs/ko/about-cloud/decision-framework.md",
+      "axis": 2,
+      "reason": "AWS Glue Data Catalog now supports catalog-vended credentials with Apache Iceberg REST catalog federation (https://aws.amazon.com/about-aws/whats-new/2026/11/glue-catalog-vended-credentials-iceberg/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/glue-catalog-vended-credentials-iceberg/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "175e8c8de1774980c8eb24e3",
+      "path": "src/content/docs/ko/security/iam.md",
+      "axis": 2,
+      "reason": "AWS Glue Data Catalog now supports catalog-vended credentials with Apache Iceberg REST catalog federation (https://aws.amazon.com/about-aws/whats-new/2026/11/glue-catalog-vended-credentials-iceberg/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/glue-catalog-vended-credentials-iceberg/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "f4aae45dbb3225bae49e129a",
+      "path": "src/content/docs/ko/about-cloud/support-plans.md",
+      "axis": 2,
+      "reason": "Google Cloud Contact Center as a Service (https://docs.cloud.google.com/release-notes#October_29_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#October_29_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "46b4e977e4d92920d7791330",
+      "path": "src/content/docs/ko/devops/kubernetes-operations.mdx",
+      "axis": 2,
+      "reason": "VPC Service Controls (https://docs.cloud.google.com/release-notes#October_29_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#October_29_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "01affe7c7b15c9b824674aca",
+      "path": "src/content/docs/ko/networking/vpc-subnet.md",
+      "axis": 2,
+      "reason": "VPC Service Controls (https://docs.cloud.google.com/release-notes#October_29_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#October_29_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "b6ac4b234fa231e80d12db96",
+      "path": "src/content/docs/ko/about-cloud/accounts-and-organizations.mdx",
+      "axis": 2,
+      "reason": "SAP on Google Cloud (https://docs.cloud.google.com/release-notes#October_29_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#October_29_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "df765c18274b487043fecda7",
+      "path": "src/content/docs/ko/about-cloud/compare-clouds.md",
+      "axis": 2,
+      "reason": "SAP on Google Cloud (https://docs.cloud.google.com/release-notes#October_29_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#October_29_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "4788f85314799b5b3ec52ee9",
+      "path": "src/content/docs/ko/about-cloud/console-cli-sdk.md",
+      "axis": 2,
+      "reason": "SAP on Google Cloud (https://docs.cloud.google.com/release-notes#October_29_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#October_29_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "275e206a7b9bc9f428f65e5c",
+      "path": "src/content/docs/ko/ai/agent-adoption.md",
+      "axis": 2,
+      "reason": "Agent Registry (https://docs.cloud.google.com/release-notes#November_06_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_06_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "068a4fc6d1df0cd1dd7c2e21",
+      "path": "src/content/docs/ko/ai/agents.md",
+      "axis": 2,
+      "reason": "Agent Registry (https://docs.cloud.google.com/release-notes#November_06_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_06_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "7e7a6ca61636be69c7d02802",
+      "path": "src/content/docs/ko/ai/llmops.md",
+      "axis": 2,
+      "reason": "Agent Registry (https://docs.cloud.google.com/release-notes#November_06_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_06_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "3f840e8214a516fa2485d470",
+      "path": "src/content/docs/ko/ai/agent-adoption.md",
+      "axis": 2,
+      "reason": "Gemini Enterprise Agent Platform (https://docs.cloud.google.com/release-notes#November_06_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_06_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "86e05efc050471b3b3d95250",
+      "path": "src/content/docs/ko/ai/agents.md",
+      "axis": 2,
+      "reason": "Gemini Enterprise Agent Platform (https://docs.cloud.google.com/release-notes#November_06_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_06_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "16683e7049c78602e9b3d5cd",
+      "path": "src/content/docs/ko/ai/llmops.md",
+      "axis": 2,
+      "reason": "Gemini Enterprise Agent Platform (https://docs.cloud.google.com/release-notes#November_06_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_06_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "a157c2bee639df23ab70b665",
+      "path": "src/content/docs/ko/networking/load-balancer.md",
+      "axis": 2,
+      "reason": "Cloud Load Balancing (https://docs.cloud.google.com/release-notes#November_06_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_06_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "4ff838b0b5016ebd95286aad",
+      "path": "src/content/docs/ko/database/nosql.md",
+      "axis": 2,
+      "reason": "Bigtable (https://docs.cloud.google.com/release-notes#November_06_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_06_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "953002d1015cae6d106e4902",
+      "path": "src/content/docs/ko/about-cloud/console-cli-sdk.md",
+      "axis": 2,
+      "reason": "[Launched] Generally Available: Large OS Disk Encryption for Azure Confidential VM migrations (https://azure.microsoft.com/updates?id=578850)",
+      "source_url": "https://azure.microsoft.com/updates?id=578850",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "f312d20f14371df03827dd8d",
+      "path": null,
+      "axis": 3,
+      "reason": "Kimi K3.1 Pro (Highspeed) now available on Amazon Bedrock (https://aws.amazon.com/about-aws/whats-new/2026/11/moonshot-ai-kimi-k3-1-pro-on-amazon-bedrock)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/moonshot-ai-kimi-k3-1-pro-on-amazon-bedrock",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "420dc2ed5f2c281adb377eb4",
+      "path": null,
+      "axis": 3,
+      "reason": "Amazon Redshift expands SUPER data type to store strings up to 16 million bytes (https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-redshift-expands-super-to-16-million-bytes/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-redshift-expands-super-to-16-million-bytes/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "b8ea32697b1b8bc6d825416c",
+      "path": null,
+      "axis": 3,
+      "reason": "AWS Elemental MediaConvert adds a native integration with AWS Elemental Inference Smart Subtitles (https://aws.amazon.com/about-aws/whats-new/2026/11/mediaconvert-elemental-smart-subtitles/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/mediaconvert-elemental-smart-subtitles/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "5af7e5d9d5f79f0934a599af",
+      "path": null,
+      "axis": 3,
+      "reason": "Assured Open Source Software (https://docs.cloud.google.com/release-notes#November_06_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_06_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "6a79c05d7db395618da3887e",
+      "path": null,
+      "axis": 3,
+      "reason": "Gemini Enterprise (https://docs.cloud.google.com/release-notes#November_06_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_06_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "f0889b21bb86e10d52eec3da",
+      "path": null,
+      "axis": 3,
+      "reason": "Looker (https://docs.cloud.google.com/release-notes#November_06_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_06_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "9d054a0ad4d658518f3dc7c0",
+      "path": null,
+      "axis": 3,
+      "reason": "BigQuery (https://docs.cloud.google.com/release-notes#November_06_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_06_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "9b4e77d8ae11f420ea4cc164",
+      "path": null,
+      "axis": 3,
+      "reason": "Cloud Trace (https://docs.cloud.google.com/release-notes#November_06_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_06_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "f350d47b0950199e76154ff2",
+      "path": null,
+      "axis": 3,
+      "reason": "Config Controller (https://docs.cloud.google.com/release-notes#November_06_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_06_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
     }
   ],
   "resolved_ids": [],
@@ -5357,10 +5852,10 @@
         "oci": "complete"
       },
       "2026-10-29": {
-        "aws": "provisional",
-        "gcp": "provisional",
-        "azure": "provisional",
-        "oci": "provisional"
+        "aws": "complete",
+        "gcp": "complete",
+        "azure": "complete",
+        "oci": "complete"
       },
       "2026-10-30": {
         "aws": "provisional",
@@ -5511,6 +6006,18 @@
         "gcp": "provisional",
         "azure": "provisional",
         "oci": "provisional"
+      },
+      "2026-09-20": {
+        "aws": "complete",
+        "gcp": "complete",
+        "azure": "complete",
+        "oci": "complete"
+      },
+      "2026-11-07": {
+        "aws": "provisional",
+        "gcp": "provisional",
+        "azure": "provisional",
+        "oci": "provisional"
       }
     },
     "attempted": {
@@ -5527,10 +6034,10 @@
         "oci": "2026-10-30T15:00:13.106Z"
       },
       "2026-10-29": {
-        "aws": "2026-11-03T06:54:19.123Z",
-        "gcp": "2026-11-03T06:54:19.123Z",
-        "azure": "2026-11-03T06:54:19.123Z",
-        "oci": "2026-11-03T06:54:19.123Z"
+        "aws": "2026-11-07T06:05:13.850Z",
+        "gcp": "2026-11-07T06:05:13.850Z",
+        "azure": "2026-11-07T06:05:13.850Z",
+        "oci": "2026-11-07T06:05:13.850Z"
       },
       "2026-10-30": {
         "aws": "2026-11-05T06:55:06.826Z",
@@ -5677,10 +6184,22 @@
         "oci": "2026-11-06T06:53:53.439Z"
       },
       "2026-11-06": {
-        "aws": "2026-11-06T06:53:53.439Z",
-        "gcp": "2026-11-06T06:53:53.439Z",
-        "azure": "2026-11-06T06:53:53.439Z",
-        "oci": "2026-11-06T06:53:53.439Z"
+        "aws": "2026-11-07T06:05:13.850Z",
+        "gcp": "2026-11-07T06:05:13.850Z",
+        "azure": "2026-11-07T06:05:13.850Z",
+        "oci": "2026-11-07T06:05:13.850Z"
+      },
+      "2026-09-20": {
+        "aws": "2026-11-07T06:05:13.850Z",
+        "gcp": "2026-11-07T06:05:13.850Z",
+        "azure": "2026-11-07T06:05:13.850Z",
+        "oci": "2026-11-07T06:05:13.850Z"
+      },
+      "2026-11-07": {
+        "aws": "2026-11-07T06:05:13.850Z",
+        "gcp": "2026-11-07T06:05:13.850Z",
+        "azure": "2026-11-07T06:05:13.850Z",
+        "oci": "2026-11-07T06:05:13.850Z"
       }
     }
   },

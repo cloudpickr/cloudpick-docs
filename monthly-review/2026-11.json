@@ -5822,6 +5822,160 @@
       "status": "open",
       "evidence": [],
       "pr": null
+    },
+    {
+      "id": "8d9ae6888a72ec185c2a7785",
+      "path": "src/content/docs/ko/about-cloud/decision-framework.md",
+      "axis": 2,
+      "reason": "Amazon RDS now supports per snapshot billing (https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-rds-per-snapshot-billing/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-rds-per-snapshot-billing/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "15f04b6cfa506518b2209b13",
+      "path": "src/content/docs/ko/about-cloud/support-plans.md",
+      "axis": 2,
+      "reason": "AWS Lambda now supports queues for Apache Kafka in self-managed Kafka event sources (https://aws.amazon.com/about-aws/whats-new/2026/11/aws-lambda-queue-kafka-esm/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-lambda-queue-kafka-esm/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "d537697e2f488dcc27386195",
+      "path": "src/content/docs/ko/about-cloud/support-plans.md",
+      "axis": 2,
+      "reason": "Amazon CloudFront now supports self-service increases in AWS Service Quotas (https://aws.amazon.com/about-aws/whats-new/2026/11/cloudfront-self-service-quotas/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/cloudfront-self-service-quotas/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "962a58f24ebd7ab11a29d372",
+      "path": "src/content/docs/ko/about-cloud/support-plans.md",
+      "axis": 2,
+      "reason": "Managed Service for Apache Spark (https://docs.cloud.google.com/release-notes#November_02_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_02_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "3fcbc54d7a8a70b1ccc7da7b",
+      "path": "src/content/docs/ko/about-cloud/console-cli-sdk.md",
+      "axis": 2,
+      "reason": "Compute Engine (https://docs.cloud.google.com/release-notes#November_02_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_02_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "aedb53e3a7f797a024fac964",
+      "path": "src/content/docs/ko/security/data-protection.md",
+      "axis": 2,
+      "reason": "Sensitive Data Protection (https://docs.cloud.google.com/release-notes#November_02_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_02_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "baa9a434a21d8804dfc039a0",
+      "path": "src/content/docs/ko/singapore/pdpa.md",
+      "axis": 2,
+      "reason": "Sensitive Data Protection (https://docs.cloud.google.com/release-notes#November_02_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_02_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "46250a8dafb054b3586804d0",
+      "path": "src/content/docs/ko/about-cloud/support-plans.md",
+      "axis": 2,
+      "reason": "Google Cloud Contact Center as a Service (https://docs.cloud.google.com/release-notes#November_02_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_02_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "dbeb31b9d5dc874efba77af2",
+      "path": "src/content/docs/ko/about-cloud/compare-clouds.md",
+      "axis": 2,
+      "reason": "Oracle Database@Google Cloud (https://docs.cloud.google.com/release-notes#November_02_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_02_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "2eb23ad253afde80bec9cc98",
+      "path": "src/content/docs/ko/about-cloud/shared-responsibility.mdx",
+      "axis": 2,
+      "reason": "Retirement: OT security in Microsoft Defender for IoT (https://azure.microsoft.com/updates?id=576255)",
+      "source_url": "https://azure.microsoft.com/updates?id=576255",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "ba5df3a5c9e1977c7005124f",
+      "path": "src/content/docs/ko/security/data-protection.md",
+      "axis": 2,
+      "reason": "Retirement: OT security in Microsoft Defender for IoT (https://azure.microsoft.com/updates?id=576255)",
+      "source_url": "https://azure.microsoft.com/updates?id=576255",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "2b123d1076402c92937ef2de",
+      "path": "src/content/docs/ko/about-cloud/getting-started.md",
+      "axis": 2,
+      "reason": "[Launched] Generally Available: Change from virtual network integration to a private endpoint capable network configuration in Azure Database for PostgreSQL flexible server (https://azure.microsoft.com/updates?id=574541)",
+      "source_url": "https://azure.microsoft.com/updates?id=574541",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "016af5ffcbda66f32ef5339e",
+      "path": null,
+      "axis": 3,
+      "reason": "Infrastructure Manager (https://docs.cloud.google.com/release-notes#November_02_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_02_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "628a9b46bd520b59178d586f",
+      "path": null,
+      "axis": 3,
+      "reason": "Cloud Asset Inventory (https://docs.cloud.google.com/release-notes#November_02_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_02_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
     }
   ],
   "resolved_ids": [],
@@ -6018,6 +6172,18 @@
         "gcp": "provisional",
         "azure": "provisional",
         "oci": "provisional"
+      },
+      "2026-09-21": {
+        "aws": "complete",
+        "gcp": "complete",
+        "azure": "complete",
+        "oci": "complete"
+      },
+      "2026-11-08": {
+        "aws": "provisional",
+        "gcp": "provisional",
+        "azure": "provisional",
+        "oci": "provisional"
       }
     },
     "attempted": {
@@ -6136,10 +6302,10 @@
         "oci": "2026-11-02T06:15:35.724Z"
       },
       "2026-11-02": {
-        "aws": "2026-11-03T06:54:19.123Z",
-        "gcp": "2026-11-03T06:54:19.123Z",
-        "azure": "2026-11-03T06:54:19.123Z",
-        "oci": "2026-11-03T06:54:19.123Z"
+        "aws": "2026-11-08T06:09:04.198Z",
+        "gcp": "2026-11-08T06:09:04.198Z",
+        "azure": "2026-11-08T06:09:04.198Z",
+        "oci": "2026-11-08T06:09:04.198Z"
       },
       "2026-09-16": {
         "aws": "2026-11-03T06:54:19.123Z",
@@ -6196,10 +6362,22 @@
         "oci": "2026-11-07T06:05:13.850Z"
       },
       "2026-11-07": {
-        "aws": "2026-11-07T06:05:13.850Z",
-        "gcp": "2026-11-07T06:05:13.850Z",
-        "azure": "2026-11-07T06:05:13.850Z",
-        "oci": "2026-11-07T06:05:13.850Z"
+        "aws": "2026-11-08T06:09:04.198Z",
+        "gcp": "2026-11-08T06:09:04.198Z",
+        "azure": "2026-11-08T06:09:04.198Z",
+        "oci": "2026-11-08T06:09:04.198Z"
+      },
+      "2026-09-21": {
+        "aws": "2026-11-08T06:09:04.198Z",
+        "gcp": "2026-11-08T06:09:04.198Z",
+        "azure": "2026-11-08T06:09:04.198Z",
+        "oci": "2026-11-08T06:09:04.198Z"
+      },
+      "2026-11-08": {
+        "aws": "2026-11-08T06:09:04.198Z",
+        "gcp": "2026-11-08T06:09:04.198Z",
+        "azure": "2026-11-08T06:09:04.198Z",
+        "oci": "2026-11-08T06:09:04.198Z"
       }
     }
   },

@@ -6454,7 +6454,7 @@
         "paths": [
           "src/content/docs/ko/ai/agents.md"
         ],
-        "checked_at": "2026-11-08T06:09:12Z",
+        "checked_at": "2026-11-09T06:43:23Z",
         "status": "unverified",
         "hash": "dc7fc249911468c4dc00fc4eb92b1c0d611070787422d5a6d767fc3b925fee20",
         "final_url": "https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/",
@@ -6464,7 +6464,7 @@
         "paths": [
           "src/content/docs/ko/singapore/mtcs.md"
         ],
-        "checked_at": "2026-11-08T06:09:12Z",
+        "checked_at": "2026-11-09T06:43:23Z",
         "status": "unverified",
         "hash": "635b02875de69e3cc1de1579b70facd5f4c19edf127bd2e3769e8a92f70b360b",
         "final_url": "https://abs.org.sg/docs/library/abs-ospar-guidelines-v2-0.pdf",
@@ -6474,7 +6474,7 @@
         "paths": [
           "src/content/docs/ko/ai/agents.md"
         ],
-        "checked_at": "2026-11-08T06:09:12Z",
+        "checked_at": "2026-11-09T06:43:23Z",
         "status": "unverified",
         "hash": "279273094623330fe250f2984391cac02002276942f6d2dbd8537e495fae1bdf",
         "final_url": "https://www.ag2.ai/",
@@ -6484,7 +6484,7 @@
         "paths": [
           "src/content/docs/ko/ai/getting-started.md"
         ],
-        "checked_at": "2026-11-08T06:09:12Z",
+        "checked_at": "2026-11-09T06:43:23Z",
         "status": "unverified",
         "hash": "ae0f8a0945b3d1cf6945ebf983706906940024c6f02864250619be546f2c10a2",
         "final_url": "https://ai.azure.com/",
@@ -6524,7 +6524,7 @@
         "paths": [
           "src/content/docs/ko/singapore/ai-governance.md"
         ],
-        "checked_at": "2026-11-08T06:09:12Z",
+        "checked_at": "2026-11-09T06:43:23Z",
         "status": "unverified",
         "hash": "861c9baae1bb9420d984be6abe0a5a19d6b07730363337bf8a901ea68a37c87d",
         "final_url": "https://aiverifyfoundation.sg/resources/mgf-gen-ai/",
@@ -6544,7 +6544,7 @@
         "paths": [
           "src/content/docs/ko/devops/devsecops.md"
         ],
-        "checked_at": "2026-11-08T06:09:12Z",
+        "checked_at": "2026-11-09T06:43:23Z",
         "status": "unverified",
         "hash": "6ce84a59d0c606ad8c2c2b3d3703944b3097b677f6a9c36c22154de4e3295152",
         "final_url": "https://aquasecurity.github.io/tfsec/",
@@ -6564,7 +6564,7 @@
         "paths": [
           "src/content/docs/ko/ai/llmops.md"
         ],
-        "checked_at": "2026-11-08T06:09:12Z",
+        "checked_at": "2026-11-09T06:43:23Z",
         "status": "unverified",
         "hash": "84e61b481a6f8d7a78ec8093dce057a9e2b06a9ea80957e5c3766d9b595ef09c",
         "final_url": "https://arize.com/",
@@ -6634,7 +6634,7 @@
         "paths": [
           "src/content/docs/ko/devops/observability.md"
         ],
-        "checked_at": "2026-11-08T06:09:12Z",
+        "checked_at": "2026-11-09T06:43:23Z",
         "status": "unverified",
         "hash": "b472569757f991e0df0919150abea62828a7651cc991dfcabea1158bc12ba1fe",
         "final_url": "https://aws-otel.github.io/",
@@ -15769,344 +15769,663 @@
       "https://learn.microsoft.com/ko-kr/azure/dms/": {
         "paths": [
           "src/content/docs/ko/database/migration.md"
-        ]
+        ],
+        "checked_at": "2026-11-09T06:43:23Z",
+        "status": "observed",
+        "hash": "56d62a14722d484f3cb3174c9862d1c605eb5868e06e96ff16bedc911f2335cc",
+        "hash_kind": "visible-v1",
+        "final_url": "https://learn.microsoft.com/ko-kr/azure/dms/"
       },
       "https://learn.microsoft.com/ko-kr/azure/dns/": {
         "paths": [
           "src/content/docs/ko/networking/dns.md"
-        ]
+        ],
+        "checked_at": "2026-11-09T06:43:23Z",
+        "status": "observed",
+        "hash": "deec8f2d0ebf04741bcb0756aa69320553eb624d8a5730a12b6d41aa685c23f5",
+        "hash_kind": "visible-v1",
+        "final_url": "https://learn.microsoft.com/ko-kr/azure/dns/"
       },
       "https://learn.microsoft.com/ko-kr/azure/frontdoor/": {
         "paths": [
           "src/content/docs/ko/networking/cdn.md",
           "src/content/docs/ko/networking/load-balancer.md"
-        ]
+        ],
+        "checked_at": "2026-11-09T06:43:23Z",
+        "status": "observed",
+        "hash": "ec1c651b447b9cc7603e4540b2cc0ad02f8c2aad4f856762ea174562896a47b3",
+        "hash_kind": "visible-v1",
+        "final_url": "https://learn.microsoft.com/ko-kr/azure/frontdoor/"
       },
       "https://learn.microsoft.com/ko-kr/azure/governance/management-groups/overview": {
         "paths": [
           "src/content/docs/ko/about-cloud/accounts-and-organizations.mdx"
-        ]
+        ],
+        "checked_at": "2026-11-09T06:43:23Z",
+        "status": "observed",
+        "hash": "9424fa8d8af971f548b2862bada32ded2d0e469daada07817911910c0b8dfd0a",
+        "hash_kind": "visible-v1",
+        "final_url": "https://learn.microsoft.com/ko-kr/azure/governance/management-groups/overview"
       },
       "https://learn.microsoft.com/ko-kr/azure/governance/policy/overview": {
         "paths": [
           "src/content/docs/ko/about-cloud/accounts-and-organizations.mdx"
-        ]
+        ],
+        "checked_at": "2026-11-09T06:43:23Z",
+        "status": "observed",
+        "hash": "0d93145221e7509d97b220a94bec127b8e1b09cabc246d8d6fe4c1d98f2a0af0",
+        "hash_kind": "visible-v1",
+        "final_url": "https://learn.microsoft.com/ko-kr/azure/governance/policy/overview"
       },
       "https://learn.microsoft.com/ko-kr/azure/key-vault/": {
         "paths": [
           "src/content/docs/ko/security/data-protection.md",
           "src/content/docs/ko/security/secrets.md"
-        ]
+        ],
+        "checked_at": "2026-11-09T06:43:23Z",
+        "status": "observed",
+        "hash": "f5c37a2953b6d97017244435a6ab94f4c1eb27809d1854dedab10d986d43b94c",
+        "hash_kind": "visible-v1",
+        "final_url": "https://learn.microsoft.com/ko-kr/azure/key-vault/"
       },
       "https://learn.microsoft.com/ko-kr/azure/key-vault/certificates/": {
         "paths": [
           "src/content/docs/ko/security/secrets.md"
-        ]
+        ],
+        "checked_at": "2026-11-09T06:43:23Z",
+        "status": "observed",
+        "hash": "6afc96772b802662d33ae8c774c3fab6200a0cd57383c19f1f7c365a8059b213",
+        "hash_kind": "visible-v1",
+        "final_url": "https://learn.microsoft.com/ko-kr/azure/key-vault/certificates/"
       },
       "https://learn.microsoft.com/ko-kr/azure/key-vault/secrets/": {
         "paths": [
           "src/content/docs/ko/security/secrets.md"
-        ]
+        ],
+        "checked_at": "2026-11-09T06:43:23Z",
+        "status": "observed",
+        "hash": "28073bbeef4078c61954a9df45737e4c03076914147d4ad55d7879cd3dd02397",
+        "hash_kind": "visible-v1",
+        "final_url": "https://learn.microsoft.com/ko-kr/azure/key-vault/secrets/"
       },
       "https://learn.microsoft.com/ko-kr/azure/load-balancer/": {
         "paths": [
           "src/content/docs/ko/networking/load-balancer.md"
-        ]
+        ],
+        "checked_at": "2026-11-09T06:43:23Z",
+        "status": "observed",
+        "hash": "813ce3e091b1c39e75b24ce593a25c61a80d96c95ec7686429426c3f5b74730d",
+        "hash_kind": "visible-v1",
+        "final_url": "https://learn.microsoft.com/ko-kr/azure/load-balancer/"
       },
       "https://learn.microsoft.com/ko-kr/azure/machine-learning/": {
         "paths": [
           "src/content/docs/ko/ai/ai-ml.md"
-        ]
+        ],
+        "checked_at": "2026-11-09T06:43:23Z",
+        "status": "observed",
+        "hash": "68a5acc6b75ed9bdc234ee5de19f9fc957b9f944745234c165d2b6036b726586",
+        "hash_kind": "visible-v1",
+        "final_url": "https://learn.microsoft.com/ko-kr/azure/machine-learning/?view=azureml-api-2"
       },
       "https://learn.microsoft.com/ko-kr/azure/migrate/": {
         "paths": [
           "src/content/docs/ko/database/migration.md"
-        ]
+        ],
+        "checked_at": "2026-11-09T06:43:23Z",
+        "status": "observed",
+        "hash": "e3dee25b215e46dee297bf3822f03cb0ffb717b30e1bf66d3526ac4eaa2f2c95",
+        "hash_kind": "visible-v1",
+        "final_url": "https://learn.microsoft.com/ko-kr/azure/migrate/?view=migrate"
       },
       "https://learn.microsoft.com/ko-kr/azure/postgresql/": {
         "paths": [
           "src/content/docs/ko/database/managed-rdb.md"
-        ]
+        ],
+        "checked_at": "2026-11-09T06:43:23Z",
+        "status": "observed",
+        "hash": "09ed05187bbfc0f9bb3c45aa8afd9b3e1e6882f6c50a8873925b307ca9e19d24",
+        "hash_kind": "visible-v1",
+        "final_url": "https://learn.microsoft.com/ko-kr/azure/postgresql/"
       },
       "https://learn.microsoft.com/ko-kr/azure/private-link/": {
         "paths": [
           "src/content/docs/ko/security/network-isolation.md"
-        ]
+        ],
+        "checked_at": "2026-11-09T06:43:23Z",
+        "status": "observed",
+        "hash": "0d8dc758955709924146327a7e3a6b391842d70249b77a2b9ccd6f23b8f4129d",
+        "hash_kind": "visible-v1",
+        "final_url": "https://learn.microsoft.com/ko-kr/azure/private-link/"
       },
       "https://learn.microsoft.com/ko-kr/azure/reliability/availability-zones-overview": {
         "paths": [
           "src/content/docs/ko/about-cloud/regions-and-zones.md"
-        ]
+        ],
+        "checked_at": "2026-11-09T06:43:23Z",
+        "status": "observed",
+        "hash": "26832d266b21537fd5df0e5a2bc0cdb88ff9c8badbe10082143e5d04b0bd3caa",
+        "hash_kind": "visible-v1",
+        "final_url": "https://learn.microsoft.com/ko-kr/azure/reliability/availability-zones-overview"
       },
       "https://learn.microsoft.com/ko-kr/azure/reliability/cross-region-replication-azure": {
         "paths": [
           "src/content/docs/ko/about-cloud/regions-and-zones.md"
-        ]
+        ],
+        "checked_at": "2026-11-09T06:43:23Z",
+        "status": "observed",
+        "hash": "58578d8504e90f520c64d51ce97fdb1f517a00cfaef40f5660c725b5f1d360d8",
+        "hash_kind": "visible-v1",
+        "final_url": "https://learn.microsoft.com/ko-kr/azure/reliability/regions-paired"
       },
       "https://learn.microsoft.com/ko-kr/azure/role-based-access-control/": {
         "paths": [
           "src/content/docs/ko/about-cloud/iam-overview.md",
           "src/content/docs/ko/security/iam.md"
-        ]
+        ],
+        "checked_at": "2026-11-09T06:43:23Z",
+        "status": "observed",
+        "hash": "4725c7a0c4fdb5ad80fce678b30abb0f9735f9b1420f86444cfbbe6955f86ca3",
+        "hash_kind": "visible-v1",
+        "final_url": "https://learn.microsoft.com/ko-kr/azure/role-based-access-control/"
       },
       "https://learn.microsoft.com/ko-kr/azure/search/vector-search-overview": {
         "paths": [
           "src/content/docs/ko/ai/vector-store.md"
-        ]
+        ],
+        "checked_at": "2026-11-09T06:43:23Z",
+        "status": "observed",
+        "hash": "00a2b9256633581fc53e66e36bf3a4a4f15b4da90afcb5beb62e282378e6994d",
+        "hash_kind": "visible-v1",
+        "final_url": "https://learn.microsoft.com/ko-kr/azure/search/vector-search-overview"
       },
       "https://learn.microsoft.com/ko-kr/azure/security/": {
         "paths": [
           "src/content/docs/ko/security/data-protection.md"
-        ]
+        ],
+        "checked_at": "2026-11-09T06:43:23Z",
+        "status": "observed",
+        "hash": "3f056d88e9d24e7cf8fbd143fbfca913602f7ae8e9a9e5576164cb1ef99498f7",
+        "hash_kind": "visible-v1",
+        "final_url": "https://learn.microsoft.com/ko-kr/azure/security/"
       },
       "https://learn.microsoft.com/ko-kr/azure/security/fundamentals/network-best-practices": {
         "paths": [
           "src/content/docs/ko/security/network-isolation.md"
-        ]
+        ],
+        "checked_at": "2026-11-09T06:43:23Z",
+        "status": "observed",
+        "hash": "5db0d485225f8af098d7815c3078f68450c1786cca870991f0060c362e0da985",
+        "hash_kind": "visible-v1",
+        "final_url": "https://learn.microsoft.com/ko-kr/azure/security/fundamentals/network-best-practices"
       },
       "https://learn.microsoft.com/ko-kr/azure/security/fundamentals/shared-responsibility": {
         "paths": [
           "src/content/docs/ko/about-cloud/shared-responsibility.mdx"
-        ]
+        ],
+        "checked_at": "2026-11-09T06:43:23Z",
+        "status": "observed",
+        "hash": "c805b536819a3b152ec39c844373870af08e589c4cc0804393292f528dcfdf64",
+        "hash_kind": "visible-v1",
+        "final_url": "https://learn.microsoft.com/ko-kr/azure/security/fundamentals/shared-responsibility"
       },
       "https://learn.microsoft.com/ko-kr/azure/site-recovery/": {
         "paths": [
           "src/content/docs/ko/storage/backup.md"
-        ]
+        ],
+        "checked_at": "2026-11-09T06:43:23Z",
+        "status": "observed",
+        "hash": "2c4c77a06a8d7a60bf7f622cca7d76cc83f84bbc30be6eb19e012cc606228251",
+        "hash_kind": "visible-v1",
+        "final_url": "https://learn.microsoft.com/ko-kr/azure/site-recovery/"
       },
       "https://learn.microsoft.com/ko-kr/azure/storage/blobs/": {
         "paths": [
           "src/content/docs/ko/storage/object-storage.md"
-        ]
+        ],
+        "checked_at": "2026-11-09T06:43:23Z",
+        "status": "observed",
+        "hash": "77836b72e22cb0703c896d259930608a382fbc2914cd7c686bb6983e9be4f49d",
+        "hash_kind": "visible-v1",
+        "final_url": "https://learn.microsoft.com/ko-kr/azure/storage/blobs/"
       },
       "https://learn.microsoft.com/ko-kr/azure/storage/blobs/access-tiers-overview": {
         "paths": [
           "src/content/docs/ko/storage/object-storage.md"
-        ]
+        ],
+        "checked_at": "2026-11-09T06:43:23Z",
+        "status": "observed",
+        "hash": "713396af6d050233b26cdfb0050db0c41487debdba2661d2ee9e7f9b25d06022",
+        "hash_kind": "visible-v1",
+        "final_url": "https://learn.microsoft.com/ko-kr/azure/storage/blobs/access-tiers-overview"
       },
       "https://learn.microsoft.com/ko-kr/azure/storage/blobs/data-lake-storage-introduction": {
         "paths": [
           "src/content/docs/ko/storage/object-storage.md"
-        ]
+        ],
+        "checked_at": "2026-11-09T06:43:23Z",
+        "status": "observed",
+        "hash": "d4e533664923cdfab5e28e830b6b44cf49a54bc193381ea870012608224d5647",
+        "hash_kind": "visible-v1",
+        "final_url": "https://learn.microsoft.com/ko-kr/azure/storage/blobs/data-lake-storage-introduction"
       },
       "https://learn.microsoft.com/ko-kr/azure/storage/file-sync/": {
         "paths": [
           "src/content/docs/ko/storage/block-and-file.md"
-        ]
+        ],
+        "checked_at": "2026-11-09T06:43:23Z",
+        "status": "observed",
+        "hash": "3648e24271f8540eae8a7f5ec188eaef7742617bdb55a97f40b515a542408c41",
+        "hash_kind": "visible-v1",
+        "final_url": "https://learn.microsoft.com/ko-kr/azure/storage/file-sync/"
       },
       "https://learn.microsoft.com/ko-kr/azure/storage/files/": {
         "paths": [
           "src/content/docs/ko/storage/block-and-file.md"
-        ]
+        ],
+        "checked_at": "2026-11-09T06:43:23Z",
+        "status": "observed",
+        "hash": "8ebded3c75259d5fe89e01557edaa3ac0cb9c964408252a8304a34908ddf6a89",
+        "hash_kind": "visible-v1",
+        "final_url": "https://learn.microsoft.com/ko-kr/azure/storage/files/"
       },
       "https://learn.microsoft.com/ko-kr/azure/synapse-analytics/": {
         "paths": [
           "src/content/docs/ko/storage/object-storage.md"
-        ]
+        ],
+        "checked_at": "2026-11-09T06:43:23Z",
+        "status": "observed",
+        "hash": "cd14e8f9269532be6b7846900bf4c77a4d30ebf168c418a1b04691e83d6943a3",
+        "hash_kind": "visible-v1",
+        "final_url": "https://learn.microsoft.com/ko-kr/azure/synapse-analytics/"
       },
       "https://learn.microsoft.com/ko-kr/azure/traffic-manager/": {
         "paths": [
           "src/content/docs/ko/networking/dns.md"
-        ]
+        ],
+        "checked_at": "2026-11-09T06:43:23Z",
+        "status": "observed",
+        "hash": "adfa9f66484c9015a44a85348f08ff72025cc99cff40d7b40d3f210b6031d3a4",
+        "hash_kind": "visible-v1",
+        "final_url": "https://learn.microsoft.com/ko-kr/azure/traffic-manager/"
       },
       "https://learn.microsoft.com/ko-kr/azure/virtual-machine-scale-sets/": {
         "paths": [
           "src/content/docs/ko/compute/auto-scaling.md"
-        ]
+        ],
+        "checked_at": "2026-11-09T06:43:23Z",
+        "status": "observed",
+        "hash": "47e220b1d46c15db0885134045024f44535af52d610a90a328bd29a95782e556",
+        "hash_kind": "visible-v1",
+        "final_url": "https://learn.microsoft.com/ko-kr/azure/virtual-machine-scale-sets/"
       },
       "https://learn.microsoft.com/ko-kr/azure/virtual-machines/": {
         "paths": [
           "src/content/docs/ko/compute/virtual-machines.md"
-        ]
+        ],
+        "checked_at": "2026-11-09T06:43:23Z",
+        "status": "observed",
+        "hash": "a4302ee923e17174451b253cf5dfc8b57822768771bca002e6060a3a8d1c74a6",
+        "hash_kind": "visible-v1",
+        "final_url": "https://learn.microsoft.com/ko-kr/azure/virtual-machines/"
       },
       "https://learn.microsoft.com/ko-kr/azure/virtual-machines/disks-redundancy": {
         "paths": [
           "src/content/docs/ko/storage/block-and-file.md"
-        ]
+        ],
+        "checked_at": "2026-11-09T06:43:23Z",
+        "status": "observed",
+        "hash": "cea252f278c870b551b72d5f1985c750db11896a9db25bef04d2c8c2c3828afd",
+        "hash_kind": "visible-v1",
+        "final_url": "https://learn.microsoft.com/ko-kr/azure/virtual-machines/disks-redundancy"
       },
       "https://learn.microsoft.com/ko-kr/azure/virtual-machines/disks-types": {
         "paths": [
           "src/content/docs/ko/storage/block-and-file.md"
-        ]
+        ],
+        "checked_at": "2026-11-09T06:43:23Z",
+        "status": "observed",
+        "hash": "45b686f2c713421e012ad5ec8461db26d4862f56281c00b88149f09e461ded53",
+        "hash_kind": "visible-v1",
+        "final_url": "https://learn.microsoft.com/ko-kr/azure/virtual-machines/disks-types"
       },
       "https://learn.microsoft.com/ko-kr/azure/virtual-machines/managed-disks-overview": {
         "paths": [
           "src/content/docs/ko/storage/block-and-file.md"
-        ]
+        ],
+        "checked_at": "2026-11-09T06:43:23Z",
+        "status": "observed",
+        "hash": "a846e06ccde014eb5dda4771c59037ed9b183f7ae105540c8ee6f493ac1e22d8",
+        "hash_kind": "visible-v1",
+        "final_url": "https://learn.microsoft.com/ko-kr/azure/virtual-machines/managed-disks-overview"
       },
       "https://learn.microsoft.com/ko-kr/azure/virtual-machines/sizes/": {
         "paths": [
           "src/content/docs/ko/compute/virtual-machines.md"
-        ]
+        ],
+        "checked_at": "2026-11-09T06:43:23Z",
+        "status": "observed",
+        "hash": "56a2ef0be136e988895144a30bee02447f3d1d1326bfeea27bfec3e997e678f5",
+        "hash_kind": "visible-v1",
+        "final_url": "https://learn.microsoft.com/ko-kr/azure/virtual-machines/sizes/overview"
       },
       "https://learn.microsoft.com/ko-kr/azure/virtual-network/": {
         "paths": [
           "src/content/docs/ko/networking/vpc-subnet.md"
-        ]
+        ],
+        "checked_at": "2026-11-09T06:43:23Z",
+        "status": "observed",
+        "hash": "5c3830f886b3d064d28b97e112c4c7a89e1a738eb9977ad315251763819312e5",
+        "hash_kind": "visible-v1",
+        "final_url": "https://learn.microsoft.com/ko-kr/azure/virtual-network/"
       },
       "https://learn.microsoft.com/ko-kr/azure/web-application-firewall/": {
         "paths": [
           "src/content/docs/ko/security/data-protection.md"
-        ]
+        ],
+        "checked_at": "2026-11-09T06:43:23Z",
+        "status": "observed",
+        "hash": "542a39144d5508bbc3557cca50a207e7df9f4a2b4508694d14fe276297927aa0",
+        "hash_kind": "visible-v1",
+        "final_url": "https://learn.microsoft.com/ko-kr/azure/web-application-firewall/"
       },
       "https://learn.microsoft.com/ko-kr/azure/well-architected/": {
         "paths": [
           "src/content/docs/ko/about-cloud/well-architected.mdx"
-        ]
+        ],
+        "checked_at": "2026-11-09T06:43:23Z",
+        "status": "observed",
+        "hash": "021afbd55cc1b83cb471f5ade308f02e0b7c04e0b9aea266d2989851afa1f52a",
+        "hash_kind": "visible-v1",
+        "final_url": "https://learn.microsoft.com/ko-kr/azure/well-architected/"
       },
       "https://learn.microsoft.com/ko-kr/cli/azure/install-azure-cli": {
         "paths": [
           "src/content/docs/ko/about-cloud/console-cli-sdk.md"
-        ]
+        ],
+        "checked_at": "2026-11-09T06:43:23Z",
+        "status": "observed",
+        "hash": "4ed58df94517f1fbe48f99ea9bb0cc616af05da334101ea2072526af32c24fad",
+        "hash_kind": "visible-v1",
+        "final_url": "https://learn.microsoft.com/ko-kr/cli/azure/install-azure-cli?view=azure-cli-latest"
       },
       "https://learn.microsoft.com/ko-kr/devops/what-is-devops": {
         "paths": [
           "src/content/docs/ko/devops/getting-started.md"
-        ]
+        ],
+        "checked_at": "2026-11-09T06:43:23Z",
+        "status": "observed",
+        "hash": "611a3c66afe11ab286bc60110336b5805d2f426b0834ae135ad68c72dca7b8e9",
+        "hash_kind": "visible-v1",
+        "final_url": "https://learn.microsoft.com/ko-kr/devops/what-is-devops"
       },
       "https://learn.microsoft.com/ko-kr/entra/id-governance/": {
         "paths": [
           "src/content/docs/ko/security/iam.md"
-        ]
+        ],
+        "checked_at": "2026-11-09T06:43:23Z",
+        "status": "observed",
+        "hash": "29a2621c6cbadf5573d28690ac6fade0945192070ba81f3eb4bfea742b034f25",
+        "hash_kind": "visible-v1",
+        "final_url": "https://learn.microsoft.com/ko-kr/entra/id-governance/"
       },
       "https://learn.microsoft.com/ko-kr/entra/identity/": {
         "paths": [
           "src/content/docs/ko/about-cloud/iam-overview.md",
           "src/content/docs/ko/networking/api-gateway.md",
           "src/content/docs/ko/security/iam.md"
-        ]
+        ],
+        "checked_at": "2026-11-09T06:43:23Z",
+        "status": "observed",
+        "hash": "ae51e0bd2212de6b1a0e82c439cc1e159fa8cdb7e528da18cc2fb08fb2cb8475",
+        "hash_kind": "visible-v1",
+        "final_url": "https://learn.microsoft.com/ko-kr/entra/identity/"
       },
       "https://learn.microsoft.com/ko-kr/entra/identity/conditional-access/": {
         "paths": [
           "src/content/docs/ko/security/iam.md"
-        ]
+        ],
+        "checked_at": "2026-11-09T06:43:23Z",
+        "status": "observed",
+        "hash": "2152dad9e8004cf798e8778f16c901d7ead8d8de27da27c712ea6e8ec9b1176b",
+        "hash_kind": "visible-v1",
+        "final_url": "https://learn.microsoft.com/ko-kr/entra/identity/conditional-access/"
       },
       "https://learn.microsoft.com/ko-kr/fabric/": {
         "paths": [
           "src/content/docs/ko/storage/object-storage.md"
-        ]
+        ],
+        "checked_at": "2026-11-09T06:43:23Z",
+        "status": "observed",
+        "hash": "1c769c9351a8ab80f7306a5ad7277192688d48c2b720bf48040ac96a19621284",
+        "hash_kind": "visible-v1",
+        "final_url": "https://learn.microsoft.com/ko-kr/fabric/"
       },
       "https://learn.microsoft.com/microsoft-copilot-studio/": {
         "paths": [
           "src/content/docs/ko/ai/agent-adoption.md"
-        ]
+        ],
+        "checked_at": "2026-11-09T06:43:23Z",
+        "status": "observed",
+        "hash": "faf48bbf938992ea25c1023eb3afe4223f7605954e8a03346ef9c475da5c1166",
+        "hash_kind": "visible-v1",
+        "final_url": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/"
       },
       "https://learn.microsoft.com/privacy/eudb/eu-data-boundary-learn": {
         "paths": [
           "src/content/docs/ko/governance/exit-strategy.md"
-        ]
+        ],
+        "checked_at": "2026-11-09T06:43:23Z",
+        "status": "observed",
+        "hash": "b4f2c87271c9795f2f15ec2655791c1de77b6dfb957989646abf496056910c21",
+        "hash_kind": "visible-v1",
+        "final_url": "https://learn.microsoft.com/en-us/privacy/eudb/eu-data-boundary-learn"
       },
       "https://learn.microsoft.com/purview/": {
         "paths": [
           "src/content/docs/ko/ai/agent-adoption.md"
-        ]
+        ],
+        "checked_at": "2026-11-09T06:43:23Z",
+        "status": "observed",
+        "hash": "8e576566fc69205041d9b587e08b698a4dbef670fdfaf7837149c4c4c7cb506d",
+        "hash_kind": "visible-v1",
+        "final_url": "https://learn.microsoft.com/en-us/purview/"
       },
       "https://learn.microsoft.com/security/zero-trust/": {
         "paths": [
           "src/content/docs/ko/security/zero-trust.md"
-        ]
+        ],
+        "checked_at": "2026-11-09T06:43:23Z",
+        "status": "observed",
+        "hash": "1758ca008a1201bc13f60d4dc6683d74323fecbee4ee34a5937cdd76da23ecf2",
+        "hash_kind": "visible-v1",
+        "final_url": "https://learn.microsoft.com/en-us/security/zero-trust/"
       },
       "https://learn.microsoft.com/shows/generative-ai-for-beginners/": {
         "paths": [
           "src/content/docs/ko/ai/prompt-engineering.md"
-        ]
+        ],
+        "checked_at": "2026-11-09T06:43:23Z",
+        "status": "observed",
+        "hash": "187c2f6c843259e99ce5bb7bf694c91069fc44feb7fb61805fcb81068be7580e",
+        "hash_kind": "visible-v1",
+        "final_url": "https://learn.microsoft.com/en-us/shows/generative-ai-for-beginners/"
       },
       "https://learn.microsoft.com/training/": {
         "paths": [
           "src/content/docs/ko/introduction.mdx"
-        ]
+        ],
+        "checked_at": "2026-11-09T06:43:23Z",
+        "status": "observed",
+        "hash": "13de5705bd9331d25c6ad798973d1e8a66edb791fa58ad626e9d5bfcfd897363",
+        "hash_kind": "visible-v1",
+        "final_url": "https://learn.microsoft.com/en-us/training/"
       },
       "https://linkerd.io/": {
         "paths": [
           "src/content/docs/ko/compute/service-mesh.md"
-        ]
+        ],
+        "checked_at": "2026-11-09T06:43:23Z",
+        "status": "observed",
+        "hash": "554480dbbb0efd5c56a6d0d16d2071c88ab4c95ccdb47466f18f398c20bdffde",
+        "hash_kind": "visible-v1",
+        "final_url": "https://linkerd.io/"
       },
       "https://linkerd.io/2/overview/": {
         "paths": [
           "src/content/docs/ko/compute/service-mesh.md"
-        ]
+        ],
+        "checked_at": "2026-11-09T06:43:23Z",
+        "status": "observed",
+        "hash": "e6e00bbf82c2f7dc9c9307979361776dc7ba3bcf6a9427c149c7da7a8c471144",
+        "hash_kind": "visible-v1",
+        "final_url": "https://linkerd.io/docs/overview/"
       },
       "https://m.boannews.com/html/detail.html?idx=142634": {
         "paths": [
           "src/content/docs/ko/korea/security/network-isolation.md"
-        ]
+        ],
+        "checked_at": "2026-11-09T06:43:23Z",
+        "status": "unverified",
+        "error": "FetchError"
       },
       "https://m.boannews.com/html/detail.html?idx=143270": {
         "paths": [
           "src/content/docs/ko/korea/security/csap.md"
-        ]
+        ],
+        "checked_at": "2026-11-09T06:43:23Z",
+        "status": "unverified",
+        "error": "FetchError"
       },
       "https://manual.sakura.ad.jp/cloud/ismap/index.html": {
         "paths": [
           "src/content/docs/ko/japan/ismap.md"
-        ]
+        ],
+        "checked_at": "2026-11-09T06:43:23Z",
+        "status": "observed",
+        "hash": "043c3cfb8aba9872893ae9883448b3080591ad83c2dce7af6b56a79d124099a5",
+        "hash_kind": "visible-v1",
+        "final_url": "https://manual.sakura.ad.jp/cloud/ismap/index.html"
       },
       "https://marketplace.fedramp.gov/": {
         "paths": [
           "src/content/docs/ko/us/fedramp.md"
-        ]
+        ],
+        "checked_at": "2026-11-09T06:43:23Z",
+        "status": "unverified",
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://martinfowler.com/bliki/StranglerFigApplication.html": {
         "paths": [
           "src/content/docs/ko/compute/modernization.md",
           "src/content/docs/ko/governance/exit-strategy.md"
-        ]
+        ],
+        "checked_at": "2026-11-09T06:43:23Z",
+        "status": "observed",
+        "hash": "6bab11c06e6306a83db622c886389934647faac36e6fdd2d73953042922b5c2e",
+        "hash_kind": "visible-v1",
+        "final_url": "https://martinfowler.com/bliki/StranglerFigApplication.html"
       },
       "https://messervices.cyber.gouv.fr/visas/catalogue-produits-services-profils-de-protection-sites-certifies-qualifies-agrees-anssi.pdf": {
         "paths": [
           "src/content/docs/ko/eu/national-schemes.md"
-        ]
+        ],
+        "checked_at": "2026-11-09T06:43:23Z",
+        "status": "unverified",
+        "error": "FetchError"
       },
       "https://modelcontextprotocol.io/": {
         "paths": [
           "src/content/docs/ko/ai/agents.md",
           "src/content/docs/ko/mcp.md"
-        ]
+        ],
+        "checked_at": "2026-11-09T06:43:23Z",
+        "status": "observed",
+        "hash": "eb83c733fe64c681feeea189b51ece35eeaaae67a68a38630899cc712f96cfe7",
+        "hash_kind": "visible-v1",
+        "final_url": "https://modelcontextprotocol.io/docs/2026-07-28/getting-started/intro"
       },
       "https://modelcontextprotocol.io/specification/2026-07-28/changelog": {
         "paths": [
           "src/content/docs/ko/ai/agents.md"
-        ]
+        ],
+        "checked_at": "2026-11-09T06:43:23Z",
+        "status": "observed",
+        "hash": "65f1f8da08ccb256860e377a67648e10c615a0d76497770cf6e61fc114bd4702",
+        "hash_kind": "visible-v1",
+        "final_url": "https://modelcontextprotocol.io/specification/2026-07-28/changelog"
       },
       "https://namu.wiki/w/%EA%B5%AD%EA%B0%80%EB%8C%80%ED%91%9C%20AI": {
         "paths": [
           "src/content/docs/ko/korea/ai/sovereign-fm-policy.md"
-        ]
+        ],
+        "checked_at": "2026-11-09T06:43:23Z",
+        "status": "unverified",
+        "error": "HTTP 403"
       },
       "https://newrelic.com/": {
         "paths": [
           "src/content/docs/ko/devops/observability.md"
-        ]
+        ],
+        "checked_at": "2026-11-09T06:43:23Z",
+        "status": "observed",
+        "hash": "d50902104699f155fe2b57005911e72c9f6ece3c3c4edfda51e5e2eba3b05b17",
+        "hash_kind": "visible-v1",
+        "final_url": "https://newrelic.com/"
       },
       "https://news.microsoft.com/source/2026/07/21/microsoft-and-mistral-expand-strategic-partnership-to-give-enterprises-and-regulated-industries-frontier-ai-they-can-control/": {
         "paths": [
           "src/content/docs/ko/eu/sovereign-ai.md"
-        ]
+        ],
+        "checked_at": "2026-11-09T06:43:23Z",
+        "status": "unverified",
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://news.sktelecom.com/213534": {
         "paths": [
           "src/content/docs/ko/korea/ai/fm-providers.md"
-        ]
+        ],
+        "checked_at": "2026-11-09T06:43:23Z",
+        "status": "observed",
+        "hash": "a1825d9a1ed79ffa62f509eb34579160b3e18d48ec1411a9491022519140979a",
+        "hash_kind": "visible-v1",
+        "final_url": "https://news.sktelecom.com/213534"
       },
       "https://newsletter.pragmaticengineer.com/p/forward-deployed-engineers": {
         "paths": [
           "src/content/docs/ko/about-cloud/field-deployment.md"
-        ]
+        ],
+        "checked_at": "2026-11-09T06:43:23Z",
+        "status": "observed",
+        "hash": "7270e01b3e049b1a379ae2a22c5cdf91e8a2429804bc3df7a47253ae6c87437c",
+        "hash_kind": "visible-v1",
+        "final_url": "https://newsletter.pragmaticengineer.com/p/forward-deployed-engineers"
       },
       "https://nuclei.projectdiscovery.io/": {
         "paths": [
           "src/content/docs/ko/devops/devsecops.md"
-        ]
+        ],
+        "checked_at": "2026-11-09T06:43:23Z",
+        "status": "observed",
+        "hash": "558643fd12a93ce4d633fa5a54bd06adedfb98d7af0552a94d9ef5bb61e28916",
+        "hash_kind": "visible-v1",
+        "final_url": "https://docs.projectdiscovery.io/home"
       },
       "https://nvd.nist.gov/": {
         "paths": [
           "src/content/docs/ko/devops/patch-and-vulnerability.md"
-        ]
+        ],
+        "checked_at": "2026-11-09T06:43:23Z",
+        "status": "unverified",
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf": {
         "paths": [
           "src/content/docs/ko/us/ai-policy.md"
-        ]
+        ],
+        "checked_at": "2026-11-09T06:43:23Z",
+        "status": "unverified",
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://oag.ca.gov/news/press-releases/california-wont-let-it-go-attorney-general-bonta-announces-275-million": {
         "paths": [

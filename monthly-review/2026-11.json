@@ -7490,7 +7490,7 @@
         "paths": [
           "src/content/docs/ko/ai/agents.md"
         ],
-        "checked_at": "2026-11-09T06:43:23Z",
+        "checked_at": "2026-11-10T07:25:36Z",
         "status": "unverified",
         "hash": "dc7fc249911468c4dc00fc4eb92b1c0d611070787422d5a6d767fc3b925fee20",
         "final_url": "https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/",
@@ -7500,7 +7500,7 @@
         "paths": [
           "src/content/docs/ko/singapore/mtcs.md"
         ],
-        "checked_at": "2026-11-09T06:43:23Z",
+        "checked_at": "2026-11-10T07:25:36Z",
         "status": "unverified",
         "hash": "635b02875de69e3cc1de1579b70facd5f4c19edf127bd2e3769e8a92f70b360b",
         "final_url": "https://abs.org.sg/docs/library/abs-ospar-guidelines-v2-0.pdf",
@@ -7510,7 +7510,7 @@
         "paths": [
           "src/content/docs/ko/ai/agents.md"
         ],
-        "checked_at": "2026-11-09T06:43:23Z",
+        "checked_at": "2026-11-10T07:25:36Z",
         "status": "unverified",
         "hash": "279273094623330fe250f2984391cac02002276942f6d2dbd8537e495fae1bdf",
         "final_url": "https://www.ag2.ai/",
@@ -7520,7 +7520,7 @@
         "paths": [
           "src/content/docs/ko/ai/getting-started.md"
         ],
-        "checked_at": "2026-11-09T06:43:23Z",
+        "checked_at": "2026-11-10T07:25:36Z",
         "status": "unverified",
         "hash": "ae0f8a0945b3d1cf6945ebf983706906940024c6f02864250619be546f2c10a2",
         "final_url": "https://ai.azure.com/",
@@ -7560,7 +7560,7 @@
         "paths": [
           "src/content/docs/ko/singapore/ai-governance.md"
         ],
-        "checked_at": "2026-11-09T06:43:23Z",
+        "checked_at": "2026-11-10T07:25:36Z",
         "status": "unverified",
         "hash": "861c9baae1bb9420d984be6abe0a5a19d6b07730363337bf8a901ea68a37c87d",
         "final_url": "https://aiverifyfoundation.sg/resources/mgf-gen-ai/",
@@ -7580,7 +7580,7 @@
         "paths": [
           "src/content/docs/ko/devops/devsecops.md"
         ],
-        "checked_at": "2026-11-09T06:43:23Z",
+        "checked_at": "2026-11-10T07:25:36Z",
         "status": "unverified",
         "hash": "6ce84a59d0c606ad8c2c2b3d3703944b3097b677f6a9c36c22154de4e3295152",
         "final_url": "https://aquasecurity.github.io/tfsec/",
@@ -7600,7 +7600,7 @@
         "paths": [
           "src/content/docs/ko/ai/llmops.md"
         ],
-        "checked_at": "2026-11-09T06:43:23Z",
+        "checked_at": "2026-11-10T07:25:36Z",
         "status": "unverified",
         "hash": "84e61b481a6f8d7a78ec8093dce057a9e2b06a9ea80957e5c3766d9b595ef09c",
         "final_url": "https://arize.com/",
@@ -7670,7 +7670,7 @@
         "paths": [
           "src/content/docs/ko/devops/observability.md"
         ],
-        "checked_at": "2026-11-09T06:43:23Z",
+        "checked_at": "2026-11-10T07:25:36Z",
         "status": "unverified",
         "hash": "b472569757f991e0df0919150abea62828a7651cc991dfcabea1158bc12ba1fe",
         "final_url": "https://aws-otel.github.io/",
@@ -17466,343 +17466,614 @@
       "https://oag.ca.gov/news/press-releases/california-wont-let-it-go-attorney-general-bonta-announces-275-million": {
         "paths": [
           "src/content/docs/ko/us/state-privacy.md"
-        ]
+        ],
+        "checked_at": "2026-11-10T07:25:36Z",
+        "status": "unverified",
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://oag.ca.gov/privacy/ccpa": {
         "paths": [
           "src/content/docs/ko/us/state-privacy.md"
-        ]
+        ],
+        "checked_at": "2026-11-10T07:25:36Z",
+        "status": "unverified",
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://open-policy-agent.github.io/gatekeeper/": {
         "paths": [
           "src/content/docs/ko/devops/kubernetes-operations.mdx"
-        ]
+        ],
+        "checked_at": "2026-11-10T07:25:36Z",
+        "status": "unverified",
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://openai.com/api/pricing/": {
         "paths": [
           "src/content/docs/ko/ai/1p-vs-3p.md",
           "src/content/docs/ko/ai/licensing.md"
-        ]
+        ],
+        "checked_at": "2026-11-10T07:25:36Z",
+        "status": "unverified",
+        "error": "HTTP 403"
       },
       "https://openai.com/business/pricing/": {
         "paths": [
           "src/content/docs/ko/ai/licensing.md"
-        ]
+        ],
+        "checked_at": "2026-11-10T07:25:36Z",
+        "status": "unverified",
+        "error": "HTTP 403"
       },
       "https://openai.com/codex/": {
         "paths": [
           "src/content/docs/ko/ai/agents.md"
-        ]
+        ],
+        "checked_at": "2026-11-10T07:25:36Z",
+        "status": "unverified",
+        "error": "HTTP 403"
       },
       "https://openai.com/devday/2026/": {
         "paths": [
           "src/content/docs/ko/ai/agents.md"
-        ]
+        ],
+        "checked_at": "2026-11-10T07:25:36Z",
+        "status": "unverified",
+        "error": "HTTP 403"
       },
       "https://openai.com/index/hugging-face-incident-and-the-road-ahead/": {
         "paths": [
           "src/content/docs/ko/security/ai-security.md"
-        ]
+        ],
+        "checked_at": "2026-11-10T07:25:36Z",
+        "status": "unverified",
+        "error": "HTTP 403"
       },
       "https://opencode.ai/": {
         "paths": [
           "src/content/docs/ko/ai/agents.md"
-        ]
+        ],
+        "checked_at": "2026-11-10T07:25:36Z",
+        "status": "observed",
+        "hash": "b54f9af1355075d51cdd591d06969c1ff7a01872421d409186c4a088391a7647",
+        "hash_kind": "visible-v1",
+        "final_url": "https://opencode.ai/"
       },
       "https://openeurollm.eu/": {
         "paths": [
           "src/content/docs/ko/eu/sovereign-ai.md"
-        ]
+        ],
+        "checked_at": "2026-11-10T07:25:36Z",
+        "status": "observed",
+        "hash": "6289d1e55d476e8541f7e40ccdab1a57d04c97e065c6f4aef78ecc8b026cdab4",
+        "hash_kind": "visible-v1",
+        "final_url": "https://openeurollm.eu/"
       },
       "https://openeurollm.eu/blog/first-year-progress-and-next-steps": {
         "paths": [
           "src/content/docs/ko/eu/sovereign-ai.md"
-        ]
+        ],
+        "checked_at": "2026-11-10T07:25:36Z",
+        "status": "unverified",
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://opensearch.org/": {
         "paths": [
           "src/content/docs/ko/devops/observability.md"
-        ]
+        ],
+        "checked_at": "2026-11-10T07:25:36Z",
+        "status": "observed",
+        "hash": "c189e8493fa7013a0ad093678bc82c76fa47b40fb15936e68e7eceb19a9dfde2",
+        "hash_kind": "visible-v1",
+        "final_url": "https://opensearch.org/"
       },
       "https://openslo.com/": {
         "paths": [
           "src/content/docs/ko/devops/slo.md"
-        ]
+        ],
+        "checked_at": "2026-11-10T07:25:36Z",
+        "status": "observed",
+        "hash": "5ef11c7e8cdbd75662a16b919921517082bdcd0aebb32910c11dcf242d8988a8",
+        "hash_kind": "visible-v1",
+        "final_url": "https://openslo.com/"
       },
       "https://opentelemetry.io/": {
         "paths": [
           "src/content/docs/ko/devops/observability.md"
-        ]
+        ],
+        "checked_at": "2026-11-10T07:25:36Z",
+        "status": "observed",
+        "hash": "4755acfba9bb2f87d72cc44495b7052c22b28c09d81a082f6529bb401c7b2889",
+        "hash_kind": "visible-v1",
+        "final_url": "https://opentelemetry.io/"
       },
       "https://opentelemetry.io/docs/": {
         "paths": [
           "src/content/docs/ko/devops/observability.md"
-        ]
+        ],
+        "checked_at": "2026-11-10T07:25:36Z",
+        "status": "observed",
+        "hash": "05be5cf98a6a1287ed869df9ea133cba4d0afa9a444003088af488a073aa4e1d",
+        "hash_kind": "visible-v1",
+        "final_url": "https://opentelemetry.io/docs/"
       },
       "https://opentelemetry.io/docs/collector/": {
         "paths": [
           "src/content/docs/ko/devops/observability.md"
-        ]
+        ],
+        "checked_at": "2026-11-10T07:25:36Z",
+        "status": "observed",
+        "hash": "5c282bc25e0d6da31a9445c8363063301e6425500301631ed3c092a49a2d2639",
+        "hash_kind": "visible-v1",
+        "final_url": "https://opentelemetry.io/docs/collector/"
       },
       "https://opentofu.org/docs/": {
         "paths": [
           "src/content/docs/ko/devops/iac.md"
-        ]
+        ],
+        "checked_at": "2026-11-10T07:25:36Z",
+        "status": "observed",
+        "hash": "0432a0dc0a09258e42357afa730133ff5410d8d7ea96655709c5074c25a49818",
+        "hash_kind": "visible-v1",
+        "final_url": "https://opentofu.org/docs/"
       },
       "https://owasp.org/Top10/": {
         "paths": [
           "src/content/docs/ko/security/data-protection.md"
-        ]
+        ],
+        "checked_at": "2026-11-10T07:25:36Z",
+        "status": "unverified",
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://partner.microsoft.com/ko-kr/": {
         "paths": [
           "src/content/docs/ko/about-cloud/support-plans.md"
-        ]
+        ],
+        "checked_at": "2026-11-10T07:25:36Z",
+        "status": "unverified",
+        "error": "URLError"
       },
       "https://platform.claude.com/": {
         "paths": [
           "src/content/docs/ko/ai/ai-ml.md"
-        ]
+        ],
+        "checked_at": "2026-11-10T07:25:36Z",
+        "status": "observed",
+        "hash": "711e8c33517fd019041ef680aee9bfbb05546d97f028fcca8311c8f80d1bd458",
+        "hash_kind": "visible-v1",
+        "final_url": "https://platform.claude.com/"
       },
       "https://platform.claude.com/docs/en/about-claude/pricing": {
         "paths": [
           "src/content/docs/ko/ai/licensing.md"
-        ]
+        ],
+        "checked_at": "2026-11-10T07:25:36Z",
+        "status": "observed",
+        "hash": "33a6bd67fda036de3988ac64efa3227cb42686b53ed30015d807b0865e804692",
+        "hash_kind": "visible-v1",
+        "final_url": "https://platform.claude.com/docs/en/about-claude/pricing"
       },
       "https://platform.claude.com/docs/en/api/rate-limits": {
         "paths": [
           "src/content/docs/ko/ai/licensing.md"
-        ]
+        ],
+        "checked_at": "2026-11-10T07:25:36Z",
+        "status": "observed",
+        "hash": "5a2c830f93da3f85044e8c7bbbbb4756667c7515769b7c174fdad62a99b35a98",
+        "hash_kind": "visible-v1",
+        "final_url": "https://platform.claude.com/docs/en/api/rate-limits"
       },
       "https://platform.moonshot.ai/": {
         "paths": [
           "src/content/docs/ko/ai/ai-ml.md"
-        ]
+        ],
+        "checked_at": "2026-11-10T07:25:36Z",
+        "status": "unverified",
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://platform.openai.com/": {
         "paths": [
           "src/content/docs/ko/ai/ai-ml.md"
-        ]
+        ],
+        "checked_at": "2026-11-10T07:25:36Z",
+        "status": "unverified",
+        "error": "HTTP 403"
       },
       "https://platform.openai.com/docs/guides/rate-limits": {
         "paths": [
           "src/content/docs/ko/ai/1p-vs-3p.md",
           "src/content/docs/ko/ai/licensing.md"
-        ]
+        ],
+        "checked_at": "2026-11-10T07:25:36Z",
+        "status": "observed",
+        "hash": "465d5b55cf3c3b7f8ce417feb61134ce0193ed037232eace8e7eef390f23b84a",
+        "hash_kind": "visible-v1",
+        "final_url": "https://developers.openai.com/api/docs/guides/rate-limits"
       },
       "https://platform.openai.com/settings/organization/limits": {
         "paths": [
           "src/content/docs/ko/ai/licensing.md"
-        ]
+        ],
+        "checked_at": "2026-11-10T07:25:36Z",
+        "status": "unverified",
+        "error": "HTTP 403"
       },
       "https://platformengineering.org/": {
         "paths": [
           "src/content/docs/ko/devops/getting-started.md"
-        ]
+        ],
+        "checked_at": "2026-11-10T07:25:36Z",
+        "status": "unverified",
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://portal.azure.com": {
         "paths": [
           "src/content/docs/ko/about-cloud/compare-clouds.md",
           "src/content/docs/ko/about-cloud/console-cli-sdk.md",
           "src/content/docs/ko/introduction.mdx"
-        ]
+        ],
+        "checked_at": "2026-11-10T07:25:36Z",
+        "status": "unverified",
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://portswigger.net/burp": {
         "paths": [
           "src/content/docs/ko/devops/devsecops.md"
-        ]
+        ],
+        "checked_at": "2026-11-10T07:25:36Z",
+        "status": "observed",
+        "hash": "5f1dcecf63e663eba4bfd778fe4d6cbb7caf017fcced0751093898ce4a5d3fa5",
+        "hash_kind": "visible-v1",
+        "final_url": "https://portswigger.net/burp"
       },
       "https://powerbi.microsoft.com/": {
         "paths": [
           "src/content/docs/ko/database/analytics.md"
-        ]
+        ],
+        "checked_at": "2026-11-10T07:25:36Z",
+        "status": "unverified",
+        "error": "HTTP 403"
       },
       "https://practiceguides.chambers.com/practice-guides/data-protection-privacy-2026/singapore/trends-and-developments": {
         "paths": [
           "src/content/docs/ko/singapore/pdpa.md"
-        ]
+        ],
+        "checked_at": "2026-11-10T07:25:36Z",
+        "status": "unverified",
+        "error": "HTTP 404"
       },
       "https://press.aboutamazon.com/aws/2024/12/upstage-releases-next-generation-solar-pro-generative-ai-llm-on-aws": {
         "paths": [
           "src/content/docs/ko/korea/ai/fm-providers.md"
-        ]
+        ],
+        "checked_at": "2026-11-10T07:25:36Z",
+        "status": "observed",
+        "hash": "12b6428892c2694d515cb40ec889a012588fa9a36086b98f980d1e64f4e6aa5d",
+        "hash_kind": "visible-v1",
+        "final_url": "https://press.aboutamazon.com/aws/2024/12/upstage-releases-next-generation-solar-pro-generative-ai-llm-on-aws"
       },
       "https://press.aboutamazon.com/aws/2026/1/aws-launches-aws-european-sovereign-cloud-and-announces-expansion-across-europe": {
         "paths": [
           "src/content/docs/ko/eu/gdpr-sovereignty.md",
           "src/content/docs/ko/eu/sovereign-ai.md"
-        ]
+        ],
+        "checked_at": "2026-11-10T07:25:36Z",
+        "status": "observed",
+        "hash": "01f07dd080d881feca8d882914e0a035884fdac3ea9a38f31ec815732e146c10",
+        "hash_kind": "visible-v1",
+        "final_url": "https://press.aboutamazon.com/aws/2026/1/aws-launches-aws-european-sovereign-cloud-and-announces-expansion-across-europe"
       },
       "https://privacy.ca.gov/2026/03/youth-sports-media-company-to-pay-1-1-million-fine-change-practices-over-privacy-violations/": {
         "paths": [
           "src/content/docs/ko/us/state-privacy.md"
-        ]
+        ],
+        "checked_at": "2026-11-10T07:25:36Z",
+        "status": "observed",
+        "hash": "7ecaf2bba12f1a236252ed7b07f06a943afae6013bde72eca7d11316127c8058",
+        "hash_kind": "visible-v1",
+        "final_url": "https://privacy.ca.gov/2026/03/youth-sports-media-company-to-pay-1-1-million-fine-change-practices-over-privacy-violations/"
       },
       "https://prometheus.io/": {
         "paths": [
           "src/content/docs/ko/devops/observability.md"
-        ]
+        ],
+        "checked_at": "2026-11-10T07:25:36Z",
+        "status": "observed",
+        "hash": "ca63bdf636afe85c7bd834f4e6cf54faca8d4a6f9ad7c5fcb821c6b17075cb4e",
+        "hash_kind": "visible-v1",
+        "final_url": "https://prometheus.io/"
       },
       "https://public.cyber.mil/dccs/": {
         "paths": [
           "src/content/docs/ko/us/fedramp.md"
-        ]
+        ],
+        "checked_at": "2026-11-10T07:25:36Z",
+        "status": "unverified",
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://registry.terraform.io/providers/oracle/oci/latest/docs": {
         "paths": [
           "src/content/docs/ko/devops/iac.md"
-        ]
+        ],
+        "checked_at": "2026-11-10T07:25:36Z",
+        "status": "unverified",
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://repost.aws/": {
         "paths": [
           "src/content/docs/ko/about-cloud/support-plans.md"
-        ]
+        ],
+        "checked_at": "2026-11-10T07:25:36Z",
+        "status": "observed",
+        "hash": "71ae25130834b76972973715302c89428f2be5e675a14bc4a0a481777db0b2d6",
+        "hash_kind": "visible-v1",
+        "final_url": "https://repost.aws/"
       },
       "https://repost.aws/knowledge-center": {
         "paths": [
           "src/content/docs/ko/about-cloud/support-plans.md"
-        ]
+        ],
+        "checked_at": "2026-11-10T07:25:36Z",
+        "status": "observed",
+        "hash": "b680a0092f4d73921c5df939642c0b6d3a83c6b19962731d8b3f607e0fe861a3",
+        "hash_kind": "visible-v1",
+        "final_url": "https://repost.aws/knowledge-center"
       },
       "https://sakana.ai/series-b/": {
         "paths": [
           "src/content/docs/ko/japan/ai-landscape.md"
-        ]
+        ],
+        "checked_at": "2026-11-10T07:25:36Z",
+        "status": "observed",
+        "hash": "af139bc41b00e6bf0adb045e40f45cd947ade21f56d3d53786cb1d327c0a7673",
+        "hash_kind": "visible-v1",
+        "final_url": "https://sakana.ai/series-b/"
       },
       "https://sea-lion.ai/": {
         "paths": [
           "src/content/docs/ko/singapore/ai-governance.md"
-        ]
+        ],
+        "checked_at": "2026-11-10T07:25:36Z",
+        "status": "observed",
+        "hash": "16dd6bb9b00d70051884d0d84901c49fc6d3e34113272d3fa9da32e49ff1070d",
+        "hash_kind": "visible-v1",
+        "final_url": "https://sea-lion.ai/"
       },
       "https://semgrep.dev/": {
         "paths": [
           "src/content/docs/ko/devops/devsecops.md"
-        ]
+        ],
+        "checked_at": "2026-11-10T07:25:36Z",
+        "status": "unverified",
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://servicetrust.microsoft.com/": {
         "paths": [
           "src/content/docs/ko/about-cloud/shared-responsibility.mdx",
           "src/content/docs/ko/governance/compliance.md"
-        ]
+        ],
+        "checked_at": "2026-11-10T07:25:36Z",
+        "status": "unverified",
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://skillbuilder.aws/": {
         "paths": [
           "src/content/docs/ko/introduction.mdx"
-        ]
+        ],
+        "checked_at": "2026-11-10T07:25:36Z",
+        "status": "unverified",
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://slsa.dev/": {
         "paths": [
           "src/content/docs/ko/devops/devsecops.md"
-        ]
+        ],
+        "checked_at": "2026-11-10T07:25:36Z",
+        "status": "unverified",
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://slurm.schedmd.com/overview.html": {
         "paths": [
           "src/content/docs/ko/ai/gpu-infra/workload-and-architecture.md"
-        ]
+        ],
+        "checked_at": "2026-11-10T07:25:36Z",
+        "status": "observed",
+        "hash": "2e8c74255ca2078a57a17b5b627c794d7d0d0df6f8519baf8ed20277213d7822",
+        "hash_kind": "visible-v1",
+        "final_url": "https://slurm.schedmd.com/overview.html"
       },
       "https://smith.langchain.com/": {
         "paths": [
           "src/content/docs/ko/ai/llmops.md"
-        ]
+        ],
+        "checked_at": "2026-11-10T07:25:36Z",
+        "status": "unverified",
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://snyk.io/product/snyk-code/": {
         "paths": [
           "src/content/docs/ko/devops/devsecops.md"
-        ]
+        ],
+        "checked_at": "2026-11-10T07:25:36Z",
+        "status": "observed",
+        "hash": "66103098f99756615c83e2c49ceb21507c2ee196b548199bc6c10064e1115cf1",
+        "hash_kind": "visible-v1",
+        "final_url": "https://snyk.io/product/snyk-code/"
       },
       "https://snyk.io/product/snyk-open-source/": {
         "paths": [
           "src/content/docs/ko/devops/devsecops.md"
-        ]
+        ],
+        "checked_at": "2026-11-10T07:25:36Z",
+        "status": "observed",
+        "hash": "bbf38b948429ba013474b2c0a898784ccdb56cd48d60d705dc92d72bda56fe3f",
+        "hash_kind": "visible-v1",
+        "final_url": "https://snyk.io/product/open-source-security-management/"
       },
       "https://sre.google/sre-book/monitoring-distributed-systems/": {
         "paths": [
           "src/content/docs/ko/ai/llmops.md"
-        ]
+        ],
+        "checked_at": "2026-11-10T07:25:36Z",
+        "status": "observed",
+        "hash": "86f377c06204acb0c7a2fed365cf8859e2d5a832acd4d2cf345d7752bff18933",
+        "hash_kind": "visible-v1",
+        "final_url": "https://sre.google/sre-book/monitoring-distributed-systems/"
       },
       "https://sre.google/sre-book/service-level-objectives/": {
         "paths": [
           "src/content/docs/ko/devops/slo.md"
-        ]
+        ],
+        "checked_at": "2026-11-10T07:25:36Z",
+        "status": "observed",
+        "hash": "43ebdab5bd23cafde2be1fe4dc1bc00495afda5337390101c4ff4f969cb4cae0",
+        "hash_kind": "visible-v1",
+        "final_url": "https://sre.google/sre-book/service-level-objectives/"
       },
       "https://sre.google/sre-book/table-of-contents/": {
         "paths": [
           "src/content/docs/ko/devops/slo.md"
-        ]
+        ],
+        "checked_at": "2026-11-10T07:25:36Z",
+        "status": "observed",
+        "hash": "fd117405a410baa6fa70a11fcc9afe52c17cdbc95ef39d5694e44e3460fa44ca",
+        "hash_kind": "visible-v1",
+        "final_url": "https://sre.google/sre-book/table-of-contents/"
       },
       "https://stackoverflow.com/questions/tagged/google-cloud-platform": {
         "paths": [
           "src/content/docs/ko/about-cloud/support-plans.md"
-        ]
+        ],
+        "checked_at": "2026-11-10T07:25:36Z",
+        "status": "unverified",
+        "error": "HTTP 403"
       },
       "https://strandsagents.com/": {
         "paths": [
           "src/content/docs/ko/ai/agents.md"
-        ]
+        ],
+        "checked_at": "2026-11-10T07:25:36Z",
+        "status": "observed",
+        "hash": "9d85f26992893bee81c918bff358c20b4d4089cc83349a66df8bd6e73755e1b0",
+        "hash_kind": "visible-v1",
+        "final_url": "https://strandsagents.com/"
       },
       "https://strandsagents.com/blog/introducing-strands-decider/": {
         "paths": [
           "src/content/docs/ko/ai/ai-ml.md"
-        ]
+        ],
+        "checked_at": "2026-11-10T07:25:36Z",
+        "status": "observed",
+        "hash": "2cb9942b7ce3e70df372d45534478f87ac717eb505ef2fe0f2959648e329a1d3",
+        "hash_kind": "visible-v1",
+        "final_url": "https://strandsagents.com/blog/introducing-strands-decider/"
       },
       "https://tag-app-delivery.cncf.io/whitepapers/platforms/": {
         "paths": [
           "src/content/docs/ko/devops/platform-engineering.md"
-        ]
+        ],
+        "checked_at": "2026-11-10T07:25:36Z",
+        "status": "observed",
+        "hash": "9818082a6aadb2331a4cb9245ec69570d3f2dbb018e4c92d484d2aa59d30687f",
+        "hash_kind": "visible-v1",
+        "final_url": "https://tag-app-delivery.cncf.io/whitepapers/platforms/"
       },
       "https://teamtopologies.com/": {
         "paths": [
           "src/content/docs/ko/devops/platform-engineering.md"
-        ]
+        ],
+        "checked_at": "2026-11-10T07:25:36Z",
+        "status": "observed",
+        "hash": "9f321d198e3265ec9503c361052dc9c2f3244bfa49808157a2fd141eabffd53a",
+        "hash_kind": "visible-v1",
+        "final_url": "https://teamtopologies.com/"
       },
       "https://tech.kakao.com/posts/706": {
         "paths": [
           "src/content/docs/ko/korea/ai/fm-providers.md"
-        ]
+        ],
+        "checked_at": "2026-11-10T07:25:36Z",
+        "status": "observed",
+        "hash": "e91a8ff245847f3d21a084690fc692dba8509df86dc84ad2060db02898b149a4",
+        "hash_kind": "visible-v1",
+        "final_url": "https://tech.kakao.com/posts/706"
       },
       "https://techcommunity.microsoft.com/": {
         "paths": [
           "src/content/docs/ko/about-cloud/support-plans.md"
-        ]
+        ],
+        "checked_at": "2026-11-10T07:25:36Z",
+        "status": "observed",
+        "hash": "e38ecf60eeec359848cace9753f014a04d4d41d511c949f4611d3ecc89c55a03",
+        "hash_kind": "visible-v1",
+        "final_url": "https://techcommunity.microsoft.com/"
       },
       "https://techcommunity.microsoft.com/blog/azurenetworkingblog/private-subnets-by-default-in-azure-virtual-networks-what-changed-and-how-to-use/4513778": {
         "paths": [
           "src/content/docs/ko/networking/vpc-subnet.md"
-        ]
+        ],
+        "checked_at": "2026-11-10T07:25:36Z",
+        "status": "observed",
+        "hash": "5789832893fd2eb26c802915b174eb00431374d22b01138547c2d685a4e6e199",
+        "hash_kind": "visible-v1",
+        "final_url": "https://techcommunity.microsoft.com/blog/azurenetworkingblog/private-subnets-by-default-in-azure-virtual-networks-what-changed-and-how-to-use/4513778"
       },
       "https://thanos.io/": {
         "paths": [
           "src/content/docs/ko/devops/observability.md"
-        ]
+        ],
+        "checked_at": "2026-11-10T07:25:36Z",
+        "status": "unverified",
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://trivy.dev/": {
         "paths": [
           "src/content/docs/ko/devops/devsecops.md"
-        ]
+        ],
+        "checked_at": "2026-11-10T07:25:36Z",
+        "status": "unverified",
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://trufflesecurity.com/trufflehog": {
         "paths": [
           "src/content/docs/ko/devops/devsecops.md"
-        ]
+        ],
+        "checked_at": "2026-11-10T07:25:36Z",
+        "status": "unverified",
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://valkey.io/": {
         "paths": [
           "src/content/docs/ko/database/cache.md"
-        ]
+        ],
+        "checked_at": "2026-11-10T07:25:36Z",
+        "status": "unverified",
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://victoriametrics.com/": {
         "paths": [
           "src/content/docs/ko/devops/observability.md"
-        ]
+        ],
+        "checked_at": "2026-11-10T07:25:36Z",
+        "status": "observed",
+        "hash": "4153c919fcd0ab0802443a6dcf7b75c920c468aed81bfb443e88740d2d1d8287",
+        "hash_kind": "visible-v1",
+        "final_url": "https://victoriametrics.com/"
       },
       "https://volcano.sh/": {
         "paths": [
           "src/content/docs/ko/ai/gpu-infra/kubernetes-and-scheduling.md"
-        ]
+        ],
+        "checked_at": "2026-11-10T07:25:36Z",
+        "status": "unverified",
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://wandb.ai/site/weave": {
         "paths": [
           "src/content/docs/ko/ai/llmops.md"
-        ]
+        ],
+        "checked_at": "2026-11-10T07:25:36Z",
+        "status": "unverified",
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://www.aboutamazon.com/news/aws/aws-1-billion-forward-deployed-ai-engineers": {
         "paths": [

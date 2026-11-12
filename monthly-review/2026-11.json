@@ -9166,7 +9166,7 @@
         "paths": [
           "src/content/docs/ko/ai/agents.md"
         ],
-        "checked_at": "2026-11-11T06:33:32Z",
+        "checked_at": "2026-11-12T07:18:44Z",
         "status": "unverified",
         "hash": "dc7fc249911468c4dc00fc4eb92b1c0d611070787422d5a6d767fc3b925fee20",
         "final_url": "https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/",
@@ -9176,7 +9176,7 @@
         "paths": [
           "src/content/docs/ko/singapore/mtcs.md"
         ],
-        "checked_at": "2026-11-11T06:33:32Z",
+        "checked_at": "2026-11-12T07:18:44Z",
         "status": "unverified",
         "hash": "635b02875de69e3cc1de1579b70facd5f4c19edf127bd2e3769e8a92f70b360b",
         "final_url": "https://abs.org.sg/docs/library/abs-ospar-guidelines-v2-0.pdf",
@@ -9186,7 +9186,7 @@
         "paths": [
           "src/content/docs/ko/ai/agents.md"
         ],
-        "checked_at": "2026-11-11T06:33:32Z",
+        "checked_at": "2026-11-12T07:18:44Z",
         "status": "unverified",
         "hash": "279273094623330fe250f2984391cac02002276942f6d2dbd8537e495fae1bdf",
         "final_url": "https://www.ag2.ai/",
@@ -9196,7 +9196,7 @@
         "paths": [
           "src/content/docs/ko/ai/getting-started.md"
         ],
-        "checked_at": "2026-11-11T06:33:32Z",
+        "checked_at": "2026-11-12T07:18:44Z",
         "status": "unverified",
         "hash": "ae0f8a0945b3d1cf6945ebf983706906940024c6f02864250619be546f2c10a2",
         "final_url": "https://ai.azure.com/",
@@ -9236,7 +9236,7 @@
         "paths": [
           "src/content/docs/ko/singapore/ai-governance.md"
         ],
-        "checked_at": "2026-11-11T06:33:32Z",
+        "checked_at": "2026-11-12T07:18:44Z",
         "status": "unverified",
         "hash": "861c9baae1bb9420d984be6abe0a5a19d6b07730363337bf8a901ea68a37c87d",
         "final_url": "https://aiverifyfoundation.sg/resources/mgf-gen-ai/",
@@ -9256,7 +9256,7 @@
         "paths": [
           "src/content/docs/ko/devops/devsecops.md"
         ],
-        "checked_at": "2026-11-11T06:33:32Z",
+        "checked_at": "2026-11-12T07:18:44Z",
         "status": "unverified",
         "hash": "6ce84a59d0c606ad8c2c2b3d3703944b3097b677f6a9c36c22154de4e3295152",
         "final_url": "https://aquasecurity.github.io/tfsec/",
@@ -9276,7 +9276,7 @@
         "paths": [
           "src/content/docs/ko/ai/llmops.md"
         ],
-        "checked_at": "2026-11-11T06:33:32Z",
+        "checked_at": "2026-11-12T07:18:44Z",
         "status": "unverified",
         "hash": "84e61b481a6f8d7a78ec8093dce057a9e2b06a9ea80957e5c3766d9b595ef09c",
         "final_url": "https://arize.com/",
@@ -9346,7 +9346,7 @@
         "paths": [
           "src/content/docs/ko/devops/observability.md"
         ],
-        "checked_at": "2026-11-11T06:33:32Z",
+        "checked_at": "2026-11-12T07:18:44Z",
         "status": "unverified",
         "hash": "b472569757f991e0df0919150abea62828a7651cc991dfcabea1158bc12ba1fe",
         "final_url": "https://aws-otel.github.io/",
@@ -20385,347 +20385,602 @@
       "https://www.hhs.gov/hipaa/for-professionals/covered-entities/index.html": {
         "paths": [
           "src/content/docs/ko/us/hipaa.md"
-        ]
+        ],
+        "checked_at": "2026-11-12T07:18:44Z",
+        "status": "unverified",
+        "error": "HTTP 403"
       },
       "https://www.hhs.gov/hipaa/for-professionals/security/index.html": {
         "paths": [
           "src/content/docs/ko/us/hipaa.md"
-        ]
+        ],
+        "checked_at": "2026-11-12T07:18:44Z",
+        "status": "unverified",
+        "error": "HTTP 403"
       },
       "https://www.imda.gov.sg/about-imda/international-relations/asean-working-group-on-ai-governance": {
         "paths": [
           "src/content/docs/ko/singapore/ai-governance.md"
-        ]
+        ],
+        "checked_at": "2026-11-12T07:18:44Z",
+        "status": "unverified",
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://www.imda.gov.sg/how-we-can-help/data-protection-trustmark-certification": {
         "paths": [
           "src/content/docs/ko/singapore/pdpa.md"
-        ]
+        ],
+        "checked_at": "2026-11-12T07:18:44Z",
+        "status": "unverified",
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://www.imda.gov.sg/regulations-and-licensing-listing/ict-standards-and-quality-of-service/it%20standards%20and%20frameworks/cloud%20computing%20and%20services": {
         "paths": [
           "src/content/docs/ko/singapore/mtcs.md"
-        ]
+        ],
+        "checked_at": "2026-11-12T07:18:44Z",
+        "status": "unverified",
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://www.imda.gov.sg/resources/press-releases-factsheets-and-speeches/press-releases/2026/new-model-ai-governance-framework-for-agentic-ai": {
         "paths": [
           "src/content/docs/ko/singapore/ai-governance.md"
-        ]
+        ],
+        "checked_at": "2026-11-12T07:18:44Z",
+        "status": "unverified",
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://www.ismap.go.jp/": {
         "paths": [
           "src/content/docs/ko/japan/government-cloud.md",
           "src/content/docs/ko/japan/index.md",
           "src/content/docs/ko/japan/ismap.md"
-        ]
+        ],
+        "checked_at": "2026-11-12T07:18:44Z",
+        "status": "unverified",
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://www.ismap.go.jp/csm": {
         "paths": [
           "src/content/docs/ko/japan/ismap.md"
-        ]
+        ],
+        "checked_at": "2026-11-12T07:18:44Z",
+        "status": "unverified",
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://www.ismap.go.jp/csm/sys_attachment.do?sys_id=097c91ad8369fa10aa68c6a8beaad316": {
         "paths": [
           "src/content/docs/ko/japan/ismap.md"
-        ]
+        ],
+        "checked_at": "2026-11-12T07:18:44Z",
+        "status": "unverified",
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://www.ismap.go.jp/csm/sys_attachment.do?sys_id=4560318293da26102e57189dc7373c60": {
         "paths": [
           "src/content/docs/ko/japan/ismap.md"
-        ]
+        ],
+        "checked_at": "2026-11-12T07:18:44Z",
+        "status": "unverified",
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://www.iso.org/standard/27001": {
         "paths": [
           "src/content/docs/ko/governance/compliance.md"
-        ]
+        ],
+        "checked_at": "2026-11-12T07:18:44Z",
+        "status": "unverified",
+        "error": "HTTP 403"
       },
       "https://www.iso.org/standard/35733.html": {
         "paths": [
           "src/content/docs/ko/about-cloud/well-architected.mdx"
-        ]
+        ],
+        "checked_at": "2026-11-12T07:18:44Z",
+        "status": "unverified",
+        "error": "HTTP 403"
       },
       "https://www.iso.org/standard/60544.html": {
         "paths": [
           "src/content/docs/ko/about-cloud/getting-started.md"
-        ]
+        ],
+        "checked_at": "2026-11-12T07:18:44Z",
+        "status": "unverified",
+        "error": "HTTP 403"
       },
       "https://www.iso.org/standard/68383.html": {
         "paths": [
           "src/content/docs/ko/ai/physical-ai/deploy-and-operate.md"
-        ]
+        ],
+        "checked_at": "2026-11-12T07:18:44Z",
+        "status": "unverified",
+        "error": "HTTP 403"
       },
       "https://www.iso.org/standard/73481.html": {
         "paths": [
           "src/content/docs/ko/ai/physical-ai/deploy-and-operate.md"
-        ]
+        ],
+        "checked_at": "2026-11-12T07:18:44Z",
+        "status": "unverified",
+        "error": "HTTP 403"
       },
       "https://www.iso.org/standard/81230.html": {
         "paths": [
           "src/content/docs/ko/governance/compliance.md"
-        ]
+        ],
+        "checked_at": "2026-11-12T07:18:44Z",
+        "status": "unverified",
+        "error": "HTTP 403"
       },
       "https://www.iso.org/standard/82758.html": {
         "paths": [
           "src/content/docs/ko/about-cloud/getting-started.md",
           "src/content/docs/ko/about-cloud/why-multicloud.md"
-        ]
+        ],
+        "checked_at": "2026-11-12T07:18:44Z",
+        "status": "unverified",
+        "error": "HTTP 403"
       },
       "https://www.iso.org/standard/90339.html": {
         "paths": [
           "src/content/docs/ko/about-cloud/why-multicloud.md"
-        ]
+        ],
+        "checked_at": "2026-11-12T07:18:44Z",
+        "status": "unverified",
+        "error": "HTTP 403"
       },
       "https://www.itmedia.co.jp/aiplus/article/2603/06/1260306097/": {
         "paths": [
           "src/content/docs/ko/japan/ai-landscape.md"
-        ]
+        ],
+        "checked_at": "2026-11-12T07:18:44Z",
+        "status": "observed",
+        "hash": "abab89bcef5ba060e337919737175f9bdf77a0ccfeb206b827d0c99bceb8383c",
+        "hash_kind": "visible-v1",
+        "final_url": "https://www.itmedia.co.jp/aiplus/article/2603/06/1260306097/"
       },
       "https://www.jaegertracing.io/": {
         "paths": [
           "src/content/docs/ko/devops/observability.md"
-        ]
+        ],
+        "checked_at": "2026-11-12T07:18:44Z",
+        "status": "observed",
+        "hash": "6a9c810a93c22334759fa46f06e24dad19aedd3ad84a7e9c439d6fc6e3613cf7",
+        "hash_kind": "visible-v1",
+        "final_url": "https://www.jaegertracing.io/"
       },
       "https://www.jiji.com/jc/article?k=2026032700944&g=pol": {
         "paths": [
           "src/content/docs/ko/japan/government-cloud.md"
-        ]
+        ],
+        "checked_at": "2026-11-12T07:18:44Z",
+        "status": "observed",
+        "hash": "5d5449d539111ad85ebbfd3ae8ec6034b4d6144034e4f4daa0d51ea44558cf16",
+        "hash_kind": "visible-v1",
+        "final_url": "https://www.jiji.com/jc/article?k=2026032700944&g=pol"
       },
       "https://www.justice.gov/opa/pr/justice-department-intervenes-xai-lawsuit-challenging-colorados-algorithmic-discrimination": {
         "paths": [
           "src/content/docs/ko/us/ai-policy.md"
-        ]
+        ],
+        "checked_at": "2026-11-12T07:18:44Z",
+        "status": "observed",
+        "hash": "1e84df363f595978527a94e52d58e4461f8ad56c13fc6e6f4ccdeff5b685867c",
+        "hash_kind": "visible-v1",
+        "final_url": "https://www.justice.gov/opa/pr/justice-department-intervenes-xai-lawsuit-challenging-colorados-algorithmic-discrimination"
       },
       "https://www.kakaocorp.com/page/detail/11904": {
         "paths": [
           "src/content/docs/ko/korea/ai/fm-providers.md"
-        ]
+        ],
+        "checked_at": "2026-11-12T07:18:44Z",
+        "status": "observed",
+        "hash": "26492674391fa5db1621750505d58f9fabdcf714f4533c1e761eaf31d23e23dd",
+        "hash_kind": "visible-v1",
+        "final_url": "https://www.kakaocorp.com/page/detail/11904"
       },
       "https://www.kakaocorp.com/page/detail/12089": {
         "paths": [
           "src/content/docs/ko/korea/ai/fm-providers.md"
-        ]
+        ],
+        "checked_at": "2026-11-12T07:18:44Z",
+        "status": "observed",
+        "hash": "e4a5fa2cbb60f7b20a8dae53fa11a7a588245c3b5e8927e6d8d16686b8d8d704",
+        "hash_kind": "visible-v1",
+        "final_url": "https://www.kakaocorp.com/page/detail/12089"
       },
       "https://www.kantei.go.jp/jp/103/actions/202509/12jinkoutchinou.html": {
         "paths": [
           "src/content/docs/ko/japan/ai-landscape.md"
-        ]
+        ],
+        "checked_at": "2026-11-12T07:18:44Z",
+        "status": "observed",
+        "hash": "45acdcefd14e1f559840750a6f1631368b1f968cbf33995d1d684162fedc7aab",
+        "hash_kind": "visible-v1",
+        "final_url": "https://www.kantei.go.jp/jp/103/actions/202509/12jinkoutchinou.html"
       },
       "https://www.kinx.net/service/cloud/": {
         "paths": [
           "src/content/docs/ko/korea/index.md"
-        ]
+        ],
+        "checked_at": "2026-11-12T07:18:44Z",
+        "status": "observed",
+        "hash": "89383cee18d1d874f3fa708c5e650265e6d00611608283aef39916a2a21b0765",
+        "hash_kind": "visible-v1",
+        "final_url": "https://www.kinx.net/service/cloud/"
       },
       "https://www.kisa.or.kr/1050603": {
         "paths": [
           "src/content/docs/ko/korea/security/csap.md"
-        ]
+        ],
+        "checked_at": "2026-11-12T07:18:44Z",
+        "status": "observed",
+        "hash": "5daaaf7b3a8e310905c8399391e108be7bb02f5fbc21738a536f6f7fd203d2b4",
+        "hash_kind": "visible-v1",
+        "final_url": "https://www.kisa.or.kr/1050603"
       },
       "https://www.langchain.com/langsmith": {
         "paths": [
           "src/content/docs/ko/ai/llmops.md"
-        ]
+        ],
+        "checked_at": "2026-11-12T07:18:44Z",
+        "status": "observed",
+        "hash": "2ed70ec98be3c02ee3220d67d2145cf42bb0e1dea805c4aaf095b9addc701d46",
+        "hash_kind": "visible-v1",
+        "final_url": "https://www.langchain.com/langsmith/observability"
       },
       "https://www.law.go.kr/%ED%96%89%EC%A0%95%EA%B7%9C%EC%B9%99/%EC%A0%84%EC%9E%90%EA%B8%88%EC%9C%B5%EA%B0%90%EB%8F%85%EA%B7%9C%EC%A0%95": {
         "paths": [
           "src/content/docs/ko/korea/security/network-isolation.md"
-        ]
+        ],
+        "checked_at": "2026-11-12T07:18:44Z",
+        "status": "unverified",
+        "error": "FetchError"
       },
       "https://www.lexology.com/library/detail.aspx?g=b3331558-10d0-4936-b215-4cfb1c2b33d6": {
         "paths": [
           "src/content/docs/ko/eu/dora.md"
-        ]
+        ],
+        "checked_at": "2026-11-12T07:18:44Z",
+        "status": "unverified",
+        "error": "HTTP 403"
       },
       "https://www.lgresearch.ai/blog/view?seq=575": {
         "paths": [
           "src/content/docs/ko/korea/ai/fm-providers.md"
-        ]
+        ],
+        "checked_at": "2026-11-12T07:18:44Z",
+        "status": "unverified",
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://www.linuxfoundation.org/press/linux-foundation-announces-the-formation-of-the-agentic-ai-foundation": {
         "paths": [
           "src/content/docs/ko/ai/agents.md"
-        ]
+        ],
+        "checked_at": "2026-11-12T07:18:44Z",
+        "status": "observed",
+        "hash": "6961715cbe0ceb53982bfb6b6b293b01ba49522bdddfc9ec4fbf0dc993b20f1e",
+        "hash_kind": "visible-v1",
+        "final_url": "https://www.linuxfoundation.org/press/linux-foundation-announces-the-formation-of-the-agentic-ai-foundation"
       },
       "https://www.llama.com/": {
         "paths": [
           "src/content/docs/ko/ai/ai-ml.md"
-        ]
+        ],
+        "checked_at": "2026-11-12T07:18:44Z",
+        "status": "observed",
+        "hash": "2bcc8204d12b5e93f0d599fc536c935914aeaf7b534ac8ddd7df19425adf3338",
+        "hash_kind": "visible-v1",
+        "final_url": "https://dev.meta.ai/"
       },
       "https://www.mas.gov.sg/news/media-releases/2021/mas-enhances-guidelines-to-combat-heightened-cyber-risks": {
         "paths": [
           "src/content/docs/ko/singapore/mtcs.md"
-        ]
+        ],
+        "checked_at": "2026-11-12T07:18:44Z",
+        "status": "observed",
+        "hash": "49a905ea042165297a1cb16b13404b41971498f3ced74a3845570b3f7c239b95",
+        "hash_kind": "visible-v1",
+        "final_url": "https://www.mas.gov.sg/news/media-releases/2021/mas-enhances-guidelines-to-combat-heightened-cyber-risks"
       },
       "https://www.mddi.gov.sg/newsroom/update-to-singapore-s-national-ai-strategy--refreshed-priorities-to-harness-ai-for-the-public-good-factsheet/": {
         "paths": [
           "src/content/docs/ko/singapore/ai-governance.md"
-        ]
+        ],
+        "checked_at": "2026-11-12T07:18:44Z",
+        "status": "observed",
+        "hash": "52e5b6116b967331eae4d0b336fbf04c64b30b6d2cb438f19042ccc1532aa38c",
+        "hash_kind": "visible-v1",
+        "final_url": "https://www.mddi.gov.sg/newsroom/update-to-singapore-s-national-ai-strategy--refreshed-priorities-to-harness-ai-for-the-public-good-factsheet/"
       },
       "https://www.megaport.com/": {
         "paths": [
           "src/content/docs/ko/networking/multicloud-connectivity.md",
           "src/content/docs/ko/networking/multicloud-networking.md"
-        ]
+        ],
+        "checked_at": "2026-11-12T07:18:44Z",
+        "status": "observed",
+        "hash": "53df3a94aeba33f5d884f672c09f44514e34b00afec9bc2082de2703fcd298e6",
+        "hash_kind": "visible-v1",
+        "final_url": "https://www.megaport.com/"
       },
       "https://www.meti.go.jp/policy/mono_info_service/geniac/index.html": {
         "paths": [
           "src/content/docs/ko/japan/ai-landscape.md"
-        ]
+        ],
+        "checked_at": "2026-11-12T07:18:44Z",
+        "status": "unverified",
+        "error": "HTTP 403"
       },
       "https://www.meti.go.jp/press/2026/05/20260514001/20260514001.html": {
         "paths": [
           "src/content/docs/ko/japan/ai-landscape.md"
-        ]
+        ],
+        "checked_at": "2026-11-12T07:18:44Z",
+        "status": "unverified",
+        "error": "HTTP 403"
       },
       "https://www.meti.go.jp/press/2026/07/20260702001/20260702001.html": {
         "paths": [
           "src/content/docs/ko/japan/ai-landscape.md"
-        ]
+        ],
+        "checked_at": "2026-11-12T07:18:44Z",
+        "status": "unverified",
+        "error": "HTTP 403"
       },
       "https://www.microsoft.com/en-us/copilot/blog/2026/06/02/introducing-microsoft-scout-your-always-on-personal-agent/": {
         "paths": [
           "src/content/docs/ko/ai/agents.md"
-        ]
+        ],
+        "checked_at": "2026-11-12T07:18:44Z",
+        "status": "observed",
+        "hash": "89b5a1bf08a8c07378566b8d0e8127afc5010a6ad32ab145325cff58ab566cef",
+        "hash_kind": "visible-v1",
+        "final_url": "https://www.microsoft.com/en-us/copilot/blog/2026/06/02/introducing-microsoft-scout-your-always-on-personal-agent/"
       },
       "https://www.microsoft.com/en-us/security/blog/2025/08/20/quantum-safe-security-progress-towards-next-generation-cryptography/": {
         "paths": [
           "src/content/docs/ko/security/data-protection.md"
-        ]
+        ],
+        "checked_at": "2026-11-12T07:18:44Z",
+        "status": "observed",
+        "hash": "3e281e3842a694dcd0833c2429168325e198d624b761205f46cf3b24094b1ecc",
+        "hash_kind": "visible-v1",
+        "final_url": "https://www.microsoft.com/en-us/security/blog/2025/08/20/quantum-safe-security-progress-towards-next-generation-cryptography/"
       },
       "https://www.microsoft.com/en-us/security/blog/2026/06/05/securing-ci-cd-in-agentic-world-claude-code-github-action-case/": {
         "paths": [
           "src/content/docs/ko/security/ai-security.md"
-        ]
+        ],
+        "checked_at": "2026-11-12T07:18:44Z",
+        "status": "observed",
+        "hash": "7347d281f9eab45e79afb08bc8dd13782c741ae00709e8884305816fa548b61f",
+        "hash_kind": "visible-v1",
+        "final_url": "https://www.microsoft.com/en-us/security/blog/2026/06/05/securing-ci-cd-in-agentic-world-claude-code-github-action-case/"
       },
       "https://www.microsoft.com/en-us/securityengineering/sdl": {
         "paths": [
           "src/content/docs/ko/devops/devsecops.md"
-        ]
+        ],
+        "checked_at": "2026-11-12T07:18:44Z",
+        "status": "unverified",
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://www.microsoft.com/trust-center": {
         "paths": [
           "src/content/docs/ko/governance/compliance.md"
-        ]
+        ],
+        "checked_at": "2026-11-12T07:18:44Z",
+        "status": "observed",
+        "hash": "52bf7b4a95be6f043468d0d95ba5b7a1776fc7e0e33fb891e56b78bbab96d9dd",
+        "hash_kind": "visible-v1",
+        "final_url": "https://www.microsoft.com/en-us/trust-center"
       },
       "https://www.msit.go.kr/bbs/view.do?sCode=user&mId=307&mPid=208&bbsSeqNo=94&nttSeqNo=3186026": {
         "paths": [
           "src/content/docs/ko/korea/ai/sovereign-fm-policy.md"
-        ]
+        ],
+        "checked_at": "2026-11-12T07:18:44Z",
+        "status": "unverified",
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://www.navercloudcorp.com/ko/media/pressrelease/view/?seq=33058": {
         "paths": [
           "src/content/docs/ko/korea/ai/fm-providers.md"
-        ]
+        ],
+        "checked_at": "2026-11-12T07:18:44Z",
+        "status": "unverified",
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://www.ncsc.go.kr": {
         "paths": [
           "src/content/docs/ko/korea/governance/compliance.md",
           "src/content/docs/ko/korea/security/network-isolation.md"
-        ]
+        ],
+        "checked_at": "2026-11-12T07:18:44Z",
+        "status": "unverified",
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://www.nikkei.com/article/DGXZQOUF274430X20C26A3000000/": {
         "paths": [
           "src/content/docs/ko/japan/government-cloud.md"
-        ]
+        ],
+        "checked_at": "2026-11-12T07:18:44Z",
+        "status": "observed",
+        "hash": "02747ed07b72cdc8176a73072d53206fd46489ce084859d4c9b54fd47ee99ecb",
+        "hash_kind": "visible-v1",
+        "final_url": "https://www.nikkei.com/article/DGXZQOUF274430X20C26A3000000/"
       },
       "https://www.nist.gov/artificial-intelligence/executive-order-safe-secure-and-trustworthy-artificial-intelligence": {
         "paths": [
           "src/content/docs/ko/security/ai-security.md"
-        ]
+        ],
+        "checked_at": "2026-11-12T07:18:44Z",
+        "status": "unverified",
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://www.nist.gov/cyberframework": {
         "paths": [
           "src/content/docs/ko/security/getting-started.md",
           "src/content/docs/ko/security/security-posture.md"
-        ]
+        ],
+        "checked_at": "2026-11-12T07:18:44Z",
+        "status": "unverified",
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://www.nist.gov/itl/ai-risk-management-framework": {
         "paths": [
           "src/content/docs/ko/us/ai-policy.md"
-        ]
+        ],
+        "checked_at": "2026-11-12T07:18:44Z",
+        "status": "observed",
+        "hash": "d8b66a1c924d8007f5116ebef3c0b33573933e74bb08fd676586063f950558c9",
+        "hash_kind": "visible-v1",
+        "final_url": "https://www.nist.gov/itl/ai-risk-management-framework"
       },
       "https://www.nist.gov/publications/nist-cloud-computing-reference-architecture": {
         "paths": [
           "src/content/docs/ko/about-cloud/why-multicloud.md",
           "src/content/docs/ko/networking/multicloud-connectivity.md"
-        ]
+        ],
+        "checked_at": "2026-11-12T07:18:44Z",
+        "status": "observed",
+        "hash": "b0a5d09c000eb1b1494d7ae735040207ebd510f70cad57826a09d6af12b80d65",
+        "hash_kind": "visible-v1",
+        "final_url": "https://www.nist.gov/publications/nist-cloud-computing-reference-architecture"
       },
       "https://www.nvidia.com/en-us/data-center/": {
         "paths": [
           "src/content/docs/ko/ai/multicloud-ai.md"
-        ]
+        ],
+        "checked_at": "2026-11-12T07:18:44Z",
+        "status": "observed",
+        "hash": "94a9b1b87133a7268c0c0a3f318ea4f8a4a08efa7f6b627a0918fd56ca1d3c87",
+        "hash_kind": "visible-v1",
+        "final_url": "https://www.nvidia.com/en-us/data-center/"
       },
       "https://www.nvidia.com/en-us/omniverse/": {
         "paths": [
           "src/content/docs/ko/ai/physical-ai/data-and-training.md",
           "src/content/docs/ko/ai/physical-ai/deploy-and-operate.md",
           "src/content/docs/ko/ai/physical-ai/overview.md"
-        ]
+        ],
+        "checked_at": "2026-11-12T07:18:44Z",
+        "status": "observed",
+        "hash": "5f4c821a93258c9e815c078085006c3e6d9680cac1619325b387f2da75253aa0",
+        "hash_kind": "visible-v1",
+        "final_url": "https://www.nvidia.com/en-us/omniverse/"
       },
       "https://www.nvidia.com/en-us/solutions/autonomous-vehicles/": {
         "paths": [
           "src/content/docs/ko/ai/physical-ai/deploy-and-operate.md"
-        ]
+        ],
+        "checked_at": "2026-11-12T07:18:44Z",
+        "status": "observed",
+        "hash": "202e67430ddd66e091527f6a7a7509eff0f55ee37246b9a0a2f8eb8d82fa14c3",
+        "hash_kind": "visible-v1",
+        "final_url": "https://www.nvidia.com/en-us/solutions/autonomous-vehicles/"
       },
       "https://www.oag.state.va.us/consumer-protection/files/tips-and-info/Virginia-Consumer-Data-Protection-Act-Summary-2-2-23.pdf": {
         "paths": [
           "src/content/docs/ko/us/state-privacy.md"
-        ]
+        ],
+        "checked_at": "2026-11-12T07:18:44Z",
+        "status": "unverified",
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://www.openpolicyagent.org/": {
         "paths": [
           "src/content/docs/ko/devops/devsecops.md"
-        ]
+        ],
+        "checked_at": "2026-11-12T07:18:44Z",
+        "status": "unverified",
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://www.oracle.com/artificial-intelligence/ai-services/": {
         "paths": [
           "src/content/docs/ko/ai/ai-ml.md",
           "src/content/docs/ko/ai/multicloud-ai.md"
-        ]
+        ],
+        "checked_at": "2026-11-12T07:18:44Z",
+        "status": "unverified",
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://www.oracle.com/artificial-intelligence/data-labeling/": {
         "paths": [
           "src/content/docs/ko/ai/physical-ai/data-and-training.md"
-        ]
+        ],
+        "checked_at": "2026-11-12T07:18:44Z",
+        "status": "unverified",
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://www.oracle.com/artificial-intelligence/generative-ai/agents/": {
         "paths": [
           "src/content/docs/ko/ai/vector-store.md"
-        ]
+        ],
+        "checked_at": "2026-11-12T07:18:44Z",
+        "status": "unverified",
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://www.oracle.com/artificial-intelligence/generative-ai/generative-ai-service/pricing/": {
         "paths": [
           "src/content/docs/ko/ai/licensing.md"
-        ]
+        ],
+        "checked_at": "2026-11-12T07:18:44Z",
+        "status": "unverified",
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://www.oracle.com/artificial-intelligence/generative-ai/what-is-generative-ai/": {
         "paths": [
           "src/content/docs/ko/ai/getting-started.md"
-        ]
+        ],
+        "checked_at": "2026-11-12T07:18:44Z",
+        "status": "unverified",
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://www.oracle.com/cloud/alloy/": {
         "paths": [
           "src/content/docs/ko/compute/hybrid-and-edge.md"
-        ]
+        ],
+        "checked_at": "2026-11-12T07:18:44Z",
+        "status": "observed",
+        "hash": "510260f9a540f51c87a7c5eb4dd79a6538644b644f107b9cd56fb7dff780ba05",
+        "hash_kind": "visible-v1",
+        "final_url": "https://www.oracle.com/cloud/alloy/"
       },
       "https://www.oracle.com/cloud/aws/": {
         "paths": [
           "src/content/docs/ko/database/managed-rdb.md"
-        ]
+        ],
+        "checked_at": "2026-11-12T07:18:44Z",
+        "status": "unverified",
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://www.oracle.com/cloud/azure/": {
         "paths": [
           "src/content/docs/ko/database/managed-rdb.md"
-        ]
+        ],
+        "checked_at": "2026-11-12T07:18:44Z",
+        "status": "observed",
+        "hash": "1fd0a6a81c09e752b30f2325c7cc088c46db601f983ef6f0f77c350f549bf45b",
+        "hash_kind": "visible-v1",
+        "final_url": "https://www.oracle.com/cloud/azure/"
       },
       "https://www.oracle.com/cloud/cloud-at-customer/": {
         "paths": [
           "src/content/docs/ko/compute/hybrid-and-edge.md"
-        ]
+        ],
+        "checked_at": "2026-11-12T07:18:44Z",
+        "status": "unverified",
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://www.oracle.com/cloud/cloud-at-customer/dedicated-region/": {
         "paths": [
           "src/content/docs/ko/compute/hybrid-and-edge.md"
-        ]
+        ],
+        "checked_at": "2026-11-12T07:18:44Z",
+        "status": "unverified",
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://www.oracle.com/cloud/compute/gpu/": {
         "paths": [

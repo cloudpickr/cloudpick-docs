@@ -7857,6 +7857,787 @@
       "status": "open",
       "evidence": [],
       "pr": null
+    },
+    {
+      "id": "1633f4324fbc3e134a29c055",
+      "path": "src/content/docs/ko/about-cloud/decision-framework.md",
+      "axis": 2,
+      "reason": "Amazon MWAA now supports cost allocation tags (https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-mwaa-cost-allocation-tags/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-mwaa-cost-allocation-tags/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "54555eacb31e40ea4f595b45",
+      "path": "src/content/docs/ko/ai/gpu-infra/serving-reliability-cost.md",
+      "axis": 2,
+      "reason": "Amazon MWAA now supports cost allocation tags (https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-mwaa-cost-allocation-tags/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-mwaa-cost-allocation-tags/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "d306966c550a5acd07ae0bcb",
+      "path": "src/content/docs/ko/glossary.md",
+      "axis": 2,
+      "reason": "Amazon MWAA now supports cost allocation tags (https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-mwaa-cost-allocation-tags/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-mwaa-cost-allocation-tags/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "fee280fab315c52294779ea6",
+      "path": "src/content/docs/ko/ai/getting-started.md",
+      "axis": 2,
+      "reason": "AWS Sign-In now supports OAuth 2.0 Token Exchange (https://aws.amazon.com/about-aws/whats-new/2026/11/aws-signin-token-exchange/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-signin-token-exchange/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "ab98e3e84e92d0c704e8df78",
+      "path": "src/content/docs/ko/networking/cdn.md",
+      "axis": 2,
+      "reason": "AWS Sign-In now supports OAuth 2.0 Token Exchange (https://aws.amazon.com/about-aws/whats-new/2026/11/aws-signin-token-exchange/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-signin-token-exchange/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "cd61f9bed1584111a38774af",
+      "path": "src/content/docs/ko/networking/multicloud-networking.md",
+      "axis": 2,
+      "reason": "AWS Sign-In now supports OAuth 2.0 Token Exchange (https://aws.amazon.com/about-aws/whats-new/2026/11/aws-signin-token-exchange/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-signin-token-exchange/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "8264816f37f9dcf8f700e552",
+      "path": "src/content/docs/ko/about-cloud/accounts-and-organizations.mdx",
+      "axis": 2,
+      "reason": "AWS DataSync Enhanced mode supports OpenID Connect (OIDC) for Google Cloud and Microsoft Azure (https://aws.amazon.com/about-aws/whats-new/2026/11/datasync-enhanced-oidc-google-azure/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/datasync-enhanced-oidc-google-azure/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "5e6d871870bbf8a18f9c6ce5",
+      "path": "src/content/docs/ko/about-cloud/console-cli-sdk.md",
+      "axis": 2,
+      "reason": "AWS DataSync Enhanced mode supports OpenID Connect (OIDC) for Google Cloud and Microsoft Azure (https://aws.amazon.com/about-aws/whats-new/2026/11/datasync-enhanced-oidc-google-azure/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/datasync-enhanced-oidc-google-azure/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "452c7fca0eeb5b9c5d9305c6",
+      "path": "src/content/docs/ko/devops/kubernetes-operations.mdx",
+      "axis": 2,
+      "reason": "Amazon EC2 and VPC now display related resources for all resource types (https://aws.amazon.com/about-aws/whats-new/2026/11/ec2-vpc-related-resources-all-types/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/ec2-vpc-related-resources-all-types/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "41838f9509a0237f39111e5e",
+      "path": "src/content/docs/ko/networking/vpc-subnet.md",
+      "axis": 2,
+      "reason": "Amazon EC2 and VPC now display related resources for all resource types (https://aws.amazon.com/about-aws/whats-new/2026/11/ec2-vpc-related-resources-all-types/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/ec2-vpc-related-resources-all-types/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "12adae864562e6118f4c7fce",
+      "path": "src/content/docs/ko/security/network-isolation.md",
+      "axis": 2,
+      "reason": "AWS Network Security Manager now available in AWS European Sovereign Cloud and Additional New Regions (https://aws.amazon.com/about-aws/whats-new/2026/11/network-security-mgr-eu-sovereign-cloud/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/network-security-mgr-eu-sovereign-cloud/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "5ac4c11066cda4edd784f949",
+      "path": "src/content/docs/ko/about-cloud/shared-responsibility.mdx",
+      "axis": 2,
+      "reason": "AWS Network Security Manager now available in AWS European Sovereign Cloud and Additional New Regions (https://aws.amazon.com/about-aws/whats-new/2026/11/network-security-mgr-eu-sovereign-cloud/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/network-security-mgr-eu-sovereign-cloud/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "f6dc88a274f1bed97a5d1994",
+      "path": "src/content/docs/ko/security/ai-security.md",
+      "axis": 2,
+      "reason": "AWS Network Security Manager now available in AWS European Sovereign Cloud and Additional New Regions (https://aws.amazon.com/about-aws/whats-new/2026/11/network-security-mgr-eu-sovereign-cloud/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/network-security-mgr-eu-sovereign-cloud/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "0ac5a34ca11eda559dba68df",
+      "path": "src/content/docs/ko/about-cloud/accounts-and-organizations.mdx",
+      "axis": 2,
+      "reason": "AWS Cloud WAN now supports Flow Logs (https://aws.amazon.com/about-aws/whats-new/2026/11/aws-cloud-wan-flow-logs/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-cloud-wan-flow-logs/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "e5c519039f81b89e3fa50ced",
+      "path": "src/content/docs/ko/about-cloud/compare-clouds.md",
+      "axis": 2,
+      "reason": "AWS Cloud WAN now supports Flow Logs (https://aws.amazon.com/about-aws/whats-new/2026/11/aws-cloud-wan-flow-logs/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-cloud-wan-flow-logs/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "f1bb8de77dc3e1388592c3ab",
+      "path": "src/content/docs/ko/about-cloud/console-cli-sdk.md",
+      "axis": 2,
+      "reason": "AWS Cloud WAN now supports Flow Logs (https://aws.amazon.com/about-aws/whats-new/2026/11/aws-cloud-wan-flow-logs/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-cloud-wan-flow-logs/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "7f51a85b9818d7c53fc2993d",
+      "path": "src/content/docs/ko/compute/containers.md",
+      "axis": 2,
+      "reason": "Amazon EKS Provisioned Control Plane now offers a 24 GB etcd database on 4XL and 8XL tiers (https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-eks-provisioned-control-plane-larger-etcd-database/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-eks-provisioned-control-plane-larger-etcd-database/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "83d4b3e655949467f4bb7173",
+      "path": "src/content/docs/ko/ai/gpu-infra/kubernetes-and-scheduling.md",
+      "axis": 2,
+      "reason": "Amazon EKS Provisioned Control Plane now offers a 24 GB etcd database on 4XL and 8XL tiers (https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-eks-provisioned-control-plane-larger-etcd-database/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-eks-provisioned-control-plane-larger-etcd-database/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "ef34885d350412b55bf2eaee",
+      "path": "src/content/docs/ko/devops/kubernetes-operations.mdx",
+      "axis": 2,
+      "reason": "Amazon EKS Provisioned Control Plane now offers a 24 GB etcd database on 4XL and 8XL tiers (https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-eks-provisioned-control-plane-larger-etcd-database/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-eks-provisioned-control-plane-larger-etcd-database/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "d46082c60e76acaf711eb3ab",
+      "path": "src/content/docs/ko/compute/serverless.md",
+      "axis": 2,
+      "reason": "AWS Lambda MicroVMs now supports the x86 CPU architecture (https://aws.amazon.com/about-aws/whats-new/2026/11/aws-lambda-microvms-x86-architecture/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-lambda-microvms-x86-architecture/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "5d370f0debc8c9b03b227f45",
+      "path": "src/content/docs/ko/about-cloud/well-architected.mdx",
+      "axis": 2,
+      "reason": "AWS Lambda MicroVMs now supports the x86 CPU architecture (https://aws.amazon.com/about-aws/whats-new/2026/11/aws-lambda-microvms-x86-architecture/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-lambda-microvms-x86-architecture/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "fe07d097eba05252d87305de",
+      "path": "src/content/docs/ko/compute/modernization.md",
+      "axis": 2,
+      "reason": "AWS Lambda MicroVMs now supports the x86 CPU architecture (https://aws.amazon.com/about-aws/whats-new/2026/11/aws-lambda-microvms-x86-architecture/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-lambda-microvms-x86-architecture/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "ae1c85dc165be4fb9ba5e164",
+      "path": "src/content/docs/ko/security/security-posture.md",
+      "axis": 2,
+      "reason": "Amazon EKS Auto Mode now supports security groups for Pods (https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-eks-auto-mode-security-groups-for-pods/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-eks-auto-mode-security-groups-for-pods/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "ada115f496589522ef490972",
+      "path": "src/content/docs/ko/about-cloud/shared-responsibility.mdx",
+      "axis": 2,
+      "reason": "Amazon EKS Auto Mode now supports security groups for Pods (https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-eks-auto-mode-security-groups-for-pods/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-eks-auto-mode-security-groups-for-pods/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "fcb844811985832d42c729c0",
+      "path": "src/content/docs/ko/security/ai-security.md",
+      "axis": 2,
+      "reason": "Amazon EKS Auto Mode now supports security groups for Pods (https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-eks-auto-mode-security-groups-for-pods/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-eks-auto-mode-security-groups-for-pods/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "b54408d553f6c61153a14fb5",
+      "path": "src/content/docs/ko/security/ai-security.md",
+      "axis": 2,
+      "reason": "AWS Emulator is now available for building and testing AWS applications locally (https://aws.amazon.com/about-aws/whats-new/2026/11/aws-emulator-now-available/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-emulator-now-available/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "7c823cb4324b9519603524fe",
+      "path": "src/content/docs/ko/devops/devsecops.md",
+      "axis": 2,
+      "reason": "AWS Emulator is now available for building and testing AWS applications locally (https://aws.amazon.com/about-aws/whats-new/2026/11/aws-emulator-now-available/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-emulator-now-available/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "72a7b697f34c0dc017120e79",
+      "path": "src/content/docs/ko/networking/api-gateway.md",
+      "axis": 2,
+      "reason": "Apigee Edge for Public Cloud (https://docs.cloud.google.com/release-notes#November_04_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_04_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "e4d16e352e62d4cd9be1f849",
+      "path": "src/content/docs/ko/about-cloud/getting-started.md",
+      "axis": 2,
+      "reason": "Apigee Edge for Public Cloud (https://docs.cloud.google.com/release-notes#November_04_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_04_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "b1e373d8a451b63688b2a956",
+      "path": "src/content/docs/ko/about-cloud/regions-and-zones.md",
+      "axis": 2,
+      "reason": "Apigee Edge for Public Cloud (https://docs.cloud.google.com/release-notes#November_04_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_04_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "7318bfb8bc59f085861bc2cb",
+      "path": "src/content/docs/ko/networking/api-gateway.md",
+      "axis": 2,
+      "reason": "API Gateway (https://docs.cloud.google.com/release-notes#November_04_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_04_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "5c061f73ae7bdbf1127460c3",
+      "path": "src/content/docs/ko/compute/serverless.md",
+      "axis": 2,
+      "reason": "Google Cloud Contact Center as a Service (https://docs.cloud.google.com/release-notes#November_04_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_04_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "5e395c2d66e613112e2c74cf",
+      "path": "src/content/docs/ko/about-cloud/pricing-model.md",
+      "axis": 2,
+      "reason": "Google Cloud Contact Center as a Service (https://docs.cloud.google.com/release-notes#November_04_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_04_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "5ebdcd0cf7635875579ccb79",
+      "path": "src/content/docs/ko/about-cloud/support-plans.md",
+      "axis": 2,
+      "reason": "Google Cloud Contact Center as a Service (https://docs.cloud.google.com/release-notes#November_04_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_04_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "319bfcc9d3509cf19ff94151",
+      "path": "src/content/docs/ko/about-cloud/accounts-and-organizations.mdx",
+      "axis": 2,
+      "reason": "Google Distributed Cloud (software only) for VMware (https://docs.cloud.google.com/release-notes#November_04_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_04_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "2ffa027b25aa48f69d993193",
+      "path": "src/content/docs/ko/about-cloud/accounts-and-organizations.mdx",
+      "axis": 2,
+      "reason": "Google Distributed Cloud (software only) for bare metal (https://docs.cloud.google.com/release-notes#November_04_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_04_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "387142de62a6de4e3dd93603",
+      "path": "src/content/docs/ko/about-cloud/console-cli-sdk.md",
+      "axis": 2,
+      "reason": "Google Distributed Cloud (software only) for VMware (https://docs.cloud.google.com/release-notes#November_11_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_11_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "b6efd50233866d5b961b13b8",
+      "path": "src/content/docs/ko/devops/devsecops.md",
+      "axis": 2,
+      "reason": "Google Distributed Cloud (software only) for VMware (https://docs.cloud.google.com/release-notes#November_11_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_11_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "75e4d51d9f56a6d4be50d36e",
+      "path": "src/content/docs/ko/about-cloud/accounts-and-organizations.mdx",
+      "axis": 2,
+      "reason": "Google Distributed Cloud (software only) for VMware (https://docs.cloud.google.com/release-notes#November_11_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_11_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "239215e264e735c9748d280d",
+      "path": "src/content/docs/ko/about-cloud/console-cli-sdk.md",
+      "axis": 2,
+      "reason": "Google Distributed Cloud (software only) for bare metal (https://docs.cloud.google.com/release-notes#November_11_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_11_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "f99d438c5888aaa62f4fdb89",
+      "path": "src/content/docs/ko/devops/devsecops.md",
+      "axis": 2,
+      "reason": "Google Distributed Cloud (software only) for bare metal (https://docs.cloud.google.com/release-notes#November_11_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_11_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "d80787b4f67416fd74572a5d",
+      "path": "src/content/docs/ko/about-cloud/accounts-and-organizations.mdx",
+      "axis": 2,
+      "reason": "Google Distributed Cloud (software only) for bare metal (https://docs.cloud.google.com/release-notes#November_11_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_11_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "c80b54aea02528e38feece90",
+      "path": "src/content/docs/ko/compute/containers.md",
+      "axis": 2,
+      "reason": "Google Kubernetes Engine (https://docs.cloud.google.com/release-notes#November_11_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_11_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "16d20f4e239ad4e91429d58d",
+      "path": "src/content/docs/ko/devops/kubernetes-operations.mdx",
+      "axis": 2,
+      "reason": "Google Kubernetes Engine (https://docs.cloud.google.com/release-notes#November_11_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_11_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "2400771746711e2584138692",
+      "path": "src/content/docs/ko/ai/gpu-infra/kubernetes-and-scheduling.md",
+      "axis": 2,
+      "reason": "Google Kubernetes Engine (https://docs.cloud.google.com/release-notes#November_11_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_11_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "100c2084cb36990859895024",
+      "path": "src/content/docs/ko/networking/api-gateway.md",
+      "axis": 2,
+      "reason": "Apigee Edge for Public Cloud (https://docs.cloud.google.com/release-notes#November_11_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_11_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "df50051736c2f90ca8de9f68",
+      "path": "src/content/docs/ko/about-cloud/getting-started.md",
+      "axis": 2,
+      "reason": "Apigee Edge for Public Cloud (https://docs.cloud.google.com/release-notes#November_11_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_11_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "69a8fa38225614e59c90a286",
+      "path": "src/content/docs/ko/about-cloud/regions-and-zones.md",
+      "axis": 2,
+      "reason": "Apigee Edge for Public Cloud (https://docs.cloud.google.com/release-notes#November_11_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_11_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "3b7d5bc78d2f3421806028e8",
+      "path": "src/content/docs/ko/ai/agent-adoption.md",
+      "axis": 2,
+      "reason": "Gemini Enterprise Agent Platform (https://docs.cloud.google.com/release-notes#November_11_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_11_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "0c575c1c3983c2fa6d80dd36",
+      "path": "src/content/docs/ko/ai/agents.md",
+      "axis": 2,
+      "reason": "Gemini Enterprise Agent Platform (https://docs.cloud.google.com/release-notes#November_11_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_11_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "2fae97f4a7fc19c8c1f65a02",
+      "path": "src/content/docs/ko/ai/llmops.md",
+      "axis": 2,
+      "reason": "Gemini Enterprise Agent Platform (https://docs.cloud.google.com/release-notes#November_11_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_11_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "56bad3239f861085632d7cb5",
+      "path": "src/content/docs/ko/about-cloud/compare-clouds.md",
+      "axis": 2,
+      "reason": "Oracle Database@Google Cloud (https://docs.cloud.google.com/release-notes#November_11_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_11_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "da9a64c5e952681db825bfb1",
+      "path": "src/content/docs/ko/database/analytics.md",
+      "axis": 2,
+      "reason": "Oracle Database@Google Cloud (https://docs.cloud.google.com/release-notes#November_11_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_11_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "6ae1655afec2dfeabc6b8ee1",
+      "path": "src/content/docs/ko/database/cache.md",
+      "axis": 2,
+      "reason": "Oracle Database@Google Cloud (https://docs.cloud.google.com/release-notes#November_11_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_11_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "1d93654eb3a1f2c31cef87f4",
+      "path": "src/content/docs/ko/about-cloud/pricing-model.md",
+      "axis": 2,
+      "reason": "[Launched] Generally Available: Azure Database for PostgreSQL stable REST API version 2026-10-01 (https://azure.microsoft.com/updates?id=579300)",
+      "source_url": "https://azure.microsoft.com/updates?id=579300",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "cbfecbe6ee029eca463af89a",
+      "path": "src/content/docs/ko/devops/devsecops.md",
+      "axis": 2,
+      "reason": "[In preview] Public Preview: Azure Firewall IPv6 now supports application rules (https://azure.microsoft.com/updates?id=579507)",
+      "source_url": "https://azure.microsoft.com/updates?id=579507",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "19ad969a24e9203c3d8ef986",
+      "path": "src/content/docs/ko/devops/monitoring.md",
+      "axis": 2,
+      "reason": "[In preview] Public Preview: Azure Firewall IPv6 now supports application rules (https://azure.microsoft.com/updates?id=579507)",
+      "source_url": "https://azure.microsoft.com/updates?id=579507",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "7ca5fb84cf3eeb81387c18d0",
+      "path": "src/content/docs/ko/networking/cdn.md",
+      "axis": 2,
+      "reason": "[In preview] Public Preview: Rate limit grouping for Azure Front Door Premium WAF (https://azure.microsoft.com/updates?id=580155)",
+      "source_url": "https://azure.microsoft.com/updates?id=580155",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "1e122cd5bc2997ef0c091137",
+      "path": "src/content/docs/ko/about-cloud/getting-started.md",
+      "axis": 2,
+      "reason": "[In preview] Public Preview: Rate limit grouping for Azure Front Door Premium WAF (https://azure.microsoft.com/updates?id=580155)",
+      "source_url": "https://azure.microsoft.com/updates?id=580155",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "8907e5ea93455269f83bdffd",
+      "path": "src/content/docs/ko/security/data-protection.md",
+      "axis": 2,
+      "reason": "[In preview] Public Preview: Rate limit grouping for Azure Front Door Premium WAF (https://azure.microsoft.com/updates?id=580155)",
+      "source_url": "https://azure.microsoft.com/updates?id=580155",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "63f36a253a535efe2310cee9",
+      "path": null,
+      "axis": 3,
+      "reason": "Ornith-1.0-9B and Ornith-1.0-35B models now available on Amazon SageMaker JumpStart (https://aws.amazon.com/about-aws/whats-new/2026/01/ornith-1-0-9b-ornith-1-0-35b-on-sagemaker-jumpstart/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/01/ornith-1-0-9b-ornith-1-0-35b-on-sagemaker-jumpstart/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "f64a1654970d7c2e98c2de8e",
+      "path": null,
+      "axis": 3,
+      "reason": "DeepSeek-V4-Pro, DeepSeek-V4-Flash, and DeepSeek-V4.1-Flash models now available on Amazon SageMaker JumpStart (https://aws.amazon.com/about-aws/whats-new/2026/01/deepseek-v4-pro-v4-flash-v4.1-flash-on-sagemaker-jumpstart/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/01/deepseek-v4-pro-v4-flash-v4.1-flash-on-sagemaker-jumpstart/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "79bb43a70d35096b6e684ebb",
+      "path": null,
+      "axis": 3,
+      "reason": "Amazon Cognito now supports user pool session management (https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-cognito-session-management/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-cognito-session-management/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "a9c048f1bb72ea0da2957112",
+      "path": null,
+      "axis": 3,
+      "reason": "AWS Quick apps are now available in Asia Pacific (Singapore) (https://aws.amazon.com/about-aws/whats-new/2026/11/aws-quick-apps-available-in-asia-pacific-singapore/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-quick-apps-available-in-asia-pacific-singapore/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "c5f52204a95ca855e7272f87",
+      "path": null,
+      "axis": 3,
+      "reason": "Amazon SES now supports higher limits for email identities, tenants, and configuration sets (https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-ses-higher-resource-limits/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-ses-higher-resource-limits/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "764b8ec26dad69072b95753d",
+      "path": null,
+      "axis": 3,
+      "reason": "Cloud Workstations (https://docs.cloud.google.com/release-notes#November_04_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_04_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "affa82124e0a04b8e84b6057",
+      "path": null,
+      "axis": 3,
+      "reason": "Knowledge Catalog (https://docs.cloud.google.com/release-notes#November_04_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_04_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "e6c5a05dbc1486832b02949a",
+      "path": null,
+      "axis": 3,
+      "reason": "Container Optimized OS (https://docs.cloud.google.com/release-notes#November_11_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_11_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "e8ce72ecc56eec99be0641cf",
+      "path": null,
+      "axis": 3,
+      "reason": "Cloud Build (https://docs.cloud.google.com/release-notes#November_11_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_11_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "bdf776b3c825516158470579",
+      "path": null,
+      "axis": 3,
+      "reason": "BigQuery (https://docs.cloud.google.com/release-notes#November_11_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_11_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "8242460ffde3abf0c1bd2698",
+      "path": null,
+      "axis": 3,
+      "reason": "Realtime Text to Speech (https://docs.oracle.com/iaas/releasenotes/speech/realtime-tts.htm)",
+      "source_url": "https://docs.oracle.com/iaas/releasenotes/speech/realtime-tts.htm",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
     }
   ],
   "resolved_ids": [],
@@ -8013,10 +8794,10 @@
         "oci": "complete"
       },
       "2026-11-04": {
-        "aws": "provisional",
-        "gcp": "provisional",
-        "azure": "provisional",
-        "oci": "provisional"
+        "aws": "complete",
+        "gcp": "complete",
+        "azure": "complete",
+        "oci": "complete"
       },
       "2026-09-18": {
         "aws": "complete",
@@ -8097,6 +8878,18 @@
         "oci": "complete"
       },
       "2026-11-11": {
+        "aws": "provisional",
+        "gcp": "provisional",
+        "azure": "provisional",
+        "oci": "provisional"
+      },
+      "2026-09-25": {
+        "aws": "complete",
+        "gcp": "complete",
+        "azure": "complete",
+        "oci": "complete"
+      },
+      "2026-11-12": {
         "aws": "provisional",
         "gcp": "provisional",
         "azure": "provisional",
@@ -8243,10 +9036,10 @@
         "oci": "2026-11-04T06:32:49.227Z"
       },
       "2026-11-04": {
-        "aws": "2026-11-05T06:55:06.826Z",
-        "gcp": "2026-11-05T06:55:06.826Z",
-        "azure": "2026-11-05T06:55:06.826Z",
-        "oci": "2026-11-05T06:55:06.826Z"
+        "aws": "2026-11-12T07:18:32.962Z",
+        "gcp": "2026-11-12T07:18:32.962Z",
+        "azure": "2026-11-12T07:18:32.962Z",
+        "oci": "2026-11-12T07:18:32.962Z"
       },
       "2026-09-18": {
         "aws": "2026-11-05T06:55:06.826Z",
@@ -8327,10 +9120,22 @@
         "oci": "2026-11-11T06:33:24.193Z"
       },
       "2026-11-11": {
-        "aws": "2026-11-11T06:33:24.193Z",
-        "gcp": "2026-11-11T06:33:24.193Z",
-        "azure": "2026-11-11T06:33:24.193Z",
-        "oci": "2026-11-11T06:33:24.193Z"
+        "aws": "2026-11-12T07:18:32.962Z",
+        "gcp": "2026-11-12T07:18:32.962Z",
+        "azure": "2026-11-12T07:18:32.962Z",
+        "oci": "2026-11-12T07:18:32.962Z"
+      },
+      "2026-09-25": {
+        "aws": "2026-11-12T07:18:32.962Z",
+        "gcp": "2026-11-12T07:18:32.962Z",
+        "azure": "2026-11-12T07:18:32.962Z",
+        "oci": "2026-11-12T07:18:32.962Z"
+      },
+      "2026-11-12": {
+        "aws": "2026-11-12T07:18:32.962Z",
+        "gcp": "2026-11-12T07:18:32.962Z",
+        "azure": "2026-11-12T07:18:32.962Z",
+        "oci": "2026-11-12T07:18:32.962Z"
       }
     }
   },

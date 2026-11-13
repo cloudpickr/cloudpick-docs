@@ -78,5 +78,5 @@ The DNC check obligation is a practical item frequently overlooked by foreign co
 - [Data Protection Trustmark (DPTM) Certification — IMDA](https://www.imda.gov.sg/how-we-can-help/data-protection-trustmark-certification)
 - [Accountability Within Industry — PDPC](https://www.pdpc.gov.sg/help-and-resources/2021/09/accountability/accountability-within-industry)
 - [Fintech Singapore: PDPA Cross-border Data Transfers (2026) — Global Law Experts](https://globallawexperts.com/pdpa-crossborder-data-transfers-fintech-singapore-2026/)
-- [Data Protection & Privacy 2026 - Singapore — Chambers and Partners](https://practiceguides.chambers.com/practice-guides/data-protection-privacy-2026/singapore/trends-and-developments)
+- [Data Protection & Privacy 2026 - Singapore — Chambers and Partners](https://chambers.com/practice-guides/guides/data-protection-privacy-2026/singapore/trends-and-developments)
 - [Data Protection Laws and Regulations 2026 | Singapore — ICLG](https://iclg.com/practice-areas/data-protection-laws-and-regulations/singapore/)

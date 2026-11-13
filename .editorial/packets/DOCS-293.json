@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "jira_key": "DOCS-293",
+  "policy_action": "link-refresh",
+  "tier_hint": "C",
+  "tier_reasons": [
+    "Issue #293: Chambers의 싱가포르 PDPA 참고 링크를 실제 이동한 최종 URL로 갱신한다. URL 외 내용은 불변이며 독립 검토에서 원본 문서 내용을 확인했다.",
+    "link-refresh는 사람 승인과 독립 검증을 요구한다."
+  ],
+  "target_path": "src/content/docs/ko/singapore/pdpa.md",
+  "changed_paths": [
+    "src/content/docs/ko/singapore/pdpa.md",
+    "src/content/docs/en/singapore/pdpa.md",
+    "src/content/docs/ja/singapore/pdpa.md"
+  ],
+  "generated_by_llm": true,
+  "claim_ledger": [],
+  "link_refresh": {
+    "url_map": {
+      "https://practiceguides.chambers.com/practice-guides/data-protection-privacy-2026/singapore/trends-and-developments": "https://chambers.com/practice-guides/guides/data-protection-privacy-2026/singapore/trends-and-developments"
+    },
+    "manifest_sha256": "916691d3c1309a24b5d533c9ff835431b88dbe42d580d06e4d7b0601a0ac638a",
+    "changed_paths_count": 3
+  },
+  "writer": {
+    "model": "gpt-6",
+    "provider": "openai"
+  }
+}

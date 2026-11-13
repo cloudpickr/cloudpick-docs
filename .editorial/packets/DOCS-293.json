@@ -21,5 +21,9 @@
     },
     "manifest_sha256": "b50140a29c6ef275efefb707cf68e6a24c5ac74aae5c7159926b86d6edd0326d",
     "changed_paths_count": 3
+  },
+  "writer": {
+    "model": "gpt-6",
+    "provider": "openai"
   }
 }

@@ -167,37 +167,7 @@ def run(args) -> dict:
                     ["marker-refresh: marker-month-only change proven byte-equivalent"] + reasons,
                     args, packet_sha)
 
-    # 독립 LLM 리뷰. claim_ledger의 공식 출처를 source_fetch로 독립 재취득해 리뷰에 연결(#2).
-    config = rr.ReviewConfig.from_env()
     diff_text = Path(args.diff).read_text(encoding="utf-8") if Path(args.diff).is_file() else ""
-    source_evidence, source_reasons = _fetch_sources(packet)
-    if source_evidence is None:
-        # SSRF 차단·fetch 실패는 non-pass(승인 아님).
-        return _out(tier, "error",
-                    ["independent source fetch failed/blocked — hold"] + source_reasons + reasons,
-                    args, packet_sha)
-    review = rr.run_review(config, packet, diff_text, source_evidence=source_evidence)
-    reasons += [f"review:{review.verdict}"] + review.reasons + source_reasons
-
-    # 레벨링(legal-B) 전용: 의미 보존 검사 추가. 결정론 가드(leveling-guard)는 사실 불변을
-    # 강제하지만 '뉘앙스 왜곡'(부정 뒤집힘·서법어 소실·조건 삭제·벤더 편향)은 못 잡는다.
-    # writer-distinct 리뷰어가 닫힌 enum만 '차단' 신호로 낸다(contradicted 선언 금지).
-    # block=True면 changes_requested로 하향(승인 취소). error/미설정은 비차단(보류 유지).
-    if _is_leveling_packet(packet) and review.verdict == "approve":
-        mp = _meaning_preserved_from_diff(diff_text, packet)
-        if mp.get("block"):
-            reasons += ["leveling meaning-preserved review: BLOCK"] + \
-                       [f"{s['type']}: '{s['before'][:40]}' → '{s['after'][:40]}'" for s in mp.get("signals", [])]
-            reviewer_cfg = review.selected_model or (config.reviewer_model or "unset")
-            return _out(tier, "changes_requested", reasons, args, packet_sha, reviewer_cfg)
-        if mp.get("error"):
-            # fail-closed: 의미보존 검사를 못 돌리면 approve로 떨어지지 않는다(hold).
-            # 레벨링 예외는 '모든 가드 충족'이 전제이므로, 검사 불가 = 비승인(Codex P1, AGENTS.md).
-            reviewer_cfg = review.selected_model or (config.reviewer_model or "unset")
-            return _out(tier, "error",
-                        [f"leveling meaning-preserved review unavailable → hold ({mp['error']})"] + reasons,
-                        args, packet_sha, reviewer_cfg)
-        reasons.append("leveling meaning-preserved review: ok")
 
     # link-refresh(URL-only 현행화) 전용: 사실 불변은 결정론 가드(scripts/link-refresh-guard.py)가
     # CI required 잡으로 전수 증명한다(base/head 전체 파일 필요 — diff만으론 불가). 또한
@@ -247,6 +217,40 @@ def run(args) -> dict:
             return _out(tier, "changes_requested", reasons, args, packet_sha)
         reasons.append("link-refresh reconstruct(diff): ok (URL 교체만)")
         reasons.append("link-refresh: URL-only change — CI link-refresh-guard(재구성 매칭, 전체 파일)도 교차 강제")
+
+        return _out(tier, "approve", ["link-refresh: deterministic checks passed; human approval required"] + reasons, args, packet_sha)
+
+    # 독립 LLM 리뷰. claim_ledger의 공식 출처를 source_fetch로 독립 재취득해 리뷰에 연결(#2).
+    config = rr.ReviewConfig.from_env()
+    diff_text = Path(args.diff).read_text(encoding="utf-8") if Path(args.diff).is_file() else ""
+    source_evidence, source_reasons = _fetch_sources(packet)
+    if source_evidence is None:
+        # SSRF 차단·fetch 실패는 non-pass(승인 아님).
+        return _out(tier, "error",
+                    ["independent source fetch failed/blocked — hold"] + source_reasons + reasons,
+                    args, packet_sha)
+    review = rr.run_review(config, packet, diff_text, source_evidence=source_evidence)
+    reasons += [f"review:{review.verdict}"] + review.reasons + source_reasons
+
+    # 레벨링(legal-B) 전용: 의미 보존 검사 추가. 결정론 가드(leveling-guard)는 사실 불변을
+    # 강제하지만 '뉘앙스 왜곡'(부정 뒤집힘·서법어 소실·조건 삭제·벤더 편향)은 못 잡는다.
+    # writer-distinct 리뷰어가 닫힌 enum만 '차단' 신호로 낸다(contradicted 선언 금지).
+    # block=True면 changes_requested로 하향(승인 취소). error/미설정은 비차단(보류 유지).
+    if _is_leveling_packet(packet) and review.verdict == "approve":
+        mp = _meaning_preserved_from_diff(diff_text, packet)
+        if mp.get("block"):
+            reasons += ["leveling meaning-preserved review: BLOCK"] + \
+                       [f"{s['type']}: '{s['before'][:40]}' → '{s['after'][:40]}'" for s in mp.get("signals", [])]
+            reviewer_cfg = review.selected_model or (config.reviewer_model or "unset")
+            return _out(tier, "changes_requested", reasons, args, packet_sha, reviewer_cfg)
+        if mp.get("error"):
+            # fail-closed: 의미보존 검사를 못 돌리면 approve로 떨어지지 않는다(hold).
+            # 레벨링 예외는 '모든 가드 충족'이 전제이므로, 검사 불가 = 비승인(Codex P1, AGENTS.md).
+            reviewer_cfg = review.selected_model or (config.reviewer_model or "unset")
+            return _out(tier, "error",
+                        [f"leveling meaning-preserved review unavailable → hold ({mp['error']})"] + reasons,
+                        args, packet_sha, reviewer_cfg)
+        reasons.append("leveling meaning-preserved review: ok")
 
     # 감사 정확성: 실제 선택된 리뷰어 model을 envelope에 기록(단일 고정값 아님).
     reviewer_cfg = review.selected_model or (config.reviewer_model or "unset")

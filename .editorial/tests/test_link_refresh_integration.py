@@ -109,15 +109,17 @@ class TestFullGateIntegration(unittest.TestCase):
                     packet_repo_path='.editorial/packets/CLPKDOC-1.json', repo='example/test', pr='1',
                     base_sha=base, head_sha=rev, now=None, expires=None, link_refresh_repo=str(root))
             args = inputs(head)
-            review_result = reviewer.ReviewResult('approve', ['ok'], 1, True)
-            with patch.object(reviewer, 'run_review', return_value=review_result), \
+            with patch.object(reviewer, 'run_review', side_effect=AssertionError('URL-only must not invoke LLM')) as review_mock, \
                  patch.object(source_fetch, 'fetch_source', return_value=SimpleNamespace(url=mapping['https://old.example/doc'], status=200)):
                 out = gate.run(args)
                 self.assertEqual((out['tier'], out['state']), ('C', 'success'), out)
                 self.assertIn('link-refresh full-file verification: ok', out['reasons'])
                 original_envelope = out['envelope_key']
-                with patch.object(reviewer, 'run_review', return_value=reviewer.ReviewResult('error', ['unavailable'], 0, False)):
+                review_mock.assert_not_called()
+                with patch.object(source_fetch, 'fetch_source', side_effect=source_fetch.FetchError('unavailable')):
                     self.assertEqual(gate.run(args)['state'], 'pending')
+                with patch.object(source_fetch, 'fetch_source', return_value=SimpleNamespace(url='https://wrong.example/', status=200)):
+                    self.assertEqual(gate.run(args)['state'], 'failure')
                 # Tampering with the committed manifest is blocked even if other inputs are valid.
                 original_packet = packet_path.read_text()
                 invalid_packet = json.loads(original_packet)

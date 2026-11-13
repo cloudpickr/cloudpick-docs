@@ -103,7 +103,7 @@ Manage the background server with `astro dev stop`, `astro dev status`, and `ast
 - **URL 문자열만 교체, 그 외 바이트 불변** — `scripts/link-refresh-guard.py`(결정론)가 '재구성 매칭'으로 증명합니다: 승인된 old→new 매핑을 base에 적용한 결과가 head와 바이트 일치해야 하며, 라인 증감·코드/frontmatter/인라인코드/mermaid 내부 변경·URL 외 텍스트 변경은 fail-closed. **사실·문장 변경은 link-refresh가 아니라 축1 근거 패킷 경로**로 보냅니다.
 - **로케일·버전 파라미터 규칙** — 최종 URL에서 원본에 없던 로케일 세그먼트(`/en-us/` 등)와 추적 파라미터(`icid`·`utm_*`)는 벗깁니다. `?view=`·`?tabs=`·`?pivots=`는 버전 선택자이므로 유지합니다. path-collapse(하위→상위 축약)나 edition/version 토큰 변경은 사람이 확인합니다. 현재 이를 자동 탐지하지 않으므로 모든 link-refresh는 C입니다.
 - **빈 `claim_ledger` + manifest** — 새 사실 주장이 없으므로 claim_ledger는 비웁니다. 패킷 `policy_action: "link-refresh"`(이 단일 필드가 자격을 부여) + `link_refresh.url_map`(old→new) + `manifest_sha256`(전체 경로·매핑·base SHA 해시)로 대량 분산 변경의 완전성을 보증합니다(changed_paths 64 상한 우회). CI가 manifest를 재계산해 대조하며, 리뷰 envelope은 별도로 실제 head SHA에 바인딩합니다.
-- **독립 리뷰 재fetch** — 게이트가 url_map의 각 old URL을 독립 re-fetch해 리다이렉트 체인이 new URL로 끝남을 확인합니다(최종 HTTP 성공 상태 확인; soft-404·path-collapse·edition 변경은 별도 검토 필요). 불일치·fetch 불가는 비승인(hold).
+- **독립 리뷰 재fetch** — 게이트가 url_map의 각 old URL을 독립 re-fetch해 리다이렉트 체인이 new URL로 끝남을 확인합니다(최종 HTTP 성공 상태 확인; soft-404·path-collapse·edition 변경은 별도 검토 필요). 불일치·fetch 불가는 비승인(hold). URL-only 변경은 일반 문서용 LLM 리뷰를 생략하며, 사람 승인과 결정론적 가드는 그대로 필수입니다.
 - **모든 경로는 C** — 리다이렉트만으로 soft-404·path-collapse·판본 변경을 완전히 판별할 수 없으므로 비규제·규제 경로 모두 사람 승인(C)이 필요합니다. core와 규제 PR은 검토를 위해 분리합니다.
 - `policy_action=="link-refresh"`은 C를 부여하며 `editorial-review`에서 신뢰된 base 가드로 전체 파일 및 매니페스트 검증을 강제합니다. 별도 `link-refresh-guard` 잡도 라벨이 아니라 패킷에서 실행 여부를 파생합니다. 해당 잡을 required로 등록하려면 관리자 설정이 별도로 필요합니다.
 
@@ -167,3 +167,5 @@ Consult these guides before working on related tasks:
 - [Adding styles or using Tailwind](https://docs.astro.build/en/guides/styling/)
 - [Supporting multiple languages](https://docs.astro.build/en/guides/internationalization/)
 
+
+일반 문서의 가독성·문장 난이도 개선 제안은 비차단 의견으로 취급합니다. 사실 오류·근거 부족 등은 계속 차단합니다.

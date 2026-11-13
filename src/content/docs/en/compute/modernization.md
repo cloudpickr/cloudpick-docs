@@ -118,7 +118,7 @@ graph LR
 
 A pattern for handling transactions that span multiple services in a microservices environment. Instead of the distributed transactions of a traditional DB, it maintains consistency through **compensating transactions**.
 
-Source: [AWS Prescriptive Guidance — Saga Pattern](https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/saga.html)
+Source: [AWS Prescriptive Guidance — Saga Pattern](https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/saga-patterns.html)
 
 ### Event-driven architecture
 

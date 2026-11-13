@@ -118,7 +118,7 @@ graph LR
 
 마이크로서비스 환경에서 여러 서비스에 걸친 트랜잭션을 처리하는 패턴입니다. 기존 DB의 분산 트랜잭션 대신 **보상 트랜잭션(Compensating Transaction)** 으로 일관성을 유지합니다.
 
-출처: [AWS Prescriptive Guidance — Saga Pattern](https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/saga.html)
+출처: [AWS Prescriptive Guidance — Saga Pattern](https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/saga-patterns.html)
 
 ### Event-Driven Architecture
 

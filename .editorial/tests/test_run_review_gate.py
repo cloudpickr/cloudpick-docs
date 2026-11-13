@@ -366,6 +366,14 @@ class TestLinkRefreshRedirect(unittest.TestCase):
         self.assertEqual(r["mismatches"], [])
         self.assertEqual(r["checked"], 1)
 
+    def test_redirect_check_requests_metadata_only(self):
+        import source_fetch as sf
+        from unittest.mock import patch
+        from types import SimpleNamespace
+        with patch.object(sf, "fetch_source", return_value=SimpleNamespace(url="https://new.com/", status=200)) as fetch:
+            g._verify_redirect_chains({"https://old.com/": "https://new.com/"})
+        fetch.assert_called_once_with("https://old.com/", metadata_only=True)
+
     def test_redirect_mismatch_flagged(self):
         self._patch_fetch({"https://old.com/": "https://elsewhere.com/"})
         r = g._verify_redirect_chains({"https://old.com/": "https://new.com/"})

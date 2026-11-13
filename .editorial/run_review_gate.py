@@ -468,7 +468,7 @@ def _verify_redirect_chains(url_map: dict) -> dict:
     errors = []
     for old, new in url_map.items():
         try:
-            res = sf.fetch_source(old)
+            res = sf.fetch_source(old, metadata_only=True)
         except Exception as e:  # noqa: BLE001  (SSRF 차단·네트워크 실패 포함)
             errors.append(f"{old}: {e}")
             continue

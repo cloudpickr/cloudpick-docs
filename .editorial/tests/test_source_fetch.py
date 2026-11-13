@@ -57,6 +57,22 @@ class TestSSRFResolver(unittest.TestCase):
 
 
 class TestRedirect(unittest.TestCase):
+    def test_metadata_only_validates_each_hop_without_reading_body(self):
+        seen = []
+        bodies = []
+        class UnreadableBody(FakeBody):
+            def read(self, *args):
+                raise AssertionError("metadata-only must not read response bodies")
+        def opener(url):
+            body = UnreadableBody(b"x" * (sf.MAX_BYTES + 1))
+            bodies.append(body)
+            return (302, {"Location": "https://b.test/y"}, body) if len(bodies) == 1 else (200, {}, body)
+        result = sf.fetch_source("https://a.test/x", opener=opener,
+                                 resolver=lambda h: seen.append(h), metadata_only=True)
+        self.assertEqual((result.url, result.status), ("https://b.test/y", 200))
+        self.assertEqual(seen, ["a.test", "b.test"])
+        self.assertTrue(all(body.closed for body in bodies))
+
     def test_redirect_revalidated(self):
         # 리다이렉트 목적지도 resolver로 재검증됨(안전하면 통과)
         seen = []

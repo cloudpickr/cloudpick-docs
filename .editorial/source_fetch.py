@@ -160,10 +160,11 @@ def _validate_url(url: str) -> tuple[str, str]:
     return parsed.hostname, url
 
 
-def fetch_source(url: str, *, opener=None, resolver=None, normalize_content=False) -> FetchResult:
+def fetch_source(url: str, *, opener=None, resolver=None, normalize_content=False, metadata_only=False) -> FetchResult:
     """
     안전 fetch. opener/resolver 주입으로 테스트 가능.
     resolver(host) -> [ip...] (안전성 검사 포함), opener(url) -> (status, headers, body_reader).
+    metadata_only는 리다이렉트 및 최종 상태 확인 전용이며 응답 본문을 읽지 않는다.
     """
     import hashlib
 
@@ -179,12 +180,16 @@ def fetch_source(url: str, *, opener=None, resolver=None, normalize_content=Fals
         status, headers, body = _do_request(current, opener, deadline)
         if status in (301, 302, 303, 307, 308):
             location = headers.get("Location") or headers.get("location")
+            body.close()
             if not location:
                 raise FetchError(f"redirect {status} without Location")
             from urllib.parse import urljoin
             current = urljoin(current, location)
             continue  # 다음 홉에서 재검증
         # 최종 응답
+        if metadata_only:
+            body.close()
+            return FetchResult(current, status, 0, "", "")
         h = hashlib.sha256()
         total = 0
         chunks = []

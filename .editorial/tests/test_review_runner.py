@@ -271,6 +271,8 @@ class TestPromptDataFraming(unittest.TestCase):
         # 이 축이 빠지면 워크플로가 '너무 어렵게 쓰인 문서'를 놓친다(실측 갭 회귀 방지).
         sys_prompt = rr.build_prompt(PACKET, DIFF)[0]["content"].lower()
         self.assertIn("difficulty", sys_prompt)
+        self.assertIn("advisory only", sys_prompt)
+        self.assertIn("factual errors and unsupported claims remain blocking", sys_prompt)
         self.assertTrue(
             "excessively long" in sys_prompt or "dense" in sys_prompt,
             "reader-difficulty axis must describe long/dense paragraphs",

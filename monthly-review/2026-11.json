@@ -10229,6 +10229,237 @@
       "evidence": [],
       "pr": null,
       "last_seen": "2026-11"
+    },
+    {
+      "id": "675fd8303405bae223fc55ba",
+      "path": "src/content/docs/ko/about-cloud/compare-clouds.md",
+      "axis": 2,
+      "reason": "AWS DMS Schema Conversion expands offline source conversion to Oracle (https://aws.amazon.com/about-aws/whats-new/2026/11/aws-dms-schema-conversion-expands-offline-source-conversion-to-oracle/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-dms-schema-conversion-expands-offline-source-conversion-to-oracle/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "0daedb095db46b8f286a8818",
+      "path": "src/content/docs/ko/compute/serverless.md",
+      "axis": 2,
+      "reason": "Amazon MWAA Serverless now supports custom and provider package operators (https://aws.amazon.com/about-aws/whats-new/2026/11/mwaa-serverless-custom-operators/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/mwaa-serverless-custom-operators/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "94afbaeccaee8626f76a99be",
+      "path": "src/content/docs/ko/compute/serverless.md",
+      "axis": 2,
+      "reason": "Amazon MWAA Serverless supports Apache Airflow connections and variables (https://aws.amazon.com/about-aws/whats-new/2026/11/mwaa-serverless-connections-variables/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/mwaa-serverless-connections-variables/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "c552497ab3d50cd1b29848b5",
+      "path": "src/content/docs/ko/ai/ai-ml.md",
+      "axis": 2,
+      "reason": "AWS launches support for amortization of EC2 Capacity Blocks for ML (https://aws.amazon.com/about-aws/whats-new/2026/10/aws-ec2-capacity-blocks-ml/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-ec2-capacity-blocks-ml/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "4aed6ba4a46017f44bce6908",
+      "path": "src/content/docs/ko/us/fedramp.md",
+      "axis": 2,
+      "reason": "Capacity Reservation Resource Groups now support Amazon EC2 Capacity Blocks and interruptible Capacity Reservations in AWS GovCloud (US) Regions (https://aws.amazon.com/about-aws/whats-new/2026/11/capacity-reservation-resource-groups-support-in-aws-govcloud-regions)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/capacity-reservation-resource-groups-support-in-aws-govcloud-regions",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "61494943a37e5af59cd88045",
+      "path": "src/content/docs/ko/us/itar.md",
+      "axis": 2,
+      "reason": "Capacity Reservation Resource Groups now support Amazon EC2 Capacity Blocks and interruptible Capacity Reservations in AWS GovCloud (US) Regions (https://aws.amazon.com/about-aws/whats-new/2026/11/capacity-reservation-resource-groups-support-in-aws-govcloud-regions)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/capacity-reservation-resource-groups-support-in-aws-govcloud-regions",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "3fbab417ebc8451830ff40a9",
+      "path": "src/content/docs/ko/compute/service-mesh.md",
+      "axis": 2,
+      "reason": "Amazon Simple Email Service is now available in six new AWS Regions (https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-simple-email-service-new-aws-regions/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-simple-email-service-new-aws-regions/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "dc0834426bc1b047301cdd90",
+      "path": "src/content/docs/ko/ai/physical-ai/data-and-training.md",
+      "axis": 2,
+      "reason": "AWS Glue Data Catalog now supports catalog-vended credentials with Apache Iceberg REST catalog federation (https://aws.amazon.com/about-aws/whats-new/2026/11/glue-catalog-vended-credentials-iceberg/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/glue-catalog-vended-credentials-iceberg/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "1144de6852eb037bcd24c1ce",
+      "path": "src/content/docs/ko/devops/devsecops.md",
+      "axis": 2,
+      "reason": "AWS Security Hub now provides an SBOM inventory for your compute resources (https://aws.amazon.com/about-aws/whats-new/2026/11/security-hub-sbom-inventory/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/security-hub-sbom-inventory/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "f1603cc92a14b7622187a72a",
+      "path": "src/content/docs/ko/about-cloud/support-plans.md",
+      "axis": 2,
+      "reason": "Managed Service for Apache Airflow (https://docs.cloud.google.com/release-notes#November_06_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_06_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "d9ae82571dfa3f220eff8441",
+      "path": "src/content/docs/ko/database/nosql.md",
+      "axis": 2,
+      "reason": "Firestore with MongoDB compatibility (https://docs.cloud.google.com/release-notes#November_06_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_06_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "cac379783dc80e88a70d2037",
+      "path": "src/content/docs/ko/governance/finops.md",
+      "axis": 2,
+      "reason": "VPC Service Controls (https://docs.cloud.google.com/release-notes#November_06_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_06_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "281f977ad347fff76bcc7ef3",
+      "path": "src/content/docs/ko/governance/landing-zone.md",
+      "axis": 2,
+      "reason": "VPC Service Controls (https://docs.cloud.google.com/release-notes#November_06_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_06_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "1d3ea21a74c63e62eb12d021",
+      "path": "src/content/docs/ko/networking/vpc-subnet.md",
+      "axis": 2,
+      "reason": "VPC Service Controls (https://docs.cloud.google.com/release-notes#November_06_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_06_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "8456c04348f9b1e18753bf16",
+      "path": "src/content/docs/ko/compute/serverless.md",
+      "axis": 2,
+      "reason": "Google Cloud Contact Center as a Service (https://docs.cloud.google.com/release-notes#November_06_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_06_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "04898f53a8e6c19362317c3d",
+      "path": "src/content/docs/ko/compute/service-mesh.md",
+      "axis": 2,
+      "reason": "Google Cloud Contact Center as a Service (https://docs.cloud.google.com/release-notes#November_06_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_06_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "c440243d8e6855db11870894",
+      "path": "src/content/docs/ko/devops/devsecops.md",
+      "axis": 2,
+      "reason": "Google Cloud Contact Center as a Service (https://docs.cloud.google.com/release-notes#November_06_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_06_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "eda94f5768c6708b255789f7",
+      "path": null,
+      "axis": 3,
+      "reason": "AlloyDB for PostgreSQL (https://docs.cloud.google.com/release-notes#November_06_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_06_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "8078925dcd7a9bae871e3211",
+      "path": null,
+      "axis": 3,
+      "reason": "Cloud Asset Inventory (https://docs.cloud.google.com/release-notes#November_06_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_06_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "24493f5bf594d9b2ddba79e2",
+      "path": null,
+      "axis": 3,
+      "reason": "Container Optimized OS (https://docs.cloud.google.com/release-notes#November_06_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_06_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "85d5a38931bb83baf9a63a19",
+      "path": null,
+      "axis": 3,
+      "reason": "Device Data FHIR Service adds eleven FHIR R4 resource types (https://docs.oracle.com/iaas/releasenotes/device-data-fhir/additional-fhir-r4-resources.htm)",
+      "source_url": "https://docs.oracle.com/iaas/releasenotes/device-data-fhir/additional-fhir-r4-resources.htm",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
     }
   ],
   "resolved_ids": [],
@@ -10409,10 +10640,10 @@
         "oci": "complete"
       },
       "2026-11-06": {
-        "aws": "provisional",
-        "gcp": "provisional",
-        "azure": "provisional",
-        "oci": "provisional"
+        "aws": "complete",
+        "gcp": "complete",
+        "azure": "complete",
+        "oci": "complete"
       },
       "2026-09-20": {
         "aws": "complete",
@@ -10505,6 +10736,18 @@
         "oci": "complete"
       },
       "2026-11-14": {
+        "aws": "provisional",
+        "gcp": "provisional",
+        "azure": "provisional",
+        "oci": "provisional"
+      },
+      "2026-09-28": {
+        "aws": "complete",
+        "gcp": "complete",
+        "azure": "complete",
+        "oci": "complete"
+      },
+      "2026-11-15": {
         "aws": "provisional",
         "gcp": "provisional",
         "azure": "provisional",
@@ -10675,10 +10918,10 @@
         "oci": "2026-11-06T06:53:53.439Z"
       },
       "2026-11-06": {
-        "aws": "2026-11-07T06:05:13.850Z",
-        "gcp": "2026-11-07T06:05:13.850Z",
-        "azure": "2026-11-07T06:05:13.850Z",
-        "oci": "2026-11-07T06:05:13.850Z"
+        "aws": "2026-11-15T06:41:46.440Z",
+        "gcp": "2026-11-15T06:41:46.440Z",
+        "azure": "2026-11-15T06:41:46.440Z",
+        "oci": "2026-11-15T06:41:46.440Z"
       },
       "2026-09-20": {
         "aws": "2026-11-07T06:05:13.850Z",
@@ -10771,10 +11014,22 @@
         "oci": "2026-11-14T06:32:22.835Z"
       },
       "2026-11-14": {
-        "aws": "2026-11-14T06:32:22.835Z",
-        "gcp": "2026-11-14T06:32:22.835Z",
-        "azure": "2026-11-14T06:32:22.835Z",
-        "oci": "2026-11-14T06:32:22.835Z"
+        "aws": "2026-11-15T06:41:46.440Z",
+        "gcp": "2026-11-15T06:41:46.440Z",
+        "azure": "2026-11-15T06:41:46.440Z",
+        "oci": "2026-11-15T06:41:46.440Z"
+      },
+      "2026-09-28": {
+        "aws": "2026-11-15T06:41:46.440Z",
+        "gcp": "2026-11-15T06:41:46.440Z",
+        "azure": "2026-11-15T06:41:46.440Z",
+        "oci": "2026-11-15T06:41:46.440Z"
+      },
+      "2026-11-15": {
+        "aws": "2026-11-15T06:41:46.440Z",
+        "gcp": "2026-11-15T06:41:46.440Z",
+        "azure": "2026-11-15T06:41:46.440Z",
+        "oci": "2026-11-15T06:41:46.440Z"
       }
     }
   },

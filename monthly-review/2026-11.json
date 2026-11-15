@@ -10460,6 +10460,244 @@
       "status": "open",
       "evidence": [],
       "pr": null
+    },
+    {
+      "id": "8a22c88ec15d426a93e72fbf",
+      "path": "src/content/docs/ko/about-cloud/getting-started.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://azure.microsoft.com/ko-kr/resources/cloud-computing-dictionary/what-is-azure",
+      "change_digest": "6eaafc831fe8e9b6e4069c05fff047ca13586ce6307cfa80af946bc299c3dcef",
+      "source_url": "https://azure.microsoft.com/ko-kr/resources/cloud-computing-dictionary/what-is-azure",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "d5016b4da3dbe0350c3f7481",
+      "path": "src/content/docs/ko/about-cloud/getting-started.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://azure.microsoft.com/ko-kr/resources/cloud-computing-dictionary/what-is-cloud-computing",
+      "change_digest": "2e8f5c58dfb07c4731cf52877ba817fabdd1e1d76d46dad55a391d9b8eec87fb",
+      "source_url": "https://azure.microsoft.com/ko-kr/resources/cloud-computing-dictionary/what-is-cloud-computing",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "c714771867e1a94bf67ee95b",
+      "path": "src/content/docs/ko/about-cloud/compare-clouds.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://azurespeedtest.azurewebsites.net",
+      "change_digest": "85797bb4612a123b7368bc8172a89417696d1300d5fab87d1df8387a3a245bdd",
+      "source_url": "https://azurespeedtest.azurewebsites.net",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "e841df02a89521fc2ad84214",
+      "path": "src/content/docs/ko/korea/ai/sovereign-fm-policy.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://byline.network/2025/08/8042/",
+      "change_digest": "e3ba68da3a91f17168980ee52facd93b2c428829e68ae7d6b02fe1047328d6fa",
+      "source_url": "https://byline.network/2025/08/8042/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "6751d0e0bb0c46cc18126810",
+      "path": "src/content/docs/ko/singapore/ai-governance.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://aiverifyfoundation.sg/",
+      "change_digest": "ff14d8757258977f6ae07016eacb89fe2681bb7da9a2e3fd2ca8da8add990f01",
+      "source_url": "https://aiverifyfoundation.sg/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "05d1cdef64591899c2f2b043",
+      "path": "src/content/docs/ko/ai/agents.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://antigravity.google/",
+      "change_digest": "673401c179210add754972c2acac4c32c459f325f2ec3e52d959ddc175f5832d",
+      "source_url": "https://antigravity.google/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "020cf438a5e19345df50b2c7",
+      "path": "src/content/docs/ko/ai/physical-ai/data-and-training.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://arxiv.org/abs/2310.08864",
+      "change_digest": "d019edb5c2dc39fc07b0e8c9f4852dd336c48538f8569f1d57821f5b14f6e0a1",
+      "source_url": "https://arxiv.org/abs/2310.08864",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "da82d8cd884b57046a06300a",
+      "path": "src/content/docs/ko/compute/migration.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://aws.amazon.com/app2container/",
+      "change_digest": "1177eab87cb68fc20d5adc7f9fbb83ef62febce336bda1f241ab1bc7628b941d",
+      "source_url": "https://aws.amazon.com/app2container/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "8fd3d46add8ac46b6b130d71",
+      "path": "src/content/docs/ko/compute/modernization.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://aws.amazon.com/app2container/",
+      "change_digest": "1177eab87cb68fc20d5adc7f9fbb83ef62febce336bda1f241ab1bc7628b941d",
+      "source_url": "https://aws.amazon.com/app2container/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "dc49ddf08b4eb9d61701bce3",
+      "path": "src/content/docs/ko/compute/migration.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://aws.amazon.com/application-discovery/",
+      "change_digest": "1177eab87cb68fc20d5adc7f9fbb83ef62febce336bda1f241ab1bc7628b941d",
+      "source_url": "https://aws.amazon.com/application-discovery/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "3868cf790d56baecc73d7b38",
+      "path": "src/content/docs/ko/ai/agents.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://aws.amazon.com/bedrock/agentcore/",
+      "change_digest": "1f927668575bd5c71797118b5080555b63d6dd835021f9fb534f06ac401fa684",
+      "source_url": "https://aws.amazon.com/bedrock/agentcore/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "78456aad0fb08aa1085c9ba8",
+      "path": "src/content/docs/ko/ai/ai-ml.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://aws.amazon.com/bedrock/agentcore/",
+      "change_digest": "1f927668575bd5c71797118b5080555b63d6dd835021f9fb534f06ac401fa684",
+      "source_url": "https://aws.amazon.com/bedrock/agentcore/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "317833eecf556f89fd42ef32",
+      "path": "src/content/docs/ko/ai/1p-vs-3p.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://aws.amazon.com/bedrock/pricing/",
+      "change_digest": "0a1f818444022d2f089b3e90c5fea7130032629250043bb81fa42910a916a77a",
+      "source_url": "https://aws.amazon.com/bedrock/pricing/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "dd9af4a1bfa6d9d21dd9afd1",
+      "path": "src/content/docs/ko/ai/licensing.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://aws.amazon.com/bedrock/pricing/",
+      "change_digest": "0a1f818444022d2f089b3e90c5fea7130032629250043bb81fa42910a916a77a",
+      "source_url": "https://aws.amazon.com/bedrock/pricing/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "3fa7517d0783adae2da49cf0",
+      "path": "src/content/docs/ko/korea/governance/compliance.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://aws.amazon.com/blogs/security/aws-achieves-cloud-security-assurance-program-csap-low-tier-certification-in-aws-seoul-region/",
+      "change_digest": "b60743279529783a1c2d4a42389793bd611c0b8ec92d5ba10ead74608ac22306",
+      "source_url": "https://aws.amazon.com/blogs/security/aws-achieves-cloud-security-assurance-program-csap-low-tier-certification-in-aws-seoul-region/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "f697d6f1021b58d42c7d5e48",
+      "path": "src/content/docs/ko/eu/dora.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://aws.amazon.com/blogs/security/aws-designated-as-a-critical-third-party-provider-under-eus-dora-regulation",
+      "change_digest": "b33d497160668658d67a8c7d8de44eb046aceaad96820159458f48376cb5b9da",
+      "source_url": "https://aws.amazon.com/blogs/security/aws-designated-as-a-critical-third-party-provider-under-eus-dora-regulation",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "f6222e6ec7fa7919d2ba9c35",
+      "path": "src/content/docs/ko/singapore/mtcs.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://aws.amazon.com/blogs/security/aws-renews-mtcs-level-3-certification-under-the-ss5842020-standard",
+      "change_digest": "9ba4c02a10970620f6f9a68abb099ea14889b689a1dee5d11cfbc85a4599d352",
+      "source_url": "https://aws.amazon.com/blogs/security/aws-renews-mtcs-level-3-certification-under-the-ss5842020-standard",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
     }
   ],
   "resolved_ids": [],
@@ -11040,7 +11278,7 @@
         "paths": [
           "src/content/docs/ko/about-cloud/well-architected.mdx"
         ],
-        "checked_at": "2026-10-30T15:13:14Z",
+        "checked_at": "2026-11-15T06:41:56Z",
         "status": "observed",
         "hash": "f03929b9938874bb8f19d522f98e602d2b5635819d31424c8943160cb92326cc",
         "final_url": "https://12factor.net/",
@@ -11050,7 +11288,7 @@
         "paths": [
           "src/content/docs/ko/compute/modernization.md"
         ],
-        "checked_at": "2026-10-30T15:13:14Z",
+        "checked_at": "2026-11-15T06:41:56Z",
         "status": "observed",
         "hash": "0317fe834bab4ef475aed952a4cec3a02d1ac6aa171cc3511cb1a237efc99680",
         "final_url": "https://12factor.net/ko/",
@@ -11060,7 +11298,7 @@
         "paths": [
           "src/content/docs/ko/ai/agents.md"
         ],
-        "checked_at": "2026-11-14T06:32:31Z",
+        "checked_at": "2026-11-15T06:41:56Z",
         "status": "unverified",
         "hash": "dc7fc249911468c4dc00fc4eb92b1c0d611070787422d5a6d767fc3b925fee20",
         "final_url": "https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/",
@@ -11070,7 +11308,7 @@
         "paths": [
           "src/content/docs/ko/singapore/mtcs.md"
         ],
-        "checked_at": "2026-11-14T06:32:31Z",
+        "checked_at": "2026-11-15T06:41:56Z",
         "status": "unverified",
         "hash": "635b02875de69e3cc1de1579b70facd5f4c19edf127bd2e3769e8a92f70b360b",
         "final_url": "https://abs.org.sg/docs/library/abs-ospar-guidelines-v2-0.pdf",
@@ -11080,7 +11318,7 @@
         "paths": [
           "src/content/docs/ko/ai/agents.md"
         ],
-        "checked_at": "2026-11-14T06:32:31Z",
+        "checked_at": "2026-11-15T06:41:56Z",
         "status": "unverified",
         "hash": "279273094623330fe250f2984391cac02002276942f6d2dbd8537e495fae1bdf",
         "final_url": "https://www.ag2.ai/",
@@ -11090,7 +11328,7 @@
         "paths": [
           "src/content/docs/ko/ai/getting-started.md"
         ],
-        "checked_at": "2026-11-14T06:32:31Z",
+        "checked_at": "2026-11-15T06:41:56Z",
         "status": "unverified",
         "hash": "ae0f8a0945b3d1cf6945ebf983706906940024c6f02864250619be546f2c10a2",
         "final_url": "https://ai.azure.com/",
@@ -11100,17 +11338,18 @@
         "paths": [
           "src/content/docs/ko/ai/ai-ml.md"
         ],
-        "checked_at": "2026-10-30T15:13:14Z",
-        "status": "observed",
+        "checked_at": "2026-11-15T06:41:56Z",
+        "status": "unverified",
         "hash": "0788f1144d46ff99a22949cca3e4233cdecd631e6ad00f896b1729f02d1076cf",
         "final_url": "https://ai.google.dev/",
-        "hash_kind": "visible-v1"
+        "hash_kind": "visible-v1",
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://ai.google/responsibility/responsible-ai-practices/": {
         "paths": [
           "src/content/docs/ko/security/ai-security.md"
         ],
-        "checked_at": "2026-10-30T15:13:14Z",
+        "checked_at": "2026-11-15T06:41:56Z",
         "status": "observed",
         "hash": "c850edb17930eaddba0ae597961b26abd409de30a969dca0f22133f73ce1d728",
         "final_url": "https://ai.google/principles/#our-ai-principles-in-action",
@@ -11120,9 +11359,9 @@
         "paths": [
           "src/content/docs/ko/singapore/ai-governance.md"
         ],
-        "checked_at": "2026-10-30T15:13:14Z",
+        "checked_at": "2026-11-15T06:41:56Z",
         "status": "observed",
-        "hash": "153a086c2fc5a0a61bc35fe24799af47d3cb1adbfc92adaa146ce45d888edcdd",
+        "hash": "30aeae24b89cb20a9e631956f37237494ba040815d4cdf492274f20ac065013f",
         "final_url": "https://aiverifyfoundation.sg/",
         "hash_kind": "visible-v1"
       },
@@ -11130,7 +11369,7 @@
         "paths": [
           "src/content/docs/ko/singapore/ai-governance.md"
         ],
-        "checked_at": "2026-11-14T06:32:31Z",
+        "checked_at": "2026-11-15T06:41:56Z",
         "status": "unverified",
         "hash": "861c9baae1bb9420d984be6abe0a5a19d6b07730363337bf8a901ea68a37c87d",
         "final_url": "https://aiverifyfoundation.sg/resources/mgf-gen-ai/",
@@ -11140,9 +11379,9 @@
         "paths": [
           "src/content/docs/ko/ai/agents.md"
         ],
-        "checked_at": "2026-10-30T15:13:14Z",
+        "checked_at": "2026-11-15T06:41:56Z",
         "status": "observed",
-        "hash": "e5e475c132c092622f57ed07e0a1345c1786d4af147ee016480633b2f4ff822b",
+        "hash": "29c8df26656bb7ccb447a1320b305501e5d50bea293dee56a4ce18a2c4c3d6f2",
         "final_url": "https://antigravity.google/",
         "hash_kind": "visible-v1"
       },
@@ -11150,7 +11389,7 @@
         "paths": [
           "src/content/docs/ko/devops/devsecops.md"
         ],
-        "checked_at": "2026-11-14T06:32:31Z",
+        "checked_at": "2026-11-15T06:41:56Z",
         "status": "unverified",
         "hash": "6ce84a59d0c606ad8c2c2b3d3703944b3097b677f6a9c36c22154de4e3295152",
         "final_url": "https://aquasecurity.github.io/tfsec/",
@@ -11160,7 +11399,7 @@
         "paths": [
           "src/content/docs/ko/devops/kubernetes-operations.mdx"
         ],
-        "checked_at": "2026-10-30T15:13:14Z",
+        "checked_at": "2026-11-15T06:41:56Z",
         "status": "observed",
         "hash": "327deeee1e04254a3e0506c5b531cfacf6c056cff6cc466d5bfa69789a1acc65",
         "final_url": "https://argo-cd.readthedocs.io/en/stable/",
@@ -11170,7 +11409,7 @@
         "paths": [
           "src/content/docs/ko/ai/llmops.md"
         ],
-        "checked_at": "2026-11-14T06:32:31Z",
+        "checked_at": "2026-11-15T06:41:56Z",
         "status": "unverified",
         "hash": "84e61b481a6f8d7a78ec8093dce057a9e2b06a9ea80957e5c3766d9b595ef09c",
         "final_url": "https://arize.com/",
@@ -11182,7 +11421,7 @@
           "src/content/docs/ko/governance/compliance.md",
           "src/content/docs/ko/security/ai-security.md"
         ],
-        "checked_at": "2026-10-30T15:13:14Z",
+        "checked_at": "2026-11-15T06:41:56Z",
         "status": "observed",
         "hash": "c9fff7914bee0fd72de9e472cf966fb276fe98e65436ab12e9a9ca32a15e093a",
         "final_url": "https://artificialintelligenceact.eu/",
@@ -11192,7 +11431,7 @@
         "paths": [
           "src/content/docs/ko/ai/prompt-engineering.md"
         ],
-        "checked_at": "2026-10-30T15:13:14Z",
+        "checked_at": "2026-11-15T06:41:56Z",
         "status": "observed",
         "hash": "885edb02701b62e27d90d713fd86702b11c914db7c0eaa247e8e9a024692979f",
         "final_url": "https://arxiv.org/abs/2005.14165",
@@ -11202,7 +11441,7 @@
         "paths": [
           "src/content/docs/ko/ai/prompt-engineering.md"
         ],
-        "checked_at": "2026-10-30T15:13:14Z",
+        "checked_at": "2026-11-15T06:41:56Z",
         "status": "observed",
         "hash": "e835baf1da3c26dfb9d980fe4bc234cd800da3d7cd553907856f9bbbef38b1a3",
         "final_url": "https://arxiv.org/abs/2201.11903",
@@ -11212,7 +11451,7 @@
         "paths": [
           "src/content/docs/ko/ai/prompt-engineering.md"
         ],
-        "checked_at": "2026-10-30T15:13:14Z",
+        "checked_at": "2026-11-15T06:41:56Z",
         "status": "observed",
         "hash": "9c9a668f340dae722f8cf45671aea37b9ca96a6e94a5f7b69763eba72078023f",
         "final_url": "https://arxiv.org/abs/2210.03629",
@@ -11222,9 +11461,9 @@
         "paths": [
           "src/content/docs/ko/ai/physical-ai/data-and-training.md"
         ],
-        "checked_at": "2026-10-30T15:13:14Z",
+        "checked_at": "2026-11-15T06:41:56Z",
         "status": "observed",
-        "hash": "a8169fe2ac57161c320f8976299d2a9cfb3091bcccfc1ca1e6e3d9c8908f2e9e",
+        "hash": "f794ec1e9df93ad4fbb25f042608dbf8a5e67cddb4f109043526e36b856eb865",
         "final_url": "https://arxiv.org/abs/2310.08864",
         "hash_kind": "visible-v1"
       },
@@ -11240,7 +11479,7 @@
         "paths": [
           "src/content/docs/ko/devops/observability.md"
         ],
-        "checked_at": "2026-11-14T06:32:31Z",
+        "checked_at": "2026-11-15T06:41:56Z",
         "status": "unverified",
         "hash": "b472569757f991e0df0919150abea62828a7651cc991dfcabea1158bc12ba1fe",
         "final_url": "https://aws-otel.github.io/",
@@ -11251,7 +11490,7 @@
           "src/content/docs/ko/about-cloud/regions-and-zones.md",
           "src/content/docs/ko/compute/hybrid-and-edge.md"
         ],
-        "checked_at": "2026-10-30T15:13:14Z",
+        "checked_at": "2026-11-15T06:41:56Z",
         "status": "observed",
         "hash": "a5d5d2b04bcac57c243e825c308698a28ced017b43333bcc62dd9e951e54ab62",
         "final_url": "https://aws.amazon.com/about-aws/global-infrastructure/localzones/",
@@ -11261,7 +11500,7 @@
         "paths": [
           "src/content/docs/ko/about-cloud/compare-clouds.md"
         ],
-        "checked_at": "2026-10-30T15:13:14Z",
+        "checked_at": "2026-11-15T06:41:56Z",
         "status": "observed",
         "hash": "c55e24ed15d08b8fb046060b14f5b3e326f1467f542deca0920808c7b8876e4f",
         "final_url": "https://aws.amazon.com/about-aws/global-infrastructure/regions_az/",
@@ -11271,7 +11510,7 @@
         "paths": [
           "src/content/docs/ko/ai/vector-store.md"
         ],
-        "checked_at": "2026-10-30T15:13:14Z",
+        "checked_at": "2026-11-15T06:41:56Z",
         "status": "observed",
         "hash": "8b965129b4403ac53e78fc718c4b9276b5f206c4419ad381889f23c3e08adb31",
         "final_url": "https://aws.amazon.com/about-aws/whats-new/2023/07/amazon-aurora-postgresql-pgvector-vector-storage-similarity-search/",
@@ -11281,7 +11520,7 @@
         "paths": [
           "src/content/docs/ko/ai/agents.md"
         ],
-        "checked_at": "2026-10-30T15:13:14Z",
+        "checked_at": "2026-11-15T06:41:56Z",
         "status": "observed",
         "hash": "0733080b8b43bb245e1ce5dae9d1165d15ad639fd06ad3ac467892f7316161a7",
         "final_url": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-quick-always-on-agents-sharper-feed-enterprise-controls/",
@@ -11312,9 +11551,9 @@
           "src/content/docs/ko/compute/migration.md",
           "src/content/docs/ko/compute/modernization.md"
         ],
-        "checked_at": "2026-10-30T15:13:14Z",
+        "checked_at": "2026-11-15T06:41:56Z",
         "status": "observed",
-        "hash": "0be8ef896c45dc91f68498f21f2d9db07890b85eca436c09b0ebbb0f8bfc60df",
+        "hash": "0d8b8fce98297a9a6468d7037917f9ec1921653be4d9a86226f76ae173c1c85b",
         "final_url": "https://aws.amazon.com/transform/",
         "hash_kind": "visible-v1"
       },
@@ -11322,9 +11561,9 @@
         "paths": [
           "src/content/docs/ko/compute/migration.md"
         ],
-        "checked_at": "2026-10-30T15:13:14Z",
+        "checked_at": "2026-11-15T06:41:56Z",
         "status": "observed",
-        "hash": "0be8ef896c45dc91f68498f21f2d9db07890b85eca436c09b0ebbb0f8bfc60df",
+        "hash": "0d8b8fce98297a9a6468d7037917f9ec1921653be4d9a86226f76ae173c1c85b",
         "final_url": "https://aws.amazon.com/transform/",
         "hash_kind": "visible-v1"
       },
@@ -11332,7 +11571,7 @@
         "paths": [
           "src/content/docs/ko/compute/migration.md"
         ],
-        "checked_at": "2026-10-30T15:13:14Z",
+        "checked_at": "2026-11-15T06:41:56Z",
         "status": "observed",
         "hash": "77cfcdc6c61d473509bd70d041eea93b9bb3a362581423b9a1aacb589509c67e",
         "final_url": "https://aws.amazon.com/application-migration-service/",
@@ -11342,7 +11581,7 @@
         "paths": [
           "src/content/docs/ko/about-cloud/decision-framework.md"
         ],
-        "checked_at": "2026-10-30T15:13:14Z",
+        "checked_at": "2026-11-15T06:41:56Z",
         "status": "observed",
         "hash": "779de5767b3b2911230eb886463e2ac81ded90872e6037fa1c6dccc366a09357",
         "final_url": "https://aws.amazon.com/architecture/well-architected/",
@@ -11353,7 +11592,7 @@
           "src/content/docs/ko/about-cloud/shared-responsibility.mdx",
           "src/content/docs/ko/governance/compliance.md"
         ],
-        "checked_at": "2026-10-30T15:13:14Z",
+        "checked_at": "2026-11-15T06:41:56Z",
         "status": "observed",
         "hash": "a3a715541d24b1bb76e0597a4fdd965275c075a249b14c309ff6e46b049cf26e",
         "final_url": "https://aws.amazon.com/artifact/",
@@ -11363,7 +11602,7 @@
         "paths": [
           "src/content/docs/ko/governance/finops.md"
         ],
-        "checked_at": "2026-10-30T15:13:14Z",
+        "checked_at": "2026-11-15T06:41:56Z",
         "status": "observed",
         "hash": "f99cbfef1a6fdd9e25a8899208c528fba4aa8cf1d4469a931abf434173fc41d0",
         "final_url": "https://aws.amazon.com/aws-cost-management/aws-budgets/",
@@ -11373,7 +11612,7 @@
         "paths": [
           "src/content/docs/ko/governance/finops.md"
         ],
-        "checked_at": "2026-10-30T15:13:14Z",
+        "checked_at": "2026-11-15T06:41:56Z",
         "status": "observed",
         "hash": "f7828e93c417ffdee17f92055157fe0103867abfbe64807fc1f4f9a9e40045c9",
         "final_url": "https://aws.amazon.com/aws-cost-management/aws-cost-explorer/",
@@ -11383,7 +11622,7 @@
         "paths": [
           "src/content/docs/ko/governance/finops.md"
         ],
-        "checked_at": "2026-10-30T15:13:14Z",
+        "checked_at": "2026-11-15T06:41:56Z",
         "status": "observed",
         "hash": "5c84c81e84f90e246508cbd423e52279f7f23fbb617ff584fc53477c084710ac",
         "final_url": "https://aws.amazon.com/aws-cost-management/cost-optimization-hub/",
@@ -11393,7 +11632,7 @@
         "paths": [
           "src/content/docs/ko/ai/ai-ml.md"
         ],
-        "checked_at": "2026-10-30T15:13:14Z",
+        "checked_at": "2026-11-15T06:41:56Z",
         "status": "observed",
         "hash": "20fed5e6ec71669f46f74d715ca2720e73ae4d16d7f2e7b6cd4c954958b01402",
         "final_url": "https://aws.amazon.com/bedrock/",
@@ -11404,9 +11643,9 @@
           "src/content/docs/ko/ai/agents.md",
           "src/content/docs/ko/ai/ai-ml.md"
         ],
-        "checked_at": "2026-10-30T15:13:14Z",
+        "checked_at": "2026-11-15T06:41:56Z",
         "status": "observed",
-        "hash": "efdaa75e5d18e3d7f3114d1b37974417844cce0c83e8397da5de3bf21db0def1",
+        "hash": "2796cc7f0a8a374b865d091150850878febba3e5869f1334f54f13e8e0fbae68",
         "final_url": "https://aws.amazon.com/bedrock/agentcore/",
         "hash_kind": "visible-v1"
       },
@@ -11415,7 +11654,7 @@
           "src/content/docs/ko/ai/ai-ml.md",
           "src/content/docs/ko/ai/rag-patterns.md"
         ],
-        "checked_at": "2026-10-30T15:13:14Z",
+        "checked_at": "2026-11-15T06:41:56Z",
         "status": "observed",
         "hash": "73d803a855027a20063be86bbffb3255310e48593f70053202c2db2f70beeb4e",
         "final_url": "https://aws.amazon.com/bedrock/knowledge-bases/",
@@ -11426,9 +11665,9 @@
           "src/content/docs/ko/ai/1p-vs-3p.md",
           "src/content/docs/ko/ai/licensing.md"
         ],
-        "checked_at": "2026-10-30T15:13:14Z",
+        "checked_at": "2026-11-15T06:41:56Z",
         "status": "observed",
-        "hash": "8cea182d0f5fea0251be5d6472e6192801099d2ab7162f0439a8681966f17fee",
+        "hash": "0f41c492a714d2aa325b3b7b250c146f5884679a7afb33072ba9fd815c83168e",
         "final_url": "https://aws.amazon.com/bedrock/pricing/",
         "hash_kind": "visible-v1"
       },
@@ -11446,9 +11685,9 @@
         "paths": [
           "src/content/docs/ko/korea/governance/compliance.md"
         ],
-        "checked_at": "2026-10-30T15:13:14Z",
+        "checked_at": "2026-11-15T06:41:56Z",
         "status": "observed",
-        "hash": "8ae4fa88cb2692981bede347a53122527a8ab23dba1e37849a7c614d76d47f30",
+        "hash": "7037c24d82ba4453a1af8e8b22c68660ed0be7da8b0a39969b96d57dc28a1dcc",
         "final_url": "https://aws.amazon.com/blogs/security/aws-achieves-cloud-security-assurance-program-csap-low-tier-certification-in-aws-seoul-region/",
         "hash_kind": "visible-v1"
       },
@@ -11456,9 +11695,9 @@
         "paths": [
           "src/content/docs/ko/eu/dora.md"
         ],
-        "checked_at": "2026-10-30T15:13:14Z",
+        "checked_at": "2026-11-15T06:41:56Z",
         "status": "observed",
-        "hash": "80fbb7fd34d1c46ccf3bbb94fa9a6837f30c63e4f202ce61f73208a1127c6cf9",
+        "hash": "7a82d83293d52f1f35e84b627a21fc652e54a0c00708743aa93160d5f1803cec",
         "final_url": "https://aws.amazon.com/blogs/security/aws-designated-as-a-critical-third-party-provider-under-eus-dora-regulation/",
         "hash_kind": "visible-v1"
       },
@@ -11466,9 +11705,9 @@
         "paths": [
           "src/content/docs/ko/singapore/mtcs.md"
         ],
-        "checked_at": "2026-10-30T15:13:14Z",
+        "checked_at": "2026-11-15T06:41:56Z",
         "status": "observed",
-        "hash": "28e9ca6562e88715b170f42b8742ca6ef953e115e2b56247df6fb04b508bc59b",
+        "hash": "c38a44b20dec85d579089850a308ff803d94efb9c32ec7cc5349282946ccc181",
         "final_url": "https://aws.amazon.com/blogs/security/aws-renews-mtcs-level-3-certification-under-the-ss5842020-standard/",
         "hash_kind": "visible-v1"
       },
@@ -11476,7 +11715,7 @@
         "paths": [
           "src/content/docs/ko/governance/getting-started.md"
         ],
-        "checked_at": "2026-10-30T15:13:14Z",
+        "checked_at": "2026-11-15T06:41:56Z",
         "status": "observed",
         "hash": "01f57dd6e3ffcd44e457953557ee914ec9d5cd8e0e6f93d265be5c83e81b0473",
         "final_url": "https://aws.amazon.com/cloud-adoption-framework/",
@@ -11486,7 +11725,7 @@
         "paths": [
           "src/content/docs/ko/storage/migration.md"
         ],
-        "checked_at": "2026-10-30T15:13:14Z",
+        "checked_at": "2026-11-15T06:41:56Z",
         "status": "observed",
         "hash": "e37772da9e9b0996d93780d25bb1aec0004042d626d99391ce6c88e67318e375",
         "final_url": "https://aws.amazon.com/cloud-data-migration/",
@@ -11496,7 +11735,7 @@
         "paths": [
           "src/content/docs/ko/compute/migration.md"
         ],
-        "checked_at": "2026-10-30T15:13:14Z",
+        "checked_at": "2026-11-15T06:41:56Z",
         "status": "observed",
         "hash": "4639bd8129ba29863918b93653525b1da18a98053a5c52a40ccf4d9f7cd74dd0",
         "final_url": "https://aws.amazon.com/migration-and-modernization/",
@@ -11506,7 +11745,7 @@
         "paths": [
           "src/content/docs/ko/governance/compliance.md"
         ],
-        "checked_at": "2026-10-30T15:13:14Z",
+        "checked_at": "2026-11-15T06:41:56Z",
         "status": "observed",
         "hash": "4722b5df6f1524086109dd30feb293140a8fa0867606d99f5df3ea862133cac0",
         "final_url": "https://aws.amazon.com/cloudtrail/",
@@ -11516,7 +11755,7 @@
         "paths": [
           "src/content/docs/ko/singapore/mtcs.md"
         ],
-        "checked_at": "2026-10-30T15:13:14Z",
+        "checked_at": "2026-11-15T06:41:56Z",
         "status": "observed",
         "hash": "52844020d91af1a51b30e4dc839af25c672d04bc58d09c65d880a8774c3ef91e",
         "final_url": "https://aws.amazon.com/compliance/aws-multitiered-cloud-security-standard-certification/",
@@ -11526,7 +11765,7 @@
         "paths": [
           "src/content/docs/ko/korea/governance/compliance.md"
         ],
-        "checked_at": "2026-10-30T15:13:14Z",
+        "checked_at": "2026-11-15T06:41:56Z",
         "status": "observed",
         "hash": "a38316c71902206067ad7cd165685d57fdc283341942a02ab6ca299692a50c90",
         "final_url": "https://aws.amazon.com/compliance/csap/",
@@ -11537,7 +11776,7 @@
           "src/content/docs/ko/about-cloud/regions-and-zones.md",
           "src/content/docs/ko/governance/landing-zone.md"
         ],
-        "checked_at": "2026-10-30T15:13:14Z",
+        "checked_at": "2026-11-15T06:41:56Z",
         "status": "observed",
         "hash": "bc00f06b996761f292a4c131b48a3754809999002048aea5cdf124cf9524e778",
         "final_url": "https://aws.amazon.com/compliance/digital-sovereignty/",
@@ -11547,7 +11786,7 @@
         "paths": [
           "src/content/docs/ko/eu/national-schemes.md"
         ],
-        "checked_at": "2026-10-30T15:13:14Z",
+        "checked_at": "2026-11-15T06:41:56Z",
         "status": "observed",
         "hash": "55f8fdb022f29b886a37f7ebcc4a29e73998e67b96db35a812eb9aa1912c4737",
         "final_url": "https://aws.amazon.com/compliance/esquema-nacional-de-seguridad/",
@@ -12299,7 +12538,7 @@
         "paths": [
           "src/content/docs/ko/about-cloud/shared-responsibility.mdx"
         ],
-        "checked_at": "2026-10-30T15:06:11Z",
+        "checked_at": "2026-11-15T06:41:56Z",
         "status": "observed",
         "hash": "5bbe7e4ca716b7fc1bf8b1c3efbae3276f5590dc5c400664d5f91766652bf48f",
         "hash_kind": "visible-v1",
@@ -12309,15 +12548,17 @@
         "paths": [
           "src/content/docs/ko/about-cloud/pricing-model.md"
         ],
-        "checked_at": "2026-10-30T15:06:11Z",
-        "status": "unverified",
-        "error": "TimeoutError"
+        "checked_at": "2026-11-15T06:41:56Z",
+        "status": "observed",
+        "hash": "5ae0700623fd7bf1053eb0cd4bf0dbee68c1f97071e392c7d7e19e3520fdb49c",
+        "hash_kind": "visible-v1",
+        "final_url": "https://azure.microsoft.com/ko-kr/pricing/purchase-options/azure-account?icid=azurefreeaccount"
       },
       "https://azure.microsoft.com/ko-kr/pricing/": {
         "paths": [
           "src/content/docs/ko/about-cloud/pricing-model.md"
         ],
-        "checked_at": "2026-10-30T15:06:11Z",
+        "checked_at": "2026-11-15T06:41:56Z",
         "status": "observed",
         "hash": "2426212aa3670b65710cfb5cc32540e786626afed708cac02d8624c16100ac4b",
         "hash_kind": "visible-v1",
@@ -12327,7 +12568,7 @@
         "paths": [
           "src/content/docs/ko/about-cloud/pricing-model.md"
         ],
-        "checked_at": "2026-10-30T15:06:11Z",
+        "checked_at": "2026-11-15T06:41:56Z",
         "status": "unverified",
         "error": "unsupported-or-insufficient-visible-content"
       },
@@ -12335,7 +12576,7 @@
         "paths": [
           "src/content/docs/ko/about-cloud/pricing-model.md"
         ],
-        "checked_at": "2026-10-30T15:06:11Z",
+        "checked_at": "2026-11-15T06:41:56Z",
         "status": "observed",
         "hash": "9c3eb997895774571753a7d1c278ab7732c15e3c5cdb64d74c9bdd4f97653faf",
         "hash_kind": "visible-v1",
@@ -12345,7 +12586,7 @@
         "paths": [
           "src/content/docs/ko/networking/multicloud-connectivity.md"
         ],
-        "checked_at": "2026-10-30T15:06:11Z",
+        "checked_at": "2026-11-15T06:41:56Z",
         "status": "observed",
         "hash": "a5f6109090470e6bd665b914f09155baf36fcf03e48c3f448d7fc63882c5969b",
         "hash_kind": "visible-v1",
@@ -12355,9 +12596,9 @@
         "paths": [
           "src/content/docs/ko/about-cloud/getting-started.md"
         ],
-        "checked_at": "2026-10-30T15:06:11Z",
+        "checked_at": "2026-11-15T06:41:56Z",
         "status": "observed",
-        "hash": "d0bcf2e4b829b17cc8f9e528bcd172613f280936b92446cd64c7bb1c27041403",
+        "hash": "b52ba39687372e1ac173257bc33fbbffa9610ade19e619160143f4d6d6bba25c",
         "hash_kind": "visible-v1",
         "final_url": "https://azure.microsoft.com/ko-kr/resources/cloud-computing-dictionary/what-is-azure"
       },
@@ -12365,9 +12606,9 @@
         "paths": [
           "src/content/docs/ko/about-cloud/getting-started.md"
         ],
-        "checked_at": "2026-10-30T15:06:11Z",
+        "checked_at": "2026-11-15T06:41:56Z",
         "status": "observed",
-        "hash": "265c6c4342b9698571eed2ecb9027fa162dd00fd24f95c86a323e81f5f252412",
+        "hash": "9e1be00660efd46e5ba6182c7d3c6f8653e3598b3014862791f4ec9a1eea5f56",
         "hash_kind": "visible-v1",
         "final_url": "https://azure.microsoft.com/ko-kr/resources/cloud-computing-dictionary/what-is-cloud-computing"
       },
@@ -12375,7 +12616,7 @@
         "paths": [
           "src/content/docs/ko/networking/multicloud-connectivity.md"
         ],
-        "checked_at": "2026-10-30T15:06:11Z",
+        "checked_at": "2026-11-15T06:41:56Z",
         "status": "observed",
         "hash": "dc5ef9aa9dadda63671cbd88765df00667f41c7a5670dd7defb3c48e3c43c538",
         "hash_kind": "visible-v1",
@@ -12385,15 +12626,17 @@
         "paths": [
           "src/content/docs/ko/ai/ai-ml.md"
         ],
-        "checked_at": "2026-10-30T15:06:11Z",
-        "status": "unverified",
-        "error": "TimeoutError"
+        "checked_at": "2026-11-15T06:41:56Z",
+        "status": "observed",
+        "hash": "8c930264f9cd3a5d9faaae5a7c86558837441c7a93b3b5b38cf79a8311b79061",
+        "hash_kind": "visible-v1",
+        "final_url": "https://azure.microsoft.com/en-us/products/ai-foundry/models/openai/"
       },
       "https://azure.microsoft.com/products/app-service/": {
         "paths": [
           "src/content/docs/ko/compute/modernization.md"
         ],
-        "checked_at": "2026-10-30T15:06:11Z",
+        "checked_at": "2026-11-15T06:41:56Z",
         "status": "observed",
         "hash": "2996ded59845584433b15914b2beb8bc4c5cf4c21b6e06f51e51d5404166cd01",
         "hash_kind": "visible-v1",
@@ -12404,7 +12647,7 @@
           "src/content/docs/ko/about-cloud/compare-clouds.md",
           "src/content/docs/ko/compute/hybrid-and-edge.md"
         ],
-        "checked_at": "2026-10-30T15:06:11Z",
+        "checked_at": "2026-11-15T06:41:56Z",
         "status": "observed",
         "hash": "c8ef67c5a11f6d6f4c6ab41b070f419bf272cd2ef3410125336b9917fd321d3c",
         "hash_kind": "visible-v1",
@@ -12414,17 +12657,18 @@
         "paths": [
           "src/content/docs/ko/compute/migration.md"
         ],
-        "checked_at": "2026-10-30T15:06:11Z",
-        "status": "observed",
+        "checked_at": "2026-11-15T06:41:56Z",
+        "status": "unverified",
         "hash": "406e04acea0ea4a46fb04d2e243a0174ed14127c5303f7376f337b5e8972ff36",
         "hash_kind": "visible-v1",
-        "final_url": "https://azure.microsoft.com/en-us/products/azure-migrate/"
+        "final_url": "https://azure.microsoft.com/en-us/products/azure-migrate/",
+        "error": "TimeoutError"
       },
       "https://azure.microsoft.com/products/container-apps/": {
         "paths": [
           "src/content/docs/ko/compute/modernization.md"
         ],
-        "checked_at": "2026-10-30T15:06:11Z",
+        "checked_at": "2026-11-15T06:41:56Z",
         "status": "observed",
         "hash": "8477d8fe3f94fe4f134ebcb1bba5ad7ab295e512d0bad7a57e3320f38f5f3566",
         "hash_kind": "visible-v1",
@@ -12434,7 +12678,7 @@
         "paths": [
           "src/content/docs/ko/storage/migration.md"
         ],
-        "checked_at": "2026-10-30T15:06:11Z",
+        "checked_at": "2026-11-15T06:41:56Z",
         "status": "observed",
         "hash": "3d7debf5be34e28213457c47f2f83d2bf015d0eed3c2f98097d1acdb929b2ba3",
         "hash_kind": "visible-v1",
@@ -12444,7 +12688,7 @@
         "paths": [
           "src/content/docs/ko/governance/compliance.md"
         ],
-        "checked_at": "2026-10-30T15:06:11Z",
+        "checked_at": "2026-11-15T06:41:56Z",
         "status": "unverified",
         "error": "TimeoutError"
       },
@@ -12452,7 +12696,7 @@
         "paths": [
           "src/content/docs/ko/ai/physical-ai/data-and-training.md"
         ],
-        "checked_at": "2026-10-30T15:06:11Z",
+        "checked_at": "2026-11-15T06:41:56Z",
         "status": "observed",
         "hash": "5413f26a783df863ad052172f71290b629387da2f1f48b4ab77dda931a091523",
         "hash_kind": "visible-v1",
@@ -12462,7 +12706,7 @@
         "paths": [
           "src/content/docs/ko/compute/modernization.md"
         ],
-        "checked_at": "2026-10-30T15:06:11Z",
+        "checked_at": "2026-11-15T06:41:56Z",
         "status": "observed",
         "hash": "17a1b97b5ffa76e74b176b7c8e4375baa333ece5aba3a5d2449fd9b6e4cfd664",
         "hash_kind": "visible-v1",
@@ -12472,7 +12716,7 @@
         "paths": [
           "src/content/docs/ko/security/data-protection.md"
         ],
-        "checked_at": "2026-10-30T15:06:11Z",
+        "checked_at": "2026-11-15T06:41:56Z",
         "status": "observed",
         "hash": "fc09a3a99f51c15138134c17b31715ca1e3e7cd3b5a8050009c66623608fc97d",
         "hash_kind": "visible-v1",
@@ -12482,7 +12726,7 @@
         "paths": [
           "src/content/docs/ko/governance/exit-strategy.md"
         ],
-        "checked_at": "2026-10-30T15:06:11Z",
+        "checked_at": "2026-11-15T06:41:56Z",
         "status": "observed",
         "hash": "4faaf2d2f0c54ad389e0ae594db9fe9bda81cc93796830e6098f0413909262aa",
         "hash_kind": "visible-v1",
@@ -12502,9 +12746,9 @@
         "paths": [
           "src/content/docs/ko/about-cloud/compare-clouds.md"
         ],
-        "checked_at": "2026-10-30T15:06:11Z",
+        "checked_at": "2026-11-15T06:41:56Z",
         "status": "observed",
-        "hash": "68a71091fc8530000b323d77a441f930a2f1355cde1c36a7f6829a560d582edb",
+        "hash": "96f7d4e9cf9ed8aa374a893abc98b2e06cb8921e0fdf9421ad8d6708d2751e4e",
         "hash_kind": "visible-v1",
         "final_url": "https://www.azurespeed.com/Azure/Latency"
       },
@@ -12512,7 +12756,7 @@
         "paths": [
           "src/content/docs/ko/devops/platform-engineering.md"
         ],
-        "checked_at": "2026-10-30T15:06:11Z",
+        "checked_at": "2026-11-15T06:41:56Z",
         "status": "unverified",
         "error": "unsupported-or-insufficient-visible-content"
       },
@@ -12520,47 +12764,51 @@
         "paths": [
           "src/content/docs/ko/ai/agents.md"
         ],
-        "checked_at": "2026-10-30T15:06:11Z",
-        "status": "observed",
+        "checked_at": "2026-11-15T06:41:56Z",
+        "status": "unverified",
         "hash": "cf0d113466e6ce909ff102166172ec2d44986462fe9085fe8e5fa6b978a51e7e",
         "hash_kind": "visible-v1",
-        "final_url": "https://blog.google/innovation-and-ai/products/gemini-app/next-evolution-gemini-app/"
+        "final_url": "https://blog.google/innovation-and-ai/products/gemini-app/next-evolution-gemini-app/",
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://blogs.microsoft.com/blog/2025/06/16/announcing-comprehensive-sovereign-solutions-empowering-european-organizations/": {
         "paths": [
           "src/content/docs/ko/eu/gdpr-sovereignty.md"
         ],
-        "checked_at": "2026-10-30T15:06:11Z",
-        "status": "observed",
+        "checked_at": "2026-11-15T06:41:56Z",
+        "status": "unverified",
         "hash": "29dc1a2ca61edc1fd9e1ea047f8815985d43d2ca08b27bdbc34f2dd42f312593",
         "hash_kind": "visible-v1",
-        "final_url": "https://blogs.microsoft.com/blog/2025/06/16/announcing-comprehensive-sovereign-solutions-empowering-european-organizations/"
+        "final_url": "https://blogs.microsoft.com/blog/2025/06/16/announcing-comprehensive-sovereign-solutions-empowering-european-organizations/",
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://blogs.microsoft.com/blog/2026/09/25/introducing-the-new-copilot-with-home-code-and-autopilot/": {
         "paths": [
           "src/content/docs/ko/ai/agents.md"
         ],
-        "checked_at": "2026-10-30T15:06:11Z",
-        "status": "observed",
+        "checked_at": "2026-11-15T06:41:56Z",
+        "status": "unverified",
         "hash": "114facfea007b04dcdf13e3c82a417d6dfc0ca06cc2e6320b8bcd1270951601e",
         "hash_kind": "visible-v1",
-        "final_url": "https://blogs.microsoft.com/blog/2026/09/25/introducing-the-new-copilot-with-home-code-and-autopilot/"
+        "final_url": "https://blogs.microsoft.com/blog/2026/09/25/introducing-the-new-copilot-with-home-code-and-autopilot/",
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://blogs.microsoft.com/on-the-issues/2025/02/26/microsoft-completes-landmark-eu-data-boundary-offering-enhanced-data-residency-and-transparency/": {
         "paths": [
           "src/content/docs/ko/eu/gdpr-sovereignty.md"
         ],
-        "checked_at": "2026-10-30T15:06:11Z",
-        "status": "observed",
+        "checked_at": "2026-11-15T06:41:56Z",
+        "status": "unverified",
         "hash": "33c319080309104f248ffde3a0787349fe99b1701b8982b5c57b22208e5bbc14",
         "hash_kind": "visible-v1",
-        "final_url": "https://blogs.microsoft.com/on-the-issues/2025/02/26/microsoft-completes-landmark-eu-data-boundary-offering-enhanced-data-residency-and-transparency/"
+        "final_url": "https://blogs.microsoft.com/on-the-issues/2025/02/26/microsoft-completes-landmark-eu-data-boundary-offering-enhanced-data-residency-and-transparency/",
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://blogs.oracle.com/cloud-infrastructure/oracle-mtcs-certification-creates-new-opportunities-for-customers-in-singapore": {
         "paths": [
           "src/content/docs/ko/singapore/mtcs.md"
         ],
-        "checked_at": "2026-10-30T15:06:11Z",
+        "checked_at": "2026-11-15T06:41:56Z",
         "status": "unverified",
         "error": "HTTP 403"
       },
@@ -12568,9 +12816,9 @@
         "paths": [
           "src/content/docs/ko/korea/ai/sovereign-fm-policy.md"
         ],
-        "checked_at": "2026-10-30T15:06:11Z",
+        "checked_at": "2026-11-15T06:41:56Z",
         "status": "observed",
-        "hash": "0eea783c4137237de8aad7af9a4c19006c45a462f793397a0f8627f182e65f43",
+        "hash": "01ccae85d704cada6a3bbd9140b800821a83b33b10b10e8b66b917600550a945",
         "hash_kind": "visible-v1",
         "final_url": "https://byline.network/2025/08/8042/"
       },

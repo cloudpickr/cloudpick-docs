@@ -10698,6 +10698,39 @@
       "evidence": [],
       "pr": null,
       "last_seen": "2026-11"
+    },
+    {
+      "id": "bcd1a561bf8229a2219ff234",
+      "path": "src/content/docs/ko/database/nosql.md",
+      "axis": 2,
+      "reason": "Bigtable (https://docs.cloud.google.com/release-notes#November_02_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_02_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "3b8a7018745e0242175f3535",
+      "path": null,
+      "axis": 3,
+      "reason": "Google SecOps (https://docs.cloud.google.com/release-notes#November_15_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_15_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "f6daee3483be55540c17dee6",
+      "path": null,
+      "axis": 3,
+      "reason": "Google SecOps SOAR (https://docs.cloud.google.com/release-notes#November_15_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_15_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
     }
   ],
   "resolved_ids": [],
@@ -10830,10 +10863,10 @@
         "oci": "complete"
       },
       "2026-11-02": {
-        "aws": "provisional",
-        "gcp": "provisional",
-        "azure": "provisional",
-        "oci": "provisional"
+        "aws": "complete",
+        "gcp": "complete",
+        "azure": "complete",
+        "oci": "complete"
       },
       "2026-09-16": {
         "aws": "complete",
@@ -10990,6 +11023,18 @@
         "gcp": "provisional",
         "azure": "provisional",
         "oci": "provisional"
+      },
+      "2026-09-29": {
+        "aws": "complete",
+        "gcp": "complete",
+        "azure": "complete",
+        "oci": "complete"
+      },
+      "2026-11-16": {
+        "aws": "provisional",
+        "gcp": "provisional",
+        "azure": "provisional",
+        "oci": "provisional"
       }
     },
     "attempted": {
@@ -11108,10 +11153,10 @@
         "oci": "2026-11-02T06:15:35.724Z"
       },
       "2026-11-02": {
-        "aws": "2026-11-08T06:09:04.198Z",
-        "gcp": "2026-11-08T06:09:04.198Z",
-        "azure": "2026-11-08T06:09:04.198Z",
-        "oci": "2026-11-08T06:09:04.198Z"
+        "aws": "2026-11-16T06:37:53.282Z",
+        "gcp": "2026-11-16T06:37:53.282Z",
+        "azure": "2026-11-16T06:37:53.282Z",
+        "oci": "2026-11-16T06:37:53.282Z"
       },
       "2026-09-16": {
         "aws": "2026-11-03T06:54:19.123Z",
@@ -11264,10 +11309,22 @@
         "oci": "2026-11-15T06:41:46.440Z"
       },
       "2026-11-15": {
-        "aws": "2026-11-15T06:41:46.440Z",
-        "gcp": "2026-11-15T06:41:46.440Z",
-        "azure": "2026-11-15T06:41:46.440Z",
-        "oci": "2026-11-15T06:41:46.440Z"
+        "aws": "2026-11-16T06:37:53.282Z",
+        "gcp": "2026-11-16T06:37:53.282Z",
+        "azure": "2026-11-16T06:37:53.282Z",
+        "oci": "2026-11-16T06:37:53.282Z"
+      },
+      "2026-09-29": {
+        "aws": "2026-11-16T06:37:53.282Z",
+        "gcp": "2026-11-16T06:37:53.282Z",
+        "azure": "2026-11-16T06:37:53.282Z",
+        "oci": "2026-11-16T06:37:53.282Z"
+      },
+      "2026-11-16": {
+        "aws": "2026-11-16T06:37:53.282Z",
+        "gcp": "2026-11-16T06:37:53.282Z",
+        "azure": "2026-11-16T06:37:53.282Z",
+        "oci": "2026-11-16T06:37:53.282Z"
       }
     }
   },

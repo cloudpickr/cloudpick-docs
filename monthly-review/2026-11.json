@@ -11109,6 +11109,842 @@
       "evidence": [],
       "pr": null,
       "last_seen": "2026-11"
+    },
+    {
+      "id": "914c5c17a08d4ccb7319b02c",
+      "path": "src/content/docs/ko/security/secrets.md",
+      "axis": 2,
+      "reason": "Amazon EBS now supports associating additional KMS keys with snapshots (https://aws.amazon.com/about-aws/whats-new/2026/11/ebs-snapshots-associate-kms-keys/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/ebs-snapshots-associate-kms-keys/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "ae0bd081c978d676f516db98",
+      "path": "src/content/docs/ko/ai/vector-store.md",
+      "axis": 2,
+      "reason": "Amazon S3 Vectors now supports hybrid search combining vector and full text for more relevant search results (https://aws.amazon.com/about-aws/whats-new/2026/11/s3-vectors-hybrid-search/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/s3-vectors-hybrid-search/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "e3d8eb2af03d33a638314556",
+      "path": "src/content/docs/ko/ai/ai-ml.md",
+      "axis": 2,
+      "reason": "Amazon S3 Vectors now supports hybrid search combining vector and full text for more relevant search results (https://aws.amazon.com/about-aws/whats-new/2026/11/s3-vectors-hybrid-search/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/s3-vectors-hybrid-search/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "94ab2ad811d50c3cd8d64f4f",
+      "path": "src/content/docs/ko/ai/getting-started.md",
+      "axis": 2,
+      "reason": "Amazon S3 Vectors now supports hybrid search combining vector and full text for more relevant search results (https://aws.amazon.com/about-aws/whats-new/2026/11/s3-vectors-hybrid-search/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/s3-vectors-hybrid-search/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "6d4b711d078fbf99a21a2932",
+      "path": "src/content/docs/ko/ai/agent-adoption.md",
+      "axis": 2,
+      "reason": "AWS DevOps Agent is now available in AWS GovCloud (US-West) (https://aws.amazon.com/about-aws/whats-new/2026/11/aws-devops-agent-govcloud-west/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-devops-agent-govcloud-west/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "e3dbe41fb9aa084aa4e2c185",
+      "path": "src/content/docs/ko/ai/llmops.md",
+      "axis": 2,
+      "reason": "AWS DevOps Agent is now available in AWS GovCloud (US-West) (https://aws.amazon.com/about-aws/whats-new/2026/11/aws-devops-agent-govcloud-west/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-devops-agent-govcloud-west/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "debae4d28a7800e4578d21e5",
+      "path": "src/content/docs/ko/governance/finops.md",
+      "axis": 2,
+      "reason": "AWS DevOps Agent is now available in AWS GovCloud (US-West) (https://aws.amazon.com/about-aws/whats-new/2026/11/aws-devops-agent-govcloud-west/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-devops-agent-govcloud-west/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "952e596548b74704bdb66dc5",
+      "path": "src/content/docs/ko/ai/agent-adoption.md",
+      "axis": 2,
+      "reason": "Amazon Connect Customer agent assist now supports interactive responses (https://aws.amazon.com/about-aws/whats-new/2026/11/Connect-Custom-agent-interactive-responses)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/Connect-Custom-agent-interactive-responses",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "b19905b685e25a9b244ef4fa",
+      "path": "src/content/docs/ko/ai/agents.md",
+      "axis": 2,
+      "reason": "Amazon Connect Customer agent assist now supports interactive responses (https://aws.amazon.com/about-aws/whats-new/2026/11/Connect-Custom-agent-interactive-responses)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/Connect-Custom-agent-interactive-responses",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "f5ce2cda177bfd9fb41ba9e6",
+      "path": "src/content/docs/ko/ai/llmops.md",
+      "axis": 2,
+      "reason": "Amazon Connect Customer agent assist now supports interactive responses (https://aws.amazon.com/about-aws/whats-new/2026/11/Connect-Custom-agent-interactive-responses)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/Connect-Custom-agent-interactive-responses",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "ad0ac83588b33796ab06ee36",
+      "path": "src/content/docs/ko/security/secrets.md",
+      "axis": 2,
+      "reason": "AWS KMS now supports key sharing with AWS Resource Access Manager (https://aws.amazon.com/about-aws/whats-new/2026/11/kms-key-sharing-resource-access-manager/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/kms-key-sharing-resource-access-manager/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "264975f88598b8a898c8613e",
+      "path": "src/content/docs/ko/devops/remote-access.md",
+      "axis": 2,
+      "reason": "AWS KMS now supports key sharing with AWS Resource Access Manager (https://aws.amazon.com/about-aws/whats-new/2026/11/kms-key-sharing-resource-access-manager/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/kms-key-sharing-resource-access-manager/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "ac0badae5b7e493939b688d3",
+      "path": "src/content/docs/ko/about-cloud/support-plans.md",
+      "axis": 2,
+      "reason": "AWS KMS now supports key sharing with AWS Resource Access Manager (https://aws.amazon.com/about-aws/whats-new/2026/11/kms-key-sharing-resource-access-manager/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/kms-key-sharing-resource-access-manager/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "f68b39a1ad12e0652b05b192",
+      "path": "src/content/docs/ko/ai/agents.md",
+      "axis": 2,
+      "reason": "Set up, connect, and govern AI agents faster with Amazon WorkSpaces (https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-workspaces-AI-agents-connect-govern)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-workspaces-AI-agents-connect-govern",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "432b962b6e464bb024238a9d",
+      "path": "src/content/docs/ko/mcp.md",
+      "axis": 2,
+      "reason": "Set up, connect, and govern AI agents faster with Amazon WorkSpaces (https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-workspaces-AI-agents-connect-govern)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-workspaces-AI-agents-connect-govern",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "3d99d726e7b2ca5d2e42ec25",
+      "path": "src/content/docs/ko/ai/agent-adoption.md",
+      "axis": 2,
+      "reason": "Set up, connect, and govern AI agents faster with Amazon WorkSpaces (https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-workspaces-AI-agents-connect-govern)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-workspaces-AI-agents-connect-govern",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "c730451cbd2a14792f0376c2",
+      "path": "src/content/docs/ko/compute/serverless.md",
+      "axis": 2,
+      "reason": "AWS Marketplace Metering Service now supports decimal usage quantities (https://aws.amazon.com/about-aws/whats-new/2026/11/aws-marketplace-metering-service-decimal-usage-quantities/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-marketplace-metering-service-decimal-usage-quantities/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "cb009f1fb6eae9032e211ee0",
+      "path": "src/content/docs/ko/compute/service-mesh.md",
+      "axis": 2,
+      "reason": "AWS Marketplace Metering Service now supports decimal usage quantities (https://aws.amazon.com/about-aws/whats-new/2026/11/aws-marketplace-metering-service-decimal-usage-quantities/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-marketplace-metering-service-decimal-usage-quantities/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "b8ec837395a41397b321468f",
+      "path": "src/content/docs/ko/about-cloud/support-plans.md",
+      "axis": 2,
+      "reason": "AWS Marketplace Metering Service now supports decimal usage quantities (https://aws.amazon.com/about-aws/whats-new/2026/11/aws-marketplace-metering-service-decimal-usage-quantities/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-marketplace-metering-service-decimal-usage-quantities/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "6f31740f6406e90ff0fd602c",
+      "path": "src/content/docs/ko/ai/rag-patterns.md",
+      "axis": 2,
+      "reason": "Amazon SageMaker AI now supports KV cache-aware routing for real-time inference endpoints (https://aws.amazon.com/about-aws/whats-new/2026/11/sagemaker-kv-cache-routing/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/sagemaker-kv-cache-routing/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "eb464ed2f99de14128f73ae8",
+      "path": "src/content/docs/ko/ai/gpu-infra/kubernetes-and-scheduling.md",
+      "axis": 2,
+      "reason": "Amazon SageMaker AI now supports KV cache-aware routing for real-time inference endpoints (https://aws.amazon.com/about-aws/whats-new/2026/11/sagemaker-kv-cache-routing/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/sagemaker-kv-cache-routing/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "00da51b4e6cb6ba1ee15966c",
+      "path": "src/content/docs/ko/ai/physical-ai/data-and-training.md",
+      "axis": 2,
+      "reason": "Amazon SageMaker AI now supports KV cache-aware routing for real-time inference endpoints (https://aws.amazon.com/about-aws/whats-new/2026/11/sagemaker-kv-cache-routing/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/sagemaker-kv-cache-routing/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "60f710ccf175407160cfa1fe",
+      "path": "src/content/docs/ko/security/iam.md",
+      "axis": 2,
+      "reason": "AWS IAM Identity Center now supports ForceAuthn in SAML requests (https://aws.amazon.com/about-aws/whats-new/2026/11/iam-identity-center-reauth/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/iam-identity-center-reauth/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "280fa6391c939613d9d35d4b",
+      "path": "src/content/docs/ko/security/zero-trust.md",
+      "axis": 2,
+      "reason": "AWS IAM Identity Center now supports ForceAuthn in SAML requests (https://aws.amazon.com/about-aws/whats-new/2026/11/iam-identity-center-reauth/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/iam-identity-center-reauth/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "476c6cc3a9d5049cad9702e8",
+      "path": "src/content/docs/ko/about-cloud/accounts-and-organizations.mdx",
+      "axis": 2,
+      "reason": "AWS IAM Identity Center now supports ForceAuthn in SAML requests (https://aws.amazon.com/about-aws/whats-new/2026/11/iam-identity-center-reauth/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/iam-identity-center-reauth/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "2dcd86aafc93c807fd371447",
+      "path": "src/content/docs/ko/about-cloud/support-plans.md",
+      "axis": 2,
+      "reason": "AWS Secrets Manager adds managed external secrets support for Auth0, Okta, and Palo Alto Networks (https://aws.amazon.com/about-aws/whats-new/2026/11/secrets-manager-managed-external-secrets-auth0-okta-palo-alto/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/secrets-manager-managed-external-secrets-auth0-okta-palo-alto/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "a262b0335e119fc73d7ff9da",
+      "path": "src/content/docs/ko/database/managed-rdb.md",
+      "axis": 2,
+      "reason": "AWS Secrets Manager adds managed external secrets support for Auth0, Okta, and Palo Alto Networks (https://aws.amazon.com/about-aws/whats-new/2026/11/secrets-manager-managed-external-secrets-auth0-okta-palo-alto/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/secrets-manager-managed-external-secrets-auth0-okta-palo-alto/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "3ccb7d74249d50753e37acd8",
+      "path": "src/content/docs/ko/security/secrets.md",
+      "axis": 2,
+      "reason": "AWS Secrets Manager adds managed external secrets support for Auth0, Okta, and Palo Alto Networks (https://aws.amazon.com/about-aws/whats-new/2026/11/secrets-manager-managed-external-secrets-auth0-okta-palo-alto/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/secrets-manager-managed-external-secrets-auth0-okta-palo-alto/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "d4c2af18d596f579035822c0",
+      "path": "src/content/docs/ko/security/zero-trust.md",
+      "axis": 2,
+      "reason": "IAM Identity Center now supports VPC endpoints and network access controls (https://aws.amazon.com/about-aws/whats-new/2026/11/iam-identity-center-vpc-endpoints/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/iam-identity-center-vpc-endpoints/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "2f7f6fea10560d374bb4b3f9",
+      "path": "src/content/docs/ko/security/iam.md",
+      "axis": 2,
+      "reason": "IAM Identity Center now supports VPC endpoints and network access controls (https://aws.amazon.com/about-aws/whats-new/2026/11/iam-identity-center-vpc-endpoints/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/iam-identity-center-vpc-endpoints/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "4461b7b976a843de2a8015a0",
+      "path": "src/content/docs/ko/governance/finops.md",
+      "axis": 2,
+      "reason": "IAM Identity Center now supports VPC endpoints and network access controls (https://aws.amazon.com/about-aws/whats-new/2026/11/iam-identity-center-vpc-endpoints/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/iam-identity-center-vpc-endpoints/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "b2518131bd8b1dfbe88d83df",
+      "path": "src/content/docs/ko/governance/finops.md",
+      "axis": 2,
+      "reason": "AWS announces Networking Flexible Cost Allocation for Amazon VPC (https://aws.amazon.com/about-aws/whats-new/2026/11/networking-flexible-cost-allocation/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/networking-flexible-cost-allocation/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "3a04b39cc65220d5512d36b7",
+      "path": "src/content/docs/ko/networking/vpc-subnet.md",
+      "axis": 2,
+      "reason": "AWS announces Networking Flexible Cost Allocation for Amazon VPC (https://aws.amazon.com/about-aws/whats-new/2026/11/networking-flexible-cost-allocation/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/networking-flexible-cost-allocation/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "56849d6f5ba5ce8a55433e99",
+      "path": "src/content/docs/ko/ai/gpu-infra/serving-reliability-cost.md",
+      "axis": 2,
+      "reason": "AWS announces Networking Flexible Cost Allocation for Amazon VPC (https://aws.amazon.com/about-aws/whats-new/2026/11/networking-flexible-cost-allocation/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/networking-flexible-cost-allocation/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "8a02ff43aa7398808378da0c",
+      "path": "src/content/docs/ko/governance/dr.md",
+      "axis": 2,
+      "reason": "AWS Backup adds logically air-gapped vault support for Amazon RDS (https://aws.amazon.com/about-aws/whats-new/2026/11/aws-backup-air-gapped-vault-rds/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-backup-air-gapped-vault-rds/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "1b68370e49528b52818a7a96",
+      "path": "src/content/docs/ko/storage/backup.md",
+      "axis": 2,
+      "reason": "AWS Backup adds logically air-gapped vault support for Amazon RDS (https://aws.amazon.com/about-aws/whats-new/2026/11/aws-backup-air-gapped-vault-rds/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-backup-air-gapped-vault-rds/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "829767c5c1aa0e4aabda8cbf",
+      "path": "src/content/docs/ko/about-cloud/support-plans.md",
+      "axis": 2,
+      "reason": "AWS Backup adds logically air-gapped vault support for Amazon RDS (https://aws.amazon.com/about-aws/whats-new/2026/11/aws-backup-air-gapped-vault-rds/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-backup-air-gapped-vault-rds/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "84f5c77b602ba2cf21e2847b",
+      "path": "src/content/docs/ko/us/fedramp.md",
+      "axis": 2,
+      "reason": "AWS WAF advanced rate-based rules are now available in AWS GovCloud (US), Thailand, and Mexico (https://aws.amazon.com/about-aws/whats-new/2026/11/waf-advanced-rate-rules-available/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/waf-advanced-rate-rules-available/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "01040d4da80d696fecb1cc7d",
+      "path": "src/content/docs/ko/us/itar.md",
+      "axis": 2,
+      "reason": "AWS WAF advanced rate-based rules are now available in AWS GovCloud (US), Thailand, and Mexico (https://aws.amazon.com/about-aws/whats-new/2026/11/waf-advanced-rate-rules-available/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/waf-advanced-rate-rules-available/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "49e3ee7546e15b53c9fca938",
+      "path": "src/content/docs/ko/security/data-protection.md",
+      "axis": 2,
+      "reason": "AWS WAF advanced rate-based rules are now available in AWS GovCloud (US), Thailand, and Mexico (https://aws.amazon.com/about-aws/whats-new/2026/11/waf-advanced-rate-rules-available/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/waf-advanced-rate-rules-available/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "fe3d27ef2f63907007285bce",
+      "path": "src/content/docs/ko/about-cloud/regions-and-zones.md",
+      "axis": 2,
+      "reason": "AgentCore runtime instances are now available in six more AWS Regions (https://aws.amazon.com/about-aws/whats-new/2026/11/agentcore-aws-regions/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/agentcore-aws-regions/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "b019d854e968fdd6816b9c3d",
+      "path": "src/content/docs/ko/compute/serverless.md",
+      "axis": 2,
+      "reason": "Cloud Run (https://docs.cloud.google.com/release-notes#November_16_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_16_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "e7626a1830c2249e244ebde9",
+      "path": "src/content/docs/ko/about-cloud/console-cli-sdk.md",
+      "axis": 2,
+      "reason": "Compute Engine (https://docs.cloud.google.com/release-notes#November_16_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_16_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "15f68bac9afcdbfcd3eb252d",
+      "path": "src/content/docs/ko/devops/devsecops.md",
+      "axis": 2,
+      "reason": "Google Distributed Cloud (software only) for VMware (https://docs.cloud.google.com/release-notes#November_16_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_16_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "0be8b08b289a7497b1a7dafd",
+      "path": "src/content/docs/ko/about-cloud/console-cli-sdk.md",
+      "axis": 2,
+      "reason": "Google Distributed Cloud (software only) for VMware (https://docs.cloud.google.com/release-notes#November_16_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_16_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "ddcb4c80deedfc0d0ca5ddf2",
+      "path": "src/content/docs/ko/compute/auto-scaling.md",
+      "axis": 2,
+      "reason": "Google Distributed Cloud (software only) for VMware (https://docs.cloud.google.com/release-notes#November_16_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_16_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "3c570b13e6eb24ba87e3dc6f",
+      "path": "src/content/docs/ko/devops/devsecops.md",
+      "axis": 2,
+      "reason": "Google Distributed Cloud (software only) for bare metal (https://docs.cloud.google.com/release-notes#November_16_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_16_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "95a882eae6c5f0dc1fdd86b2",
+      "path": "src/content/docs/ko/about-cloud/console-cli-sdk.md",
+      "axis": 2,
+      "reason": "Google Distributed Cloud (software only) for bare metal (https://docs.cloud.google.com/release-notes#November_16_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_16_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "09ec43cac3762ebc86bf7537",
+      "path": "src/content/docs/ko/compute/auto-scaling.md",
+      "axis": 2,
+      "reason": "Google Distributed Cloud (software only) for bare metal (https://docs.cloud.google.com/release-notes#November_16_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_16_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "8e6427e56ab428a2e677f2bc",
+      "path": "src/content/docs/ko/compute/containers.md",
+      "axis": 2,
+      "reason": "Google Kubernetes Engine (https://docs.cloud.google.com/release-notes#November_16_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_16_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "a831d0ba0ac40ae89e90985c",
+      "path": "src/content/docs/ko/devops/kubernetes-operations.mdx",
+      "axis": 2,
+      "reason": "Google Kubernetes Engine (https://docs.cloud.google.com/release-notes#November_16_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_16_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "bea0575a16e57d8772374707",
+      "path": "src/content/docs/ko/ai/gpu-infra/kubernetes-and-scheduling.md",
+      "axis": 2,
+      "reason": "Google Kubernetes Engine (https://docs.cloud.google.com/release-notes#November_16_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_16_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "e085982f6eaab31569bed2f3",
+      "path": "src/content/docs/ko/database/nosql.md",
+      "axis": 2,
+      "reason": "Bigtable (https://docs.cloud.google.com/release-notes#November_16_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_16_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "c83d7011467d2563c38b7193",
+      "path": "src/content/docs/ko/networking/load-balancer.md",
+      "axis": 2,
+      "reason": "Cloud Load Balancing (https://docs.cloud.google.com/release-notes#November_16_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_16_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "d46d44b73c710a548e18a84b",
+      "path": "src/content/docs/ko/database/nosql.md",
+      "axis": 2,
+      "reason": "Cloud SQL for MySQL (https://docs.cloud.google.com/release-notes#November_16_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_16_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "8be4357a6b45e18a32ce8325",
+      "path": "src/content/docs/ko/database/nosql.md",
+      "axis": 2,
+      "reason": "Cloud SQL for PostgreSQL (https://docs.cloud.google.com/release-notes#November_16_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_16_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "f28cc7ad3b36cb3433c443c0",
+      "path": "src/content/docs/ko/ai/agent-adoption.md",
+      "axis": 2,
+      "reason": "Gemini Enterprise Agent Platform (https://docs.cloud.google.com/release-notes#November_16_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_16_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "15869621ccaaad1d2ac46f72",
+      "path": "src/content/docs/ko/ai/agents.md",
+      "axis": 2,
+      "reason": "Gemini Enterprise Agent Platform (https://docs.cloud.google.com/release-notes#November_16_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_16_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "ca25a51b29987dc4ec29ca45",
+      "path": "src/content/docs/ko/ai/llmops.md",
+      "axis": 2,
+      "reason": "Gemini Enterprise Agent Platform (https://docs.cloud.google.com/release-notes#November_16_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_16_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "6a4c168fb5cb555f4b44e8e6",
+      "path": "src/content/docs/ko/compute/auto-scaling.md",
+      "axis": 2,
+      "reason": "Google Cloud Armor (https://docs.cloud.google.com/release-notes#November_16_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_16_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "defa746e5a1043ac9b82dcff",
+      "path": "src/content/docs/ko/compute/containers.md",
+      "axis": 2,
+      "reason": "Google Cloud Armor (https://docs.cloud.google.com/release-notes#November_16_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_16_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "bc705a69e851f69c99e9977e",
+      "path": "src/content/docs/ko/compute/hybrid-and-edge.md",
+      "axis": 2,
+      "reason": "Google Cloud Armor (https://docs.cloud.google.com/release-notes#November_16_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_16_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "60045ef20ed251b670513211",
+      "path": null,
+      "axis": 3,
+      "reason": "Amazon ECR now replicates image deletions across regions and accounts (https://aws.amazon.com/about-aws/whats-new/2026/11/replication-deletes-amazon-ecr)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/replication-deletes-amazon-ecr",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "91ead77a0efc127853f10d63",
+      "path": null,
+      "axis": 3,
+      "reason": "Amazon Redshift now supports multi-statement transactions, conflict resolution, and time travel for Apache Iceberg (https://aws.amazon.com/about-aws/whats-new/2026/11/redshift-time-travel-multi-statement)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/redshift-time-travel-multi-statement",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "58a43ab5c6473da1439a1b30",
+      "path": null,
+      "axis": 3,
+      "reason": "Amazon Connect Health medical coding is now available in public preview (https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-connect-health-medical-coding/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-connect-health-medical-coding/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "d01537f73174c6c94b695b31",
+      "path": null,
+      "axis": 3,
+      "reason": "Google SecOps SOAR (https://docs.cloud.google.com/release-notes#November_07_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_07_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "13e47e4b1b751fefd1c64589",
+      "path": null,
+      "axis": 3,
+      "reason": "Confidential Space (https://docs.cloud.google.com/release-notes#November_16_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_16_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "54f2b387df55b42eda2c64d9",
+      "path": null,
+      "axis": 3,
+      "reason": "App Hub (https://docs.cloud.google.com/release-notes#November_16_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_16_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "c7248040d0b1f39d1cfcab82",
+      "path": null,
+      "axis": 3,
+      "reason": "Batch (https://docs.cloud.google.com/release-notes#November_16_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_16_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "c0c4e4457832595529077c17",
+      "path": null,
+      "axis": 3,
+      "reason": "Cloud Asset Inventory (https://docs.cloud.google.com/release-notes#November_16_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_16_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "2a50cf8df63b7858f16039d5",
+      "path": null,
+      "axis": 3,
+      "reason": "Cloud Trace (https://docs.cloud.google.com/release-notes#November_16_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_16_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "c8419eeade1bb5bc9c55a1b2",
+      "path": null,
+      "axis": 3,
+      "reason": "Looker (https://docs.cloud.google.com/release-notes#November_16_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_16_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "61baa87851ce785a929c81dd",
+      "path": null,
+      "axis": 3,
+      "reason": "Dialogflow (https://docs.cloud.google.com/release-notes#November_16_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_16_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "851ef8cc89b3774af08719d5",
+      "path": null,
+      "axis": 3,
+      "reason": "Gemini Enterprise (https://docs.cloud.google.com/release-notes#November_16_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_16_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "dd7cffa3fcfbb8e9d4507748",
+      "path": null,
+      "axis": 3,
+      "reason": "Memorystore for Redis Cluster (https://docs.cloud.google.com/release-notes#November_16_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_16_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "a75dffefa283f4977d1d8f6f",
+      "path": null,
+      "axis": 3,
+      "reason": "Memorystore for Valkey (https://docs.cloud.google.com/release-notes#November_16_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_16_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
     }
   ],
   "resolved_ids": [],
@@ -11301,10 +12137,10 @@
         "oci": "complete"
       },
       "2026-11-07": {
-        "aws": "provisional",
-        "gcp": "provisional",
-        "azure": "provisional",
-        "oci": "provisional"
+        "aws": "complete",
+        "gcp": "complete",
+        "azure": "complete",
+        "oci": "complete"
       },
       "2026-09-21": {
         "aws": "complete",
@@ -11409,6 +12245,18 @@
         "oci": "complete"
       },
       "2026-11-16": {
+        "aws": "provisional",
+        "gcp": "provisional",
+        "azure": "provisional",
+        "oci": "provisional"
+      },
+      "2026-09-30": {
+        "aws": "complete",
+        "gcp": "complete",
+        "azure": "complete",
+        "oci": "complete"
+      },
+      "2026-11-17": {
         "aws": "provisional",
         "gcp": "provisional",
         "azure": "provisional",
@@ -11591,10 +12439,10 @@
         "oci": "2026-11-07T06:05:13.850Z"
       },
       "2026-11-07": {
-        "aws": "2026-11-08T06:09:04.198Z",
-        "gcp": "2026-11-08T06:09:04.198Z",
-        "azure": "2026-11-08T06:09:04.198Z",
-        "oci": "2026-11-08T06:09:04.198Z"
+        "aws": "2026-11-17T08:00:12.185Z",
+        "gcp": "2026-11-17T08:00:12.185Z",
+        "azure": "2026-11-17T08:00:12.185Z",
+        "oci": "2026-11-17T08:00:12.185Z"
       },
       "2026-09-21": {
         "aws": "2026-11-08T06:09:04.198Z",
@@ -11699,10 +12547,22 @@
         "oci": "2026-11-16T06:37:53.282Z"
       },
       "2026-11-16": {
-        "aws": "2026-11-16T06:37:53.282Z",
-        "gcp": "2026-11-16T06:37:53.282Z",
-        "azure": "2026-11-16T06:37:53.282Z",
-        "oci": "2026-11-16T06:37:53.282Z"
+        "aws": "2026-11-17T08:00:12.185Z",
+        "gcp": "2026-11-17T08:00:12.185Z",
+        "azure": "2026-11-17T08:00:12.185Z",
+        "oci": "2026-11-17T08:00:12.185Z"
+      },
+      "2026-09-30": {
+        "aws": "2026-11-17T08:00:12.185Z",
+        "gcp": "2026-11-17T08:00:12.185Z",
+        "azure": "2026-11-17T08:00:12.185Z",
+        "oci": "2026-11-17T08:00:12.185Z"
+      },
+      "2026-11-17": {
+        "aws": "2026-11-17T08:00:12.185Z",
+        "gcp": "2026-11-17T08:00:12.185Z",
+        "azure": "2026-11-17T08:00:12.185Z",
+        "oci": "2026-11-17T08:00:12.185Z"
       }
     }
   },

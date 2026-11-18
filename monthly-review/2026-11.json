@@ -15348,6 +15348,608 @@
       "status": "open",
       "evidence": [],
       "pr": null
+    },
+    {
+      "id": "1410376f584e383335dd6b04",
+      "path": "src/content/docs/ko/security/data-protection.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://cloud.google.com/kms/docs/release-notes",
+      "change_digest": "678204065c01f0744cf9682b882b98f12d0456ed4700be131c988b4e60e0109d",
+      "source_url": "https://cloud.google.com/kms/docs/release-notes",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "c2bddd607bd55463dbf5a8bb",
+      "path": "src/content/docs/ko/devops/kubernetes-operations.mdx",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://cloud.google.com/kubernetes-engine/docs/best-practices",
+      "change_digest": "9035e3460e20970c42733e6dd766d36adc687eb1f5017bae510888f12a4645eb",
+      "source_url": "https://cloud.google.com/kubernetes-engine/docs/best-practices",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "8a07958f59bc269b02ac3ff0",
+      "path": "src/content/docs/ko/devops/kubernetes-operations.mdx",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://cloud.google.com/kubernetes-engine/docs/concepts/alias-ips",
+      "change_digest": "24fd276e917cf59b2f1a072020ce94b1b18831e50e050fc6cf92e0343b366b39",
+      "source_url": "https://cloud.google.com/kubernetes-engine/docs/concepts/alias-ips",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "3266ad9e3b6528006a1a9f23",
+      "path": "src/content/docs/ko/about-cloud/compare-clouds.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://cloud.google.com/kubernetes-engine/enterprise/docs",
+      "change_digest": "85e948dd4f503703dc8c630a11dfb50cf32ebaa69b6601e357eac5a53a06edaf",
+      "source_url": "https://cloud.google.com/kubernetes-engine/enterprise/docs",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "3fdd545bcbeed9ad769e012f",
+      "path": "src/content/docs/ko/compute/hybrid-and-edge.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://cloud.google.com/kubernetes-engine/enterprise/docs",
+      "change_digest": "85e948dd4f503703dc8c630a11dfb50cf32ebaa69b6601e357eac5a53a06edaf",
+      "source_url": "https://cloud.google.com/kubernetes-engine/enterprise/docs",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "6de3f7da2005eb1f9df0ff1f",
+      "path": "src/content/docs/ko/compute/containers.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://cloud.google.com/kubernetes-engine/versioning",
+      "change_digest": "dd931b55cdf884d59bc430dc0bb64df48d97718e8a10ce68f0bd85bdd0cd4ea9",
+      "source_url": "https://cloud.google.com/kubernetes-engine/versioning",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "e1348814f8a26aeaef0fe44e",
+      "path": "src/content/docs/ko/networking/load-balancer.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://cloud.google.com/load-balancing/docs",
+      "change_digest": "ec77b6ba3fc7a65ad9b5f8c00d991324df437cf1a781eb7ac956117c8ee26859",
+      "source_url": "https://cloud.google.com/load-balancing/docs",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "065c9a044cb882d4479e15f8",
+      "path": "src/content/docs/ko/database/search.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://cloud.google.com/logging/docs",
+      "change_digest": "c6461b00ff31e0dbe020a67994e82e990b255fd99ae83bc696623ad1ab4a402d",
+      "source_url": "https://cloud.google.com/logging/docs",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "8a9da5745d378d534cffb57b",
+      "path": "src/content/docs/ko/devops/monitoring.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://cloud.google.com/logging/docs",
+      "change_digest": "c6461b00ff31e0dbe020a67994e82e990b255fd99ae83bc696623ad1ab4a402d",
+      "source_url": "https://cloud.google.com/logging/docs",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "c0aea80a76983d7bbaadd592",
+      "path": "src/content/docs/ko/devops/observability.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://cloud.google.com/logging/docs",
+      "change_digest": "c6461b00ff31e0dbe020a67994e82e990b255fd99ae83bc696623ad1ab4a402d",
+      "source_url": "https://cloud.google.com/logging/docs",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "860e7785b6f1ceb6f33a08c6",
+      "path": "src/content/docs/ko/governance/compliance.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://cloud.google.com/logging/docs/audit",
+      "change_digest": "f81723eae7c76554181299e1d5e9fd874bda2696d1311731874b6a3b1095d80c",
+      "source_url": "https://cloud.google.com/logging/docs/audit",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "5d00a8386cf76112e8282eca",
+      "path": "src/content/docs/ko/networking/cdn.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://cloud.google.com/media-cdn/docs",
+      "change_digest": "13ec7b70001e0a56421a1b197ce87344a4142f4a699bc9f9a61cb84dcf490080",
+      "source_url": "https://cloud.google.com/media-cdn/docs",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "4ccb56f137af24a5623f569a",
+      "path": "src/content/docs/ko/compute/migration.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://cloud.google.com/migrate/containers/docs",
+      "change_digest": "9de1883ffeb73404a2597c3bfd97e0cd3c7efc096b82abff62c93956d9f94c2f",
+      "source_url": "https://cloud.google.com/migrate/containers/docs",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "62941fed145e3a3ee8604779",
+      "path": "src/content/docs/ko/compute/modernization.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://cloud.google.com/migrate/containers/docs",
+      "change_digest": "9de1883ffeb73404a2597c3bfd97e0cd3c7efc096b82abff62c93956d9f94c2f",
+      "source_url": "https://cloud.google.com/migrate/containers/docs",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "efeb754d3ea88fd17468cec9",
+      "path": "src/content/docs/ko/compute/migration.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://cloud.google.com/migrate/virtual-machines/docs",
+      "change_digest": "ddc221b0264da34ecbb39569f565a9cda7bd8b315d2699ee883b9cbd68ceaf36",
+      "source_url": "https://cloud.google.com/migrate/virtual-machines/docs",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "72f04161d8874f53ed15257d",
+      "path": "src/content/docs/ko/compute/migration.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://cloud.google.com/migration-center/docs",
+      "change_digest": "c9a5882c3067ebc3163e4e2cfab3113f4ea0f577f85292c4d36c52fc9bb3857b",
+      "source_url": "https://cloud.google.com/migration-center/docs",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "d9bc384b1189885b6fd99ec0",
+      "path": "src/content/docs/ko/devops/monitoring.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://cloud.google.com/monitoring/docs",
+      "change_digest": "44ba285e50046662bb3fddf805164c91650a4d710fb983a7fafab2824b441c68",
+      "source_url": "https://cloud.google.com/monitoring/docs",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "5e9cb102c81d9ea2227b5c61",
+      "path": "src/content/docs/ko/devops/observability.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://cloud.google.com/monitoring/docs",
+      "change_digest": "44ba285e50046662bb3fddf805164c91650a4d710fb983a7fafab2824b441c68",
+      "source_url": "https://cloud.google.com/monitoring/docs",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "509621849994f8c69c8e7e04",
+      "path": "src/content/docs/ko/networking/multicloud-connectivity.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://cloud.google.com/network-connectivity/docs/interconnect",
+      "change_digest": "5ae3cc07c1d528363662b53bcfe3d4c5631572bda071b4c73e60afddfc374da3",
+      "source_url": "https://cloud.google.com/network-connectivity/docs/interconnect",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "6f5775cb498d41a978bfdd3f",
+      "path": "src/content/docs/ko/networking/multicloud-networking.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://cloud.google.com/network-connectivity/docs/interconnect/concepts/overview",
+      "change_digest": "fb8265db77b6b91aaed04100afe97c547bbb58d0db776e2e3fd75c1c9f03f47a",
+      "source_url": "https://cloud.google.com/network-connectivity/docs/interconnect/concepts/overview",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "5d9400a37de861969c776410",
+      "path": "src/content/docs/ko/about-cloud/compare-clouds.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://cloud.google.com/network-intelligence-center/docs/performance-dashboard/concepts/overview",
+      "change_digest": "8561be572f1676d799c5412699e9e004d7b99ec0345bc280b37c0286cefc7a33",
+      "source_url": "https://cloud.google.com/network-intelligence-center/docs/performance-dashboard/concepts/overview",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "5d8ab10e0740c485a9726efe",
+      "path": "src/content/docs/ko/database/messaging.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://cloud.google.com/pubsub/docs",
+      "change_digest": "3c90adebbe10bf17352ff0ec35bbbd3dde8e4288b8d99a44a02ea082e39adcdb",
+      "source_url": "https://cloud.google.com/pubsub/docs",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "70d4d7b5264251765c6de97d",
+      "path": "src/content/docs/ko/about-cloud/support-plans.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://cloud.google.com/recommender/docs",
+      "change_digest": "ffbddd285a94722034d42f01cdec6c53717471ba2ead9e9299eb6d02e7e7913a",
+      "source_url": "https://cloud.google.com/recommender/docs",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "e57610704f5941e26fe5b268",
+      "path": "src/content/docs/ko/governance/finops.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://cloud.google.com/recommender/docs/overview",
+      "change_digest": "bf65f43588bd7b1431cb1ab4e8dc38aa7a635a46fc66b4e29b2e4257d726b68e",
+      "source_url": "https://cloud.google.com/recommender/docs/overview",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "b318a9c0e71cd3a0650bd599",
+      "path": "src/content/docs/ko/about-cloud/accounts-and-organizations.mdx",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy",
+      "change_digest": "ebe6011ae37777478d078ec4195e2d3b53e20a78e9ff7e4bbc7a881b912078a1",
+      "source_url": "https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "0e47c6435c3f8f6314e80d63",
+      "path": "src/content/docs/ko/about-cloud/accounts-and-organizations.mdx",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://cloud.google.com/resource-manager/docs/organization-policy/overview",
+      "change_digest": "e28fe1aaccea03e4cdbbb66291c0eeb0d363214e0f861522e75c7c755e905053",
+      "source_url": "https://cloud.google.com/resource-manager/docs/organization-policy/overview",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "3315860dfdeb4c3bb7be73ce",
+      "path": "src/content/docs/ko/devops/devsecops.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://cloud.google.com/resource-manager/docs/organization-policy/overview",
+      "change_digest": "e28fe1aaccea03e4cdbbb66291c0eeb0d363214e0f861522e75c7c755e905053",
+      "source_url": "https://cloud.google.com/resource-manager/docs/organization-policy/overview",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "f25215ac69cb5e1ba88ccf12",
+      "path": "src/content/docs/ko/governance/compliance.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://cloud.google.com/resource-manager/docs/organization-policy/overview",
+      "change_digest": "e28fe1aaccea03e4cdbbb66291c0eeb0d363214e0f861522e75c7c755e905053",
+      "source_url": "https://cloud.google.com/resource-manager/docs/organization-policy/overview",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "20003d833dd94433e610e15d",
+      "path": "src/content/docs/ko/governance/finops.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://cloud.google.com/resource-manager/docs/tags/tags-overview",
+      "change_digest": "99bff516374d73b5f6db4d2320359b8a4b603b75b9f3aeb9c2767a406a2d0cd6",
+      "source_url": "https://cloud.google.com/resource-manager/docs/tags/tags-overview",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "785f539fa745d63d6c3250b0",
+      "path": "src/content/docs/ko/compute/containers.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://cloud.google.com/run/docs",
+      "change_digest": "4c37dd343e07640cafed6d4b662f5dafa8d9869a58a57813ebec812317cbe3ed",
+      "source_url": "https://cloud.google.com/run/docs",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "370d77a46a24131c25c8d78c",
+      "path": "src/content/docs/ko/compute/modernization.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://cloud.google.com/run/docs",
+      "change_digest": "4c37dd343e07640cafed6d4b662f5dafa8d9869a58a57813ebec812317cbe3ed",
+      "source_url": "https://cloud.google.com/run/docs",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "c26cf0429116b1c1693d4b27",
+      "path": "src/content/docs/ko/compute/serverless.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://cloud.google.com/run/docs",
+      "change_digest": "4c37dd343e07640cafed6d4b662f5dafa8d9869a58a57813ebec812317cbe3ed",
+      "source_url": "https://cloud.google.com/run/docs",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "4e878c15ca037cff6d980d60",
+      "path": "src/content/docs/ko/about-cloud/console-cli-sdk.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://cloud.google.com/sdk/docs/install",
+      "change_digest": "02acd8914b7f8ea6c8d0b8063cc321bf3cb32f9df68a1fb05b45ec8e85b39b3c",
+      "source_url": "https://cloud.google.com/sdk/docs/install",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "62f45b6282aab41d4e75d55a",
+      "path": "src/content/docs/ko/security/secrets.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://cloud.google.com/secret-manager/docs",
+      "change_digest": "7639aa990d6f2aba7785cb10c10f7af47a93501e1dd3292ec307992fa76bb35b",
+      "source_url": "https://cloud.google.com/secret-manager/docs",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "541d6b481b9273db039211ca",
+      "path": "src/content/docs/ko/devops/patch-and-vulnerability.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://cloud.google.com/security-command-center/docs",
+      "change_digest": "1d37eea449f8bb3ebc0384021b7cc3e752fd2adbb99d7d060e677cc6443d7ce3",
+      "source_url": "https://cloud.google.com/security-command-center/docs",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "d2a8891fd65b64fae5f496bc",
+      "path": "src/content/docs/ko/security/security-posture.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://cloud.google.com/security-command-center/docs",
+      "change_digest": "1d37eea449f8bb3ebc0384021b7cc3e752fd2adbb99d7d060e677cc6443d7ce3",
+      "source_url": "https://cloud.google.com/security-command-center/docs",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "456671fcf2eee699aa71449d",
+      "path": "src/content/docs/ko/security/security-posture.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://cloud.google.com/security-command-center/docs/concepts-event-threat-detection-overview",
+      "change_digest": "74e6e4c9385faeb8e13eba4a477ff24428852ba1b95e249a41af635c897c21f3",
+      "source_url": "https://cloud.google.com/security-command-center/docs/concepts-event-threat-detection-overview",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "99d5488cc18b80df26485db6",
+      "path": "src/content/docs/ko/us/hipaa.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://cloud.google.com/security/compliance/hipaa",
+      "change_digest": "a31edbe5237a075b5d1355e8734eefa5e8d2bc8ac084798f473656fcdec0b401",
+      "source_url": "https://cloud.google.com/security/compliance/hipaa",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "10a353a4bcf3ce5176f44d8e",
+      "path": "src/content/docs/ko/security/incident-response.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://cloud.google.com/security/incident-response",
+      "change_digest": "78f037893fb88cdb4420c19cb1302cd4207b20cd56b2209b57b6117b4029b8f8",
+      "source_url": "https://cloud.google.com/security/incident-response",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "571da4b2b0a7fbb02c21e204",
+      "path": "src/content/docs/ko/compute/service-mesh.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://cloud.google.com/service-mesh/docs",
+      "change_digest": "ec9f90d52446f2a57d9d9f1c54e23cf6725178078e2f548d300b693b74e344d6",
+      "source_url": "https://cloud.google.com/service-mesh/docs",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "10b803441100b7975031ae77",
+      "path": "src/content/docs/ko/about-cloud/console-cli-sdk.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://cloud.google.com/shell/docs",
+      "change_digest": "11c4709708d7fa46865ed478707e2296437f9932425db2c8c1bf1b11c6cf6524",
+      "source_url": "https://cloud.google.com/shell/docs",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "b2cff15ea5d08f7450569f2c",
+      "path": "src/content/docs/ko/database/managed-rdb.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://cloud.google.com/sql/docs",
+      "change_digest": "ebdc415d9634864a08ab9fc1030480653ea09d122e2be2256a67a093455859a8",
+      "source_url": "https://cloud.google.com/sql/docs",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "cd843dbb098ea7abeadeb6fb",
+      "path": "src/content/docs/ko/ai/vector-store.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://cloud.google.com/sql/docs/postgres/extensions",
+      "change_digest": "75b08181ac983740cfac6ee46909bccd180622c069890817ad94722c41250ae6",
+      "source_url": "https://cloud.google.com/sql/docs/postgres/extensions",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
     }
   ],
   "resolved_ids": [],
@@ -16020,7 +16622,7 @@
         "paths": [
           "src/content/docs/ko/ai/agents.md"
         ],
-        "checked_at": "2026-11-17T08:00:23Z",
+        "checked_at": "2026-11-18T07:36:33Z",
         "status": "unverified",
         "hash": "dc7fc249911468c4dc00fc4eb92b1c0d611070787422d5a6d767fc3b925fee20",
         "final_url": "https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/",
@@ -16030,7 +16632,7 @@
         "paths": [
           "src/content/docs/ko/singapore/mtcs.md"
         ],
-        "checked_at": "2026-11-17T08:00:23Z",
+        "checked_at": "2026-11-18T07:36:33Z",
         "status": "unverified",
         "hash": "635b02875de69e3cc1de1579b70facd5f4c19edf127bd2e3769e8a92f70b360b",
         "final_url": "https://abs.org.sg/docs/library/abs-ospar-guidelines-v2-0.pdf",
@@ -16040,7 +16642,7 @@
         "paths": [
           "src/content/docs/ko/ai/agents.md"
         ],
-        "checked_at": "2026-11-17T08:00:23Z",
+        "checked_at": "2026-11-18T07:36:33Z",
         "status": "unverified",
         "hash": "279273094623330fe250f2984391cac02002276942f6d2dbd8537e495fae1bdf",
         "final_url": "https://www.ag2.ai/",
@@ -16050,7 +16652,7 @@
         "paths": [
           "src/content/docs/ko/ai/getting-started.md"
         ],
-        "checked_at": "2026-11-17T08:00:23Z",
+        "checked_at": "2026-11-18T07:36:33Z",
         "status": "unverified",
         "hash": "ae0f8a0945b3d1cf6945ebf983706906940024c6f02864250619be546f2c10a2",
         "final_url": "https://ai.azure.com/",
@@ -16091,7 +16693,7 @@
         "paths": [
           "src/content/docs/ko/singapore/ai-governance.md"
         ],
-        "checked_at": "2026-11-17T08:00:23Z",
+        "checked_at": "2026-11-18T07:36:33Z",
         "status": "unverified",
         "hash": "861c9baae1bb9420d984be6abe0a5a19d6b07730363337bf8a901ea68a37c87d",
         "final_url": "https://aiverifyfoundation.sg/resources/mgf-gen-ai/",
@@ -16111,7 +16713,7 @@
         "paths": [
           "src/content/docs/ko/devops/devsecops.md"
         ],
-        "checked_at": "2026-11-17T08:00:23Z",
+        "checked_at": "2026-11-18T07:36:33Z",
         "status": "unverified",
         "hash": "6ce84a59d0c606ad8c2c2b3d3703944b3097b677f6a9c36c22154de4e3295152",
         "final_url": "https://aquasecurity.github.io/tfsec/",
@@ -16131,7 +16733,7 @@
         "paths": [
           "src/content/docs/ko/ai/llmops.md"
         ],
-        "checked_at": "2026-11-17T08:00:23Z",
+        "checked_at": "2026-11-18T07:36:33Z",
         "status": "unverified",
         "hash": "84e61b481a6f8d7a78ec8093dce057a9e2b06a9ea80957e5c3766d9b595ef09c",
         "final_url": "https://arize.com/",
@@ -16201,7 +16803,7 @@
         "paths": [
           "src/content/docs/ko/devops/observability.md"
         ],
-        "checked_at": "2026-11-17T08:00:23Z",
+        "checked_at": "2026-11-18T07:36:33Z",
         "status": "unverified",
         "hash": "b472569757f991e0df0919150abea62828a7651cc991dfcabea1158bc12ba1fe",
         "final_url": "https://aws-otel.github.io/",
@@ -18589,9 +19191,9 @@
         "paths": [
           "src/content/docs/ko/security/data-protection.md"
         ],
-        "checked_at": "2026-10-30T15:23:56Z",
+        "checked_at": "2026-11-18T07:36:33Z",
         "status": "observed",
-        "hash": "e1993de4536e5d7ef3dfac02350c9393b483b19e545ca5794cf887cfd588bdc0",
+        "hash": "0f6e7ef3449533e10c3fe8aaaba21001dfb9745c9bb3b65f28db636f00bc54fe",
         "hash_kind": "visible-v1",
         "final_url": "https://docs.cloud.google.com/kms/docs/release-notes"
       },
@@ -18599,9 +19201,9 @@
         "paths": [
           "src/content/docs/ko/devops/kubernetes-operations.mdx"
         ],
-        "checked_at": "2026-10-30T15:23:56Z",
+        "checked_at": "2026-11-18T07:36:33Z",
         "status": "observed",
-        "hash": "c9f8fb1d8ab3de5b159c48e456de52cadc21436802415249a83d8411849c2d71",
+        "hash": "c0e0e22cd159a190053e4d9f7425bdcfa9ef737bad47fad3d1ca8f0e7586517b",
         "hash_kind": "visible-v1",
         "final_url": "https://docs.cloud.google.com/kubernetes-engine/docs/best-practices"
       },
@@ -18609,9 +19211,9 @@
         "paths": [
           "src/content/docs/ko/devops/kubernetes-operations.mdx"
         ],
-        "checked_at": "2026-10-30T15:23:56Z",
+        "checked_at": "2026-11-18T07:36:33Z",
         "status": "observed",
-        "hash": "910cf11048186dcdd178004d4769c22ccdd5de89d5b2bb56b8582e3942f694aa",
+        "hash": "fefe129175013bc4977c1abe39f92af6547c1d25923edf83efcb88b24db554f6",
         "hash_kind": "visible-v1",
         "final_url": "https://docs.cloud.google.com/kubernetes-engine/docs/concepts/alias-ips"
       },
@@ -18619,7 +19221,7 @@
         "paths": [
           "src/content/docs/ko/ai/gpu-infra/kubernetes-and-scheduling.md"
         ],
-        "checked_at": "2026-10-30T15:23:56Z",
+        "checked_at": "2026-11-18T07:36:33Z",
         "status": "unverified",
         "error": "unsupported-or-insufficient-visible-content"
       },
@@ -18628,9 +19230,9 @@
           "src/content/docs/ko/about-cloud/compare-clouds.md",
           "src/content/docs/ko/compute/hybrid-and-edge.md"
         ],
-        "checked_at": "2026-10-30T15:23:56Z",
+        "checked_at": "2026-11-18T07:36:33Z",
         "status": "observed",
-        "hash": "fe4300122332a2d2aaf270fc505fbe19362bf680fcab3130d39034debc6a0ba7",
+        "hash": "8a93a1674622081553e4f89060fa7887a8561788a1e4803002c73611656f99f0",
         "hash_kind": "visible-v1",
         "final_url": "https://docs.cloud.google.com/kubernetes-engine/docs"
       },
@@ -18638,7 +19240,7 @@
         "paths": [
           "src/content/docs/ko/compute/containers.md"
         ],
-        "checked_at": "2026-10-30T15:23:56Z",
+        "checked_at": "2026-11-18T07:36:33Z",
         "status": "unverified",
         "error": "FetchError"
       },
@@ -18646,9 +19248,9 @@
         "paths": [
           "src/content/docs/ko/compute/containers.md"
         ],
-        "checked_at": "2026-10-30T15:23:56Z",
+        "checked_at": "2026-11-18T07:36:33Z",
         "status": "observed",
-        "hash": "00d1d8f879c567d8181000d57086c05c158aa6b5e8d0555e806192862c1b6712",
+        "hash": "45c960c7b3777e8e3a92b8627bf7f18adeae5c095d5cc3f2146e1bbe73cdaa57",
         "hash_kind": "visible-v1",
         "final_url": "https://docs.cloud.google.com/kubernetes-engine/versioning"
       },
@@ -18656,17 +19258,17 @@
         "paths": [
           "src/content/docs/ko/about-cloud/getting-started.md"
         ],
-        "checked_at": "2026-10-30T15:23:56Z",
+        "checked_at": "2026-11-18T07:36:33Z",
         "status": "unverified",
-        "error": "FetchError"
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://cloud.google.com/load-balancing/docs": {
         "paths": [
           "src/content/docs/ko/networking/load-balancer.md"
         ],
-        "checked_at": "2026-10-30T15:23:56Z",
+        "checked_at": "2026-11-18T07:36:33Z",
         "status": "observed",
-        "hash": "23e11b697511523e2d155b77b95431ad0426c0d912dc10f88d8987eea247112c",
+        "hash": "c8a9f4355619b7979654c1e3adf0e45da2de5a5158b6d0500ceba92cb023c469",
         "hash_kind": "visible-v1",
         "final_url": "https://docs.cloud.google.com/load-balancing/docs"
       },
@@ -18676,9 +19278,9 @@
           "src/content/docs/ko/devops/monitoring.md",
           "src/content/docs/ko/devops/observability.md"
         ],
-        "checked_at": "2026-10-30T15:23:56Z",
+        "checked_at": "2026-11-18T07:36:33Z",
         "status": "observed",
-        "hash": "ef0c420f05be3bdae57f538dd53cd501f6a56432ce45e77a95b3f4f86c954c30",
+        "hash": "164118ae952bf9bb2d71734effd261224b186a64aa69b09323abad887b97e1d8",
         "hash_kind": "visible-v1",
         "final_url": "https://docs.cloud.google.com/logging/docs"
       },
@@ -18686,9 +19288,9 @@
         "paths": [
           "src/content/docs/ko/governance/compliance.md"
         ],
-        "checked_at": "2026-10-30T15:23:56Z",
+        "checked_at": "2026-11-18T07:36:33Z",
         "status": "observed",
-        "hash": "8abdb89bb53833a12fa5acf1c2e9ba3c7bf0a275c637c93dea68de5057305cbc",
+        "hash": "dbeef5295c7e1fd90c12d6ba49a94c1c165e8ad06df197464ece5af84d3ff930",
         "hash_kind": "visible-v1",
         "final_url": "https://docs.cloud.google.com/logging/docs/audit"
       },
@@ -18696,17 +19298,17 @@
         "paths": [
           "src/content/docs/ko/database/analytics.md"
         ],
-        "checked_at": "2026-10-30T15:23:56Z",
+        "checked_at": "2026-11-18T07:36:33Z",
         "status": "unverified",
-        "error": "FetchError"
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://cloud.google.com/media-cdn/docs": {
         "paths": [
           "src/content/docs/ko/networking/cdn.md"
         ],
-        "checked_at": "2026-10-30T15:23:56Z",
+        "checked_at": "2026-11-18T07:36:33Z",
         "status": "observed",
-        "hash": "2c57f340c39e27414728e945c75c8231214b204572bb53a533827c0f704384f3",
+        "hash": "539940133680aedf2809629b2088e396c56782279c5e954b5b5e473770f89cc7",
         "hash_kind": "visible-v1",
         "final_url": "https://docs.cloud.google.com/media-cdn/docs"
       },
@@ -18714,7 +19316,7 @@
         "paths": [
           "src/content/docs/ko/database/cache.md"
         ],
-        "checked_at": "2026-10-30T15:23:56Z",
+        "checked_at": "2026-11-18T07:36:33Z",
         "status": "observed",
         "hash": "7263d222bea8ea08de2c8fb98755073579334f95002a1a280bf9857d9130b428",
         "hash_kind": "visible-v1",
@@ -18725,9 +19327,9 @@
           "src/content/docs/ko/compute/migration.md",
           "src/content/docs/ko/compute/modernization.md"
         ],
-        "checked_at": "2026-10-30T15:23:56Z",
+        "checked_at": "2026-11-18T07:36:33Z",
         "status": "observed",
-        "hash": "3704a571e64879d0ce515c6668dc791820806a813cceeba2031259dedf5740cd",
+        "hash": "566e6d6057cd55b9b51d2aad6da96b2b5fb4738b3108a737b5d2bd9c2747a36e",
         "hash_kind": "visible-v1",
         "final_url": "https://docs.cloud.google.com/migrate/containers/docs"
       },
@@ -18735,9 +19337,9 @@
         "paths": [
           "src/content/docs/ko/compute/migration.md"
         ],
-        "checked_at": "2026-10-30T15:23:56Z",
+        "checked_at": "2026-11-18T07:36:33Z",
         "status": "observed",
-        "hash": "fd8783f60941cf9c95e0cba6579dd3baf85028d154c4de35d6c383c9c57f08e9",
+        "hash": "2fa2e56bf577bc19dc632dd98402501f3a2eaf3f9eb829299ffdd54e45664761",
         "hash_kind": "visible-v1",
         "final_url": "https://docs.cloud.google.com/migrate/virtual-machines/docs/5.0"
       },
@@ -18745,9 +19347,9 @@
         "paths": [
           "src/content/docs/ko/compute/migration.md"
         ],
-        "checked_at": "2026-10-30T15:23:56Z",
+        "checked_at": "2026-11-18T07:36:33Z",
         "status": "observed",
-        "hash": "caae0d86d3b43c1a839498765194889cac0ce5511c3eb7c1a6df01eae657a727",
+        "hash": "64ff96c696ca3ce7cdff052140050b751378f3e562a9986409b9a81010d98868",
         "hash_kind": "visible-v1",
         "final_url": "https://docs.cloud.google.com/migration-center/docs"
       },
@@ -18756,9 +19358,9 @@
           "src/content/docs/ko/devops/monitoring.md",
           "src/content/docs/ko/devops/observability.md"
         ],
-        "checked_at": "2026-10-30T15:23:56Z",
+        "checked_at": "2026-11-18T07:36:33Z",
         "status": "observed",
-        "hash": "785ca783a28d059c89a13e0cdb271f06fafb2fc786d5f90e963f09c9e8499578",
+        "hash": "24bd6c570860281eabc1c77b861185a8985d56d6b26f1f52d980cdbf6a72ad0f",
         "hash_kind": "visible-v1",
         "final_url": "https://docs.cloud.google.com/monitoring/docs"
       },
@@ -18766,9 +19368,9 @@
         "paths": [
           "src/content/docs/ko/networking/multicloud-connectivity.md"
         ],
-        "checked_at": "2026-10-30T15:23:56Z",
+        "checked_at": "2026-11-18T07:36:33Z",
         "status": "observed",
-        "hash": "034d523cf4f795a1d8f4bedf7055ce0d9438df9ba22f458480960abb61cb0cd5",
+        "hash": "16aa60e3c8e3c0530ba31c7a6f25c1deb654edfca8cf8ea7a18954dbe0bd1823",
         "hash_kind": "visible-v1",
         "final_url": "https://docs.cloud.google.com/network-connectivity/docs/interconnect"
       },
@@ -18776,7 +19378,7 @@
         "paths": [
           "src/content/docs/ko/networking/vpc-subnet.md"
         ],
-        "checked_at": "2026-10-30T15:23:56Z",
+        "checked_at": "2026-11-18T07:36:33Z",
         "status": "unverified",
         "error": "unsupported-or-insufficient-visible-content"
       },
@@ -18784,7 +19386,7 @@
         "paths": [
           "src/content/docs/ko/networking/multicloud-connectivity.md"
         ],
-        "checked_at": "2026-10-30T15:23:56Z",
+        "checked_at": "2026-11-18T07:36:33Z",
         "status": "unverified",
         "error": "FetchError"
       },
@@ -18792,9 +19394,9 @@
         "paths": [
           "src/content/docs/ko/networking/multicloud-networking.md"
         ],
-        "checked_at": "2026-10-30T15:23:56Z",
+        "checked_at": "2026-11-18T07:36:33Z",
         "status": "observed",
-        "hash": "5fb1e8c509803ae4d633b28a018bbaf611ef2133222cb82e54da9780dfdde460",
+        "hash": "032ad32d509d5a17ae4e50458875c017485cbb33f3b37eecb5bd435efdad56c9",
         "hash_kind": "visible-v1",
         "final_url": "https://docs.cloud.google.com/network-connectivity/docs/interconnect/concepts/overview"
       },
@@ -18802,9 +19404,9 @@
         "paths": [
           "src/content/docs/ko/about-cloud/compare-clouds.md"
         ],
-        "checked_at": "2026-10-30T15:23:56Z",
+        "checked_at": "2026-11-18T07:36:33Z",
         "status": "observed",
-        "hash": "62e0d8e87622cdbd3b6c71d31f40c3a245e820d5582375f3927fd90876856d8f",
+        "hash": "8e359c88d8df5722aa9885e602f298249dfc6e8586d9a91252ae977a1ecbb3aa",
         "hash_kind": "visible-v1",
         "final_url": "https://docs.cloud.google.com/network-intelligence-center/docs/performance-dashboard/concepts/overview"
       },
@@ -18812,15 +19414,15 @@
         "paths": [
           "src/content/docs/ko/ai/physical-ai/data-and-training.md"
         ],
-        "checked_at": "2026-10-30T15:23:56Z",
+        "checked_at": "2026-11-18T07:36:33Z",
         "status": "unverified",
-        "error": "FetchError"
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://cloud.google.com/policy-intelligence/docs/analyze-iam-policies": {
         "paths": [
           "src/content/docs/ko/security/iam.md"
         ],
-        "checked_at": "2026-10-30T15:23:56Z",
+        "checked_at": "2026-11-18T07:36:33Z",
         "status": "unverified",
         "error": "unsupported-or-insufficient-visible-content"
       },
@@ -18828,24 +19430,24 @@
         "paths": [
           "src/content/docs/ko/about-cloud/pricing-model.md"
         ],
-        "checked_at": "2026-10-30T15:23:56Z",
+        "checked_at": "2026-11-18T07:36:33Z",
         "status": "unverified",
-        "error": "FetchError"
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://cloud.google.com/products/agent-builder": {
         "paths": [
           "src/content/docs/ko/ai/agents.md",
           "src/content/docs/ko/ai/ai-ml.md"
         ],
-        "checked_at": "2026-10-30T15:23:56Z",
+        "checked_at": "2026-11-18T07:36:33Z",
         "status": "unverified",
-        "error": "FetchError"
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://cloud.google.com/products/calculator": {
         "paths": [
           "src/content/docs/ko/about-cloud/pricing-model.md"
         ],
-        "checked_at": "2026-10-30T15:25:07Z",
+        "checked_at": "2026-11-18T07:36:33Z",
         "status": "unverified",
         "error": "unsupported-or-insufficient-visible-content"
       },
@@ -18853,33 +19455,33 @@
         "paths": [
           "src/content/docs/ko/ai/gpu-infra/workload-and-architecture.md"
         ],
-        "checked_at": "2026-10-30T15:25:07Z",
+        "checked_at": "2026-11-18T07:36:33Z",
         "status": "unverified",
-        "error": "FetchError"
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://cloud.google.com/products/managed-lustre": {
         "paths": [
           "src/content/docs/ko/ai/physical-ai/data-and-training.md"
         ],
-        "checked_at": "2026-10-30T15:25:07Z",
+        "checked_at": "2026-11-18T07:36:33Z",
         "status": "unverified",
-        "error": "FetchError"
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://cloud.google.com/pubsub": {
         "paths": [
           "src/content/docs/ko/ai/physical-ai/data-and-training.md"
         ],
-        "checked_at": "2026-10-30T15:25:07Z",
+        "checked_at": "2026-11-18T07:36:33Z",
         "status": "unverified",
-        "error": "FetchError"
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://cloud.google.com/pubsub/docs": {
         "paths": [
           "src/content/docs/ko/database/messaging.md"
         ],
-        "checked_at": "2026-10-30T15:25:07Z",
+        "checked_at": "2026-11-18T07:36:33Z",
         "status": "observed",
-        "hash": "7787b81dc1554a9c19c5e512c89d4518c3349a47fb1c53b8718009b54e036fc4",
+        "hash": "79578258978b61ad49909ea3e2df04497b120f7583ff202f4909be8c95098f14",
         "hash_kind": "visible-v1",
         "final_url": "https://docs.cloud.google.com/pubsub/docs"
       },
@@ -18887,9 +19489,9 @@
         "paths": [
           "src/content/docs/ko/about-cloud/support-plans.md"
         ],
-        "checked_at": "2026-10-30T15:25:07Z",
+        "checked_at": "2026-11-18T07:36:33Z",
         "status": "observed",
-        "hash": "c5bfb76151603e15b04ce44e826f76352a64df311d7d5667a7cd0bf0f92e6b5a",
+        "hash": "0170455bd6c7f5fb6ab9c2f82aff74a699767daffb7d069bd36441f7156ed282",
         "hash_kind": "visible-v1",
         "final_url": "https://docs.cloud.google.com/recommender/docs"
       },
@@ -18897,9 +19499,9 @@
         "paths": [
           "src/content/docs/ko/governance/finops.md"
         ],
-        "checked_at": "2026-10-30T15:25:07Z",
+        "checked_at": "2026-11-18T07:36:33Z",
         "status": "observed",
-        "hash": "cc58287fd0afda5775d01ebb99de126a77dd08f62f60d2d24090b8e7b017c6a3",
+        "hash": "fc6b041aa99d73fc657c7c2502dd81b2e14dc48bfce7c06b9f0ad6e26000af8b",
         "hash_kind": "visible-v1",
         "final_url": "https://docs.cloud.google.com/recommender/docs/whatis-activeassist"
       },
@@ -18907,9 +19509,9 @@
         "paths": [
           "src/content/docs/ko/about-cloud/accounts-and-organizations.mdx"
         ],
-        "checked_at": "2026-10-30T15:25:07Z",
+        "checked_at": "2026-11-18T07:36:33Z",
         "status": "observed",
-        "hash": "cb45acad8939edb61b6b5bb1d7c3753055fe3fb10ec68750ae6fff974b8ac27b",
+        "hash": "ed4c1e95c061574732fee1323d9989cb4f0cae3cb8bb5be75c9e1eb94d717c8a",
         "hash_kind": "visible-v1",
         "final_url": "https://docs.cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy"
       },
@@ -18917,7 +19519,7 @@
         "paths": [
           "src/content/docs/ko/governance/finops.md"
         ],
-        "checked_at": "2026-10-30T15:25:07Z",
+        "checked_at": "2026-11-18T07:36:33Z",
         "status": "unverified",
         "error": "unsupported-or-insufficient-visible-content"
       },
@@ -18927,9 +19529,9 @@
           "src/content/docs/ko/devops/devsecops.md",
           "src/content/docs/ko/governance/compliance.md"
         ],
-        "checked_at": "2026-10-30T15:25:07Z",
+        "checked_at": "2026-11-18T07:36:33Z",
         "status": "observed",
-        "hash": "b8d5dc061ff04f753b3ddb7c6ef3c8c081e9b467f8a77fd0c9718888665c843b",
+        "hash": "39dc7876c506272addc54883fb6d99da5be9111a1b06df594cd86c2cd866e1be",
         "hash_kind": "visible-v1",
         "final_url": "https://docs.cloud.google.com/organization-policy/overview"
       },
@@ -18937,7 +19539,7 @@
         "paths": [
           "src/content/docs/ko/governance/finops.md"
         ],
-        "checked_at": "2026-10-30T15:25:07Z",
+        "checked_at": "2026-11-18T07:36:33Z",
         "status": "unverified",
         "error": "unsupported-or-insufficient-visible-content"
       },
@@ -18945,9 +19547,9 @@
         "paths": [
           "src/content/docs/ko/governance/finops.md"
         ],
-        "checked_at": "2026-10-30T15:25:07Z",
+        "checked_at": "2026-11-18T07:36:33Z",
         "status": "observed",
-        "hash": "f64c9d5313fd3f17071c3d443a96d484d1d8adcf003362b67706c6857ec6fb69",
+        "hash": "19ba18ae419b1c4aa40cecd71c6df3229182a35ad9bb6a5f21d1be822305fa4c",
         "hash_kind": "visible-v1",
         "final_url": "https://docs.cloud.google.com/resource-manager/docs/tags/tags-overview"
       },
@@ -18957,9 +19559,9 @@
           "src/content/docs/ko/compute/modernization.md",
           "src/content/docs/ko/compute/serverless.md"
         ],
-        "checked_at": "2026-10-30T15:25:07Z",
+        "checked_at": "2026-11-18T07:36:33Z",
         "status": "observed",
-        "hash": "56d7bc82b21c9c42b7f886880db7a4eabc3191c0e8455f478c272166ed882abf",
+        "hash": "843ac663515b3f86024ddb7dff9feda085381c57d8f575e54f0ca337a7c9d760",
         "hash_kind": "visible-v1",
         "final_url": "https://docs.cloud.google.com/run/docs"
       },
@@ -18967,9 +19569,9 @@
         "paths": [
           "src/content/docs/ko/about-cloud/console-cli-sdk.md"
         ],
-        "checked_at": "2026-10-30T15:25:07Z",
+        "checked_at": "2026-11-18T07:36:33Z",
         "status": "observed",
-        "hash": "ce80394e48a534873c85399eccb0c52f39a25d7a68e20b9a8e4e0900d021396e",
+        "hash": "70cdb791e36a3aacefb656ede55508781d1e0552ff84af30fd96991262ee51fe",
         "hash_kind": "visible-v1",
         "final_url": "https://docs.cloud.google.com/sdk/docs/install-sdk"
       },
@@ -18977,9 +19579,9 @@
         "paths": [
           "src/content/docs/ko/security/secrets.md"
         ],
-        "checked_at": "2026-10-30T15:25:07Z",
+        "checked_at": "2026-11-18T07:36:33Z",
         "status": "observed",
-        "hash": "1f62434806b605097eff512f0214d09527ed4af5d5eddd520f54983a83c7b8b9",
+        "hash": "92cfe2d0999c4e5c7eb10e7ab69922030445b7aba11febb68a26df7761255a2b",
         "hash_kind": "visible-v1",
         "final_url": "https://docs.cloud.google.com/secret-manager/docs"
       },
@@ -18988,26 +19590,26 @@
           "src/content/docs/ko/about-cloud/shared-responsibility.mdx",
           "src/content/docs/ko/security/data-protection.md"
         ],
-        "checked_at": "2026-10-30T15:25:07Z",
+        "checked_at": "2026-11-18T07:36:33Z",
         "status": "unverified",
-        "error": "FetchError"
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://cloud.google.com/security-command-center": {
         "paths": [
           "src/content/docs/ko/governance/compliance.md"
         ],
-        "checked_at": "2026-10-30T15:25:07Z",
+        "checked_at": "2026-11-18T07:36:33Z",
         "status": "unverified",
-        "error": "FetchError"
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://cloud.google.com/security-command-center/docs": {
         "paths": [
           "src/content/docs/ko/devops/patch-and-vulnerability.md",
           "src/content/docs/ko/security/security-posture.md"
         ],
-        "checked_at": "2026-10-30T15:25:07Z",
+        "checked_at": "2026-11-18T07:36:33Z",
         "status": "observed",
-        "hash": "9d4b4f954a7a750aa84e57b5368593fc2c2c6f3d4a9677f271274fab5d8ce886",
+        "hash": "62a5c993170d198d6c397e2db94b8993a0ed67ed0e8f810fca4dcdddd9688f3f",
         "hash_kind": "visible-v1",
         "final_url": "https://docs.cloud.google.com/security-command-center/docs"
       },
@@ -19015,9 +19617,9 @@
         "paths": [
           "src/content/docs/ko/security/security-posture.md"
         ],
-        "checked_at": "2026-10-30T15:25:07Z",
+        "checked_at": "2026-11-18T07:36:33Z",
         "status": "observed",
-        "hash": "5dfaa3e06ff248f14a62dc7441afdf46d55fe673253ab48b3e614832827980dd",
+        "hash": "9d15738ccad5a0fd39b747a97afa8fc81e1ebfd39944f29386d14d4afad2e377",
         "hash_kind": "visible-v1",
         "final_url": "https://docs.cloud.google.com/security-command-center/docs/concepts-event-threat-detection-overview"
       },
@@ -19025,7 +19627,7 @@
         "paths": [
           "src/content/docs/ko/security/security-posture.md"
         ],
-        "checked_at": "2026-10-30T15:25:07Z",
+        "checked_at": "2026-11-18T07:36:33Z",
         "status": "unverified",
         "error": "unsupported-or-insufficient-visible-content"
       },
@@ -19033,34 +19635,34 @@
         "paths": [
           "src/content/docs/ko/security/ai-security.md"
         ],
-        "checked_at": "2026-10-30T15:25:07Z",
+        "checked_at": "2026-11-18T07:36:33Z",
         "status": "unverified",
-        "error": "FetchError"
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://cloud.google.com/security/best-practices": {
         "paths": [
           "src/content/docs/ko/devops/devsecops.md",
           "src/content/docs/ko/security/getting-started.md"
         ],
-        "checked_at": "2026-10-30T15:25:07Z",
+        "checked_at": "2026-11-18T07:36:33Z",
         "status": "unverified",
-        "error": "FetchError"
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://cloud.google.com/security/compliance": {
         "paths": [
           "src/content/docs/ko/about-cloud/shared-responsibility.mdx",
           "src/content/docs/ko/governance/compliance.md"
         ],
-        "checked_at": "2026-10-30T15:25:07Z",
+        "checked_at": "2026-11-18T07:36:33Z",
         "status": "unverified",
-        "error": "FetchError"
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://cloud.google.com/security/compliance/compliance-reports-manager": {
         "paths": [
           "src/content/docs/ko/about-cloud/shared-responsibility.mdx",
           "src/content/docs/ko/governance/compliance.md"
         ],
-        "checked_at": "2026-10-30T15:25:07Z",
+        "checked_at": "2026-11-18T07:36:33Z",
         "status": "observed",
         "hash": "4ed971d52bf740ab98a5a522074a225c8d46d2ba2128586b32e303ccae70567b",
         "hash_kind": "visible-v1",
@@ -19070,25 +19672,25 @@
         "paths": [
           "src/content/docs/ko/korea/governance/compliance.md"
         ],
-        "checked_at": "2026-10-30T15:25:07Z",
+        "checked_at": "2026-11-18T07:36:33Z",
         "status": "unverified",
-        "error": "FetchError"
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://cloud.google.com/security/compliance/ens": {
         "paths": [
           "src/content/docs/ko/eu/national-schemes.md"
         ],
-        "checked_at": "2026-10-30T15:25:07Z",
+        "checked_at": "2026-11-18T07:36:33Z",
         "status": "unverified",
-        "error": "FetchError"
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://cloud.google.com/security/compliance/hipaa": {
         "paths": [
           "src/content/docs/ko/us/hipaa.md"
         ],
-        "checked_at": "2026-10-30T15:25:07Z",
+        "checked_at": "2026-11-18T07:36:33Z",
         "status": "observed",
-        "hash": "ca844d00ba2e0653aece58738d3f3c1bf432681d2e0f8bba91c761889782865c",
+        "hash": "3932cf14f0c614daf5115e596c0bbef9299b6cad07190a337150d2a5216f9bbe",
         "hash_kind": "visible-v1",
         "final_url": "https://docs.cloud.google.com/docs/security/compliance/hipaa"
       },
@@ -19096,41 +19698,41 @@
         "paths": [
           "src/content/docs/ko/governance/compliance.md"
         ],
-        "checked_at": "2026-10-30T15:25:07Z",
+        "checked_at": "2026-11-18T07:36:33Z",
         "status": "unverified",
-        "error": "FetchError"
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://cloud.google.com/security/compliance/k-isms": {
         "paths": [
           "src/content/docs/ko/korea/governance/compliance.md"
         ],
-        "checked_at": "2026-10-30T15:25:07Z",
+        "checked_at": "2026-11-18T07:36:33Z",
         "status": "unverified",
-        "error": "FetchError"
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://cloud.google.com/security/compliance/mtcs": {
         "paths": [
           "src/content/docs/ko/singapore/mtcs.md"
         ],
-        "checked_at": "2026-10-30T15:25:07Z",
+        "checked_at": "2026-11-18T07:36:33Z",
         "status": "unverified",
-        "error": "FetchError"
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://cloud.google.com/security/compliance/ospar": {
         "paths": [
           "src/content/docs/ko/singapore/mtcs.md"
         ],
-        "checked_at": "2026-10-30T15:25:07Z",
+        "checked_at": "2026-11-18T07:36:33Z",
         "status": "unverified",
-        "error": "FetchError"
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://cloud.google.com/security/incident-response": {
         "paths": [
           "src/content/docs/ko/security/incident-response.md"
         ],
-        "checked_at": "2026-10-30T15:25:07Z",
+        "checked_at": "2026-11-18T07:36:33Z",
         "status": "observed",
-        "hash": "fe1fbd7cfeb3a3b540e44b678ba11b11695a76aec45749fa4508024eea1b17d0",
+        "hash": "e2812197a1f8d338746df0dbcfadbe1b395e681dd69ceccb08f87453172feaf9",
         "hash_kind": "visible-v1",
         "final_url": "https://docs.cloud.google.com/docs/security/incident-response"
       },
@@ -19138,9 +19740,9 @@
         "paths": [
           "src/content/docs/ko/compute/service-mesh.md"
         ],
-        "checked_at": "2026-10-30T15:25:07Z",
+        "checked_at": "2026-11-18T07:36:33Z",
         "status": "observed",
-        "hash": "af5a6f53c301aef95a21d412293449c03ff4642927754bd0fa63e01d42fd5a45",
+        "hash": "844586e36943fcca17900f2fb876a9ff7c3c754aaea91339aabd8847ec303e4b",
         "hash_kind": "visible-v1",
         "final_url": "https://docs.cloud.google.com/service-mesh/docs"
       },
@@ -19148,9 +19750,9 @@
         "paths": [
           "src/content/docs/ko/about-cloud/console-cli-sdk.md"
         ],
-        "checked_at": "2026-10-30T15:25:07Z",
+        "checked_at": "2026-11-18T07:36:33Z",
         "status": "observed",
-        "hash": "aa07dce8d440adc075d1d4beeed41fb0c9a929267cfc708c7337b469f93c6a12",
+        "hash": "3107e61f2faef403b31649b403a42c44bcf7ceca0d338e7cc0b6df956ae9eeb3",
         "hash_kind": "visible-v1",
         "final_url": "https://docs.cloud.google.com/shell/docs"
       },
@@ -19158,41 +19760,41 @@
         "paths": [
           "src/content/docs/ko/compute/modernization.md"
         ],
-        "checked_at": "2026-10-30T15:25:07Z",
+        "checked_at": "2026-11-18T07:36:33Z",
         "status": "unverified",
-        "error": "FetchError"
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://cloud.google.com/solutions/application-modernization/": {
         "paths": [
           "src/content/docs/ko/compute/modernization.md"
         ],
-        "checked_at": "2026-10-30T15:25:07Z",
+        "checked_at": "2026-11-18T07:36:33Z",
         "status": "unverified",
-        "error": "FetchError"
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://cloud.google.com/solutions/camp": {
         "paths": [
           "src/content/docs/ko/compute/modernization.md"
         ],
-        "checked_at": "2026-10-30T15:25:07Z",
+        "checked_at": "2026-11-18T07:36:33Z",
         "status": "unverified",
-        "error": "FetchError"
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://cloud.google.com/sovereign-cloud": {
         "paths": [
           "src/content/docs/ko/eu/gdpr-sovereignty.md"
         ],
-        "checked_at": "2026-10-30T15:25:07Z",
+        "checked_at": "2026-11-18T07:36:33Z",
         "status": "unverified",
-        "error": "FetchError"
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://cloud.google.com/sql/docs": {
         "paths": [
           "src/content/docs/ko/database/managed-rdb.md"
         ],
-        "checked_at": "2026-10-30T15:25:07Z",
+        "checked_at": "2026-11-18T07:36:33Z",
         "status": "observed",
-        "hash": "3ac09c20ceb4a7d55256b2c040a96bb78e40e09112913b2d815caa9832565077",
+        "hash": "0aa40fc5e979cb9730accefeb7738b2b8616020cde8121b1b4ff0cdab27f430a",
         "hash_kind": "visible-v1",
         "final_url": "https://docs.cloud.google.com/sql/docs"
       },
@@ -19200,9 +19802,9 @@
         "paths": [
           "src/content/docs/ko/ai/vector-store.md"
         ],
-        "checked_at": "2026-10-30T15:25:07Z",
+        "checked_at": "2026-11-18T07:36:33Z",
         "status": "observed",
-        "hash": "771f8e08b429027a7521958f2dc77cf6f95a7aff3b7ea5db982ab6cc7f94a73c",
+        "hash": "4cff6588683bee44c9d5c0d480af1afb86b3426d16a9fec4a49115bf6fa7d3b7",
         "hash_kind": "visible-v1",
         "final_url": "https://docs.cloud.google.com/sql/docs/postgres/extensions"
       },

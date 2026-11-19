@@ -16819,6 +16819,552 @@
       "status": "open",
       "evidence": [],
       "pr": null
+    },
+    {
+      "id": "fa60d6e74bb6cf753d093ac4",
+      "path": "src/content/docs/ko/database/operations.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://cloud.google.com/sql/docs/postgres/high-availability",
+      "change_digest": "bc195bc118b61311bdb02369b30fd1db5ae4797ecf05bf8d496371012d218952",
+      "source_url": "https://cloud.google.com/sql/docs/postgres/high-availability",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "aecb31037bab8fa3d7cbc837",
+      "path": "src/content/docs/ko/database/operations.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://cloud.google.com/sql/docs/postgres/sql-proxy",
+      "change_digest": "a678982224f0c95c8c276c507ed8909821e2286e02ba6e55520e3901d712e137",
+      "source_url": "https://cloud.google.com/sql/docs/postgres/sql-proxy",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "7dcfae8947259cc42522ce9f",
+      "path": "src/content/docs/ko/devops/observability.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://cloud.google.com/stackdriver/docs/instrumentation/overview",
+      "change_digest": "96c517a455d0282ed0e324079780726bc44073aebe9c478db6092034a54db96f",
+      "source_url": "https://cloud.google.com/stackdriver/docs/instrumentation/overview",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "fdc9cd6ea1bfb34e64b0aca3",
+      "path": "src/content/docs/ko/storage/migration.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://cloud.google.com/storage-transfer/docs",
+      "change_digest": "3e4c962c5b0fc39f954d1e3c1e26ac4160a0cca02aade6f88abf0ea7fc3126d9",
+      "source_url": "https://cloud.google.com/storage-transfer/docs",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "12ef7add1d1254aa46d17e58",
+      "path": "src/content/docs/ko/storage/object-storage.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://cloud.google.com/storage/docs",
+      "change_digest": "4ff561185064c01cbf580cac6abfa4b485b916280913913602a5749ff58d6b34",
+      "source_url": "https://cloud.google.com/storage/docs",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "dda7771681e9739cb687c417",
+      "path": "src/content/docs/ko/storage/object-storage.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://cloud.google.com/storage/docs/autoclass",
+      "change_digest": "3ebb40815ea7394421f48d398f47cfbc43fc62d46c71d74668dcd525c20fc399",
+      "source_url": "https://cloud.google.com/storage/docs/autoclass",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "823a16c964ca1704ae021c15",
+      "path": "src/content/docs/ko/storage/migration.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://cloud.google.com/storage/docs/cloud-storage-fuse/overview",
+      "change_digest": "0f88f4e2a2318c8688699e1f2de0fa820d1bf98d1dd26f24f375b1e3f2498863",
+      "source_url": "https://cloud.google.com/storage/docs/cloud-storage-fuse/overview",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "ae287e39f3560c4a533ba11a",
+      "path": "src/content/docs/ko/storage/migration.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://cloud.google.com/storage/docs/gsutil",
+      "change_digest": "42b41657937cf9606a0280e1dff8198d803f351146328a1df81dd6b1c0f333d4",
+      "source_url": "https://cloud.google.com/storage/docs/gsutil",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "b874da4ed405da337533d3dd",
+      "path": "src/content/docs/ko/about-cloud/support-plans.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://cloud.google.com/support/docs",
+      "change_digest": "5fda36e599c464b63ea0784274bd294c9f21245be1178347d212fc7ad0e6713d",
+      "source_url": "https://cloud.google.com/support/docs",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "527cd606e174cd8aa5b59216",
+      "path": "src/content/docs/ko/governance/sustainability.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://cloud.google.com/sustainability/region-carbon",
+      "change_digest": "a55788bc2774835aee633ad8af17827bee8be21642fc8ebf55c06c3d01ec3395",
+      "source_url": "https://cloud.google.com/sustainability/region-carbon",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "b99d20f5ce14ba2a7d18301b",
+      "path": "src/content/docs/ko/database/messaging.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://cloud.google.com/tasks/docs",
+      "change_digest": "cfd3b082bc1e88c943478c163808788bcd2a5a32dd9ce0aff1d4d3a7eae7e9fb",
+      "source_url": "https://cloud.google.com/tasks/docs",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "d6ef598e3ad26c09d551c677",
+      "path": "src/content/docs/ko/devops/monitoring.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://cloud.google.com/trace/docs",
+      "change_digest": "cbed9cb2a776751f90c8c82adf483c81dc1d197191a4d537ef57142eb47071d2",
+      "source_url": "https://cloud.google.com/trace/docs",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "eef7183235ef1f1ef539723b",
+      "path": "src/content/docs/ko/devops/observability.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://cloud.google.com/trace/docs",
+      "change_digest": "cbed9cb2a776751f90c8c82adf483c81dc1d197191a4d537ef57142eb47071d2",
+      "source_url": "https://cloud.google.com/trace/docs",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "887195b383d4f3c51cf99c43",
+      "path": "src/content/docs/ko/storage/migration.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://cloud.google.com/transfer-appliance/docs",
+      "change_digest": "c3512f5bbddabaa50dd7dfdf3fa95f452c2d4b65e3f22fe45823db7532dd2c93",
+      "source_url": "https://cloud.google.com/transfer-appliance/docs",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "cfe5161b6b561e40907f1ee2",
+      "path": "src/content/docs/ko/ai/agent-adoption.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://cloud.google.com/vertex-ai/docs",
+      "change_digest": "e2c5aa4a3fec1e909ddacd72919026f4c59440ce1ef7a8a3ea958e29502d7d7b",
+      "source_url": "https://cloud.google.com/vertex-ai/docs",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "0e9ad965e30d7fa6e601a8ca",
+      "path": "src/content/docs/ko/ai/ai-ml.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://cloud.google.com/vertex-ai/docs",
+      "change_digest": "e2c5aa4a3fec1e909ddacd72919026f4c59440ce1ef7a8a3ea958e29502d7d7b",
+      "source_url": "https://cloud.google.com/vertex-ai/docs",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "3d1143cbdd1369efca5557a1",
+      "path": "src/content/docs/ko/ai/getting-started.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://cloud.google.com/vertex-ai/docs",
+      "change_digest": "e2c5aa4a3fec1e909ddacd72919026f4c59440ce1ef7a8a3ea958e29502d7d7b",
+      "source_url": "https://cloud.google.com/vertex-ai/docs",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "f6b0fe2720d87a130c8231ec",
+      "path": "src/content/docs/ko/ai/multicloud-ai.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://cloud.google.com/vertex-ai/docs",
+      "change_digest": "e2c5aa4a3fec1e909ddacd72919026f4c59440ce1ef7a8a3ea958e29502d7d7b",
+      "source_url": "https://cloud.google.com/vertex-ai/docs",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "fb04251f74e6c7fc1c485a37",
+      "path": "src/content/docs/ko/ai/physical-ai/data-and-training.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://cloud.google.com/vertex-ai/docs/deprecations",
+      "change_digest": "6d3074d76b654c4b54bb3f8212e06d1bc8d5606a07c191624ad1be7d52d7af8e",
+      "source_url": "https://cloud.google.com/vertex-ai/docs/deprecations",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "afc93f679ab0aaa7b672460a",
+      "path": "src/content/docs/ko/ai/llmops.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://cloud.google.com/vertex-ai/docs/model-monitoring/overview",
+      "change_digest": "6de4e92505dbddd181eae5cd413807e4a0e5d769fc2b44e7b37629b9fcdef571",
+      "source_url": "https://cloud.google.com/vertex-ai/docs/model-monitoring/overview",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "4e82feefed1d16600b12e1af",
+      "path": "src/content/docs/ko/ai/gpu-infra/distributed-training.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://cloud.google.com/vertex-ai/docs/training/distributed-training",
+      "change_digest": "770c6af6bb16103fd6fa861124f2c4ccd4a974d8cbc0394af62601c905d0e9f2",
+      "source_url": "https://cloud.google.com/vertex-ai/docs/training/distributed-training",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "3dcbaf9f19534e8890a56247",
+      "path": "src/content/docs/ko/ai/vector-store.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://cloud.google.com/vertex-ai/docs/vector-search/overview",
+      "change_digest": "e411119c4e093aab70026ea77ed43c5b1f3783f114af2f9253806aa5d2a12997",
+      "source_url": "https://cloud.google.com/vertex-ai/docs/vector-search/overview",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "897c5d8e4ffd559e158df936",
+      "path": "src/content/docs/ko/ai/1p-vs-3p.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://cloud.google.com/vertex-ai/generative-ai/docs",
+      "change_digest": "d86223f6aaf6100e333ce64d16bfa90084801426886eb8f7d8c8365f198092ad",
+      "source_url": "https://cloud.google.com/vertex-ai/generative-ai/docs",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "1108ab0a795ab3959ea07e41",
+      "path": "src/content/docs/ko/ai/ai-ml.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://cloud.google.com/vertex-ai/generative-ai/docs",
+      "change_digest": "d86223f6aaf6100e333ce64d16bfa90084801426886eb8f7d8c8365f198092ad",
+      "source_url": "https://cloud.google.com/vertex-ai/generative-ai/docs",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "46f875adf5c20d86c67527c5",
+      "path": "src/content/docs/ko/ai/prompt-engineering.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://cloud.google.com/vertex-ai/generative-ai/docs/learn/prompts/few-shot-examples",
+      "change_digest": "3f87258caa03c26373282e8d126ea785a7bd5950930455dcafe819e8979924d1",
+      "source_url": "https://cloud.google.com/vertex-ai/generative-ai/docs/learn/prompts/few-shot-examples",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "121e421dc05cc84525bd147c",
+      "path": "src/content/docs/ko/ai/prompt-engineering.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://cloud.google.com/vertex-ai/generative-ai/docs/learn/prompts/prompt-design-strategies",
+      "change_digest": "ce0fa9402af403d9c7205d66ba1263801e878370b4667d6814bdc5d0dab30d4d",
+      "source_url": "https://cloud.google.com/vertex-ai/generative-ai/docs/learn/prompts/prompt-design-strategies",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "f6f41e9e40f018bfe301c6cd",
+      "path": "src/content/docs/ko/ai/llmops.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://cloud.google.com/vertex-ai/generative-ai/docs/models/evaluation-overview",
+      "change_digest": "d00e152bd739ea1cc0152522884b6c3a5d43cd6028e67237f373fa01cc451868",
+      "source_url": "https://cloud.google.com/vertex-ai/generative-ai/docs/models/evaluation-overview",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "0bb906da336aa238a8bc39cf",
+      "path": "src/content/docs/ko/ai/rag-patterns.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://cloud.google.com/vertex-ai/generative-ai/docs/models/evaluation-overview",
+      "change_digest": "d00e152bd739ea1cc0152522884b6c3a5d43cd6028e67237f373fa01cc451868",
+      "source_url": "https://cloud.google.com/vertex-ai/generative-ai/docs/models/evaluation-overview",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "b9c40ff36e9fd45a3a4a080b",
+      "path": "src/content/docs/ko/security/ai-security.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://cloud.google.com/vertex-ai/generative-ai/docs/multimodal/configure-safety-filters",
+      "change_digest": "07df72d81bc701f74b6659ebb10efbac41e79b08e558d2cc6a622a81b8621be3",
+      "source_url": "https://cloud.google.com/vertex-ai/generative-ai/docs/multimodal/configure-safety-filters",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "81d5e1c8547029bd57b87bac",
+      "path": "src/content/docs/ko/ai/prompt-engineering.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://cloud.google.com/vertex-ai/generative-ai/docs/multimodal/control-generated-output",
+      "change_digest": "0f468bc11734711c182cf19bae38800345859860cb26976058904e23f9555b37",
+      "source_url": "https://cloud.google.com/vertex-ai/generative-ai/docs/multimodal/control-generated-output",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "dcf166de951c2e16776e4ff2",
+      "path": "src/content/docs/ko/ai/vector-store.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://cloud.google.com/vertex-ai/generative-ai/docs/rag-overview",
+      "change_digest": "8456bdfb3ff2a5859c3359b55266986b9b52a75874818a17a3b52e3285c79b15",
+      "source_url": "https://cloud.google.com/vertex-ai/generative-ai/docs/rag-overview",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "a4921ed819f36aa61ffbfd19",
+      "path": "src/content/docs/ko/networking/vpc-subnet.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://cloud.google.com/vpc/docs",
+      "change_digest": "2430a13bf0fd8bb68614a6f019fee2cbcd957ea143ad55add095790191b5b6e3",
+      "source_url": "https://cloud.google.com/vpc/docs",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "a7e724170689cea2cb88b63c",
+      "path": "src/content/docs/ko/security/network-isolation.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://cloud.google.com/vpc/docs/private-google-access",
+      "change_digest": "f96bc03af41a94ef5c88f9be20f4f0faee58a0b69d15da2fb8ef0131490ca938",
+      "source_url": "https://cloud.google.com/vpc/docs/private-google-access",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "0307f10a95762add344bbf4c",
+      "path": "src/content/docs/ko/about-cloud/accounts-and-organizations.mdx",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://cloud.google.com/vpc/docs/shared-vpc",
+      "change_digest": "73ac90f60c64e02067fecf2557e0ba382e28770c47cf35e5843003412decedd8",
+      "source_url": "https://cloud.google.com/vpc/docs/shared-vpc",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "1447c9a1c0cdb99609be513e",
+      "path": "src/content/docs/ko/compute/serverless.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://cloud.google.com/workflows/docs",
+      "change_digest": "34e85e210742e009ffd170a7026bd94ca717283017fb0ac9075271b6b8057c50",
+      "source_url": "https://cloud.google.com/workflows/docs",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "054f5b2e1b58b88bf6c990cf",
+      "path": "src/content/docs/ko/database/data-pipeline.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://cloud.google.com/workflows/docs",
+      "change_digest": "34e85e210742e009ffd170a7026bd94ca717283017fb0ac9075271b6b8057c50",
+      "source_url": "https://cloud.google.com/workflows/docs",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "39740baf40a178524decf76d",
+      "path": "src/content/docs/ko/eu/sovereign-ai.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://cohere.com/blog/cohere-alephalpha-join-forces",
+      "change_digest": "fe935f69a0d29e398b53566984ab4a57be9fbe71609328c2977e4e685e7b0d8e",
+      "source_url": "https://cohere.com/blog/cohere-alephalpha-join-forces",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "bf7d08043ac36dfaf20bf0a4",
+      "path": "src/content/docs/ko/eu/gdpr-sovereignty.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://commission.europa.eu/law/law-topic/data-protection/international-dimension-data-protection/adequacy-decisions_en",
+      "change_digest": "afcee27fe7b9fc130e3fc3c3510edd11339a215d1bf98463e22d7803ffca1d26",
+      "source_url": "https://commission.europa.eu/law/law-topic/data-protection/international-dimension-data-protection/adequacy-decisions_en",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "ae544f34b6c2876eff66142d",
+      "path": "src/content/docs/ko/eu/national-schemes.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://cyber.gouv.fr/",
+      "change_digest": "b4cd3736bc3738d468bbcc092562527b7ca0bed46ad6026f3ddb428b49d77c28",
+      "source_url": "https://cyber.gouv.fr/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
     }
   ],
   "resolved_ids": [],
@@ -17515,7 +18061,7 @@
         "paths": [
           "src/content/docs/ko/ai/agents.md"
         ],
-        "checked_at": "2026-11-18T07:36:33Z",
+        "checked_at": "2026-11-19T07:32:16Z",
         "status": "unverified",
         "hash": "dc7fc249911468c4dc00fc4eb92b1c0d611070787422d5a6d767fc3b925fee20",
         "final_url": "https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/",
@@ -17525,7 +18071,7 @@
         "paths": [
           "src/content/docs/ko/singapore/mtcs.md"
         ],
-        "checked_at": "2026-11-18T07:36:33Z",
+        "checked_at": "2026-11-19T07:32:16Z",
         "status": "unverified",
         "hash": "635b02875de69e3cc1de1579b70facd5f4c19edf127bd2e3769e8a92f70b360b",
         "final_url": "https://abs.org.sg/docs/library/abs-ospar-guidelines-v2-0.pdf",
@@ -17535,7 +18081,7 @@
         "paths": [
           "src/content/docs/ko/ai/agents.md"
         ],
-        "checked_at": "2026-11-18T07:36:33Z",
+        "checked_at": "2026-11-19T07:32:16Z",
         "status": "unverified",
         "hash": "279273094623330fe250f2984391cac02002276942f6d2dbd8537e495fae1bdf",
         "final_url": "https://www.ag2.ai/",
@@ -17545,7 +18091,7 @@
         "paths": [
           "src/content/docs/ko/ai/getting-started.md"
         ],
-        "checked_at": "2026-11-18T07:36:33Z",
+        "checked_at": "2026-11-19T07:32:16Z",
         "status": "unverified",
         "hash": "ae0f8a0945b3d1cf6945ebf983706906940024c6f02864250619be546f2c10a2",
         "final_url": "https://ai.azure.com/",
@@ -17586,7 +18132,7 @@
         "paths": [
           "src/content/docs/ko/singapore/ai-governance.md"
         ],
-        "checked_at": "2026-11-18T07:36:33Z",
+        "checked_at": "2026-11-19T07:32:16Z",
         "status": "unverified",
         "hash": "861c9baae1bb9420d984be6abe0a5a19d6b07730363337bf8a901ea68a37c87d",
         "final_url": "https://aiverifyfoundation.sg/resources/mgf-gen-ai/",
@@ -17606,7 +18152,7 @@
         "paths": [
           "src/content/docs/ko/devops/devsecops.md"
         ],
-        "checked_at": "2026-11-18T07:36:33Z",
+        "checked_at": "2026-11-19T07:32:16Z",
         "status": "unverified",
         "hash": "6ce84a59d0c606ad8c2c2b3d3703944b3097b677f6a9c36c22154de4e3295152",
         "final_url": "https://aquasecurity.github.io/tfsec/",
@@ -17626,7 +18172,7 @@
         "paths": [
           "src/content/docs/ko/ai/llmops.md"
         ],
-        "checked_at": "2026-11-18T07:36:33Z",
+        "checked_at": "2026-11-19T07:32:16Z",
         "status": "unverified",
         "hash": "84e61b481a6f8d7a78ec8093dce057a9e2b06a9ea80957e5c3766d9b595ef09c",
         "final_url": "https://arize.com/",
@@ -17696,7 +18242,7 @@
         "paths": [
           "src/content/docs/ko/devops/observability.md"
         ],
-        "checked_at": "2026-11-18T07:36:33Z",
+        "checked_at": "2026-11-19T07:32:16Z",
         "status": "unverified",
         "hash": "b472569757f991e0df0919150abea62828a7651cc991dfcabea1158bc12ba1fe",
         "final_url": "https://aws-otel.github.io/",
@@ -20705,9 +21251,9 @@
         "paths": [
           "src/content/docs/ko/database/operations.md"
         ],
-        "checked_at": "2026-10-30T15:25:07Z",
+        "checked_at": "2026-11-19T07:32:16Z",
         "status": "observed",
-        "hash": "68d829b273abd922fa4262449b8434085bb20c1e35348adddeda22e444facf62",
+        "hash": "dfe112a388cec7002fea28546710de58f21d0f7ebda71594d2e60a1445b66b73",
         "hash_kind": "visible-v1",
         "final_url": "https://docs.cloud.google.com/sql/docs/postgres/high-availability"
       },
@@ -20715,7 +21261,7 @@
         "paths": [
           "src/content/docs/ko/database/operations.md"
         ],
-        "checked_at": "2026-10-30T15:25:07Z",
+        "checked_at": "2026-11-19T07:32:16Z",
         "status": "unverified",
         "error": "unsupported-or-insufficient-visible-content"
       },
@@ -20723,9 +21269,9 @@
         "paths": [
           "src/content/docs/ko/database/operations.md"
         ],
-        "checked_at": "2026-10-30T15:25:07Z",
+        "checked_at": "2026-11-19T07:32:16Z",
         "status": "observed",
-        "hash": "f9d83581cb67f4cc33388e43040e09bc90f3483d834a03787030ac5d00b79d14",
+        "hash": "b5dd25a689398ddfd5e25a8de747567b251563b44fe6735d573cad5b29490d03",
         "hash_kind": "visible-v1",
         "final_url": "https://docs.cloud.google.com/sql/docs/postgres/sql-proxy"
       },
@@ -20733,9 +21279,9 @@
         "paths": [
           "src/content/docs/ko/devops/observability.md"
         ],
-        "checked_at": "2026-10-30T15:25:07Z",
+        "checked_at": "2026-11-19T07:32:16Z",
         "status": "observed",
-        "hash": "04d0d505d4464ea19cb0c6857f8d7b68e600a43351dbc5a168d44aeb4b9f1154",
+        "hash": "3484ada230f2188f9a67c0421b56977733daf629225584065996e2c6442a3ae6",
         "hash_kind": "visible-v1",
         "final_url": "https://docs.cloud.google.com/stackdriver/docs/opentelemetry/application-developers"
       },
@@ -20743,25 +21289,25 @@
         "paths": [
           "src/content/docs/ko/ai/physical-ai/data-and-training.md"
         ],
-        "checked_at": "2026-10-30T15:25:07Z",
+        "checked_at": "2026-11-19T07:32:16Z",
         "status": "unverified",
-        "error": "FetchError"
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://cloud.google.com/storage-transfer-service": {
         "paths": [
           "src/content/docs/ko/storage/migration.md"
         ],
-        "checked_at": "2026-10-30T15:25:07Z",
+        "checked_at": "2026-11-19T07:32:16Z",
         "status": "unverified",
-        "error": "FetchError"
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://cloud.google.com/storage-transfer/docs": {
         "paths": [
           "src/content/docs/ko/storage/migration.md"
         ],
-        "checked_at": "2026-10-30T15:25:07Z",
+        "checked_at": "2026-11-19T07:32:16Z",
         "status": "observed",
-        "hash": "00e4f1b82ca4c2e17c54a393544b4bfa3abc95a4bcf3a262e914b4a00308e90e",
+        "hash": "a82614fe8f74511b21f222403898d564863f55fdaad53f22086dade4237693ba",
         "hash_kind": "visible-v1",
         "final_url": "https://docs.cloud.google.com/storage-transfer/docs/overview"
       },
@@ -20769,9 +21315,9 @@
         "paths": [
           "src/content/docs/ko/storage/object-storage.md"
         ],
-        "checked_at": "2026-10-30T15:25:07Z",
+        "checked_at": "2026-11-19T07:32:16Z",
         "status": "observed",
-        "hash": "c9a7b1ca235d07c5e200c6b0fd49b47671dce63e378a04c98bb328a94ea57fae",
+        "hash": "a3573c0b430f72e0c87a17044ab518009916b4318771a19b345560cc1e2b44bb",
         "hash_kind": "visible-v1",
         "final_url": "https://docs.cloud.google.com/storage/docs"
       },
@@ -20779,9 +21325,9 @@
         "paths": [
           "src/content/docs/ko/storage/object-storage.md"
         ],
-        "checked_at": "2026-10-30T15:25:07Z",
+        "checked_at": "2026-11-19T07:32:16Z",
         "status": "observed",
-        "hash": "b2e9e352e20cc37b34e45f1514186dd50942d037dcccfa7ef2d639836f1cdac2",
+        "hash": "cbf5ee2b1edea6d9baec5e025d96295c74c00a4576b3d15aabfecefa12151ac4",
         "hash_kind": "visible-v1",
         "final_url": "https://docs.cloud.google.com/storage/docs/autoclass"
       },
@@ -20789,9 +21335,9 @@
         "paths": [
           "src/content/docs/ko/storage/migration.md"
         ],
-        "checked_at": "2026-10-30T15:25:07Z",
+        "checked_at": "2026-11-19T07:32:16Z",
         "status": "observed",
-        "hash": "386d1f76ec84883f18f0dadc40cdfe3beabdf02e6df471aec5e846bc08c1165c",
+        "hash": "6233f76f24122e80c050a2c27af4c9e843b5b3b8028e5c3fd304e6e0e183b71b",
         "hash_kind": "visible-v1",
         "final_url": "https://docs.cloud.google.com/storage/docs/cloud-storage-fuse/overview"
       },
@@ -20799,9 +21345,9 @@
         "paths": [
           "src/content/docs/ko/storage/migration.md"
         ],
-        "checked_at": "2026-10-30T15:25:07Z",
+        "checked_at": "2026-11-19T07:32:16Z",
         "status": "observed",
-        "hash": "a461e2fbe0e5c336944e77b0683e4506553a131866706741142f1bf2a46c2c71",
+        "hash": "d0d5e587cbed88961178686d0a102dc2162c98e7a497d4b063679679137c3233",
         "hash_kind": "visible-v1",
         "final_url": "https://docs.cloud.google.com/storage/docs/gsutil"
       },
@@ -20809,7 +21355,7 @@
         "paths": [
           "src/content/docs/ko/storage/object-storage.md"
         ],
-        "checked_at": "2026-10-30T15:25:07Z",
+        "checked_at": "2026-11-19T07:32:16Z",
         "status": "unverified",
         "error": "unsupported-or-insufficient-visible-content"
       },
@@ -20817,9 +21363,9 @@
         "paths": [
           "src/content/docs/ko/about-cloud/support-plans.md"
         ],
-        "checked_at": "2026-10-30T15:25:07Z",
+        "checked_at": "2026-11-19T07:32:16Z",
         "status": "observed",
-        "hash": "a6756452cdaa583ffbfb6a1f173a960238a5e7fa7d48e1fb1d41fce9fff918e3",
+        "hash": "c7cc254bd7fc2868c8021a3b26ecc90bda6534e2645f1a4bbcba6d5092f70384",
         "hash_kind": "visible-v1",
         "final_url": "https://docs.cloud.google.com/support/docs"
       },
@@ -20827,9 +21373,9 @@
         "paths": [
           "src/content/docs/ko/governance/sustainability.md"
         ],
-        "checked_at": "2026-10-30T15:25:07Z",
+        "checked_at": "2026-11-19T07:32:16Z",
         "status": "observed",
-        "hash": "bd9cd54b5e9eab68db2f61c6dcac1b6728a9b91e2e1083f00ca1344a3c42b9fb",
+        "hash": "e071727516c54c099460aa745f494f03c8c8beb61ea1b24684d26ca56ce1cf52",
         "hash_kind": "visible-v1",
         "final_url": "https://cloud.google.com/sustainability/region-carbon"
       },
@@ -20837,9 +21383,9 @@
         "paths": [
           "src/content/docs/ko/database/messaging.md"
         ],
-        "checked_at": "2026-10-30T15:25:07Z",
+        "checked_at": "2026-11-19T07:32:16Z",
         "status": "observed",
-        "hash": "df085b66331ae34b72a528f0330f907de11de65a953bd21de8cbd5ba5d61f615",
+        "hash": "d590fa377d0b71518a9ef9612a4aee9e664dd109165ec81ce71095ebff2d81b7",
         "hash_kind": "visible-v1",
         "final_url": "https://docs.cloud.google.com/tasks/docs"
       },
@@ -20847,7 +21393,7 @@
         "paths": [
           "src/content/docs/ko/governance/exit-strategy.md"
         ],
-        "checked_at": "2026-10-30T15:25:07Z",
+        "checked_at": "2026-11-19T07:32:16Z",
         "status": "unverified",
         "error": "unsupported-or-insufficient-visible-content"
       },
@@ -20855,18 +21401,18 @@
         "paths": [
           "src/content/docs/ko/governance/exit-strategy.md"
         ],
-        "checked_at": "2026-10-30T15:25:07Z",
+        "checked_at": "2026-11-19T07:32:16Z",
         "status": "unverified",
-        "error": "FetchError"
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://cloud.google.com/trace/docs": {
         "paths": [
           "src/content/docs/ko/devops/monitoring.md",
           "src/content/docs/ko/devops/observability.md"
         ],
-        "checked_at": "2026-10-30T15:25:07Z",
+        "checked_at": "2026-11-19T07:32:16Z",
         "status": "observed",
-        "hash": "92108e367894fdc615f3fcfa3de1f00ac5161337514d85dfc04b64ffbacdc41f",
+        "hash": "1eebc63358bf760ade544e24295c0dde53c80895e70cb1e38307b26ced8f98de",
         "hash_kind": "visible-v1",
         "final_url": "https://docs.cloud.google.com/trace/docs"
       },
@@ -20874,9 +21420,9 @@
         "paths": [
           "src/content/docs/ko/storage/migration.md"
         ],
-        "checked_at": "2026-10-30T15:25:07Z",
+        "checked_at": "2026-11-19T07:32:16Z",
         "status": "observed",
-        "hash": "d530adc059f5ee7ac94a90c557c406b3d2d3edcdb1e1b879144dd934b2996018",
+        "hash": "77dbf818bf0d6c00e86d48e6a2e47edd29b8b37ae247678b04b0e289e83ba4e4",
         "hash_kind": "visible-v1",
         "final_url": "https://docs.cloud.google.com/transfer-appliance/docs/4.0/overview"
       },
@@ -20884,9 +21430,9 @@
         "paths": [
           "src/content/docs/ko/ai/ai-ml.md"
         ],
-        "checked_at": "2026-10-30T15:25:07Z",
+        "checked_at": "2026-11-19T07:32:16Z",
         "status": "unverified",
-        "error": "FetchError"
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://cloud.google.com/vertex-ai/docs": {
         "paths": [
@@ -20895,9 +21441,9 @@
           "src/content/docs/ko/ai/getting-started.md",
           "src/content/docs/ko/ai/multicloud-ai.md"
         ],
-        "checked_at": "2026-10-30T15:25:07Z",
+        "checked_at": "2026-11-19T07:32:16Z",
         "status": "observed",
-        "hash": "fcd5a47ab7e8c3814f7b3b566e73cc807586e7ec0cf53dae64597c3a9235285c",
+        "hash": "1271036306e8ce7f1bb5fce903c035204d7883a9f7f1ffbed3ac7dc9296f7d69",
         "hash_kind": "visible-v1",
         "final_url": "https://docs.cloud.google.com/gemini-enterprise-agent-platform"
       },
@@ -20905,9 +21451,9 @@
         "paths": [
           "src/content/docs/ko/ai/physical-ai/data-and-training.md"
         ],
-        "checked_at": "2026-10-30T15:25:07Z",
+        "checked_at": "2026-11-19T07:32:16Z",
         "status": "observed",
-        "hash": "729486e806703d200de375c5bae238ab306c2ed3478bf349e5e72c910b0a8503",
+        "hash": "0068b32f3c29c609878e58724d772557e4d855672bd561588651bbd495df3707",
         "hash_kind": "visible-v1",
         "final_url": "https://docs.cloud.google.com/vertex-ai/docs/deprecations"
       },
@@ -20915,9 +21461,9 @@
         "paths": [
           "src/content/docs/ko/ai/llmops.md"
         ],
-        "checked_at": "2026-10-30T15:25:07Z",
+        "checked_at": "2026-11-19T07:32:16Z",
         "status": "observed",
-        "hash": "118f9997945f6b7d5daca0377850b485c0c69ad8fb5fc2a39dcb037b8bc99675",
+        "hash": "437837267b11f06be7ba2deb34a35137df108d11867ade7cd209c531c7b8ec08",
         "hash_kind": "visible-v1",
         "final_url": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-monitoring/overview"
       },
@@ -20925,9 +21471,9 @@
         "paths": [
           "src/content/docs/ko/ai/gpu-infra/distributed-training.md"
         ],
-        "checked_at": "2026-10-30T15:25:07Z",
+        "checked_at": "2026-11-19T07:32:16Z",
         "status": "observed",
-        "hash": "5017e38b7fcdbb86bf479825a0c5770caa12b5cd97b450eaac4619fa48159ef5",
+        "hash": "9579988b43f6e92ba9e7f8f2753351d85d665882c8836dc3522a36f6801995e1",
         "hash_kind": "visible-v1",
         "final_url": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/distributed-training"
       },
@@ -20935,9 +21481,9 @@
         "paths": [
           "src/content/docs/ko/ai/vector-store.md"
         ],
-        "checked_at": "2026-10-30T15:25:07Z",
+        "checked_at": "2026-11-19T07:32:16Z",
         "status": "observed",
-        "hash": "733a105486f599e3bf3934889a6c510657bc7e627f39d66cc93d93f70b2651ae",
+        "hash": "cc1b673e28d0746ae40dc7aeb688f60f356fd2089c8b38d369019ee39c5a7303",
         "hash_kind": "visible-v1",
         "final_url": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/overview"
       },
@@ -20946,9 +21492,9 @@
           "src/content/docs/ko/ai/1p-vs-3p.md",
           "src/content/docs/ko/ai/ai-ml.md"
         ],
-        "checked_at": "2026-10-30T15:25:07Z",
+        "checked_at": "2026-11-19T07:32:16Z",
         "status": "observed",
-        "hash": "fae4516b8df3a6882225da323887152784e4d659295942c3cbda3ad27e5f26cf",
+        "hash": "5944942fb0c04adfc8f730cfdd1fa6ef55f0c7b30e07de0d0829aeab8b1c8971",
         "hash_kind": "visible-v1",
         "final_url": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/models"
       },
@@ -20956,9 +21502,9 @@
         "paths": [
           "src/content/docs/ko/ai/prompt-engineering.md"
         ],
-        "checked_at": "2026-10-30T15:25:07Z",
+        "checked_at": "2026-11-19T07:32:16Z",
         "status": "observed",
-        "hash": "65151bfb707f79208698d43f6508455d8aa67a09c5913a396cb3ee8217dd4a95",
+        "hash": "3be79f36c1fac546f90946add92a743e5217a5be15ed5c48c62a834410cc7075",
         "hash_kind": "visible-v1",
         "final_url": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/prompts/few-shot-examples"
       },
@@ -20966,9 +21512,9 @@
         "paths": [
           "src/content/docs/ko/ai/prompt-engineering.md"
         ],
-        "checked_at": "2026-10-31T05:51:00Z",
+        "checked_at": "2026-11-19T07:32:16Z",
         "status": "observed",
-        "hash": "e1f112913550e65df5803b496a2942646fd4fd1beb24ebbd9164e964ace5d419",
+        "hash": "a35feaf743bc750cb6848d5c1f209d6ee95f9d15aeb8e8b5a34e0e68bbf6d44c",
         "hash_kind": "visible-v1",
         "final_url": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/prompts/prompt-design-strategies"
       },
@@ -20977,9 +21523,9 @@
           "src/content/docs/ko/ai/llmops.md",
           "src/content/docs/ko/ai/rag-patterns.md"
         ],
-        "checked_at": "2026-10-31T05:51:00Z",
+        "checked_at": "2026-11-19T07:32:16Z",
         "status": "observed",
-        "hash": "dcb55943f429739b6b6151c28731f20447c99e5bc058b85a9a3d85b347d1df32",
+        "hash": "2a4f45f67582f7b67c34edfb175316c777fb193060a4d857ee011f36de47a4dd",
         "hash_kind": "visible-v1",
         "final_url": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/evaluation-overview"
       },
@@ -20987,9 +21533,9 @@
         "paths": [
           "src/content/docs/ko/security/ai-security.md"
         ],
-        "checked_at": "2026-10-31T05:51:00Z",
+        "checked_at": "2026-11-19T07:32:16Z",
         "status": "observed",
-        "hash": "ed78f51c0566083ed9ea00c71bb761d2775394ab953cafaab0f6ad74384d6c8a",
+        "hash": "b1e42e80a6baf66c1433d10e6a2f718bd34b3c739c862edb0dd83ea641e2b0f6",
         "hash_kind": "visible-v1",
         "final_url": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/configure-safety-filters"
       },
@@ -20997,9 +21543,9 @@
         "paths": [
           "src/content/docs/ko/ai/prompt-engineering.md"
         ],
-        "checked_at": "2026-10-31T05:51:00Z",
+        "checked_at": "2026-11-19T07:32:16Z",
         "status": "observed",
-        "hash": "86fcc9308e69e49537e0de9727336d405850b3e28fad95a838001a350455a675",
+        "hash": "1ce9a20fc7a03d5c1621a5fafaef53b40637c31f014d21fbc331c8cfb729cfb9",
         "hash_kind": "visible-v1",
         "final_url": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/control-generated-output"
       },
@@ -21007,9 +21553,9 @@
         "paths": [
           "src/content/docs/ko/ai/vector-store.md"
         ],
-        "checked_at": "2026-10-31T05:51:00Z",
+        "checked_at": "2026-11-19T07:32:16Z",
         "status": "observed",
-        "hash": "efa47acc65bf8422a09314c2b60049b9f408b1cf85008573cce1c547e849f5f3",
+        "hash": "37a145391c0a6ec5fe14996de09913614d0c5621bf4214bff7229be176c0c03d",
         "hash_kind": "visible-v1",
         "final_url": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-overview"
       },
@@ -21017,7 +21563,7 @@
         "paths": [
           "src/content/docs/ko/ai/licensing.md"
         ],
-        "checked_at": "2026-10-31T05:51:00Z",
+        "checked_at": "2026-11-19T07:32:16Z",
         "status": "unverified",
         "error": "FetchError"
       },
@@ -21025,9 +21571,9 @@
         "paths": [
           "src/content/docs/ko/networking/vpc-subnet.md"
         ],
-        "checked_at": "2026-10-31T05:51:00Z",
+        "checked_at": "2026-11-19T07:32:16Z",
         "status": "observed",
-        "hash": "75f0876dea9b7ee06c3e649d725a7d37a7d11e08e87b334197b4a1263fce67c0",
+        "hash": "58c6b4c0e6850310eadaf1ba68b293956c28ec5da6d3626725714d0e450b7ff9",
         "hash_kind": "visible-v1",
         "final_url": "https://docs.cloud.google.com/vpc/docs"
       },
@@ -21035,9 +21581,9 @@
         "paths": [
           "src/content/docs/ko/security/network-isolation.md"
         ],
-        "checked_at": "2026-10-31T05:51:00Z",
+        "checked_at": "2026-11-19T07:32:16Z",
         "status": "observed",
-        "hash": "bf048ac9873acf83bcd72d575b86de0406a6f3f3bfeba237d835b7c664fab985",
+        "hash": "d2ac251d7dd8a5aa93d886611c5d447b921053b2fbd5b11fd0ba7ee5162df034",
         "hash_kind": "visible-v1",
         "final_url": "https://docs.cloud.google.com/vpc/docs/private-google-access"
       },
@@ -21045,9 +21591,9 @@
         "paths": [
           "src/content/docs/ko/about-cloud/accounts-and-organizations.mdx"
         ],
-        "checked_at": "2026-10-31T05:51:00Z",
+        "checked_at": "2026-11-19T07:32:16Z",
         "status": "observed",
-        "hash": "bd5d6cb8240fc8d2d7562d8a339e268aa4b8d169a1c354c42e221e69beaed1fc",
+        "hash": "6557233735cda589f48bbc0c908ce9d8b1c884121c90906a3e5891de9a3952da",
         "hash_kind": "visible-v1",
         "final_url": "https://docs.cloud.google.com/vpc/docs/shared-vpc"
       },
@@ -21055,18 +21601,18 @@
         "paths": [
           "src/content/docs/ko/about-cloud/getting-started.md"
         ],
-        "checked_at": "2026-10-31T05:51:00Z",
+        "checked_at": "2026-11-19T07:32:16Z",
         "status": "unverified",
-        "error": "FetchError"
+        "error": "unsupported-or-insufficient-visible-content"
       },
       "https://cloud.google.com/workflows/docs": {
         "paths": [
           "src/content/docs/ko/compute/serverless.md",
           "src/content/docs/ko/database/data-pipeline.md"
         ],
-        "checked_at": "2026-10-31T05:51:00Z",
+        "checked_at": "2026-11-19T07:32:16Z",
         "status": "observed",
-        "hash": "f75115744b800e70ff28d16ecf88d641002642e537df4486bb55f7fc62160f40",
+        "hash": "2a4849677cdd93bd65ace61927c40f748229ec7ef831cca8443a119a7f5e6660",
         "hash_kind": "visible-v1",
         "final_url": "https://docs.cloud.google.com/workflows/docs"
       },
@@ -21076,7 +21622,7 @@
           "src/content/docs/ko/about-cloud/console-cli-sdk.md",
           "src/content/docs/ko/introduction.mdx"
         ],
-        "checked_at": "2026-10-31T05:51:00Z",
+        "checked_at": "2026-11-19T07:32:16Z",
         "status": "unverified",
         "error": "unsupported-or-insufficient-visible-content"
       },
@@ -21084,7 +21630,7 @@
         "paths": [
           "src/content/docs/ko/about-cloud/compare-clouds.md"
         ],
-        "checked_at": "2026-10-31T05:51:00Z",
+        "checked_at": "2026-11-19T07:32:16Z",
         "status": "unverified",
         "error": "unsupported-or-insufficient-visible-content"
       },
@@ -21092,7 +21638,7 @@
         "paths": [
           "src/content/docs/ko/about-cloud/shared-responsibility.mdx"
         ],
-        "checked_at": "2026-10-31T05:51:00Z",
+        "checked_at": "2026-11-19T07:32:16Z",
         "status": "observed",
         "hash": "baaa34928fbce57d1856bdb1136f39669d90e17808b2845d236489f091275a52",
         "hash_kind": "visible-v1",
@@ -21102,7 +21648,7 @@
         "paths": [
           "src/content/docs/ko/about-cloud/shared-responsibility.mdx"
         ],
-        "checked_at": "2026-10-31T05:51:00Z",
+        "checked_at": "2026-11-19T07:32:16Z",
         "status": "observed",
         "hash": "d504ae541cd590dd5f4ba082f6d9a84c03b3d817f8e3828960840eb30195a4bc",
         "hash_kind": "visible-v1",
@@ -21112,7 +21658,7 @@
         "paths": [
           "src/content/docs/ko/about-cloud/why-multicloud.md"
         ],
-        "checked_at": "2026-10-31T05:51:00Z",
+        "checked_at": "2026-11-19T07:32:16Z",
         "status": "observed",
         "hash": "baaa34928fbce57d1856bdb1136f39669d90e17808b2845d236489f091275a52",
         "hash_kind": "visible-v1",
@@ -21122,7 +21668,7 @@
         "paths": [
           "src/content/docs/ko/us/ai-policy.md"
         ],
-        "checked_at": "2026-10-31T05:51:00Z",
+        "checked_at": "2026-11-19T07:32:16Z",
         "status": "unverified",
         "error": "unsupported-or-insufficient-visible-content"
       },
@@ -21130,7 +21676,7 @@
         "paths": [
           "src/content/docs/ko/us/state-privacy.md"
         ],
-        "checked_at": "2026-10-31T05:51:00Z",
+        "checked_at": "2026-11-19T07:32:16Z",
         "status": "unverified",
         "error": "unsupported-or-insufficient-visible-content"
       },
@@ -21138,9 +21684,9 @@
         "paths": [
           "src/content/docs/ko/eu/sovereign-ai.md"
         ],
-        "checked_at": "2026-10-31T05:51:00Z",
+        "checked_at": "2026-11-19T07:32:16Z",
         "status": "observed",
-        "hash": "60c2e2f836b930ee18f305bb727ba5ec97a74168edf83a59db2b208463eeffac",
+        "hash": "e05e9be865ba65284d33b72fbd175ecec379c29773b8ebbfdf1e8dc9c6dfcb9b",
         "hash_kind": "visible-v1",
         "final_url": "https://cohere.com/blog/cohere-alephalpha-join-forces"
       },
@@ -21148,9 +21694,9 @@
         "paths": [
           "src/content/docs/ko/eu/gdpr-sovereignty.md"
         ],
-        "checked_at": "2026-10-31T05:51:00Z",
+        "checked_at": "2026-11-19T07:32:16Z",
         "status": "observed",
-        "hash": "b31d521a2d368c7b70ec93c9a09ed9fd1e94f9391556f8f3ab127cd74ee059af",
+        "hash": "7e3cf6ffeb18219eeee6f98911a662463cff249938c065b3ffa8ebc25fac3414",
         "hash_kind": "visible-v1",
         "final_url": "https://commission.europa.eu/law/law-topic/data-protection/international-dimension-data-protection/adequacy-decisions_en"
       },
@@ -21158,7 +21704,7 @@
         "paths": [
           "src/content/docs/ko/eu/sovereign-ai.md"
         ],
-        "checked_at": "2026-10-31T05:51:00Z",
+        "checked_at": "2026-11-19T07:32:16Z",
         "status": "observed",
         "hash": "06b4fd89bd1399f2dcbe4d5657370e1e27f744e5d27946687255ec552969d680",
         "hash_kind": "visible-v1",
@@ -21168,17 +21714,18 @@
         "paths": [
           "src/content/docs/ko/eu/sovereign-ai.md"
         ],
-        "checked_at": "2026-10-31T05:51:00Z",
-        "status": "observed",
+        "checked_at": "2026-11-19T07:32:16Z",
+        "status": "unverified",
         "hash": "d62c82f79cb3567157af7332197c9b6f0c0c0563807825c37a9a4aab036ad8aa",
         "hash_kind": "visible-v1",
-        "final_url": "https://commission.europa.eu/topics/competitiveness/competitiveness-coordination-tool-projects/ai-gigafactories_en"
+        "final_url": "https://commission.europa.eu/topics/competitiveness/competitiveness-coordination-tool-projects/ai-gigafactories_en",
+        "error": "HTTP 429"
       },
       "https://community.oracle.com/mosc/categories/oci": {
         "paths": [
           "src/content/docs/ko/about-cloud/support-plans.md"
         ],
-        "checked_at": "2026-10-31T05:51:00Z",
+        "checked_at": "2026-11-19T07:32:16Z",
         "status": "unverified",
         "error": "HTTP 403"
       },
@@ -21186,7 +21733,7 @@
         "paths": [
           "src/content/docs/ko/about-cloud/compare-clouds.md"
         ],
-        "checked_at": "2026-10-31T05:51:00Z",
+        "checked_at": "2026-11-19T07:32:16Z",
         "status": "observed",
         "hash": "72ddae238fe5927ccf5cf02063f7416aeeaf6b721284504fb02eb39196e45d80",
         "hash_kind": "visible-v1",
@@ -21198,7 +21745,7 @@
           "src/content/docs/ko/about-cloud/console-cli-sdk.md",
           "src/content/docs/ko/introduction.mdx"
         ],
-        "checked_at": "2026-10-31T05:51:00Z",
+        "checked_at": "2026-11-19T07:32:16Z",
         "status": "unverified",
         "error": "unsupported-or-insufficient-visible-content"
       },
@@ -21208,7 +21755,7 @@
           "src/content/docs/ko/about-cloud/console-cli-sdk.md",
           "src/content/docs/ko/introduction.mdx"
         ],
-        "checked_at": "2026-10-31T05:51:00Z",
+        "checked_at": "2026-11-19T07:32:16Z",
         "status": "unverified",
         "error": "unsupported-or-insufficient-visible-content"
       },
@@ -21218,7 +21765,7 @@
           "src/content/docs/ko/ai/ai-ml.md",
           "src/content/docs/ko/ai/licensing.md"
         ],
-        "checked_at": "2026-10-31T05:51:00Z",
+        "checked_at": "2026-11-19T07:32:16Z",
         "status": "unverified",
         "error": "unsupported-or-insufficient-visible-content"
       },
@@ -21226,7 +21773,7 @@
         "paths": [
           "src/content/docs/ko/us/state-privacy.md"
         ],
-        "checked_at": "2026-10-31T05:51:00Z",
+        "checked_at": "2026-11-19T07:32:16Z",
         "status": "unverified",
         "error": "unsupported-or-insufficient-visible-content"
       },
@@ -21234,7 +21781,7 @@
         "paths": [
           "src/content/docs/ko/us/state-privacy.md"
         ],
-        "checked_at": "2026-10-31T05:51:00Z",
+        "checked_at": "2026-11-19T07:32:16Z",
         "status": "observed",
         "hash": "ca3ad1e25e422a256ce5c14f2fde430c2c593d2c71994ecec67f3ff2e0ec0f3d",
         "hash_kind": "visible-v1",
@@ -21244,7 +21791,7 @@
         "paths": [
           "src/content/docs/ko/about-cloud/shared-responsibility.mdx"
         ],
-        "checked_at": "2026-10-31T05:51:00Z",
+        "checked_at": "2026-11-19T07:32:16Z",
         "status": "unverified",
         "error": "unsupported-or-insufficient-visible-content"
       },
@@ -21252,7 +21799,7 @@
         "paths": [
           "src/content/docs/ko/about-cloud/getting-started.md"
         ],
-        "checked_at": "2026-10-31T05:51:00Z",
+        "checked_at": "2026-11-19T07:32:16Z",
         "status": "unverified",
         "error": "unsupported-or-insufficient-visible-content"
       },
@@ -21260,7 +21807,7 @@
         "paths": [
           "src/content/docs/ko/security/zero-trust.md"
         ],
-        "checked_at": "2026-10-31T05:51:00Z",
+        "checked_at": "2026-11-19T07:32:16Z",
         "status": "unverified",
         "error": "unsupported-or-insufficient-visible-content"
       },
@@ -21268,7 +21815,7 @@
         "paths": [
           "src/content/docs/ko/devops/devsecops.md"
         ],
-        "checked_at": "2026-10-31T05:51:00Z",
+        "checked_at": "2026-11-19T07:32:16Z",
         "status": "unverified",
         "error": "unsupported-or-insufficient-visible-content"
       },
@@ -21276,7 +21823,7 @@
         "paths": [
           "src/content/docs/ko/governance/compliance.md"
         ],
-        "checked_at": "2026-10-31T05:51:00Z",
+        "checked_at": "2026-11-19T07:32:16Z",
         "status": "unverified",
         "error": "unsupported-or-insufficient-visible-content"
       },
@@ -21284,7 +21831,7 @@
         "paths": [
           "src/content/docs/ko/security/ai-security.md"
         ],
-        "checked_at": "2026-10-31T05:51:00Z",
+        "checked_at": "2026-11-19T07:32:16Z",
         "status": "unverified",
         "error": "unsupported-or-insufficient-visible-content"
       },
@@ -21292,7 +21839,7 @@
         "paths": [
           "src/content/docs/ko/security/data-protection.md"
         ],
-        "checked_at": "2026-10-31T05:51:00Z",
+        "checked_at": "2026-11-19T07:32:16Z",
         "status": "unverified",
         "error": "unsupported-or-insufficient-visible-content"
       },
@@ -21300,7 +21847,7 @@
         "paths": [
           "src/content/docs/ko/security/data-protection.md"
         ],
-        "checked_at": "2026-10-31T05:51:00Z",
+        "checked_at": "2026-11-19T07:32:16Z",
         "status": "unverified",
         "error": "unsupported-or-insufficient-visible-content"
       },
@@ -21308,7 +21855,7 @@
         "paths": [
           "src/content/docs/ko/security/incident-response.md"
         ],
-        "checked_at": "2026-10-31T05:51:00Z",
+        "checked_at": "2026-11-19T07:32:16Z",
         "status": "unverified",
         "error": "unsupported-or-insufficient-visible-content"
       },
@@ -21316,9 +21863,9 @@
         "paths": [
           "src/content/docs/ko/eu/national-schemes.md"
         ],
-        "checked_at": "2026-10-31T05:51:00Z",
+        "checked_at": "2026-11-19T07:32:16Z",
         "status": "observed",
-        "hash": "499e99d08732637e8d635ec084d4d1ff67c9a31f0863b8d1d0ec54252d5fb04b",
+        "hash": "dd969fb13485ab59b67905bb2c271a9505d63aa9897d28ba2ca3932bab6527bd",
         "hash_kind": "visible-v1",
         "final_url": "https://cyber.gouv.fr/"
       },
@@ -21326,7 +21873,7 @@
         "paths": [
           "src/content/docs/ko/networking/multicloud-networking.md"
         ],
-        "checked_at": "2026-10-31T05:51:00Z",
+        "checked_at": "2026-11-19T07:32:16Z",
         "status": "unverified",
         "error": "unsupported-or-insufficient-visible-content"
       },

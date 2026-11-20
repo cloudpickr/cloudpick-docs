@@ -18993,6 +18993,300 @@
       "status": "open",
       "evidence": [],
       "pr": null
+    },
+    {
+      "id": "f336373022205ca0ed6eb55f",
+      "path": "src/content/docs/ko/ai/ai-ml.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://developers.cloudflare.com/ai/models/typesafe/jev/",
+      "change_digest": "9f1f62551a92cffac85fad5c201482d51ec948c1830aed833914741eb7afe9a5",
+      "source_url": "https://developers.cloudflare.com/ai/models/typesafe/jev/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "40d7ea69713f987645b62d2f",
+      "path": "src/content/docs/ko/ai/physical-ai/data-and-training.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://developers.google.com/coral/guides/faq",
+      "change_digest": "170c7c2b44f383d1624ad2363a333dc1da5473f0c0150e173ae733e5f8137ba5",
+      "source_url": "https://developers.google.com/coral/guides/faq",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "6457dc12292aba7ef81336f4",
+      "path": "src/content/docs/ko/eu/sovereign-ai.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://digital-strategy.ec.europa.eu/en/policies/ai-factories",
+      "change_digest": "d001a3a1f680d09eb9b98c18b0664ae79fdabb1ce925b98d6ad7ebda002be849",
+      "source_url": "https://digital-strategy.ec.europa.eu/en/policies/ai-factories",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "e974e230cd0947c086d1d473",
+      "path": "src/content/docs/ko/eu/nis2-ai-act.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://digital-strategy.ec.europa.eu/en/policies/nis2-directive",
+      "change_digest": "314820f7d1087600d318d11c2e1ba7f472d48659179417562dd02525f16657b0",
+      "source_url": "https://digital-strategy.ec.europa.eu/en/policies/nis2-directive",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "542a05ca7b6b1a09ed20c70e",
+      "path": "src/content/docs/ko/eu/nis2-ai-act.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai",
+      "change_digest": "8a0bcc003fc1ccbce420c5f4dbfea7a1b3852169ced9e437753b3401f32bfa1b",
+      "source_url": "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "129d1e34ff16955d2f1c3965",
+      "path": "src/content/docs/ko/ai/1p-vs-3p.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://docs.anthropic.com/",
+      "change_digest": "62a264df121c496b4f9ea963bcdaaf25c21db06160328f19c3b5e062b50913bc",
+      "source_url": "https://docs.anthropic.com/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "c3d3c672bb057d719d82b195",
+      "path": "src/content/docs/ko/ai/prompt-engineering.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/overview",
+      "change_digest": "a63d4de0d4e6b5595e90a563721e77335f6739cab068abf852f3839b8a187ba3",
+      "source_url": "https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/overview",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "dbe91bb115b14161d8abf598",
+      "path": "src/content/docs/ko/ai/prompt-engineering.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/chain-of-thought",
+      "change_digest": "ff82f89effa26182672c679fd75875a3d6f6d77b49e8792764b941e2c8e815b5",
+      "source_url": "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/chain-of-thought",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "e8eac5bbd50e1f86bbccfb48",
+      "path": "src/content/docs/ko/ai/prompt-engineering.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/claude-4-best-practices",
+      "change_digest": "3506f82f1d912524ec3aa6ad462ba655e2f22999df7eb1ccbf3753c360cbf34e",
+      "source_url": "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/claude-4-best-practices",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "e1b7374f3382d268201487d8",
+      "path": "src/content/docs/ko/ai/prompt-engineering.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/multishot-prompting",
+      "change_digest": "bd43e6515c5ef1b008395e08da5a19b4b8370cd0fa82174486bf0aa96ee2658a",
+      "source_url": "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/multishot-prompting",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "0cafef10a84e5e18d9f0c50f",
+      "path": "src/content/docs/ko/ai/prompt-engineering.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/system-prompts",
+      "change_digest": "e10b4ea73e9733681aeceeb10bf21ab31ec2c8c8d9b38ee065096561bb79c65f",
+      "source_url": "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/system-prompts",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "8056ee0232704196be5dcb53",
+      "path": "src/content/docs/ko/ai/gpu-infra/serving-reliability-cost.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-capacity-blocks.html",
+      "change_digest": "6ee22f286949526a7e7a21b0aebf8a51ff500d11c32b3f22c4b0f642d0cbd9d9",
+      "source_url": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-capacity-blocks.html",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "8ba2fd0bccd55611d81eeee0",
+      "path": "src/content/docs/ko/database/operations.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-proxy.html",
+      "change_digest": "0c5978ca5851adfe9b08886190236986ea8a884450754b450723e94309a8fc04",
+      "source_url": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-proxy.html",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "740e63f3fcd1a2c0b53a5053",
+      "path": "src/content/docs/ko/security/data-protection.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingEncryptionInTransit.PQ-TLS.html",
+      "change_digest": "f56f3366d2e63777c0edcad7465a93881384adec12e66c1ed1433583587f8279",
+      "source_url": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingEncryptionInTransit.PQ-TLS.html",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "36095586e6591163f8e160b9",
+      "path": "src/content/docs/ko/ai/vector-store.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-vectors.html",
+      "change_digest": "77bec452bd3e150a4a57050c6e0b0a5359c4eb879dbdf3aecea0fccdbd8cb691",
+      "source_url": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-vectors.html",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "a7303b9b549a56dfc4671900",
+      "path": "src/content/docs/ko/security/secrets.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://docs.aws.amazon.com/appconfig/latest/userguide/what-is-appconfig.html",
+      "change_digest": "ddb21425aa9ba86d73c65776b33b49bb00908a2d130d3678e4e4740afba33d1a",
+      "source_url": "https://docs.aws.amazon.com/appconfig/latest/userguide/what-is-appconfig.html",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "05ba547ca248ae43834492a4",
+      "path": "src/content/docs/ko/ai/agents.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/registry-get-started.html",
+      "change_digest": "ba3d2a5ad96633e1d342f5a5674f19e63614f24e1e642fb3b51c728913d7ec9d",
+      "source_url": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/registry-get-started.html",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "49d31733e1db8c1d2dccf961",
+      "path": "src/content/docs/ko/ai/agent-adoption.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://docs.aws.amazon.com/bedrock/latest/userguide/agents-how.html",
+      "change_digest": "98ad1ea82d90ad42bff4a1834ba5d326e9e02430f8b9db27b2c28cd46e1ad4f5",
+      "source_url": "https://docs.aws.amazon.com/bedrock/latest/userguide/agents-how.html",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "a1548219de54f0a41eb9fd9e",
+      "path": "src/content/docs/ko/ai/rag-patterns.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://docs.aws.amazon.com/bedrock/latest/userguide/kb-managed-acl.html",
+      "change_digest": "fd6ca52193d56f054979e66bead4f7124512b12675a58f7cf748ef5f4ecf9cba",
+      "source_url": "https://docs.aws.amazon.com/bedrock/latest/userguide/kb-managed-acl.html",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "cbddace6eef3809ed2bca5fc",
+      "path": "src/content/docs/ko/ai/vector-store.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html",
+      "change_digest": "55e95b99cf23201efdca98dc55c039e450c50758e0115bc4d1a6f269c39c34e1",
+      "source_url": "https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "4e5fa13a389d79fb048cfef5",
+      "path": "src/content/docs/ko/governance/finops.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://docs.aws.amazon.com/cost-management/latest/userguide/manage-ad.html",
+      "change_digest": "e7b0f426050b5a6c62ba06b87d5f9ea7eb273168980548f6b3d2236567909992",
+      "source_url": "https://docs.aws.amazon.com/cost-management/latest/userguide/manage-ad.html",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
     }
   ],
   "resolved_ids": [],
@@ -19713,7 +20007,7 @@
         "paths": [
           "src/content/docs/ko/ai/agents.md"
         ],
-        "checked_at": "2026-11-19T07:32:16Z",
+        "checked_at": "2026-11-20T07:24:29Z",
         "status": "unverified",
         "hash": "dc7fc249911468c4dc00fc4eb92b1c0d611070787422d5a6d767fc3b925fee20",
         "final_url": "https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/",
@@ -19723,7 +20017,7 @@
         "paths": [
           "src/content/docs/ko/singapore/mtcs.md"
         ],
-        "checked_at": "2026-11-19T07:32:16Z",
+        "checked_at": "2026-11-20T07:24:29Z",
         "status": "unverified",
         "hash": "635b02875de69e3cc1de1579b70facd5f4c19edf127bd2e3769e8a92f70b360b",
         "final_url": "https://abs.org.sg/docs/library/abs-ospar-guidelines-v2-0.pdf",
@@ -19733,7 +20027,7 @@
         "paths": [
           "src/content/docs/ko/ai/agents.md"
         ],
-        "checked_at": "2026-11-19T07:32:16Z",
+        "checked_at": "2026-11-20T07:24:29Z",
         "status": "unverified",
         "hash": "279273094623330fe250f2984391cac02002276942f6d2dbd8537e495fae1bdf",
         "final_url": "https://www.ag2.ai/",
@@ -19743,7 +20037,7 @@
         "paths": [
           "src/content/docs/ko/ai/getting-started.md"
         ],
-        "checked_at": "2026-11-19T07:32:16Z",
+        "checked_at": "2026-11-20T07:24:29Z",
         "status": "unverified",
         "hash": "ae0f8a0945b3d1cf6945ebf983706906940024c6f02864250619be546f2c10a2",
         "final_url": "https://ai.azure.com/",
@@ -19784,7 +20078,7 @@
         "paths": [
           "src/content/docs/ko/singapore/ai-governance.md"
         ],
-        "checked_at": "2026-11-19T07:32:16Z",
+        "checked_at": "2026-11-20T07:24:29Z",
         "status": "unverified",
         "hash": "861c9baae1bb9420d984be6abe0a5a19d6b07730363337bf8a901ea68a37c87d",
         "final_url": "https://aiverifyfoundation.sg/resources/mgf-gen-ai/",
@@ -19804,7 +20098,7 @@
         "paths": [
           "src/content/docs/ko/devops/devsecops.md"
         ],
-        "checked_at": "2026-11-19T07:32:16Z",
+        "checked_at": "2026-11-20T07:24:29Z",
         "status": "unverified",
         "hash": "6ce84a59d0c606ad8c2c2b3d3703944b3097b677f6a9c36c22154de4e3295152",
         "final_url": "https://aquasecurity.github.io/tfsec/",
@@ -19824,7 +20118,7 @@
         "paths": [
           "src/content/docs/ko/ai/llmops.md"
         ],
-        "checked_at": "2026-11-19T07:32:16Z",
+        "checked_at": "2026-11-20T07:24:29Z",
         "status": "unverified",
         "hash": "84e61b481a6f8d7a78ec8093dce057a9e2b06a9ea80957e5c3766d9b595ef09c",
         "final_url": "https://arize.com/",
@@ -19894,7 +20188,7 @@
         "paths": [
           "src/content/docs/ko/devops/observability.md"
         ],
-        "checked_at": "2026-11-19T07:32:16Z",
+        "checked_at": "2026-11-20T07:24:29Z",
         "status": "unverified",
         "hash": "b472569757f991e0df0919150abea62828a7651cc991dfcabea1158bc12ba1fe",
         "final_url": "https://aws-otel.github.io/",
@@ -19945,7 +20239,7 @@
         "paths": [
           "src/content/docs/ko/database/managed-rdb.md"
         ],
-        "checked_at": "2026-11-01T06:15:13Z",
+        "checked_at": "2026-11-20T07:24:29Z",
         "status": "observed",
         "hash": "363dd7dbe2805d4fbe772097c2a03c42414b1c1db3a4d75f8b27440cb6b36e3a",
         "hash_kind": "visible-v1",
@@ -19955,7 +20249,7 @@
         "paths": [
           "src/content/docs/ko/security/data-protection.md"
         ],
-        "checked_at": "2026-11-01T06:15:13Z",
+        "checked_at": "2026-11-20T07:24:29Z",
         "status": "observed",
         "hash": "923f7a2ed0d3d5f3960d0212491a456ce071e795283e55060c4a7efd58132c7b",
         "hash_kind": "visible-v1",
@@ -20090,7 +20384,7 @@
         "paths": [
           "src/content/docs/ko/governance/finops.md"
         ],
-        "checked_at": "2026-11-01T06:15:13Z",
+        "checked_at": "2026-11-20T07:24:29Z",
         "status": "observed",
         "hash": "b377cc339f8691cbf30fc07260f3ddb9fa2814456aeef5e6f45421a4aeb9a180",
         "hash_kind": "visible-v1",
@@ -21151,7 +21445,7 @@
         "paths": [
           "src/content/docs/ko/networking/cdn.md"
         ],
-        "checked_at": "2026-11-01T06:15:13Z",
+        "checked_at": "2026-11-20T07:24:29Z",
         "status": "observed",
         "hash": "4faaf2d2f0c54ad389e0ae594db9fe9bda81cc93796830e6098f0413909262aa",
         "hash_kind": "visible-v1",
@@ -23533,7 +23827,7 @@
         "paths": [
           "src/content/docs/ko/ai/getting-started.md"
         ],
-        "checked_at": "2026-10-31T05:51:00Z",
+        "checked_at": "2026-11-20T07:24:29Z",
         "status": "unverified",
         "error": "unsupported-or-insufficient-visible-content"
       },
@@ -23541,7 +23835,7 @@
         "paths": [
           "src/content/docs/ko/database/analytics.md"
         ],
-        "checked_at": "2026-10-31T05:51:00Z",
+        "checked_at": "2026-11-20T07:24:29Z",
         "status": "observed",
         "hash": "8429e1afabf4967b8af7f27b1455cb497fa7178a4fec90f3caf901b7a080b137",
         "hash_kind": "visible-v1",
@@ -23551,7 +23845,7 @@
         "paths": [
           "src/content/docs/ko/devops/iac.md"
         ],
-        "checked_at": "2026-10-31T05:51:00Z",
+        "checked_at": "2026-11-20T07:24:29Z",
         "status": "observed",
         "hash": "aabf815343ff86ff1392ad747e326476820c91529c326ccd596d7f4c095f6a1a",
         "hash_kind": "visible-v1",
@@ -23561,7 +23855,7 @@
         "paths": [
           "src/content/docs/ko/ai/physical-ai/deploy-and-operate.md"
         ],
-        "checked_at": "2026-10-31T05:51:00Z",
+        "checked_at": "2026-11-20T07:24:29Z",
         "status": "observed",
         "hash": "6885ba1226a6ca8521f1f872390f0e6ec61f0027b430ca6604b877d3bf5cceb5",
         "hash_kind": "visible-v1",
@@ -23572,7 +23866,7 @@
           "src/content/docs/ko/ai/physical-ai/data-and-training.md",
           "src/content/docs/ko/ai/physical-ai/overview.md"
         ],
-        "checked_at": "2026-10-31T05:51:00Z",
+        "checked_at": "2026-11-20T07:24:29Z",
         "status": "observed",
         "hash": "5e4d93a54548d7128a357bf24701e86c29ce40e331a87d84d907e5e731f52a08",
         "hash_kind": "visible-v1",
@@ -23583,7 +23877,7 @@
           "src/content/docs/ko/ai/physical-ai/deploy-and-operate.md",
           "src/content/docs/ko/ai/physical-ai/overview.md"
         ],
-        "checked_at": "2026-10-31T05:51:00Z",
+        "checked_at": "2026-11-20T07:24:29Z",
         "status": "observed",
         "hash": "8ac97b5dd4a828344249f43b4660426edd7e3af600ba8f0068c4e669ae1572ab",
         "hash_kind": "visible-v1",
@@ -23593,7 +23887,7 @@
         "paths": [
           "src/content/docs/ko/ai/physical-ai/data-and-training.md"
         ],
-        "checked_at": "2026-10-31T05:51:00Z",
+        "checked_at": "2026-11-20T07:24:29Z",
         "status": "observed",
         "hash": "422dd74e3930eecfdc70950dbebe0411bf3322c928273ab177882ed11055fe94",
         "hash_kind": "visible-v1",
@@ -23603,9 +23897,9 @@
         "paths": [
           "src/content/docs/ko/ai/ai-ml.md"
         ],
-        "checked_at": "2026-10-31T05:51:00Z",
+        "checked_at": "2026-11-20T07:24:29Z",
         "status": "observed",
-        "hash": "c425234d03fe6196f7148fec7f6533cfd51d96f183dce059c1f5e265b16d1b7a",
+        "hash": "2b591b1db74f91bae6cd5a943aeccdeceaea693c6530a3cdaa9f8d55474f1d40",
         "hash_kind": "visible-v1",
         "final_url": "https://developers.cloudflare.com/ai/models/typesafe/jev/"
       },
@@ -23613,9 +23907,9 @@
         "paths": [
           "src/content/docs/ko/ai/physical-ai/data-and-training.md"
         ],
-        "checked_at": "2026-10-31T05:51:00Z",
+        "checked_at": "2026-11-20T07:24:29Z",
         "status": "observed",
-        "hash": "8c9971f3e435ef58ebd947051ca05205479892a44d4b8a803674243d2538a789",
+        "hash": "59aaf176221f059bf3953c1e4de2df4e00a331568dfa8cef1e81455bb390e179",
         "hash_kind": "visible-v1",
         "final_url": "https://developers.google.com/coral/guides/faq"
       },
@@ -23623,7 +23917,7 @@
         "paths": [
           "src/content/docs/ko/devops/devsecops.md"
         ],
-        "checked_at": "2026-10-31T05:51:00Z",
+        "checked_at": "2026-11-20T07:24:29Z",
         "status": "observed",
         "hash": "dd6b8ed81fad0f071144583148f16118848a70b65853ba17bbb7573d8b909f4a",
         "hash_kind": "visible-v1",
@@ -23633,9 +23927,9 @@
         "paths": [
           "src/content/docs/ko/eu/sovereign-ai.md"
         ],
-        "checked_at": "2026-10-31T05:51:00Z",
+        "checked_at": "2026-11-20T07:24:29Z",
         "status": "observed",
-        "hash": "fb38267b5eea0e78e7582a631265860f4ef3ea5fbce75db1e2ce9b70ff66394e",
+        "hash": "8ce64026e2aafb87980de91a3597e5dfa64b2e7e9b6061617529ae4734e29c83",
         "hash_kind": "visible-v1",
         "final_url": "https://digital-strategy.ec.europa.eu/en/policies/ai-factories"
       },
@@ -23643,7 +23937,7 @@
         "paths": [
           "src/content/docs/ko/eu/nis2-ai-act.md"
         ],
-        "checked_at": "2026-10-31T05:51:00Z",
+        "checked_at": "2026-11-20T07:24:29Z",
         "status": "observed",
         "hash": "b130ef4bff0b648657c787ce81e61c6aa960cb474f311bfa5b2a78dc15565d2a",
         "hash_kind": "visible-v1",
@@ -23653,9 +23947,9 @@
         "paths": [
           "src/content/docs/ko/eu/nis2-ai-act.md"
         ],
-        "checked_at": "2026-10-31T05:51:00Z",
+        "checked_at": "2026-11-20T07:24:29Z",
         "status": "observed",
-        "hash": "7c9834e3f5ff583b8dbc25b90a8de84f2be65871f4de84fb65a6f55e71bc81bf",
+        "hash": "c8a7296ee56a223c07827ef872bb25490a4e46fdadff4d6c9cedd2ea2c4f0a6c",
         "hash_kind": "visible-v1",
         "final_url": "https://digital-strategy.ec.europa.eu/en/policies/nis2-directive"
       },
@@ -23663,9 +23957,9 @@
         "paths": [
           "src/content/docs/ko/eu/nis2-ai-act.md"
         ],
-        "checked_at": "2026-10-31T05:51:00Z",
+        "checked_at": "2026-11-20T07:24:29Z",
         "status": "observed",
-        "hash": "1e77c5e3b5e6ea0dd308b680a705b3c8871a36c2d9b32d6dce5359a3b1c241e4",
+        "hash": "e1ee2f9269e41cb2ba3c4ffa709e515322375b3989478610db1b3040bb1674a5",
         "hash_kind": "visible-v1",
         "final_url": "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai"
       },
@@ -23673,9 +23967,9 @@
         "paths": [
           "src/content/docs/ko/ai/1p-vs-3p.md"
         ],
-        "checked_at": "2026-10-31T05:51:00Z",
+        "checked_at": "2026-11-20T07:24:29Z",
         "status": "observed",
-        "hash": "33c3b177f365b81def262776fa2e5ba59b1b9880a1762193d051f7f6e90d1dc4",
+        "hash": "e358d81f17491a81353769b0c1595b67ad45161a9c9a8950bc19810f624f3a53",
         "hash_kind": "visible-v1",
         "final_url": "https://platform.claude.com/docs/en/home"
       },
@@ -23683,7 +23977,7 @@
         "paths": [
           "src/content/docs/ko/ai/prompt-engineering.md"
         ],
-        "checked_at": "2026-10-31T05:51:00Z",
+        "checked_at": "2026-11-20T07:24:29Z",
         "status": "observed",
         "hash": "401aae370d87430a13ba177f291f4efcc34a3bdb4c2fce3f36c7721290af1f07",
         "hash_kind": "visible-v1",
@@ -23693,9 +23987,9 @@
         "paths": [
           "src/content/docs/ko/ai/prompt-engineering.md"
         ],
-        "checked_at": "2026-10-31T05:51:00Z",
+        "checked_at": "2026-11-20T07:24:29Z",
         "status": "observed",
-        "hash": "33a6a6c5d9ed083f538c178bede23b917d8349170b4e36f3b248d996e0e9edac",
+        "hash": "a84f8cbb9d414c2f6c1e718de20d7d7850d48f0e36c0e6c3edd3ac2d7c916544",
         "hash_kind": "visible-v1",
         "final_url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview"
       },
@@ -23703,9 +23997,9 @@
         "paths": [
           "src/content/docs/ko/ai/prompt-engineering.md"
         ],
-        "checked_at": "2026-10-31T05:51:00Z",
+        "checked_at": "2026-11-20T07:24:29Z",
         "status": "observed",
-        "hash": "97ee723d5abb78758092ed96f899ba0ea0d805411c71e51edc099313de4abdd7",
+        "hash": "22b6dc1c33afab4a44f99cb27390404ae62e637dc0188eecaa73df2f5e2ab72d",
         "hash_kind": "visible-v1",
         "final_url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#leverage-thinking-and-interleaved-thinking-capabilities"
       },
@@ -23713,9 +24007,9 @@
         "paths": [
           "src/content/docs/ko/ai/prompt-engineering.md"
         ],
-        "checked_at": "2026-10-31T05:51:00Z",
+        "checked_at": "2026-11-20T07:24:29Z",
         "status": "observed",
-        "hash": "97ee723d5abb78758092ed96f899ba0ea0d805411c71e51edc099313de4abdd7",
+        "hash": "22b6dc1c33afab4a44f99cb27390404ae62e637dc0188eecaa73df2f5e2ab72d",
         "hash_kind": "visible-v1",
         "final_url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
       },
@@ -23723,9 +24017,9 @@
         "paths": [
           "src/content/docs/ko/ai/prompt-engineering.md"
         ],
-        "checked_at": "2026-10-31T05:51:00Z",
+        "checked_at": "2026-11-20T07:24:29Z",
         "status": "observed",
-        "hash": "97ee723d5abb78758092ed96f899ba0ea0d805411c71e51edc099313de4abdd7",
+        "hash": "22b6dc1c33afab4a44f99cb27390404ae62e637dc0188eecaa73df2f5e2ab72d",
         "hash_kind": "visible-v1",
         "final_url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#use-examples-effectively"
       },
@@ -23733,9 +24027,9 @@
         "paths": [
           "src/content/docs/ko/ai/prompt-engineering.md"
         ],
-        "checked_at": "2026-10-31T05:51:00Z",
+        "checked_at": "2026-11-20T07:24:29Z",
         "status": "observed",
-        "hash": "97ee723d5abb78758092ed96f899ba0ea0d805411c71e51edc099313de4abdd7",
+        "hash": "22b6dc1c33afab4a44f99cb27390404ae62e637dc0188eecaa73df2f5e2ab72d",
         "hash_kind": "visible-v1",
         "final_url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#give-claude-a-role"
       },
@@ -23743,9 +24037,9 @@
         "paths": [
           "src/content/docs/ko/ai/gpu-infra/serving-reliability-cost.md"
         ],
-        "checked_at": "2026-10-31T05:51:00Z",
+        "checked_at": "2026-11-20T07:24:29Z",
         "status": "observed",
-        "hash": "539f26ccd1bdd7567d387951064ddf352df93bf1fe9200d10028b17f20cd2bee",
+        "hash": "cd607134d9c1ebfe0cdf15e3a9031c156e0f61363692cd0584d16e0b81a70d1d",
         "hash_kind": "visible-v1",
         "final_url": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-capacity-blocks.html"
       },
@@ -23753,7 +24047,7 @@
         "paths": [
           "src/content/docs/ko/ai/gpu-infra/workload-and-architecture.md"
         ],
-        "checked_at": "2026-10-31T05:51:00Z",
+        "checked_at": "2026-11-20T07:24:29Z",
         "status": "observed",
         "hash": "5c06f403cfbfd9708a7826d6b64206d21b526b2fc9435ef9b8e6dccd371900ce",
         "hash_kind": "visible-v1",
@@ -23763,7 +24057,7 @@
         "paths": [
           "src/content/docs/ko/ai/gpu-infra/serving-reliability-cost.md"
         ],
-        "checked_at": "2026-10-31T05:51:00Z",
+        "checked_at": "2026-11-20T07:24:29Z",
         "status": "observed",
         "hash": "dc1b34135b23ca49d69f177c03e7ba3438085bc4cacbbd8ccaa84c7c41a2abfb",
         "hash_kind": "visible-v1",
@@ -23773,7 +24067,7 @@
         "paths": [
           "src/content/docs/ko/networking/cdn.md"
         ],
-        "checked_at": "2026-10-31T05:51:00Z",
+        "checked_at": "2026-11-20T07:24:29Z",
         "status": "observed",
         "hash": "8bce2f6897c10e40b75373bbbcdcb7a7b8d040cb01e62fdacb91c6c95ca9e3ce",
         "hash_kind": "visible-v1",
@@ -23783,7 +24077,7 @@
         "paths": [
           "src/content/docs/ko/database/search.md"
         ],
-        "checked_at": "2026-10-31T05:51:00Z",
+        "checked_at": "2026-11-20T07:24:29Z",
         "status": "unverified",
         "error": "unsupported-or-insufficient-visible-content"
       },
@@ -23791,7 +24085,7 @@
         "paths": [
           "src/content/docs/ko/devops/observability.md"
         ],
-        "checked_at": "2026-10-31T05:51:00Z",
+        "checked_at": "2026-11-20T07:24:29Z",
         "status": "unverified",
         "error": "unsupported-or-insufficient-visible-content"
       },
@@ -23799,7 +24093,7 @@
         "paths": [
           "src/content/docs/ko/about-cloud/compare-clouds.md"
         ],
-        "checked_at": "2026-11-01T06:15:13Z",
+        "checked_at": "2026-11-20T07:24:29Z",
         "status": "observed",
         "hash": "d97281e73cbe112ea639164fbfad379a422589242c5e631fd1d5771524a266fc",
         "hash_kind": "visible-v1",
@@ -23809,7 +24103,7 @@
         "paths": [
           "src/content/docs/ko/database/operations.md"
         ],
-        "checked_at": "2026-11-01T06:15:13Z",
+        "checked_at": "2026-11-20T07:24:29Z",
         "status": "observed",
         "hash": "108121c8b0e17020d4f0da23bc0967f020532b958ae5eca15db1060a264e30c9",
         "hash_kind": "visible-v1",
@@ -23819,7 +24113,7 @@
         "paths": [
           "src/content/docs/ko/database/operations.md"
         ],
-        "checked_at": "2026-11-01T06:15:13Z",
+        "checked_at": "2026-11-20T07:24:29Z",
         "status": "observed",
         "hash": "53b01cda92ee644fa54fafb1cf5c451b0976dade3a5a86ec279e2dd9a7d4a954",
         "hash_kind": "visible-v1",
@@ -23829,7 +24123,7 @@
         "paths": [
           "src/content/docs/ko/database/operations.md"
         ],
-        "checked_at": "2026-11-01T06:15:13Z",
+        "checked_at": "2026-11-20T07:24:29Z",
         "status": "observed",
         "hash": "a834225589e481d246425b6e609b5998db4fdbdcc6c4d72ffd444e1b988952df",
         "hash_kind": "visible-v1",
@@ -23839,9 +24133,9 @@
         "paths": [
           "src/content/docs/ko/database/operations.md"
         ],
-        "checked_at": "2026-11-01T06:15:13Z",
+        "checked_at": "2026-11-20T07:24:29Z",
         "status": "observed",
-        "hash": "9d01da9ec9c791c3ec035d398ea53371b4beb48cb9917eae015cb7415967da7d",
+        "hash": "723a1de1d41e290c4ee8a079ebe08595ac4a47b526b7d54f465364f7a5ca2ce9",
         "hash_kind": "visible-v1",
         "final_url": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-proxy.html"
       },
@@ -23849,9 +24143,9 @@
         "paths": [
           "src/content/docs/ko/security/data-protection.md"
         ],
-        "checked_at": "2026-11-01T06:15:13Z",
+        "checked_at": "2026-11-20T07:24:29Z",
         "status": "observed",
-        "hash": "81228009a451a97a9e6bf086d5fbd8b34ae5d3121c9dcb2882f5c05d3b5f8317",
+        "hash": "b06d3e98dd4a9873856942b19a88ba37542d56a1fca6d89090bbaa198d0bc83e",
         "hash_kind": "visible-v1",
         "final_url": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingEncryptionInTransit.PQ-TLS.html"
       },
@@ -23859,7 +24153,7 @@
         "paths": [
           "src/content/docs/ko/ai/vector-store.md"
         ],
-        "checked_at": "2026-11-01T06:15:13Z",
+        "checked_at": "2026-11-20T07:24:29Z",
         "status": "observed",
         "hash": "47a21de1c893d56fb5e836b8343f3179c4f62406535266d2029b6bb0db17a305",
         "hash_kind": "visible-v1",
@@ -23869,9 +24163,9 @@
         "paths": [
           "src/content/docs/ko/ai/vector-store.md"
         ],
-        "checked_at": "2026-11-01T06:15:13Z",
+        "checked_at": "2026-11-20T07:24:29Z",
         "status": "observed",
-        "hash": "b94ff655bd189a293f0b1ecf6616b84b619b95b1d9bd81aead34885cac29c1ca",
+        "hash": "e53e32e57924bb1b2325abe7777cfe6737127a659ccc7b11db1fab2811b37058",
         "hash_kind": "visible-v1",
         "final_url": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-vectors.html"
       },
@@ -23879,7 +24173,7 @@
         "paths": [
           "src/content/docs/ko/compute/service-mesh.md"
         ],
-        "checked_at": "2026-11-01T06:15:13Z",
+        "checked_at": "2026-11-20T07:24:29Z",
         "status": "observed",
         "hash": "23e7260a467af406e442319cf54d60f4fc368976bad5b39d142fb84b7d3a1d27",
         "hash_kind": "visible-v1",
@@ -23889,9 +24183,9 @@
         "paths": [
           "src/content/docs/ko/security/secrets.md"
         ],
-        "checked_at": "2026-11-01T06:15:13Z",
+        "checked_at": "2026-11-20T07:24:29Z",
         "status": "observed",
-        "hash": "c8b15ba7c3f00c77bc3acdf7b44d3bca764be4f734f8ba993c770e091c8b2288",
+        "hash": "124497f7fd254146b6ce5a0bb30438f9baec9c2520a00f994b1f31e88430addc",
         "hash_kind": "visible-v1",
         "final_url": "https://docs.aws.amazon.com/appconfig/latest/userguide/what-is-appconfig.html"
       },
@@ -23899,7 +24193,7 @@
         "paths": [
           "src/content/docs/ko/about-cloud/accounts-and-organizations.mdx"
         ],
-        "checked_at": "2026-11-01T06:15:13Z",
+        "checked_at": "2026-11-20T07:24:29Z",
         "status": "observed",
         "hash": "d9baf175a696de2425d14dba16f21668b7eedb1fcb985597910f3b85a76628a3",
         "hash_kind": "visible-v1",
@@ -23909,7 +24203,7 @@
         "paths": [
           "src/content/docs/ko/governance/finops.md"
         ],
-        "checked_at": "2026-11-01T06:15:13Z",
+        "checked_at": "2026-11-20T07:24:29Z",
         "status": "observed",
         "hash": "813ae0e7298fa16265737bd52edd0320d1773f756c3b87baa971b306e3de5dcd",
         "hash_kind": "visible-v1",
@@ -23919,7 +24213,7 @@
         "paths": [
           "src/content/docs/ko/governance/sustainability.md"
         ],
-        "checked_at": "2026-11-01T06:15:13Z",
+        "checked_at": "2026-11-20T07:24:29Z",
         "status": "unverified",
         "error": "unsupported-or-insufficient-visible-content"
       },
@@ -23927,7 +24221,7 @@
         "paths": [
           "src/content/docs/ko/ai/agents.md"
         ],
-        "checked_at": "2026-11-01T06:15:13Z",
+        "checked_at": "2026-11-20T07:24:29Z",
         "status": "unverified",
         "error": "unsupported-or-insufficient-visible-content"
       },
@@ -23935,7 +24229,7 @@
         "paths": [
           "src/content/docs/ko/ai/llmops.md"
         ],
-        "checked_at": "2026-11-01T06:15:13Z",
+        "checked_at": "2026-11-20T07:24:29Z",
         "status": "observed",
         "hash": "eeecc8c8cb8c5a0643068f4f24e7e8fc89419781c4331143c6c8100bf38d79b6",
         "hash_kind": "visible-v1",
@@ -23945,9 +24239,9 @@
         "paths": [
           "src/content/docs/ko/ai/agents.md"
         ],
-        "checked_at": "2026-11-01T06:15:13Z",
+        "checked_at": "2026-11-20T07:24:29Z",
         "status": "observed",
-        "hash": "b21694348a8c13fb33abaa2f535694560a48fe4a2be244a27573e67a2d89e996",
+        "hash": "94b5f84a8286ebd1fe112828f423d793dbdb292f5c805d9ee9e998e25afefd3e",
         "hash_kind": "visible-v1",
         "final_url": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/registry-get-started.html"
       },
@@ -23956,7 +24250,7 @@
           "src/content/docs/ko/ai/1p-vs-3p.md",
           "src/content/docs/ko/ai/multicloud-ai.md"
         ],
-        "checked_at": "2026-11-01T06:15:13Z",
+        "checked_at": "2026-11-20T07:24:29Z",
         "status": "observed",
         "hash": "26298686fc25124a82d0468bd65a1e14803082250aeace9f76a2f21b12660d5c",
         "hash_kind": "visible-v1",
@@ -23966,9 +24260,9 @@
         "paths": [
           "src/content/docs/ko/ai/agent-adoption.md"
         ],
-        "checked_at": "2026-11-01T06:15:13Z",
+        "checked_at": "2026-11-20T07:24:29Z",
         "status": "observed",
-        "hash": "1d4ff97839a361c11e42a00a6d9916da5fe6b2835d0a2fedb8cdc112d893f642",
+        "hash": "d00ab70f6e8e3faf47cef227fe40beda64f9ac66fd1f71878c749ad6c42b8c6a",
         "hash_kind": "visible-v1",
         "final_url": "https://docs.aws.amazon.com/bedrock/latest/userguide/agents-how.html"
       },
@@ -23976,7 +24270,7 @@
         "paths": [
           "src/content/docs/ko/ai/llmops.md"
         ],
-        "checked_at": "2026-11-01T06:15:13Z",
+        "checked_at": "2026-11-20T07:24:29Z",
         "status": "observed",
         "hash": "d7113dc6bf682534bd8d77ea903b7d30af1d8cdce17058f3973574806a53ea03",
         "hash_kind": "visible-v1",
@@ -23986,7 +24280,7 @@
         "paths": [
           "src/content/docs/ko/security/ai-security.md"
         ],
-        "checked_at": "2026-11-01T06:15:13Z",
+        "checked_at": "2026-11-20T07:24:29Z",
         "status": "observed",
         "hash": "4b142de807ccd87f3f20bc58d5fb990bd8399336618a557c7ffa9bd9d80b95c3",
         "hash_kind": "visible-v1",
@@ -23996,7 +24290,7 @@
         "paths": [
           "src/content/docs/ko/ai/rag-patterns.md"
         ],
-        "checked_at": "2026-11-01T06:15:13Z",
+        "checked_at": "2026-11-20T07:24:29Z",
         "status": "observed",
         "hash": "185782656b60aa7996ff181dd1b93f55e5fb123e8cef7e8dba98758ea3366951",
         "hash_kind": "visible-v1",
@@ -24006,9 +24300,9 @@
         "paths": [
           "src/content/docs/ko/ai/rag-patterns.md"
         ],
-        "checked_at": "2026-11-01T06:15:13Z",
+        "checked_at": "2026-11-20T07:24:29Z",
         "status": "observed",
-        "hash": "4105839895ed686c1bd6334b9ccb7805f41c032f93db3bbc82e22fca59f38835",
+        "hash": "cd21aac312aaf798af341a359dc44c2171eb51a10e4faaf3afb7f2e95e761765",
         "hash_kind": "visible-v1",
         "final_url": "https://docs.aws.amazon.com/bedrock/latest/userguide/kb-managed-acl.html"
       },
@@ -24016,7 +24310,7 @@
         "paths": [
           "src/content/docs/ko/ai/rag-patterns.md"
         ],
-        "checked_at": "2026-11-01T06:15:13Z",
+        "checked_at": "2026-11-20T07:24:29Z",
         "status": "unverified",
         "error": "unsupported-or-insufficient-visible-content"
       },
@@ -24024,9 +24318,9 @@
         "paths": [
           "src/content/docs/ko/ai/vector-store.md"
         ],
-        "checked_at": "2026-11-01T06:15:13Z",
+        "checked_at": "2026-11-20T07:24:29Z",
         "status": "observed",
-        "hash": "2e908d62e8447dbdbd0cf711b074ab14d8a278a5b18587e7b3f8e392261cf891",
+        "hash": "93175037d10500668415d984cbcf0027e0d48b7e4101cdd28eaba674e309ca76",
         "hash_kind": "visible-v1",
         "final_url": "https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html"
       },
@@ -24034,7 +24328,7 @@
         "paths": [
           "src/content/docs/ko/ai/rag-patterns.md"
         ],
-        "checked_at": "2026-11-01T06:15:13Z",
+        "checked_at": "2026-11-20T07:24:29Z",
         "status": "unverified",
         "error": "unsupported-or-insufficient-visible-content"
       },
@@ -24042,7 +24336,7 @@
         "paths": [
           "src/content/docs/ko/ai/getting-started.md"
         ],
-        "checked_at": "2026-11-01T06:15:13Z",
+        "checked_at": "2026-11-20T07:24:29Z",
         "status": "observed",
         "hash": "a8b6832deeba5e4e9dd26a589988dda1eafa74718be63e2e98a33903c245db4a",
         "hash_kind": "visible-v1",
@@ -24052,7 +24346,7 @@
         "paths": [
           "src/content/docs/ko/ai/prompt-engineering.md"
         ],
-        "checked_at": "2026-11-01T06:15:13Z",
+        "checked_at": "2026-11-20T07:24:29Z",
         "status": "observed",
         "hash": "d83d1e95b9774d700897691d3d4513b754a9b4a441861ac0b412e76dff3c3380",
         "hash_kind": "visible-v1",
@@ -24062,7 +24356,7 @@
         "paths": [
           "src/content/docs/ko/ai/prompt-engineering.md"
         ],
-        "checked_at": "2026-11-01T06:15:13Z",
+        "checked_at": "2026-11-20T07:24:29Z",
         "status": "observed",
         "hash": "1b6f191b4ba9fe72324e19c9de35c2b266adfffdc10fc96b80ce77d89f261b6f",
         "hash_kind": "visible-v1",
@@ -24072,7 +24366,7 @@
         "paths": [
           "src/content/docs/ko/governance/landing-zone.md"
         ],
-        "checked_at": "2026-11-01T06:15:13Z",
+        "checked_at": "2026-11-20T07:24:29Z",
         "status": "observed",
         "hash": "050333fdfa7c8fa436a1f6b438460e7650478e2959346154f7de54eea7ae8b5f",
         "hash_kind": "visible-v1",
@@ -24082,7 +24376,7 @@
         "paths": [
           "src/content/docs/ko/governance/finops.md"
         ],
-        "checked_at": "2026-11-01T06:15:13Z",
+        "checked_at": "2026-11-20T07:24:29Z",
         "status": "unverified",
         "error": "HTTP 403"
       },
@@ -24090,9 +24384,9 @@
         "paths": [
           "src/content/docs/ko/governance/finops.md"
         ],
-        "checked_at": "2026-11-01T06:15:13Z",
+        "checked_at": "2026-11-20T07:24:29Z",
         "status": "observed",
-        "hash": "bb70d139db7a6ad0be17683826af6f59ca3a53559fa45a9bd63434fcef5d16cd",
+        "hash": "c6d4ec66f78ef4bb5652f930ccd27cd0a0aebc1ebd8ce4562eec4ee6a7141fbb",
         "hash_kind": "visible-v1",
         "final_url": "https://docs.aws.amazon.com/cost-management/latest/userguide/manage-ad.html"
       },
@@ -24100,7 +24394,7 @@
         "paths": [
           "src/content/docs/ko/governance/finops.md"
         ],
-        "checked_at": "2026-11-01T06:15:13Z",
+        "checked_at": "2026-11-20T07:24:29Z",
         "status": "unverified",
         "error": "unsupported-or-insufficient-visible-content"
       },
@@ -24108,7 +24402,7 @@
         "paths": [
           "src/content/docs/ko/storage/migration.md"
         ],
-        "checked_at": "2026-11-01T06:15:13Z",
+        "checked_at": "2026-11-20T07:24:29Z",
         "status": "observed",
         "hash": "70f72fd433631f5a2ee14a169f743a27aa8cd4c63a4a3385882b4fe0e2909c88",
         "hash_kind": "visible-v1",
@@ -24118,7 +24412,7 @@
         "paths": [
           "src/content/docs/ko/networking/multicloud-networking.md"
         ],
-        "checked_at": "2026-11-01T06:15:13Z",
+        "checked_at": "2026-11-20T07:24:29Z",
         "status": "observed",
         "hash": "062c10ef12cd093f8c2873dbdf372b36646c720636adb241d958ba72650bcfac",
         "hash_kind": "visible-v1",
@@ -24128,7 +24422,7 @@
         "paths": [
           "src/content/docs/ko/governance/dr.md"
         ],
-        "checked_at": "2026-11-01T06:15:13Z",
+        "checked_at": "2026-11-20T07:24:29Z",
         "status": "observed",
         "hash": "a6e59ba92933625cda72f14d0dd74cf1d97d4a25ec8db66a6d54a99d46fb2a8e",
         "hash_kind": "visible-v1",
@@ -24138,7 +24432,7 @@
         "paths": [
           "src/content/docs/ko/devops/kubernetes-operations.mdx"
         ],
-        "checked_at": "2026-11-01T06:15:13Z",
+        "checked_at": "2026-11-20T07:24:29Z",
         "status": "observed",
         "hash": "9a3b77f90b75942a839233fbfa771285016f06b65f1157b2ea0d179c1b607361",
         "hash_kind": "visible-v1",

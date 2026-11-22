@@ -21065,6 +21065,325 @@
       "evidence": [],
       "pr": null,
       "last_seen": "2026-11"
+    },
+    {
+      "id": "cd3e239140f777d0d553c704",
+      "path": "src/content/docs/ko/compute/serverless.md",
+      "axis": 2,
+      "reason": "Apache Airflow UI available in Amazon MWAA Serverless (https://aws.amazon.com/about-aws/whats-new/2026/11/airflow-ui-for-mwaa-serverless/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/airflow-ui-for-mwaa-serverless/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "72f50d6c3649d5a6a8543a26",
+      "path": "src/content/docs/ko/security/incident-response.md",
+      "axis": 2,
+      "reason": "Amazon MWAA now supports fine-grained access control with IAM Identity Center and multi-team environments (https://aws.amazon.com/about-aws/whats-new/2026/11/mwaa-fine-grained-access-control/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/mwaa-fine-grained-access-control/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "497c4f9b3a4548f2ddcf369b",
+      "path": "src/content/docs/ko/database/data-pipeline.md",
+      "axis": 2,
+      "reason": "AWS Quick enhances granular governance with the ability to restrict structured data sources (https://aws.amazon.com/about-aws/whats-new/2026/11/aws-quick-structured-data-source-restrictions/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-quick-structured-data-source-restrictions/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "1c223169186d1d5a234a24b8",
+      "path": "src/content/docs/ko/storage/backup.md",
+      "axis": 2,
+      "reason": "AWS Cloud WAN now supports BGP communities on Direct Connect attachments for routing policy (https://aws.amazon.com/about-aws/whats-new/2026/11/cloud-wan-bgp-community-directconnect/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/cloud-wan-bgp-community-directconnect/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "35ef77d0e7cae17e9aeaf78c",
+      "path": "src/content/docs/ko/storage/block-and-file.md",
+      "axis": 2,
+      "reason": "AWS Cloud WAN now supports BGP communities on Direct Connect attachments for routing policy (https://aws.amazon.com/about-aws/whats-new/2026/11/cloud-wan-bgp-community-directconnect/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/cloud-wan-bgp-community-directconnect/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "3bef1adb6b89589ed5505dfc",
+      "path": "src/content/docs/ko/storage/backup.md",
+      "axis": 2,
+      "reason": "AWS Backup now supports resource modifiers for Amazon EKS restores (https://aws.amazon.com/about-aws/whats-new/2026/11/aws-backup-resource-modifiers-eks/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-backup-resource-modifiers-eks/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "9189acc2f0ca0b02044c33f5",
+      "path": "src/content/docs/ko/ai/agent-adoption.md",
+      "axis": 2,
+      "reason": "AWS Quick now supports plugins to bundle agents, skills, connectors and flows (https://aws.amazon.com/about-aws/whats-new/2026/11/aws-quick-plugins-bundle-agents-skills-connectors-flows/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-quick-plugins-bundle-agents-skills-connectors-flows/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "796b8b6ae118bb5acaabed14",
+      "path": "src/content/docs/ko/ai/agents.md",
+      "axis": 2,
+      "reason": "AWS Quick now supports plugins to bundle agents, skills, connectors and flows (https://aws.amazon.com/about-aws/whats-new/2026/11/aws-quick-plugins-bundle-agents-skills-connectors-flows/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-quick-plugins-bundle-agents-skills-connectors-flows/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "cfa27dff55633d4c8cd50896",
+      "path": "src/content/docs/ko/ai/llmops.md",
+      "axis": 2,
+      "reason": "AWS Quick now supports plugins to bundle agents, skills, connectors and flows (https://aws.amazon.com/about-aws/whats-new/2026/11/aws-quick-plugins-bundle-agents-skills-connectors-flows/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-quick-plugins-bundle-agents-skills-connectors-flows/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "cf9a8e6112c03082017ef79a",
+      "path": "src/content/docs/ko/about-cloud/compare-clouds.md",
+      "axis": 2,
+      "reason": "AWS Quick launches a new web experience with updated browser extension and Microsoft 365 add-ins (https://aws.amazon.com/about-aws/whats-new/2026/11/aws-quick-launches-new-web-experience-updated-browser-extension-microsoft-365-add-ins/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-quick-launches-new-web-experience-updated-browser-extension-microsoft-365-add-ins/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "50834ef1a5a6a3f81471eb92",
+      "path": "src/content/docs/ko/about-cloud/support-plans.md",
+      "axis": 2,
+      "reason": "Managed Service for Apache Airflow (https://docs.cloud.google.com/release-notes#November_12_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_12_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "432b3d968f1c688324ca4357",
+      "path": "src/content/docs/ko/about-cloud/console-cli-sdk.md",
+      "axis": 2,
+      "reason": "Cloud SDK (https://docs.cloud.google.com/release-notes#November_21_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_21_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "d771c8767df7962854bb26a2",
+      "path": "src/content/docs/ko/networking/dns.md",
+      "axis": 2,
+      "reason": "[In preview] Public Preview: JWT validation with Azure Front Door Auth Policy (https://azure.microsoft.com/updates?id=577673)",
+      "source_url": "https://azure.microsoft.com/updates?id=577673",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "996c07cca875b663ed5ca84c",
+      "path": "src/content/docs/ko/networking/dns.md",
+      "axis": 2,
+      "reason": "[In preview] Public Preview: Auto scaling of ingestion limits in Azure Monitor workspace (https://azure.microsoft.com/updates?id=578207)",
+      "source_url": "https://azure.microsoft.com/updates?id=578207",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "c8ff9da307e1897f1461863e",
+      "path": "src/content/docs/ko/database/managed-rdb.md",
+      "axis": 2,
+      "reason": "[In preview] Public Preview: SQL performance monitoring for Azure SQL Managed Instance (https://azure.microsoft.com/updates?id=574158)",
+      "source_url": "https://azure.microsoft.com/updates?id=574158",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "e4ff8b00b2265dc3147fb09c",
+      "path": "src/content/docs/ko/database/nosql.md",
+      "axis": 2,
+      "reason": "[In preview] Public Preview: SQL performance monitoring for Azure SQL Managed Instance (https://azure.microsoft.com/updates?id=574158)",
+      "source_url": "https://azure.microsoft.com/updates?id=574158",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "fd349ead8ee80e9bef98cab8",
+      "path": "src/content/docs/ko/korea/governance/compliance.md",
+      "axis": 2,
+      "reason": "[Launched] Generally Available: Governance policy guidance in Foundry Canvas and VS Code (https://azure.microsoft.com/updates?id=581463)",
+      "source_url": "https://azure.microsoft.com/updates?id=581463",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "c32f90d2f83ad1c74ab8f114",
+      "path": "src/content/docs/ko/devops/devsecops.md",
+      "axis": 2,
+      "reason": "[Launched] Generally Available: Governance policy guidance in Foundry Canvas and VS Code (https://azure.microsoft.com/updates?id=581463)",
+      "source_url": "https://azure.microsoft.com/updates?id=581463",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "ac7c746fc6aac60f8f068506",
+      "path": "src/content/docs/ko/networking/dns.md",
+      "axis": 2,
+      "reason": "[In preview] Public Preview: Microsoft Copilot harness support in Foundry Toolkit for VS Code (https://azure.microsoft.com/updates?id=581468)",
+      "source_url": "https://azure.microsoft.com/updates?id=581468",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "684a2ea8ac2dd3f5cdf2d190",
+      "path": "src/content/docs/ko/security/iam.md",
+      "axis": 2,
+      "reason": "SSF Transmitter Support for Identity Security Events (https://docs.oracle.com/iaas/releasenotes/identity/ssf-transmitter-support-identity-security-events.htm)",
+      "source_url": "https://docs.oracle.com/iaas/releasenotes/identity/ssf-transmitter-support-identity-security-events.htm",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "ef8038684d14293115b73ff3",
+      "path": "src/content/docs/ko/security/zero-trust.md",
+      "axis": 2,
+      "reason": "SSF Transmitter Support for Identity Security Events (https://docs.oracle.com/iaas/releasenotes/identity/ssf-transmitter-support-identity-security-events.htm)",
+      "source_url": "https://docs.oracle.com/iaas/releasenotes/identity/ssf-transmitter-support-identity-security-events.htm",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "50c1e4d813e00c373aeae1ef",
+      "path": "src/content/docs/ko/korea/security/csap.md",
+      "axis": 2,
+      "reason": "SSF Transmitter Support for Identity Security Events (https://docs.oracle.com/iaas/releasenotes/identity/ssf-transmitter-support-identity-security-events.htm)",
+      "source_url": "https://docs.oracle.com/iaas/releasenotes/identity/ssf-transmitter-support-identity-security-events.htm",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "123baec536784482219bfd1b",
+      "path": null,
+      "axis": 3,
+      "reason": "Amazon FSx for Lustre now offers a 75% lower minimum throughput capacity and metadata IOPS for Intelligent-Tiering file systems (https://aws.amazon.com/about-aws/whats-new/2026/11/fsx-lustre-intelligent-tiering-lower-throughput/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/fsx-lustre-intelligent-tiering-lower-throughput/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "b02e9a6df0009f686a82071b",
+      "path": null,
+      "axis": 3,
+      "reason": "Amazon Route 53 now supports record set protection (https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-route-53-record-set-protection/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-route-53-record-set-protection/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "b5680d25e604bb73aae22207",
+      "path": null,
+      "axis": 3,
+      "reason": "Amazon Connect Customer now supports batch actions on up to 100 cases at once (https://aws.amazon.com/about-aws/whats-new/2026/11/connect-batch-actions-100-cases/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/connect-batch-actions-100-cases/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "72551e2ba8cec8bacca2e466",
+      "path": null,
+      "axis": 3,
+      "reason": "Container Optimized OS (https://docs.cloud.google.com/release-notes#November_12_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_12_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "a0ade5a4ac55993436c5601e",
+      "path": null,
+      "axis": 3,
+      "reason": "Knowledge Catalog (https://docs.cloud.google.com/release-notes#November_12_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_12_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "d8b91d0e2ee32588161ebc34",
+      "path": null,
+      "axis": 3,
+      "reason": "Policy Controller (https://docs.cloud.google.com/release-notes#November_12_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_12_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "996575fca669b67a30b783b2",
+      "path": null,
+      "axis": 3,
+      "reason": "Secure Web Proxy (https://docs.cloud.google.com/release-notes#November_12_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_12_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
     }
   ],
   "resolved_ids": [],
@@ -21317,10 +21636,10 @@
         "oci": "complete"
       },
       "2026-11-12": {
-        "aws": "provisional",
-        "gcp": "provisional",
-        "azure": "provisional",
-        "oci": "provisional"
+        "aws": "complete",
+        "gcp": "complete",
+        "azure": "complete",
+        "oci": "complete"
       },
       "2026-09-26": {
         "aws": "complete",
@@ -21425,6 +21744,18 @@
         "oci": "complete"
       },
       "2026-11-21": {
+        "aws": "provisional",
+        "gcp": "provisional",
+        "azure": "provisional",
+        "oci": "provisional"
+      },
+      "2026-10-05": {
+        "aws": "complete",
+        "gcp": "complete",
+        "azure": "complete",
+        "oci": "complete"
+      },
+      "2026-11-22": {
         "aws": "provisional",
         "gcp": "provisional",
         "azure": "provisional",
@@ -21667,10 +21998,10 @@
         "oci": "2026-11-12T07:18:32.962Z"
       },
       "2026-11-12": {
-        "aws": "2026-11-13T06:52:19.498Z",
-        "gcp": "2026-11-13T06:52:19.498Z",
-        "azure": "2026-11-13T06:52:19.498Z",
-        "oci": "2026-11-13T06:52:19.498Z"
+        "aws": "2026-11-22T06:56:58.485Z",
+        "gcp": "2026-11-22T06:56:58.485Z",
+        "azure": "2026-11-22T06:56:58.485Z",
+        "oci": "2026-11-22T06:56:58.485Z"
       },
       "2026-09-26": {
         "aws": "2026-11-13T06:52:19.498Z",
@@ -21775,10 +22106,22 @@
         "oci": "2026-11-21T07:16:15.800Z"
       },
       "2026-11-21": {
-        "aws": "2026-11-21T07:16:15.800Z",
-        "gcp": "2026-11-21T07:16:15.800Z",
-        "azure": "2026-11-21T07:16:15.800Z",
-        "oci": "2026-11-21T07:16:15.800Z"
+        "aws": "2026-11-22T06:56:58.485Z",
+        "gcp": "2026-11-22T06:56:58.485Z",
+        "azure": "2026-11-22T06:56:58.485Z",
+        "oci": "2026-11-22T06:56:58.485Z"
+      },
+      "2026-10-05": {
+        "aws": "2026-11-22T06:56:58.485Z",
+        "gcp": "2026-11-22T06:56:58.485Z",
+        "azure": "2026-11-22T06:56:58.485Z",
+        "oci": "2026-11-22T06:56:58.485Z"
+      },
+      "2026-11-22": {
+        "aws": "2026-11-22T06:56:58.485Z",
+        "gcp": "2026-11-22T06:56:58.485Z",
+        "azure": "2026-11-22T06:56:58.485Z",
+        "oci": "2026-11-22T06:56:58.485Z"
       }
     }
   },

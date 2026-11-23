@@ -21631,6 +21631,174 @@
       "status": "open",
       "evidence": [],
       "pr": null
+    },
+    {
+      "id": "9d5d54570e3174fd6a7f9d28",
+      "path": "src/content/docs/ko/security/getting-started.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/welcome.html",
+      "change_digest": "78f2fe7fdfcdf3cfe843b2000e42600f3700088c158fb6c9e170873e61bea808",
+      "source_url": "https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/welcome.html",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "446e87efcbc8208b5a3d03b9",
+      "path": "src/content/docs/ko/governance/sustainability.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://docs.aws.amazon.com/wellarchitected/latest/sustainability-pillar/sustainability-pillar.html",
+      "change_digest": "d0b1f6a5b14db2035a8e083934ed66762d6f3eaabb313f923ebbcd521138c14b",
+      "source_url": "https://docs.aws.amazon.com/wellarchitected/latest/sustainability-pillar/sustainability-pillar.html",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "ca5449796c9b0cfe8d71ace5",
+      "path": "src/content/docs/ko/networking/multicloud-connectivity.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://docs.aws.amazon.com/whitepapers/latest/hybrid-connectivity/hybrid-connectivity.html",
+      "change_digest": "fd2f2238922754ee485481911048253e65fffddef36160c014b3a142c2857b41",
+      "source_url": "https://docs.aws.amazon.com/whitepapers/latest/hybrid-connectivity/hybrid-connectivity.html",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "353340e191038db2bd40a5c6",
+      "path": "src/content/docs/ko/ai/agents.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://docs.cloud.google.com/agent-registry/overview",
+      "change_digest": "3af7100a276c7fe2f90bdb31a28498811cfb83936f113ebac4f46eb8bca8503c",
+      "source_url": "https://docs.cloud.google.com/agent-registry/overview",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "4043e8a549cc216760398ee9",
+      "path": "src/content/docs/ko/database/analytics.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://docs.cloud.google.com/bigquery/docs/generative-ai-overview",
+      "change_digest": "86e9e3b92a9d6f787ea7d23886af1c6756e205e4322aca8b3fbbe781de73ccfb",
+      "source_url": "https://docs.cloud.google.com/bigquery/docs/generative-ai-overview",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "b35b37076c415fa5d4fb2e57",
+      "path": "src/content/docs/ko/ai/rag-patterns.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-overview",
+      "change_digest": "109cea91010f3d45c4ddeebcc56c42ff7d1a062784c85ecf846fb271d93407bb",
+      "source_url": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-overview",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "433e5ce7dc206b81baa823ec",
+      "path": "src/content/docs/ko/ai/rag-patterns.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://docs.cloud.google.com/gemini/enterprise/docs/identity",
+      "change_digest": "43aca762d6f95fce2284d6b0ca13f7c5478c8830e25d66e5e861abf0dd4357d9",
+      "source_url": "https://docs.cloud.google.com/gemini/enterprise/docs/identity",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "f4e6d58f9937215b03e90e1c",
+      "path": "src/content/docs/ko/compute/containers.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://docs.cloud.google.com/kubernetes-engine/docs",
+      "change_digest": "44463707db83142fa2abb3a601eeee7643de6e11ca39b1d20c303923b6c77aa1",
+      "source_url": "https://docs.cloud.google.com/kubernetes-engine/docs",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "34eaadd93c93f344412f040b",
+      "path": "src/content/docs/ko/ai/llmops.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://docs.confident-ai.com/",
+      "change_digest": "085f417046b5963e4848693f4347cd8daf45b4cffe5ca778094626947a664e18",
+      "source_url": "https://docs.confident-ai.com/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "9e84ce21789a036b95c5dc42",
+      "path": "src/content/docs/ko/ai/ai-ml.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://docs.mistral.ai/",
+      "change_digest": "806e74df5eb5756a090a14c9e09b83424610e9f9670a4eacb4db0919378977ff",
+      "source_url": "https://docs.mistral.ai/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "f901ece89c828e9014ee2220",
+      "path": "src/content/docs/ko/about-cloud/console-cli-sdk.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://docs.oracle.com/en-us/iaas/Content/API/Concepts/cloudshellintro.htm",
+      "change_digest": "e6614e537616644b49adb88245c8a66fe660a11586a51b2c40f27da4c134cc8e",
+      "source_url": "https://docs.oracle.com/en-us/iaas/Content/API/Concepts/cloudshellintro.htm",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "a46ef6f7bce4cc1f75c097aa",
+      "path": "src/content/docs/ko/storage/backup.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://docs.oracle.com/en-us/iaas/Content/Block/Concepts/blockvolumebackups.htm",
+      "change_digest": "84f5d9b2e6b70591dc313190290f3f8611d13bbf125590ea763422476e667c45",
+      "source_url": "https://docs.oracle.com/en-us/iaas/Content/Block/Concepts/blockvolumebackups.htm",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
     }
   ],
   "resolved_ids": [],
@@ -22423,7 +22591,7 @@
         "paths": [
           "src/content/docs/ko/ai/agents.md"
         ],
-        "checked_at": "2026-11-22T06:57:07Z",
+        "checked_at": "2026-11-23T07:46:48Z",
         "status": "unverified",
         "hash": "dc7fc249911468c4dc00fc4eb92b1c0d611070787422d5a6d767fc3b925fee20",
         "final_url": "https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/",
@@ -22433,7 +22601,7 @@
         "paths": [
           "src/content/docs/ko/singapore/mtcs.md"
         ],
-        "checked_at": "2026-11-22T06:57:07Z",
+        "checked_at": "2026-11-23T07:46:48Z",
         "status": "unverified",
         "hash": "635b02875de69e3cc1de1579b70facd5f4c19edf127bd2e3769e8a92f70b360b",
         "final_url": "https://abs.org.sg/docs/library/abs-ospar-guidelines-v2-0.pdf",
@@ -22443,7 +22611,7 @@
         "paths": [
           "src/content/docs/ko/ai/agents.md"
         ],
-        "checked_at": "2026-11-22T06:57:07Z",
+        "checked_at": "2026-11-23T07:46:48Z",
         "status": "unverified",
         "hash": "279273094623330fe250f2984391cac02002276942f6d2dbd8537e495fae1bdf",
         "final_url": "https://www.ag2.ai/",
@@ -22453,7 +22621,7 @@
         "paths": [
           "src/content/docs/ko/ai/getting-started.md"
         ],
-        "checked_at": "2026-11-22T06:57:07Z",
+        "checked_at": "2026-11-23T07:46:48Z",
         "status": "unverified",
         "hash": "ae0f8a0945b3d1cf6945ebf983706906940024c6f02864250619be546f2c10a2",
         "final_url": "https://ai.azure.com/",
@@ -22494,7 +22662,7 @@
         "paths": [
           "src/content/docs/ko/singapore/ai-governance.md"
         ],
-        "checked_at": "2026-11-22T06:57:07Z",
+        "checked_at": "2026-11-23T07:46:48Z",
         "status": "unverified",
         "hash": "861c9baae1bb9420d984be6abe0a5a19d6b07730363337bf8a901ea68a37c87d",
         "final_url": "https://aiverifyfoundation.sg/resources/mgf-gen-ai/",
@@ -22514,7 +22682,7 @@
         "paths": [
           "src/content/docs/ko/devops/devsecops.md"
         ],
-        "checked_at": "2026-11-22T06:57:07Z",
+        "checked_at": "2026-11-23T07:46:48Z",
         "status": "unverified",
         "hash": "6ce84a59d0c606ad8c2c2b3d3703944b3097b677f6a9c36c22154de4e3295152",
         "final_url": "https://aquasecurity.github.io/tfsec/",
@@ -22534,7 +22702,7 @@
         "paths": [
           "src/content/docs/ko/ai/llmops.md"
         ],
-        "checked_at": "2026-11-22T06:57:07Z",
+        "checked_at": "2026-11-23T07:46:48Z",
         "status": "unverified",
         "hash": "84e61b481a6f8d7a78ec8093dce057a9e2b06a9ea80957e5c3766d9b595ef09c",
         "final_url": "https://arize.com/",
@@ -22604,7 +22772,7 @@
         "paths": [
           "src/content/docs/ko/devops/observability.md"
         ],
-        "checked_at": "2026-11-22T06:57:07Z",
+        "checked_at": "2026-11-23T07:46:48Z",
         "status": "unverified",
         "hash": "b472569757f991e0df0919150abea62828a7651cc991dfcabea1158bc12ba1fe",
         "final_url": "https://aws-otel.github.io/",
@@ -28171,7 +28339,7 @@
         "paths": [
           "src/content/docs/ko/security/data-protection.md"
         ],
-        "checked_at": "2026-11-03T06:54:26Z",
+        "checked_at": "2026-11-23T07:46:48Z",
         "status": "observed",
         "hash": "1b76d28c9a9ae409bac215f5041e512e73e299f4bf969e27c2da3d58407f6f36",
         "hash_kind": "visible-v1",
@@ -28181,29 +28349,30 @@
         "paths": [
           "src/content/docs/ko/security/iam.md"
         ],
-        "checked_at": "2026-11-03T06:54:26Z",
-        "status": "observed",
+        "checked_at": "2026-11-23T07:46:48Z",
+        "status": "unverified",
         "hash": "dbebfd3c5a84914d28b8f7dfc0acebcb8f2211a3c596efe116ed099444a82d1c",
         "hash_kind": "visible-v1",
-        "final_url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/sec_permissions_continuous_reduction.html"
+        "final_url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/sec_permissions_continuous_reduction.html",
+        "error": "HTTP 404"
       },
       "https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/welcome.html": {
         "paths": [
           "src/content/docs/ko/security/getting-started.md"
         ],
-        "checked_at": "2026-11-03T06:54:26Z",
+        "checked_at": "2026-11-23T07:46:48Z",
         "status": "observed",
-        "hash": "7f04e93fedc0bf97d9e91d479d2c5796ab2741363febae27e209d571ef60db05",
+        "hash": "13a7309745798451da979e16b44fa3a5880e781628f93a5f76e6c1604ad1a58f",
         "hash_kind": "visible-v1",
-        "final_url": "https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/welcome.html"
+        "final_url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/security.html"
       },
       "https://docs.aws.amazon.com/wellarchitected/latest/sustainability-pillar/sustainability-pillar.html": {
         "paths": [
           "src/content/docs/ko/governance/sustainability.md"
         ],
-        "checked_at": "2026-11-03T06:54:26Z",
+        "checked_at": "2026-11-23T07:46:48Z",
         "status": "observed",
-        "hash": "7eef9431077ae9055449648b86b481b887844920c01824779733463aadd01265",
+        "hash": "7f58eb02352a6018898d4a45ce3e81e01de63593b9227126cdddad75ecdb6baa",
         "hash_kind": "visible-v1",
         "final_url": "https://docs.aws.amazon.com/wellarchitected/latest/sustainability-pillar/sustainability-pillar.html"
       },
@@ -28211,7 +28380,7 @@
         "paths": [
           "src/content/docs/ko/security/incident-response.md"
         ],
-        "checked_at": "2026-11-03T06:54:26Z",
+        "checked_at": "2026-11-23T07:46:48Z",
         "status": "unverified",
         "error": "unsupported-or-insufficient-visible-content"
       },
@@ -28219,7 +28388,7 @@
         "paths": [
           "src/content/docs/ko/governance/dr.md"
         ],
-        "checked_at": "2026-11-03T06:54:26Z",
+        "checked_at": "2026-11-23T07:46:48Z",
         "status": "observed",
         "hash": "c522bf65d6633813a1a5f0e8b35b74b0034cc5d0cce8b42e3c8b195409f317a8",
         "hash_kind": "visible-v1",
@@ -28229,17 +28398,17 @@
         "paths": [
           "src/content/docs/ko/networking/multicloud-connectivity.md"
         ],
-        "checked_at": "2026-11-03T06:54:26Z",
+        "checked_at": "2026-11-23T07:46:48Z",
         "status": "observed",
-        "hash": "20f8faa29269b121b9a64f11cfade9937bd4d44749d328bec42108a1ee18c43e",
+        "hash": "062c10ef12cd093f8c2873dbdf372b36646c720636adb241d958ba72650bcfac",
         "hash_kind": "visible-v1",
-        "final_url": "https://docs.aws.amazon.com/whitepapers/latest/hybrid-connectivity/hybrid-connectivity.html"
+        "final_url": "https://docs.aws.amazon.com/directconnect/latest/UserGuide/Welcome.html"
       },
       "https://docs.aws.amazon.com/whitepapers/latest/microservices-on-aws/microservices-on-aws.html": {
         "paths": [
           "src/content/docs/ko/compute/modernization.md"
         ],
-        "checked_at": "2026-11-03T06:54:26Z",
+        "checked_at": "2026-11-23T07:46:48Z",
         "status": "observed",
         "hash": "fd575ba144803cfd78f1244a416e6c8768e2543451520ca0f25e6bea6c01e4db",
         "hash_kind": "visible-v1",
@@ -28249,7 +28418,7 @@
         "paths": [
           "src/content/docs/ko/devops/observability.md"
         ],
-        "checked_at": "2026-11-03T06:54:26Z",
+        "checked_at": "2026-11-23T07:46:48Z",
         "status": "observed",
         "hash": "a23f83f0caffb67da3aaf5289e078f7d7b4d7f119a78cb06fdb97a090afc4710",
         "hash_kind": "visible-v1",
@@ -28259,9 +28428,9 @@
         "paths": [
           "src/content/docs/ko/ai/agents.md"
         ],
-        "checked_at": "2026-11-03T06:54:26Z",
+        "checked_at": "2026-11-23T07:46:48Z",
         "status": "observed",
-        "hash": "6cde91becc2e1c9872cfa6801e67b709b84fd4b4e519f22191771dc102c8aa3a",
+        "hash": "8782f0154de8fb8727e81d0a725f39b66df1d9ffc736ed7d99449acb50b51056",
         "hash_kind": "visible-v1",
         "final_url": "https://docs.cloud.google.com/agent-registry/overview"
       },
@@ -28269,7 +28438,7 @@
         "paths": [
           "src/content/docs/ko/us/itar.md"
         ],
-        "checked_at": "2026-11-03T06:54:26Z",
+        "checked_at": "2026-11-23T07:46:48Z",
         "status": "unverified",
         "error": "unsupported-or-insufficient-visible-content"
       },
@@ -28277,9 +28446,9 @@
         "paths": [
           "src/content/docs/ko/database/analytics.md"
         ],
-        "checked_at": "2026-11-03T06:54:26Z",
+        "checked_at": "2026-11-23T07:46:48Z",
         "status": "observed",
-        "hash": "9206144e3af777a8f078f8e1fb13f3c768b6956e7d4919815fcd36c04be71d44",
+        "hash": "97d22b2d9fd6d970a604f88da16f12d693cb95ad8d6258cfad6476aab6dd9f28",
         "hash_kind": "visible-v1",
         "final_url": "https://docs.cloud.google.com/bigquery/docs/generative-ai-overview"
       },
@@ -28287,9 +28456,9 @@
         "paths": [
           "src/content/docs/ko/ai/rag-patterns.md"
         ],
-        "checked_at": "2026-11-03T06:54:26Z",
+        "checked_at": "2026-11-23T07:46:48Z",
         "status": "observed",
-        "hash": "9a0c12934c57e5cd9f5be407dbba00c3a3dc47260f78afb681043926d2b6a445",
+        "hash": "feecacb6bc15cbb952d0be8c8e7d9d676c2b14151f7bc9023c84196a5e199764",
         "hash_kind": "visible-v1",
         "final_url": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-overview"
       },
@@ -28297,9 +28466,9 @@
         "paths": [
           "src/content/docs/ko/ai/rag-patterns.md"
         ],
-        "checked_at": "2026-11-03T06:54:26Z",
+        "checked_at": "2026-11-23T07:46:48Z",
         "status": "observed",
-        "hash": "6ab5a9cfcc7c2614dcb0bf50b581c829964e89f390d6f45c15a7504c02b9b60b",
+        "hash": "342622cb23ac0e67877fd542a7669ab8f0d243be3e6a2004e7aa2d75604d7d4f",
         "hash_kind": "visible-v1",
         "final_url": "https://docs.cloud.google.com/gemini/enterprise/docs/identity"
       },
@@ -28307,9 +28476,9 @@
         "paths": [
           "src/content/docs/ko/compute/containers.md"
         ],
-        "checked_at": "2026-11-03T06:54:26Z",
+        "checked_at": "2026-11-23T07:46:48Z",
         "status": "observed",
-        "hash": "18fb11603e94f0fa517b8a8df112663973d2e5f65572aed19ef55d4a347c7bfa",
+        "hash": "538462dc28d096b3c495c26c66750178611a1918cd9c625d22d057a80dfd11d7",
         "hash_kind": "visible-v1",
         "final_url": "https://docs.cloud.google.com/kubernetes-engine/docs"
       },
@@ -28317,7 +28486,7 @@
         "paths": [
           "src/content/docs/ko/ai/prompt-engineering.md"
         ],
-        "checked_at": "2026-11-03T06:54:26Z",
+        "checked_at": "2026-11-23T07:46:48Z",
         "status": "observed",
         "hash": "59304061df15fa7f37572dea1702226c23414b09490aad520ff14e770f85d2f6",
         "hash_kind": "visible-v1",
@@ -28327,9 +28496,9 @@
         "paths": [
           "src/content/docs/ko/ai/llmops.md"
         ],
-        "checked_at": "2026-11-03T06:54:26Z",
+        "checked_at": "2026-11-23T07:46:48Z",
         "status": "observed",
-        "hash": "c8afac53602d2939a5aa2a9e9a4a214d0a87fed597402e4f5475826293671445",
+        "hash": "54b68e47b53bdedfde3e6cd8fc2023fdf539de20d00439c307f19d6b74136d4d",
         "hash_kind": "visible-v1",
         "final_url": "https://deepeval.com/"
       },
@@ -28337,7 +28506,7 @@
         "paths": [
           "src/content/docs/ko/devops/platform-engineering.md"
         ],
-        "checked_at": "2026-11-03T06:54:26Z",
+        "checked_at": "2026-11-23T07:46:48Z",
         "status": "unverified",
         "error": "unsupported-or-insufficient-visible-content"
       },
@@ -28345,7 +28514,7 @@
         "paths": [
           "src/content/docs/ko/ai/llmops.md"
         ],
-        "checked_at": "2026-11-03T06:54:26Z",
+        "checked_at": "2026-11-23T07:46:48Z",
         "status": "unverified",
         "error": "unsupported-or-insufficient-visible-content"
       },
@@ -28353,7 +28522,7 @@
         "paths": [
           "src/content/docs/ko/devops/devsecops.md"
         ],
-        "checked_at": "2026-11-03T06:54:26Z",
+        "checked_at": "2026-11-23T07:46:48Z",
         "status": "observed",
         "hash": "df4cb7ac46a141201c4f50c8b3bbd8f68217099559401450b29dcc0c1123b044",
         "hash_kind": "visible-v1",
@@ -28363,7 +28532,7 @@
         "paths": [
           "src/content/docs/ko/devops/devsecops.md"
         ],
-        "checked_at": "2026-11-03T06:54:26Z",
+        "checked_at": "2026-11-23T07:46:48Z",
         "status": "observed",
         "hash": "9ccaa11c5bb84516637834cdbdf77fe8921f9484f0a78debe422afa9ad1058ab",
         "hash_kind": "visible-v1",
@@ -28373,9 +28542,9 @@
         "paths": [
           "src/content/docs/ko/ai/ai-ml.md"
         ],
-        "checked_at": "2026-11-03T06:54:26Z",
+        "checked_at": "2026-11-23T07:46:48Z",
         "status": "observed",
-        "hash": "fe2305c2e749c2d8262fbe8e338a62c00ec978b801df73154ee9b4ef2e48291d",
+        "hash": "6dfd8bbd8f029f0786379e2c5e0e7ed4adea15c29d60acf69c1102352947d8b4",
         "hash_kind": "visible-v1",
         "final_url": "https://docs.mistral.ai/"
       },
@@ -28383,7 +28552,7 @@
         "paths": [
           "src/content/docs/ko/ai/gpu-infra/kubernetes-and-scheduling.md"
         ],
-        "checked_at": "2026-11-03T06:54:26Z",
+        "checked_at": "2026-11-23T07:46:48Z",
         "status": "observed",
         "hash": "a5ca285fc9d6a4b3188a59eb22927d52c3681eda78c45a3351d4a5214705d0fb",
         "hash_kind": "visible-v1",
@@ -28393,7 +28562,7 @@
         "paths": [
           "src/content/docs/ko/ai/gpu-infra/kubernetes-and-scheduling.md"
         ],
-        "checked_at": "2026-11-03T06:54:26Z",
+        "checked_at": "2026-11-23T07:46:48Z",
         "status": "observed",
         "hash": "148e90bc97908e4b3439fdaa6555ec9477a70a72ea88933ff3041893e0922973",
         "hash_kind": "visible-v1",
@@ -28404,7 +28573,7 @@
           "src/content/docs/ko/ai/gpu-infra/distributed-training.md",
           "src/content/docs/ko/ai/gpu-infra/workload-and-architecture.md"
         ],
-        "checked_at": "2026-11-03T06:54:26Z",
+        "checked_at": "2026-11-23T07:46:48Z",
         "status": "observed",
         "hash": "65b3ab034e225e1bc587c6c0930d24878d3298652e19ccf6461b2f3e62395d79",
         "hash_kind": "visible-v1",
@@ -28414,9 +28583,9 @@
         "paths": [
           "src/content/docs/ko/about-cloud/console-cli-sdk.md"
         ],
-        "checked_at": "2026-11-03T06:54:26Z",
+        "checked_at": "2026-11-23T07:46:48Z",
         "status": "observed",
-        "hash": "1eb4f56dc2164f1099c4a5ba336647633179d8b244a259f5a49d94292ac59db0",
+        "hash": "871d42539774b591375e8dd1b36f832080b302f89bed16055446cd3bf8896f4c",
         "hash_kind": "visible-v1",
         "final_url": "https://docs.oracle.com/en-us/iaas/Content/API/Concepts/cloudshellintro.htm"
       },
@@ -28424,7 +28593,7 @@
         "paths": [
           "src/content/docs/ko/about-cloud/console-cli-sdk.md"
         ],
-        "checked_at": "2026-11-03T06:54:26Z",
+        "checked_at": "2026-11-23T07:46:48Z",
         "status": "observed",
         "hash": "1783f9832009971d808bd5e40b740fff79cf2bf3848539af1575b023d0fe4045",
         "hash_kind": "visible-v1",
@@ -28435,7 +28604,7 @@
           "src/content/docs/ko/about-cloud/console-cli-sdk.md",
           "src/content/docs/ko/storage/migration.md"
         ],
-        "checked_at": "2026-11-04T06:32:57Z",
+        "checked_at": "2026-11-23T07:46:48Z",
         "status": "observed",
         "hash": "cc41ef03fab607018d05bc43fe0eedc9ac186d40200fd58c3e217f9f9c50560e",
         "hash_kind": "visible-v1",
@@ -28446,7 +28615,7 @@
           "src/content/docs/ko/compute/modernization.md",
           "src/content/docs/ko/networking/api-gateway.md"
         ],
-        "checked_at": "2026-11-04T06:32:57Z",
+        "checked_at": "2026-11-23T07:46:48Z",
         "status": "observed",
         "hash": "c93284cd8375810c97903cea91188616f7118299ce64f2a8d3066daead04b3a0",
         "hash_kind": "visible-v1",
@@ -28456,7 +28625,7 @@
         "paths": [
           "src/content/docs/ko/governance/compliance.md"
         ],
-        "checked_at": "2026-11-04T06:32:57Z",
+        "checked_at": "2026-11-23T07:46:48Z",
         "status": "observed",
         "hash": "f9ae7b5a4ac18a29ad9b92c21acbf25827bd0cae508124f3bede88691ded222a",
         "hash_kind": "visible-v1",
@@ -28466,7 +28635,7 @@
         "paths": [
           "src/content/docs/ko/networking/load-balancer.md"
         ],
-        "checked_at": "2026-11-04T06:32:57Z",
+        "checked_at": "2026-11-23T07:46:48Z",
         "status": "observed",
         "hash": "dcd06f7737e9925df80502c96bf9b71c6544a3354f7d20285faa6a4cbab137ff",
         "hash_kind": "visible-v1",
@@ -28476,7 +28645,7 @@
         "paths": [
           "src/content/docs/ko/devops/remote-access.md"
         ],
-        "checked_at": "2026-11-04T06:32:57Z",
+        "checked_at": "2026-11-23T07:46:48Z",
         "status": "observed",
         "hash": "7a9c3c3742a551664471d9d3d19265686b251a93f7de9b8bbdf4b729784298cd",
         "hash_kind": "visible-v1",
@@ -28486,7 +28655,7 @@
         "paths": [
           "src/content/docs/ko/governance/finops.md"
         ],
-        "checked_at": "2026-11-04T06:32:57Z",
+        "checked_at": "2026-11-23T07:46:48Z",
         "status": "observed",
         "hash": "ac12099eacc25e39bdaa4a105fbbaa8a6a5fa40f03eeb17f0faa21e732777042",
         "hash_kind": "visible-v1",
@@ -28496,7 +28665,7 @@
         "paths": [
           "src/content/docs/ko/about-cloud/pricing-model.md"
         ],
-        "checked_at": "2026-11-04T06:32:57Z",
+        "checked_at": "2026-11-23T07:46:48Z",
         "status": "observed",
         "hash": "c7c687ce5b6580bcee03fa062b211c6fdffff1c14ff8124ec2a97bd7c9f02e66",
         "hash_kind": "visible-v1",
@@ -28506,7 +28675,7 @@
         "paths": [
           "src/content/docs/ko/governance/finops.md"
         ],
-        "checked_at": "2026-11-04T06:32:57Z",
+        "checked_at": "2026-11-23T07:46:48Z",
         "status": "observed",
         "hash": "d401dca11b0ae31d3cf16635be8fae598d8dd35d7ca6e9930b044f3a34cc8aaa",
         "hash_kind": "visible-v1",
@@ -28516,7 +28685,7 @@
         "paths": [
           "src/content/docs/ko/governance/finops.md"
         ],
-        "checked_at": "2026-11-04T06:32:57Z",
+        "checked_at": "2026-11-23T07:46:48Z",
         "status": "observed",
         "hash": "860a23db60c87f2d0756b3cca99b54475a5e2f4a672194643e755c25d136f624",
         "hash_kind": "visible-v1",
@@ -28526,9 +28695,9 @@
         "paths": [
           "src/content/docs/ko/storage/backup.md"
         ],
-        "checked_at": "2026-11-04T06:32:57Z",
+        "checked_at": "2026-11-23T07:46:48Z",
         "status": "observed",
-        "hash": "4f560364655d51548ebd9576655f693c2e702ef1207186a66fcd13f8223c7009",
+        "hash": "9c87c8114ca43588f49db9a18700f127e2cde338518d60b5bc2868845de444bf",
         "hash_kind": "visible-v1",
         "final_url": "https://docs.oracle.com/en-us/iaas/Content/Block/Concepts/blockvolumebackups.htm"
       },
@@ -28536,7 +28705,7 @@
         "paths": [
           "src/content/docs/ko/storage/backup.md"
         ],
-        "checked_at": "2026-11-04T06:32:57Z",
+        "checked_at": "2026-11-23T07:46:48Z",
         "status": "observed",
         "hash": "ffc7124d89bfcb778f3a89cf34116811ff59cbba3e429479dd79659c19569d76",
         "hash_kind": "visible-v1",
@@ -28546,7 +28715,7 @@
         "paths": [
           "src/content/docs/ko/storage/block-and-file.md"
         ],
-        "checked_at": "2026-11-04T06:32:57Z",
+        "checked_at": "2026-11-23T07:46:48Z",
         "status": "observed",
         "hash": "e4420653042b53a104beef02e6e7d98a0d977376e0917ecab55792bd01e15d8a",
         "hash_kind": "visible-v1",
@@ -28558,7 +28727,7 @@
           "src/content/docs/ko/about-cloud/well-architected.mdx",
           "src/content/docs/ko/governance/finops.md"
         ],
-        "checked_at": "2026-11-04T06:32:57Z",
+        "checked_at": "2026-11-23T07:46:48Z",
         "status": "observed",
         "hash": "6c72a2f891164431ca1008aac8b38c032e21339979e61fb841d763c722307549",
         "hash_kind": "visible-v1",
@@ -28568,7 +28737,7 @@
         "paths": [
           "src/content/docs/ko/ai/gpu-infra/serving-reliability-cost.md"
         ],
-        "checked_at": "2026-11-04T06:32:57Z",
+        "checked_at": "2026-11-23T07:46:48Z",
         "status": "observed",
         "hash": "192e3e1b484a966034d1aa68c1010434c5363b43b431f0eb5dd55cc2c133f5a7",
         "hash_kind": "visible-v1",
@@ -28579,7 +28748,7 @@
           "src/content/docs/ko/ai/multicloud-ai.md",
           "src/content/docs/ko/compute/virtual-machines.md"
         ],
-        "checked_at": "2026-11-04T06:32:57Z",
+        "checked_at": "2026-11-23T07:46:48Z",
         "status": "observed",
         "hash": "ac932f02fe4bca893ea86a84e3a79cee5858abea2807caf88eac245b9c74304c",
         "hash_kind": "visible-v1",
@@ -28589,7 +28758,7 @@
         "paths": [
           "src/content/docs/ko/security/data-protection.md"
         ],
-        "checked_at": "2026-11-04T06:32:57Z",
+        "checked_at": "2026-11-23T07:46:48Z",
         "status": "observed",
         "hash": "f385dd2543515e489c3bff3e60ec0f78ca5dc9f02d8dc21fa23711570de27ec8",
         "hash_kind": "visible-v1",
@@ -28599,7 +28768,7 @@
         "paths": [
           "src/content/docs/ko/compute/auto-scaling.md"
         ],
-        "checked_at": "2026-11-04T06:32:57Z",
+        "checked_at": "2026-11-23T07:46:48Z",
         "status": "observed",
         "hash": "61c5a5d4897bd08bb392351af8a6e03f0f99f46626573c34e9b4092d73d04176",
         "hash_kind": "visible-v1",
@@ -28609,7 +28778,7 @@
         "paths": [
           "src/content/docs/ko/ai/gpu-infra/workload-and-architecture.md"
         ],
-        "checked_at": "2026-11-04T06:32:57Z",
+        "checked_at": "2026-11-23T07:46:48Z",
         "status": "observed",
         "hash": "58b0d42e7a7b48753979947035697623e2823ce90c4a2271de4fbb8ca3520995",
         "hash_kind": "visible-v1",
@@ -28619,7 +28788,7 @@
         "paths": [
           "src/content/docs/ko/ai/gpu-infra/serving-reliability-cost.md"
         ],
-        "checked_at": "2026-11-04T06:32:57Z",
+        "checked_at": "2026-11-23T07:46:48Z",
         "status": "observed",
         "hash": "eab3d4d43e9c18244caf71de1b9c5bddcf9ffb2760bbb88edb2db022746bf3eb",
         "hash_kind": "visible-v1",
@@ -28630,7 +28799,7 @@
           "src/content/docs/ko/compute/virtual-machines.md",
           "src/content/docs/ko/security/data-protection.md"
         ],
-        "checked_at": "2026-11-04T06:32:57Z",
+        "checked_at": "2026-11-23T07:46:48Z",
         "status": "observed",
         "hash": "e3b16f3dde3bda61406a669b29fd468c3502106de794554d46e68ac3513a44ae",
         "hash_kind": "visible-v1",
@@ -28640,7 +28809,7 @@
         "paths": [
           "src/content/docs/ko/devops/kubernetes-operations.mdx"
         ],
-        "checked_at": "2026-11-04T06:32:57Z",
+        "checked_at": "2026-11-23T07:46:48Z",
         "status": "observed",
         "hash": "566287667807ae53f7a97deea442e2226c2ea44533883a99c3c74eb4b89e049c",
         "hash_kind": "visible-v1",
@@ -28650,7 +28819,7 @@
         "paths": [
           "src/content/docs/ko/ai/gpu-infra/kubernetes-and-scheduling.md"
         ],
-        "checked_at": "2026-11-04T06:32:57Z",
+        "checked_at": "2026-11-23T07:46:48Z",
         "status": "observed",
         "hash": "76d312070b78b60d98c7cb65507bcd283bdd2a02b88f696fdbe8eb296b57cbfe",
         "hash_kind": "visible-v1",
@@ -28662,7 +28831,7 @@
           "src/content/docs/ko/compute/modernization.md",
           "src/content/docs/ko/devops/kubernetes-operations.mdx"
         ],
-        "checked_at": "2026-11-04T06:32:57Z",
+        "checked_at": "2026-11-23T07:46:48Z",
         "status": "observed",
         "hash": "de00bbdf7fa5257b86a3cd74895d3f7a974ff8b1a41606ba0c507475d0d99274",
         "hash_kind": "visible-v1",
@@ -28672,7 +28841,7 @@
         "paths": [
           "src/content/docs/ko/networking/dns.md"
         ],
-        "checked_at": "2026-11-04T06:32:57Z",
+        "checked_at": "2026-11-23T07:46:48Z",
         "status": "observed",
         "hash": "64ecee58959aedf4b3c9875ee1681fc7da10afa84ce56902dc5c0f5686957fe4",
         "hash_kind": "visible-v1",
@@ -28682,7 +28851,7 @@
         "paths": [
           "src/content/docs/ko/storage/migration.md"
         ],
-        "checked_at": "2026-11-04T06:32:57Z",
+        "checked_at": "2026-11-23T07:46:48Z",
         "status": "observed",
         "hash": "f15fddc3e162a1c03d08a32c72113ba9e6d0c420b7bedda6e8404b5fd7342ced",
         "hash_kind": "visible-v1",
@@ -28692,7 +28861,7 @@
         "paths": [
           "src/content/docs/ko/database/messaging.md"
         ],
-        "checked_at": "2026-11-04T06:32:57Z",
+        "checked_at": "2026-11-23T07:46:48Z",
         "status": "observed",
         "hash": "d22cb464ccbbc664bedefa2db54723147e6f443adc5bbcaba9b95effcb19064d",
         "hash_kind": "visible-v1",
@@ -28702,7 +28871,7 @@
         "paths": [
           "src/content/docs/ko/storage/block-and-file.md"
         ],
-        "checked_at": "2026-11-04T06:32:57Z",
+        "checked_at": "2026-11-23T07:46:48Z",
         "status": "observed",
         "hash": "baac98d1eb031059c9c0a371c09b15eb3824979107dc2c44a7d88cd2d0b1e9a6",
         "hash_kind": "visible-v1",
@@ -28713,7 +28882,7 @@
           "src/content/docs/ko/compute/modernization.md",
           "src/content/docs/ko/compute/serverless.md"
         ],
-        "checked_at": "2026-11-04T06:32:57Z",
+        "checked_at": "2026-11-23T07:46:48Z",
         "status": "observed",
         "hash": "81c41e788004c710ae693d06ef725a43ed496236e0c5066c389d9beda14a3d26",
         "hash_kind": "visible-v1",
@@ -28723,7 +28892,7 @@
         "paths": [
           "src/content/docs/ko/about-cloud/accounts-and-organizations.mdx"
         ],
-        "checked_at": "2026-11-04T06:32:57Z",
+        "checked_at": "2026-11-23T07:46:48Z",
         "status": "observed",
         "hash": "dcf95b1d2df178e15241cfd9bc8de1bc57daeb7a9ec3f82e23380e5ada79fba1",
         "hash_kind": "visible-v1",
@@ -28733,7 +28902,7 @@
         "paths": [
           "src/content/docs/ko/about-cloud/regions-and-zones.md"
         ],
-        "checked_at": "2026-11-04T06:32:57Z",
+        "checked_at": "2026-11-23T07:46:48Z",
         "status": "observed",
         "hash": "de62fe3dcca39b843f60379d2f5539c7b41e3314f06b60d3c3feaed4eb44cff6",
         "hash_kind": "visible-v1",
@@ -28743,7 +28912,7 @@
         "paths": [
           "src/content/docs/ko/about-cloud/accounts-and-organizations.mdx"
         ],
-        "checked_at": "2026-11-04T06:32:57Z",
+        "checked_at": "2026-11-23T07:46:48Z",
         "status": "observed",
         "hash": "b82bb0315eb2948afc0ded5df5a335ff313d73fc626909592a580a67e7c741c6",
         "hash_kind": "visible-v1",
@@ -28753,7 +28922,7 @@
         "paths": [
           "src/content/docs/ko/devops/remote-access.md"
         ],
-        "checked_at": "2026-11-04T06:32:57Z",
+        "checked_at": "2026-11-23T07:46:48Z",
         "status": "observed",
         "hash": "f51aec1836d5da1d347e52d5b9dc3f4bdb0878f639808f90fb25b9fa6fc8b020",
         "hash_kind": "visible-v1",
@@ -28763,7 +28932,7 @@
         "paths": [
           "src/content/docs/ko/security/iam.md"
         ],
-        "checked_at": "2026-11-04T06:32:57Z",
+        "checked_at": "2026-11-23T07:46:48Z",
         "status": "observed",
         "hash": "deb916826914521773166d590dabc1fa0650d0b71a51c22f66f3d9d6ba8dd62c",
         "hash_kind": "visible-v1",
@@ -28776,7 +28945,7 @@
           "src/content/docs/ko/ai/agent-adoption.md",
           "src/content/docs/ko/security/iam.md"
         ],
-        "checked_at": "2026-11-04T06:32:57Z",
+        "checked_at": "2026-11-23T07:46:48Z",
         "status": "observed",
         "hash": "1daf76a1a679bbd746b22e0ffee20b9b0a04ed32aa51b9155526bc462cbb4b3b",
         "hash_kind": "visible-v1",
@@ -28787,7 +28956,7 @@
           "src/content/docs/ko/security/data-protection.md",
           "src/content/docs/ko/security/secrets.md"
         ],
-        "checked_at": "2026-11-04T06:32:57Z",
+        "checked_at": "2026-11-23T07:46:48Z",
         "status": "observed",
         "hash": "642e85f61e73066172b2435877fb990a0162b8849fcaec96959ff30e94bbed7a",
         "hash_kind": "visible-v1",
@@ -28798,7 +28967,7 @@
           "src/content/docs/ko/devops/monitoring.md",
           "src/content/docs/ko/devops/observability.md"
         ],
-        "checked_at": "2026-11-04T06:32:57Z",
+        "checked_at": "2026-11-23T07:46:48Z",
         "status": "observed",
         "hash": "adca5e3cae65d005715ee574a791443d55b3479a9317bcb61d016a256d2adb87",
         "hash_kind": "visible-v1",
@@ -28810,7 +28979,7 @@
           "src/content/docs/ko/devops/observability.md",
           "src/content/docs/ko/governance/finops.md"
         ],
-        "checked_at": "2026-11-04T06:32:57Z",
+        "checked_at": "2026-11-23T07:46:48Z",
         "status": "observed",
         "hash": "696fa85d5ba446acea2f83390cb4a195d251bd9223fd31b55c3c57509615da26",
         "hash_kind": "visible-v1",
@@ -28821,7 +28990,7 @@
           "src/content/docs/ko/networking/multicloud-connectivity.md",
           "src/content/docs/ko/networking/multicloud-networking.md"
         ],
-        "checked_at": "2026-11-04T06:32:57Z",
+        "checked_at": "2026-11-23T07:46:48Z",
         "status": "observed",
         "hash": "5d75aac7b0c109a7061fd3178bb9edfbd328e2299989fadb2575d5194363a0e4",
         "hash_kind": "visible-v1",
@@ -28831,7 +29000,7 @@
         "paths": [
           "src/content/docs/ko/networking/vpc-subnet.md"
         ],
-        "checked_at": "2026-11-04T06:32:57Z",
+        "checked_at": "2026-11-23T07:46:48Z",
         "status": "observed",
         "hash": "ba8fb34a94d172ca683c91fbc392e99743e772b02b8394ed64565d3cc6b8bb2a",
         "hash_kind": "visible-v1",
@@ -28841,7 +29010,7 @@
         "paths": [
           "src/content/docs/ko/networking/vpc-subnet.md"
         ],
-        "checked_at": "2026-11-04T06:32:57Z",
+        "checked_at": "2026-11-23T07:46:48Z",
         "status": "observed",
         "hash": "712e4d8a5a2fe64ab191927565703ceb3db5662bb2826e9ef5eaf31065544a9e",
         "hash_kind": "visible-v1",

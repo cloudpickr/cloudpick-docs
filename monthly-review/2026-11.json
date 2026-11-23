@@ -21510,6 +21510,127 @@
       "evidence": [],
       "pr": null,
       "last_seen": "2026-11"
+    },
+    {
+      "id": "95bd125c70bb527830e199ea",
+      "path": "src/content/docs/ko/storage/backup.md",
+      "axis": 2,
+      "reason": "AWS Systems Manager simplifies onboarding of Google Cloud VMs for centralized management (https://aws.amazon.com/about-aws/whats-new/2026/11/systems-manager-google-cloud-support/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/systems-manager-google-cloud-support/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "30cf0ade1c0a75515b1b8436",
+      "path": "src/content/docs/ko/security/ai-security.md",
+      "axis": 2,
+      "reason": "AWS Security Hub CSPM now supports centralized configuration with AWS Organizations declarative policies (https://aws.amazon.com/about-aws/whats-new/2026/11/security-hub-cspm-org-policies/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/security-hub-cspm-org-policies/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "8035428fe7617fe4f4b145ab",
+      "path": "src/content/docs/ko/security/data-protection.md",
+      "axis": 2,
+      "reason": "AWS Security Hub CSPM now supports centralized configuration with AWS Organizations declarative policies (https://aws.amazon.com/about-aws/whats-new/2026/11/security-hub-cspm-org-policies/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/security-hub-cspm-org-policies/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "878961cf77f09ffc36cdc97d",
+      "path": "src/content/docs/ko/ai/agent-adoption.md",
+      "axis": 2,
+      "reason": "Gemini Enterprise Agent Platform (https://docs.cloud.google.com/release-notes#November_13_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_13_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "59028bc98bb762020aa0a899",
+      "path": "src/content/docs/ko/ai/agents.md",
+      "axis": 2,
+      "reason": "Gemini Enterprise Agent Platform (https://docs.cloud.google.com/release-notes#November_13_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_13_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "bd54d3239ede65959764ce30",
+      "path": "src/content/docs/ko/ai/llmops.md",
+      "axis": 2,
+      "reason": "Gemini Enterprise Agent Platform (https://docs.cloud.google.com/release-notes#November_13_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_13_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "f3f80a2ea6fd8f3ccac4d627",
+      "path": "src/content/docs/ko/compute/containers.md",
+      "axis": 2,
+      "reason": "Google Kubernetes Engine (https://docs.cloud.google.com/release-notes#November_13_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_13_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "cce63d96f2db4811bade3f85",
+      "path": "src/content/docs/ko/devops/kubernetes-operations.mdx",
+      "axis": 2,
+      "reason": "Google Kubernetes Engine (https://docs.cloud.google.com/release-notes#November_13_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_13_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "0b44cb3a051af123ea5b72b4",
+      "path": "src/content/docs/ko/ai/gpu-infra/kubernetes-and-scheduling.md",
+      "axis": 2,
+      "reason": "Google Kubernetes Engine (https://docs.cloud.google.com/release-notes#November_13_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_13_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "f3e5a0dbaef15e9384708253",
+      "path": "src/content/docs/ko/database/data-pipeline.md",
+      "axis": 2,
+      "reason": "Retirement: Azure Data Share will be retired on November 12, 2029 (https://azure.microsoft.com/updates?id=578818)",
+      "source_url": "https://azure.microsoft.com/updates?id=578818",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "35202cf81dd807461dcd942d",
+      "path": null,
+      "axis": 3,
+      "reason": "Google SecOps Marketplace (https://docs.cloud.google.com/release-notes#November_13_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_13_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
     }
   ],
   "resolved_ids": [],
@@ -21774,10 +21895,10 @@
         "oci": "complete"
       },
       "2026-11-13": {
-        "aws": "provisional",
-        "gcp": "provisional",
-        "azure": "provisional",
-        "oci": "provisional"
+        "aws": "complete",
+        "gcp": "complete",
+        "azure": "complete",
+        "oci": "complete"
       },
       "2026-09-27": {
         "aws": "complete",
@@ -21882,6 +22003,18 @@
         "oci": "complete"
       },
       "2026-11-22": {
+        "aws": "provisional",
+        "gcp": "provisional",
+        "azure": "provisional",
+        "oci": "provisional"
+      },
+      "2026-10-06": {
+        "aws": "complete",
+        "gcp": "complete",
+        "azure": "complete",
+        "oci": "complete"
+      },
+      "2026-11-23": {
         "aws": "provisional",
         "gcp": "provisional",
         "azure": "provisional",
@@ -22136,10 +22269,10 @@
         "oci": "2026-11-13T06:52:19.498Z"
       },
       "2026-11-13": {
-        "aws": "2026-11-14T06:32:22.835Z",
-        "gcp": "2026-11-14T06:32:22.835Z",
-        "azure": "2026-11-14T06:32:22.835Z",
-        "oci": "2026-11-14T06:32:22.835Z"
+        "aws": "2026-11-23T07:46:39.940Z",
+        "gcp": "2026-11-23T07:46:39.940Z",
+        "azure": "2026-11-23T07:46:39.940Z",
+        "oci": "2026-11-23T07:46:39.940Z"
       },
       "2026-09-27": {
         "aws": "2026-11-14T06:32:22.835Z",
@@ -22244,10 +22377,22 @@
         "oci": "2026-11-22T06:56:58.485Z"
       },
       "2026-11-22": {
-        "aws": "2026-11-22T06:56:58.485Z",
-        "gcp": "2026-11-22T06:56:58.485Z",
-        "azure": "2026-11-22T06:56:58.485Z",
-        "oci": "2026-11-22T06:56:58.485Z"
+        "aws": "2026-11-23T07:46:39.940Z",
+        "gcp": "2026-11-23T07:46:39.940Z",
+        "azure": "2026-11-23T07:46:39.940Z",
+        "oci": "2026-11-23T07:46:39.940Z"
+      },
+      "2026-10-06": {
+        "aws": "2026-11-23T07:46:39.940Z",
+        "gcp": "2026-11-23T07:46:39.940Z",
+        "azure": "2026-11-23T07:46:39.940Z",
+        "oci": "2026-11-23T07:46:39.940Z"
+      },
+      "2026-11-23": {
+        "aws": "2026-11-23T07:46:39.940Z",
+        "gcp": "2026-11-23T07:46:39.940Z",
+        "azure": "2026-11-23T07:46:39.940Z",
+        "oci": "2026-11-23T07:46:39.940Z"
       }
     }
   },

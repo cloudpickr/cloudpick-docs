@@ -23087,6 +23087,490 @@
       "evidence": [],
       "pr": null,
       "last_seen": "2026-11"
+    },
+    {
+      "id": "3a1abc21b5b37d5b5cf0fc80",
+      "path": "src/content/docs/ko/us/fedramp.md",
+      "axis": 2,
+      "reason": "Amazon Bedrock adds bedrock-runtime endpoint support for OpenAI Daybreak Red in AWS GovCloud (US) (https://aws.amazon.com/about-aws/whats-new/2026/11/gpt-daybreak-red-runtime-govcloud/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/gpt-daybreak-red-runtime-govcloud/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "c4479d886e3e2d6ace539d97",
+      "path": "src/content/docs/ko/us/itar.md",
+      "axis": 2,
+      "reason": "Amazon Bedrock adds bedrock-runtime endpoint support for OpenAI Daybreak Red in AWS GovCloud (US) (https://aws.amazon.com/about-aws/whats-new/2026/11/gpt-daybreak-red-runtime-govcloud/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/gpt-daybreak-red-runtime-govcloud/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "07207f2494cf0f875501e5ce",
+      "path": "src/content/docs/ko/about-cloud/support-plans.md",
+      "axis": 2,
+      "reason": "Amazon Bedrock adds bedrock-runtime endpoint support for OpenAI Daybreak Red in AWS GovCloud (US) (https://aws.amazon.com/about-aws/whats-new/2026/11/gpt-daybreak-red-runtime-govcloud/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/gpt-daybreak-red-runtime-govcloud/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "7ddf5b9f454adaa157f6172e",
+      "path": "src/content/docs/ko/compute/serverless.md",
+      "axis": 2,
+      "reason": "Amazon OpenSearch Serverless is now available in the Africa (Cape Town) Region (https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-opensearch-serverless-available-cape-town-region/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-opensearch-serverless-available-cape-town-region/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "9a5cca3a7c2d7bc071e89f9c",
+      "path": "src/content/docs/ko/ai/agent-adoption.md",
+      "axis": 2,
+      "reason": "Agent Platform Workbench (https://docs.cloud.google.com/release-notes#November_15_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_15_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "5f604091c1fe1c993b017c81",
+      "path": "src/content/docs/ko/ai/agents.md",
+      "axis": 2,
+      "reason": "Agent Platform Workbench (https://docs.cloud.google.com/release-notes#November_15_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_15_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "b8d6bc6dab19c0b95530ce0a",
+      "path": "src/content/docs/ko/ai/llmops.md",
+      "axis": 2,
+      "reason": "Agent Platform Workbench (https://docs.cloud.google.com/release-notes#November_15_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_15_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "4bc01ecc8a807c177d2be7f7",
+      "path": "src/content/docs/ko/compute/serverless.md",
+      "axis": 2,
+      "reason": "Google Cloud Contact Center as a Service (https://docs.cloud.google.com/release-notes#November_24_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_24_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "1b75354fedcead95004a8a4e",
+      "path": "src/content/docs/ko/compute/service-mesh.md",
+      "axis": 2,
+      "reason": "Google Cloud Contact Center as a Service (https://docs.cloud.google.com/release-notes#November_24_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_24_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "8968d56bf44d794621bb5b4b",
+      "path": "src/content/docs/ko/devops/devsecops.md",
+      "axis": 2,
+      "reason": "Google Cloud Contact Center as a Service (https://docs.cloud.google.com/release-notes#November_24_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_24_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "e5a203e0fc09fbca99397493",
+      "path": "src/content/docs/ko/about-cloud/support-plans.md",
+      "axis": 2,
+      "reason": "Managed Service for Apache Airflow (https://docs.cloud.google.com/release-notes#November_24_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_24_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "4ba517cdce6f3d45be2ebfca",
+      "path": "src/content/docs/ko/networking/multicloud-networking.md",
+      "axis": 2,
+      "reason": "[Launched] Generally Available: Azure Site Recovery support for zonal disaster recovery for Ultra disks (https://azure.microsoft.com/updates?id=582171)",
+      "source_url": "https://azure.microsoft.com/updates?id=582171",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "7004d20cc5ee06f22471105e",
+      "path": "src/content/docs/ko/about-cloud/support-plans.md",
+      "axis": 2,
+      "reason": "[Launched] Generally Available: Azure Site Recovery support for zonal disaster recovery for Ultra disks (https://azure.microsoft.com/updates?id=582171)",
+      "source_url": "https://azure.microsoft.com/updates?id=582171",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "a3c529fd9a32a6c59587a9cd",
+      "path": "src/content/docs/ko/governance/finops.md",
+      "axis": 2,
+      "reason": "[In preview] Public Preview: Optimize agents from insights in Foundry Agent Service (https://azure.microsoft.com/updates?id=581483)",
+      "source_url": "https://azure.microsoft.com/updates?id=581483",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "a394104b2333df437a9e28b7",
+      "path": "src/content/docs/ko/ai/agents.md",
+      "axis": 2,
+      "reason": "[In preview] Public Preview: Optimize agents from insights in Foundry Agent Service (https://azure.microsoft.com/updates?id=581483)",
+      "source_url": "https://azure.microsoft.com/updates?id=581483",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "13b82463c3eea6cfec1ead5d",
+      "path": "src/content/docs/ko/ai/agent-adoption.md",
+      "axis": 2,
+      "reason": "[In preview] Public Preview: Optimize agents from insights in Foundry Agent Service (https://azure.microsoft.com/updates?id=581483)",
+      "source_url": "https://azure.microsoft.com/updates?id=581483",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "e7397c11a1ba2706a27c8b28",
+      "path": "src/content/docs/ko/ai/agents.md",
+      "axis": 2,
+      "reason": "[In preview] Public Preview: Govern MCP tools with your own gateway in Microsoft Foundry Agent Service (https://azure.microsoft.com/updates?id=581498)",
+      "source_url": "https://azure.microsoft.com/updates?id=581498",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "cf53439350e7803f1cd151b9",
+      "path": "src/content/docs/ko/governance/finops.md",
+      "axis": 2,
+      "reason": "[In preview] Public Preview: Govern MCP tools with your own gateway in Microsoft Foundry Agent Service (https://azure.microsoft.com/updates?id=581498)",
+      "source_url": "https://azure.microsoft.com/updates?id=581498",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "9cf33266f2c0f329ee1e330c",
+      "path": "src/content/docs/ko/mcp.md",
+      "axis": 2,
+      "reason": "[In preview] Public Preview: Govern MCP tools with your own gateway in Microsoft Foundry Agent Service (https://azure.microsoft.com/updates?id=581498)",
+      "source_url": "https://azure.microsoft.com/updates?id=581498",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "6b9657a207661a234eec6868",
+      "path": "src/content/docs/ko/compute/virtual-machines.md",
+      "axis": 2,
+      "reason": "[Launched] Generally Available: Use Azure Storage permissions in Azure AI Search and Foundry IQ (https://azure.microsoft.com/updates?id=581303)",
+      "source_url": "https://azure.microsoft.com/updates?id=581303",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "f007ed6997f4794c1e669cb9",
+      "path": "src/content/docs/ko/ai/agent-adoption.md",
+      "axis": 2,
+      "reason": "[Launched] Generally Available: Use Azure Storage permissions in Azure AI Search and Foundry IQ (https://azure.microsoft.com/updates?id=581303)",
+      "source_url": "https://azure.microsoft.com/updates?id=581303",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "d9b5bdfb967422b1d5a6f38c",
+      "path": "src/content/docs/ko/ai/ai-ml.md",
+      "axis": 2,
+      "reason": "[Launched] Generally Available: Use Azure Storage permissions in Azure AI Search and Foundry IQ (https://azure.microsoft.com/updates?id=581303)",
+      "source_url": "https://azure.microsoft.com/updates?id=581303",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "599867c9528f777ff6d73d13",
+      "path": "src/content/docs/ko/ai/agents.md",
+      "axis": 2,
+      "reason": "[In preview] Public Preview: Native A2A passthrough for hosted agents in Foundry Agent Service (https://azure.microsoft.com/updates?id=581313)",
+      "source_url": "https://azure.microsoft.com/updates?id=581313",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "6d5ee3bd961d816bdac1d318",
+      "path": "src/content/docs/ko/governance/finops.md",
+      "axis": 2,
+      "reason": "[In preview] Public Preview: Native A2A passthrough for hosted agents in Foundry Agent Service (https://azure.microsoft.com/updates?id=581313)",
+      "source_url": "https://azure.microsoft.com/updates?id=581313",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "ab03b74c2cb297947326efad",
+      "path": "src/content/docs/ko/ai/agent-adoption.md",
+      "axis": 2,
+      "reason": "[In preview] Public Preview: Native A2A passthrough for hosted agents in Foundry Agent Service (https://azure.microsoft.com/updates?id=581313)",
+      "source_url": "https://azure.microsoft.com/updates?id=581313",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "db6fe1a22b9bc286b3118933",
+      "path": "src/content/docs/ko/governance/finops.md",
+      "axis": 2,
+      "reason": "[In preview] Public Preview: Azure Developer CLI extension for Azure Document Intelligence and Content Understanding in Foundry Tools (https://azure.microsoft.com/updates?id=581318)",
+      "source_url": "https://azure.microsoft.com/updates?id=581318",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "c304fb320ea06954b06d5b3f",
+      "path": "src/content/docs/ko/networking/dns.md",
+      "axis": 2,
+      "reason": "[In preview] Public Preview: Azure Developer CLI extension for Azure Document Intelligence and Content Understanding in Foundry Tools (https://azure.microsoft.com/updates?id=581318)",
+      "source_url": "https://azure.microsoft.com/updates?id=581318",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "06aed73b1805ef549cabb64c",
+      "path": "src/content/docs/ko/about-cloud/console-cli-sdk.md",
+      "axis": 2,
+      "reason": "[In preview] Public Preview: Azure Developer CLI extension for Azure Document Intelligence and Content Understanding in Foundry Tools (https://azure.microsoft.com/updates?id=581318)",
+      "source_url": "https://azure.microsoft.com/updates?id=581318",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "95de892bb5216ab8c3fab743",
+      "path": "src/content/docs/ko/governance/finops.md",
+      "axis": 2,
+      "reason": "[In preview] Public Preview: Cost controls for model and agent spending in Microsoft Foundry (https://azure.microsoft.com/updates?id=581323)",
+      "source_url": "https://azure.microsoft.com/updates?id=581323",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "fe5cdfaf2b5e0963cdcde209",
+      "path": "src/content/docs/ko/ai/agent-adoption.md",
+      "axis": 2,
+      "reason": "[In preview] Public Preview: Cost controls for model and agent spending in Microsoft Foundry (https://azure.microsoft.com/updates?id=581323)",
+      "source_url": "https://azure.microsoft.com/updates?id=581323",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "3c568410f2669d755e3cd059",
+      "path": "src/content/docs/ko/ai/agents.md",
+      "axis": 2,
+      "reason": "[In preview] Public Preview: Cost controls for model and agent spending in Microsoft Foundry (https://azure.microsoft.com/updates?id=581323)",
+      "source_url": "https://azure.microsoft.com/updates?id=581323",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "a92968ca61a281547f5fa32e",
+      "path": "src/content/docs/ko/governance/finops.md",
+      "axis": 2,
+      "reason": "[In preview] Public Preview: Central governance of hosted-agent outbound domains in Foundry Agent Service (https://azure.microsoft.com/updates?id=581328)",
+      "source_url": "https://azure.microsoft.com/updates?id=581328",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "a81f756810f50b0cb2f4bcb9",
+      "path": "src/content/docs/ko/ai/agent-adoption.md",
+      "axis": 2,
+      "reason": "[In preview] Public Preview: Central governance of hosted-agent outbound domains in Foundry Agent Service (https://azure.microsoft.com/updates?id=581328)",
+      "source_url": "https://azure.microsoft.com/updates?id=581328",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "06a85465a615c8995c687a4f",
+      "path": "src/content/docs/ko/ai/agents.md",
+      "axis": 2,
+      "reason": "[In preview] Public Preview: Central governance of hosted-agent outbound domains in Foundry Agent Service (https://azure.microsoft.com/updates?id=581328)",
+      "source_url": "https://azure.microsoft.com/updates?id=581328",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "e227f3852505e06c85f41a9c",
+      "path": null,
+      "axis": 3,
+      "reason": "AWS CloudFormation makes resource coverage comprehensive with 206 new types (https://aws.amazon.com/about-aws/whats-new/2026/11/cloudformation-coverage-expansion/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/cloudformation-coverage-expansion/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "47fbc78d3bf4de15fc829b6a",
+      "path": null,
+      "axis": 3,
+      "reason": "Amazon Connect Customer dashboards now support grouping historical metrics by time interval (https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-connect-time-interval/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-connect-time-interval/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "e9d5256f3d42aa448fabe827",
+      "path": null,
+      "axis": 3,
+      "reason": "Amazon RDS for SQL Server now supports up to 500 databases per instance (https://aws.amazon.com/about-aws/whats-new/2026/11/rds-sqlserver-supports-500-databases-per-instance)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/rds-sqlserver-supports-500-databases-per-instance",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "fc3383c9de145c6ed92f72ca",
+      "path": null,
+      "axis": 3,
+      "reason": "Looker (https://docs.cloud.google.com/release-notes#November_15_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_15_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "1f5ec339e95e44951a5ac8ff",
+      "path": null,
+      "axis": 3,
+      "reason": "Knowledge Catalog (https://docs.cloud.google.com/release-notes#November_24_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_24_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "183f4db0dab844119507489a",
+      "path": null,
+      "axis": 3,
+      "reason": "BigQuery (https://docs.cloud.google.com/release-notes#November_24_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_24_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "5794b3f811bf6ce5d1d21dcc",
+      "path": null,
+      "axis": 3,
+      "reason": "Google SecOps SIEM (https://docs.cloud.google.com/release-notes#November_24_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_24_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "e2ad7d400c059d82e29956fe",
+      "path": null,
+      "axis": 3,
+      "reason": "Google SecOps SOAR (https://docs.cloud.google.com/release-notes#November_24_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_24_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "27e36ee2cb36e27cb3f48ff0",
+      "path": null,
+      "axis": 3,
+      "reason": "NetApp Volumes (https://docs.cloud.google.com/release-notes#November_24_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_24_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "b4195d9a54d2875f4a450a4e",
+      "path": null,
+      "axis": 3,
+      "reason": "Manage Kafka cluster configurations in the Console (https://docs.oracle.com/iaas/releasenotes/kafka/cluster-configurations-console.htm)",
+      "source_url": "https://docs.oracle.com/iaas/releasenotes/kafka/cluster-configurations-console.htm",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
     }
   ],
   "resolved_ids": [],
@@ -23375,10 +23859,10 @@
         "oci": "complete"
       },
       "2026-11-15": {
-        "aws": "provisional",
-        "gcp": "provisional",
-        "azure": "provisional",
-        "oci": "provisional"
+        "aws": "complete",
+        "gcp": "complete",
+        "azure": "complete",
+        "oci": "complete"
       },
       "2026-09-29": {
         "aws": "complete",
@@ -23483,6 +23967,18 @@
         "oci": "complete"
       },
       "2026-11-24": {
+        "aws": "provisional",
+        "gcp": "provisional",
+        "azure": "provisional",
+        "oci": "provisional"
+      },
+      "2026-10-08": {
+        "aws": "complete",
+        "gcp": "complete",
+        "azure": "complete",
+        "oci": "complete"
+      },
+      "2026-11-25": {
         "aws": "provisional",
         "gcp": "provisional",
         "azure": "provisional",
@@ -23761,10 +24257,10 @@
         "oci": "2026-11-15T06:41:46.440Z"
       },
       "2026-11-15": {
-        "aws": "2026-11-16T06:37:53.282Z",
-        "gcp": "2026-11-16T06:37:53.282Z",
-        "azure": "2026-11-16T06:37:53.282Z",
-        "oci": "2026-11-16T06:37:53.282Z"
+        "aws": "2026-11-25T08:43:19.465Z",
+        "gcp": "2026-11-25T08:43:19.465Z",
+        "azure": "2026-11-25T08:43:19.465Z",
+        "oci": "2026-11-25T08:43:19.465Z"
       },
       "2026-09-29": {
         "aws": "2026-11-16T06:37:53.282Z",
@@ -23869,10 +24365,22 @@
         "oci": "2026-11-24T09:59:24.931Z"
       },
       "2026-11-24": {
-        "aws": "2026-11-24T09:59:24.931Z",
-        "gcp": "2026-11-24T09:59:24.931Z",
-        "azure": "2026-11-24T09:59:24.931Z",
-        "oci": "2026-11-24T09:59:24.931Z"
+        "aws": "2026-11-25T08:43:19.465Z",
+        "gcp": "2026-11-25T08:43:19.465Z",
+        "azure": "2026-11-25T08:43:19.465Z",
+        "oci": "2026-11-25T08:43:19.465Z"
+      },
+      "2026-10-08": {
+        "aws": "2026-11-25T08:43:19.465Z",
+        "gcp": "2026-11-25T08:43:19.465Z",
+        "azure": "2026-11-25T08:43:19.465Z",
+        "oci": "2026-11-25T08:43:19.465Z"
+      },
+      "2026-11-25": {
+        "aws": "2026-11-25T08:43:19.465Z",
+        "gcp": "2026-11-25T08:43:19.465Z",
+        "azure": "2026-11-25T08:43:19.465Z",
+        "oci": "2026-11-25T08:43:19.465Z"
       }
     }
   },

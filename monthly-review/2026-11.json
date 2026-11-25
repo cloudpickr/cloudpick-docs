@@ -23571,6 +23571,510 @@
       "status": "open",
       "evidence": [],
       "pr": null
+    },
+    {
+      "id": "0321c20b748b72d3a3da4c61",
+      "path": "src/content/docs/ko/korea/ai/sovereign-fm-policy.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://en.edaily.co.kr/news/eda202608185493/",
+      "change_digest": "e41fca4ef6668582efd017a627a05fdd59eec3169c5073c34676ab2396e6135d",
+      "source_url": "https://en.edaily.co.kr/news/eda202608185493/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "013d0aee581b4786fda29557",
+      "path": "src/content/docs/ko/networking/api-gateway.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://firebase.google.com/docs/auth",
+      "change_digest": "d0e22782a8bfcd07f45de01838e3b1ecc93b52c3e536e321e4e6ac0ad105f1f1",
+      "source_url": "https://firebase.google.com/docs/auth",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "dba9534a3c9752eb3ce9cda2",
+      "path": "src/content/docs/ko/security/secrets.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://firebase.google.com/docs/remote-config",
+      "change_digest": "94936f1857b6f98df61644091d872917b13dc234065043fbdcb87db2539fe96f",
+      "source_url": "https://firebase.google.com/docs/remote-config",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "c6cb6acecab2508b74beb20c",
+      "path": "src/content/docs/ko/security/ai-security.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://fortune.com/2026/09/26/openai-ai-agents-secure-sandbox-escape-training-pause-second-time-hugging-face-hack/",
+      "change_digest": "87601c07482bd9d23a770dbabc86988eaee416b342fac29df105ac6b6248c159",
+      "source_url": "https://fortune.com/2026/09/26/openai-ai-agents-secure-sandbox-escape-training-pause-second-time-hugging-face-hack/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "fbc76ac3546dc647ba931a58",
+      "path": "src/content/docs/ko/about-cloud/compare-clouds.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://gcping.com",
+      "change_digest": "0c04dac143fb2c009fd22d236e11baec4780fca6cf80f128267faf22fdf12d8a",
+      "source_url": "https://gcping.com",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "f16b7a61928fc5c79330d6a6",
+      "path": "src/content/docs/ko/ai/llmops.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://github.com/Arize-ai/phoenix",
+      "change_digest": "d495b8505fcdc24d5f5c57ad19214034772c4c7042d509981419ed0d8abaaf09",
+      "source_url": "https://github.com/Arize-ai/phoenix",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "a11ba330d9c7b0793c1a216a",
+      "path": "src/content/docs/ko/ai/physical-ai/data-and-training.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://github.com/Farama-Foundation/Metaworld",
+      "change_digest": "6e9c45583c3821af99b7d6f7e24e2d99008109c4c8d4bb3578a15d431993451c",
+      "source_url": "https://github.com/Farama-Foundation/Metaworld",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "f4ead81fd2cbe5cf03d117d8",
+      "path": "src/content/docs/ko/ai/physical-ai/data-and-training.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://github.com/Lifelong-Robot-Learning/LIBERO",
+      "change_digest": "b9ebdaa22674d8431ea8538cd5bbee0027b757cb32ee110195fd64e3275f1f06",
+      "source_url": "https://github.com/Lifelong-Robot-Learning/LIBERO",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "ad9b7aa9b0dc7207c1c09576",
+      "path": "src/content/docs/ko/ai/gpu-infra/distributed-training.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://github.com/NVIDIA/Megatron-LM",
+      "change_digest": "56b1a27285892b97db47c5afb99381d1943ff8f558649225ed522174c951b0de",
+      "source_url": "https://github.com/NVIDIA/Megatron-LM",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "7f909239f29c04f9e4d05b15",
+      "path": "src/content/docs/ko/korea/ai/fm-providers.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://github.com/SKT-AI/A.X-4.0",
+      "change_digest": "ebae735fb2e550ced2937c1d3158a6507192868eb064903fffc168e306fdcd2e",
+      "source_url": "https://github.com/SKT-AI/A.X-4.0",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "3a4eff895ea31d6d9a0793f2",
+      "path": "src/content/docs/ko/devops/devsecops.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://github.com/anchore/grype",
+      "change_digest": "be30f1585980648f791fdb3760f3a84d1d9812f046756ade5960fc99a6840c4d",
+      "source_url": "https://github.com/anchore/grype",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "05206a824f14f4d18c07e400",
+      "path": "src/content/docs/ko/ai/agents.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://github.com/anthropics/claude-code",
+      "change_digest": "a51e1398a029c02ec2d190dfddb50c10dcc8b12b1995c9f1cc2100948d8ac397",
+      "source_url": "https://github.com/anthropics/claude-code",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "5ecdf3ad4dd15455689e3a63",
+      "path": "src/content/docs/ko/ai/prompt-engineering.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://github.com/anthropics/prompt-eng-interactive-tutorial",
+      "change_digest": "11489decfcb55dfa97da9e1982137be4eb84d6e27eefd415c568bb3c642db743",
+      "source_url": "https://github.com/anthropics/prompt-eng-interactive-tutorial",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "1132141a6888cebc8ba95fca",
+      "path": "src/content/docs/ko/devops/observability.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://github.com/cncf/tag-observability",
+      "change_digest": "1b92c3e18b0129ca5442b1055ab3330cbab044d6dd998d360ee7baa2a784d7fe",
+      "source_url": "https://github.com/cncf/tag-observability",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "b9fd3870fa659c0803e1efe4",
+      "path": "src/content/docs/ko/ai/agents.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://github.com/crewAIInc/crewAI",
+      "change_digest": "dbfb735e9f2044c85fc81e0a4cdecf3c3754f101d42d062f31c7d59f8cd702ff",
+      "source_url": "https://github.com/crewAIInc/crewAI",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "749e1a59dd6a0290c5fe1b72",
+      "path": "src/content/docs/ko/ai/physical-ai/data-and-training.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://github.com/droid-dataset/droid",
+      "change_digest": "311033df39eae0fc6d281abc3a22533f4dad3ce292b9cf5ad9e2f42ff7981527",
+      "source_url": "https://github.com/droid-dataset/droid",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "68be3b7e25939a826b48cebf",
+      "path": "src/content/docs/ko/ai/rag-patterns.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://github.com/explodinggradients/ragas",
+      "change_digest": "1edc3d0b1f5beb1a9546d4756e6edadf3687e9047dad251e5f13a63917831ef0",
+      "source_url": "https://github.com/explodinggradients/ragas",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "430582197d6da4385b18dba0",
+      "path": "src/content/docs/ko/ai/ai-ml.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://github.com/fastino-ai/GLiNER2",
+      "change_digest": "ecc0a04638364c8d2d55095c8e0336acb369571f1e2000c68cbbe102d7ae56e8",
+      "source_url": "https://github.com/fastino-ai/GLiNER2",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "98b7a560798a99f45522fadc",
+      "path": "src/content/docs/ko/ai/agents.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://github.com/features/copilot",
+      "change_digest": "2b65f56bcd99f25d6e9a9f6f2af3aaffa335372a32d85f777391c7d3343dbdce",
+      "source_url": "https://github.com/features/copilot",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "7ba5ecc60e667b498a390883",
+      "path": "src/content/docs/ko/ai/agents.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://github.com/google-a2a/A2A",
+      "change_digest": "92175523eec83781c148437a11c9d24ae7c24f98d340eb309fac190a4934cd85",
+      "source_url": "https://github.com/google-a2a/A2A",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "3be18eb4147f6d91119d969b",
+      "path": "src/content/docs/ko/ai/physical-ai/data-and-training.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://github.com/google-coral/edgetpu",
+      "change_digest": "8b93ebe558f040cdec107cebc34c486d82111e1be0a05197ff0a256aacc22511",
+      "source_url": "https://github.com/google-coral/edgetpu",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "23ac7c5d6dfeda7d52ae7314",
+      "path": "src/content/docs/ko/ai/physical-ai/data-and-training.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://github.com/google-deepmind/open_x_embodiment",
+      "change_digest": "8da7ae1d854091bf3959cd3c0ad6ba046de5644fbd3c597581050d1bc064c1a5",
+      "source_url": "https://github.com/google-deepmind/open_x_embodiment",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "f179d2cdc8bb1c2cdcdc345c",
+      "path": "src/content/docs/ko/ai/physical-ai/data-and-training.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://github.com/huggingface/lerobot",
+      "change_digest": "46893515419713e0058b3cab6119479d012c863f4226227774ab365bdb76f6bc",
+      "source_url": "https://github.com/huggingface/lerobot",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "53cf6ea14ce0f2e8d00dc76d",
+      "path": "src/content/docs/ko/ai/agents.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://github.com/langchain-ai/langgraph",
+      "change_digest": "01f475dff9bf25c2dbeb48e4e9defa73077e469434355e1b1bcbc640bf1ff1d1",
+      "source_url": "https://github.com/langchain-ai/langgraph",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "96f57979c3fbae552adca0f0",
+      "path": "src/content/docs/ko/ai/physical-ai/data-and-training.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://github.com/mees/calvin",
+      "change_digest": "418517d00c57b3613250d713d797096aedcdb8a8fe96d1fd56b9e50ed598881f",
+      "source_url": "https://github.com/mees/calvin",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "c35fc3cf8f1ed49cf48dfa61",
+      "path": "src/content/docs/ko/ai/physical-ai/data-and-training.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://github.com/robocasa/robocasa",
+      "change_digest": "447b3ab0696b7723bd3bdac77b2239cb36a01ab5fc955c1f5e067897b2e54b0c",
+      "source_url": "https://github.com/robocasa/robocasa",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "30665ba1e01932a094fae31e",
+      "path": "src/content/docs/ko/devops/devsecops.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://github.com/stelligent/cfn_nag",
+      "change_digest": "16c7efbb60cf81a03fdc9cd3821eb819dc019af7bf07632dbd3e7db44a84eb5a",
+      "source_url": "https://github.com/stelligent/cfn_nag",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "6a83ca77e659f3e3dd2601d7",
+      "path": "src/content/docs/ko/ai/ai-ml.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://github.com/strands-labs/strands-decider",
+      "change_digest": "e89b550694aae0328aac8923241ffc967a6ca0339ebaf870751223c6c6dd4419",
+      "source_url": "https://github.com/strands-labs/strands-decider",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "c123c202f864bc519caf1a55",
+      "path": "src/content/docs/ko/database/cache.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://github.com/valkey-io/valkey",
+      "change_digest": "387dd1a95235800b1c43ac093fe50fd3c992861347f353110c8efc99194e3447",
+      "source_url": "https://github.com/valkey-io/valkey",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "da917fce4d7f84393ff715bb",
+      "path": "src/content/docs/ko/devops/cicd.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://github.github.com/gh-aw/",
+      "change_digest": "6dd4fdc8ae56f6198e4f8c2416ca43146c669df7f71c5a824a65add4b3a84bf9",
+      "source_url": "https://github.github.com/gh-aw/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "73bf4593a7d58233e2446a82",
+      "path": "src/content/docs/ko/singapore/pdpa.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://globallawexperts.com/pdpa-crossborder-data-transfers-fintech-singapore-2026/",
+      "change_digest": "22a606a1281c26578b05fa1aa4dcee07931bc7047cb0d36efe4e5a248705c3e6",
+      "source_url": "https://globallawexperts.com/pdpa-crossborder-data-transfers-fintech-singapore-2026/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "19cff9e72507a0bdaa785de6",
+      "path": "src/content/docs/ko/governance/sustainability.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://greensoftware.foundation/",
+      "change_digest": "03c4297a20f9c1a096e4383dc4c4932d60f521ca5a183a89a1dc35a468c13496",
+      "source_url": "https://greensoftware.foundation/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "2717c2018585b3146462e21c",
+      "path": "src/content/docs/ko/singapore/government-cloud.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://info.standards.tech.gov.sg/",
+      "change_digest": "b8ca008c3771f0f2a3436c1e3ef38088598aa6bc5bffcdb9f70b5a2474a92346",
+      "source_url": "https://info.standards.tech.gov.sg/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "093cd88315f86b4ad38af797",
+      "path": "src/content/docs/ko/ai/agents.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://kiro.dev/",
+      "change_digest": "fbb210100925b9bed7b29d9d31b1ccc21e241fa31577485380f570f374c6385f",
+      "source_url": "https://kiro.dev/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "53327e7e504c68303698798b",
+      "path": "src/content/docs/ko/ai/ai-ml.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://kiro.dev/",
+      "change_digest": "fbb210100925b9bed7b29d9d31b1ccc21e241fa31577485380f570f374c6385f",
+      "source_url": "https://kiro.dev/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "d755901a33e3c8b82a574e37",
+      "path": "src/content/docs/ko/devops/devsecops.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://kiro.dev/",
+      "change_digest": "fbb210100925b9bed7b29d9d31b1ccc21e241fa31577485380f570f374c6385f",
+      "source_url": "https://kiro.dev/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
     }
   ],
   "resolved_ids": [],
@@ -24411,7 +24915,7 @@
         "paths": [
           "src/content/docs/ko/ai/agents.md"
         ],
-        "checked_at": "2026-11-24T09:59:34Z",
+        "checked_at": "2026-11-25T08:43:30Z",
         "status": "unverified",
         "hash": "dc7fc249911468c4dc00fc4eb92b1c0d611070787422d5a6d767fc3b925fee20",
         "final_url": "https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/",
@@ -24421,7 +24925,7 @@
         "paths": [
           "src/content/docs/ko/singapore/mtcs.md"
         ],
-        "checked_at": "2026-11-24T09:59:34Z",
+        "checked_at": "2026-11-25T08:43:30Z",
         "status": "unverified",
         "hash": "635b02875de69e3cc1de1579b70facd5f4c19edf127bd2e3769e8a92f70b360b",
         "final_url": "https://abs.org.sg/docs/library/abs-ospar-guidelines-v2-0.pdf",
@@ -24431,7 +24935,7 @@
         "paths": [
           "src/content/docs/ko/ai/agents.md"
         ],
-        "checked_at": "2026-11-24T09:59:34Z",
+        "checked_at": "2026-11-25T08:43:30Z",
         "status": "unverified",
         "hash": "279273094623330fe250f2984391cac02002276942f6d2dbd8537e495fae1bdf",
         "final_url": "https://www.ag2.ai/",
@@ -24441,7 +24945,7 @@
         "paths": [
           "src/content/docs/ko/ai/getting-started.md"
         ],
-        "checked_at": "2026-11-24T09:59:34Z",
+        "checked_at": "2026-11-25T08:43:30Z",
         "status": "unverified",
         "hash": "ae0f8a0945b3d1cf6945ebf983706906940024c6f02864250619be546f2c10a2",
         "final_url": "https://ai.azure.com/",
@@ -24482,7 +24986,7 @@
         "paths": [
           "src/content/docs/ko/singapore/ai-governance.md"
         ],
-        "checked_at": "2026-11-24T09:59:34Z",
+        "checked_at": "2026-11-25T08:43:30Z",
         "status": "unverified",
         "hash": "861c9baae1bb9420d984be6abe0a5a19d6b07730363337bf8a901ea68a37c87d",
         "final_url": "https://aiverifyfoundation.sg/resources/mgf-gen-ai/",
@@ -24502,7 +25006,7 @@
         "paths": [
           "src/content/docs/ko/devops/devsecops.md"
         ],
-        "checked_at": "2026-11-24T09:59:34Z",
+        "checked_at": "2026-11-25T08:43:30Z",
         "status": "unverified",
         "hash": "6ce84a59d0c606ad8c2c2b3d3703944b3097b677f6a9c36c22154de4e3295152",
         "final_url": "https://aquasecurity.github.io/tfsec/",
@@ -24522,7 +25026,7 @@
         "paths": [
           "src/content/docs/ko/ai/llmops.md"
         ],
-        "checked_at": "2026-11-24T09:59:34Z",
+        "checked_at": "2026-11-25T08:43:30Z",
         "status": "unverified",
         "hash": "84e61b481a6f8d7a78ec8093dce057a9e2b06a9ea80957e5c3766d9b595ef09c",
         "final_url": "https://arize.com/",
@@ -24592,7 +25096,7 @@
         "paths": [
           "src/content/docs/ko/devops/observability.md"
         ],
-        "checked_at": "2026-11-24T09:59:34Z",
+        "checked_at": "2026-11-25T08:43:30Z",
         "status": "unverified",
         "hash": "b472569757f991e0df0919150abea62828a7651cc991dfcabea1158bc12ba1fe",
         "final_url": "https://aws-otel.github.io/",
@@ -31517,15 +32021,15 @@
         "paths": [
           "src/content/docs/ko/introduction.mdx"
         ],
-        "checked_at": "2026-11-05T06:55:17Z",
+        "checked_at": "2026-11-25T08:43:30Z",
         "status": "unverified",
-        "error": "HTTP 403"
+        "error": "TimeoutError"
       },
       "https://ego4d-data.org/": {
         "paths": [
           "src/content/docs/ko/ai/physical-ai/data-and-training.md"
         ],
-        "checked_at": "2026-11-05T06:55:17Z",
+        "checked_at": "2026-11-25T08:43:30Z",
         "status": "unverified",
         "error": "unsupported-or-insufficient-visible-content"
       },
@@ -31533,9 +32037,9 @@
         "paths": [
           "src/content/docs/ko/korea/ai/sovereign-fm-policy.md"
         ],
-        "checked_at": "2026-11-05T06:55:17Z",
+        "checked_at": "2026-11-25T08:43:30Z",
         "status": "observed",
-        "hash": "5d8cd436490fd85057148abbd6cc2f4a1dec88cfab8e769c086ad907aabef931",
+        "hash": "01cc1b1b8d7b8ac8e87ad40e6bc4fec81e80fc268cd8708d02a460a8a6061c82",
         "hash_kind": "visible-v1",
         "final_url": "https://en.edaily.co.kr/news/eda202608185493/"
       },
@@ -31543,7 +32047,7 @@
         "paths": [
           "src/content/docs/ko/eu/nis2-ai-act.md"
         ],
-        "checked_at": "2026-11-05T06:55:17Z",
+        "checked_at": "2026-11-25T08:43:30Z",
         "status": "unverified",
         "error": "unsupported-or-insufficient-visible-content"
       },
@@ -31551,7 +32055,7 @@
         "paths": [
           "src/content/docs/ko/eu/gdpr-sovereignty.md"
         ],
-        "checked_at": "2026-11-05T06:55:17Z",
+        "checked_at": "2026-11-25T08:43:30Z",
         "status": "unverified",
         "error": "unsupported-or-insufficient-visible-content"
       },
@@ -31559,7 +32063,7 @@
         "paths": [
           "src/content/docs/ko/eu/dora.md"
         ],
-        "checked_at": "2026-11-05T06:55:17Z",
+        "checked_at": "2026-11-25T08:43:30Z",
         "status": "unverified",
         "error": "unsupported-or-insufficient-visible-content"
       },
@@ -31567,7 +32071,7 @@
         "paths": [
           "src/content/docs/ko/eu/nis2-ai-act.md"
         ],
-        "checked_at": "2026-11-05T06:55:17Z",
+        "checked_at": "2026-11-25T08:43:30Z",
         "status": "unverified",
         "error": "unsupported-or-insufficient-visible-content"
       },
@@ -31575,7 +32079,7 @@
         "paths": [
           "src/content/docs/ko/about-cloud/field-deployment.md"
         ],
-        "checked_at": "2026-11-05T06:55:17Z",
+        "checked_at": "2026-11-25T08:43:30Z",
         "status": "observed",
         "hash": "f50876433b2abdbec5d8f2d0139a0c719408a1f08aeec9edf437f0a30c0e2677",
         "hash_kind": "visible-v1",
@@ -31585,7 +32089,7 @@
         "paths": [
           "src/content/docs/ko/about-cloud/field-deployment.md"
         ],
-        "checked_at": "2026-11-05T06:55:17Z",
+        "checked_at": "2026-11-25T08:43:30Z",
         "status": "observed",
         "hash": "b49d6e619e47b0e535fffc31683ec9394f3909fa586332d98e17d2564e04af6a",
         "hash_kind": "visible-v1",
@@ -31596,7 +32100,7 @@
           "src/content/docs/ko/about-cloud/pricing-model.md",
           "src/content/docs/ko/about-cloud/why-multicloud.md"
         ],
-        "checked_at": "2026-11-05T06:55:17Z",
+        "checked_at": "2026-11-25T08:43:30Z",
         "status": "unverified",
         "error": "unsupported-or-insufficient-visible-content"
       },
@@ -31604,9 +32108,9 @@
         "paths": [
           "src/content/docs/ko/networking/api-gateway.md"
         ],
-        "checked_at": "2026-11-05T06:55:17Z",
+        "checked_at": "2026-11-25T08:43:30Z",
         "status": "observed",
-        "hash": "b4a6ffc4476094fc922a2215f1cfbb9b377600d2734e5e6937fcc6863e520088",
+        "hash": "36b79fd018b84bff9962cc71f4fbd1e7b89bb27bde96921bf78236e4c30ca4c4",
         "hash_kind": "visible-v1",
         "final_url": "https://firebase.google.com/docs/auth"
       },
@@ -31614,9 +32118,9 @@
         "paths": [
           "src/content/docs/ko/security/secrets.md"
         ],
-        "checked_at": "2026-11-05T06:55:17Z",
+        "checked_at": "2026-11-25T08:43:30Z",
         "status": "observed",
-        "hash": "d2a5c6ed59ed742b485f60a1465f978c8b5da7684a72efc1b4f57864c0517fcf",
+        "hash": "6d53544d2e916f249087aeb9f41a5f9430f8b2b311800bb109174300091f9ee4",
         "hash_kind": "visible-v1",
         "final_url": "https://firebase.google.com/docs/remote-config"
       },
@@ -31624,7 +32128,7 @@
         "paths": [
           "src/content/docs/ko/devops/observability.md"
         ],
-        "checked_at": "2026-11-05T06:55:17Z",
+        "checked_at": "2026-11-25T08:43:30Z",
         "status": "unverified",
         "error": "unsupported-or-insufficient-visible-content"
       },
@@ -31633,7 +32137,7 @@
           "src/content/docs/ko/about-cloud/pricing-model.md",
           "src/content/docs/ko/governance/finops.md"
         ],
-        "checked_at": "2026-11-05T06:55:17Z",
+        "checked_at": "2026-11-25T08:43:30Z",
         "status": "unverified",
         "error": "unsupported-or-insufficient-visible-content"
       },
@@ -31641,7 +32145,7 @@
         "paths": [
           "src/content/docs/ko/governance/finops.md"
         ],
-        "checked_at": "2026-11-05T06:55:17Z",
+        "checked_at": "2026-11-25T08:43:30Z",
         "status": "observed",
         "hash": "62073a6276fc1c7023487a031e7309310ab89959ac0ea645676141801c615330",
         "hash_kind": "visible-v1",
@@ -31651,9 +32155,9 @@
         "paths": [
           "src/content/docs/ko/security/ai-security.md"
         ],
-        "checked_at": "2026-11-05T06:55:17Z",
+        "checked_at": "2026-11-25T08:43:30Z",
         "status": "observed",
-        "hash": "99f909a2f6eff68ae49d006a439c828f599f48e5c345c555f1cec78e354d469a",
+        "hash": "e38b3fb9f5f8aee9628efecf0c7c8dcf6657eada2b14f16ccb8c4a3000062b69",
         "hash_kind": "visible-v1",
         "final_url": "https://fortune.com/2026/09/26/openai-ai-agents-secure-sandbox-escape-training-pause-second-time-hugging-face-hack/"
       },
@@ -31661,9 +32165,9 @@
         "paths": [
           "src/content/docs/ko/about-cloud/compare-clouds.md"
         ],
-        "checked_at": "2026-11-05T06:55:17Z",
+        "checked_at": "2026-11-25T08:43:30Z",
         "status": "observed",
-        "hash": "15a935c2c4c7ae864e6ab6aab915a024befca691ad25cb73364aba8162da1252",
+        "hash": "f98501cb03e8ab627de22b8b944b321cc828618122afa6cb9741eb4c6470576c",
         "hash_kind": "visible-v1",
         "final_url": "https://gcping.com"
       },
@@ -31671,7 +32175,7 @@
         "paths": [
           "src/content/docs/ko/korea/index.md"
         ],
-        "checked_at": "2026-11-05T06:55:17Z",
+        "checked_at": "2026-11-25T08:43:30Z",
         "status": "unverified",
         "error": "unsupported-or-insufficient-visible-content"
       },
@@ -31679,7 +32183,7 @@
         "paths": [
           "src/content/docs/ko/security/ai-security.md"
         ],
-        "checked_at": "2026-11-05T06:55:17Z",
+        "checked_at": "2026-11-25T08:43:30Z",
         "status": "observed",
         "hash": "7ed1a16172b5e3a4d8c99e3779b72f85059a5a2fb4d02c3a6c9a917d56e1fdcd",
         "hash_kind": "visible-v1",
@@ -31689,9 +32193,9 @@
         "paths": [
           "src/content/docs/ko/ai/llmops.md"
         ],
-        "checked_at": "2026-11-05T06:55:17Z",
+        "checked_at": "2026-11-25T08:43:30Z",
         "status": "observed",
-        "hash": "046a7a7f818e429c420b1ed6702ab1cbf61891ea08dcfcd8badc537dfb4d940c",
+        "hash": "9071846f46a7cf89ec047a0dc9473e90b60d915764bd2755ccbc7bf0ee985e63",
         "hash_kind": "visible-v1",
         "final_url": "https://github.com/Arize-ai/phoenix"
       },
@@ -31699,9 +32203,9 @@
         "paths": [
           "src/content/docs/ko/ai/physical-ai/data-and-training.md"
         ],
-        "checked_at": "2026-11-05T06:55:17Z",
+        "checked_at": "2026-11-25T08:43:30Z",
         "status": "observed",
-        "hash": "76a4bb805346a8977f0a7be7d67e045f23db656218a35c62574d2960ab97827a",
+        "hash": "87b30e8362f13191245866f7f6344b3633053b894d0460186a2eaa46adcb68ae",
         "hash_kind": "visible-v1",
         "final_url": "https://github.com/Farama-Foundation/Metaworld"
       },
@@ -31709,9 +32213,9 @@
         "paths": [
           "src/content/docs/ko/ai/physical-ai/data-and-training.md"
         ],
-        "checked_at": "2026-11-05T06:55:17Z",
+        "checked_at": "2026-11-25T08:43:30Z",
         "status": "observed",
-        "hash": "634cd503f606c6e2e76a6421e70d773a912dcdc15da2881d9bc2fae82b6cebd6",
+        "hash": "421dea864ca14475f8df0c2f11d9256c2818622e876db60850cb47929adc75c0",
         "hash_kind": "visible-v1",
         "final_url": "https://github.com/Lifelong-Robot-Learning/LIBERO"
       },
@@ -31719,9 +32223,9 @@
         "paths": [
           "src/content/docs/ko/ai/gpu-infra/distributed-training.md"
         ],
-        "checked_at": "2026-11-05T06:55:17Z",
+        "checked_at": "2026-11-25T08:43:30Z",
         "status": "observed",
-        "hash": "2cd6158f8cf030ba03dfdd55d85e4713143b5dd93d7c7bc2b7399479df9256af",
+        "hash": "d4d06513112c562e8bf006d825febc4ff569fde8d460f2e99ff609ebcdada634",
         "hash_kind": "visible-v1",
         "final_url": "https://github.com/NVIDIA/Megatron-LM"
       },
@@ -31729,9 +32233,9 @@
         "paths": [
           "src/content/docs/ko/korea/ai/fm-providers.md"
         ],
-        "checked_at": "2026-11-05T06:55:17Z",
+        "checked_at": "2026-11-25T08:43:30Z",
         "status": "observed",
-        "hash": "fe91b46bb939dbb3fe3b6f35baee2e3123761905ffe6e87338bb7daef491d9db",
+        "hash": "0ba747b4a5931fa057dd33a427a7711666ac5558d8cf010bbd08c996e02637db",
         "hash_kind": "visible-v1",
         "final_url": "https://github.com/SKT-AI/A.X-4.0"
       },
@@ -31739,9 +32243,9 @@
         "paths": [
           "src/content/docs/ko/devops/devsecops.md"
         ],
-        "checked_at": "2026-11-05T06:55:17Z",
+        "checked_at": "2026-11-25T08:43:30Z",
         "status": "observed",
-        "hash": "132372f0b4444aa99e4d100def0f465b9c4f7c39591caea664c9e58359a90bc9",
+        "hash": "b06cf38b29b322e7891ac670ca408b55addb12f86a68e1f372cef5faa6e6ad60",
         "hash_kind": "visible-v1",
         "final_url": "https://github.com/anchore/grype"
       },
@@ -31749,9 +32253,9 @@
         "paths": [
           "src/content/docs/ko/ai/agents.md"
         ],
-        "checked_at": "2026-11-05T06:55:17Z",
+        "checked_at": "2026-11-25T08:43:30Z",
         "status": "observed",
-        "hash": "03c72d5c15c51b8809ea88eef5443d054b24b10e4522cd6be0571a0863169213",
+        "hash": "47279f24d1ad5e76d85f759ef4ba0fb798e3fb5a01f178909b0332722f8abe24",
         "hash_kind": "visible-v1",
         "final_url": "https://github.com/anthropics/claude-code"
       },
@@ -31759,9 +32263,9 @@
         "paths": [
           "src/content/docs/ko/ai/prompt-engineering.md"
         ],
-        "checked_at": "2026-11-05T06:55:17Z",
+        "checked_at": "2026-11-25T08:43:30Z",
         "status": "observed",
-        "hash": "ac3501386c29f3b48ec4e2f53fd43c2690effcc9873949f791e8eb01010e37ba",
+        "hash": "e049a4fe2f457db38c7847574d6a93ccc259562b83c6993401bedcd67afc6d07",
         "hash_kind": "visible-v1",
         "final_url": "https://github.com/anthropics/prompt-eng-interactive-tutorial"
       },
@@ -31769,9 +32273,9 @@
         "paths": [
           "src/content/docs/ko/devops/observability.md"
         ],
-        "checked_at": "2026-11-06T06:54:01Z",
+        "checked_at": "2026-11-25T08:43:30Z",
         "status": "observed",
-        "hash": "1e0bed40fad722c5af169ae878d8cab1acd4f2c9c733a09ac9c7f9ac0e76cac9",
+        "hash": "9c757d7337febd3fda47783be62b11adaa704fe3cbef27d4f81a69850bb0e5f3",
         "hash_kind": "visible-v1",
         "final_url": "https://github.com/cncf/tag-observability"
       },
@@ -31779,9 +32283,9 @@
         "paths": [
           "src/content/docs/ko/ai/agents.md"
         ],
-        "checked_at": "2026-11-06T06:54:01Z",
+        "checked_at": "2026-11-25T08:43:30Z",
         "status": "observed",
-        "hash": "1e98ca93371a3d4eb442f308a376d796003665a4e5f44dd6b0b72504523fecf4",
+        "hash": "5a1a36b893eca1a3fc5f4992f6222f0662524e0985d04a2f8541e020021a2d2e",
         "hash_kind": "visible-v1",
         "final_url": "https://github.com/crewAIInc/crewAI"
       },
@@ -31789,9 +32293,9 @@
         "paths": [
           "src/content/docs/ko/ai/physical-ai/data-and-training.md"
         ],
-        "checked_at": "2026-11-06T06:54:01Z",
+        "checked_at": "2026-11-25T08:43:30Z",
         "status": "observed",
-        "hash": "5ff8c83a5c036f598d27f593f3f3434aacf352db4ded75826288bd8d2e36ba9a",
+        "hash": "d735ebd317f416872d0d182e34ce08b8b525d9a93b3b9332ff750fa908aee360",
         "hash_kind": "visible-v1",
         "final_url": "https://github.com/droid-dataset/droid"
       },
@@ -31799,9 +32303,9 @@
         "paths": [
           "src/content/docs/ko/ai/rag-patterns.md"
         ],
-        "checked_at": "2026-11-06T06:54:01Z",
+        "checked_at": "2026-11-25T08:43:30Z",
         "status": "observed",
-        "hash": "be7ed92e1df8bf457b71bc49185c955a46a933141d4875554f8056b98be96630",
+        "hash": "982deecb8d0a225f9baa0bdef423cc53ef8601bf7181414d494af7ede412cd25",
         "hash_kind": "visible-v1",
         "final_url": "https://github.com/vibrantlabsai/ragas"
       },
@@ -31809,9 +32313,9 @@
         "paths": [
           "src/content/docs/ko/ai/ai-ml.md"
         ],
-        "checked_at": "2026-11-06T06:54:01Z",
+        "checked_at": "2026-11-25T08:43:30Z",
         "status": "observed",
-        "hash": "251289c53da318b303eb080ad5bb007ec26f65aaba0078c05d6c7babb5a8105e",
+        "hash": "cbcc816d68f0e443e10850ed0e30c35219bd954cdd24e52d6bd4cb224819f0a9",
         "hash_kind": "visible-v1",
         "final_url": "https://github.com/fastino-ai/GLiNER2"
       },
@@ -31819,9 +32323,9 @@
         "paths": [
           "src/content/docs/ko/ai/agents.md"
         ],
-        "checked_at": "2026-11-06T06:54:01Z",
+        "checked_at": "2026-11-25T08:43:30Z",
         "status": "observed",
-        "hash": "28406c47574601d3d6d7a12ec1adce133f0d68586f066b19021450c7899352de",
+        "hash": "5c991e5cae391880151b0d6b74634c124b7abab57d8132dcd4e81430035e8850",
         "hash_kind": "visible-v1",
         "final_url": "https://github.com/features/copilot"
       },
@@ -31829,9 +32333,9 @@
         "paths": [
           "src/content/docs/ko/ai/agents.md"
         ],
-        "checked_at": "2026-11-06T06:54:01Z",
+        "checked_at": "2026-11-25T08:43:30Z",
         "status": "observed",
-        "hash": "535092ed29b81a89f0d457d29b0680b01f61cea2a62a8af6767f2b04a3c7e8e4",
+        "hash": "08ea586bd5fd733efabfbfcf5df75ccd7506eae3341a45c6900bfc1853fcccdd",
         "hash_kind": "visible-v1",
         "final_url": "https://github.com/a2aproject/A2A"
       },
@@ -31839,9 +32343,9 @@
         "paths": [
           "src/content/docs/ko/ai/physical-ai/data-and-training.md"
         ],
-        "checked_at": "2026-11-06T06:54:01Z",
+        "checked_at": "2026-11-25T08:43:30Z",
         "status": "observed",
-        "hash": "4ff2107f2763d0940e968c866630d63427d0d2b4484946672e6ed14d66e28566",
+        "hash": "58600345c2ef282ec549ceb90377ccb694d1efe2ec8688c9dd1e35a61241cccf",
         "hash_kind": "visible-v1",
         "final_url": "https://github.com/google-coral/edgetpu"
       },
@@ -31849,9 +32353,9 @@
         "paths": [
           "src/content/docs/ko/ai/physical-ai/data-and-training.md"
         ],
-        "checked_at": "2026-11-06T06:54:01Z",
+        "checked_at": "2026-11-25T08:43:30Z",
         "status": "observed",
-        "hash": "1c02c1d9ad8a70c2daa9cf1ea5f0e2cee67726c010654f5384fb3efe07c5b234",
+        "hash": "4349333f7b37502414e163921593273131ab23e1cb4abde703353786d2016aed",
         "hash_kind": "visible-v1",
         "final_url": "https://github.com/google-deepmind/open_x_embodiment"
       },
@@ -31859,9 +32363,9 @@
         "paths": [
           "src/content/docs/ko/ai/physical-ai/data-and-training.md"
         ],
-        "checked_at": "2026-11-06T06:54:01Z",
+        "checked_at": "2026-11-25T08:43:30Z",
         "status": "observed",
-        "hash": "1aa094adb50621912b0e554a5e51cd4e348bb92b516284cf0245be8a398c7164",
+        "hash": "056520806330b83d86cf99d2dd84b2ab558903accda8f536ec155df290cce4fa",
         "hash_kind": "visible-v1",
         "final_url": "https://github.com/huggingface/lerobot"
       },
@@ -31869,9 +32373,9 @@
         "paths": [
           "src/content/docs/ko/ai/agents.md"
         ],
-        "checked_at": "2026-11-06T06:54:01Z",
+        "checked_at": "2026-11-25T08:43:30Z",
         "status": "observed",
-        "hash": "9b6c2e76bc6fa885e6b6b1650efd40d54bd1720901becdb544741f32e6103a12",
+        "hash": "ed3db6a597a0dd46f90201addba0b9da1daf4eeb29b7602932298faf21da648e",
         "hash_kind": "visible-v1",
         "final_url": "https://github.com/langchain-ai/langgraph"
       },
@@ -31879,9 +32383,9 @@
         "paths": [
           "src/content/docs/ko/ai/physical-ai/data-and-training.md"
         ],
-        "checked_at": "2026-11-06T06:54:01Z",
+        "checked_at": "2026-11-25T08:43:30Z",
         "status": "observed",
-        "hash": "212673c50f4daf58d620e4500e8a0779ca937a8e13266a89d3860d7af8e6df5d",
+        "hash": "cb6f6b683fbbae39e1b3b47ada1b047a4d3ea0f3f83b48a5a319d8cf5732a057",
         "hash_kind": "visible-v1",
         "final_url": "https://github.com/mees/calvin"
       },
@@ -31889,7 +32393,7 @@
         "paths": [
           "src/content/docs/ko/ai/gpu-infra/workload-and-architecture.md"
         ],
-        "checked_at": "2026-11-06T06:54:01Z",
+        "checked_at": "2026-11-25T08:43:30Z",
         "status": "observed",
         "hash": "53f5abd1c402191ca2cab33940d1aacaa4ddffc70777940b95826a1f70209c22",
         "hash_kind": "visible-v1",
@@ -31899,9 +32403,9 @@
         "paths": [
           "src/content/docs/ko/ai/physical-ai/data-and-training.md"
         ],
-        "checked_at": "2026-11-06T06:54:01Z",
+        "checked_at": "2026-11-25T08:43:30Z",
         "status": "observed",
-        "hash": "4409a37096f70f976db70d41a9b055f2f32cf63b3fe5330e83d53fbfa811c39b",
+        "hash": "8645bb7a97bcc54e797bab8078f8b5f5ef6da6e429fae8008198df4d20062f8c",
         "hash_kind": "visible-v1",
         "final_url": "https://github.com/robocasa/robocasa"
       },
@@ -31909,9 +32413,9 @@
         "paths": [
           "src/content/docs/ko/devops/devsecops.md"
         ],
-        "checked_at": "2026-11-06T06:54:01Z",
+        "checked_at": "2026-11-25T08:43:30Z",
         "status": "observed",
-        "hash": "c3dc6285048e90ec8d6c5ace6b1df13622c6f24fc024a3f4cf860abe3ed0b1de",
+        "hash": "6e927e4d99d4e75ce595ecd62a2216fa8357b55598cc84447ee2aae7a3200937",
         "hash_kind": "visible-v1",
         "final_url": "https://github.com/stelligent/cfn_nag"
       },
@@ -31919,9 +32423,9 @@
         "paths": [
           "src/content/docs/ko/ai/ai-ml.md"
         ],
-        "checked_at": "2026-11-06T06:54:01Z",
+        "checked_at": "2026-11-25T08:43:30Z",
         "status": "observed",
-        "hash": "682f42582bd22e0809e4a368d38ace74fa5b4f84d5f496b9bff848357f6452b9",
+        "hash": "b063f10f3f321afa007010a9eed229d6b205d643734c3cfb4474a4fe7489d86f",
         "hash_kind": "visible-v1",
         "final_url": "https://github.com/strands-labs/strands-decider"
       },
@@ -31929,9 +32433,9 @@
         "paths": [
           "src/content/docs/ko/database/cache.md"
         ],
-        "checked_at": "2026-11-06T06:54:01Z",
+        "checked_at": "2026-11-25T08:43:30Z",
         "status": "observed",
-        "hash": "8323e9b57424a97e2367c64030bed297c4d4b447d3a6eb7774b0e8f4bfd8ee48",
+        "hash": "a334497956dc6b253f480d8b3c5c20d9c7f2db0268b8479462ed7c3496d03deb",
         "hash_kind": "visible-v1",
         "final_url": "https://github.com/valkey-io/valkey"
       },
@@ -31939,9 +32443,9 @@
         "paths": [
           "src/content/docs/ko/devops/cicd.md"
         ],
-        "checked_at": "2026-11-06T06:54:01Z",
+        "checked_at": "2026-11-25T08:43:30Z",
         "status": "observed",
-        "hash": "cc37ebb84bcd4e3fb69ee7239b9cec65ea2d33d1d4b4b605b403408d6f9b74d7",
+        "hash": "0a03e1a11bcfe1d28ee6132f0c9c6295c02021a698c81dda9153a3bcd131d0eb",
         "hash_kind": "visible-v1",
         "final_url": "https://github.github.com/gh-aw/"
       },
@@ -31949,7 +32453,7 @@
         "paths": [
           "src/content/docs/ko/devops/devsecops.md"
         ],
-        "checked_at": "2026-11-06T06:54:01Z",
+        "checked_at": "2026-11-25T08:43:30Z",
         "status": "unverified",
         "error": "unsupported-or-insufficient-visible-content"
       },
@@ -31957,9 +32461,9 @@
         "paths": [
           "src/content/docs/ko/singapore/pdpa.md"
         ],
-        "checked_at": "2026-11-06T06:54:01Z",
+        "checked_at": "2026-11-25T08:43:30Z",
         "status": "observed",
-        "hash": "2cb7a987f0689180374c9d0bdb28cd8b52b0facc39c2620d04fe16a54e1917b7",
+        "hash": "1f425f034c708f52c925228fcf71e4c73d25e1cd4072799284bb421086ca884a",
         "hash_kind": "visible-v1",
         "final_url": "https://globallawexperts.com/news/pdpa-crossborder-data-transfers-fintech-singapore-2026"
       },
@@ -31967,7 +32471,7 @@
         "paths": [
           "src/content/docs/ko/devops/observability.md"
         ],
-        "checked_at": "2026-11-06T06:54:01Z",
+        "checked_at": "2026-11-25T08:43:30Z",
         "status": "observed",
         "hash": "b6ce81afdba9f4e5800adc5f15025e82aa9fbcd2a9928ee98f4db78beac5ad04",
         "hash_kind": "visible-v1",
@@ -31977,7 +32481,7 @@
         "paths": [
           "src/content/docs/ko/devops/observability.md"
         ],
-        "checked_at": "2026-11-06T06:54:01Z",
+        "checked_at": "2026-11-25T08:43:30Z",
         "status": "unverified",
         "error": "unsupported-or-insufficient-visible-content"
       },
@@ -31985,7 +32489,7 @@
         "paths": [
           "src/content/docs/ko/devops/observability.md"
         ],
-        "checked_at": "2026-11-06T06:54:01Z",
+        "checked_at": "2026-11-25T08:43:30Z",
         "status": "unverified",
         "error": "unsupported-or-insufficient-visible-content"
       },
@@ -31993,7 +32497,7 @@
         "paths": [
           "src/content/docs/ko/devops/observability.md"
         ],
-        "checked_at": "2026-11-06T06:54:01Z",
+        "checked_at": "2026-11-25T08:43:30Z",
         "status": "unverified",
         "error": "unsupported-or-insufficient-visible-content"
       },
@@ -32001,9 +32505,9 @@
         "paths": [
           "src/content/docs/ko/governance/sustainability.md"
         ],
-        "checked_at": "2026-11-06T06:54:01Z",
+        "checked_at": "2026-11-25T08:43:30Z",
         "status": "observed",
-        "hash": "dd2aef6ac73ba3fe8315672f0366f6fd50cc26711d6a0bd264b9e7d365193465",
+        "hash": "8c8ee03c9e2110b89e4e13be02520c9073cad3a53ff72ed8b4fa60ec3f0ec867",
         "hash_kind": "visible-v1",
         "final_url": "https://greensoftware.foundation/"
       },
@@ -32011,7 +32515,7 @@
         "paths": [
           "src/content/docs/ko/us/hipaa.md"
         ],
-        "checked_at": "2026-11-06T06:54:01Z",
+        "checked_at": "2026-11-25T08:43:30Z",
         "status": "observed",
         "hash": "048a230d1016425d20e0a10e1a173d12bf5a9f8fc05e9804c58e1b92d59651c0",
         "hash_kind": "visible-v1",
@@ -32021,7 +32525,7 @@
         "paths": [
           "src/content/docs/ko/devops/platform-engineering.md"
         ],
-        "checked_at": "2026-11-06T06:54:01Z",
+        "checked_at": "2026-11-25T08:43:30Z",
         "status": "observed",
         "hash": "bb55aa9e46b59afd7eca86073c44a213b7c7dfe72c7a8eb9438f452f3cc0165e",
         "hash_kind": "visible-v1",
@@ -32031,7 +32535,7 @@
         "paths": [
           "src/content/docs/ko/us/state-privacy.md"
         ],
-        "checked_at": "2026-11-06T06:54:01Z",
+        "checked_at": "2026-11-25T08:43:30Z",
         "status": "observed",
         "hash": "5354e62cf994dc6e12c45255ad490fd1ee15ff995d16b1874419a99904d45361",
         "hash_kind": "visible-v1",
@@ -32041,7 +32545,7 @@
         "paths": [
           "src/content/docs/ko/database/analytics.md"
         ],
-        "checked_at": "2026-11-06T06:54:01Z",
+        "checked_at": "2026-11-25T08:43:30Z",
         "status": "unverified",
         "error": "unsupported-or-insufficient-visible-content"
       },
@@ -32049,7 +32553,7 @@
         "paths": [
           "src/content/docs/ko/singapore/pdpa.md"
         ],
-        "checked_at": "2026-11-06T06:54:01Z",
+        "checked_at": "2026-11-25T08:43:30Z",
         "status": "unverified",
         "error": "unsupported-or-insufficient-visible-content"
       },
@@ -32057,7 +32561,7 @@
         "paths": [
           "src/content/docs/ko/about-cloud/pricing-model.md"
         ],
-        "checked_at": "2026-11-06T06:54:01Z",
+        "checked_at": "2026-11-25T08:43:30Z",
         "status": "unverified",
         "error": "unsupported-or-insufficient-visible-content"
       },
@@ -32065,9 +32569,9 @@
         "paths": [
           "src/content/docs/ko/singapore/government-cloud.md"
         ],
-        "checked_at": "2026-11-06T06:54:01Z",
+        "checked_at": "2026-11-25T08:43:30Z",
         "status": "observed",
-        "hash": "7a3dbb0002dfcd3870f32618579d1d7536d142ccd6484a4fb1162d30f07210ab",
+        "hash": "a57dae1dd6edd8a63013d73242c6319c5779d8ef3460cdc8347aa87b14b4ec57",
         "hash_kind": "visible-v1",
         "final_url": "https://info.standards.tech.gov.sg/"
       },
@@ -32075,7 +32579,7 @@
         "paths": [
           "src/content/docs/ko/korea/governance/compliance.md"
         ],
-        "checked_at": "2026-11-06T06:54:01Z",
+        "checked_at": "2026-11-25T08:43:30Z",
         "status": "unverified",
         "error": "FetchError"
       },
@@ -32084,7 +32588,7 @@
           "src/content/docs/ko/korea/governance/compliance.md",
           "src/content/docs/ko/korea/security/network-isolation.md"
         ],
-        "checked_at": "2026-11-06T06:54:01Z",
+        "checked_at": "2026-11-25T08:43:30Z",
         "status": "unverified",
         "error": "FetchError"
       },
@@ -32092,7 +32596,7 @@
         "paths": [
           "src/content/docs/ko/compute/service-mesh.md"
         ],
-        "checked_at": "2026-11-06T06:54:01Z",
+        "checked_at": "2026-11-25T08:43:30Z",
         "status": "observed",
         "hash": "a7bad25e4c80886ef6d35ccf52809df1f348ad061bda5f93a5fc656d3cefc80f",
         "hash_kind": "visible-v1",
@@ -32102,7 +32606,7 @@
         "paths": [
           "src/content/docs/ko/compute/service-mesh.md"
         ],
-        "checked_at": "2026-11-06T06:54:01Z",
+        "checked_at": "2026-11-25T08:43:30Z",
         "status": "observed",
         "hash": "ba164a548686105b2f846e687415934625728a755e07425c35f93d6f2d67d167",
         "hash_kind": "visible-v1",
@@ -32112,7 +32616,7 @@
         "paths": [
           "src/content/docs/ko/japan/government-cloud.md"
         ],
-        "checked_at": "2026-11-06T06:54:01Z",
+        "checked_at": "2026-11-25T08:43:30Z",
         "status": "observed",
         "hash": "de701c88a96ed7686cf38b257891831aff8896f3f19503feb293df34050a3257",
         "hash_kind": "visible-v1",
@@ -32122,7 +32626,7 @@
         "paths": [
           "src/content/docs/ko/devops/devsecops.md"
         ],
-        "checked_at": "2026-11-06T06:54:01Z",
+        "checked_at": "2026-11-25T08:43:30Z",
         "status": "unverified",
         "error": "unsupported-or-insufficient-visible-content"
       },
@@ -32132,9 +32636,9 @@
           "src/content/docs/ko/ai/ai-ml.md",
           "src/content/docs/ko/devops/devsecops.md"
         ],
-        "checked_at": "2026-11-06T06:54:01Z",
+        "checked_at": "2026-11-25T08:43:30Z",
         "status": "observed",
-        "hash": "57896665004cfc096b3d244db4180e605571022c342383babd92e2dc14c45a7d",
+        "hash": "254dd51577385ecf00bb82f7c2f077d39c5f2739eceae5cb360d4844c1f42d35",
         "hash_kind": "visible-v1",
         "final_url": "https://kiro.dev/"
       },
@@ -32142,7 +32646,7 @@
         "paths": [
           "src/content/docs/ko/devops/kubernetes-operations.mdx"
         ],
-        "checked_at": "2026-11-06T06:54:01Z",
+        "checked_at": "2026-11-25T08:43:30Z",
         "status": "observed",
         "hash": "c9b4523d02c2165f771b9ae6f44a849658d0554edcb6b5eafac262a08cfc7424",
         "hash_kind": "visible-v1",

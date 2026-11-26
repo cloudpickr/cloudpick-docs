@@ -24075,6 +24075,644 @@
       "evidence": [],
       "pr": null,
       "last_seen": "2026-11"
+    },
+    {
+      "id": "c88984d64f11f2f4eb65b78d",
+      "path": "src/content/docs/ko/storage/object-storage.md",
+      "axis": 2,
+      "reason": "Amazon S3 Vectors now supports hybrid search combining vector and full text for more relevant search results (https://aws.amazon.com/about-aws/whats-new/2026/11/s3-vectors-hybrid-search/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/s3-vectors-hybrid-search/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "27f433955b8d9d3f3373ad55",
+      "path": "src/content/docs/ko/devops/devsecops.md",
+      "axis": 2,
+      "reason": "AWS Security Hub now detects when vulnerable software is running on Amazon EC2 instances (https://aws.amazon.com/about-aws/whats-new/2026/11/security-hub-detects-vulnerable-software/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/security-hub-detects-vulnerable-software/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "a66728c58d883da870fa7b89",
+      "path": "src/content/docs/ko/security/ai-security.md",
+      "axis": 2,
+      "reason": "AWS Security Hub now detects when vulnerable software is running on Amazon EC2 instances (https://aws.amazon.com/about-aws/whats-new/2026/11/security-hub-detects-vulnerable-software/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/security-hub-detects-vulnerable-software/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "89cfec801e01fffc60f2b37e",
+      "path": "src/content/docs/ko/security/data-protection.md",
+      "axis": 2,
+      "reason": "AWS Security Hub now detects when vulnerable software is running on Amazon EC2 instances (https://aws.amazon.com/about-aws/whats-new/2026/11/security-hub-detects-vulnerable-software/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/security-hub-detects-vulnerable-software/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "1a19a9bbfff8aa3b3d990ef5",
+      "path": "src/content/docs/ko/security/network-isolation.md",
+      "axis": 2,
+      "reason": "AWS Security Hub Network Scanning now supports scanning Amazon Relational Database Service (Amazon RDS) database instances (https://aws.amazon.com/about-aws/whats-new/2026/11/security-hub-network-scanning-rds/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/security-hub-network-scanning-rds/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "c097b72491d10b12b7df2238",
+      "path": "src/content/docs/ko/korea/security/network-isolation.md",
+      "axis": 2,
+      "reason": "AWS Security Hub Network Scanning now supports scanning Amazon Relational Database Service (Amazon RDS) database instances (https://aws.amazon.com/about-aws/whats-new/2026/11/security-hub-network-scanning-rds/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/security-hub-network-scanning-rds/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "0a63452b86fc13e9e897f136",
+      "path": "src/content/docs/ko/security/ai-security.md",
+      "axis": 2,
+      "reason": "AWS Security Hub Network Scanning now supports scanning Amazon Relational Database Service (Amazon RDS) database instances (https://aws.amazon.com/about-aws/whats-new/2026/11/security-hub-network-scanning-rds/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/security-hub-network-scanning-rds/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "5367a64b4b3bdf91415a6a9e",
+      "path": "src/content/docs/ko/security/data-protection.md",
+      "axis": 2,
+      "reason": "AWS Network Firewall now supports context-aware rules with AWS Transit Gateway-attached firewalls (https://aws.amazon.com/about-aws/whats-new/2026/11/network-firewall-context-aware-rules/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/network-firewall-context-aware-rules/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "3a9dd5ebdf154e2a73dbe895",
+      "path": "src/content/docs/ko/security/network-isolation.md",
+      "axis": 2,
+      "reason": "AWS Network Firewall now supports context-aware rules with AWS Transit Gateway-attached firewalls (https://aws.amazon.com/about-aws/whats-new/2026/11/network-firewall-context-aware-rules/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/network-firewall-context-aware-rules/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "f8200a3e6dfe581cf56c631b",
+      "path": "src/content/docs/ko/networking/api-gateway.md",
+      "axis": 2,
+      "reason": "AWS Network Firewall now supports context-aware rules with AWS Transit Gateway-attached firewalls (https://aws.amazon.com/about-aws/whats-new/2026/11/network-firewall-context-aware-rules/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/network-firewall-context-aware-rules/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "2f8cd1823bc5af9b631e431f",
+      "path": "src/content/docs/ko/security/incident-response.md",
+      "axis": 2,
+      "reason": "AWS IAM Identity Center now supports ForceAuthn in SAML requests (https://aws.amazon.com/about-aws/whats-new/2026/11/iam-identity-center-reauth/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/iam-identity-center-reauth/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "32922f8036c9023e225794ba",
+      "path": "src/content/docs/ko/korea/security/network-isolation.md",
+      "axis": 2,
+      "reason": "IAM Identity Center now supports VPC endpoints and network access controls (https://aws.amazon.com/about-aws/whats-new/2026/11/iam-identity-center-vpc-endpoints/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/iam-identity-center-vpc-endpoints/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "17e49793d58e78ec5b3411b4",
+      "path": "src/content/docs/ko/security/zero-trust.md",
+      "axis": 2,
+      "reason": "AWS announces Networking Flexible Cost Allocation for Amazon VPC (https://aws.amazon.com/about-aws/whats-new/2026/11/networking-flexible-cost-allocation/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/networking-flexible-cost-allocation/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "6a225659fb4e138ed9ef2a35",
+      "path": "src/content/docs/ko/compute/serverless.md",
+      "axis": 2,
+      "reason": "AWS Lambda now supports orchestrating MicroVMs with Lambda durable functions (https://aws.amazon.com/about-aws/whats-new/2026/11/lambda-durable-microvm/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/lambda-durable-microvm/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "fd9365db4b3c721031ce2e48",
+      "path": "src/content/docs/ko/ai/agents.md",
+      "axis": 2,
+      "reason": "Amazon Transcribe Turbo: more accurate transcripts and natural turn-taking for voice agents, now in public preview (https://aws.amazon.com/about-aws/whats-new/2026/11/transcribe-turbo-preview/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/transcribe-turbo-preview/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "2c88c71f50fe794ac659d19f",
+      "path": "src/content/docs/ko/governance/finops.md",
+      "axis": 2,
+      "reason": "Amazon Transcribe Turbo: more accurate transcripts and natural turn-taking for voice agents, now in public preview (https://aws.amazon.com/about-aws/whats-new/2026/11/transcribe-turbo-preview/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/transcribe-turbo-preview/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "8154d4cffbb09b82ed94f2ae",
+      "path": "src/content/docs/ko/mcp.md",
+      "axis": 2,
+      "reason": "Amazon Transcribe Turbo: more accurate transcripts and natural turn-taking for voice agents, now in public preview (https://aws.amazon.com/about-aws/whats-new/2026/11/transcribe-turbo-preview/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/transcribe-turbo-preview/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "5e78aaec532145cbecb72fec",
+      "path": "src/content/docs/ko/networking/load-balancer.md",
+      "axis": 2,
+      "reason": "AWS IoT Core now uses dedicated IPv6 address ranges for the HTTP rule action (https://aws.amazon.com/about-aws/whats-new/2026/11/aws-iot-core-dedicated-ipv6-ranges/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-iot-core-dedicated-ipv6-ranges/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "20614a746cb8f372945db302",
+      "path": "src/content/docs/ko/networking/multicloud-networking.md",
+      "axis": 2,
+      "reason": "AWS IoT Core now uses dedicated IPv6 address ranges for the HTTP rule action (https://aws.amazon.com/about-aws/whats-new/2026/11/aws-iot-core-dedicated-ipv6-ranges/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-iot-core-dedicated-ipv6-ranges/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "1aec1ac666f387faa0c1e3a5",
+      "path": "src/content/docs/ko/ai/physical-ai/data-and-training.md",
+      "axis": 2,
+      "reason": "AWS IoT Core now uses dedicated IPv6 address ranges for the HTTP rule action (https://aws.amazon.com/about-aws/whats-new/2026/11/aws-iot-core-dedicated-ipv6-ranges/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-iot-core-dedicated-ipv6-ranges/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "2fe70d04bbbaa37d899443aa",
+      "path": "src/content/docs/ko/compute/serverless.md",
+      "axis": 2,
+      "reason": "AWS IoT Core quotas and usage are now visible in AWS Service Quotas console (https://aws.amazon.com/about-aws/whats-new/2026/11/aws-iot-core-quota-usage-monitoring/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-iot-core-quota-usage-monitoring/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "fb002cd22e88299aefdc377d",
+      "path": "src/content/docs/ko/compute/service-mesh.md",
+      "axis": 2,
+      "reason": "AWS IoT Core quotas and usage are now visible in AWS Service Quotas console (https://aws.amazon.com/about-aws/whats-new/2026/11/aws-iot-core-quota-usage-monitoring/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-iot-core-quota-usage-monitoring/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "353cbf7f43c82373222156f1",
+      "path": "src/content/docs/ko/ai/physical-ai/data-and-training.md",
+      "axis": 2,
+      "reason": "AWS IoT Core quotas and usage are now visible in AWS Service Quotas console (https://aws.amazon.com/about-aws/whats-new/2026/11/aws-iot-core-quota-usage-monitoring/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-iot-core-quota-usage-monitoring/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "16a4fca271cf43d73da38ab6",
+      "path": "src/content/docs/ko/security/iam.md",
+      "axis": 2,
+      "reason": "AWS IAM extends trusted identity propagation to IAM federation and IAM Roles Anywhere, and simplifies it in IAM Identity Center (https://aws.amazon.com/about-aws/whats-new/2026/11/aws-iam/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-iam/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "8cf35238322fef3483a1997b",
+      "path": "src/content/docs/ko/security/zero-trust.md",
+      "axis": 2,
+      "reason": "AWS IAM extends trusted identity propagation to IAM federation and IAM Roles Anywhere, and simplifies it in IAM Identity Center (https://aws.amazon.com/about-aws/whats-new/2026/11/aws-iam/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-iam/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "e8a30a4d654a403b0d63a134",
+      "path": "src/content/docs/ko/security/incident-response.md",
+      "axis": 2,
+      "reason": "AWS IAM extends trusted identity propagation to IAM federation and IAM Roles Anywhere, and simplifies it in IAM Identity Center (https://aws.amazon.com/about-aws/whats-new/2026/11/aws-iam/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-iam/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "450770fda76ca6818f8d6f16",
+      "path": "src/content/docs/ko/ai/physical-ai/data-and-training.md",
+      "axis": 2,
+      "reason": "AWS IoT Core now supports custom domain names for the AWS IoT credential provider (https://aws.amazon.com/aws-iot-core-custom-domains-credential-provider)",
+      "source_url": "https://aws.amazon.com/aws-iot-core-custom-domains-credential-provider",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "76389817d1493bc94b75b7ac",
+      "path": "src/content/docs/ko/about-cloud/support-plans.md",
+      "axis": 2,
+      "reason": "AWS IoT Core now supports custom domain names for the AWS IoT credential provider (https://aws.amazon.com/aws-iot-core-custom-domains-credential-provider)",
+      "source_url": "https://aws.amazon.com/aws-iot-core-custom-domains-credential-provider",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "d600b5e880b0b5e8786a133c",
+      "path": "src/content/docs/ko/about-cloud/support-plans.md",
+      "axis": 2,
+      "reason": "Managed Service for Apache Airflow (https://docs.cloud.google.com/release-notes#November_16_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_16_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "49d478487044abfe011348b6",
+      "path": "src/content/docs/ko/networking/api-gateway.md",
+      "axis": 2,
+      "reason": "Apigee X (https://docs.cloud.google.com/release-notes#November_16_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_16_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "915df1f9be67d072a78e9199",
+      "path": "src/content/docs/ko/networking/multicloud-connectivity.md",
+      "axis": 2,
+      "reason": "Cloud Interconnect (https://docs.cloud.google.com/release-notes#November_16_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_16_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "0996ed8d4d9317618393c79e",
+      "path": "src/content/docs/ko/networking/multicloud-networking.md",
+      "axis": 2,
+      "reason": "Cloud Interconnect (https://docs.cloud.google.com/release-notes#November_16_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_16_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "473223713926002614f571f6",
+      "path": "src/content/docs/ko/ai/agent-adoption.md",
+      "axis": 2,
+      "reason": "Agent Platform Workbench (https://docs.cloud.google.com/release-notes#November_16_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_16_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "cd765a24b8b74dce50bc7057",
+      "path": "src/content/docs/ko/ai/agents.md",
+      "axis": 2,
+      "reason": "Agent Platform Workbench (https://docs.cloud.google.com/release-notes#November_16_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_16_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "ad00c69110150df40d8e12b7",
+      "path": "src/content/docs/ko/ai/llmops.md",
+      "axis": 2,
+      "reason": "Agent Platform Workbench (https://docs.cloud.google.com/release-notes#November_16_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_16_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "a6c13e4e9f0e4fd232cad2b1",
+      "path": "src/content/docs/ko/storage/backup.md",
+      "axis": 2,
+      "reason": "Google Distributed Cloud (software only) for VMware (https://docs.cloud.google.com/release-notes#November_16_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_16_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "9bd168043fd5c755957524f5",
+      "path": "src/content/docs/ko/storage/backup.md",
+      "axis": 2,
+      "reason": "Google Distributed Cloud (software only) for bare metal (https://docs.cloud.google.com/release-notes#November_16_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_16_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "22a5e156498900c11b2dd072",
+      "path": "src/content/docs/ko/storage/backup.md",
+      "axis": 2,
+      "reason": "Google Cloud Armor (https://docs.cloud.google.com/release-notes#November_16_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_16_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "792fd9b2e5b75b13c5b030aa",
+      "path": "src/content/docs/ko/storage/block-and-file.md",
+      "axis": 2,
+      "reason": "Google Cloud Armor (https://docs.cloud.google.com/release-notes#November_16_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_16_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "a1b1afac250598ef9af1fc82",
+      "path": "src/content/docs/ko/storage/migration.md",
+      "axis": 2,
+      "reason": "Google Cloud Armor (https://docs.cloud.google.com/release-notes#November_16_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_16_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "19aabb97b94e911a141c1dd8",
+      "path": "src/content/docs/ko/compute/serverless.md",
+      "axis": 2,
+      "reason": "Retirement: Support for Java 8, 11 and 17 in Azure Functions ends on September 1, 2027 (https://azure.microsoft.com/updates?id=568586)",
+      "source_url": "https://azure.microsoft.com/updates?id=568586",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "17e14c39070f12e5eaa5b6d3",
+      "path": "src/content/docs/ko/about-cloud/support-plans.md",
+      "axis": 2,
+      "reason": "Retirement: Support for Java 8, 11 and 17 in Azure Functions ends on September 1, 2027 (https://azure.microsoft.com/updates?id=568586)",
+      "source_url": "https://azure.microsoft.com/updates?id=568586",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "179c650a442ba71a6a9baba7",
+      "path": null,
+      "axis": 3,
+      "reason": "Amazon CloudWatch Omni now integrates with PagerDuty (https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-cloudwatch-omni-pagerduty/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-cloudwatch-omni-pagerduty/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "2013a31f218bb731ac9d1b74",
+      "path": null,
+      "axis": 3,
+      "reason": "Amazon EC2 M8g instances are now available in Israel (Tel Aviv) (https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-ec2-m8g-instances-telaviv-region/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-ec2-m8g-instances-telaviv-region/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "293e6eeaf5974deddfb76680",
+      "path": null,
+      "axis": 3,
+      "reason": "Amazon EC2 M9gd instances are now available in Asia Pacific (Seoul) (https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-ec2-m9gd-asiapacific-seoul/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-ec2-m9gd-asiapacific-seoul/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "fd80eb55c0246386152b42da",
+      "path": null,
+      "axis": 3,
+      "reason": "Amazon EC2 C9gd instances now available in additional regions (https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-ec2-c9gd-instances-additional-regions/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-ec2-c9gd-instances-additional-regions/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "28d840b4e44020108e884dc3",
+      "path": null,
+      "axis": 3,
+      "reason": "Amazon EC2 C9g instances are now available in additional regions (https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-ec2-c9g-instances-additional-regions/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-ec2-c9g-instances-additional-regions/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "75e3c8614aa302c96dcac937",
+      "path": null,
+      "axis": 3,
+      "reason": "Amazon EC2 M9g instances now available in additional regions (https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-ec2-m9g-instances-additional-regions/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-ec2-m9g-instances-additional-regions/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "8c32bfabf055b4e05f1634bd",
+      "path": null,
+      "axis": 3,
+      "reason": "Elastic Load Balancing for Envoy is now generally available (https://aws.amazon.com/about-aws/whats-new/2026/11/elastic-load-balancing-for-envoy-generally-available)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/elastic-load-balancing-for-envoy-generally-available",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "3cec4b7a0d5c9706c972ef14",
+      "path": null,
+      "axis": 3,
+      "reason": "AWS Device Farm now supports Android emulators and iOS simulators (https://aws.amazon.com/about-aws/whats-new/2026/11/device-farm-virtual-devices/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/device-farm-virtual-devices/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "dfe40a51dbc760ab80281797",
+      "path": null,
+      "axis": 3,
+      "reason": "Identity and Access Management (https://docs.cloud.google.com/release-notes#November_16_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_16_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "63c06e6bf99df13cf6e74a99",
+      "path": null,
+      "axis": 3,
+      "reason": "Config Connector (https://docs.cloud.google.com/release-notes#November_16_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_16_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "3c5524bd9e77a5e03005a0cf",
+      "path": null,
+      "axis": 3,
+      "reason": "Container Optimized OS (https://docs.cloud.google.com/release-notes#November_16_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_16_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "63b7d27f890736177f24d379",
+      "path": null,
+      "axis": 3,
+      "reason": "Spanner (https://docs.cloud.google.com/release-notes#November_16_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_16_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "631a800deb2c8eb21ed79287",
+      "path": null,
+      "axis": 3,
+      "reason": "Cluster Toolkit (https://docs.cloud.google.com/release-notes#November_16_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_16_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "80aa996a50b9460b24e73470",
+      "path": null,
+      "axis": 3,
+      "reason": "Google SecOps (https://docs.cloud.google.com/release-notes#November_16_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_16_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "8de3b9aebb029193e5ee524f",
+      "path": null,
+      "axis": 3,
+      "reason": "BigQuery (https://docs.cloud.google.com/release-notes#November_25_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_25_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "73f2d3ee47856bdfc3ebc271",
+      "path": null,
+      "axis": 3,
+      "reason": "[In preview] Public Preview: ECMP Nexthop (https://azure.microsoft.com/updates?id=582326)",
+      "source_url": "https://azure.microsoft.com/updates?id=582326",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
     }
   ],
   "resolved_ids": [],
@@ -24375,10 +25013,10 @@
         "oci": "complete"
       },
       "2026-11-16": {
-        "aws": "provisional",
-        "gcp": "provisional",
-        "azure": "provisional",
-        "oci": "provisional"
+        "aws": "complete",
+        "gcp": "complete",
+        "azure": "complete",
+        "oci": "complete"
       },
       "2026-09-30": {
         "aws": "complete",
@@ -24483,6 +25121,18 @@
         "oci": "complete"
       },
       "2026-11-25": {
+        "aws": "provisional",
+        "gcp": "provisional",
+        "azure": "provisional",
+        "oci": "provisional"
+      },
+      "2026-10-09": {
+        "aws": "complete",
+        "gcp": "complete",
+        "azure": "complete",
+        "oci": "complete"
+      },
+      "2026-11-26": {
         "aws": "provisional",
         "gcp": "provisional",
         "azure": "provisional",
@@ -24773,10 +25423,10 @@
         "oci": "2026-11-16T06:37:53.282Z"
       },
       "2026-11-16": {
-        "aws": "2026-11-17T08:00:12.185Z",
-        "gcp": "2026-11-17T08:00:12.185Z",
-        "azure": "2026-11-17T08:00:12.185Z",
-        "oci": "2026-11-17T08:00:12.185Z"
+        "aws": "2026-11-26T08:27:28.953Z",
+        "gcp": "2026-11-26T08:27:28.953Z",
+        "azure": "2026-11-26T08:27:28.953Z",
+        "oci": "2026-11-26T08:27:28.953Z"
       },
       "2026-09-30": {
         "aws": "2026-11-17T08:00:12.185Z",
@@ -24881,10 +25531,22 @@
         "oci": "2026-11-25T08:43:19.465Z"
       },
       "2026-11-25": {
-        "aws": "2026-11-25T08:43:19.465Z",
-        "gcp": "2026-11-25T08:43:19.465Z",
-        "azure": "2026-11-25T08:43:19.465Z",
-        "oci": "2026-11-25T08:43:19.465Z"
+        "aws": "2026-11-26T08:27:28.953Z",
+        "gcp": "2026-11-26T08:27:28.953Z",
+        "azure": "2026-11-26T08:27:28.953Z",
+        "oci": "2026-11-26T08:27:28.953Z"
+      },
+      "2026-10-09": {
+        "aws": "2026-11-26T08:27:28.953Z",
+        "gcp": "2026-11-26T08:27:28.953Z",
+        "azure": "2026-11-26T08:27:28.953Z",
+        "oci": "2026-11-26T08:27:28.953Z"
+      },
+      "2026-11-26": {
+        "aws": "2026-11-26T08:27:28.953Z",
+        "gcp": "2026-11-26T08:27:28.953Z",
+        "azure": "2026-11-26T08:27:28.953Z",
+        "oci": "2026-11-26T08:27:28.953Z"
       }
     }
   },

@@ -24713,6 +24713,188 @@
       "status": "open",
       "evidence": [],
       "pr": null
+    },
+    {
+      "id": "dce4cce5cacf23757f2c21ac",
+      "path": "src/content/docs/ko/ai/llmops.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://langfuse.com/",
+      "change_digest": "68e8012b0dc1153d3705ee77f7ebe8101870d68358f3b56ef7f80fbe91181a4a",
+      "source_url": "https://langfuse.com/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "5d2c1726becb0a4ec4b2249c",
+      "path": "src/content/docs/ko/ai/vector-store.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://learn.microsoft.com/azure/ai-foundry/",
+      "change_digest": "55de0a2d6886bc95de3b9e6cbee024463550013918bc90402a744513e9947a95",
+      "source_url": "https://learn.microsoft.com/azure/ai-foundry/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "023735dd087aa8fdcf380163",
+      "path": "src/content/docs/ko/ai/agents.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://learn.microsoft.com/azure/ai-foundry/agents/",
+      "change_digest": "55de0a2d6886bc95de3b9e6cbee024463550013918bc90402a744513e9947a95",
+      "source_url": "https://learn.microsoft.com/azure/ai-foundry/agents/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "b4deca7dcbc93e208c6c6ed0",
+      "path": "src/content/docs/ko/ai/ai-ml.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://learn.microsoft.com/azure/ai-foundry/agents/",
+      "change_digest": "55de0a2d6886bc95de3b9e6cbee024463550013918bc90402a744513e9947a95",
+      "source_url": "https://learn.microsoft.com/azure/ai-foundry/agents/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "8516a95f78eba5cdbf1b1eb9",
+      "path": "src/content/docs/ko/ai/getting-started.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://learn.microsoft.com/azure/ai-services/openai/overview",
+      "change_digest": "d2ce815a5ef05ec90b4e2ca334423a8cf25be96daa5e79e33e4e6b3b148deaa7",
+      "source_url": "https://learn.microsoft.com/azure/ai-services/openai/overview",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "7b27213c2feaa9de9188b8b4",
+      "path": "src/content/docs/ko/ai/getting-started.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://learn.microsoft.com/azure/ai-studio/",
+      "change_digest": "55de0a2d6886bc95de3b9e6cbee024463550013918bc90402a744513e9947a95",
+      "source_url": "https://learn.microsoft.com/azure/ai-studio/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "3cf48513932e2650e4348788",
+      "path": "src/content/docs/ko/ai/llmops.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://learn.microsoft.com/azure/ai-studio/how-to/evaluate-generative-ai-app",
+      "change_digest": "974e38a54eead8c7e3f8e9df8064c4dae0a45593287f701c4086ab8a123e0fcb",
+      "source_url": "https://learn.microsoft.com/azure/ai-studio/how-to/evaluate-generative-ai-app",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "08e7e3d51e5440dcd9111e16",
+      "path": "src/content/docs/ko/ai/gpu-infra/kubernetes-and-scheduling.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://learn.microsoft.com/azure/aks/gpu-cluster",
+      "change_digest": "92ebfd588b5ef10bf89eaf6bef6183d8754dc80e1e2e063ed2102ef15a053eb2",
+      "source_url": "https://learn.microsoft.com/azure/aks/gpu-cluster",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "d39e58b7477527c3288fc21f",
+      "path": "src/content/docs/ko/compute/service-mesh.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://learn.microsoft.com/azure/aks/istio-about",
+      "change_digest": "0b9b4796b9dafa3e96259183a19c2b25d25bedfb99e73a6200a529fdcab74d47",
+      "source_url": "https://learn.microsoft.com/azure/aks/istio-about",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "0b6fc2ce5f499a567604ad36",
+      "path": "src/content/docs/ko/compute/hybrid-and-edge.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://learn.microsoft.com/azure/azure-local/",
+      "change_digest": "fc97afbdb9bbca067ae9cba9ebb6f414d9429768dc62d443c05e5c9e84cfa579",
+      "source_url": "https://learn.microsoft.com/azure/azure-local/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "383375116cdf56d2929f4d9e",
+      "path": "src/content/docs/ko/governance/compliance.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://learn.microsoft.com/azure/azure-monitor/essentials/activity-log",
+      "change_digest": "47b878f3de49a67a1f6ac2bb960d225fcd5af554fd13084c3846b6bb85821d30",
+      "source_url": "https://learn.microsoft.com/azure/azure-monitor/essentials/activity-log",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "2c6a40352ae699d5269f9914",
+      "path": "src/content/docs/ko/ai/vector-store.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://learn.microsoft.com/azure/cosmos-db/vector-search",
+      "change_digest": "4e83b2239b1a0fe69bc4b06dad274d0135c8d059ce031cbecd7bc8e32c315ff7",
+      "source_url": "https://learn.microsoft.com/azure/cosmos-db/vector-search",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "83413f2270f1fdfb3d5c3dd1",
+      "path": "src/content/docs/ko/about-cloud/accounts-and-organizations.mdx",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://learn.microsoft.com/azure/cost-management-billing/manage/view-all-accounts",
+      "change_digest": "00ee944fdf5a2a93d8e46dd57463ea2143c0cae7072930ff7ebd5e50275bfcac",
+      "source_url": "https://learn.microsoft.com/azure/cost-management-billing/manage/view-all-accounts",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
     }
   ],
   "resolved_ids": [],
@@ -25577,7 +25759,7 @@
         "paths": [
           "src/content/docs/ko/ai/agents.md"
         ],
-        "checked_at": "2026-11-25T08:43:30Z",
+        "checked_at": "2026-11-26T08:27:38Z",
         "status": "unverified",
         "hash": "dc7fc249911468c4dc00fc4eb92b1c0d611070787422d5a6d767fc3b925fee20",
         "final_url": "https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/",
@@ -25587,7 +25769,7 @@
         "paths": [
           "src/content/docs/ko/singapore/mtcs.md"
         ],
-        "checked_at": "2026-11-25T08:43:30Z",
+        "checked_at": "2026-11-26T08:27:38Z",
         "status": "unverified",
         "hash": "635b02875de69e3cc1de1579b70facd5f4c19edf127bd2e3769e8a92f70b360b",
         "final_url": "https://abs.org.sg/docs/library/abs-ospar-guidelines-v2-0.pdf",
@@ -25597,7 +25779,7 @@
         "paths": [
           "src/content/docs/ko/ai/agents.md"
         ],
-        "checked_at": "2026-11-25T08:43:30Z",
+        "checked_at": "2026-11-26T08:27:38Z",
         "status": "unverified",
         "hash": "279273094623330fe250f2984391cac02002276942f6d2dbd8537e495fae1bdf",
         "final_url": "https://www.ag2.ai/",
@@ -25607,7 +25789,7 @@
         "paths": [
           "src/content/docs/ko/ai/getting-started.md"
         ],
-        "checked_at": "2026-11-25T08:43:30Z",
+        "checked_at": "2026-11-26T08:27:38Z",
         "status": "unverified",
         "hash": "ae0f8a0945b3d1cf6945ebf983706906940024c6f02864250619be546f2c10a2",
         "final_url": "https://ai.azure.com/",
@@ -25648,7 +25830,7 @@
         "paths": [
           "src/content/docs/ko/singapore/ai-governance.md"
         ],
-        "checked_at": "2026-11-25T08:43:30Z",
+        "checked_at": "2026-11-26T08:27:38Z",
         "status": "unverified",
         "hash": "861c9baae1bb9420d984be6abe0a5a19d6b07730363337bf8a901ea68a37c87d",
         "final_url": "https://aiverifyfoundation.sg/resources/mgf-gen-ai/",
@@ -25668,7 +25850,7 @@
         "paths": [
           "src/content/docs/ko/devops/devsecops.md"
         ],
-        "checked_at": "2026-11-25T08:43:30Z",
+        "checked_at": "2026-11-26T08:27:38Z",
         "status": "unverified",
         "hash": "6ce84a59d0c606ad8c2c2b3d3703944b3097b677f6a9c36c22154de4e3295152",
         "final_url": "https://aquasecurity.github.io/tfsec/",
@@ -25688,7 +25870,7 @@
         "paths": [
           "src/content/docs/ko/ai/llmops.md"
         ],
-        "checked_at": "2026-11-25T08:43:30Z",
+        "checked_at": "2026-11-26T08:27:38Z",
         "status": "unverified",
         "hash": "84e61b481a6f8d7a78ec8093dce057a9e2b06a9ea80957e5c3766d9b595ef09c",
         "final_url": "https://arize.com/",
@@ -25758,7 +25940,7 @@
         "paths": [
           "src/content/docs/ko/devops/observability.md"
         ],
-        "checked_at": "2026-11-25T08:43:30Z",
+        "checked_at": "2026-11-26T08:27:38Z",
         "status": "unverified",
         "hash": "b472569757f991e0df0919150abea62828a7651cc991dfcabea1158bc12ba1fe",
         "final_url": "https://aws-otel.github.io/",
@@ -33318,7 +33500,7 @@
         "paths": [
           "src/content/docs/ko/ai/gpu-infra/kubernetes-and-scheduling.md"
         ],
-        "checked_at": "2026-11-06T06:54:01Z",
+        "checked_at": "2026-11-26T08:27:38Z",
         "status": "observed",
         "hash": "e09bc4a495605613292c335ea3877146fdd04e759aa63b003cbf62f805b9a833",
         "hash_kind": "visible-v1",
@@ -33328,7 +33510,7 @@
         "paths": [
           "src/content/docs/ko/devops/kubernetes-operations.mdx"
         ],
-        "checked_at": "2026-11-06T06:54:01Z",
+        "checked_at": "2026-11-26T08:27:38Z",
         "status": "unverified",
         "error": "unsupported-or-insufficient-visible-content"
       },
@@ -33337,7 +33519,7 @@
           "src/content/docs/ko/about-cloud/well-architected.mdx",
           "src/content/docs/ko/governance/exit-strategy.md"
         ],
-        "checked_at": "2026-11-06T06:54:01Z",
+        "checked_at": "2026-11-26T08:27:38Z",
         "status": "unverified",
         "error": "unsupported-or-insufficient-visible-content"
       },
@@ -33345,7 +33527,7 @@
         "paths": [
           "src/content/docs/ko/compute/service-mesh.md"
         ],
-        "checked_at": "2026-11-06T06:54:01Z",
+        "checked_at": "2026-11-26T08:27:38Z",
         "status": "unverified",
         "error": "unsupported-or-insufficient-visible-content"
       },
@@ -33353,7 +33535,7 @@
         "paths": [
           "src/content/docs/ko/devops/observability.md"
         ],
-        "checked_at": "2026-11-06T06:54:01Z",
+        "checked_at": "2026-11-26T08:27:38Z",
         "status": "unverified",
         "error": "unsupported-or-insufficient-visible-content"
       },
@@ -33361,9 +33543,9 @@
         "paths": [
           "src/content/docs/ko/ai/llmops.md"
         ],
-        "checked_at": "2026-11-06T06:54:01Z",
+        "checked_at": "2026-11-26T08:27:38Z",
         "status": "observed",
-        "hash": "301a9073cc135e4e5617d78449e377c6c59684900bdbe18b0f21716e350b0c11",
+        "hash": "859f7f5c249837f530975d96da5818c5e9e9172a949829889b3808f5685f6b02",
         "hash_kind": "visible-v1",
         "final_url": "https://langfuse.com/"
       },
@@ -33371,7 +33553,7 @@
         "paths": [
           "src/content/docs/ko/ai/agents.md"
         ],
-        "checked_at": "2026-11-06T06:54:01Z",
+        "checked_at": "2026-11-26T08:27:38Z",
         "status": "observed",
         "hash": "52c557928f4f93bc8fdb28add0953c242f20a89250e39bd5ecc9f2ac6104d573",
         "hash_kind": "visible-v1",
@@ -33381,9 +33563,9 @@
         "paths": [
           "src/content/docs/ko/ai/vector-store.md"
         ],
-        "checked_at": "2026-11-06T06:54:01Z",
+        "checked_at": "2026-11-26T08:27:38Z",
         "status": "observed",
-        "hash": "a13cf9ba1040944aa5546633dadf316e10011db4066caae7a5ff26efaf9a78bc",
+        "hash": "1835253c1173c4b498a3a64a5a64bdbb91e625457f69da1858ecca3131d1fbd3",
         "hash_kind": "visible-v1",
         "final_url": "https://learn.microsoft.com/en-us/azure/foundry/"
       },
@@ -33392,9 +33574,9 @@
           "src/content/docs/ko/ai/agents.md",
           "src/content/docs/ko/ai/ai-ml.md"
         ],
-        "checked_at": "2026-11-06T06:54:01Z",
+        "checked_at": "2026-11-26T08:27:38Z",
         "status": "observed",
-        "hash": "a13cf9ba1040944aa5546633dadf316e10011db4066caae7a5ff26efaf9a78bc",
+        "hash": "1835253c1173c4b498a3a64a5a64bdbb91e625457f69da1858ecca3131d1fbd3",
         "hash_kind": "visible-v1",
         "final_url": "https://learn.microsoft.com/en-us/azure/foundry/"
       },
@@ -33402,7 +33584,7 @@
         "paths": [
           "src/content/docs/ko/ai/llmops.md"
         ],
-        "checked_at": "2026-11-06T06:54:01Z",
+        "checked_at": "2026-11-26T08:27:38Z",
         "status": "observed",
         "hash": "f00d9dc82d657dc591066e9c30aee7da3103204eda5a84ec90591b9a3cc3e550",
         "hash_kind": "visible-v1",
@@ -33412,7 +33594,7 @@
         "paths": [
           "src/content/docs/ko/security/ai-security.md"
         ],
-        "checked_at": "2026-11-06T06:54:01Z",
+        "checked_at": "2026-11-26T08:27:38Z",
         "status": "observed",
         "hash": "8b3ebbcb9a7d7ca4e90e3b09b69fa7b94a84a15405482801d9c6af566fe524b4",
         "hash_kind": "visible-v1",
@@ -33422,7 +33604,7 @@
         "paths": [
           "src/content/docs/ko/ai/prompt-engineering.md"
         ],
-        "checked_at": "2026-11-06T06:54:01Z",
+        "checked_at": "2026-11-26T08:27:38Z",
         "status": "observed",
         "hash": "3306978fbf2ede2b3e2beb7c924453b9e7f96cd65d5eae16e64f7906a94c823e",
         "hash_kind": "visible-v1",
@@ -33432,7 +33614,7 @@
         "paths": [
           "src/content/docs/ko/ai/prompt-engineering.md"
         ],
-        "checked_at": "2026-11-06T06:54:01Z",
+        "checked_at": "2026-11-26T08:27:38Z",
         "status": "observed",
         "hash": "7294550996958503f3b84664b2c69b1db121604124caa1cb429bf149701c5f60",
         "hash_kind": "visible-v1",
@@ -33442,9 +33624,9 @@
         "paths": [
           "src/content/docs/ko/ai/getting-started.md"
         ],
-        "checked_at": "2026-11-06T06:54:01Z",
+        "checked_at": "2026-11-26T08:27:38Z",
         "status": "observed",
-        "hash": "ad7116ce2efe9c289895f2dce56d3662c032770b4e74eb1390163b7d0dacf67e",
+        "hash": "2fba04c81e5a4f33029867740b7e1a85f5a3bcb2e86e9c7b3a6cfc09da6194ea",
         "hash_kind": "visible-v1",
         "final_url": "https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/models-sold-directly-by-azure"
       },
@@ -33452,9 +33634,9 @@
         "paths": [
           "src/content/docs/ko/ai/getting-started.md"
         ],
-        "checked_at": "2026-11-06T06:54:01Z",
+        "checked_at": "2026-11-26T08:27:38Z",
         "status": "observed",
-        "hash": "a13cf9ba1040944aa5546633dadf316e10011db4066caae7a5ff26efaf9a78bc",
+        "hash": "1835253c1173c4b498a3a64a5a64bdbb91e625457f69da1858ecca3131d1fbd3",
         "hash_kind": "visible-v1",
         "final_url": "https://learn.microsoft.com/en-us/azure/foundry/"
       },
@@ -33462,7 +33644,7 @@
         "paths": [
           "src/content/docs/ko/ai/rag-patterns.md"
         ],
-        "checked_at": "2026-11-06T06:54:01Z",
+        "checked_at": "2026-11-26T08:27:38Z",
         "status": "observed",
         "hash": "6ab7fbd527ef18a4c14f82afda70eb002be5be3ccc3d5ac37baacc6023b0e414",
         "hash_kind": "visible-v1",
@@ -33472,9 +33654,9 @@
         "paths": [
           "src/content/docs/ko/ai/llmops.md"
         ],
-        "checked_at": "2026-11-06T06:54:01Z",
+        "checked_at": "2026-11-26T08:27:38Z",
         "status": "observed",
-        "hash": "a63751540fe65b05ec5c30ec5bf2b08ff28a00174d8cf6532e4aab07e22e040a",
+        "hash": "06ea55889a7e6f846d4b696b8335b555c33493e6248ddc38421ab58ebddf09da",
         "hash_kind": "visible-v1",
         "final_url": "https://learn.microsoft.com/en-us/azure/foundry/how-to/evaluate-generative-ai-app"
       },
@@ -33482,7 +33664,7 @@
         "paths": [
           "src/content/docs/ko/devops/kubernetes-operations.mdx"
         ],
-        "checked_at": "2026-11-06T06:54:01Z",
+        "checked_at": "2026-11-26T08:27:38Z",
         "status": "observed",
         "hash": "73eebf3d80f9c6e9a69b09949ad5127d2d87ad7d55bdc583124c0b39d0ce65ad",
         "hash_kind": "visible-v1",
@@ -33492,7 +33674,7 @@
         "paths": [
           "src/content/docs/ko/devops/kubernetes-operations.mdx"
         ],
-        "checked_at": "2026-11-06T06:54:01Z",
+        "checked_at": "2026-11-26T08:27:38Z",
         "status": "observed",
         "hash": "6f002bbf4f285c06093cbc9f835ac282ad0fe128ce432bf36c983c2187a46f74",
         "hash_kind": "visible-v1",
@@ -33502,9 +33684,9 @@
         "paths": [
           "src/content/docs/ko/ai/gpu-infra/kubernetes-and-scheduling.md"
         ],
-        "checked_at": "2026-11-06T06:54:01Z",
+        "checked_at": "2026-11-26T08:27:38Z",
         "status": "observed",
-        "hash": "4df0b90085e18639d13063c3cb6a0170d0e68a943e0747d39bd6e83290a3821c",
+        "hash": "b82041bc58a50df066ef2ca55f4745c620bd4f2f869a5355d8d4d57fa460b2b8",
         "hash_kind": "visible-v1",
         "final_url": "https://learn.microsoft.com/en-us/azure/aks/use-nvidia-gpu"
       },
@@ -33512,9 +33694,9 @@
         "paths": [
           "src/content/docs/ko/compute/service-mesh.md"
         ],
-        "checked_at": "2026-11-06T06:54:01Z",
+        "checked_at": "2026-11-26T08:27:38Z",
         "status": "observed",
-        "hash": "d56914c81540d98cad6868f3c48d8a30b60552defb51cbdf0cefa4af0143cbfa",
+        "hash": "56429daab2e41f195d84a3275f294af3bcc5e85ec1f11417c5b3634204b7a45d",
         "hash_kind": "visible-v1",
         "final_url": "https://learn.microsoft.com/en-us/azure/aks/istio-about"
       },
@@ -33522,7 +33704,7 @@
         "paths": [
           "src/content/docs/ko/ai/rag-patterns.md"
         ],
-        "checked_at": "2026-11-06T06:54:01Z",
+        "checked_at": "2026-11-26T08:27:38Z",
         "status": "observed",
         "hash": "dd0a1ec3705598b0c1650d9d70437a0e54120d2ced2be9f85c1ed3931c0c73dc",
         "hash_kind": "visible-v1",
@@ -33532,7 +33714,7 @@
         "paths": [
           "src/content/docs/ko/ai/rag-patterns.md"
         ],
-        "checked_at": "2026-11-06T06:54:01Z",
+        "checked_at": "2026-11-26T08:27:38Z",
         "status": "observed",
         "hash": "0af4ece26c33258674553e305326e2c04e0e15b1ee0d43c6c70662914f911e9b",
         "hash_kind": "visible-v1",
@@ -33542,7 +33724,7 @@
         "paths": [
           "src/content/docs/ko/ai/rag-patterns.md"
         ],
-        "checked_at": "2026-11-06T06:54:01Z",
+        "checked_at": "2026-11-26T08:27:38Z",
         "status": "observed",
         "hash": "629779c3fe9905ca52b4fde4f6d0d6116acf526ccc46d90f65b7af8822715ba4",
         "hash_kind": "visible-v1",
@@ -33552,7 +33734,7 @@
         "paths": [
           "src/content/docs/ko/compute/modernization.md"
         ],
-        "checked_at": "2026-11-06T06:54:01Z",
+        "checked_at": "2026-11-26T08:27:38Z",
         "status": "observed",
         "hash": "baa96a4248d02b23ad867a4bf35d6a9e15224ecf22e9d2561a59e2a85e2e4dea",
         "hash_kind": "visible-v1",
@@ -33562,7 +33744,7 @@
         "paths": [
           "src/content/docs/ko/networking/multicloud-connectivity.md"
         ],
-        "checked_at": "2026-11-06T06:54:01Z",
+        "checked_at": "2026-11-26T08:27:38Z",
         "status": "observed",
         "hash": "3ebe8c4a95631fc9ff15d3e6eebe3bf17a0941d1f559c3f2b983519ef8a1bdb7",
         "hash_kind": "visible-v1",
@@ -33572,7 +33754,7 @@
         "paths": [
           "src/content/docs/ko/security/secrets.md"
         ],
-        "checked_at": "2026-11-06T06:54:01Z",
+        "checked_at": "2026-11-26T08:27:38Z",
         "status": "observed",
         "hash": "da6a39db7cbf45dc5bdc0070dbfb2a464feb5dee8e77e705fb31ee503e84ecab",
         "hash_kind": "visible-v1",
@@ -33582,7 +33764,7 @@
         "paths": [
           "src/content/docs/ko/compute/hybrid-and-edge.md"
         ],
-        "checked_at": "2026-11-07T06:05:22Z",
+        "checked_at": "2026-11-26T08:27:38Z",
         "status": "observed",
         "hash": "5cf47ab9ff4f09f4a83e18e9813e624ff7d0a51a0f7a4a10f626de9809daced5",
         "hash_kind": "visible-v1",
@@ -33592,7 +33774,7 @@
         "paths": [
           "src/content/docs/ko/database/cache.md"
         ],
-        "checked_at": "2026-11-07T06:05:22Z",
+        "checked_at": "2026-11-26T08:27:38Z",
         "status": "observed",
         "hash": "37f44e903647e9dad99c4b3ca62142dfc7258cd5995078e97438508f1887d61e",
         "hash_kind": "visible-v1",
@@ -33602,7 +33784,7 @@
         "paths": [
           "src/content/docs/ko/compute/serverless.md"
         ],
-        "checked_at": "2026-11-07T06:05:22Z",
+        "checked_at": "2026-11-26T08:27:38Z",
         "status": "observed",
         "hash": "6820e72f6cb28a09076bd4e69efca5a4d3030f9a37e8646dd050d63ce43059d8",
         "hash_kind": "visible-v1",
@@ -33612,17 +33794,17 @@
         "paths": [
           "src/content/docs/ko/compute/hybrid-and-edge.md"
         ],
-        "checked_at": "2026-11-07T06:05:22Z",
+        "checked_at": "2026-11-26T08:27:38Z",
         "status": "observed",
         "hash": "6cc78788ec76f24918bb4ca1ee0c2f4fead6acb396b04632e6f88adf9bb372d7",
         "hash_kind": "visible-v1",
-        "final_url": "https://learn.microsoft.com/en-us/azure/azure-local/?view=azloc-2610"
+        "final_url": "https://learn.microsoft.com/en-us/azure/azure-local/?view=azloc-2611"
       },
       "https://learn.microsoft.com/azure/azure-monitor/": {
         "paths": [
           "src/content/docs/ko/devops/observability.md"
         ],
-        "checked_at": "2026-11-07T06:05:22Z",
+        "checked_at": "2026-11-26T08:27:38Z",
         "status": "observed",
         "hash": "8e42cdc79d89b9dca8192fa132476fcb228a3428591289bd5e0eb9b275287085",
         "hash_kind": "visible-v1",
@@ -33632,7 +33814,7 @@
         "paths": [
           "src/content/docs/ko/devops/observability.md"
         ],
-        "checked_at": "2026-11-07T06:05:22Z",
+        "checked_at": "2026-11-26T08:27:38Z",
         "status": "observed",
         "hash": "90379744f791b727d0529ff9aaefba7b07ebc03476f526a5838cedae0d6494b9",
         "hash_kind": "visible-v1",
@@ -33642,7 +33824,7 @@
         "paths": [
           "src/content/docs/ko/devops/observability.md"
         ],
-        "checked_at": "2026-11-07T06:05:22Z",
+        "checked_at": "2026-11-26T08:27:38Z",
         "status": "observed",
         "hash": "90379744f791b727d0529ff9aaefba7b07ebc03476f526a5838cedae0d6494b9",
         "hash_kind": "visible-v1",
@@ -33652,9 +33834,9 @@
         "paths": [
           "src/content/docs/ko/governance/compliance.md"
         ],
-        "checked_at": "2026-11-07T06:05:22Z",
+        "checked_at": "2026-11-26T08:27:38Z",
         "status": "observed",
-        "hash": "8a0db7417e74da949b978250ee9f57e9dabd6a4b3be86b1c560dae8401fb3705",
+        "hash": "548e53ad1d085de376ed5cfe549958823add7d96ab44ab1b2eb930ee998a3899",
         "hash_kind": "visible-v1",
         "final_url": "https://learn.microsoft.com/en-us/azure/azure-monitor/fundamentals/activity-log"
       },
@@ -33662,7 +33844,7 @@
         "paths": [
           "src/content/docs/ko/database/search.md"
         ],
-        "checked_at": "2026-11-07T06:05:22Z",
+        "checked_at": "2026-11-26T08:27:38Z",
         "status": "observed",
         "hash": "d94ad10d8aa10bd0614ca63ef484011d3c3828f244fecb13833f1998789e27b6",
         "hash_kind": "visible-v1",
@@ -33672,7 +33854,7 @@
         "paths": [
           "src/content/docs/ko/governance/finops.md"
         ],
-        "checked_at": "2026-11-07T06:05:22Z",
+        "checked_at": "2026-11-26T08:27:38Z",
         "status": "observed",
         "hash": "23fea7515b87a95f1cb32e33b09e11138e0de98e496e9ad2d5fa0f246c6a5e2a",
         "hash_kind": "visible-v1",
@@ -33682,7 +33864,7 @@
         "paths": [
           "src/content/docs/ko/database/operations.md"
         ],
-        "checked_at": "2026-11-07T06:05:22Z",
+        "checked_at": "2026-11-26T08:27:38Z",
         "status": "observed",
         "hash": "ee7f35731c026da9eaa928c3de2167648e1a7510363149bf63d42696fa73100e",
         "hash_kind": "visible-v1",
@@ -33692,7 +33874,7 @@
         "paths": [
           "src/content/docs/ko/database/operations.md"
         ],
-        "checked_at": "2026-11-07T06:05:22Z",
+        "checked_at": "2026-11-26T08:27:38Z",
         "status": "observed",
         "hash": "db3839ea071213fb69be91c8fb575bf41792c0eb1a36157f40266a6d58bd4175",
         "hash_kind": "visible-v1",
@@ -33702,7 +33884,7 @@
         "paths": [
           "src/content/docs/ko/devops/remote-access.md"
         ],
-        "checked_at": "2026-11-07T06:05:22Z",
+        "checked_at": "2026-11-26T08:27:38Z",
         "status": "observed",
         "hash": "c1783d76bb3e06efd76cc5c351b5b334289ff5ddbe9e560c5903ce969bb27fc5",
         "hash_kind": "visible-v1",
@@ -33712,7 +33894,7 @@
         "paths": [
           "src/content/docs/ko/governance/sustainability.md"
         ],
-        "checked_at": "2026-11-07T06:05:22Z",
+        "checked_at": "2026-11-26T08:27:38Z",
         "status": "observed",
         "hash": "9ecd8003fe91c224942286d06fc13b78fb76a4b42992f247d257863feb06e467",
         "hash_kind": "visible-v1",
@@ -33724,7 +33906,7 @@
           "src/content/docs/ko/about-cloud/why-multicloud.md",
           "src/content/docs/ko/governance/getting-started.md"
         ],
-        "checked_at": "2026-11-07T06:05:22Z",
+        "checked_at": "2026-11-26T08:27:38Z",
         "status": "observed",
         "hash": "7120f0d2e4c90254cf2748d49d0e20c65671fb5964a26f124e75ca123b93fecf",
         "hash_kind": "visible-v1",
@@ -33734,7 +33916,7 @@
         "paths": [
           "src/content/docs/ko/compute/migration.md"
         ],
-        "checked_at": "2026-11-07T06:05:22Z",
+        "checked_at": "2026-11-26T08:27:38Z",
         "status": "observed",
         "hash": "779bd9c7ae459c5957c2b0bdf648dc63f4b9e743bc91c8f691e83668b9764418",
         "hash_kind": "visible-v1",
@@ -33744,7 +33926,7 @@
         "paths": [
           "src/content/docs/ko/compute/modernization.md"
         ],
-        "checked_at": "2026-11-07T06:05:22Z",
+        "checked_at": "2026-11-26T08:27:38Z",
         "status": "observed",
         "hash": "9a81ee4f3c02510fd39f7a4e32447bcc67bea575c16febab5f82157bfb3209be",
         "hash_kind": "visible-v1",
@@ -33754,7 +33936,7 @@
         "paths": [
           "src/content/docs/ko/compute/modernization.md"
         ],
-        "checked_at": "2026-11-07T06:05:22Z",
+        "checked_at": "2026-11-26T08:27:38Z",
         "status": "observed",
         "hash": "33e98e8efa1ee62f9000c0529acd1936b3f97a307356c6bf93ed7fafcdeccb21",
         "hash_kind": "visible-v1",
@@ -33764,7 +33946,7 @@
         "paths": [
           "src/content/docs/ko/ai/prompt-engineering.md"
         ],
-        "checked_at": "2026-11-07T06:05:22Z",
+        "checked_at": "2026-11-26T08:27:38Z",
         "status": "observed",
         "hash": "3306978fbf2ede2b3e2beb7c924453b9e7f96cd65d5eae16e64f7906a94c823e",
         "hash_kind": "visible-v1",
@@ -33774,7 +33956,7 @@
         "paths": [
           "src/content/docs/ko/governance/compliance.md"
         ],
-        "checked_at": "2026-11-07T06:05:22Z",
+        "checked_at": "2026-11-26T08:27:38Z",
         "status": "observed",
         "hash": "ec6a2a1a64dab0f4641cdf01b6d9861e46c364ae650a0628321ae59eadc1af4c",
         "hash_kind": "visible-v1",
@@ -33784,7 +33966,7 @@
         "paths": [
           "src/content/docs/ko/us/hipaa.md"
         ],
-        "checked_at": "2026-11-07T06:05:22Z",
+        "checked_at": "2026-11-26T08:27:38Z",
         "status": "observed",
         "hash": "8b1322d6515087ed9c8327fd8839f91f347f648e062bc21322674cd8d3cdfdf9",
         "hash_kind": "visible-v1",
@@ -33794,7 +33976,7 @@
         "paths": [
           "src/content/docs/ko/governance/compliance.md"
         ],
-        "checked_at": "2026-11-07T06:05:22Z",
+        "checked_at": "2026-11-26T08:27:38Z",
         "status": "observed",
         "hash": "380170c59b88ad0ca337f7f623b2f52af4a24200282deebd04e255c66d2cd7e3",
         "hash_kind": "visible-v1",
@@ -33804,7 +33986,7 @@
         "paths": [
           "src/content/docs/ko/korea/governance/compliance.md"
         ],
-        "checked_at": "2026-11-07T06:05:22Z",
+        "checked_at": "2026-11-26T08:27:38Z",
         "status": "observed",
         "hash": "bc691f94a61c5801906ad13823603feee3601d92e00bec2de3a12257518a9a5b",
         "hash_kind": "visible-v1",
@@ -33814,7 +33996,7 @@
         "paths": [
           "src/content/docs/ko/korea/governance/compliance.md"
         ],
-        "checked_at": "2026-11-07T06:05:22Z",
+        "checked_at": "2026-11-26T08:27:38Z",
         "status": "observed",
         "hash": "5cc986cb367e215573c72636ed3e53cb593ec7e09d6a9f0f8980fd09dd474598",
         "hash_kind": "visible-v1",
@@ -33824,7 +34006,7 @@
         "paths": [
           "src/content/docs/ko/security/data-protection.md"
         ],
-        "checked_at": "2026-11-07T06:05:22Z",
+        "checked_at": "2026-11-26T08:27:38Z",
         "status": "observed",
         "hash": "5e56222e221b817bab611de788066150b1c01574089f0c2fe8c849eae48b1285",
         "hash_kind": "visible-v1",
@@ -33834,9 +34016,9 @@
         "paths": [
           "src/content/docs/ko/ai/vector-store.md"
         ],
-        "checked_at": "2026-11-07T06:05:22Z",
+        "checked_at": "2026-11-26T08:27:38Z",
         "status": "observed",
-        "hash": "8649bd184f1b0b6affe24b350ca359e3d67f7112278f97fe17f2cab7cd782a38",
+        "hash": "1e65b12f8dc44241b0c6e0ae44f16f323151cabd6622cd2da5f5b4d97a4812e6",
         "hash_kind": "visible-v1",
         "final_url": "https://learn.microsoft.com/en-us/azure/cosmos-db/vector-search"
       },
@@ -33844,7 +34026,7 @@
         "paths": [
           "src/content/docs/ko/governance/finops.md"
         ],
-        "checked_at": "2026-11-07T06:05:22Z",
+        "checked_at": "2026-11-26T08:27:38Z",
         "status": "observed",
         "hash": "d8318d14e21fd0b1547d4aeed8341cb783b7266e3082acc50a042167c88fe586",
         "hash_kind": "visible-v1",
@@ -33854,9 +34036,9 @@
         "paths": [
           "src/content/docs/ko/about-cloud/accounts-and-organizations.mdx"
         ],
-        "checked_at": "2026-11-07T06:05:22Z",
+        "checked_at": "2026-11-26T08:27:38Z",
         "status": "observed",
-        "hash": "c7eeeb7f245cf60556c4c44592b3556d8ecca1868f29ba4b3e75c70fa802455f",
+        "hash": "0bc7605f05d9aeaef29580e139748e8b89f0f056014429c4c3379e657d17b20f",
         "hash_kind": "visible-v1",
         "final_url": "https://learn.microsoft.com/en-us/azure/cost-management-billing/manage/view-all-accounts"
       },
@@ -33864,7 +34046,7 @@
         "paths": [
           "src/content/docs/ko/governance/finops.md"
         ],
-        "checked_at": "2026-11-07T06:05:22Z",
+        "checked_at": "2026-11-26T08:27:38Z",
         "status": "observed",
         "hash": "a3e69606006748c5bd159ecc01cde15cd628c62eb973936d61e576df9ecdd261",
         "hash_kind": "visible-v1",
@@ -33874,7 +34056,7 @@
         "paths": [
           "src/content/docs/ko/ai/gpu-infra/workload-and-architecture.md"
         ],
-        "checked_at": "2026-11-07T06:05:22Z",
+        "checked_at": "2026-11-26T08:27:38Z",
         "status": "observed",
         "hash": "05d4d6ccc9d68b82de72f66c433bb11de7035ea84ad178aef5979eb1cd7f18b5",
         "hash_kind": "visible-v1",
@@ -33884,7 +34066,7 @@
         "paths": [
           "src/content/docs/ko/ai/gpu-infra/workload-and-architecture.md"
         ],
-        "checked_at": "2026-11-07T06:05:22Z",
+        "checked_at": "2026-11-26T08:27:38Z",
         "status": "observed",
         "hash": "9f828386455c29843b848362d766541b502d48521ba84f7f9cb962350a9dbe1a",
         "hash_kind": "visible-v1",
@@ -33894,7 +34076,7 @@
         "paths": [
           "src/content/docs/ko/database/data-pipeline.md"
         ],
-        "checked_at": "2026-11-07T06:05:22Z",
+        "checked_at": "2026-11-26T08:27:38Z",
         "status": "observed",
         "hash": "3d9256175fe1430651d27057a9a22b07767fb92f719da6c26c06481962737afc",
         "hash_kind": "visible-v1",
@@ -33904,7 +34086,7 @@
         "paths": [
           "src/content/docs/ko/storage/migration.md"
         ],
-        "checked_at": "2026-11-07T06:05:22Z",
+        "checked_at": "2026-11-26T08:27:38Z",
         "status": "observed",
         "hash": "2dfaa024b517a113c7d5edf4a2fca5ee3d852c8d26660a3aca79a31fba80b72e",
         "hash_kind": "visible-v1",
@@ -33915,7 +34097,7 @@
           "src/content/docs/ko/devops/patch-and-vulnerability.md",
           "src/content/docs/ko/security/security-posture.md"
         ],
-        "checked_at": "2026-11-07T06:05:22Z",
+        "checked_at": "2026-11-26T08:27:38Z",
         "status": "observed",
         "hash": "e9250b8902c0f27b2a62fe0b0599113ebca89cf087cf6a03ec4a31fc510ea2b7",
         "hash_kind": "visible-v1",
@@ -33925,7 +34107,7 @@
         "paths": [
           "src/content/docs/ko/security/security-posture.md"
         ],
-        "checked_at": "2026-11-07T06:05:22Z",
+        "checked_at": "2026-11-26T08:27:38Z",
         "status": "observed",
         "hash": "ed55f2c279dba5002453bff940d39dc7d6243fc40ecdb172a0b848859ba72d87",
         "hash_kind": "visible-v1",
@@ -33935,7 +34117,7 @@
         "paths": [
           "src/content/docs/ko/devops/patch-and-vulnerability.md"
         ],
-        "checked_at": "2026-11-07T06:05:22Z",
+        "checked_at": "2026-11-26T08:27:38Z",
         "status": "observed",
         "hash": "3c1185d97d47d69269e4a0e4a51cb64bfd54cf93c79470bc2d4b240b0b9e39ca",
         "hash_kind": "visible-v1",
@@ -33945,7 +34127,7 @@
         "paths": [
           "src/content/docs/ko/devops/devsecops.md"
         ],
-        "checked_at": "2026-11-07T06:05:22Z",
+        "checked_at": "2026-11-26T08:27:38Z",
         "status": "observed",
         "hash": "e6b2643c0f7574f8771ca109617244fd932d29bb6480b8b5042c1c19ba6f2560",
         "hash_kind": "visible-v1",
@@ -33955,7 +34137,7 @@
         "paths": [
           "src/content/docs/ko/security/security-posture.md"
         ],
-        "checked_at": "2026-11-07T06:05:22Z",
+        "checked_at": "2026-11-26T08:27:38Z",
         "status": "observed",
         "hash": "2c673ef5bc02b6f6e34c7817884252c6ca955a54e956ab82c8ffb5a5e8068ce6",
         "hash_kind": "visible-v1",
@@ -33965,7 +34147,7 @@
         "paths": [
           "src/content/docs/ko/ai/physical-ai/data-and-training.md"
         ],
-        "checked_at": "2026-11-07T06:05:22Z",
+        "checked_at": "2026-11-26T08:27:38Z",
         "status": "observed",
         "hash": "544e4321258b0439dd5ced72b0da2f81c3e23304fc6f2c606de57587f0965ae2",
         "hash_kind": "visible-v1",
@@ -33975,7 +34157,7 @@
         "paths": [
           "src/content/docs/ko/database/messaging.md"
         ],
-        "checked_at": "2026-11-07T06:05:22Z",
+        "checked_at": "2026-11-26T08:27:38Z",
         "status": "observed",
         "hash": "90bd5f3ac79c06dff14be2878af0af5ed6a7945adb3c05948815bee9835128bd",
         "hash_kind": "visible-v1",

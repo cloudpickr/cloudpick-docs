@@ -24895,6 +24895,303 @@
       "evidence": [],
       "pr": null,
       "last_seen": "2026-11"
+    },
+    {
+      "id": "ac0be4f2398045e8ccfd0da4",
+      "path": "src/content/docs/ko/security/ai-security.md",
+      "axis": 2,
+      "reason": "AWS HealthOmics now supports Nextflow version 26.10 (https://aws.amazon.com/about-aws/whats-new/2026/11/aws-healthomics-nextflow-version-26-10/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-healthomics-nextflow-version-26-10/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "3d285fbf496348c1d9642059",
+      "path": "src/content/docs/ko/ai/agent-adoption.md",
+      "axis": 2,
+      "reason": "AWS DevOps Agent now supports Slack code channels and Microsoft Teams two-way conversations (https://aws.amazon.com/about-aws/whats-new/2026/11/aws-devops-agent-slack-code-channels-Teams-two-way/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-devops-agent-slack-code-channels-Teams-two-way/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "e6ff6b2095b388a537e7dd1d",
+      "path": "src/content/docs/ko/ai/llmops.md",
+      "axis": 2,
+      "reason": "AWS DevOps Agent now supports Slack code channels and Microsoft Teams two-way conversations (https://aws.amazon.com/about-aws/whats-new/2026/11/aws-devops-agent-slack-code-channels-Teams-two-way/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-devops-agent-slack-code-channels-Teams-two-way/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "34ffcd43b88160338828c60a",
+      "path": "src/content/docs/ko/governance/finops.md",
+      "axis": 2,
+      "reason": "AWS DevOps Agent now supports Slack code channels and Microsoft Teams two-way conversations (https://aws.amazon.com/about-aws/whats-new/2026/11/aws-devops-agent-slack-code-channels-Teams-two-way/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-devops-agent-slack-code-channels-Teams-two-way/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "c396864dddabc9c2fc3871d2",
+      "path": "src/content/docs/ko/about-cloud/support-plans.md",
+      "axis": 2,
+      "reason": "AWS Deadline Cloud now supports Amazon EC2 G7 instances in service-managed fleets (https://aws.amazon.com/about-aws/whats-new/2026/11/deadline-cloud-supports-ec2-g7/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/deadline-cloud-supports-ec2-g7/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "52152d747ea00034d04b32f3",
+      "path": "src/content/docs/ko/compute/serverless.md",
+      "axis": 2,
+      "reason": "AWS Deadline Cloud now supports Amazon EC2 G7 instances in service-managed fleets (https://aws.amazon.com/about-aws/whats-new/2026/11/deadline-cloud-supports-ec2-g7/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/deadline-cloud-supports-ec2-g7/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "c60ccb81428c23424708b6d7",
+      "path": "src/content/docs/ko/compute/service-mesh.md",
+      "axis": 2,
+      "reason": "AWS Deadline Cloud now supports Amazon EC2 G7 instances in service-managed fleets (https://aws.amazon.com/about-aws/whats-new/2026/11/deadline-cloud-supports-ec2-g7/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/deadline-cloud-supports-ec2-g7/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "8c907d3634671635ecfebd58",
+      "path": "src/content/docs/ko/security/incident-response.md",
+      "axis": 2,
+      "reason": "AWS IAM account access manager is now even easier to deploy and use (https://aws.amazon.com/about-aws/whats-new/2026/11/iam-account-access-manager-easier/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/iam-account-access-manager-easier/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "9ec0caa2f48b3cd6ffdd8ed3",
+      "path": "src/content/docs/ko/security/zero-trust.md",
+      "axis": 2,
+      "reason": "AWS IAM account access manager is now even easier to deploy and use (https://aws.amazon.com/about-aws/whats-new/2026/11/iam-account-access-manager-easier/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/iam-account-access-manager-easier/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "a2b3fbda1eb9864f2976f20e",
+      "path": "src/content/docs/ko/security/data-protection.md",
+      "axis": 2,
+      "reason": "Sensitive Data Protection (https://docs.cloud.google.com/release-notes#November_17_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_17_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "594bff2d8d58bdaaec00958c",
+      "path": "src/content/docs/ko/singapore/pdpa.md",
+      "axis": 2,
+      "reason": "Sensitive Data Protection (https://docs.cloud.google.com/release-notes#November_17_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_17_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "d4a7611f36feaffef493751b",
+      "path": "src/content/docs/ko/database/nosql.md",
+      "axis": 2,
+      "reason": "Cloud SQL for MySQL (https://docs.cloud.google.com/release-notes#November_17_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_17_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "7295dad9901d9a64222687f8",
+      "path": "src/content/docs/ko/about-cloud/support-plans.md",
+      "axis": 2,
+      "reason": "Managed Service for Apache Airflow (https://docs.cloud.google.com/release-notes#November_26_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_26_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "35a00dc14c1ec9e336ecbff6",
+      "path": "src/content/docs/ko/compute/virtual-machines.md",
+      "axis": 2,
+      "reason": "[In preview] Public Preview: AI bot ruleset for Azure Front Door Premium WAF (https://azure.microsoft.com/updates?id=581604)",
+      "source_url": "https://azure.microsoft.com/updates?id=581604",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "cfd85eb4c2773ce4b7ec6706",
+      "path": "src/content/docs/ko/storage/migration.md",
+      "axis": 2,
+      "reason": "[In preview] Public Preview: Immutable snapshots for Azure Disk Storage (https://azure.microsoft.com/updates?id=581503)",
+      "source_url": "https://azure.microsoft.com/updates?id=581503",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "14736a541c4b1cf3baa0aa99",
+      "path": "src/content/docs/ko/devops/observability.md",
+      "axis": 2,
+      "reason": "Announcing: Azure Boost observability for NVMe disks (https://azure.microsoft.com/updates?id=581227)",
+      "source_url": "https://azure.microsoft.com/updates?id=581227",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "a57bd153921da8f1ae2a12be",
+      "path": "src/content/docs/ko/ai/vector-store.md",
+      "axis": 2,
+      "reason": "Oracle Autonomous AI Vector Databases (https://docs.oracle.com/iaas/releasenotes/autonomous-database-serverless/2026-11-vec-db.htm)",
+      "source_url": "https://docs.oracle.com/iaas/releasenotes/autonomous-database-serverless/2026-11-vec-db.htm",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "a744a382acb1c0ce6691812d",
+      "path": "src/content/docs/ko/ai/ai-ml.md",
+      "axis": 2,
+      "reason": "Oracle Autonomous AI Vector Databases (https://docs.oracle.com/iaas/releasenotes/autonomous-database-serverless/2026-11-vec-db.htm)",
+      "source_url": "https://docs.oracle.com/iaas/releasenotes/autonomous-database-serverless/2026-11-vec-db.htm",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "310c203c101d659a2859ea7d",
+      "path": "src/content/docs/ko/ai/getting-started.md",
+      "axis": 2,
+      "reason": "Oracle Autonomous AI Vector Databases (https://docs.oracle.com/iaas/releasenotes/autonomous-database-serverless/2026-11-vec-db.htm)",
+      "source_url": "https://docs.oracle.com/iaas/releasenotes/autonomous-database-serverless/2026-11-vec-db.htm",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "18b4b8a2dc7bc05561841534",
+      "path": "src/content/docs/ko/database/managed-rdb.md",
+      "axis": 2,
+      "reason": "Update for Oracle-Managed Heterogeneous Connectivity Database Links (https://docs.oracle.com/iaas/releasenotes/autonomous-database-serverless/2026-11-update-db-link.htm)",
+      "source_url": "https://docs.oracle.com/iaas/releasenotes/autonomous-database-serverless/2026-11-update-db-link.htm",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "d1f4131efb7df092e16aa071",
+      "path": "src/content/docs/ko/korea/security/csap.md",
+      "axis": 2,
+      "reason": "Oracle Critical Security Patch Update (CSPU) November 2026 for Oracle Java SE (https://docs.oracle.com/iaas/releasenotes/java-management/jdk-cspu-november-2026.htm)",
+      "source_url": "https://docs.oracle.com/iaas/releasenotes/java-management/jdk-cspu-november-2026.htm",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "4d862487a50dcc03583df59d",
+      "path": "src/content/docs/ko/security/ai-security.md",
+      "axis": 2,
+      "reason": "Oracle Critical Security Patch Update (CSPU) November 2026 for Oracle Java SE (https://docs.oracle.com/iaas/releasenotes/java-management/jdk-cspu-november-2026.htm)",
+      "source_url": "https://docs.oracle.com/iaas/releasenotes/java-management/jdk-cspu-november-2026.htm",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "d6d83ff98400af47dad95b75",
+      "path": "src/content/docs/ko/security/zero-trust.md",
+      "axis": 2,
+      "reason": "Oracle Critical Security Patch Update (CSPU) November 2026 for Oracle Java SE (https://docs.oracle.com/iaas/releasenotes/java-management/jdk-cspu-november-2026.htm)",
+      "source_url": "https://docs.oracle.com/iaas/releasenotes/java-management/jdk-cspu-november-2026.htm",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "eb7ccff8b298f709614cde15",
+      "path": null,
+      "axis": 3,
+      "reason": "Amazon Braket adds PAUSED device status (https://aws.amazon.com/about-aws/whats-new/2026/11/braket-new-device-state/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/braket-new-device-state/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "deae4256262c927109d7f02b",
+      "path": null,
+      "axis": 3,
+      "reason": "AgentCore runtime instances now support privileged mode (https://aws.amazon.com/about-aws/whats-new/2026/11/agentcore-elevated-privileges/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/agentcore-elevated-privileges/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "e677b6f290e144ba70500293",
+      "path": null,
+      "axis": 3,
+      "reason": "Amazon RDS for PostgreSQL supports minor versions 18.7, 17.12, 16.16, 15.20, and 14.25 (https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-rds-postgresql-18-7-17-12-16-16-15-20-14-25/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-rds-postgresql-18-7-17-12-16-16-15-20-14-25/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "f91749f35489960c84fa7618",
+      "path": null,
+      "axis": 3,
+      "reason": "Container Optimized OS (https://docs.cloud.google.com/release-notes#November_17_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_17_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
     }
   ],
   "resolved_ids": [],
@@ -25208,9 +25505,9 @@
       },
       "2026-11-17": {
         "aws": "failed",
-        "gcp": "provisional",
+        "gcp": "complete",
         "azure": "failed",
-        "oci": "provisional"
+        "oci": "complete"
       },
       "2026-10-01": {
         "aws": "complete",
@@ -25219,9 +25516,9 @@
         "oci": "complete"
       },
       "2026-11-18": {
-        "aws": "provisional",
+        "aws": "complete",
         "gcp": "provisional",
-        "azure": "provisional",
+        "azure": "complete",
         "oci": "provisional"
       },
       "2026-10-02": {
@@ -25315,6 +25612,18 @@
         "oci": "complete"
       },
       "2026-11-26": {
+        "aws": "provisional",
+        "gcp": "provisional",
+        "azure": "provisional",
+        "oci": "provisional"
+      },
+      "2026-10-10": {
+        "aws": "complete",
+        "gcp": "complete",
+        "azure": "complete",
+        "oci": "complete"
+      },
+      "2026-11-27": {
         "aws": "provisional",
         "gcp": "provisional",
         "azure": "provisional",
@@ -25618,9 +25927,9 @@
       },
       "2026-11-17": {
         "aws": "2026-11-18T07:36:23.766Z",
-        "gcp": "2026-11-18T07:36:23.766Z",
+        "gcp": "2026-11-27T08:42:27.515Z",
         "azure": "2026-11-18T07:36:23.766Z",
-        "oci": "2026-11-18T07:36:23.766Z"
+        "oci": "2026-11-27T08:42:27.515Z"
       },
       "2026-10-01": {
         "aws": "2026-11-18T07:36:23.766Z",
@@ -25629,9 +25938,9 @@
         "oci": "2026-11-18T07:36:23.766Z"
       },
       "2026-11-18": {
-        "aws": "2026-11-19T07:32:08.092Z",
+        "aws": "2026-11-27T08:42:27.515Z",
         "gcp": "2026-11-19T07:32:08.092Z",
-        "azure": "2026-11-19T07:32:08.092Z",
+        "azure": "2026-11-27T08:42:27.515Z",
         "oci": "2026-11-19T07:32:08.092Z"
       },
       "2026-10-02": {
@@ -25725,10 +26034,22 @@
         "oci": "2026-11-26T08:27:28.953Z"
       },
       "2026-11-26": {
-        "aws": "2026-11-26T08:27:28.953Z",
-        "gcp": "2026-11-26T08:27:28.953Z",
-        "azure": "2026-11-26T08:27:28.953Z",
-        "oci": "2026-11-26T08:27:28.953Z"
+        "aws": "2026-11-27T08:42:27.515Z",
+        "gcp": "2026-11-27T08:42:27.515Z",
+        "azure": "2026-11-27T08:42:27.515Z",
+        "oci": "2026-11-27T08:42:27.515Z"
+      },
+      "2026-10-10": {
+        "aws": "2026-11-27T08:42:27.515Z",
+        "gcp": "2026-11-27T08:42:27.515Z",
+        "azure": "2026-11-27T08:42:27.515Z",
+        "oci": "2026-11-27T08:42:27.515Z"
+      },
+      "2026-11-27": {
+        "aws": "2026-11-27T08:42:27.515Z",
+        "gcp": "2026-11-27T08:42:27.515Z",
+        "azure": "2026-11-27T08:42:27.515Z",
+        "oci": "2026-11-27T08:42:27.515Z"
       }
     }
   },

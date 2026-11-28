@@ -25773,6 +25773,202 @@
       "status": "open",
       "evidence": [],
       "pr": null
+    },
+    {
+      "id": "e0211488c05e69ee55d02a0c",
+      "path": "src/content/docs/ko/ai/ai-ml.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://learn.microsoft.com/ko-kr/azure/ai-services/openai/",
+      "change_digest": "e49cb8e8a1e8021e08f23eb4b8bd3ea3e0d02cee3da3ab3e6961d7f104fedf7b",
+      "source_url": "https://learn.microsoft.com/ko-kr/azure/ai-services/openai/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "52ab5f443580d9bb8ca21a0f",
+      "path": "src/content/docs/ko/about-cloud/compare-clouds.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://learn.microsoft.com/ko-kr/azure/architecture/aws-professional/",
+      "change_digest": "3bcccae08a0977abdec776181169fc2b4e20e7bcad5bee47e606e8b385aa7e09",
+      "source_url": "https://learn.microsoft.com/ko-kr/azure/architecture/aws-professional/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "435b1f6a68407758e2cc27a7",
+      "path": "src/content/docs/ko/about-cloud/compare-clouds.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://learn.microsoft.com/ko-kr/azure/architecture/aws-professional/services",
+      "change_digest": "3bcccae08a0977abdec776181169fc2b4e20e7bcad5bee47e606e8b385aa7e09",
+      "source_url": "https://learn.microsoft.com/ko-kr/azure/architecture/aws-professional/services",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "f011d53e5e098d376cabc812",
+      "path": "src/content/docs/ko/storage/backup.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://learn.microsoft.com/ko-kr/azure/backup/",
+      "change_digest": "3521932bd952088b800f78af33156193e3772c742b107564122f7ff64bc47981",
+      "source_url": "https://learn.microsoft.com/ko-kr/azure/backup/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "789aac0ed1df2b682ca8ee84",
+      "path": "src/content/docs/ko/database/migration.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://learn.microsoft.com/ko-kr/azure/migrate/",
+      "change_digest": "29a1e8970704794333a25714c673e8eccf18a934907d88cc4ac12ab7529c277e",
+      "source_url": "https://learn.microsoft.com/ko-kr/azure/migrate/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "a23515962b7a3827eb66231a",
+      "path": "src/content/docs/ko/about-cloud/regions-and-zones.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://learn.microsoft.com/ko-kr/azure/reliability/availability-zones-overview",
+      "change_digest": "d3d3a32484b04b766172d5f14e4d183c4cc435134e9282d25b2881ec2c0ea27d",
+      "source_url": "https://learn.microsoft.com/ko-kr/azure/reliability/availability-zones-overview",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "bc3664d847e21cc979594422",
+      "path": "src/content/docs/ko/about-cloud/regions-and-zones.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://learn.microsoft.com/ko-kr/azure/reliability/cross-region-replication-azure",
+      "change_digest": "0cf65052bebafbae0dd5517550b7679f1f6219ab1f0be4baf9fc246226d9fbcc",
+      "source_url": "https://learn.microsoft.com/ko-kr/azure/reliability/cross-region-replication-azure",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "c43a91ceb7d469d5a25d1dfa",
+      "path": "src/content/docs/ko/ai/vector-store.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://learn.microsoft.com/ko-kr/azure/search/vector-search-overview",
+      "change_digest": "e2342a5384c3656b9df81bbe75d84c59077e629739c7c94f1b01bd855afa55e0",
+      "source_url": "https://learn.microsoft.com/ko-kr/azure/search/vector-search-overview",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "f5f048344cbe399bd217692b",
+      "path": "src/content/docs/ko/storage/object-storage.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://learn.microsoft.com/ko-kr/azure/storage/blobs/access-tiers-overview",
+      "change_digest": "63026f83a57ba9c1e7132b68a29f62a63f609b6485bed960a3d88f5e6f3a2755",
+      "source_url": "https://learn.microsoft.com/ko-kr/azure/storage/blobs/access-tiers-overview",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "bb8ba772f9b19ca50c478747",
+      "path": "src/content/docs/ko/storage/block-and-file.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://learn.microsoft.com/ko-kr/azure/virtual-machines/disks-redundancy",
+      "change_digest": "c0fd17b52be97e3202a1ef5283f18c50db9b5fce05a6cac7df296b9afd7608e5",
+      "source_url": "https://learn.microsoft.com/ko-kr/azure/virtual-machines/disks-redundancy",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "ba87ddf903ce79c8eac13ea4",
+      "path": "src/content/docs/ko/storage/block-and-file.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://learn.microsoft.com/ko-kr/azure/virtual-machines/disks-types",
+      "change_digest": "6327c98426a64de529e65ae477ece8f7c69ae6104d8e3fafee15df074f0ab733",
+      "source_url": "https://learn.microsoft.com/ko-kr/azure/virtual-machines/disks-types",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "6de479f425eafebfd1b63f20",
+      "path": "src/content/docs/ko/compute/virtual-machines.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://learn.microsoft.com/ko-kr/azure/virtual-machines/sizes/",
+      "change_digest": "d6ab1975c0682f1f1fad6c2fada20d0c2e1fbf84bda8dfb64c92eff5cb8fa848",
+      "source_url": "https://learn.microsoft.com/ko-kr/azure/virtual-machines/sizes/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "b66b46d8917caf67ef58c240",
+      "path": "src/content/docs/ko/about-cloud/console-cli-sdk.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://learn.microsoft.com/ko-kr/cli/azure/install-azure-cli",
+      "change_digest": "0b0df3cbd4a47fcb60e5dbdff3f9ef7d8085ada5bdad647543e5e17f97005cb4",
+      "source_url": "https://learn.microsoft.com/ko-kr/cli/azure/install-azure-cli",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
+    },
+    {
+      "id": "9f9defa9cb642ec42b36ae74",
+      "path": "src/content/docs/ko/security/iam.md",
+      "axis": 1,
+      "origin": "source-watch",
+      "reason": "출처 변경 신호: https://learn.microsoft.com/ko-kr/entra/id-governance/",
+      "change_digest": "70836ec161674bcbe22d94ec3a46359ab85f55f5c400e7fc9376cf59f204a16f",
+      "source_url": "https://learn.microsoft.com/ko-kr/entra/id-governance/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null,
+      "last_seen": "2026-11"
     }
   ],
   "resolved_ids": [],
@@ -26685,7 +26881,7 @@
         "paths": [
           "src/content/docs/ko/ai/agents.md"
         ],
-        "checked_at": "2026-11-27T08:42:39Z",
+        "checked_at": "2026-11-28T07:56:10Z",
         "status": "unverified",
         "hash": "dc7fc249911468c4dc00fc4eb92b1c0d611070787422d5a6d767fc3b925fee20",
         "final_url": "https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/",
@@ -26695,7 +26891,7 @@
         "paths": [
           "src/content/docs/ko/singapore/mtcs.md"
         ],
-        "checked_at": "2026-11-27T08:42:39Z",
+        "checked_at": "2026-11-28T07:56:10Z",
         "status": "unverified",
         "hash": "635b02875de69e3cc1de1579b70facd5f4c19edf127bd2e3769e8a92f70b360b",
         "final_url": "https://abs.org.sg/docs/library/abs-ospar-guidelines-v2-0.pdf",
@@ -26705,7 +26901,7 @@
         "paths": [
           "src/content/docs/ko/ai/agents.md"
         ],
-        "checked_at": "2026-11-27T08:42:39Z",
+        "checked_at": "2026-11-28T07:56:10Z",
         "status": "unverified",
         "hash": "279273094623330fe250f2984391cac02002276942f6d2dbd8537e495fae1bdf",
         "final_url": "https://www.ag2.ai/",
@@ -26715,7 +26911,7 @@
         "paths": [
           "src/content/docs/ko/ai/getting-started.md"
         ],
-        "checked_at": "2026-11-27T08:42:39Z",
+        "checked_at": "2026-11-28T07:56:10Z",
         "status": "unverified",
         "hash": "ae0f8a0945b3d1cf6945ebf983706906940024c6f02864250619be546f2c10a2",
         "final_url": "https://ai.azure.com/",
@@ -26756,7 +26952,7 @@
         "paths": [
           "src/content/docs/ko/singapore/ai-governance.md"
         ],
-        "checked_at": "2026-11-27T08:42:39Z",
+        "checked_at": "2026-11-28T07:56:10Z",
         "status": "unverified",
         "hash": "861c9baae1bb9420d984be6abe0a5a19d6b07730363337bf8a901ea68a37c87d",
         "final_url": "https://aiverifyfoundation.sg/resources/mgf-gen-ai/",
@@ -26776,7 +26972,7 @@
         "paths": [
           "src/content/docs/ko/devops/devsecops.md"
         ],
-        "checked_at": "2026-11-27T08:42:39Z",
+        "checked_at": "2026-11-28T07:56:10Z",
         "status": "unverified",
         "hash": "6ce84a59d0c606ad8c2c2b3d3703944b3097b677f6a9c36c22154de4e3295152",
         "final_url": "https://aquasecurity.github.io/tfsec/",
@@ -26796,7 +26992,7 @@
         "paths": [
           "src/content/docs/ko/ai/llmops.md"
         ],
-        "checked_at": "2026-11-27T08:42:39Z",
+        "checked_at": "2026-11-28T07:56:10Z",
         "status": "unverified",
         "hash": "84e61b481a6f8d7a78ec8093dce057a9e2b06a9ea80957e5c3766d9b595ef09c",
         "final_url": "https://arize.com/",
@@ -26866,7 +27062,7 @@
         "paths": [
           "src/content/docs/ko/devops/observability.md"
         ],
-        "checked_at": "2026-11-27T08:42:39Z",
+        "checked_at": "2026-11-28T07:56:10Z",
         "status": "unverified",
         "hash": "b472569757f991e0df0919150abea62828a7651cc991dfcabea1158bc12ba1fe",
         "final_url": "https://aws-otel.github.io/",
@@ -35769,7 +35965,7 @@
         "paths": [
           "src/content/docs/ko/about-cloud/support-plans.md"
         ],
-        "checked_at": "2026-11-08T06:09:12Z",
+        "checked_at": "2026-11-28T07:56:10Z",
         "status": "observed",
         "hash": "f68c7f783b89fc647afdf032e0dfa291653fc93c334db566a2203d8d6ac7be9c",
         "hash_kind": "visible-v1",
@@ -35779,9 +35975,9 @@
         "paths": [
           "src/content/docs/ko/ai/ai-ml.md"
         ],
-        "checked_at": "2026-11-08T06:09:12Z",
+        "checked_at": "2026-11-28T07:56:10Z",
         "status": "observed",
-        "hash": "a84b6b3e9ca5e1122808cdeb1ee214091b421f3ad44c42486cfc935bd875ba80",
+        "hash": "369adfd3ff996f780015b7d5df3a22e421f8fea8df72d1972277ffe419bb396c",
         "hash_kind": "visible-v1",
         "final_url": "https://learn.microsoft.com/ko-kr/azure/foundry/"
       },
@@ -35789,7 +35985,7 @@
         "paths": [
           "src/content/docs/ko/compute/containers.md"
         ],
-        "checked_at": "2026-11-08T06:09:12Z",
+        "checked_at": "2026-11-28T07:56:10Z",
         "status": "observed",
         "hash": "ccfb39a36ef98f0cf2a2acabf81676bc1dc16bfd1b931cc2fb4775ece6221ae5",
         "hash_kind": "visible-v1",
@@ -35799,7 +35995,7 @@
         "paths": [
           "src/content/docs/ko/networking/api-gateway.md"
         ],
-        "checked_at": "2026-11-08T06:09:12Z",
+        "checked_at": "2026-11-28T07:56:10Z",
         "status": "observed",
         "hash": "761f5c38beb29e674ea0e186a45f1b5e3d5d12c6e6e54944378d3af064504499",
         "hash_kind": "visible-v1",
@@ -35809,7 +36005,7 @@
         "paths": [
           "src/content/docs/ko/networking/api-gateway.md"
         ],
-        "checked_at": "2026-11-08T06:09:12Z",
+        "checked_at": "2026-11-28T07:56:10Z",
         "status": "observed",
         "hash": "05e7540232199808fe0c349322a8a33fbdd68c70106278657d2dc3bc4c51725d",
         "hash_kind": "visible-v1",
@@ -35819,9 +36015,9 @@
         "paths": [
           "src/content/docs/ko/about-cloud/compare-clouds.md"
         ],
-        "checked_at": "2026-11-08T06:09:12Z",
+        "checked_at": "2026-11-28T07:56:10Z",
         "status": "observed",
-        "hash": "29c6b8b693e42f1d521d1b2345f8e59bc4f5f6745fe28d73920a2086d7341bc6",
+        "hash": "5dbbe688269f5da6c7693497911480ef27a17a60783ad44fbf1ce0262a70dab2",
         "hash_kind": "visible-v1",
         "final_url": "https://learn.microsoft.com/ko-kr/azure/architecture/aws-professional/"
       },
@@ -35829,9 +36025,9 @@
         "paths": [
           "src/content/docs/ko/about-cloud/compare-clouds.md"
         ],
-        "checked_at": "2026-11-08T06:09:12Z",
+        "checked_at": "2026-11-28T07:56:10Z",
         "status": "observed",
-        "hash": "29c6b8b693e42f1d521d1b2345f8e59bc4f5f6745fe28d73920a2086d7341bc6",
+        "hash": "5dbbe688269f5da6c7693497911480ef27a17a60783ad44fbf1ce0262a70dab2",
         "hash_kind": "visible-v1",
         "final_url": "https://learn.microsoft.com/ko-kr/azure/architecture/aws-professional/"
       },
@@ -35839,7 +36035,7 @@
         "paths": [
           "src/content/docs/ko/about-cloud/compare-clouds.md"
         ],
-        "checked_at": "2026-11-08T06:09:12Z",
+        "checked_at": "2026-11-28T07:56:10Z",
         "status": "observed",
         "hash": "e9a3516f013e3d168395bd1709515fc7dd4a7f7a486930bc8702be6cfed2ad4d",
         "hash_kind": "visible-v1",
@@ -35849,7 +36045,7 @@
         "paths": [
           "src/content/docs/ko/compute/serverless.md"
         ],
-        "checked_at": "2026-11-08T06:09:12Z",
+        "checked_at": "2026-11-28T07:56:10Z",
         "status": "observed",
         "hash": "fee76e6811cba4b18bf5c63366175fe8201e7a07a9682595eafa2428953a9046",
         "hash_kind": "visible-v1",
@@ -35859,7 +36055,7 @@
         "paths": [
           "src/content/docs/ko/devops/monitoring.md"
         ],
-        "checked_at": "2026-11-08T06:09:12Z",
+        "checked_at": "2026-11-28T07:56:10Z",
         "status": "observed",
         "hash": "57ab01b7d11d5cfd26f11fdab9c387776f6a4a8bb07eb1dadc2ef4dee61f0440",
         "hash_kind": "visible-v1",
@@ -35869,7 +36065,7 @@
         "paths": [
           "src/content/docs/ko/devops/monitoring.md"
         ],
-        "checked_at": "2026-11-08T06:09:12Z",
+        "checked_at": "2026-11-28T07:56:10Z",
         "status": "observed",
         "hash": "fc5397efc63ead8cd499a3793828d403d8f277911761158378762f7e0deedc14",
         "hash_kind": "visible-v1",
@@ -35879,7 +36075,7 @@
         "paths": [
           "src/content/docs/ko/compute/auto-scaling.md"
         ],
-        "checked_at": "2026-11-08T06:09:12Z",
+        "checked_at": "2026-11-28T07:56:10Z",
         "status": "observed",
         "hash": "8a9b1fb5f23f63ad8a49e258490d90c25380b797d0a846d6fdd5d3e2d84e79ef",
         "hash_kind": "visible-v1",
@@ -35889,7 +36085,7 @@
         "paths": [
           "src/content/docs/ko/about-cloud/support-plans.md"
         ],
-        "checked_at": "2026-11-08T06:09:12Z",
+        "checked_at": "2026-11-28T07:56:10Z",
         "status": "observed",
         "hash": "2b1a71aeabe2edba904bd86cf8f4114a62fabe45cee02da5fbec1a7f9027910f",
         "hash_kind": "visible-v1",
@@ -35899,7 +36095,7 @@
         "paths": [
           "src/content/docs/ko/devops/iac.md"
         ],
-        "checked_at": "2026-11-08T06:09:12Z",
+        "checked_at": "2026-11-28T07:56:10Z",
         "status": "observed",
         "hash": "e0fc94f2e0f331623f7074cc200caa00e7233e0e34c160d2efbe697d705f0141",
         "hash_kind": "visible-v1",
@@ -35909,7 +36105,7 @@
         "paths": [
           "src/content/docs/ko/devops/iac.md"
         ],
-        "checked_at": "2026-11-08T06:09:12Z",
+        "checked_at": "2026-11-28T07:56:10Z",
         "status": "observed",
         "hash": "917cda0e0cfe02e0f7d268624969d3a275450b546a7e4f809bc7dc317762cc85",
         "hash_kind": "visible-v1",
@@ -35919,7 +36115,7 @@
         "paths": [
           "src/content/docs/ko/database/managed-rdb.md"
         ],
-        "checked_at": "2026-11-08T06:09:12Z",
+        "checked_at": "2026-11-28T07:56:10Z",
         "status": "observed",
         "hash": "3dbf70b854c47b09d8a0aff5b24e2ab0e7f41fea274726ea1389144bd1a60bd4",
         "hash_kind": "visible-v1",
@@ -35929,9 +36125,9 @@
         "paths": [
           "src/content/docs/ko/storage/backup.md"
         ],
-        "checked_at": "2026-11-08T06:09:12Z",
+        "checked_at": "2026-11-28T07:56:10Z",
         "status": "observed",
-        "hash": "a8355603175a979f46e0154702194ecf80de61aaf07ea99cb08f1397a360a286",
+        "hash": "6272cdf79f219d17c3077837fc87bb0406ebf80992da34b5aaff1a5fa4964803",
         "hash_kind": "visible-v1",
         "final_url": "https://learn.microsoft.com/ko-kr/azure/backup/"
       },
@@ -35939,7 +36135,7 @@
         "paths": [
           "src/content/docs/ko/networking/cdn.md"
         ],
-        "checked_at": "2026-11-08T06:09:12Z",
+        "checked_at": "2026-11-28T07:56:10Z",
         "status": "observed",
         "hash": "ec1c651b447b9cc7603e4540b2cc0ad02f8c2aad4f856762ea174562896a47b3",
         "hash_kind": "visible-v1",
@@ -35949,7 +36145,7 @@
         "paths": [
           "src/content/docs/ko/about-cloud/well-architected.mdx"
         ],
-        "checked_at": "2026-11-08T06:09:12Z",
+        "checked_at": "2026-11-28T07:56:10Z",
         "status": "observed",
         "hash": "dcb858b8bc236d1ae0c5df149ba4da8f5968b84133655ca626c73abc22b56885",
         "hash_kind": "visible-v1",
@@ -35959,7 +36155,7 @@
         "paths": [
           "src/content/docs/ko/about-cloud/console-cli-sdk.md"
         ],
-        "checked_at": "2026-11-08T06:09:12Z",
+        "checked_at": "2026-11-28T07:56:10Z",
         "status": "observed",
         "hash": "a87faeccfcdba96780209a81d02190cae8033421babde125c3f7e0389287d064",
         "hash_kind": "visible-v1",
@@ -35969,7 +36165,7 @@
         "paths": [
           "src/content/docs/ko/about-cloud/shared-responsibility.mdx"
         ],
-        "checked_at": "2026-11-08T06:09:12Z",
+        "checked_at": "2026-11-28T07:56:10Z",
         "status": "observed",
         "hash": "e448ab61e766eade402a4e50e02a3866db77b0532b5ef297c721f7d67f2344eb",
         "hash_kind": "visible-v1",
@@ -35979,7 +36175,7 @@
         "paths": [
           "src/content/docs/ko/compute/containers.md"
         ],
-        "checked_at": "2026-11-08T06:09:12Z",
+        "checked_at": "2026-11-28T07:56:10Z",
         "status": "observed",
         "hash": "bc64148d63239fa74a99eea5618c0d4c881292da7875f64f5be5ad7834721976",
         "hash_kind": "visible-v1",
@@ -35989,7 +36185,7 @@
         "paths": [
           "src/content/docs/ko/compute/containers.md"
         ],
-        "checked_at": "2026-11-08T06:09:12Z",
+        "checked_at": "2026-11-28T07:56:10Z",
         "status": "observed",
         "hash": "a8658701673ea12b9b01353419324b9a6bb9c47bb7eea3a4b7aafa81391f699c",
         "hash_kind": "visible-v1",
@@ -35999,7 +36195,7 @@
         "paths": [
           "src/content/docs/ko/database/nosql.md"
         ],
-        "checked_at": "2026-11-08T06:09:12Z",
+        "checked_at": "2026-11-28T07:56:10Z",
         "status": "observed",
         "hash": "df25d10a5fd29567542f154b1838781787291cd67924c9586588ccbb6f83eff5",
         "hash_kind": "visible-v1",
@@ -36009,7 +36205,7 @@
         "paths": [
           "src/content/docs/ko/about-cloud/console-cli-sdk.md"
         ],
-        "checked_at": "2026-11-08T06:09:12Z",
+        "checked_at": "2026-11-28T07:56:10Z",
         "status": "observed",
         "hash": "4f317f8b033c925cde30d3df0f4d07997c55c8e70b6049e89a272b99d656d710",
         "hash_kind": "visible-v1",
@@ -36019,7 +36215,7 @@
         "paths": [
           "src/content/docs/ko/devops/cicd.md"
         ],
-        "checked_at": "2026-11-08T06:09:12Z",
+        "checked_at": "2026-11-28T07:56:10Z",
         "status": "observed",
         "hash": "c144f10ef65484c6d9b25fb79a4e2732241d563accde017e6387104dd0f47dc9",
         "hash_kind": "visible-v1",
@@ -36029,7 +36225,7 @@
         "paths": [
           "src/content/docs/ko/devops/cicd.md"
         ],
-        "checked_at": "2026-11-08T06:09:12Z",
+        "checked_at": "2026-11-28T07:56:10Z",
         "status": "observed",
         "hash": "1262a1516889a3b1d62e9d0ad8de9dbf15ac649d47edbdbd3c3a091b48deefe1",
         "hash_kind": "visible-v1",
@@ -36039,7 +36235,7 @@
         "paths": [
           "src/content/docs/ko/database/migration.md"
         ],
-        "checked_at": "2026-11-09T06:43:23Z",
+        "checked_at": "2026-11-28T07:56:10Z",
         "status": "observed",
         "hash": "56d62a14722d484f3cb3174c9862d1c605eb5868e06e96ff16bedc911f2335cc",
         "hash_kind": "visible-v1",
@@ -36049,7 +36245,7 @@
         "paths": [
           "src/content/docs/ko/networking/dns.md"
         ],
-        "checked_at": "2026-11-09T06:43:23Z",
+        "checked_at": "2026-11-28T07:56:10Z",
         "status": "observed",
         "hash": "deec8f2d0ebf04741bcb0756aa69320553eb624d8a5730a12b6d41aa685c23f5",
         "hash_kind": "visible-v1",
@@ -36060,7 +36256,7 @@
           "src/content/docs/ko/networking/cdn.md",
           "src/content/docs/ko/networking/load-balancer.md"
         ],
-        "checked_at": "2026-11-09T06:43:23Z",
+        "checked_at": "2026-11-28T07:56:10Z",
         "status": "observed",
         "hash": "ec1c651b447b9cc7603e4540b2cc0ad02f8c2aad4f856762ea174562896a47b3",
         "hash_kind": "visible-v1",
@@ -36070,7 +36266,7 @@
         "paths": [
           "src/content/docs/ko/about-cloud/accounts-and-organizations.mdx"
         ],
-        "checked_at": "2026-11-09T06:43:23Z",
+        "checked_at": "2026-11-28T07:56:10Z",
         "status": "observed",
         "hash": "9424fa8d8af971f548b2862bada32ded2d0e469daada07817911910c0b8dfd0a",
         "hash_kind": "visible-v1",
@@ -36080,7 +36276,7 @@
         "paths": [
           "src/content/docs/ko/about-cloud/accounts-and-organizations.mdx"
         ],
-        "checked_at": "2026-11-09T06:43:23Z",
+        "checked_at": "2026-11-28T07:56:10Z",
         "status": "observed",
         "hash": "0d93145221e7509d97b220a94bec127b8e1b09cabc246d8d6fe4c1d98f2a0af0",
         "hash_kind": "visible-v1",
@@ -36091,7 +36287,7 @@
           "src/content/docs/ko/security/data-protection.md",
           "src/content/docs/ko/security/secrets.md"
         ],
-        "checked_at": "2026-11-09T06:43:23Z",
+        "checked_at": "2026-11-28T07:56:10Z",
         "status": "observed",
         "hash": "f5c37a2953b6d97017244435a6ab94f4c1eb27809d1854dedab10d986d43b94c",
         "hash_kind": "visible-v1",
@@ -36101,7 +36297,7 @@
         "paths": [
           "src/content/docs/ko/security/secrets.md"
         ],
-        "checked_at": "2026-11-09T06:43:23Z",
+        "checked_at": "2026-11-28T07:56:10Z",
         "status": "observed",
         "hash": "6afc96772b802662d33ae8c774c3fab6200a0cd57383c19f1f7c365a8059b213",
         "hash_kind": "visible-v1",
@@ -36111,7 +36307,7 @@
         "paths": [
           "src/content/docs/ko/security/secrets.md"
         ],
-        "checked_at": "2026-11-09T06:43:23Z",
+        "checked_at": "2026-11-28T07:56:10Z",
         "status": "observed",
         "hash": "28073bbeef4078c61954a9df45737e4c03076914147d4ad55d7879cd3dd02397",
         "hash_kind": "visible-v1",
@@ -36121,7 +36317,7 @@
         "paths": [
           "src/content/docs/ko/networking/load-balancer.md"
         ],
-        "checked_at": "2026-11-09T06:43:23Z",
+        "checked_at": "2026-11-28T07:56:10Z",
         "status": "observed",
         "hash": "813ce3e091b1c39e75b24ce593a25c61a80d96c95ec7686429426c3f5b74730d",
         "hash_kind": "visible-v1",
@@ -36131,7 +36327,7 @@
         "paths": [
           "src/content/docs/ko/ai/ai-ml.md"
         ],
-        "checked_at": "2026-11-09T06:43:23Z",
+        "checked_at": "2026-11-28T07:56:10Z",
         "status": "observed",
         "hash": "68a5acc6b75ed9bdc234ee5de19f9fc957b9f944745234c165d2b6036b726586",
         "hash_kind": "visible-v1",
@@ -36141,9 +36337,9 @@
         "paths": [
           "src/content/docs/ko/database/migration.md"
         ],
-        "checked_at": "2026-11-09T06:43:23Z",
+        "checked_at": "2026-11-28T07:56:10Z",
         "status": "observed",
-        "hash": "e3dee25b215e46dee297bf3822f03cb0ffb717b30e1bf66d3526ac4eaa2f2c95",
+        "hash": "4dd5ffefe7153b11765825ad8ab83fcd2e218b81fd912b14f1ab585e91444c9f",
         "hash_kind": "visible-v1",
         "final_url": "https://learn.microsoft.com/ko-kr/azure/migrate/?view=migrate"
       },
@@ -36151,7 +36347,7 @@
         "paths": [
           "src/content/docs/ko/database/managed-rdb.md"
         ],
-        "checked_at": "2026-11-09T06:43:23Z",
+        "checked_at": "2026-11-28T07:56:10Z",
         "status": "observed",
         "hash": "09ed05187bbfc0f9bb3c45aa8afd9b3e1e6882f6c50a8873925b307ca9e19d24",
         "hash_kind": "visible-v1",
@@ -36161,7 +36357,7 @@
         "paths": [
           "src/content/docs/ko/security/network-isolation.md"
         ],
-        "checked_at": "2026-11-09T06:43:23Z",
+        "checked_at": "2026-11-28T07:56:10Z",
         "status": "observed",
         "hash": "0d8dc758955709924146327a7e3a6b391842d70249b77a2b9ccd6f23b8f4129d",
         "hash_kind": "visible-v1",
@@ -36171,9 +36367,9 @@
         "paths": [
           "src/content/docs/ko/about-cloud/regions-and-zones.md"
         ],
-        "checked_at": "2026-11-09T06:43:23Z",
+        "checked_at": "2026-11-28T07:56:10Z",
         "status": "observed",
-        "hash": "26832d266b21537fd5df0e5a2bc0cdb88ff9c8badbe10082143e5d04b0bd3caa",
+        "hash": "0f9813f0196881339ff34efd6a80402ee11794ad6f49d468269b11c0af6729e3",
         "hash_kind": "visible-v1",
         "final_url": "https://learn.microsoft.com/ko-kr/azure/reliability/availability-zones-overview"
       },
@@ -36181,9 +36377,9 @@
         "paths": [
           "src/content/docs/ko/about-cloud/regions-and-zones.md"
         ],
-        "checked_at": "2026-11-09T06:43:23Z",
+        "checked_at": "2026-11-28T07:56:10Z",
         "status": "observed",
-        "hash": "58578d8504e90f520c64d51ce97fdb1f517a00cfaef40f5660c725b5f1d360d8",
+        "hash": "89144cd214318be644d9917bffd3d7470e79a151e437165884ef376507be3d6e",
         "hash_kind": "visible-v1",
         "final_url": "https://learn.microsoft.com/ko-kr/azure/reliability/regions-paired"
       },
@@ -36192,7 +36388,7 @@
           "src/content/docs/ko/about-cloud/iam-overview.md",
           "src/content/docs/ko/security/iam.md"
         ],
-        "checked_at": "2026-11-09T06:43:23Z",
+        "checked_at": "2026-11-28T07:56:10Z",
         "status": "observed",
         "hash": "4725c7a0c4fdb5ad80fce678b30abb0f9735f9b1420f86444cfbbe6955f86ca3",
         "hash_kind": "visible-v1",
@@ -36202,9 +36398,9 @@
         "paths": [
           "src/content/docs/ko/ai/vector-store.md"
         ],
-        "checked_at": "2026-11-09T06:43:23Z",
+        "checked_at": "2026-11-28T07:56:10Z",
         "status": "observed",
-        "hash": "00a2b9256633581fc53e66e36bf3a4a4f15b4da90afcb5beb62e282378e6994d",
+        "hash": "c2f07dac54af368ceef9cf82b829a4fc22fb6a154c32dcdfa1be97a2802af924",
         "hash_kind": "visible-v1",
         "final_url": "https://learn.microsoft.com/ko-kr/azure/search/vector-search-overview"
       },
@@ -36212,7 +36408,7 @@
         "paths": [
           "src/content/docs/ko/security/data-protection.md"
         ],
-        "checked_at": "2026-11-09T06:43:23Z",
+        "checked_at": "2026-11-28T07:56:10Z",
         "status": "observed",
         "hash": "3f056d88e9d24e7cf8fbd143fbfca913602f7ae8e9a9e5576164cb1ef99498f7",
         "hash_kind": "visible-v1",
@@ -36222,7 +36418,7 @@
         "paths": [
           "src/content/docs/ko/security/network-isolation.md"
         ],
-        "checked_at": "2026-11-09T06:43:23Z",
+        "checked_at": "2026-11-28T07:56:10Z",
         "status": "observed",
         "hash": "5db0d485225f8af098d7815c3078f68450c1786cca870991f0060c362e0da985",
         "hash_kind": "visible-v1",
@@ -36232,7 +36428,7 @@
         "paths": [
           "src/content/docs/ko/about-cloud/shared-responsibility.mdx"
         ],
-        "checked_at": "2026-11-09T06:43:23Z",
+        "checked_at": "2026-11-28T07:56:10Z",
         "status": "observed",
         "hash": "c805b536819a3b152ec39c844373870af08e589c4cc0804393292f528dcfdf64",
         "hash_kind": "visible-v1",
@@ -36242,7 +36438,7 @@
         "paths": [
           "src/content/docs/ko/storage/backup.md"
         ],
-        "checked_at": "2026-11-09T06:43:23Z",
+        "checked_at": "2026-11-28T07:56:10Z",
         "status": "observed",
         "hash": "2c4c77a06a8d7a60bf7f622cca7d76cc83f84bbc30be6eb19e012cc606228251",
         "hash_kind": "visible-v1",
@@ -36252,7 +36448,7 @@
         "paths": [
           "src/content/docs/ko/storage/object-storage.md"
         ],
-        "checked_at": "2026-11-09T06:43:23Z",
+        "checked_at": "2026-11-28T07:56:10Z",
         "status": "observed",
         "hash": "77836b72e22cb0703c896d259930608a382fbc2914cd7c686bb6983e9be4f49d",
         "hash_kind": "visible-v1",
@@ -36262,9 +36458,9 @@
         "paths": [
           "src/content/docs/ko/storage/object-storage.md"
         ],
-        "checked_at": "2026-11-09T06:43:23Z",
+        "checked_at": "2026-11-28T07:56:10Z",
         "status": "observed",
-        "hash": "713396af6d050233b26cdfb0050db0c41487debdba2661d2ee9e7f9b25d06022",
+        "hash": "d05f8fe83faf600b2098622bc88fbbfbbadfb3ef886bfbe1f27d7a6121acb989",
         "hash_kind": "visible-v1",
         "final_url": "https://learn.microsoft.com/ko-kr/azure/storage/blobs/access-tiers-overview"
       },
@@ -36272,7 +36468,7 @@
         "paths": [
           "src/content/docs/ko/storage/object-storage.md"
         ],
-        "checked_at": "2026-11-09T06:43:23Z",
+        "checked_at": "2026-11-28T07:56:10Z",
         "status": "observed",
         "hash": "d4e533664923cdfab5e28e830b6b44cf49a54bc193381ea870012608224d5647",
         "hash_kind": "visible-v1",
@@ -36282,7 +36478,7 @@
         "paths": [
           "src/content/docs/ko/storage/block-and-file.md"
         ],
-        "checked_at": "2026-11-09T06:43:23Z",
+        "checked_at": "2026-11-28T07:56:10Z",
         "status": "observed",
         "hash": "3648e24271f8540eae8a7f5ec188eaef7742617bdb55a97f40b515a542408c41",
         "hash_kind": "visible-v1",
@@ -36292,7 +36488,7 @@
         "paths": [
           "src/content/docs/ko/storage/block-and-file.md"
         ],
-        "checked_at": "2026-11-09T06:43:23Z",
+        "checked_at": "2026-11-28T07:56:10Z",
         "status": "observed",
         "hash": "8ebded3c75259d5fe89e01557edaa3ac0cb9c964408252a8304a34908ddf6a89",
         "hash_kind": "visible-v1",
@@ -36302,7 +36498,7 @@
         "paths": [
           "src/content/docs/ko/storage/object-storage.md"
         ],
-        "checked_at": "2026-11-09T06:43:23Z",
+        "checked_at": "2026-11-28T07:56:10Z",
         "status": "observed",
         "hash": "cd14e8f9269532be6b7846900bf4c77a4d30ebf168c418a1b04691e83d6943a3",
         "hash_kind": "visible-v1",
@@ -36312,7 +36508,7 @@
         "paths": [
           "src/content/docs/ko/networking/dns.md"
         ],
-        "checked_at": "2026-11-09T06:43:23Z",
+        "checked_at": "2026-11-28T07:56:10Z",
         "status": "observed",
         "hash": "adfa9f66484c9015a44a85348f08ff72025cc99cff40d7b40d3f210b6031d3a4",
         "hash_kind": "visible-v1",
@@ -36322,7 +36518,7 @@
         "paths": [
           "src/content/docs/ko/compute/auto-scaling.md"
         ],
-        "checked_at": "2026-11-09T06:43:23Z",
+        "checked_at": "2026-11-28T07:56:10Z",
         "status": "observed",
         "hash": "47e220b1d46c15db0885134045024f44535af52d610a90a328bd29a95782e556",
         "hash_kind": "visible-v1",
@@ -36332,7 +36528,7 @@
         "paths": [
           "src/content/docs/ko/compute/virtual-machines.md"
         ],
-        "checked_at": "2026-11-09T06:43:23Z",
+        "checked_at": "2026-11-28T07:56:10Z",
         "status": "observed",
         "hash": "a4302ee923e17174451b253cf5dfc8b57822768771bca002e6060a3a8d1c74a6",
         "hash_kind": "visible-v1",
@@ -36342,9 +36538,9 @@
         "paths": [
           "src/content/docs/ko/storage/block-and-file.md"
         ],
-        "checked_at": "2026-11-09T06:43:23Z",
+        "checked_at": "2026-11-28T07:56:10Z",
         "status": "observed",
-        "hash": "cea252f278c870b551b72d5f1985c750db11896a9db25bef04d2c8c2c3828afd",
+        "hash": "badc8f23d483353001936df99d0f5194569bc64623f7c73c9183e49530e2a36d",
         "hash_kind": "visible-v1",
         "final_url": "https://learn.microsoft.com/ko-kr/azure/virtual-machines/disks-redundancy"
       },
@@ -36352,9 +36548,9 @@
         "paths": [
           "src/content/docs/ko/storage/block-and-file.md"
         ],
-        "checked_at": "2026-11-09T06:43:23Z",
+        "checked_at": "2026-11-28T07:56:10Z",
         "status": "observed",
-        "hash": "45b686f2c713421e012ad5ec8461db26d4862f56281c00b88149f09e461ded53",
+        "hash": "085168300895cc6434f6caa7609a435dc792b9651ba5dcf5e44c23f4660b5ad5",
         "hash_kind": "visible-v1",
         "final_url": "https://learn.microsoft.com/ko-kr/azure/virtual-machines/disks-types"
       },
@@ -36362,7 +36558,7 @@
         "paths": [
           "src/content/docs/ko/storage/block-and-file.md"
         ],
-        "checked_at": "2026-11-09T06:43:23Z",
+        "checked_at": "2026-11-28T07:56:10Z",
         "status": "observed",
         "hash": "a846e06ccde014eb5dda4771c59037ed9b183f7ae105540c8ee6f493ac1e22d8",
         "hash_kind": "visible-v1",
@@ -36372,9 +36568,9 @@
         "paths": [
           "src/content/docs/ko/compute/virtual-machines.md"
         ],
-        "checked_at": "2026-11-09T06:43:23Z",
+        "checked_at": "2026-11-28T07:56:10Z",
         "status": "observed",
-        "hash": "56a2ef0be136e988895144a30bee02447f3d1d1326bfeea27bfec3e997e678f5",
+        "hash": "6baf0b5e1034b5585b38786b33131c37cf7f8d4c383caa0ea2a27546ca0270f7",
         "hash_kind": "visible-v1",
         "final_url": "https://learn.microsoft.com/ko-kr/azure/virtual-machines/sizes/overview"
       },
@@ -36382,7 +36578,7 @@
         "paths": [
           "src/content/docs/ko/networking/vpc-subnet.md"
         ],
-        "checked_at": "2026-11-09T06:43:23Z",
+        "checked_at": "2026-11-28T07:56:10Z",
         "status": "observed",
         "hash": "5c3830f886b3d064d28b97e112c4c7a89e1a738eb9977ad315251763819312e5",
         "hash_kind": "visible-v1",
@@ -36392,7 +36588,7 @@
         "paths": [
           "src/content/docs/ko/security/data-protection.md"
         ],
-        "checked_at": "2026-11-09T06:43:23Z",
+        "checked_at": "2026-11-28T07:56:10Z",
         "status": "observed",
         "hash": "542a39144d5508bbc3557cca50a207e7df9f4a2b4508694d14fe276297927aa0",
         "hash_kind": "visible-v1",
@@ -36402,7 +36598,7 @@
         "paths": [
           "src/content/docs/ko/about-cloud/well-architected.mdx"
         ],
-        "checked_at": "2026-11-09T06:43:23Z",
+        "checked_at": "2026-11-28T07:56:10Z",
         "status": "observed",
         "hash": "021afbd55cc1b83cb471f5ade308f02e0b7c04e0b9aea266d2989851afa1f52a",
         "hash_kind": "visible-v1",
@@ -36412,9 +36608,9 @@
         "paths": [
           "src/content/docs/ko/about-cloud/console-cli-sdk.md"
         ],
-        "checked_at": "2026-11-09T06:43:23Z",
+        "checked_at": "2026-11-28T07:56:10Z",
         "status": "observed",
-        "hash": "4ed58df94517f1fbe48f99ea9bb0cc616af05da334101ea2072526af32c24fad",
+        "hash": "da3d4d93df77395fa07debcea1e5b979267bd82e3c5929c058140cbaf47b2599",
         "hash_kind": "visible-v1",
         "final_url": "https://learn.microsoft.com/ko-kr/cli/azure/install-azure-cli?view=azure-cli-latest"
       },
@@ -36422,7 +36618,7 @@
         "paths": [
           "src/content/docs/ko/devops/getting-started.md"
         ],
-        "checked_at": "2026-11-09T06:43:23Z",
+        "checked_at": "2026-11-28T07:56:10Z",
         "status": "observed",
         "hash": "611a3c66afe11ab286bc60110336b5805d2f426b0834ae135ad68c72dca7b8e9",
         "hash_kind": "visible-v1",
@@ -36432,9 +36628,9 @@
         "paths": [
           "src/content/docs/ko/security/iam.md"
         ],
-        "checked_at": "2026-11-09T06:43:23Z",
+        "checked_at": "2026-11-28T07:56:10Z",
         "status": "observed",
-        "hash": "29a2621c6cbadf5573d28690ac6fade0945192070ba81f3eb4bfea742b034f25",
+        "hash": "e5e8a531d3c2204093dbcf3bb6bbd9e0bfc0d83c0d4e80119121a4c9650cae61",
         "hash_kind": "visible-v1",
         "final_url": "https://learn.microsoft.com/ko-kr/entra/id-governance/"
       },

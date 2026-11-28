@@ -25542,6 +25542,237 @@
       "evidence": [],
       "pr": null,
       "last_seen": "2026-11"
+    },
+    {
+      "id": "cdab2c88763147ffcbf7b51b",
+      "path": "src/content/docs/ko/about-cloud/support-plans.md",
+      "axis": 2,
+      "reason": "AWS Certificate Manager now supports Amazon N2 certificates for mTLS (https://aws.amazon.com/about-aws/whats-new/2026/11/acm-amazon-n2-certificates/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/acm-amazon-n2-certificates/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "eddb113fc8795bbbea141bf2",
+      "path": "src/content/docs/ko/ai/gpu-infra/serving-reliability-cost.md",
+      "axis": 2,
+      "reason": "Amazon CloudWatch announces basic OpenTelemetry enrichment at no additional cost (https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-cloudwatch-opentelemetry-enrichment/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-cloudwatch-opentelemetry-enrichment/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "80fdbbfbfa02b5714897bf03",
+      "path": "src/content/docs/ko/about-cloud/decision-framework.md",
+      "axis": 2,
+      "reason": "Amazon CloudWatch announces basic OpenTelemetry enrichment at no additional cost (https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-cloudwatch-opentelemetry-enrichment/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-cloudwatch-opentelemetry-enrichment/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "8d5ce5091afd55154f8afc45",
+      "path": "src/content/docs/ko/glossary.md",
+      "axis": 2,
+      "reason": "Amazon CloudWatch announces basic OpenTelemetry enrichment at no additional cost (https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-cloudwatch-opentelemetry-enrichment/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-cloudwatch-opentelemetry-enrichment/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "45ce9ab475cbf45261642033",
+      "path": "src/content/docs/ko/ai/agents.md",
+      "axis": 2,
+      "reason": "Amazon Neptune introduces Neptune Graph Sessions, smaller graphs designed for agents that scale to zero and resume automatically (https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-neptune-graph-sessions-generally-available)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-neptune-graph-sessions-generally-available",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "5ad6886cb26eaa8ee4f89fd7",
+      "path": "src/content/docs/ko/mcp.md",
+      "axis": 2,
+      "reason": "Amazon Neptune introduces Neptune Graph Sessions, smaller graphs designed for agents that scale to zero and resume automatically (https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-neptune-graph-sessions-generally-available)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-neptune-graph-sessions-generally-available",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "3b1071f5116f6fa959626307",
+      "path": "src/content/docs/ko/ai/agent-adoption.md",
+      "axis": 2,
+      "reason": "Amazon Neptune introduces Neptune Graph Sessions, smaller graphs designed for agents that scale to zero and resume automatically (https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-neptune-graph-sessions-generally-available)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-neptune-graph-sessions-generally-available",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "090bd1d2fcbd1ca19e1cb2c4",
+      "path": "src/content/docs/ko/about-cloud/console-cli-sdk.md",
+      "axis": 2,
+      "reason": "Compute Engine (https://docs.cloud.google.com/release-notes#November_18_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_18_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "73066e47c2c01adde7e1b449",
+      "path": "src/content/docs/ko/networking/api-gateway.md",
+      "axis": 2,
+      "reason": "API Gateway (https://docs.cloud.google.com/release-notes#November_18_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_18_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "3e8232cac465e5005fc6fd85",
+      "path": "src/content/docs/ko/compute/service-mesh.md",
+      "axis": 2,
+      "reason": "Cloud Key Management Service (https://docs.cloud.google.com/release-notes#November_18_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_18_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "256a0e1fd8bd67fd0474160d",
+      "path": "src/content/docs/ko/compute/hybrid-and-edge.md",
+      "axis": 2,
+      "reason": "Apigee Edge for Private Cloud (https://docs.cloud.google.com/release-notes#November_18_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_18_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "b06197b41c3992e138de0220",
+      "path": "src/content/docs/ko/networking/dns.md",
+      "axis": 2,
+      "reason": "Apigee Edge for Private Cloud (https://docs.cloud.google.com/release-notes#November_18_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_18_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "dcbb21bead56390c23113b91",
+      "path": "src/content/docs/ko/about-cloud/support-plans.md",
+      "axis": 2,
+      "reason": "Managed Service for Apache Spark (https://docs.cloud.google.com/release-notes#November_27_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_27_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "ad0e2e642038ce927abbd101",
+      "path": "src/content/docs/ko/database/analytics.md",
+      "axis": 2,
+      "reason": "HeatWave: MySQL Log Export to OCI Log Analytics Now Supported on HA DB Systems (https://docs.oracle.com/iaas/releasenotes/mysql-database/heatwave-logs-oci-loganalytics-ha.htm)",
+      "source_url": "https://docs.oracle.com/iaas/releasenotes/mysql-database/heatwave-logs-oci-loganalytics-ha.htm",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "5932938bfed736dd34eae738",
+      "path": "src/content/docs/ko/database/managed-rdb.md",
+      "axis": 2,
+      "reason": "HeatWave: MySQL Log Export to OCI Log Analytics Now Supported on HA DB Systems (https://docs.oracle.com/iaas/releasenotes/mysql-database/heatwave-logs-oci-loganalytics-ha.htm)",
+      "source_url": "https://docs.oracle.com/iaas/releasenotes/mysql-database/heatwave-logs-oci-loganalytics-ha.htm",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "e8abe09dd1c66a62cecbbf60",
+      "path": "src/content/docs/ko/database/migration.md",
+      "axis": 2,
+      "reason": "HeatWave: MySQL Log Export to OCI Log Analytics Now Supported on HA DB Systems (https://docs.oracle.com/iaas/releasenotes/mysql-database/heatwave-logs-oci-loganalytics-ha.htm)",
+      "source_url": "https://docs.oracle.com/iaas/releasenotes/mysql-database/heatwave-logs-oci-loganalytics-ha.htm",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "775f8ce2c7a419c942356f44",
+      "path": null,
+      "axis": 3,
+      "reason": "Amazon CloudWatch Query Studio now supports saved queries (https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-cloudwatch-query-studio-saved-queries)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-cloudwatch-query-studio-saved-queries",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "46ef751a5d3077d2e9b12274",
+      "path": null,
+      "axis": 3,
+      "reason": "Amazon Timestream for InfluxDB 3 now supports heterogeneous clusters (https://aws.amazon.com/about-aws/whats-new/2026/11/influxdb-heterogeneous-cluster/)",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/influxdb-heterogeneous-cluster/",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "0b944f20d6774756bbbc2ea5",
+      "path": null,
+      "axis": 3,
+      "reason": "Data Studio (https://docs.cloud.google.com/release-notes#November_18_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_18_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "a0725f0270cd3271a4e18c10",
+      "path": null,
+      "axis": 3,
+      "reason": "Spanner (https://docs.cloud.google.com/release-notes#November_18_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_18_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
+    },
+    {
+      "id": "ac053e4c92e9ac7b197cb927",
+      "path": null,
+      "axis": 3,
+      "reason": "Cloud Asset Inventory (https://docs.cloud.google.com/release-notes#November_18_2026)",
+      "source_url": "https://docs.cloud.google.com/release-notes#November_18_2026",
+      "source_status": "unverified",
+      "status": "open",
+      "evidence": [],
+      "pr": null
     }
   ],
   "resolved_ids": [],
@@ -25867,9 +26098,9 @@
       },
       "2026-11-18": {
         "aws": "complete",
-        "gcp": "provisional",
+        "gcp": "complete",
         "azure": "complete",
-        "oci": "provisional"
+        "oci": "complete"
       },
       "2026-10-02": {
         "aws": "complete",
@@ -25880,7 +26111,7 @@
       "2026-11-19": {
         "aws": "failed",
         "gcp": "provisional",
-        "azure": "provisional",
+        "azure": "complete",
         "oci": "provisional"
       },
       "2026-10-03": {
@@ -25902,7 +26133,7 @@
         "oci": "complete"
       },
       "2026-11-21": {
-        "aws": "provisional",
+        "aws": "complete",
         "gcp": "provisional",
         "azure": "provisional",
         "oci": "provisional"
@@ -25974,6 +26205,18 @@
         "oci": "complete"
       },
       "2026-11-27": {
+        "aws": "provisional",
+        "gcp": "provisional",
+        "azure": "provisional",
+        "oci": "provisional"
+      },
+      "2026-10-11": {
+        "aws": "complete",
+        "gcp": "complete",
+        "azure": "complete",
+        "oci": "complete"
+      },
+      "2026-11-28": {
         "aws": "provisional",
         "gcp": "provisional",
         "azure": "provisional",
@@ -26289,9 +26532,9 @@
       },
       "2026-11-18": {
         "aws": "2026-11-27T08:42:27.515Z",
-        "gcp": "2026-11-19T07:32:08.092Z",
+        "gcp": "2026-11-28T07:56:00.417Z",
         "azure": "2026-11-27T08:42:27.515Z",
-        "oci": "2026-11-19T07:32:08.092Z"
+        "oci": "2026-11-28T07:56:00.417Z"
       },
       "2026-10-02": {
         "aws": "2026-11-19T07:32:08.092Z",
@@ -26302,7 +26545,7 @@
       "2026-11-19": {
         "aws": "2026-11-20T07:24:19.896Z",
         "gcp": "2026-11-20T07:24:19.896Z",
-        "azure": "2026-11-20T07:24:19.896Z",
+        "azure": "2026-11-28T07:56:00.417Z",
         "oci": "2026-11-20T07:24:19.896Z"
       },
       "2026-10-03": {
@@ -26324,7 +26567,7 @@
         "oci": "2026-11-21T07:16:15.800Z"
       },
       "2026-11-21": {
-        "aws": "2026-11-22T06:56:58.485Z",
+        "aws": "2026-11-28T07:56:00.417Z",
         "gcp": "2026-11-22T06:56:58.485Z",
         "azure": "2026-11-22T06:56:58.485Z",
         "oci": "2026-11-22T06:56:58.485Z"
@@ -26396,10 +26639,22 @@
         "oci": "2026-11-27T08:42:27.515Z"
       },
       "2026-11-27": {
-        "aws": "2026-11-27T08:42:27.515Z",
-        "gcp": "2026-11-27T08:42:27.515Z",
-        "azure": "2026-11-27T08:42:27.515Z",
-        "oci": "2026-11-27T08:42:27.515Z"
+        "aws": "2026-11-28T07:56:00.417Z",
+        "gcp": "2026-11-28T07:56:00.417Z",
+        "azure": "2026-11-28T07:56:00.417Z",
+        "oci": "2026-11-28T07:56:00.417Z"
+      },
+      "2026-10-11": {
+        "aws": "2026-11-28T07:56:00.417Z",
+        "gcp": "2026-11-28T07:56:00.417Z",
+        "azure": "2026-11-28T07:56:00.417Z",
+        "oci": "2026-11-28T07:56:00.417Z"
+      },
+      "2026-11-28": {
+        "aws": "2026-11-28T07:56:00.417Z",
+        "gcp": "2026-11-28T07:56:00.417Z",
+        "azure": "2026-11-28T07:56:00.417Z",
+        "oci": "2026-11-28T07:56:00.417Z"
       }
     }
   },
